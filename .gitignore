@@ -13,3 +13,9 @@ results
 
 node_modules
 npm-debug.log
+test/*.d.ts
+test/*.js
+test/**/*.d.ts
+test/**/*.js
+test/temp*
+/package-lock.json

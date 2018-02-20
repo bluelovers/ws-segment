@@ -1,10 +1,10 @@
 /**
  * 测试
  */
- 
-var Segment = require('./index').Segment;
-var POSTAG = require('./index').POSTAG; 
-var fs = require('fs');
+
+// @ts-ignore
+import * as fs from 'fs';
+import Segment, { POSTAG } from '../index';
 
 var NUM = 1;
 var text = '\
@@ -127,19 +127,20 @@ console.log(Object.keys(segment.DICT.TABLE).length);
 var e = new Date().getTime();
 console.log('init segment spent ' + ((e - s) / NUM) + 'ms');
 
-
 var s = new Date().getTime();
 for (var i = 0; i < NUM; i++)
 ////////////////////////////////////////////////////////////
-
-  var ret = segment.doSegment(text);
+{
+	var ret = segment.doSegment(text);
+}
 
 ////////////////////////////////////////////////////////////
 var e = new Date().getTime();
 var line = '';
-for (var i in ret) {
-  line += ret[i].w + '/';
-  ret[i].ps = POSTAG.chsName(ret[i].p);
+for (var i in ret)
+{
+	line += ret[i].w + '/';
+	ret[i].ps = POSTAG.chsName(ret[i].p);
 }
 console.log(ret);
 console.log(line);
@@ -148,5 +149,7 @@ return;
 console.log(segment.toString(ret));
 var split = segment.split(ret, '是');
 for (var i in split)
-  console.log(segment.toString(split[i]));
+{
+	console.log(segment.toString(split[i]));
+}
 console.log(segment.indexOf(ret, '的', 3));
