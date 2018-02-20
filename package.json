@@ -1,33 +1,41 @@
 {
   "name": "segment",
-  "main": "./index.js",
   "version": "0.1.3",
   "description": "Chinese word segmentation 中文分词模块",
   "keywords": [
-    "segment",
     "chinese",
+    "segment",
     "中文",
     "分词"
   ],
-  "author": "Zongmin Lei <leizongmin@gmail.com>",
-  "contributors": [
-    {
-      "name": "Lei Zongmin",
-      "email": "leizongmin@gmail.com"
-    }
-  ],
+  "homepage": "https://github.com/bluelovers/node-segment#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-segment/issues"
+  },
   "repository": {
     "type": "git",
-    "url": "git://github.com/leizongmin/node-segment.git"
+    "url": "git+https://github.com/bluelovers/node-segment.git"
+  },
+  "license": "ISC",
+  "author": "Zongmin Lei <leizongmin@gmail.com>",
+  "contributors": [
+    "Lei Zongmin <leizongmin@gmail.com>"
+  ],
+  "main": "./index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
+    "test-js": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
+    "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^9.4.6"
   },
   "engines": {
     "node": ">= 0.4.0"
-  },
-  "dependencies": {},
-  "devDependencies": {},
-  "scripts": {
-    "test-npx": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
-    "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
-    "test": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\""
   }
 }

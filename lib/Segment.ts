@@ -20,6 +20,11 @@ const debug = console.log;
  */
 export class Segment
 {
+
+	static defaultOptionsDoSegment: IOptionsDoSegment = {
+
+	};
+
 	/**
 	 * 词性
 	 * @type {POSTAG}
@@ -29,7 +34,12 @@ export class Segment
 	 * 词典表
 	 * @type {{}}
 	 */
-	DICT = {};
+	DICT: {
+		STOPWORD?: IDICT_STOPWORD,
+		SYNONYM?: IDICT_SYNONYM,
+
+		[key: string]: IDICT,
+	} = {};
 	modules = {
 		/**
 		 * 分词模块
@@ -39,6 +49,9 @@ export class Segment
 		 * 优化模块
 		 */
 		optimizer: []
+	} as {
+		tokenizer: Tokenizer[],
+		optimizer: Optimizer[],
 	};
 
 	tokenizer: Tokenizer;
@@ -91,7 +104,7 @@ export class Segment
 		return this;
 	}
 
-	_resolveDictFilename(name)
+	_resolveDictFilename(name: string)
 	{
 		let filename = path.resolve(name);
 		if (!fs.existsSync(filename))
@@ -114,7 +127,7 @@ export class Segment
 	 * @param {Boolean} convert_to_lower 是否全部转换为小写
 	 * @return {Segment}
 	 */
-	loadDict(name, type?, convert_to_lower?)
+	loadDict(name: string, type?: string, convert_to_lower?: boolean)
 	{
 		let filename = this._resolveDictFilename(name);
 		if (!type) type = 'TABLE';     // 默认为TABLE
@@ -157,6 +170,9 @@ export class Segment
 	 * @param {String} type 类型
 	 * @return {object}
 	 */
+	getDict(type: 'STOPWORD'): IDICT_STOPWORD
+	getDict(type: 'SYNONYM'): IDICT_SYNONYM
+	getDict(type): IDICT
 	getDict(type)
 	{
 		return this.DICT[type];
@@ -167,14 +183,15 @@ export class Segment
 	 *
 	 * @param {String} name 字典文件名
 	 */
-	loadSynonymDict(name)
+	loadSynonymDict(name: string)
 	{
 		let filename = this._resolveDictFilename(name);
 		let type = 'SYNONYM';
 
 		// 初始化词典
 		if (!this.DICT[type]) this.DICT[type] = {};
-		let TABLE = this.DICT[type];        // 词典表  '同义词' => '标准词'
+		// 词典表  '同义词' => '标准词'
+		let TABLE = this.DICT[type] as IDICT_SYNONYM;
 		// 导入数据
 		let data = fs.readFileSync(filename, 'utf8');
 
@@ -201,14 +218,15 @@ export class Segment
 	 *
 	 * @param {String} name 字典文件名
 	 */
-	loadStopwordDict(name)
+	loadStopwordDict(name: string)
 	{
 		let filename = this._resolveDictFilename(name);
 		let type = 'STOPWORD';
 
 		// 初始化词典
 		if (!this.DICT[type]) this.DICT[type] = {};
-		let TABLE = this.DICT[type];        // 词典表  '同义词' => '标准词'
+
+		let TABLE = this.DICT[type] as IDICT_STOPWORD;
 		// 导入数据
 		let data = fs.readFileSync(filename, 'utf8');
 
@@ -271,10 +289,33 @@ export class Segment
 	 *   - {Boolean} stripStopword 去除停止符
 	 * @return {Array}
 	 */
-	doSegment(text, options)
+	doSegment(text: string | Buffer, options: IOptionsDoSegment & {
+		simple: true,
+	}): string[]
+	doSegment(text: string | Buffer, options: IOptionsDoSegment): IWord[]
+	doSegment(text, options: IOptionsDoSegment = {})
 	{
 		let me = this;
-		options = options || {};
+
+		options = Object.assign({}, Segment.defaultOptionsDoSegment, options);
+
+		try
+		{
+			if (Buffer.isBuffer(text))
+			{
+				text = text.toString();
+			}
+		}
+		catch (e)
+		{}
+		finally
+		{
+			if (typeof text != 'string')
+			{
+				throw new TypeError(`text must is string or Buffer`)
+			}
+		}
+
 		let ret = [];
 
 		// 将文本按照换行符分割成多段，并逐一分词
@@ -377,7 +418,7 @@ export class Segment
 	 * @param {Number|String} s 用于分割的单词或词性
 	 * @return {Array}
 	 */
-	split(words, s)
+	split(words: IWord[], s?: string | number): IWord[]
 	{
 		let ret = [];
 		let lasti = 0;
@@ -414,7 +455,7 @@ export class Segment
 	 * @param {Number} cur 开始位置
 	 * @return {Number} 找不到，返回-1
 	 */
-	indexOf(words, s, cur)
+	indexOf(words: IWord[], s: string | number, cur?: number)
 	{
 		cur = isNaN(cur) ? 0 : cur;
 		let f = typeof s === 'string' ? 'w' : 'p';
@@ -431,13 +472,48 @@ export class Segment
 
 export namespace Segment
 {
+	export interface IDICT<T = any>
+	{
+		[key: string]: T,
+	}
+
+	export type IDICT_SYNONYM = IDICT<string>;
+	export type IDICT_STOPWORD = IDICT<boolean>;
+
 	export interface IWord
 	{
 		w: string,
 		p: number,
 	}
+
+	export interface IOptionsDoSegment
+	{
+		/**
+		 * 不返回词性
+		 */
+		simple?: boolean,
+
+		/**
+		 * 去除标点符号
+		 */
+		stripPunctuation?: boolean,
+
+		/**
+		 * 转换同义词
+		 */
+		convertSynonym?: boolean,
+
+		/**
+		 * 去除停止符
+		 */
+		stripStopword?: boolean,
+	}
 }
 
 export type IWord = Segment.IWord;
+export type IOptionsDoSegment = Segment.IOptionsDoSegment;
+export type IDICT<T = any> = Segment.IDICT<T>;
+export type IDICT_SYNONYM = Segment.IDICT_SYNONYM;
+export type IDICT_STOPWORD = Segment.IDICT_STOPWORD;
 
 export default Segment;

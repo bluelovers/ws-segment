@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import POSTAG from './POSTAG';
 import Tokenizer from './Tokenizer';
 import Optimizer from './Optimizer';
@@ -5,6 +6,7 @@ import Optimizer from './Optimizer';
  * 创建分词器接口
  */
 export declare class Segment {
+    static defaultOptionsDoSegment: IOptionsDoSegment;
     /**
      * 词性
      * @type {POSTAG}
@@ -14,10 +16,14 @@ export declare class Segment {
      * 词典表
      * @type {{}}
      */
-    DICT: {};
+    DICT: {
+        STOPWORD?: IDICT_STOPWORD;
+        SYNONYM?: IDICT_SYNONYM;
+        [key: string]: IDICT;
+    };
     modules: {
-        tokenizer: any[];
-        optimizer: any[];
+        tokenizer: Tokenizer[];
+        optimizer: Optimizer[];
     };
     tokenizer: Tokenizer;
     optimizer: Optimizer;
@@ -29,7 +35,7 @@ export declare class Segment {
      * @return {Segment}
      */
     use(module: any): this;
-    _resolveDictFilename(name: any): any;
+    _resolveDictFilename(name: string): string;
     /**
      * 载入字典文件
      *
@@ -38,26 +44,28 @@ export declare class Segment {
      * @param {Boolean} convert_to_lower 是否全部转换为小写
      * @return {Segment}
      */
-    loadDict(name: any, type?: any, convert_to_lower?: any): this;
+    loadDict(name: string, type?: string, convert_to_lower?: boolean): this;
     /**
      * 取词典表
      *
      * @param {String} type 类型
      * @return {object}
      */
-    getDict(type: any): any;
+    getDict(type: 'STOPWORD'): IDICT_STOPWORD;
+    getDict(type: 'SYNONYM'): IDICT_SYNONYM;
+    getDict(type: any): IDICT;
     /**
      * 载入同义词词典
      *
      * @param {String} name 字典文件名
      */
-    loadSynonymDict(name: any): this;
+    loadSynonymDict(name: string): this;
     /**
      * 载入停止符词典
      *
      * @param {String} name 字典文件名
      */
-    loadStopwordDict(name: any): this;
+    loadStopwordDict(name: string): this;
     /**
      * 使用默认的识别模块和字典文件
      *
@@ -75,7 +83,10 @@ export declare class Segment {
      *   - {Boolean} stripStopword 去除停止符
      * @return {Array}
      */
-    doSegment(text: any, options: any): any[];
+    doSegment(text: string | Buffer, options: IOptionsDoSegment & {
+        simple: true;
+    }): string[];
+    doSegment(text: string | Buffer, options: IOptionsDoSegment): IWord[];
     /**
      * 将单词数组连接成字符串
      *
@@ -90,7 +101,7 @@ export declare class Segment {
      * @param {Number|String} s 用于分割的单词或词性
      * @return {Array}
      */
-    split(words: any, s: any): any[];
+    split(words: IWord[], s?: string | number): IWord[];
     /**
      * 在单词数组中查找某一个单词或词性所在的位置
      *
@@ -99,13 +110,40 @@ export declare class Segment {
      * @param {Number} cur 开始位置
      * @return {Number} 找不到，返回-1
      */
-    indexOf(words: any, s: any, cur: any): any;
+    indexOf(words: IWord[], s: string | number, cur?: number): number;
 }
 export declare namespace Segment {
+    interface IDICT<T = any> {
+        [key: string]: T;
+    }
+    type IDICT_SYNONYM = IDICT<string>;
+    type IDICT_STOPWORD = IDICT<boolean>;
     interface IWord {
         w: string;
         p: number;
     }
+    interface IOptionsDoSegment {
+        /**
+         * 不返回词性
+         */
+        simple?: boolean;
+        /**
+         * 去除标点符号
+         */
+        stripPunctuation?: boolean;
+        /**
+         * 转换同义词
+         */
+        convertSynonym?: boolean;
+        /**
+         * 去除停止符
+         */
+        stripStopword?: boolean;
+    }
 }
 export declare type IWord = Segment.IWord;
+export declare type IOptionsDoSegment = Segment.IOptionsDoSegment;
+export declare type IDICT<T = any> = Segment.IDICT<T>;
+export declare type IDICT_SYNONYM = Segment.IDICT_SYNONYM;
+export declare type IDICT_STOPWORD = Segment.IDICT_STOPWORD;
 export default Segment;

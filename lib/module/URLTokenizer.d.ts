@@ -3,7 +3,10 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-declare var debug: (message?: any, ...optionalParams: any[]) => void;
+declare var debug: {
+    (message?: any, ...optionalParams: any[]): void;
+    (message?: any, ...optionalParams: any[]): void;
+};
 declare var PROTOTAL: string[];
 declare var MIN_PROTOTAL_LEN: number;
 declare var _URLCHAR: string[];
