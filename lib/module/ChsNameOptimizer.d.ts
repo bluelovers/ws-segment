@@ -1,3 +1,3 @@
 import { ISubOptimizer } from '../Optimizer';
-declare const _default: ISubOptimizer;
-export = _default;
+declare const _module: ISubOptimizer;
+export = _module;

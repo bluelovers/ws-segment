@@ -145,4 +145,9 @@ module ChsNameOptimizer
 	}
 }
 
-export = ChsNameOptimizer as ISubOptimizer;
+const _module = ChsNameOptimizer as ISubOptimizer & {
+	default: ISubOptimizer,
+};
+_module.default = ChsNameOptimizer as ISubOptimizer;
+
+export = _module;
