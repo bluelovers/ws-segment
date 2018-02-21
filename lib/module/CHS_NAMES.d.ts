@@ -1,9 +1,16 @@
-/**
- * 中文姓
- */
-declare var FAMILY_NAME_1: string[];
-declare var FAMILY_NAME_2: string[];
-declare var DOUBLE_NAME_1: string[];
-declare var DOUBLE_NAME_2: string[];
-declare var SINGLE_NAME: string[];
-declare function p(a: any, f: any, n: any): void;
+import { IDICT } from '../Segment';
+export declare namespace _CHS_NAMES {
+    const FAMILY_NAME_1: string[];
+    const FAMILY_NAME_2: string[];
+    const DOUBLE_NAME_1: string[];
+    const DOUBLE_NAME_2: string[];
+    const SINGLE_NAME: string[];
+    function p(a: any, n: any): IDICT<number>;
+}
+export declare const FAMILY_NAME_1: IDICT<number>;
+export declare const FAMILY_NAME_2: IDICT<number>;
+export declare const DOUBLE_NAME_1: IDICT<number>;
+export declare const DOUBLE_NAME_2: IDICT<number>;
+export declare const SINGLE_NAME: IDICT<number>;
+import * as self from './CHS_NAMES';
+export default self;

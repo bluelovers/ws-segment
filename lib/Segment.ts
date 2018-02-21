@@ -3,6 +3,7 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
+
 'use strict';
 
 // @ts-ignore
@@ -10,8 +11,8 @@ import * as fs from 'fs';
 // @ts-ignore
 import * as path from 'path';
 import POSTAG from './POSTAG';
-import Tokenizer from './Tokenizer';
-import Optimizer from './Optimizer';
+import Tokenizer, { ISubTokenizer } from './Tokenizer';
+import Optimizer, { ISubOptimizer } from './Optimizer';
 
 const debug = console.log;
 
@@ -50,8 +51,8 @@ export class Segment
 		 */
 		optimizer: []
 	} as {
-		tokenizer: Tokenizer[],
-		optimizer: Optimizer[],
+		tokenizer: ISubTokenizer[],
+		optimizer: ISubOptimizer[],
 	};
 
 	tokenizer: Tokenizer;
@@ -104,13 +105,13 @@ export class Segment
 		return this;
 	}
 
-	_resolveDictFilename(name: string)
+	_resolveDictFilename(name: string): string
 	{
 		let filename = path.resolve(name);
 		if (!fs.existsSync(filename))
 		{
 			// @ts-ignore
-			let filename = path.resolve(__dirname, '../dicts', name);
+			filename = path.resolve(__dirname, '../dicts', name);
 			if (!fs.existsSync(filename))
 			{
 				throw Error('Cannot find dict file "' + filename + '".');
@@ -483,7 +484,7 @@ export namespace Segment
 	export interface IWord
 	{
 		w: string,
-		p: number,
+		p?: number,
 	}
 
 	export interface IOptionsDoSegment
@@ -512,8 +513,12 @@ export namespace Segment
 
 export type IWord = Segment.IWord;
 export type IOptionsDoSegment = Segment.IOptionsDoSegment;
-export type IDICT<T = any> = Segment.IDICT<T>;
 export type IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export type IDICT_STOPWORD = Segment.IDICT_STOPWORD;
+
+export interface IDICT<T = any>
+{
+	[key: string]: T,
+}
 
 export default Segment;

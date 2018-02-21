@@ -2,6 +2,8 @@
  * Created by user on 2018/2/20/020.
  */
 
+export const debug = console.log;
+
 export function enumIsNaN(v)
 {
 	return isNaN(Number(v));

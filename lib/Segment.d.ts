@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import POSTAG from './POSTAG';
-import Tokenizer from './Tokenizer';
-import Optimizer from './Optimizer';
+import Tokenizer, { ISubTokenizer } from './Tokenizer';
+import Optimizer, { ISubOptimizer } from './Optimizer';
 /**
  * 创建分词器接口
  */
@@ -22,8 +22,8 @@ export declare class Segment {
         [key: string]: IDICT;
     };
     modules: {
-        tokenizer: Tokenizer[];
-        optimizer: Optimizer[];
+        tokenizer: ISubTokenizer[];
+        optimizer: ISubOptimizer[];
     };
     tokenizer: Tokenizer;
     optimizer: Optimizer;
@@ -120,7 +120,7 @@ export declare namespace Segment {
     type IDICT_STOPWORD = IDICT<boolean>;
     interface IWord {
         w: string;
-        p: number;
+        p?: number;
     }
     interface IOptionsDoSegment {
         /**
@@ -143,7 +143,9 @@ export declare namespace Segment {
 }
 export declare type IWord = Segment.IWord;
 export declare type IOptionsDoSegment = Segment.IOptionsDoSegment;
-export declare type IDICT<T = any> = Segment.IDICT<T>;
 export declare type IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export declare type IDICT_STOPWORD = Segment.IDICT_STOPWORD;
+export interface IDICT<T = any> {
+    [key: string]: T;
+}
 export default Segment;

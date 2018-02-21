@@ -5,20 +5,17 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
- 
-var FAMILY_NAME_1 = require('./CHS_NAMES').FAMILY_NAME_1; 
-var FAMILY_NAME_2 = require('./CHS_NAMES').FAMILY_NAME_2; 
-var SINGLE_NAME = require('./CHS_NAMES').SINGLE_NAME;
-var DOUBLE_NAME_1 = require('./CHS_NAMES').DOUBLE_NAME_1;
-var DOUBLE_NAME_2 = require('./CHS_NAMES').DOUBLE_NAME_2;
-var debug = console.log; 
- 
+
+import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
+import Segment from '../Segment';
+import { debug } from '../util';
+
 /** 模块类型 */
 exports.type = 'tokenizer';
 
 /**
  * 模块初始化
- * 
+ *
  * @param {Segment} segment 分词接口
  */
 exports.init = function (segment) {
@@ -71,7 +68,7 @@ exports.split = function (words) {
  * @param {int} cur 开始位置
  * @return {array}  返回格式   {w: '人名', c: 开始位置}
  */
-var matchName = function (text, cur) {
+var matchName = function (text, cur = 0) {
   if (isNaN(cur)) cur = 0;
   var ret = [];
   while (cur < text.length) {//debug('cur=' + cur + ', ' + text.charAt(cur));
