@@ -3,7 +3,10 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-declare var debug: (message?: any, ...optionalParams: any[]) => void;
+declare var debug: {
+    (message?: any, ...optionalParams: any[]): void;
+    (message?: any, ...optionalParams: any[]): void;
+};
 /**
  * 匹配包含的英文字符和数字，并分割
  *

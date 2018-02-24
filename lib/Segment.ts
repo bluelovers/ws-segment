@@ -13,8 +13,9 @@ import * as path from 'path';
 import POSTAG from './POSTAG';
 import Tokenizer, { ISubTokenizer } from './Tokenizer';
 import Optimizer, { ISubOptimizer } from './Optimizer';
-
-const debug = console.log;
+import Loader from './loader';
+import { crlf, LF } from 'crlf-normalize';
+import { debug } from './util';
 
 /**
  * 创建分词器接口
@@ -57,6 +58,8 @@ export class Segment
 
 	tokenizer: Tokenizer;
 	optimizer: Optimizer;
+
+	inited?: boolean;
 
 	constructor()
 	{
@@ -102,6 +105,8 @@ export class Segment
 			this.modules[module.type].push(module);
 		}
 
+		this.inited = true;
+
 		return this;
 	}
 
@@ -140,10 +145,13 @@ export class Segment
 		let TABLE2 = this.DICT[type + '2']; // 词典表  '长度' => '词' => 属性
 		// 导入数据
 		let POSTAG = this.POSTAG;
-		let data = fs.readFileSync(filename, 'utf8');
-		if (convert_to_lower) data = data.toLowerCase();
 
-		data.split(/\r?\n/).forEach(function (line)
+		let data = Loader.loadTxtSync(filename, {
+			encoding: 'utf8',
+			toLowerCase: convert_to_lower,
+		});
+
+		data.split(LF).forEach(function (line)
 		{
 			let blocks = line.split('|');
 			if (blocks.length > 2)
@@ -161,6 +169,8 @@ export class Segment
 				}
 			}
 		});
+
+		this.inited = true;
 
 		return this;
 	}
@@ -194,9 +204,11 @@ export class Segment
 		// 词典表  '同义词' => '标准词'
 		let TABLE = this.DICT[type] as IDICT_SYNONYM;
 		// 导入数据
-		let data = fs.readFileSync(filename, 'utf8');
+		let data = Loader.loadTxtSync(filename, {
+			encoding: 'utf8',
+		});
 
-		data.split(/\r?\n/).forEach(function (line)
+		data.split(LF).forEach(function (line)
 		{
 			let blocks = line.split(',');
 			if (blocks.length > 1)
@@ -210,6 +222,8 @@ export class Segment
 				}
 			}
 		});
+
+		this.inited = true;
 
 		return this;
 	}
@@ -229,9 +243,11 @@ export class Segment
 
 		let TABLE = this.DICT[type] as IDICT_STOPWORD;
 		// 导入数据
-		let data = fs.readFileSync(filename, 'utf8');
+		let data = Loader.loadTxtSync(filename, {
+			encoding: 'utf8',
+		});
 
-		data.split(/\r?\n/).forEach(function (line)
+		data.split(LF).forEach(function (line)
 		{
 			line = line.trim();
 			if (line)
@@ -239,6 +255,8 @@ export class Segment
 				TABLE[line] = true;
 			}
 		});
+
+		this.inited = true;
 
 		return this;
 	}
@@ -276,6 +294,24 @@ export class Segment
 			.loadSynonymDict('synonym.txt')   // 同义词
 			.loadStopwordDict('stopword.txt') // 停止符
 		;
+
+		this.inited = true;
+
+		return this;
+	}
+
+	autoInit()
+	{
+		if (!this.inited)
+		{
+			this.inited = true;
+
+			if (!this.modules.tokenizer.length)
+			{
+				this.useDefault();
+			}
+		}
+
 		return this;
 	}
 
@@ -293,12 +329,14 @@ export class Segment
 	doSegment(text: string | Buffer, options: IOptionsDoSegment & {
 		simple: true,
 	}): string[]
-	doSegment(text: string | Buffer, options: IOptionsDoSegment): IWord[]
+	doSegment(text: string | Buffer, options?: IOptionsDoSegment): IWord[]
 	doSegment(text, options: IOptionsDoSegment = {})
 	{
 		let me = this;
 
 		options = Object.assign({}, Segment.defaultOptionsDoSegment, options);
+
+		this.autoInit();
 
 		try
 		{
@@ -315,12 +353,14 @@ export class Segment
 			{
 				throw new TypeError(`text must is string or Buffer`)
 			}
+
+			text = crlf(text);
 		}
 
 		let ret = [];
 
 		// 将文本按照换行符分割成多段，并逐一分词
-		text.replace(/\r/g, '\n').split(/(\n|\s)+/).forEach(function (section)
+		text.split(/(\n|\s)+/).forEach(function (section)
 		{
 			section = section.trim();
 			if (section.length < 1) return;
@@ -485,6 +525,7 @@ export namespace Segment
 	{
 		w: string,
 		p?: number,
+		ps?: string,
 	}
 
 	export interface IOptionsDoSegment

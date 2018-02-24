@@ -3,7 +3,10 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-declare var debug: (message?: any, ...optionalParams: any[]) => void;
+declare var debug: {
+    (message?: any, ...optionalParams: any[]): void;
+    (message?: any, ...optionalParams: any[]): void;
+};
 /**
  * 单字切分
  *

@@ -128,7 +128,7 @@ var e = new Date().getTime();
 console.log('init segment spent ' + ((e - s) / NUM) + 'ms');
 
 var s = new Date().getTime();
-for (var i = 0; i < NUM; i++)
+for (let i = 0; i < NUM; i++)
 ////////////////////////////////////////////////////////////
 {
 	var ret = segment.doSegment(text);
@@ -137,7 +137,7 @@ for (var i = 0; i < NUM; i++)
 ////////////////////////////////////////////////////////////
 var e = new Date().getTime();
 var line = '';
-for (var i in ret)
+for (let i in ret)
 {
 	line += ret[i].w + '/';
 	ret[i].ps = POSTAG.chsName(ret[i].p);
@@ -145,11 +145,13 @@ for (var i in ret)
 console.log(ret);
 console.log(line);
 console.log('spent ' + ((e - s) / NUM) + 'ms');
+/*
 return;
 console.log(segment.toString(ret));
 var split = segment.split(ret, '是');
-for (var i in split)
+for (let i in split)
 {
 	console.log(segment.toString(split[i]));
 }
 console.log(segment.indexOf(ret, '的', 3));
+*/

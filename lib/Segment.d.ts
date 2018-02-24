@@ -27,6 +27,7 @@ export declare class Segment {
     };
     tokenizer: Tokenizer;
     optimizer: Optimizer;
+    inited?: boolean;
     constructor();
     /**
      * 载入分词模块
@@ -72,6 +73,7 @@ export declare class Segment {
      * @return {Segment}
      */
     useDefault(): this;
+    autoInit(): this;
     /**
      * 开始分词
      *
@@ -86,7 +88,7 @@ export declare class Segment {
     doSegment(text: string | Buffer, options: IOptionsDoSegment & {
         simple: true;
     }): string[];
-    doSegment(text: string | Buffer, options: IOptionsDoSegment): IWord[];
+    doSegment(text: string | Buffer, options?: IOptionsDoSegment): IWord[];
     /**
      * 将单词数组连接成字符串
      *
@@ -121,6 +123,7 @@ export declare namespace Segment {
     interface IWord {
         w: string;
         p?: number;
+        ps?: string;
     }
     interface IOptionsDoSegment {
         /**
