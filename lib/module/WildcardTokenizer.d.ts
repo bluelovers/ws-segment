@@ -14,4 +14,4 @@ declare var debug: {
  * @param {int} cur 开始位置
  * @return {array}  返回格式   {w: '单词', c: 开始位置}
  */
-declare var matchWord: (text: any, cur: any, preword: any) => any[];
+declare var matchWord: (text: any, cur: any) => any[];

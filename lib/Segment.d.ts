@@ -142,6 +142,7 @@ export declare namespace Segment {
          * 去除停止符
          */
         stripStopword?: boolean;
+        stripSpace?: boolean;
     }
 }
 export declare type IWord = Segment.IWord;

@@ -23,9 +23,7 @@ import { debug } from './util';
 export class Segment
 {
 
-	static defaultOptionsDoSegment: IOptionsDoSegment = {
-
-	};
+	static defaultOptionsDoSegment: IOptionsDoSegment = {};
 
 	/**
 	 * 词性
@@ -357,24 +355,29 @@ export class Segment
 			text = crlf(text);
 		}
 
-		let ret = [];
-
 		// 将文本按照换行符分割成多段，并逐一分词
-		text.split(/(\n|\s)+/).forEach(function (section)
+		let ret = text.split(/([\s]+)/).reduce(function (ret, section)
 		{
-			section = section.trim();
-			if (section.length < 1) return;
-			// ======================================
-			// 分词
-			let sret = me.tokenizer.split(section, me.modules.tokenizer);
+			//section = section.trim();
+			if (section.length > 0)
+			{
+				// 分词
+				let sret = me.tokenizer.split(section, me.modules.tokenizer);
 
-			// 优化
-			sret = me.optimizer.doOptimize(sret, me.modules.optimizer);
+				// 优化
+				sret = me.optimizer.doOptimize(sret, me.modules.optimizer);
 
-			// ======================================
-			// 连接分词结果
-			if (sret.length > 0) ret = ret.concat(sret);
-		});
+				// 连接分词结果
+				if (sret.length > 0)
+				{
+					ret = ret.concat(sret);
+				}
+			}
+
+			return ret;
+		}, []);
+
+		console.log(ret);
 
 		// 去除标点符号
 		if (options.stripPunctuation)
@@ -423,6 +426,14 @@ export class Segment
 			ret = ret.filter(function (item)
 			{
 				return !(item.w in STOPWORD);
+			});
+		}
+
+		if (options.stripSpace)
+		{
+			ret = ret.filter(function (item)
+			{
+				return !/^\s+$/g.test(item.w);
 			});
 		}
 
@@ -549,6 +560,8 @@ export namespace Segment
 		 * 去除停止符
 		 */
 		stripStopword?: boolean,
+
+		stripSpace?: boolean,
 	}
 }
 
