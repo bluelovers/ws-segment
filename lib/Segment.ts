@@ -356,7 +356,7 @@ export class Segment
 		}
 
 		// 将文本按照换行符分割成多段，并逐一分词
-		let ret = text.split(/([\s]+)/).reduce(function (ret, section)
+		let ret = text.split(/(\n+|[\s]+)/).reduce(function (ret, section)
 		{
 			//section = section.trim();
 			if (section.length > 0)
@@ -377,7 +377,7 @@ export class Segment
 			return ret;
 		}, []);
 
-		console.log(ret);
+		//console.log(ret);
 
 		// 去除标点符号
 		if (options.stripPunctuation)
