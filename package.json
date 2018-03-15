@@ -1,0 +1,21 @@
+{
+  "name": "segment-dict",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "core-decorators": "^0.20.0",
+    "crlf-normalize": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^9.4.7"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
