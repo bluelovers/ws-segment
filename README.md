@@ -1,11 +1,7 @@
-# 中文分词模块 [![Build Status](https://secure.travis-ci.org/leizongmin/node-segment.png?branch=master)](http://travis-ci.org/leizongmin/node-segment) [![Dependencies Status](https://david-dm.org/leizongmin/node-segment.png)](http://david-dm.org/leizongmin/node-segment)
-
-![node-segment](https://nodei.co/npm/node-segment.png?downloads=true&stars=true)
+# 中文分词模块
 
 本模块以**[盘古分词组件](http://pangusegment.codeplex.com/)**中的词库为基础，
 算法设计也部分参考了盘古分词组件中的算法。
-
-在线演示地址：<http://segment.ucdok.com/>
 
 本分词模块具有以下特点：
 
@@ -13,20 +9,21 @@
 + 基于词性进行联想识别
 + 可使用JavaScript编写自定义的分词模块
 
+Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
 
 ## 1、使用方法
 
 安装：
 
 ```bash
-$ npm install segment --save
+npm install novel-segment
 ```
 
 使用方法：
 
 ```javascript
 // 载入模块
-var Segment = require('segment');
+var Segment = require('novel-segment');
 // 创建实例
 var segment = new Segment();
 // 使用默认的识别模块及字典，载入字典文件需要1秒，仅初始化时执行一次即可
@@ -49,7 +46,7 @@ console.log(segment.doSegment('这是一个基于Node.js的中文分词模块。
   { w: '模块', p: 1048576 },
   { w: '。', p: 2048 } ]
 ```
-其中 `w` 表示词的内容，`p` 表示词性（具体参考 https://github.com/leizongmin/node-segment/blob/master/lib/POSTAG.js 中的定义）
+其中 `w` 表示词的内容，`p` 表示词性（具体参考 https://github.com/bluelovers/node-segment/blob/master/lib/POSTAG.ts 中的定义）
 
 ### 不返回词性
 
@@ -173,18 +170,18 @@ console.log(result);
 
 词典文件为纯文本文件，每行定义一个词，格式为： `词|词性|词权值` ，如：`工信处|0x0020|100`
 
-**词性** 的定义可参考文件 https://github.com/leizongmin/node-segment/blob/master/lib/POSTAG.js
+**词性** 的定义可参考文件 https://github.com/bluelovers/node-segment/blob/master/lib/POSTAG.ts
 
 **词权值** 越大表示词出现的频率越高
 
-词典文件可参考：https://github.com/leizongmin/node-segment/tree/master/dicts
+词典文件可参考：https://github.com/bluelovers/node-segment/tree/master/dicts
 
 
 ## 2、自定义识别模块
 
 ```javascript
 // 载入模块
-var Segment = require('segment');
+var Segment = require('novel-segment');
 // 创建实例
 var segment = new Segment();
 // 配置，可根据实际情况增删，详见segment.useDefault()方法
@@ -270,7 +267,7 @@ segment.use({
 })
 ```
 
-分词器和优化器可参考默认模块：https://github.com/leizongmin/node-segment/tree/master/lib/module
+分词器和优化器可参考默认模块：https://github.com/bluelovers/node-segment/tree/master/lib/module
 
 其中 `*Tokenizer` 表示分词器， `*Optimizer` 表示优化器。
 
