@@ -40,6 +40,7 @@
   "main": "index.js",
   "directories": {
     "lib": "lib",
+    "dict": "dict",
     "test": "test"
   },
   "scripts": {
@@ -52,9 +53,9 @@
     "through2": "^2.0.3"
   },
   "devDependencies": {
-    "crlf-normalize": "^1.0.1",
-    "core-decorators": "^0.20.0",
     "@types/bluebird": "^3.5.20",
-    "@types/node": "^9.4.7"
+    "@types/node": "^9.4.7",
+    "core-decorators": "^0.20.0",
+    "crlf-normalize": "^1.0.1"
   }
 }
