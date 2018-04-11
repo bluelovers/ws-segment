@@ -76,15 +76,6 @@ export function loadStream(file: string, callback?: ICallback<IDict>)
 			}
 		},
 
-		ondata(data)
-		{
-			if (data)
-			{
-				stream.value = stream.value || [];
-				stream.value.push(data);
-			}
-		},
-
 	});
 
 	return stream;

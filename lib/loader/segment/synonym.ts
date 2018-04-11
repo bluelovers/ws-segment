@@ -6,20 +6,25 @@ import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
 import createLoadStream, { ICallback } from '../../fs/stream';
 
-export type IDictRow = [string, number, number];
+export type IDictRow = string[];
 export type IDict = IDictRow[];
 
 /**
- * 爱|0x1000|323
+ * 揭穿,戳穿
  */
 export function parseLine(input: string): IDictRow
 {
-	let [str, n, s] = input
+	let ret = input
 		.replace(/^\s+|\s+$/, '')
-		.split(/\|/g)
+		.split(',')
 	;
 
-	return [str, parseInt(n), parseInt(s)];
+	if (ret.length < 2)
+	{
+		throw new ReferenceError(`${input}`);
+	}
+
+	return ret;
 }
 
 export function load(file: string): Promise<IDict>

@@ -5,7 +5,7 @@
 import { LF } from 'crlf-normalize';
 import jiebaLoader from '../lib/loader/jieba';
 import { parseLine } from '../lib/loader/jieba/index';
-import ReadlineStream from '../lib/stream';
+import ReadlineStream from './fs/stream';
 import * as fs from 'fs';
 
 jiebaLoader
