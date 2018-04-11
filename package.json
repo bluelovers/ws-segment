@@ -14,7 +14,15 @@
     "segmentation",
     "split",
     "tokenizer",
+    "machine learning",
+    "natural language processing",
+    "NLP",
+    "morphological analysis",
+    "word segmentation",
+    "PoS tagging",
+    "text mining",
     "word",
+    "dict",
     "中文",
     "中文分词",
     "分词"
@@ -43,7 +51,8 @@
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
-    "crlf-normalize": "^1.0.0"
+    "crlf-normalize": "^1.0.0",
+    "segment-dict": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^9.4.6"
