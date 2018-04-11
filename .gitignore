@@ -20,7 +20,5 @@ test/**/*.js
 test/temp*
 package-lock.json
 
-*.d.ts
-*.js
 /test/temp
 /demo/

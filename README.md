@@ -1,6 +1,12 @@
-/**
- * Created by user on 2018/3/16/016.
- */
+# segment-dict
+
+## dict
+
+* [dict](dict)
+
+## demo
+
+```ts
 import { requireLoader, requireLoaderModule, getDictPath } from '..';
 
 requireLoader('jieba')('../dict/nodejieba/user.dict.utf8')
@@ -16,3 +22,4 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 		console.log(dict);
 	})
 ;
+```

@@ -1,26 +1,60 @@
 {
   "name": "segment-dict",
   "version": "1.0.0",
-  "description": "",
+  "description": "segment data",
+  "keywords": [
+    "NLP",
+    "PoS tagging",
+    "analyzer",
+    "chinese",
+    "chinese segmentation",
+    "dict",
+    "jieba",
+    "machine learning",
+    "morphological analysis",
+    "natural language processing",
+    "node-novel",
+    "novel",
+    "optimizer",
+    "segment",
+    "segmentation",
+    "split",
+    "text mining",
+    "tokenizer",
+    "word",
+    "word segmentation",
+    "中文",
+    "中文分词",
+    "分词"
+  ],
+  "homepage": "https://github.com/bluelovers/node-segment-dict#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/node-segment-dict/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/node-segment-dict.git"
+  },
+  "license": "ISC",
+  "author": "",
   "main": "index.js",
   "directories": {
-    "lib": "lib"
-  },
-  "dependencies": {
-    "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.1",
-    "split2": "^2.2.0",
-    "stream-pipe": "^1.0.1",
-    "bluebird": "^3.5.1",
-    "through2": "^2.0.3"
-  },
-  "devDependencies": {
-    "@types/bluebird": "^3.5.20",
-    "@types/node": "^9.4.7"
+    "lib": "lib",
+    "test": "test"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "split2": "^2.2.0",
+    "stream-pipe": "^1.0.1",
+    "through2": "^2.0.3"
+  },
+  "devDependencies": {
+    "crlf-normalize": "^1.0.1",
+    "core-decorators": "^0.20.0",
+    "@types/bluebird": "^3.5.20",
+    "@types/node": "^9.4.7"
+  }
 }
