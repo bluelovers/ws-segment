@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "crlf-normalize": "^1.0.0",
+    "fast-glob": "^2.2.0",
     "segment-dict": "^1.0.1"
   },
   "devDependencies": {

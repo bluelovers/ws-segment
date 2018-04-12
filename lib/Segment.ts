@@ -10,12 +10,14 @@
 import * as fs from 'fs';
 // @ts-ignore
 import * as path from 'path';
+import { searchFirst } from './fs/get';
 import POSTAG from './POSTAG';
 import Tokenizer, { ISubTokenizer } from './Tokenizer';
 import Optimizer, { ISubOptimizer } from './Optimizer';
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
 import { debug } from './util';
+import SegmentDict from 'segment-dict';
 
 /**
  * 创建分词器接口
@@ -108,18 +110,30 @@ export class Segment
 		return this;
 	}
 
-	_resolveDictFilename(name: string): string
+	_resolveDictFilename(name: string, pathPlus: string[] = [], extPlus: string[] = []): string
 	{
-		let filename = path.resolve(name);
-		if (!fs.existsSync(filename))
+		let filename = searchFirst(name, {
+			paths: [
+				'',
+				path.resolve(__dirname, '../dicts'),
+				...pathPlus,
+				path.resolve(SegmentDict.DICT_ROOT, 'segment'),
+			],
+			extensions: [
+				'',
+				...extPlus,
+				'.txt',
+				'.utf8',
+			],
+
+			onlyFile: true,
+		});
+
+		if (!filename)
 		{
-			// @ts-ignore
-			filename = path.resolve(__dirname, '../dicts', name);
-			if (!fs.existsSync(filename))
-			{
-				throw Error('Cannot find dict file "' + filename + '".');
-			}
+			throw Error('Cannot find dict file "' + filename + '".');
 		}
+
 		return filename;
 	}
 
@@ -194,7 +208,9 @@ export class Segment
 	 */
 	loadSynonymDict(name: string)
 	{
-		let filename = this._resolveDictFilename(name);
+		let filename = this._resolveDictFilename(name, [
+			path.resolve(SegmentDict.DICT_ROOT, 'synonym'),
+		]);
 		let type = 'SYNONYM';
 
 		// 初始化词典

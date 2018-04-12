@@ -36,7 +36,7 @@ export declare class Segment {
      * @return {Segment}
      */
     use(module: any): this;
-    _resolveDictFilename(name: string): string;
+    _resolveDictFilename(name: string, pathPlus?: string[], extPlus?: string[]): string;
     /**
      * 载入字典文件
      *
