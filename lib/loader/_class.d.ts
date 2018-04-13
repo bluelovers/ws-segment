@@ -16,6 +16,7 @@ export declare class LoaderClass<T, R> {
     constructor(options?: IOptions<T, R>, ...argv: any[]);
     static create(options?: IOptions<any, any>, ...argv: any[]): LoaderClass<any, any>;
     parseLine(input: string): R;
+    filter(input: string): R;
     load(file: string, options?: IOptions<T, R>): Promise<T>;
     loadSync(file: string, options?: IOptions<T, R>): T;
     loadStream(file: string, options?: IOptions<T, R>, callback?: ICallback<T>): IStreamLineWithValue<T>;

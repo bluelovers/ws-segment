@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
-    "@types/node": "^9.4.7",
+    "@types/node": "^9.6.5",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.1"
   }

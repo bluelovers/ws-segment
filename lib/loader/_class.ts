@@ -42,6 +42,11 @@ export class LoaderClass<T, R>
 		return input as any as R
 	}
 
+	filter(input: string): R
+	{
+		return input as any as R
+	}
+
 	load(file: string, options: IOptions<T, R> = {}): Promise<T>
 	{
 		return wrapStreamToPromise(this.loadStream(file, options))
@@ -78,7 +83,7 @@ export class LoaderClass<T, R>
 		let opts = Object.assign({}, this.defaultOptions, options);
 
 		let parseLine = opts.parseLine || self.parseLine;
-		let filter = opts.filter;
+		let filter = opts.filter || self.filter;
 
 		opts.parseLine = parseLine;
 
@@ -95,6 +100,7 @@ export class LoaderClass<T, R>
 
 				if (line)
 				{
+					// @ts-ignore
 					return parseLine(line, self.parseLine);
 				}
 			},

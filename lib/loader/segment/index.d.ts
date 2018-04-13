@@ -4,16 +4,35 @@
  */
 import { IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
-import createLoadStream, { ICallback } from '../../fs/stream';
+import { ICallback } from '../../fs/stream';
+import { LoaderClass } from '../_class';
 export declare type IDictRow = [string, number, number];
 export declare type IDict = IDictRow[];
-/**
- * 爱|0x1000|323
- */
-export declare function parseLine(input: string): IDictRow;
-export declare function load(file: string): Promise<IDict>;
-export declare function loadSync(file: string): [string, number, number][];
-export declare function _createStream<IDict>(fnStream: typeof createLoadStream, file: string, callback?: ICallback<IDict>): IStreamLineWithValue<IDict>;
-export declare function loadStream(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<[string, number, number][]>;
-export declare function loadStreamSync(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<[string, number, number][]>;
-export default load;
+export declare const load: (file: string, options?: {
+    parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
+    mapper?(line: any): any;
+    filter?(line: any): any;
+}) => Promise<[string, number, number][]>;
+export declare const loadSync: (file: string, options?: {
+    parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
+    mapper?(line: any): any;
+    filter?(line: any): any;
+}) => [string, number, number][];
+export declare const loadStream: (file: string, options?: {
+    parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
+    mapper?(line: any): any;
+    filter?(line: any): any;
+}, callback?: ICallback<[string, number, number][]>) => IStreamLineWithValue<[string, number, number][]>;
+export declare const loadStreamSync: (file: string, options?: {
+    parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
+    mapper?(line: any): any;
+    filter?(line: any): any;
+}, callback?: ICallback<[string, number, number][]>) => IStreamLineWithValue<[string, number, number][]>;
+export declare const parseLine: (input: string) => [string, number, number];
+export declare const Loader: LoaderClass<[string, number, number][], [string, number, number]>;
+declare const _default: (file: string, options?: {
+    parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
+    mapper?(line: any): any;
+    filter?(line: any): any;
+}) => Promise<[string, number, number][]>;
+export default _default;

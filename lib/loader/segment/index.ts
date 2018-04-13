@@ -6,63 +6,40 @@ import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
 import createLoadStream, { ICallback } from '../../fs/stream';
 import createLoadStreamSync from '../../fs/sync';
+import { LoaderClass } from '../_class';
 
 export type IDictRow = [string, number, number];
 export type IDict = IDictRow[];
 
-/**
- * 爱|0x1000|323
- */
-export function parseLine(input: string): IDictRow
-{
-	let [str, n, s] = input
-		.replace(/^\s+|\s+$/, '')
-		.split(/\|/g)
-	;
-
-	return [str, Number(n), Number(s)];
-}
-
-export function load(file: string): Promise<IDict>
-{
-	return wrapStreamToPromise(loadStream(file))
-		.then(function (stream: IStreamLineWithValue<IDict>)
-		{
-			return stream.value;
-		})
+const libLoader = new LoaderClass<IDict, IDictRow>({
+	parseLine(input: string): IDictRow
+	{
+		let [str, n, s] = input
+			.replace(/^\s+|\s+$/, '')
+			.split(/\|/g)
+			.map(v => v.trim())
 		;
-}
 
-export function loadSync(file: string)
-{
-	return loadStreamSync(file).value;
-}
+		return [str, Number(n), Number(s)];
+	},
 
-export function _createStream<IDict>(fnStream: typeof createLoadStream, file: string, callback?: ICallback<IDict>)
-{
-	return fnStream<IDict>(file, {
-
-		callback,
-
-		mapper(line)
+	filter(line: string)
+	{
+		if (line && line.indexOf('//') != 0)
 		{
-			if (line)
-			{
-				return parseLine(line);
-			}
-		},
+			return line;
+		}
+	}
+});
 
-	});
-}
+export const load = libLoader.load as typeof libLoader.load;
+export const loadSync = libLoader.loadSync as typeof libLoader.loadSync;
 
-export function loadStream(file: string, callback?: ICallback<IDict>)
-{
-	return _createStream(createLoadStream, file, callback)
-}
+export const loadStream = libLoader.loadStream as typeof libLoader.loadStream;
+export const loadStreamSync = libLoader.loadStreamSync as typeof libLoader.loadStreamSync;
 
-export function loadStreamSync(file: string, callback?: ICallback<IDict>)
-{
-	return _createStream(createLoadStreamSync, file, callback)
-}
+export const parseLine = libLoader.parseLine as typeof libLoader.parseLine;
 
-export default load;
+export const Loader = libLoader;
+
+export default libLoader.load;
