@@ -1,6 +1,6 @@
 /// <reference types="bluebird" />
 /**
- * Created by user on 2018/4/13/013.
+ * Created by user on 2018/4/14/014.
  */
 import * as Promise from 'bluebird';
 import { IStreamLineWithValue } from '../fs/line';

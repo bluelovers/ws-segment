@@ -1,35 +1,26 @@
 /**
- * Created by user on 2018/3/14/014.
+ * Created by user on 2018/4/14/014.
  */
 
-import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
-import createLoadStream, { ICallback } from '../../fs/stream';
-import createLoadStreamSync from '../../fs/sync';
-import LoaderClass from '../_class';
+import { wrapStreamToPromise, IStreamLineWithValue } from '../fs/line';
+import createLoadStream, { ICallback } from '../fs/stream';
+import createLoadStreamSync from '../fs/sync';
+import { autobind } from 'core-decorators';
+import { LoaderClass } from './_class';
 
-export type IDictRow = [string, number, number];
+export type IDictRow = string;
 export type IDict = IDictRow[];
 
 const libLoader = new LoaderClass<IDict, IDictRow>({
 	parseLine(input: string): IDictRow
 	{
-		let [str, n, s] = input
-			.replace(/^\s+|\s+$/, '')
-			.split(/\|/g)
-			.map(v => v.trim())
-		;
-
-		return [str, Number(n), Number(s)];
+		return input;
 	},
-
-	filter(line: string)
+	filter(input: string)
 	{
-		if (line && line.indexOf('//') != 0)
-		{
-			return line;
-		}
-	}
+		return input.trim();
+	},
 });
 
 export const load = libLoader.load as typeof libLoader.load;

@@ -5,7 +5,7 @@
 import { IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
 import { ICallback } from '../../fs/stream';
-import { LoaderClass } from '../_class';
+import LoaderClass from '../_class';
 export declare type IDictRow = [string, number, number];
 export declare type IDict = IDictRow[];
 export declare const load: (file: string, options?: {
