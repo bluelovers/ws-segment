@@ -5,6 +5,7 @@
 import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
 import createLoadStream, { ICallback } from '../../fs/stream';
+import createLoadStreamSync from '../../fs/sync';
 
 export type IDictRow = [string, number, number];
 export type IDict = IDictRow[];
@@ -32,9 +33,14 @@ export function load(file: string): Promise<IDict>
 		;
 }
 
-export function loadStream(file: string, callback?: ICallback<IDict>)
+export function loadSync(file: string)
 {
-	let stream = createLoadStream<IDict>(file, {
+	return loadStreamSync(file).value;
+}
+
+export function _createStream<IDict>(fnStream: typeof createLoadStream, file: string, callback?: ICallback<IDict>)
+{
+	return fnStream<IDict>(file, {
 
 		callback,
 
@@ -47,8 +53,16 @@ export function loadStream(file: string, callback?: ICallback<IDict>)
 		},
 
 	});
+}
 
-	return stream;
+export function loadStream(file: string, callback?: ICallback<IDict>)
+{
+	return _createStream(createLoadStream, file, callback)
+}
+
+export function loadStreamSync(file: string, callback?: ICallback<IDict>)
+{
+	return _createStream(createLoadStreamSync, file, callback)
 }
 
 export default load;

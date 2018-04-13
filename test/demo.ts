@@ -16,3 +16,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 		console.log(dict);
 	})
 ;
+
+let r = requireLoaderModule('segment', 'synonym').loadSync(getDictPath('synonym', 'synonym.txt'));
+
+console.log(r);

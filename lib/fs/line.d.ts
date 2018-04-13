@@ -24,3 +24,5 @@ export declare type IStreamLineWithValue<T> = IStreamLine & {
 export declare type IPromiseStream<T> = Promise<T> & {
     stream: T;
 };
+import * as self from './line';
+export default self;

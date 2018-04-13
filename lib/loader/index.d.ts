@@ -1,5 +1,6 @@
 /// <reference types="bluebird" />
 import * as Promise from 'bluebird';
+import { IStreamLineWithValue } from '../fs/line';
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
 export declare function requireDefault<T = any>(id: any, subtype: string): (file: string) => Promise<T>;
@@ -12,6 +13,9 @@ export declare function requireModule(id: 'segment'): typeof SEGMENT;
 export declare function requireModule<T = any>(id: any, subtype?: string): IRequireModule<T>;
 export declare type IRequireModule<T = any> = {
     load(file: string): Promise<T>;
+    loadSync(file: string): T;
+    loadStream(): IStreamLineWithValue<T>;
+    loadStreamSync(): IStreamLineWithValue<T>;
     default(file: string): Promise<T>;
 };
 export default requireDefault;

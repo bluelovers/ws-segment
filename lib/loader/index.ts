@@ -1,6 +1,7 @@
 import * as Promise from 'bluebird';
 import * as path from "path";
 import { ROOT } from '../../index';
+import { IStreamLineWithValue } from '../fs/line';
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
 
@@ -24,6 +25,11 @@ export function requireModule(id, subtype?: string)
 
 export type IRequireModule<T = any> = {
 	load(file: string): Promise<T>,
+	loadSync(file: string): T,
+
+	loadStream(): IStreamLineWithValue<T>,
+	loadStreamSync(): IStreamLineWithValue<T>,
+
 	default(file: string): Promise<T>,
 }
 

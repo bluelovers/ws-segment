@@ -54,7 +54,7 @@ export function byLine(fn?, options: IOptions = {})
 
 			if (src.cwd && !path.isAbsolute(src.path))
 			{
-				p = path.join(src.cwd, src.path);
+				p = path.resolve(src.cwd, src.path);
 			}
 
 			self.bytesSize = fs.statSync(p).size;
@@ -170,3 +170,6 @@ p.then(function (d: IPipe<ReadStream, NodeJS.WritableStream>)
 	console.log(this === p.stream, d === this);
 });
 */
+
+import * as self from './line';
+export default self;

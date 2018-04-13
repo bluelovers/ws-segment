@@ -4,7 +4,7 @@
  */
 import { IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
-import { ICallback } from '../../fs/stream';
+import createLoadStream, { ICallback } from '../../fs/stream';
 export declare type IDictRow = [string, number, string];
 export declare type IDict = IDictRow[];
 /**
@@ -14,5 +14,8 @@ export declare type IDict = IDictRow[];
 */
 export declare function parseLine(input: string): IDictRow;
 export declare function load(file: string): Promise<IDict>;
+export declare function loadSync(file: string): [string, number, string][];
+export declare function _createStream<IDict>(fnStream: typeof createLoadStream, file: string, callback?: ICallback<IDict>): IStreamLineWithValue<IDict>;
 export declare function loadStream(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<[string, number, string][]>;
+export declare function loadStreamSync(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<[string, number, string][]>;
 export default load;
