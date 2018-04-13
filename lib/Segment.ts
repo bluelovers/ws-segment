@@ -194,6 +194,7 @@ export class Segment
 	 */
 	getDict(type: 'STOPWORD'): IDICT_STOPWORD
 	getDict(type: 'SYNONYM'): IDICT_SYNONYM
+	getDict(type: 'TABLE'): IDICT<IWord>
 	getDict(type): IDICT
 	getDict(type)
 	{
@@ -562,6 +563,8 @@ export namespace Segment
 		w: string,
 		p?: number,
 		ps?: string,
+		f?: number,
+		c?: number,
 	}
 
 	export interface IOptionsDoSegment
@@ -590,10 +593,10 @@ export namespace Segment
 	}
 }
 
-export type IWord = Segment.IWord;
-export type IOptionsDoSegment = Segment.IOptionsDoSegment;
-export type IDICT_SYNONYM = Segment.IDICT_SYNONYM;
-export type IDICT_STOPWORD = Segment.IDICT_STOPWORD;
+export import IWord = Segment.IWord;
+export import IOptionsDoSegment = Segment.IOptionsDoSegment;
+export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
+export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
 
 export interface IDICT<T = any>
 {

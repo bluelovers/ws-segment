@@ -7,7 +7,7 @@
  */
 
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
-import Segment from '../Segment';
+import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
 
 /** 模块类型 */
@@ -31,13 +31,13 @@ export function init(_segment)
  * @param {array} words 单词数组
  * @return {array}
  */
-export function split(words)
+export function split(words: IWord[]): IWord[]
 {
 	// debug(words);
-	var POSTAG = exports.segment.POSTAG;
-	var TABLE = exports.segment.getDict('TABLE');
-	var ret = [];
-	for (var i = 0, word; word = words[i]; i++)
+	let POSTAG = exports.segment.POSTAG;
+	let TABLE = exports.segment.getDict('TABLE');
+	let ret: IWord[] = [];
+	for (let i = 0, word; word = words[i]; i++)
 	{
 		if (word.p > 0)
 		{
@@ -45,31 +45,33 @@ export function split(words)
 			continue;
 		}
 		// 仅对未识别的词进行匹配
-		var wordinfo = matchWord(word.w, 0, words[i - 1]);
+		let wordinfo = matchWord(word.w, 0, words[i - 1]);
 		if (wordinfo.length < 1)
 		{
 			ret.push(word);
 			continue;
 		}
 		// 分离出已识别的单词
-		var lastc = 0;
-		for (var ui = 0, bw; bw = wordinfo[ui]; ui++)
+		let lastc = 0;
+
+		wordinfo.forEach(function (bw, ui)
 		{
 			if (bw.c > lastc)
 			{
 				ret.push({ w: word.w.substr(lastc, bw.c - lastc) });
 			}
-			ret.push({ w: bw.w, p: TABLE[bw.w].p });
+			ret.push({ w: bw.w, p: TABLE[bw.w].p, f: bw.f });
 			lastc = bw.c + bw.w.length;
-		}
-		var lastword = wordinfo[wordinfo.length - 1];
+		});
+
+		let lastword = wordinfo[wordinfo.length - 1];
 		if (lastword.c + lastword.w.length < word.w.length)
 		{
 			ret.push({ w: word.w.substr(lastword.c + lastword.w.length) });
 		}
 	}
 	return ret;
-};
+}
 
 // =================================================================
 // 日期时间常见组合
@@ -89,10 +91,10 @@ for (let i in _DATETIME) DATETIME[_DATETIME[i]] = _DATETIME[i].length;
  * @param {object} preword 上一个单词
  * @return {array}  返回格式   {w: '单词', c: 开始位置}
  */
-var matchWord = function (text, cur, preword)
+export function matchWord(text: string, cur: number, preword: IWord)
 {
 	if (isNaN(cur)) cur = 0;
-	let ret = [];
+	let ret: IWord[] = [];
 	let s = false;
 	let TABLE = exports.segment.getDict('TABLE2');
 	// 匹配可能出现的单词
@@ -100,7 +102,7 @@ var matchWord = function (text, cur, preword)
 	{
 		for (let i in TABLE)
 		{
-			let w = text.substr(cur, i);
+			let w = text.substr(cur, i as any as number);
 			if (w in TABLE[i])
 			{
 				ret.push({ w: w, c: cur, f: TABLE[i][w].f });
@@ -110,7 +112,8 @@ var matchWord = function (text, cur, preword)
 	}
 
 	return filterWord(ret, preword, text);
-};
+}
+
 //debug(matchWord('长春市长春药店'));
 
 /**
@@ -121,11 +124,11 @@ var matchWord = function (text, cur, preword)
  * @param {string} text 本节要分词的文本
  * @return {array}
  */
-var filterWord = function (words, preword, text)
+export function filterWord(words: IWord[], preword: IWord, text: string)
 {
 	let POSTAG = segment.POSTAG;
 	let TABLE = segment.getDict('TABLE');
-	let ret = [];
+	let ret: IWord[] = [];
 
 	// 将单词按位置分组
 	let wordpos = getPosInfo(words, text);
@@ -141,7 +144,13 @@ var filterWord = function (words, preword, text)
 	// 取以上几项综合排名最最好的
 	let chunks = getChunks(wordpos, 0, text);
 	//debug(chunks);
-	let assess = [];  // 评价表
+	let assess: Array<{
+		x: number,
+		a: number,
+		b: number,
+		c: number,
+		d: number,
+	}> = [];  // 评价表
 
 	// 对各个分支就行评估
 	for (let i = 0, chunk; chunk = chunks[i]; i++)
@@ -207,7 +216,7 @@ var filterWord = function (words, preword, text)
 					}
 					// 如果是 方位词 + 数量词，则加分
 					if ((prew.p & POSTAG.D_F) > 0 &&
-							// @ts-ignore
+						// @ts-ignore
 						((w.p & POSTAG.A_M > 0) || w.p & POSTAG.D_MQ > 0))
 					{
 						//debug(prew, w);
@@ -236,10 +245,10 @@ var filterWord = function (words, preword, text)
 						}
 						// 如果当前是“的”+ 名词，则加分
 						if ((w.w == '的' || w.w == '之') && (
-								(nextw.p & POSTAG.D_N) > 0 || (nextw.p & POSTAG.A_NR) > 0 ||
-								(nextw.p & POSTAG.A_NS) > 0 || (nextw.p & POSTAG.A_NZ) > 0 ||
-								(nextw.p & POSTAG.A_NT) > 0
-							))
+							(nextw.p & POSTAG.D_N) > 0 || (nextw.p & POSTAG.A_NR) > 0 ||
+							(nextw.p & POSTAG.A_NS) > 0 || (nextw.p & POSTAG.A_NZ) > 0 ||
+							(nextw.p & POSTAG.A_NT) > 0
+						))
 						{
 							assess[i].d += 1.5;
 						}
@@ -287,7 +296,9 @@ var filterWord = function (words, preword, text)
  * @param {string} text
  * @return {object}
  */
-let getPosInfo = function (words, text)
+export function getPosInfo(words: IWord[], text: string): {
+	[index: number]: IWord[];
+}
 {
 	let wordpos = {};
 	// 将单词按位置分组
@@ -309,7 +320,7 @@ let getPosInfo = function (words, text)
 	}
 
 	return wordpos;
-};
+}
 
 /**
  * 取所有分支
@@ -319,13 +330,15 @@ let getPosInfo = function (words, text)
  * @param {string} text 本节要分词的文本
  * @return {array}
  */
-let getChunks = function (wordpos, pos, text?)
+export function getChunks(wordpos: {
+	[index: number]: IWord[];
+}, pos: number, text?: string)
 {
 	let words = wordpos[pos] || [];
 	// debug('getChunks: ');
 	// debug(words);
 	// throw new Error();
-	let ret = [];
+	let ret: IWord[][] = [];
 	for (let i = 0; i < words.length; i++)
 	{
 		let word = words[i];
@@ -353,7 +366,13 @@ let getChunks = function (wordpos, pos, text?)
  * @param {object} assess
  * @return {object}
  */
-let getTops = function (assess)
+export function getTops(assess: Array<{
+	x: number,
+	a: number,
+	b: number,
+	c: number,
+	d: number,
+}>)
 {
 	//debug(assess);
 	// 取各项最大值
@@ -388,14 +407,14 @@ let getTops = function (assess)
 	//debug(tops.join('  '));
 
 	// 取分数最高的
-	let curri = 0 as any;
+	let curri = 0;
 	let maxs = tops[0];
 	for (let i in tops)
 	{
 		let s = tops[i];
 		if (s > maxs)
 		{
-			curri = i;
+			curri = i as any as number;
 			maxs = s;
 		}
 		else if (s == maxs)
@@ -429,7 +448,7 @@ let getTops = function (assess)
 			}
 			if (a > b)
 			{
-				curri = i;
+				curri = i as any as number;
 				maxs = s;
 			}
 		}
@@ -437,4 +456,4 @@ let getTops = function (assess)
 	}
 	//debug('max: i=' + curri + ', s=' + tops[curri]);
 	return curri;
-};
+}
