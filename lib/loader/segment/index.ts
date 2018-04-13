@@ -43,7 +43,7 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 		if (data.length > 1)
 		{
 			// @ts-ignore
-			a[1] = '0x' + a[1].toString(16).padStart(8, '0');
+			a[1] = '0x' + a[1].toString(16).padStart(4, '0');
 		}
 
 		return a.join('|');
