@@ -10,3 +10,4 @@ export declare function existsSync(path: string, options?: {
     onlyDir?: boolean;
     onlyFile?: boolean;
 }): boolean;
+export default searchFirst;

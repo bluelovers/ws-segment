@@ -102,6 +102,7 @@ export function existsSync(path: string, options: {
 	return bool;
 }
 
+/*
 let k = searchFirst('index', {
 	paths: [
 		'.',
@@ -114,3 +115,6 @@ let k = searchFirst('index', {
 });
 
 console.log(k);
+*/
+
+export default searchFirst;
