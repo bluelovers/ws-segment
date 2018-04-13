@@ -20,7 +20,7 @@ export function parseLine(input: string): IDictRow
 		.split(/\|/g)
 	;
 
-	return [str, parseInt(n), parseInt(s)];
+	return [str, Number(n), Number(s)];
 }
 
 export function load(file: string): Promise<IDict>

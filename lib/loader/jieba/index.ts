@@ -42,7 +42,7 @@ export function parseLine(input: string): IDictRow
 	if (typeof n == 'string')
 	{
 		// @ts-ignore
-		n = parseInt(n);
+		n = Number(n);
 	}
 
 	if (!str)
