@@ -1,40 +1,21 @@
 /**
- * Created by user on 2018/3/14/014.
+ * Created by user on 2018/4/13/013.
  */
 
-import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
-import createLoadStream, { ICallback } from '../../fs/stream';
-import createLoadStreamSync from '../../fs/sync';
-import { LoaderClass } from '../_class';
+import { wrapStreamToPromise, IStreamLineWithValue } from '../fs/line';
+import createLoadStream, { ICallback } from '../fs/stream';
+import createLoadStreamSync from '../fs/sync';
+import { autobind } from 'core-decorators';
+import { LoaderClass } from './_class';
 
-export type IDictRow = string[];
+export type IDictRow = string;
 export type IDict = IDictRow[];
 
 const libLoader = new LoaderClass<IDict, IDictRow>({
 	parseLine(input: string): IDictRow
 	{
-		let ret = input
-			.replace(/^\s+|\s+$/, '')
-			.split(',')
-		;
-
-		if (ret.length < 2)
-		{
-			throw new ReferenceError(`${input}`);
-		}
-
-		return ret.map(function (s)
-		{
-			s = s.trim();
-
-			if (s == '')
-			{
-				throw new ReferenceError(`${input}`);
-			}
-
-			return s;
-		});
+		return input;
 	}
 });
 

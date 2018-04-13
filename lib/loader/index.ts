@@ -4,6 +4,7 @@ import { ROOT } from '../../index';
 import { IStreamLineWithValue } from '../fs/line';
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
+import LoaderClass from './_class';
 
 export function requireDefault<T = any>(id, subtype: string): (file: string) => Promise<T>
 export function requireDefault(id: 'jieba'): typeof JIEBA.default
@@ -23,6 +24,7 @@ export function requireModule(id, subtype?: string)
 	return require(path.join(__dirname, id, subtype ? subtype : ''));
 }
 
+/*
 export type IRequireModule<T = any> = {
 	load(file: string): Promise<T>,
 	loadSync(file: string): T,
@@ -32,5 +34,8 @@ export type IRequireModule<T = any> = {
 
 	default(file: string): Promise<T>,
 }
+*/
+
+export type IRequireModule<T = any> = LoaderClass<T, any>
 
 export default requireDefault

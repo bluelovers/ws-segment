@@ -39,6 +39,7 @@ export function byLine(fn?, options: IOptions = {})
 		const self = this;
 
 		this.pipeFrom = src;
+		let pipeStat = null as fs.Stats;
 
 		if (typeof src.bytesTotal == 'number')
 		{
@@ -46,7 +47,9 @@ export function byLine(fn?, options: IOptions = {})
 		}
 		else if (src.fd)
 		{
-			self.bytesSize = fs.fstatSync(src.fd).size;
+			pipeStat = fs.fstatSync(src.fd);
+
+			self.bytesSize = pipeStat.size;
 		}
 		else if (src.path)
 		{
@@ -57,12 +60,16 @@ export function byLine(fn?, options: IOptions = {})
 				p = path.resolve(src.cwd, src.path);
 			}
 
-			self.bytesSize = fs.statSync(p).size;
+			pipeStat = fs.statSync(p);
+
+			self.bytesSize = pipeStat.size;
 		}
 		else
 		{
 			self.bytesSize = null;
 		}
+
+		this.pipeStat = pipeStat;
 
 		src
 			.on('close', function (...argv)
