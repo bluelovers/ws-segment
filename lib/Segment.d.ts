@@ -73,7 +73,7 @@ export declare class Segment {
      * @return {Segment}
      */
     useDefault(): this;
-    autoInit(): this;
+    autoInit(throwFn?: any): this;
     /**
      * 开始分词
      *

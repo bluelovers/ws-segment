@@ -122,8 +122,8 @@ export class Segment
 			extensions: [
 				'',
 				...extPlus,
-				'.txt',
 				'.utf8',
+				'.txt',
 			],
 
 			onlyFile: true,
@@ -133,6 +133,8 @@ export class Segment
 		{
 			throw Error('Cannot find dict file "' + filename + '".');
 		}
+
+		console.log(path.relative(__dirname, filename));
 
 		return filename;
 	}
@@ -158,28 +160,25 @@ export class Segment
 		// 导入数据
 		let POSTAG = this.POSTAG;
 
-		let data = Loader.loadTxtSync(filename, {
-			encoding: 'utf8',
-			toLowerCase: convert_to_lower,
-		});
+		let data = Loader.SegmentDictLoader.loadSync(filename);
 
-		data.split(LF).forEach(function (line)
+		data.forEach(function (data)
 		{
-			let blocks = line.split('|');
-			if (blocks.length > 2)
+			if (convert_to_lower)
 			{
-				let w = blocks[0].trim();
-				let p = Number(blocks[1]);
-				let f = Number(blocks[2]);
-
-				// 一定要检查单词是否为空，如果为空会导致Bug
-				if (w.length > 0)
-				{
-					TABLE[w] = { f: f, p: p };
-					if (!TABLE2[w.length]) TABLE2[w.length] = {};
-					TABLE2[w.length][w] = TABLE[w];
-				}
+				data[0] = data[0].toLowerCase();
 			}
+
+			let [w, p, f] = data;
+
+			if (w.length == 0)
+			{
+				throw new Error()
+			}
+
+			TABLE[w] = { f, p };
+			if (!TABLE2[w.length]) TABLE2[w.length] = {};
+			TABLE2[w.length][w] = TABLE[w];
 		});
 
 		this.inited = true;
@@ -218,22 +217,17 @@ export class Segment
 		// 词典表  '同义词' => '标准词'
 		let TABLE = this.DICT[type] as IDICT_SYNONYM;
 		// 导入数据
-		let data = Loader.loadTxtSync(filename, {
-			encoding: 'utf8',
-		});
 
-		data.split(LF).forEach(function (line)
+		let data = Loader.SegmentSynonymLoader.loadSync(filename);
+
+		data.forEach(function (blocks)
 		{
-			let blocks = line.split(',');
-			if (blocks.length > 1)
+			let [n1, n2] = blocks;
+
+			TABLE[n1] = n2;
+			if (TABLE[n2] === n1)
 			{
-				let n1 = blocks[0].trim();
-				let n2 = blocks[1].trim();
-				TABLE[n1] = n2;
-				if (TABLE[n2] === n1)
-				{
-					delete TABLE[n2];
-				}
+				delete TABLE[n2];
 			}
 		});
 
@@ -249,7 +243,9 @@ export class Segment
 	 */
 	loadStopwordDict(name: string)
 	{
-		let filename = this._resolveDictFilename(name);
+		let filename = this._resolveDictFilename(name, [
+			path.resolve(SegmentDict.DICT_ROOT, 'stopword'),
+		]);
 		let type = 'STOPWORD';
 
 		// 初始化词典
@@ -257,11 +253,18 @@ export class Segment
 
 		let TABLE = this.DICT[type] as IDICT_STOPWORD;
 		// 导入数据
-		let data = Loader.loadTxtSync(filename, {
-			encoding: 'utf8',
-		});
 
-		data.split(LF).forEach(function (line)
+		let data = Loader.SegmentDict
+			.requireLoaderModule('line')
+			.loadSync(filename, {
+				filter(line: string)
+				{
+					return line.trim();
+				}
+			})
+		;
+
+		data.forEach(function (line)
 		{
 			line = line.trim();
 			if (line)
@@ -300,13 +303,19 @@ export class Segment
 			.use('DatetimeOptimizer')       // 日期时间识别优化
 
 			// 字典文件
-			.loadDict('dict.txt')           // 盘古词典
-			.loadDict('dict2.txt')          // 扩展词典（用于调整原盘古词典）
-			.loadDict('dict3.txt')          // 扩展词典（用于调整原盘古词典）
-			.loadDict('names.txt')          // 常见名词、人名
-			.loadDict('wildcard.txt', 'WILDCARD', true)   // 通配符
-			.loadSynonymDict('synonym.txt')   // 同义词
-			.loadStopwordDict('stopword.txt') // 停止符
+			//.loadDict('jieba') <=== bad file
+			.loadDict('lazy/badword')
+			.loadDict('lazy/index')
+
+			.loadDict('dict')           // 盘古词典
+			.loadDict('dict2')          // 扩展词典（用于调整原盘古词典）
+			.loadDict('dict3')          // 扩展词典（用于调整原盘古词典）
+			.loadDict('names')          // 常见名词、人名
+			.loadDict('wildcard', 'WILDCARD', true)   // 通配符
+			.loadSynonymDict('synonym')   // 同义词
+			.loadStopwordDict('stopword') // 停止符
+
+
 		;
 
 		this.inited = true;
@@ -314,7 +323,7 @@ export class Segment
 		return this;
 	}
 
-	autoInit()
+	autoInit(throwFn?)
 	{
 		if (!this.inited)
 		{
