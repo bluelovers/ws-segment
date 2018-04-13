@@ -29,6 +29,24 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 		{
 			return line;
 		}
+	},
+
+	stringifyLine(data)
+	{
+		let a: string[] = [];
+
+		// @ts-ignore
+		a = data
+			.slice()
+		;
+
+		if (data.length > 1)
+		{
+			// @ts-ignore
+			a[1] = '0x' + a[1].toString(16).padStart(8, '0');
+		}
+
+		return a.join('|');
 	}
 });
 
@@ -39,7 +57,10 @@ export const loadStream = libLoader.loadStream as typeof libLoader.loadStream;
 export const loadStreamSync = libLoader.loadStreamSync as typeof libLoader.loadStreamSync;
 
 export const parseLine = libLoader.parseLine as typeof libLoader.parseLine;
+export const stringifyLine = libLoader.stringifyLine as typeof libLoader.stringifyLine;
+
+export const serialize = libLoader.serialize as typeof libLoader.serialize;
 
 export const Loader = libLoader;
 
-export default libLoader.load;
+export default Loader.load;

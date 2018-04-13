@@ -9,6 +9,7 @@ export declare type IOptions<T, R> = {
     parseLine?(input: string, oldFn?: (input: string) => R): R;
     mapper?(line);
     filter?(line);
+    stringifyLine?(data: R): string;
 };
 export declare class LoaderClass<T, R> {
     default: (file: string, options?: IOptions<T, R>) => Promise<T>;
@@ -16,7 +17,9 @@ export declare class LoaderClass<T, R> {
     constructor(options?: IOptions<T, R>, ...argv: any[]);
     static create(options?: IOptions<any, any>, ...argv: any[]): LoaderClass<any, any>;
     parseLine(input: string): R;
-    filter(input: string): R;
+    stringifyLine(data: R): string;
+    serialize(data: R[]): string;
+    filter(input: string): string;
     load(file: string, options?: IOptions<T, R>): Promise<T>;
     loadSync(file: string, options?: IOptions<T, R>): T;
     loadStream(file: string, options?: IOptions<T, R>, callback?: ICallback<T>): IStreamLineWithValue<T>;

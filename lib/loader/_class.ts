@@ -3,6 +3,7 @@
  */
 
 import * as Promise from 'bluebird';
+import { LF } from 'crlf-normalize';
 import { wrapStreamToPromise, IStreamLineWithValue } from '../fs/line';
 import createLoadStream, { ICallback } from '../fs/stream';
 import createLoadStreamSync from '../fs/sync';
@@ -15,6 +16,8 @@ export type IOptions<T, R> = {
 	mapper?(line),
 
 	filter?(line),
+
+	stringifyLine?(data: R): string,
 
 };
 
@@ -30,6 +33,11 @@ export class LoaderClass<T, R>
 		{
 			this.parseLine = options.parseLine.bind(this);
 		}
+
+		if (options.stringifyLine)
+		{
+			this.stringifyLine = options.stringifyLine.bind(this);
+		}
 	}
 
 	static create(options: IOptions<any, any> = {}, ...argv)
@@ -42,9 +50,24 @@ export class LoaderClass<T, R>
 		return input as any as R
 	}
 
-	filter(input: string): R
+	stringifyLine(data: R): string
 	{
-		return input as any as R
+		return data.toString();
+	}
+
+	serialize(data: R[]): string
+	{
+		let self = this;
+
+		return data.map(function (d)
+		{
+			return self.stringifyLine(d);
+		}).join(LF);
+	}
+
+	filter(input: string)
+	{
+		return input
 	}
 
 	load(file: string, options: IOptions<T, R> = {}): Promise<T>

@@ -45,6 +45,9 @@ export const loadStream = libLoader.loadStream as typeof libLoader.loadStream;
 export const loadStreamSync = libLoader.loadStreamSync as typeof libLoader.loadStreamSync;
 
 export const parseLine = libLoader.parseLine as typeof libLoader.parseLine;
+export const stringifyLine = libLoader.stringifyLine as typeof libLoader.stringifyLine;
+
+export const serialize = libLoader.serialize as typeof libLoader.serialize;
 
 export const Loader = libLoader;
 
