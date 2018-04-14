@@ -96,7 +96,7 @@ export declare class Segment {
      * @param {Array} words 单词数组
      * @return {String}
      */
-    toString(words: IWord[]): string;
+    stringify(words: IWord[]): string;
     /**
      * 根据某个单词或词性来分割单词数组
      *

@@ -492,7 +492,7 @@ export class Segment
 	 * @param {Array} words 单词数组
 	 * @return {String}
 	 */
-	toString(words: IWord[])
+	stringify(words: IWord[])
 	{
 		return words.map(function (item)
 		{

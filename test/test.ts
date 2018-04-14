@@ -147,11 +147,11 @@ console.log(line);
 console.log('spent ' + ((e - s) / NUM) + 'ms');
 /*
 return;
-console.log(segment.toString(ret));
+console.log(segment.stringify(ret));
 var split = segment.split(ret, '是');
 for (let i in split)
 {
-	console.log(segment.toString(split[i]));
+	console.log(segment.stringify(split[i]));
 }
 console.log(segment.indexOf(ret, '的', 3));
 */
