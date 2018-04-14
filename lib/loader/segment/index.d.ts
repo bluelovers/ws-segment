@@ -1,4 +1,8 @@
 /// <reference types="bluebird" />
+/**
+ * Created by user on 2018/3/14/014.
+ */
+import { IStreamLineWithValue } from '../../fs/line';
 import * as Promise from 'bluebird';
 import { ICallback } from '../../fs/stream';
 import LoaderClass from '../_class';
@@ -15,19 +19,19 @@ export declare const loadSync: (file: string, options?: {
     mapper?(line: any): any;
     filter?(line: any): any;
     stringifyLine?(data: [string, number, number]): string;
-}) => any;
+}) => [string, number, number][];
 export declare const loadStream: (file: string, options?: {
     parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
     mapper?(line: any): any;
     filter?(line: any): any;
     stringifyLine?(data: [string, number, number]): string;
-}, callback?: ICallback<[string, number, number][]>) => any;
+}, callback?: ICallback<[string, number, number][]>) => IStreamLineWithValue<[string, number, number][]>;
 export declare const loadStreamSync: (file: string, options?: {
     parseLine?(input: string, oldFn?: (input: string) => [string, number, number]): [string, number, number];
     mapper?(line: any): any;
     filter?(line: any): any;
     stringifyLine?(data: [string, number, number]): string;
-}, callback?: ICallback<[string, number, number][]>) => any;
+}, callback?: ICallback<[string, number, number][]>) => IStreamLineWithValue<[string, number, number][]>;
 export declare const parseLine: (input: string) => [string, number, number];
 export declare const stringifyLine: (data: [string, number, number]) => string;
 export declare const serialize: (data: [string, number, number][]) => string;

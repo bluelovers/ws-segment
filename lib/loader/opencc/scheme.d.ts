@@ -3,6 +3,7 @@
  * Created by user on 2018/4/13/013.
  */
 import * as Promise from 'bluebird';
+import { IStreamLineWithValue } from '../../fs/line';
 import { ICallback } from '../../fs/stream';
 import { LoaderClass } from '../_class';
 export declare type IDictRow = [string, string[], string] | [string, string[]];
@@ -18,19 +19,19 @@ export declare const loadSync: (file: string, options?: {
     mapper?(line: any): any;
     filter?(line: any): any;
     stringifyLine?(data: IDictRow): string;
-}) => any;
+}) => IDictRow[];
 export declare const loadStream: (file: string, options?: {
     parseLine?(input: string, oldFn?: (input: string) => IDictRow): IDictRow;
     mapper?(line: any): any;
     filter?(line: any): any;
     stringifyLine?(data: IDictRow): string;
-}, callback?: ICallback<IDictRow[]>) => any;
+}, callback?: ICallback<IDictRow[]>) => IStreamLineWithValue<IDictRow[]>;
 export declare const loadStreamSync: (file: string, options?: {
     parseLine?(input: string, oldFn?: (input: string) => IDictRow): IDictRow;
     mapper?(line: any): any;
     filter?(line: any): any;
     stringifyLine?(data: IDictRow): string;
-}, callback?: ICallback<IDictRow[]>) => any;
+}, callback?: ICallback<IDictRow[]>) => IStreamLineWithValue<IDictRow[]>;
 export declare const parseLine: (input: string) => IDictRow;
 export declare const stringifyLine: (data: IDictRow) => string;
 export declare const serialize: (data: IDictRow[]) => string;
