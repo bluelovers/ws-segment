@@ -51,6 +51,7 @@
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
+    "cjk-conv": "^1.0.22",
     "crlf-normalize": "^1.0.1",
     "fast-glob": "^2.2.0",
     "segment-dict": "^1.0.2",

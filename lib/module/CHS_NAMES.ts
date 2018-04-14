@@ -3,6 +3,8 @@
  */
 'use strict';
 
+import CjkConv from 'cjk-conv';
+
 import { IDICT } from '../Segment';
 
 export namespace _CHS_NAMES
@@ -33,7 +35,7 @@ export namespace _CHS_NAMES
 		'瞿', '阎', '慕', '茹', '习', '宦', '艾', '容', '慎', '戈', '廖', '庾',
 		'衡', '耿', '弘', '匡', '阙', '殳', '沃', '蔚', '夔', '隆', '巩', '聂',
 		'晁', '敖', '融', '訾', '辛', '阚', '毋', '乜', '鞠', '丰', '蒯', '荆',
-		'竺', '盍', '单', '欧'
+		'竺', '盍', '单', '欧',
 	];
 
 	// 复姓
@@ -41,7 +43,7 @@ export namespace _CHS_NAMES
 		'司马', '上官', '欧阳', '夏侯', '诸葛', '闻人', '东方', '赫连', '皇甫',
 		'尉迟', '公羊', '澹台', '公冶', '宗政', '濮阳', '淳于', '单于', '太叔',
 		'申屠', '公孙', '仲孙', '轩辕', '令狐', '徐离', '宇文', '长孙', '慕容',
-		'司徒', '司空', '万俟'
+		'司徒', '司空', '万俟',
 	];
 
 	// 双字姓名第一个字
@@ -60,7 +62,7 @@ export namespace _CHS_NAMES
 		'浩', '加', '定', '炳', '飞', '锡', '柏', '发', '超', '道', '怀', '进', '其', '富',
 		'平', '全', '阳', '吉', '茂', '彦', '诗', '洁', '润', '承', '治', '焕', '如', '君',
 		'增', '善', '希', '根', '应', '勇', '宜', '守', '会', '凯', '育', '湘', '凌', '本',
-		'敬', '博', '延', '乐', '三', '二', '四', '五', '六', '七', '八', '九', '十'
+		'敬', '博', '延', '乐', '三', '二', '四', '五', '六', '七', '八', '九', '十',
 	];
 
 	// 双字姓名第二个字
@@ -79,7 +81,7 @@ export namespace _CHS_NAMES
 		'铭', '川', '进', '博', '智', '来', '琦', '学', '聪', '洋', '乐', '年', '翔', '然',
 		'栋', '凯', '颖', '鸣', '丰', '瑞', '奎', '立', '堂', '威', '雪', '鸿', '晶', '桂',
 		'凡', '娣', '先', '洲', '毅', '雅', '月', '旭', '田', '晖', '方', '恒', '亚', '泽',
-		'风', '银', '高', '贞', '九', '薇'
+		'风', '银', '高', '贞', '九', '薇',
 	];
 
 	// 单字姓名
@@ -99,17 +101,37 @@ export namespace _CHS_NAMES
 		'芬', '露', '越', '彤', '曦', '义', '良', '鸣', '芸', '方', '月', '铭', '光', '震',
 		'冬', '源', '政', '虎', '莎', '彪', '蓓', '钢', '凌', '奇', '卫', '彦', '烨', '可',
 		'黎', '川', '淼', '惠', '祥', '然', '三', '二', '一', '四', '五', '六', '七',
-		'八', '九', '十'
+		'八', '九', '十',
 	];
 
-	export function p(a, n): IDICT<number>
+	export function arr_cjk(arr: string[]): string[]
 	{
-		let data = {} as IDICT<number>;
+		return arr
+			// @ts-ignore
+			.concat(arr.map(CjkConv.cjk2zht))
+			// @ts-ignore
+			.concat(arr.map(CjkConv.cn2tw))
+			// @ts-ignore
+			.concat(arr.map(CjkConv.cjk2zhs))
+			// @ts-ignore
+			.concat(arr.map(CjkConv.cjk2jp))
+			.filter(function (value, index, array)
+			{
+				return array.indexOf(value) == index;
+			})
+			;
+	}
 
-		a.forEach(function (v)
-		{
-			data[v] = n;
-		});
+	export function p(a: string[], n: number): IDICT<number>
+	{
+		let data: IDICT<number> = arr_cjk(a)
+			.reduce(function (data, v)
+			{
+				data[v] = n;
+
+				return data;
+			}, {})
+		;
 
 		return data;
 	}
@@ -123,4 +145,5 @@ export const DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2, 2);
 export const SINGLE_NAME = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME, 1);
 
 import * as self from './CHS_NAMES';
+
 export default self;

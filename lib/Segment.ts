@@ -306,7 +306,6 @@ export class Segment
 			// 字典文件
 			//.loadDict('jieba') <=== bad file
 			.loadDict('lazy/badword')
-			.loadDict('lazy/index')
 
 			.loadDict('char')
 
@@ -318,7 +317,7 @@ export class Segment
 			.loadSynonymDict('synonym')   // 同义词
 			.loadStopwordDict('stopword') // 停止符
 
-
+			.loadDict('lazy/index')
 		;
 
 		this.inited = true;
@@ -573,10 +572,26 @@ export namespace Segment
 	export interface IWord
 	{
 		w: string,
+		/**
+		 * 詞性
+		 */
 		p?: number,
+		/**
+		 * 詞性名稱
+		 */
 		ps?: string,
+		/**
+		 * 權重
+		 */
 		f?: number,
+		/**
+		 * 开始位置
+		 */
 		c?: number,
+		/**
+		 * 合併項目
+		 */
+		m?,
 	}
 
 	export interface IOptionsDoSegment

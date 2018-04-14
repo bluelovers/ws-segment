@@ -93,7 +93,8 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 			{
 				words.splice(i, 2, {
 					w: w1.w + w2.w,
-					p: POSTAG.D_MQ // 数量词
+					p: POSTAG.D_MQ, // 数量词
+					m: [w1, w2],
 				});
 				ie--;
 				continue;
@@ -106,7 +107,8 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 			{
 				words.splice(i, 3, {
 					w: w1.w + w2.w + w3.w,
-					p: POSTAG.A_M
+					p: POSTAG.A_M,
+					m: [w1, w2, w3],
 				});
 				ie -= 2;
 				continue;
@@ -134,7 +136,8 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 			}
 			words.splice(i, i2, {
 				w: w1.w + w2.w + w4w,
-				p: POSTAG.D_MQ // 数量词
+				p: POSTAG.D_MQ, // 数量词
+				m: [w1, w2, w4w],
 			});
 			ie -= i2 - 1;
 			continue;

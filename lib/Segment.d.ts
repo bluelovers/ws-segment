@@ -123,10 +123,26 @@ export declare namespace Segment {
     type IDICT_STOPWORD = IDICT<boolean>;
     interface IWord {
         w: string;
+        /**
+         * 詞性
+         */
         p?: number;
+        /**
+         * 詞性名稱
+         */
         ps?: string;
+        /**
+         * 權重
+         */
         f?: number;
+        /**
+         * 开始位置
+         */
         c?: number;
+        /**
+         * 合併項目
+         */
+        m?: any;
     }
     interface IOptionsDoSegment {
         /**

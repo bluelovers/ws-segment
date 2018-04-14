@@ -37,14 +37,14 @@ module ChsNameOptimizer
 	export function doOptimize(words)
 	{
 		//debug(words);
-		var POSTAG = segment.POSTAG;
-		var i = 0;
+		let POSTAG = segment.POSTAG;
+		let i = 0;
 
 		/* 第一遍扫描 */
 		while (i < words.length)
 		{
-			var word = words[i];
-			var nextword = words[i + 1];
+			let word = words[i];
+			let nextword = words[i + 1];
 			if (nextword)
 			{
 				//debug(nextword);
@@ -83,7 +83,7 @@ module ChsNameOptimizer
 							p: POSTAG.A_NR
 						});
 						// 如果上一个单词可能是一个姓，则合并
-						var preword = words[i - 1];
+						let preword = words[i - 1];
 						if (preword &&
 							(preword.w in CHS_NAMES.FAMILY_NAME_1 || preword.w in CHS_NAMES.FAMILY_NAME_2))
 						{
@@ -120,8 +120,8 @@ module ChsNameOptimizer
 		i = 0;
 		while (i < words.length)
 		{
-			var word = words[i];
-			var nextword = words[i + 1];
+			let word = words[i];
+			let nextword = words[i + 1];
 			if (nextword)
 			{
 				// 如果为 姓 + 单字名

@@ -7,7 +7,7 @@
  */
 
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
-import Segment from '../Segment';
+import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
 
 /** 模块类型 */
@@ -31,11 +31,11 @@ export function init(_segment)
  * @param {array} words 单词数组
  * @return {array}
  */
-export function split(words)
+export function split(words: IWord[]): IWord[]
 {
-	var POSTAG = segment.POSTAG;
-	var ret = [];
-	for (var i = 0, word; word = words[i]; i++)
+	let POSTAG = segment.POSTAG;
+	let ret: IWord[] = [];
+	for (let i = 0, word; word = words[i]; i++)
 	{
 		if (word.p > 0)
 		{
@@ -43,15 +43,15 @@ export function split(words)
 			continue;
 		}
 		// 仅对未识别的词进行匹配
-		var nameinfo = matchName(word.w);
+		let nameinfo = matchName(word.w);
 		if (nameinfo.length < 1)
 		{
 			ret.push(word);
 			continue;
 		}
 		// 分离出人名
-		var lastc = 0;
-		for (var ui = 0, url; url = nameinfo[ui]; ui++)
+		let lastc = 0;
+		for (let ui = 0, url; url = nameinfo[ui]; ui++)
 		{
 			if (url.c > lastc)
 			{
@@ -60,14 +60,14 @@ export function split(words)
 			ret.push({ w: url.w, p: POSTAG.A_NR });
 			lastc = url.c + url.w.length;
 		}
-		var lastn = nameinfo[nameinfo.length - 1];
+		let lastn = nameinfo[nameinfo.length - 1];
 		if (lastn.c + lastn.w.length < word.w.length)
 		{
 			ret.push({ w: word.w.substr(lastn.c + lastn.w.length) });
 		}
 	}
 	return ret;
-};
+}
 
 // ======================================================================
 /**
@@ -77,12 +77,13 @@ export function split(words)
  * @param {int} cur 开始位置
  * @return {array}  返回格式   {w: '人名', c: 开始位置}
  */
-let matchName = function (text, cur = 0)
+export function matchName(text: string, cur = 0): IWord[]
 {
 	if (isNaN(cur)) cur = 0;
-	let ret = [];
+	let ret: IWord[] = [];
 	while (cur < text.length)
-	{//debug('cur=' + cur + ', ' + text.charAt(cur));
+	{
+		//debug('cur=' + cur + ', ' + text.charAt(cur));
 		let name: string = null;
 		// 复姓
 		let f2 = text.substr(cur, 2);
@@ -126,7 +127,7 @@ let matchName = function (text, cur = 0)
 		}
 	}
 	return ret;
-};
+}
 // debug(matchName('刘德华和李娜娜、司马光、上官飞飞'));
 // debug(matchName('李克'));
 

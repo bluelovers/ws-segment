@@ -5,7 +5,8 @@ export declare namespace _CHS_NAMES {
     const DOUBLE_NAME_1: string[];
     const DOUBLE_NAME_2: string[];
     const SINGLE_NAME: string[];
-    function p(a: any, n: any): IDICT<number>;
+    function arr_cjk(arr: string[]): string[];
+    function p(a: string[], n: number): IDICT<number>;
 }
 export declare const FAMILY_NAME_1: IDICT<number>;
 export declare const FAMILY_NAME_2: IDICT<number>;
