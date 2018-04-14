@@ -54,11 +54,12 @@
     "cjk-conv": "^1.0.22",
     "crlf-normalize": "^1.0.1",
     "fast-glob": "^2.2.0",
-    "segment-dict": "^1.0.2",
+    "segment-dict": "^1.0.5",
     "uni-string": "^1.0.1"
   },
   "optionalDependencies": {},
   "devDependencies": {
-    "@types/node": "^9.6.4"
+    "@types/node": "^9.6.5",
+    "regexp-cjk": "^1.2.12"
   }
 }

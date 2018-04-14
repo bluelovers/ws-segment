@@ -12,6 +12,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { searchFirst } from './fs/get';
 import POSTAG from './POSTAG';
+import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
 import Tokenizer, { ISubTokenizer } from './Tokenizer';
 import Optimizer, { ISubOptimizer } from './Optimizer';
 import Loader from './loader';
@@ -59,12 +60,49 @@ export class Segment
 	tokenizer: Tokenizer;
 	optimizer: Optimizer;
 
+	db: {
+		[key: string]: TableDict,
+	} = {};
+
+	options: IOptionsTableDict & {
+		db?: TableDict[],
+	} = {};
+
 	inited?: boolean;
 
-	constructor()
+	constructor(options: IOptionsTableDict & {
+		db?: TableDict[],
+	} = {})
 	{
+		const self = this;
+
+		this.options = Object.assign({}, this.options, options);
+
 		this.tokenizer = new Tokenizer(this);
 		this.optimizer = new Optimizer(this);
+
+		if (this.options.db)
+		{
+			this.options.db.forEach(function (data)
+			{
+				self.db[data.type] = data;
+			});
+		}
+
+		delete this.options.db;
+	}
+
+	getDictDatabase<R extends TableDict>(type: string, autocreate?: boolean, libTableDict?): R
+	{
+		if (autocreate && !this.db[type])
+		{
+			libTableDict = libTableDict || TableDict;
+
+			this.db[type] = new libTableDict(type, this.options);
+		}
+
+		// @ts-ignore
+		return this.db[type];
 	}
 
 	/**
@@ -147,18 +185,25 @@ export class Segment
 	 * @param {Boolean} convert_to_lower 是否全部转换为小写
 	 * @return {Segment}
 	 */
-	loadDict(name: string, type?: string, convert_to_lower?: boolean)
+	loadDict(name: string, type?: string, convert_to_lower?: boolean, skipExists?: boolean)
 	{
 		let filename = this._resolveDictFilename(name);
 		if (!type) type = 'TABLE';     // 默认为TABLE
 
+		const db = this.getDictDatabase(type, true);
+
+		const TABLE = this.DICT[type] = db.TABLE;
+		const TABLE2 = this.DICT[type + '2'] = db.TABLE2;
+
+		/*
 		// 初始化词典
 		if (!this.DICT[type]) this.DICT[type] = {};
 		if (!this.DICT[type + '2']) this.DICT[type + '2'] = {};
 		let TABLE = this.DICT[type];        // 词典表  '词' => {属性}
 		let TABLE2 = this.DICT[type + '2']; // 词典表  '长度' => '词' => 属性
+		*/
 		// 导入数据
-		let POSTAG = this.POSTAG;
+		const POSTAG = this.POSTAG;
 
 		let data = Loader.SegmentDictLoader.loadSync(filename);
 
@@ -169,6 +214,9 @@ export class Segment
 				data[0] = data[0].toLowerCase();
 			}
 
+			db.add(data, skipExists);
+
+			/*
 			let [w, p, f] = data;
 
 			if (w.length == 0)
@@ -179,6 +227,7 @@ export class Segment
 			TABLE[w] = { p, f, };
 			if (!TABLE2[w.length]) TABLE2[w.length] = {};
 			TABLE2[w.length][w] = TABLE[w];
+			*/
 		});
 
 		this.inited = true;
@@ -492,7 +541,7 @@ export class Segment
 	 * @param {Array} words 单词数组
 	 * @return {String}
 	 */
-	stringify(words: IWord[])
+	stringify(words: IWord[]): string
 	{
 		return words.map(function (item)
 		{

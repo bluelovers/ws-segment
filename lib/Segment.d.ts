@@ -1,5 +1,6 @@
 /// <reference types="node" />
 import POSTAG from './POSTAG';
+import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
 import Tokenizer, { ISubTokenizer } from './Tokenizer';
 import Optimizer, { ISubOptimizer } from './Optimizer';
 /**
@@ -27,8 +28,17 @@ export declare class Segment {
     };
     tokenizer: Tokenizer;
     optimizer: Optimizer;
+    db: {
+        [key: string]: TableDict;
+    };
+    options: IOptionsTableDict & {
+        db?: TableDict[];
+    };
     inited?: boolean;
-    constructor();
+    constructor(options?: IOptionsTableDict & {
+        db?: TableDict[];
+    });
+    getDictDatabase<R extends TableDict>(type: string, autocreate?: boolean, libTableDict?: any): R;
     /**
      * 载入分词模块
      *
@@ -45,7 +55,7 @@ export declare class Segment {
      * @param {Boolean} convert_to_lower 是否全部转换为小写
      * @return {Segment}
      */
-    loadDict(name: string, type?: string, convert_to_lower?: boolean): this;
+    loadDict(name: string, type?: string, convert_to_lower?: boolean, skipExists?: boolean): this;
     /**
      * 取词典表
      *

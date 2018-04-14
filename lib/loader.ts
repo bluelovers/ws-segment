@@ -12,29 +12,6 @@ import * as SegmentSynonymLoader from 'segment-dict/lib/loader/segment/synonym';
 export { SegmentDict }
 export { SegmentDictLoader, SegmentSynonymLoader }
 
-export interface IOptionsLoader
-{
-	toLowerCase?: boolean,
-	encoding?: string,
-}
-
-export function loadTxtSync(filename, options: IOptionsLoader = {})
-{
-	let data = fs
-		.readFileSync(filename, {
-			encoding: options.encoding ? options.encoding : null,
-		})
-		.toString()
-	;
-
-	if (options.toLowerCase)
-	{
-		data = data.toLowerCase();
-	}
-
-	return crlf(data);
-}
-
 import * as self from './loader';
 
 export default self;
