@@ -97,7 +97,7 @@ export class ReadableSync extends stream.Readable
 		this.pause();
 	}
 
-	_read(size: number)
+	_read(size: number): Buffer
 	{
 		let buffers: Buffer[] = [];
 		let bytesRead: Buffer;
@@ -121,7 +121,7 @@ export class ReadableSync extends stream.Readable
 		return bufferData;
 	}
 
-	__read(size: number)
+	__read(size: number): Buffer
 	{
 		let readBuffer = new Buffer(this.options.readChunk);
 		let bytesRead = fs.readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
