@@ -172,8 +172,6 @@ export class Segment
 			throw Error('Cannot find dict file "' + filename + '".');
 		}
 
-		//console.log(path.relative(__dirname, filename));
-
 		return filename;
 	}
 
