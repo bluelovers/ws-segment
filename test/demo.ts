@@ -98,7 +98,7 @@ let text = `
 let file: string;
 let change = false;
 
-file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/cm_out/元最強の剣士は、異世界魔法に憧れる/p0001_無章節/c0002_原最強、被說才能皆無.txt';
+file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/cm_out/元最強の剣士は、異世界魔法に憧れる/p0001_無章節/c0003_憂鬱的嘆息.txt';
 
 text = fs.readFileSync(file).toString();
 
@@ -159,7 +159,7 @@ export function _lazyFix(text: string, bool?: boolean)
 {
 	let ks = segment
 		.doSegment(text, {
-			stripPunctuation: true,
+			//stripPunctuation: true,
 		})
 		.map(function (data)
 		{

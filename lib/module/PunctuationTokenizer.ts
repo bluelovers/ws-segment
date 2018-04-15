@@ -91,9 +91,7 @@ export let STOPWORD = {} as {
 	[key: string]: number,
 };
 export let STOPWORD2 = {} as {
-	[key: number]: {
-		[key: string]: number,
-	},
+	[key: number]: typeof STOPWORD,
 };
 for (let i in _STOPWORD)
 {
