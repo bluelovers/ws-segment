@@ -6,8 +6,9 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 
+import IPOSTAG from '../POSTAG';
 import { debug } from '../util';
-import Segment, { IWord } from '../Segment';
+import Segment, { IDICT, IWord } from '../Segment';
 
 /** 模块类型 */
 export const type = 'optimizer';
@@ -22,6 +23,42 @@ export const init = function (_segment)
 {
 	segment = _segment;
 };
+
+export function isMergeable(w1: IWord, w2: IWord, {
+	POSTAG,
+	TABLE,
+	nw,
+	i,
+}: {
+	POSTAG: typeof IPOSTAG,
+	TABLE: IDICT,
+	nw: string,
+	i: number,
+}): boolean
+{
+	let bool: boolean;
+	let m: number;
+
+	/**
+	 * 原始判斷模式
+	 */
+	if (w1.p == w2.p)
+	{
+		bool = true;
+	}
+	/**
+	 * 不確定沒有BUG 但原始模式已經不合需求 因為單一項目多個詞性
+	 */
+	else if (m = (w1.p & w2.p))
+	{
+		if (1 || m & POSTAG.D_N)
+		{
+			bool = true;
+		}
+	}
+
+	return bool && (nw in TABLE);
+}
 
 /**
  * 词典优化
@@ -52,7 +89,13 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 		// ==========================================
 		// 能组成一个新词的(词性必须相同)
 		let nw = w1.w + w2.w;
-		if (w1.p == w2.p && nw in TABLE)
+		if (isMergeable(w1, w2, {
+			nw,
+			POSTAG,
+			TABLE,
+			i,
+		}))
+		//if (w1.p == w2.p && nw in TABLE)
 		{
 			words.splice(i, 2, {
 				w: nw,
@@ -68,7 +111,7 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 		{
 			words.splice(i, 2, {
 				w: nw,
-				p: POSTAG.D_A,
+				p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
 				m: [w1, w2],
 			});
 			ie--;
