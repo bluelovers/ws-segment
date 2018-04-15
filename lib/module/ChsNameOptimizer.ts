@@ -54,7 +54,8 @@ module ChsNameOptimizer
 				{
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
-						p: POSTAG.A_NR
+						p: POSTAG.A_NR,
+						m: [word, nextword],
 					});
 					i++;
 					continue;
@@ -66,7 +67,8 @@ module ChsNameOptimizer
 				{
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
-						p: POSTAG.A_NR
+						p: POSTAG.A_NR,
+						m: [word, nextword],
 					});
 					i++;
 					continue;
@@ -80,7 +82,8 @@ module ChsNameOptimizer
 					{
 						words.splice(i, 2, {
 							w: word.w + nextword.w,
-							p: POSTAG.A_NR
+							p: POSTAG.A_NR,
+							m: [word, nextword],
 						});
 						// 如果上一个单词可能是一个姓，则合并
 						let preword = words[i - 1];
@@ -89,7 +92,8 @@ module ChsNameOptimizer
 						{
 							words.splice(i - 1, 2, {
 								w: preword.w + word.w + nextword.w,
-								p: POSTAG.A_NR
+								p: POSTAG.A_NR,
+								m: [preword, word, nextword],
 							});
 						}
 						else
@@ -101,13 +105,21 @@ module ChsNameOptimizer
 				}
 
 				// 如果为 无歧义的姓 + 名（2字以内） 且其中一个未未识别词
-				if ((word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2) &&
-					(!word.p || !nextword.p))
+				if (
+					(word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2)
+					&& (!word.p || !nextword.p)
+
+					/**
+					 * 防止將標點符號當作名字的BUG
+					 */
+					&& !(word.p & POSTAG.D_W || nextword.p & POSTAG.D_W)
+				)
 				{
 					//debug(word, nextword);
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
-						p: POSTAG.A_NR
+						p: POSTAG.A_NR,
+						m: [word, nextword],
 					});
 				}
 			}
@@ -130,7 +142,8 @@ module ChsNameOptimizer
 				{
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
-						p: POSTAG.A_NR
+						p: POSTAG.A_NR,
+						m: [word, nextword],
 					});
 					i++;
 					continue;
