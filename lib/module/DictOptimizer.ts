@@ -56,7 +56,8 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 		{
 			words.splice(i, 2, {
 				w: nw,
-				p: TABLE[nw].p
+				p: TABLE[nw].p,
+				m: [w1, w2],
 			});
 			ie--;
 			continue;
@@ -67,7 +68,8 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 		{
 			words.splice(i, 2, {
 				w: nw,
-				p: POSTAG.D_A
+				p: POSTAG.D_A,
+				m: [w1, w2],
 			});
 			ie--;
 			continue;
@@ -83,7 +85,8 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 			{
 				words.splice(i, 2, {
 					w: w1.w + w2.w,
-					p: POSTAG.A_M
+					p: POSTAG.A_M,
+					m: [w1, w2],
 				});
 				ie--;
 				continue;

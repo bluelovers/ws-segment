@@ -118,9 +118,7 @@ ks.map(function (v, index)
 
 	if (v.p)
 	{
-		v.ps = POSTAG.chsName(v.p);
-		// @ts-ignore
-		v.pp = '0x' + v.p.toString(16).padStart(4, '0');
+		add_info(v);
 	}
 	else
 	{
@@ -139,6 +137,23 @@ fs.writeFileSync('./temp/s2.json', JSON.stringify({
 	change,
 	ks2,
 }, null, "\t"));
+
+export function add_info(v)
+{
+	if (v.p)
+	{
+		v.ps = POSTAG.chsName(v.p);
+		// @ts-ignore
+		v.pp = '0x' + v.p.toString(16).padStart(4, '0');
+
+		if (v.m)
+		{
+			v.m.map(add_info);
+		}
+	}
+
+	return v;
+}
 
 export function _lazyFix(text: string, bool?: boolean)
 {

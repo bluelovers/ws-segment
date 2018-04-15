@@ -2,6 +2,7 @@
  * 单词类型
  */
 export declare enum POSTAG {
+    BAD = 2147483648,
     D_A = 1073741824,
     D_B = 536870912,
     D_C = 268435456,
@@ -32,8 +33,8 @@ export declare enum POSTAG {
     A_NZ = 8,
     D_ZH = 4,
     D_K = 2,
-    UNK = 0,
     URL = 1,
+    UNK = 0,
 }
 export declare namespace POSTAG {
     const POSTAG_KEYS: string[];
@@ -41,6 +42,7 @@ export declare namespace POSTAG {
      * 中文说明
      */
     enum CHSNAME {
+        BAD = "\u932F\u5B57",
         D_A = "\u5F62\u5BB9\u8BCD \u5F62\u8BED\u7D20",
         D_B = "\u533A\u522B\u8BCD \u533A\u522B\u8BED\u7D20",
         D_C = "\u8FDE\u8BCD \u8FDE\u8BED\u7D20",
@@ -71,8 +73,8 @@ export declare namespace POSTAG {
         A_NZ = "\u5176\u4ED6\u4E13\u540D",
         D_ZH = "\u524D\u63A5\u6210\u5206",
         D_K = "\u540E\u63A5\u6210\u5206",
-        UNK = "\u672A\u77E5",
         URL = "\u7F51\u5740 \u90AE\u7BB1\u5730\u5740",
+        UNK = "\u672A\u77E5",
     }
     /**
      * 中文说明

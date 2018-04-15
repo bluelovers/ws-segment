@@ -101,6 +101,14 @@ export declare class Segment {
     }): string[];
     doSegment(text: string | Buffer, options?: IOptionsDoSegment): IWord[];
     /**
+     * 转换同义词
+     */
+    convertSynonym(ret: IWord[], showcount: true): {
+        count: number;
+        list: IWord[];
+    };
+    convertSynonym(ret: IWord[], showcount?: boolean): IWord[];
+    /**
      * 将单词数组连接成字符串
      *
      * @param {Array} words 单词数组
@@ -141,6 +149,7 @@ export declare namespace Segment {
          * 詞性名稱
          */
         ps?: string;
+        pp?: string;
         /**
          * 權重
          */
@@ -152,7 +161,7 @@ export declare namespace Segment {
         /**
          * 合併項目
          */
-        m?: any;
+        m?: Array<IWord | string>;
     }
     interface IOptionsDoSegment {
         /**

@@ -12,7 +12,10 @@ export function char_table(text: string)
 	return a
 		.reduce(function (a, c)
 		{
-			a.push(zhTable.auto(c));
+			a.push(zhTable.auto(c, {
+				// @ts-ignore
+				safe: true,
+			}));
 
 			return a;
 		}, [])
@@ -26,11 +29,11 @@ export function text_list(text: string): string[]
 	char_table(text)
 		.forEach(function (v, index, arr)
 		{
-			f(v, '', 0, arr);
+			f(v, '', index, arr);
 		})
 	;
 
-	function f(v: string[], str = '', index, arr)
+	function f(v: string[], str = '', index, arr, depth?)
 	{
 		return v.reduce(function (a, c)
 		{
@@ -39,11 +42,13 @@ export function text_list(text: string): string[]
 
 			if (i < arr.length)
 			{
-				let r = f(arr[i], s, i, arr);
+				let r = f(arr[i], s, i, arr, (depth || 0) + 1);
 			}
-			else if ((i) == arr.length)
+			else if ((depth + 1) == arr.length)
 			{
-				aa.push(s)
+				//console.log(777, s, [str, c], index, depth);
+
+				aa.push(s);
 			}
 
 			return a

@@ -474,6 +474,12 @@ export class Segment
 			});
 		}
 
+		if (options.convertSynonym)
+		{
+			ret = this.convertSynonym(ret);
+		}
+
+		/*
 		// 转换同义词
 		function convertSynonym(list)
 		{
@@ -484,7 +490,12 @@ export class Segment
 				if (item.w in TABLE)
 				{
 					count++;
-					return { w: TABLE[item.w], p: item.p };
+					//return { w: TABLE[item.w], p: item.p };
+
+					item.ow = item.w;
+					item.w = TABLE[item.w];
+
+					return item;
 				}
 				else
 				{
@@ -504,6 +515,7 @@ export class Segment
 			}
 			while (result.count > 0);
 		}
+		*/
 
 		// 去除停止符
 		if (options.stripStopword)
@@ -530,6 +542,73 @@ export class Segment
 			{
 				return item.w;
 			});
+		}
+
+		return ret;
+	}
+
+	/**
+	 * 转换同义词
+	 */
+	convertSynonym(ret: IWord[], showcount: true): { count: number, list: IWord[] }
+	convertSynonym(ret: IWord[], showcount?: boolean): IWord[]
+	convertSynonym(ret: IWord[], showcount?: boolean)
+	{
+		const me = this;
+		let TABLE = me.getDict('SYNONYM');
+
+		let total_count = 0;
+
+		// 转换同义词
+		function _convertSynonym(list: IWord[])
+		{
+			let count = 0;
+			list = list.reduce(function (a, item)
+			{
+				let w = item.w;
+
+				if (w in TABLE)
+				{
+					count++;
+					total_count++;
+					//return { w: TABLE[item.w], p: item.p };
+
+					let p = item.p;
+
+					if (p & me.POSTAG.BAD)
+					{
+						p = p ^ me.POSTAG.BAD;
+					}
+
+					a.push({
+						...item,
+						w: TABLE[w],
+						ow: w,
+						p,
+						op: item.p,
+					});
+				}
+				else
+				{
+					a.push(item);
+				}
+
+				return a;
+			}, []);
+			return { count: count, list: list };
+		}
+
+		let result: { count: number, list: IWord[] };
+		do
+		{
+			result = _convertSynonym(ret);
+			ret = result.list;
+		}
+		while (result.count > 0);
+
+		if (showcount)
+		{
+			return { count: total_count, list: ret };
 		}
 
 		return ret;
@@ -629,6 +708,7 @@ export namespace Segment
 		 * 詞性名稱
 		 */
 		ps?: string,
+		pp?: string,
 		/**
 		 * 權重
 		 */
@@ -640,7 +720,7 @@ export namespace Segment
 		/**
 		 * 合併項目
 		 */
-		m?,
+		m?: Array<IWord | string>,
 	}
 
 	export interface IOptionsDoSegment
