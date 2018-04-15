@@ -369,6 +369,7 @@ export class Segment
 			.loadStopwordDict('stopword') // 停止符
 
 			.loadDict('lazy/badword')
+			.loadDict('lazy/dict_synonym')
 
 			.loadDict('names/en')
 			.loadDict('names/jp')
