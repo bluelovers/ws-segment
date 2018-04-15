@@ -26,7 +26,7 @@ const segment = new Segment({
 
 console.time();
 
-segment.autoInit();
+segment.autoInit(); // 需要加速的話 參考 demo.cache 內的範例
 
 console.timeEnd();
 
@@ -36,6 +36,9 @@ db_dict.options.autoCjk = true;
 
 console.time();
 
+/**
+ * 最後一個參數的數字是代表權重 數字越高 越優先
+ */
 db_dict
 	//.add(['在這裡', POSTAG.D_F, 0])
 	//.add(['人名', POSTAG.A_NR, 0])
@@ -103,7 +106,7 @@ let text = `
 let file: string;
 let change = false;
 
-file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/cm_out/元最強の剣士は、異世界魔法に憧れる/p0001_無章節/c0003_憂鬱的嘆息.txt';
+file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/cm_out/元最強の剣士は、異世界魔法に憧れる/p0001_無章節/c0006_家庭教師的懊悔.txt';
 
 text = fs.readFileSync(file).toString();
 

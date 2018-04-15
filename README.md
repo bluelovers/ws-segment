@@ -1,5 +1,7 @@
 # 中文分词模块
 
+    Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本
+
 本模块以**[盘古分词组件](http://pangusegment.codeplex.com/)**中的词库为基础，
 算法设计也部分参考了盘古分词组件中的算法。
 
@@ -11,15 +13,26 @@
 
 ---
 
-Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
+1. 以網路翻譯小說為樣本增加字典
+2. 可緩存字典數據讓下次使用勉強快一丁點
+3. 可啟用自動將字典無視簡繁日漢字
+4. 精簡一部分多餘字典
+5. 可額外追加字典條目而不需要增加字典檔
+6. 可將結果轉換為原始格式
+
+**歡迎一同來追加字典**
 
 * [segment-dict](https://www.npmjs.com/package/segment-dict) - dictionary data
+
+Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
 
 ## 安装
 
 ```bash
 npm install novel-segment
 ```
+
+* npm: [novel-segment](https://www.npmjs.com/package/novel-segment)
 
 ## demo
 
