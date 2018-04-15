@@ -38,6 +38,16 @@ export class LoaderClass<T, R>
 		{
 			this.stringifyLine = options.stringifyLine.bind(this);
 		}
+
+		if (options.filter)
+		{
+			this.filter = options.filter.bind(this);
+		}
+
+		if (options.mapper)
+		{
+			this.defaultOptions.mapper = options.mapper.bind(this);
+		}
 	}
 
 	static create(options: IOptions<any, any> = {}, ...argv)

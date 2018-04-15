@@ -39,7 +39,13 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 
 	filter(line: string)
 	{
-		if (line && line.indexOf('//') != 0)
+		line = line
+			.replace(/\uFEFF/g, '')
+			.trim()
+			.replace(/^\s+|\s+$/, '')
+		;
+
+		if (line && line.indexOf('\/\/') != 0)
 		{
 			return line;
 		}
