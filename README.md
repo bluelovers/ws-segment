@@ -9,15 +9,24 @@
 + 基于词性进行联想识别
 + 可使用JavaScript编写自定义的分词模块
 
+---
+
 Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
 
-## 1、使用方法
+* [segment-dict](https://www.npmjs.com/package/segment-dict) - dictionary data
 
-安装：
+## 安装
 
 ```bash
 npm install novel-segment
 ```
+
+## demo
+
+* [demo.ts](test/demo.ts)
+* [demo.cache.ts](test/demo.cache.ts)
+
+## 1、使用方法
 
 使用方法：
 

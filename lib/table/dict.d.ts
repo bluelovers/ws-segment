@@ -20,6 +20,7 @@ export declare class TableDict {
     constructor(type: string, options?: IOptions);
     exists(data: IWord | IDictRow | string): ITableDictRow;
     add(data: IWord | IDictRow | string, skipExists?: boolean): this;
+    size(): number;
     protected _add({w, p, f}: {
         w: any;
         p: any;

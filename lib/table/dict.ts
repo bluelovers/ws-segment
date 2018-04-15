@@ -136,6 +136,11 @@ export class TableDict
 		return this;
 	}
 
+	size()
+	{
+		return Object.keys(this.TABLE).length;
+	}
+
 	protected _add({w, p, f})
 	{
 		let len = w.length;
