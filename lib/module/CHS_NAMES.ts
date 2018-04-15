@@ -1,11 +1,13 @@
 /**
  * 中文姓
  */
+
 'use strict';
 
 import CjkConv from 'cjk-conv';
 
 import { IDICT } from '../Segment';
+import { arr_cjk } from '../util/cjk';
 
 export namespace _CHS_NAMES
 {
@@ -104,23 +106,7 @@ export namespace _CHS_NAMES
 		'八', '九', '十',
 	];
 
-	export function arr_cjk(arr: string[]): string[]
-	{
-		return arr
-			// @ts-ignore
-			.concat(arr.map(CjkConv.cjk2zht))
-			// @ts-ignore
-			.concat(arr.map(CjkConv.cn2tw))
-			// @ts-ignore
-			.concat(arr.map(CjkConv.cjk2zhs))
-			// @ts-ignore
-			.concat(arr.map(CjkConv.cjk2jp))
-			.filter(function (value, index, array)
-			{
-				return array.indexOf(value) == index;
-			})
-			;
-	}
+
 
 	export function p(a: string[], n: number): IDICT<number>
 	{

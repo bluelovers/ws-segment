@@ -69,7 +69,7 @@
     "cjk-conv": "^1.0.22",
     "crlf-normalize": "^1.0.1",
     "fast-glob": "^2.2.0",
-    "segment-dict": "^1.0.6",
+    "segment-dict": "^1.0.7",
     "uni-string": "^1.0.1"
   },
   "devDependencies": {

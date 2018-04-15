@@ -3,9 +3,25 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-declare var debug: {
-    (message?: any, ...optionalParams: any[]): void;
-    (message?: any, ...optionalParams: any[]): void;
+import Segment, { IWord } from '../Segment';
+/** 模块类型 */
+export declare const type = "optimizer";
+export declare let segment: Segment;
+/**
+ * 模块初始化
+ *
+ * @param {Segment} segment 分词接口
+ */
+export declare function init(_segment: any): void;
+/**
+ * 日期时间优化
+ *
+ * @param {array} words 单词数组
+ * @param {bool} is_not_first 是否为管理器调用的
+ * @return {array}
+ */
+export declare function doOptimize(words: IWord[], is_not_first?: boolean): Segment.IWord[];
+export declare let _DATETIME: string[];
+export declare const DATETIME: {
+    [key: string]: number;
 };
-declare var _DATETIME: string[];
-declare var DATETIME: {};

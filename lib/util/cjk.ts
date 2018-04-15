@@ -59,3 +59,21 @@ export function text_list(text: string): string[]
 
 	return aa;
 }
+
+export function arr_cjk(arr: string[]): string[]
+{
+	return arr
+	// @ts-ignore
+		.concat(arr.map(CjkConv.cjk2zht))
+		// @ts-ignore
+		.concat(arr.map(CjkConv.cn2tw))
+		// @ts-ignore
+		.concat(arr.map(CjkConv.cjk2zhs))
+		// @ts-ignore
+		.concat(arr.map(CjkConv.cjk2jp))
+		.filter(function (value, index, array)
+		{
+			return array.indexOf(value) == index;
+		})
+		;
+}
