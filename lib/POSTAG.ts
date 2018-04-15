@@ -93,13 +93,89 @@ export namespace POSTAG
 		UNK = '未知',
 	}
 
+	export enum ENNAME
+	{
+		D_A = 'a',
+		D_B = 'b',
+		D_C = 'c',
+		D_D = 'd',
+		D_E = 'e',
+		D_F = 'f',
+		D_I = 'i',
+		D_L = 'l',
+		A_M = 'm',
+		D_MQ = 'mq',
+		D_N = 'n',
+		D_O = 'o',
+		D_P = 'p',
+		A_Q = 'q',
+		D_R = 'r',
+		D_S = 's',
+		D_T = 't',
+		D_U = 'u',
+		D_V = 'v',
+		D_W = 'w',
+		D_X = 'x',
+		D_Y = 'y',
+		D_Z = 'z',
+		A_NR = 'nr',
+		A_NS = 'ns',
+		A_NT = 'nt',
+		A_NX = 'nx',
+		A_NZ = 'nz',
+		D_ZH = 'h',
+		D_K = 'k',
+		URL = 'uri',
+		UNK = 'un',
+	}
+
 	POSTAG_KEYS.forEach(function (key)
 	{
 		let lc = key.toLowerCase();
 
 		POSTAG[lc] = POSTAG[key];
 		CHSNAME[lc] = CHSNAME[key];
+		ENNAME[lc] = ENNAME[key];
 	});
+
+	export const enName = getPOSTagTranslator(POSTAG, ENNAME);
+	export const chsName = getPOSTagTranslator(POSTAG, CHSNAME);
+
+	export function getPOSTagTranslator(POSTagDict: typeof POSTAG, I18NDict)
+	{
+		return (p: number | string): string =>
+		{
+			if (enumIsNaN(p))
+			{
+				return I18NDict[p] || I18NDict.UNK;
+			}
+
+			if (typeof p == 'string')
+			{
+				p = Number(p);
+			}
+
+			let ret = POSTAG_KEYS.reduce(function (ret, i)
+			{
+				if ((<number>p & <number>POSTAG[i]))
+				//if ((<number>p & <number>POSTAG[i]) > 0)
+				{
+					ret.push(I18NDict[i] || i);
+				}
+
+				return ret;
+			}, []);
+
+			if (ret.length < 1)
+			{
+				return I18NDict.UNK;
+			}
+			else
+			{
+				return ret.toString();
+			}
+		};
+	}
 
 	/**
 	 * 中文说明
@@ -108,7 +184,7 @@ export namespace POSTAG
 	 * @param {number | string} p
 	 * @returns {string}
 	 */
-	export function chsName(p: number | string): string
+	function _chsName(p: number | string): string
 	{
 		let bool = enumIsNaN(p);
 
