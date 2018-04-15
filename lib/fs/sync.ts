@@ -16,8 +16,14 @@ export function createLoadStreamSync<T>(file: string, options: {
 
 	callback?: ICallback<T>,
 
+	onready?(...argv),
+
 } = {}): IStreamLineWithValue<T>
 {
+	options.onready = options.onready || function (src, ...argv)
+	{
+		this.value = this.value || [];
+	};
 
 	options.mapper = options.mapper || function (data)
 	{
@@ -31,6 +37,9 @@ export function createLoadStreamSync<T>(file: string, options: {
 	};
 
 	let stream: IStreamLineWithValue<any> = createStreamLineSync(file, options.mapper, {
+
+		onready: options.onready,
+
 		ondata: options.ondata,
 		onclose()
 		{
@@ -145,6 +154,8 @@ export class ReadableSync extends stream.Readable
 	run()
 	{
 		this.resume();
+
+		this.emit('ready', this);
 
 		let i = 0;
 

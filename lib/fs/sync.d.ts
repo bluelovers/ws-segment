@@ -9,6 +9,7 @@ export declare function createLoadStreamSync<T>(file: string, options?: {
     mapper?(line: string);
     ondata?(data);
     callback?: ICallback<T>;
+    onready?(...argv);
 }): IStreamLineWithValue<T>;
 export declare function createStreamLineSync(file: string, options: IOptions): IStreamLine;
 export declare function createStreamLineSync(file: string, fn?: (data: string) => any, options?: IOptions): IStreamLine;

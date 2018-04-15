@@ -12,8 +12,15 @@ export function createLoadStream<T>(file: string, options: {
 
 	callback?: ICallback<T>,
 
+	onready?(),
+
 } = {}): IStreamLineWithValue<T>
 {
+
+	options.onready = options.onready || function (...argv)
+	{
+		this.value = this.value || [];
+	};
 
 	options.mapper = options.mapper || function (data)
 	{
@@ -22,19 +29,22 @@ export function createLoadStream<T>(file: string, options: {
 
 	options.ondata = options.ondata || function (data)
 	{
-		this.value = this.value || [];
 		this.value.push(data);
 	};
 
 	let stream: IStreamLineWithValue<any> = createStreamLine(file, options.mapper, {
+
+		onready: options.onready,
+
 		ondata: options.ondata,
+
 		onclose()
 		{
 			if (options.callback)
 			{
 				options.callback.call(this, null, stream.value, stream)
 			}
-		}
+		},
 	});
 
 	return stream;

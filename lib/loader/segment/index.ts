@@ -70,7 +70,11 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 			}
 
 			// @ts-ignore
-			a[1] = '0x' + a[1].toString(16).padStart(4, '0');
+			a[1] = '0x' + a[1]
+				.toString(16)
+				.padStart(4, '0')
+				.toUpperCase()
+			;
 		}
 
 		if (a.length > 2)

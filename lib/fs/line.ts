@@ -86,7 +86,7 @@ export function byLine(fn?, options: IOptions = {})
 	Object.keys(options)
 		.forEach(function (key)
 		{
-			if (key.indexOf('on') == 0)
+			if (key.indexOf('on') == 0 && options[key])
 			{
 				wts.on(key.slice(2), options[key]);
 			}
