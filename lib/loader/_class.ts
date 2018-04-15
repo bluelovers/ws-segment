@@ -25,7 +25,7 @@ export type IOptions<T, R> = {
 export class LoaderClass<T, R>
 {
 	public default = this.load;
-	defaultOptions: IOptions<T, R>;
+	protected defaultOptions: IOptions<T, R>;
 
 	constructor(options: IOptions<T, R> = {}, ...argv)
 	{

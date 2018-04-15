@@ -13,7 +13,7 @@ export declare type IOptions<T, R> = {
 };
 export declare class LoaderClass<T, R> {
     default: (file: string, options?: IOptions<T, R>) => Promise<T>;
-    defaultOptions: IOptions<T, R>;
+    protected defaultOptions: IOptions<T, R>;
     constructor(options?: IOptions<T, R>, ...argv: any[]);
     static create(options?: IOptions<any, any>, ...argv: any[]): LoaderClass<any, any>;
     parseLine(input: string): R;
