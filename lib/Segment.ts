@@ -360,8 +360,6 @@ export class Segment
 			.loadDict('phrases')
 			.loadDict('phrases2')
 
-			.loadDict('lazy/badword')
-
 			.loadDict('dict')           // 盘古词典
 			.loadDict('dict2')          // 扩展词典（用于调整原盘古词典）
 			.loadDict('dict3')          // 扩展词典（用于调整原盘古词典）
@@ -370,9 +368,12 @@ export class Segment
 			.loadSynonymDict('synonym')   // 同义词
 			.loadStopwordDict('stopword') // 停止符
 
+			.loadDict('lazy/badword')
+
 			.loadDict('names/en')
 			.loadDict('names/jp')
 			.loadDict('lazy/index')
+
 		;
 
 		this.inited = true;
