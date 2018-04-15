@@ -26,14 +26,21 @@ export function text_list(text: string): string[]
 {
 	let aa = [];
 
-	char_table(text)
+	let arr = char_table(text);
+
+	if (arr.length <= 1)
+	{
+		return arr;
+	}
+
+	arr
 		.forEach(function (v, index, arr)
 		{
 			f(v, '', index, arr);
 		})
 	;
 
-	function f(v: string[], str = '', index, arr, depth?)
+	function f(v: string[], str = '', index, arr, depth = 0)
 	{
 		return v.reduce(function (a, c)
 		{
@@ -42,7 +49,7 @@ export function text_list(text: string): string[]
 
 			if (i < arr.length)
 			{
-				let r = f(arr[i], s, i, arr, (depth || 0) + 1);
+				let r = f(arr[i], s, i, arr, depth + 1);
 			}
 			else if ((depth + 1) == arr.length)
 			{
