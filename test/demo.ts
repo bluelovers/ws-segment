@@ -38,7 +38,11 @@ console.time();
 
 db_dict
 	//.add(['在這裡', POSTAG.D_F, 0])
-	//.add(['在這裡', POSTAG.D_F, 0])
+	//.add(['人名', POSTAG.A_NR, 0])
+	//.add(['地名', POSTAG.A_NS, 0])
+	//.add(['机构团体', POSTAG.A_NT, 0])
+	//.add(['名词', POSTAG.D_N, 0])
+	//.add(['錯字', POSTAG.BAD, 0])
 ;
 
 console.log(Object.keys(db_dict.TABLE).length);
@@ -52,6 +56,7 @@ export let rs = [
 	{
 		let self = this as IWord;
 
+		// 方位词
 		if (self.p & POSTAG.D_F)
 		{
 			return input.replace(/[裏里]/g, '裡');
@@ -137,6 +142,8 @@ fs.writeFileSync('./temp/s2.json', JSON.stringify({
 	change,
 	ks2,
 }, null, "\t"));
+
+fs.writeFileSync('./temp/s_out.txt', segment.stringify(ks));
 
 export function add_info(v)
 {
