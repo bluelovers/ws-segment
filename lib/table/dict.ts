@@ -33,7 +33,7 @@ export class TableDict
 
 		this.options = Object.assign({}, this.options, options);
 
-		console.log(this.options);
+		//console.log(this.options);
 	}
 
 	exists(data: IWord | IDictRow | string): ITableDictRow
