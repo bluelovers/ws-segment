@@ -56,17 +56,37 @@ if (cache_file)
 	}));
 }
 
-let ret = segment.doSegment(`對索菲亞・諾伊蒙多來說，兒子──索馬・諾伊蒙多的存在是，可以被稱為天才的象征。
+let text = `李三买一张三角桌子`;
 
-因自身立場身份，索菲亞有機會遇到各式各樣的人。
-其中有壞人也有好人，有凡人也有天才。
+let ret = segment.doSegment(text);
 
-從公爵家的千金開始，經過魔導學院，幾多戰場的奔波……不久，或是被稱為世界最強的魔導士等。
-但是在那過程中與所遇到的每個人相比，自己的兒子更充滿著才能。
-`);
+ret.map(add_info);
+
+fs.writeFileSync('./temp/c1.json', JSON.stringify({
+	ret,
+}, null, "\t"));
 
 console.dir(ret, {
 	colors: true,
 });
 
 console.timeEnd();
+
+export function add_info(v)
+{
+	if (v.p)
+	{
+		v.ps = POSTAG.chsName(v.p);
+		v.ps_en = POSTAG.enName(v.p);
+
+		// @ts-ignore
+		v.pp = '0x' + v.p.toString(16).padStart(4, '0');
+
+		if (v.m)
+		{
+			v.m.map(add_info);
+		}
+	}
+
+	return v;
+}

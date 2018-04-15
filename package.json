@@ -4,6 +4,7 @@
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
+    "PanGuSegment",
     "PoS tagging",
     "analyzer",
     "async",
@@ -24,6 +25,7 @@
     "novel",
     "opencc",
     "optimizer",
+    "pangu",
     "phrases",
     "segment",
     "segmentation",
@@ -38,8 +40,12 @@
     "word",
     "word segmentation",
     "中文",
+    "中文分詞",
     "中文分词",
+    "分詞",
     "分词",
+    "盘古分词",
+    "盤古分詞",
     "簡繁"
   ],
   "homepage": "https://github.com/bluelovers/node-segment#readme",
