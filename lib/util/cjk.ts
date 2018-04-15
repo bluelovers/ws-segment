@@ -55,5 +55,7 @@ export function text_list(text: string): string[]
 		}, [])
 	}
 
+	aa.sort();
+
 	return aa;
 }

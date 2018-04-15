@@ -134,14 +134,16 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 	let wordpos = getPosInfo(words, text);
 	//debug(wordpos);
 
-	// 使用类似于MMSG的分词算法
-	// 找出所有分词可能，主要根据一下几项来评价：
-	// x、词数量最少；
-	// a、词平均频率最大；
-	// b、每个词长度标准差最小；
-	// c、未识别词最少；
-	// d、符合语法结构项：如两个连续的动词减分，数词后面跟量词加分；
-	// 取以上几项综合排名最最好的
+	/**
+	 * 使用类似于MMSG的分词算法
+	 * 找出所有分词可能，主要根据一下几项来评价：
+	 * x、词数量最少；
+	 * a、词平均频率最大；
+	 * b、每个词长度标准差最小；
+	 * c、未识别词最少；
+	 * d、符合语法结构项：如两个连续的动词减分，数词后面跟量词加分；
+	 * 取以上几项综合排名最最好的
+	 */
 	let chunks = getChunks(wordpos, 0, text);
 	//debug(chunks);
 	let assess: Array<{
