@@ -6,6 +6,6 @@ export declare function createLoadStream<T>(file: string, options?: {
     mapper?(line: string);
     ondata?(data);
     callback?: ICallback<T>;
-    onready?();
+    onready?(...argv);
 }): IStreamLineWithValue<T>;
 export default createLoadStream;

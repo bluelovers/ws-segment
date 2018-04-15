@@ -12,12 +12,12 @@ export function createLoadStream<T>(file: string, options: {
 
 	callback?: ICallback<T>,
 
-	onready?(),
+	onready?(...argv),
 
 } = {}): IStreamLineWithValue<T>
 {
 
-	options.onready = options.onready || function (...argv)
+	options.onready = options.onready || function (src, ...argv)
 	{
 		this.value = this.value || [];
 	};
