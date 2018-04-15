@@ -30,6 +30,17 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 
 ---
 
+* [中文詞彙的意義與詞意](http://cwn.ling.sinica.edu.tw/query1.htm)
+* http://cdict.info/
+* http://www.kwuntung.net/synonym/
+* [萌典](https://www.moedict.tw)
+
+---
+
+* http://opencc.byvoid.com/
+
+---
+
 * [search:jieba](https://www.npmjs.com/search?q=jieba)
 * [search:nlp chinese](https://www.npmjs.com/search?q=nlp%20chinese)
 * [keywords:中文分词](https://www.npmjs.com/search?q=keywords:%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D)
