@@ -347,8 +347,6 @@ export function getChunks(wordpos: {
 {
 	total_count++;
 
-	//segment.cii = Math.max(segment.cii || 0, total_count);
-
 	let words = wordpos[pos] || [];
 	// debug('getChunks: ');
 	// debug(words);
