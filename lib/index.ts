@@ -10,14 +10,17 @@ import { Segment } from './Segment';
 export { Segment }
 
 export function useDefault(segment: Segment, options: {
-	all?: boolean
+	all_mod?: boolean,
+	nomod?: boolean,
+	nodict?: boolean,
 } = {})
 {
+
 	// 识别模块
-	segment.use(getDefaultModList(options.all));
+	!options.nomod && segment.use(getDefaultModList(options.all_mod));
 
 	// 字典文件
-	segment
+	!options.nodict && segment
 		//.loadDict('jieba') <=== bad file
 
 		.loadDict('dict4')

@@ -87,7 +87,9 @@ export declare class Segment {
      * @return {Segment}
      */
     useDefault(...argv: any[]): this;
-    autoInit(throwFn?: any): this;
+    autoInit(options?: {
+        all_mod?: boolean;
+    }): this;
     /**
      * 开始分词
      *

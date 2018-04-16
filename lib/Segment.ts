@@ -123,9 +123,9 @@ export class Segment
 
 		if (Array.isArray(mod))
 		{
-			mod.forEach(function (mod)
+			mod.forEach(function (m)
 			{
-				me.use(mod[i]);
+				me.use(m);
 			});
 		}
 		else
@@ -402,7 +402,9 @@ export class Segment
 		*/
 	}
 
-	autoInit(throwFn?)
+	autoInit(options?: {
+		all_mod?: boolean,
+	})
 	{
 		if (!this.inited)
 		{
@@ -410,7 +412,7 @@ export class Segment
 
 			if (!this.modules.tokenizer.length)
 			{
-				this.useDefault();
+				this.useDefault(options);
 			}
 		}
 
