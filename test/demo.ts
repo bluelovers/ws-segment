@@ -28,6 +28,11 @@ console.time();
 
 segment.autoInit(); // 需要加速的話 參考 demo.cache 內的範例
 
+/**
+ * 自動處理 `里|裏|后`
+ */
+segment.use('zhtSynonymOptimizer');
+
 console.timeEnd();
 
 let db_dict = segment.getDictDatabase('TABLE');
@@ -48,7 +53,7 @@ db_dict
 	//.add(['錯字', POSTAG.BAD, 0])
 ;
 
-console.log(Object.keys(db_dict.TABLE).length);
+console.log(db_dict.size());
 
 console.timeEnd();
 
@@ -82,8 +87,6 @@ rs = rs.map(function (data)
 
 	return data;
 });
-
-segment.use('zhtSynonymOptimizer');
 
 console.timeEnd();
 
