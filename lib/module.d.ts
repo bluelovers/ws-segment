@@ -13,7 +13,8 @@ export declare class SModule implements ISModule {
 export declare class SubSModule implements ISubSModule {
     type: string;
     segment: Segment;
-    constructor(type?: string, segment?: Segment);
+    priority?: number;
+    constructor(type?: string, segment?: Segment, ...argv: any[]);
     init(segment: Segment): void;
 }
 export interface ISModule {

@@ -55,22 +55,25 @@ console.timeEnd();
 console.time();
 
 export let rs = [
-	[/.[裏里]|[裏里]./, function (input, $1)
+	/*
+	[/.[裏里后]|[后裏里]./, function ($0, offset, input, ...argv)
 	{
 		let self = this as IWord;
 
 		// 方位词
 		if (self.p & POSTAG.D_F)
 		{
-			return input.replace(/[裏里]/g, '裡');
-		}
-		else
-		{
-			console.log();
+			console.log($0, self.w, argv);
+
+			return $0
+				.replace(/[裏里]/, '裡')
+				.replace(/后/, '後')
+				;
 		}
 
 		return input;
 	}],
+	*/
 ] as any as [RegExp, IReplaceValue][];
 
 rs = rs.map(function (data)
@@ -80,21 +83,11 @@ rs = rs.map(function (data)
 	return data;
 });
 
+segment.use('zhtSynonymOptimizer');
+
 console.timeEnd();
 
-let text = `
-为了报复【劍】之勇者，我将为此舍弃克亞罗之名，化身为楚楚之花──克婭萝菈。
-因为我不打算将刹那和伊芙作为袭击的诱饵，所以我将以自身作为饵食来袭击并捕捉【劍】之勇者。
-
-既然用上了克婭萝菈这个假名，也就是說……我将会披上女装，心情实在是忐忑不安。
-
-（葛藤も恐怖もある。）
-
-【劍】之勇者対于我来說就是一块心理阴影。
-我対这种人进行女装勾引，打从心底里有严重的抵抗。
-因为……因为我好害怕啊，但是就算如此，我也不得不硬着头皮上。
-如果不从此刻克服対那家伙的心理阴影的話，就永远只会停留在原地，无法前行。
-`;
+let text = `李三买一张三角桌子`;
 
 //console.time();
 //
@@ -106,9 +99,14 @@ let text = `
 let file: string;
 let change = false;
 
-file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/cm_out/元最強の剣士は、異世界魔法に憧れる/p0001_無章節/c0006_家庭教師的懊悔.txt';
+if (1)
+{
+	file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user_out/ウォルテニア戦記/0004 ザルーダ王国激闘編/第11話【西へ】其2.txt';
 
-text = fs.readFileSync(file).toString();
+	text = fs.readFileSync(file).toString();
+
+	text = crlf(text);
+}
 
 console.time();
 
@@ -134,6 +132,10 @@ ks.map(function (v, index)
 	}
 });
 
+let text_new = segment.stringify(ks);
+
+change = text != text_new;
+
 fs.writeFileSync('./temp/s1.json', JSON.stringify({
 	file,
 	change,
@@ -146,15 +148,17 @@ fs.writeFileSync('./temp/s2.json', JSON.stringify({
 	ks2,
 }, null, "\t"));
 
-fs.writeFileSync('./temp/s_out.txt', segment.stringify(ks));
+fs.writeFileSync('./temp/s_out.txt', text_new);
 
 export function add_info(v)
 {
 	if (v.p)
 	{
 		v.ps = POSTAG.chsName(v.p);
+		v.ps_en = POSTAG.enName(v.p);
+
 		// @ts-ignore
-		v.pp = '0x' + v.p.toString(16).padStart(4, '0');
+		v.pp = '0x' + v.p.toString(16).padStart(4, '0').toUpperCase();
 
 		if (v.m)
 		{
@@ -171,14 +175,21 @@ export function _lazyFix(text: string, bool?: boolean)
 		.doSegment(text, {
 			//stripPunctuation: true,
 		})
-		.map(function (data)
+		.map(function (data, index, arr)
 		{
+			return data;
+
 			rs.some(function (r)
 			{
 				// @ts-ignore
-				let fn = typeof r[1] == 'function' ? r[1].bind(data) : r[1];
+				let fn = typeof r[1] == 'function' ? function (...argv)
+				{
+					return (r[1] as (...argv) => string)
+						.apply(data, argv.concat(data, index, arr))
+						;
+				} : r[1];
 
-				let w = data.w.replace(r[0], fn);
+				let w = data.w.replace(r[0], fn as any);
 
 				if (w !== data.w)
 				{

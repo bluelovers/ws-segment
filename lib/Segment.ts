@@ -111,6 +111,11 @@ export class Segment
 	 * @param {String|Array|Object} module 模块名称(数组)或模块对象
 	 * @return {Segment}
 	 */
+	use(module: ISubOptimizer)
+	use(module: ISubTokenizer)
+	use(module: Array<ISubTokenizer | ISubOptimizer | string>)
+	use(module: string)
+	use(module)
 	use(module)
 	{
 		let me = this;
@@ -127,19 +132,20 @@ export class Segment
 			if (typeof module == 'string')
 			{
 				// @ts-ignore
-				let filename = path.resolve(__dirname, 'module', module + '.js');
-				if (!fs.existsSync(filename))
-				{
-					throw Error('Cannot find module "' + module + '".');
-				}
-				else
-				{
-					// @ts-ignore
-					module = require(filename);
-				}
+				//let filename = path.resolve(__dirname, 'module', module + '.js');
+				let filename = path.resolve(__dirname, 'module', module);
+
+				// @ts-ignore
+				module = require(filename);
 			}
 			// 初始化并注册模块
-			module.init(this);
+			let c = module.init(this);
+
+			if (typeof c !== 'undefined')
+			{
+				module = c;
+			}
+
 			this.modules[module.type].push(module);
 		}
 
@@ -153,6 +159,7 @@ export class Segment
 		let filename = searchFirst(name, {
 			paths: [
 				'',
+				// @ts-ignore
 				path.resolve(__dirname, '../dicts'),
 				...pathPlus,
 				path.resolve(SegmentDict.DICT_ROOT, 'segment'),

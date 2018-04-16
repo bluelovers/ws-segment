@@ -80,7 +80,7 @@ export function add_info(v)
 		v.ps_en = POSTAG.enName(v.p);
 
 		// @ts-ignore
-		v.pp = '0x' + v.p.toString(16).padStart(4, '0');
+		v.pp = '0x' + v.p.toString(16).padStart(4, '0').toUpperCase();
 
 		if (v.m)
 		{
