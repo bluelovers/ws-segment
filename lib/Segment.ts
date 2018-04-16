@@ -111,25 +111,25 @@ export class Segment
 	 * @param {String|Array|Object} module 模块名称(数组)或模块对象
 	 * @return {Segment}
 	 */
-	use(module: ISubOptimizer)
-	use(module: ISubTokenizer)
-	use(module: Array<ISubTokenizer | ISubOptimizer | string>)
-	use(module: string)
-	use(module)
-	use(module)
+	use(mod: ISubOptimizer)
+	use(mod: ISubTokenizer)
+	use(mod: Array<ISubTokenizer | ISubOptimizer | string>)
+	use(mod: string)
+	use(mod)
+	use(mod)
 	{
 		let me = this;
 
-		if (Array.isArray(module))
+		if (Array.isArray(mod))
 		{
-			module.forEach(function (module)
+			mod.forEach(function (module)
 			{
 				me.use(module[i]);
 			});
 		}
 		else
 		{
-			if (typeof module == 'string')
+			if (typeof mod == 'string')
 			{
 				// @ts-ignore
 				//let filename = path.resolve(__dirname, 'module', module + '.js');
@@ -139,14 +139,14 @@ export class Segment
 				module = require(filename);
 			}
 			// 初始化并注册模块
-			let c = module.init(this);
+			let c = mod.init(this);
 
 			if (typeof c !== 'undefined')
 			{
-				module = c;
+				mod = c;
 			}
 
-			this.modules[module.type].push(module);
+			this.modules[mod.type].push(mod);
 		}
 
 		this.inited = true;
