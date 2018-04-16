@@ -584,6 +584,7 @@ export class Segment
 	{
 		const me = this;
 		let TABLE = me.getDict('SYNONYM');
+		let TABLEDICT = me.getDict('TABLE');
 
 		let total_count = 0;
 
@@ -602,6 +603,11 @@ export class Segment
 					//return { w: TABLE[item.w], p: item.p };
 
 					let p = item.p;
+
+					if (w in TABLEDICT)
+					{
+						p = TABLEDICT[w].p || p;
+					}
 
 					if (p & me.POSTAG.BAD)
 					{
