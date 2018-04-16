@@ -11,14 +11,15 @@ import * as fs from 'fs';
 // @ts-ignore
 import * as path from 'path';
 import { searchFirst } from './fs/get';
+import { useDefault } from './index';
 import POSTAG from './POSTAG';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
-import Tokenizer, { ISubTokenizer } from './mod/Tokenizer';
-import Optimizer, { ISubOptimizer } from './mod/Optimizer';
+
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
 import { debug } from './util';
 import SegmentDict from 'segment-dict';
+import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
 
 /**
  * 创建分词器接口
@@ -342,11 +343,18 @@ export class Segment
 	 *
 	 * @return {Segment}
 	 */
-	useDefault()
+	useDefault(...argv)
 	{
+		useDefault(this, ...argv);
+
+		this.inited = true;
+
+		return this;
+
+		/*
 		this
-		// 识别模块
-		// 强制分割类单词识别
+			// 识别模块
+			// 强制分割类单词识别
 			.use('URLTokenizer')            // URL识别
 			.use('WildcardTokenizer')       // 通配符，必须在标点符号识别之前
 			.use('PunctuationTokenizer')    // 标点符号识别
@@ -391,6 +399,7 @@ export class Segment
 		this.inited = true;
 
 		return this;
+		*/
 	}
 
 	autoInit(throwFn?)

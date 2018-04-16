@@ -4,11 +4,12 @@
  * @author 老雷<leizongmin@gmail.com>
  * @version 0.1
  */
+
 'use strict';
 
-import { ISubOptimizer } from '../mod/Optimizer';
+import { SubSModule, SubSModuleOptimizer, ISubOptimizer } from '../mod';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
-import Segment from '../Segment';
+import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
 
 module ChsNameOptimizer
@@ -26,6 +27,8 @@ module ChsNameOptimizer
 	export function init(_segment)
 	{
 		segment = _segment;
+
+		return ChsNameOptimizer;
 	}
 
 	/**
@@ -34,7 +37,7 @@ module ChsNameOptimizer
 	 * @param {array} words 单词数组
 	 * @return {array}
 	 */
-	export function doOptimize(words)
+	export function doOptimize(words: IWord[]): IWord[]
 	{
 		//debug(words);
 		let POSTAG = segment.POSTAG;
@@ -158,4 +161,4 @@ module ChsNameOptimizer
 	}
 }
 
-export = ChsNameOptimizer as ISubOptimizer;
+export = ChsNameOptimizer;

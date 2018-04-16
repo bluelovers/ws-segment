@@ -1,8 +1,8 @@
 /**
  * Created by user on 2018/4/16/016.
  */
-import { SubSModule } from '../module';
-import { SubSModuleOptimizer } from '../mod/Optimizer';
+
+import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IWord } from '../Segment';
 
 /**
@@ -78,4 +78,4 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 export const init = ZhtSynonymOptimizer.init.bind(ZhtSynonymOptimizer) as typeof ZhtSynonymOptimizer.init;
 
-export default init;
+export default ZhtSynonymOptimizer;

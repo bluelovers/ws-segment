@@ -23,3 +23,5 @@ export declare function split(words: IWord[]): IWord[];
  * @return {array}  返回格式   {w: '人名', c: 开始位置}
  */
 export declare function matchName(text: string, cur?: number): IWord[];
+import * as self from './ChsNameTokenizer';
+export default self;

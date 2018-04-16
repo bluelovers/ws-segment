@@ -1,8 +1,7 @@
 /// <reference types="node" />
 import POSTAG from './POSTAG';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
-import Tokenizer, { ISubTokenizer } from './mod/Tokenizer';
-import Optimizer, { ISubOptimizer } from './mod/Optimizer';
+import { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
 /**
  * 创建分词器接口
  */
@@ -87,7 +86,7 @@ export declare class Segment {
      *
      * @return {Segment}
      */
-    useDefault(): this;
+    useDefault(...argv: any[]): this;
     autoInit(throwFn?: any): this;
     /**
      * 开始分词

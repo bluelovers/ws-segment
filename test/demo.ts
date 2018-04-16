@@ -31,7 +31,7 @@ segment.autoInit(); // 需要加速的話 參考 demo.cache 內的範例
 /**
  * 自動處理 `里|裏|后`
  */
-segment.use('zhtSynonymOptimizer');
+segment.use('ZhtSynonymOptimizer');
 
 console.timeEnd();
 

@@ -131,3 +131,5 @@ export function matchName(text: string, cur = 0): IWord[]
 // debug(matchName('刘德华和李娜娜、司马光、上官飞飞'));
 // debug(matchName('李克'));
 
+import * as self from './ChsNameTokenizer';
+export default self;
