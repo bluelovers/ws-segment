@@ -135,7 +135,7 @@ export class Segment
 
 				// @ts-ignore
 				//let filename = path.resolve(__dirname, 'module', module + '.js');
-				let filename = path.resolve(__dirname, 'module', mod);
+				let filename = path.resolve(__dirname, 'submod', mod);
 
 				// @ts-ignore
 				mod = require(filename);
