@@ -357,6 +357,9 @@ export function getChunks(wordpos: {
 		let word = words[i];
 		//debug(word);
 		let nextcur = word.c + word.w.length;
+		/**
+		 * @FIXME
+		 */
 		if (!wordpos[nextcur] || total_count > MAX_CHUNK_COUNT)
 		{
 			ret.push([word]);
