@@ -39,12 +39,22 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					w1.w = '裡';
 				}
 			}
-			// 如果項目為 方位
-			else if (w1.p & POSTAG.D_F)
+			if (w1.w == '后')
+			{
+				// 如果前一個項目為 动词 ex: 離開
+				if (w0 && (w0.p & POSTAG.D_V))
+				{
+					// @ts-ignore
+					w1.ow = w1.w;
+					w1.w = '後';
+				}
+			}
+			// 如果項目為 方位 錯字
+			else if (w1.p & POSTAG.D_F || w1.p & POSTAG.BAD)
 			{
 				let nw = w1.w
 					.replace(/(.)[裏里]|[裏里](.)/, '$1裡$2')
-					.replace(/.[后]|[后]./, '後')
+					.replace(/(.)[后]|[后](.)/, '$1後$2')
 				;
 
 				if (nw != w1.w)
@@ -59,6 +69,20 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			{
 				let nw = w1.w
 					.replace(/(.)[裏里]$/, '$1裡')
+				;
+
+				if (nw != w1.w)
+				{
+					// @ts-ignore
+					w1.ow = w1.w;
+					w1.w = nw;
+				}
+			}
+			// 如果項目為 时间
+			else if (w1.p & POSTAG.D_T)
+			{
+				let nw = w1.w
+					.replace(/(.)[后]|[后](.)/, '$1後$2')
 				;
 
 				if (nw != w1.w)

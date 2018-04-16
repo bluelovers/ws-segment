@@ -35,7 +35,9 @@ text = `李三买一张三角桌子`;
 
 file = './res/ウォルテニア戦記/第11話【西へ】其2.txt';
 file = './res/ウォルテニア戦記/第11話【西へ】其2_out.txt';
+
 file = './res/ウォルテニア戦記/第11話【西へ】其2_opencc.txt';
+file = './res/ウォルテニア戦記/第11話【西へ】其2_cn2tw.txt';
 
 export let rs = [
 	/*
