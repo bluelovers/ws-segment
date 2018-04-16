@@ -37,9 +37,20 @@ export class SubSModule implements ISubSModule
 		}
 	}
 
-	init(segment: Segment)
+	static init(segment: Segment, ...argv)
+	{
+		let mod = new this();
+
+		mod.init(segment, ...argv);
+
+		return mod;
+	}
+
+	init(segment: Segment, ...argv): this
 	{
 		this.segment = segment;
+
+		return this;
 	}
 }
 
@@ -59,7 +70,9 @@ export interface ISubSModule
 	type: string,
 	segment: Segment,
 
-	init(segment: Segment),
+	priority?: number;
+
+	init(segment: Segment, ...argv): ISubSModule,
 }
 
 import * as self from './module';

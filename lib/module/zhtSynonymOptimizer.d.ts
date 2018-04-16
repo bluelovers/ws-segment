@@ -9,11 +9,10 @@ import Segment, { IWord } from '../Segment';
 export declare class ZhtSynonymOptimizer extends SubSModule {
     static readonly type: string;
     readonly type: string;
-    segment: Segment;
-    init(_segment: Segment): this;
     /**
      * 自動處理 `里|裏|后`
      */
     doOptimize(words: IWord[]): IWord[];
 }
-export declare function init(segment: Segment): ZhtSynonymOptimizer;
+export declare function init(segment: Segment, ...argv: any[]): ZhtSynonymOptimizer;
+export default init;

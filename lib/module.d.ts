@@ -15,7 +15,8 @@ export declare class SubSModule implements ISubSModule {
     segment: Segment;
     priority?: number;
     constructor(type?: string, segment?: Segment, ...argv: any[]);
-    init(segment: Segment): void;
+    static init(segment: Segment, ...argv: any[]): self.SubSModule;
+    init(segment: Segment, ...argv: any[]): this;
 }
 export interface ISModule {
     type?: string;
@@ -27,7 +28,8 @@ export interface IModuleStatic<T = ISModule> {
 export interface ISubSModule {
     type: string;
     segment: Segment;
-    init(segment: Segment): any;
+    priority?: number;
+    init(segment: Segment, ...argv: any[]): ISubSModule;
 }
 import * as self from './module';
 export default self;

@@ -11,14 +11,6 @@ export class ZhtSynonymOptimizer extends SubSModule
 {
 	static readonly type = 'optimizer';
 	readonly type = 'optimizer';
-	segment: Segment;
-
-	init(_segment: Segment)
-	{
-		this.segment = _segment;
-
-		return this;
-	}
 
 	/**
 	 * 自動處理 `里|裏|后`
@@ -83,11 +75,13 @@ export class ZhtSynonymOptimizer extends SubSModule
 	}
 }
 
-export function init(segment: Segment)
+export function init(segment: Segment, ...argv)
 {
 	let mod = new ZhtSynonymOptimizer();
 
-	mod.init(segment);
+	mod.init(segment, ...argv);
 
 	return mod;
 }
+
+export default init;
