@@ -33,7 +33,7 @@ let change = false;
 
 text = `李三买一张三角桌子`;
 
-file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user_out/ウォルテニア戦記/0004 ザルーダ王国激闘編/第11話【西へ】其2.txt';
+file = './res/ウォルテニア戦記/第11話【西へ】其2_out.txt';
 
 export let rs = [
 	/*
