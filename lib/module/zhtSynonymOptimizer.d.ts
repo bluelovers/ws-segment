@@ -1,12 +1,13 @@
 /**
  * Created by user on 2018/4/16/016.
  */
-import { SubSModule } from '../module';
-import Segment, { IWord } from '../Segment';
+import { SubSModule } from '../mod';
+import { SubSModuleOptimizer } from '../Optimizer';
+import { IWord } from '../Segment';
 /**
  * 自動處理 `里|裏|后`
  */
-export declare class ZhtSynonymOptimizer extends SubSModule {
+export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     static readonly type: string;
     readonly type: string;
     /**
@@ -14,5 +15,5 @@ export declare class ZhtSynonymOptimizer extends SubSModule {
      */
     doOptimize(words: IWord[]): IWord[];
 }
-export declare function init(segment: Segment, ...argv: any[]): ZhtSynonymOptimizer;
+export declare const init: typeof SubSModule.init;
 export default init;

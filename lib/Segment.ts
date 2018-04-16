@@ -13,8 +13,8 @@ import * as path from 'path';
 import { searchFirst } from './fs/get';
 import POSTAG from './POSTAG';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
-import Tokenizer, { ISubTokenizer } from './Tokenizer';
-import Optimizer, { ISubOptimizer } from './Optimizer';
+import Tokenizer, { ISubTokenizer } from './mod/Tokenizer';
+import Optimizer, { ISubOptimizer } from './mod/Optimizer';
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
 import { debug } from './util';
@@ -111,35 +111,37 @@ export class Segment
 	 * @param {String|Array|Object} module 模块名称(数组)或模块对象
 	 * @return {Segment}
 	 */
-	use(mod: ISubOptimizer)
-	use(mod: ISubTokenizer)
-	use(mod: Array<ISubTokenizer | ISubOptimizer | string>)
-	use(mod: string)
-	use(mod)
-	use(mod)
+	use(mod: ISubOptimizer, ...argv)
+	use(mod: ISubTokenizer, ...argv)
+	use(mod: Array<ISubTokenizer | ISubOptimizer | string>, ...argv)
+	use(mod: string, ...argv)
+	use(mod, ...argv)
+	use(mod, ...argv)
 	{
 		let me = this;
 
 		if (Array.isArray(mod))
 		{
-			mod.forEach(function (module)
+			mod.forEach(function (mod)
 			{
-				me.use(module[i]);
+				me.use(mod[i]);
 			});
 		}
 		else
 		{
 			if (typeof mod == 'string')
 			{
-				// @ts-ignore
-				//let filename = path.resolve(__dirname, 'module', module + '.js');
-				let filename = path.resolve(__dirname, 'module', module);
+				//console.log('module', mod);
 
 				// @ts-ignore
-				module = require(filename);
+				//let filename = path.resolve(__dirname, 'module', module + '.js');
+				let filename = path.resolve(__dirname, 'module', mod);
+
+				// @ts-ignore
+				mod = require(filename);
 			}
 			// 初始化并注册模块
-			let c = mod.init(this);
+			let c = mod.init(this, ...argv);
 
 			if (typeof c !== 'undefined')
 			{
@@ -176,6 +178,8 @@ export class Segment
 
 		if (!filename)
 		{
+			//console.log(name, pathPlus, extPlus);
+
 			throw Error('Cannot find dict file "' + filename + '".');
 		}
 

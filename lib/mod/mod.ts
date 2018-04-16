@@ -2,7 +2,7 @@
  * Created by user on 2018/2/21/021.
  */
 
-import { IWord, Segment } from './Segment';
+import { IWord, Segment } from '../Segment';
 
 export class SModule implements ISModule
 {
@@ -19,10 +19,13 @@ export class SModule implements ISModule
 
 export class SubSModule implements ISubSModule
 {
+	static type: string;
 	type: string;
 	segment: Segment;
 
 	priority?: number;
+
+	inited?: boolean;
 
 	constructor(type?: string, segment?: Segment, ...argv)
 	{
@@ -31,17 +34,32 @@ export class SubSModule implements ISubSModule
 			this.type = type;
 		}
 
+		if (!this.type)
+		{
+			throw new Error()
+		}
+
 		if (segment)
 		{
-			this.init(segment);
+			this.init(segment, ...argv);
+			this.inited = true;
 		}
 	}
 
 	static init(segment: Segment, ...argv)
 	{
-		let mod = new this();
+		if (!this.type)
+		{
+			throw new Error()
+		}
 
-		mod.init(segment, ...argv);
+		let mod = new this(this.type, segment, ...argv);
+
+		if (!mod.inited)
+		{
+			mod.init(segment, ...argv);
+			mod.inited = true;
+		}
 
 		return mod;
 	}
@@ -49,6 +67,7 @@ export class SubSModule implements ISubSModule
 	init(segment: Segment, ...argv): this
 	{
 		this.segment = segment;
+		this.inited = true;
 
 		return this;
 	}
@@ -75,5 +94,5 @@ export interface ISubSModule
 	init(segment: Segment, ...argv): ISubSModule,
 }
 
-import * as self from './module';
+import * as self from './mod';
 export default self;

@@ -2,12 +2,13 @@
  * Created by user on 2018/4/16/016.
  */
 import { SubSModule } from '../module';
+import { SubSModuleOptimizer } from '../mod/Optimizer';
 import Segment, { IWord } from '../Segment';
 
 /**
  * 自動處理 `里|裏|后`
  */
-export class ZhtSynonymOptimizer extends SubSModule
+export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 {
 	static readonly type = 'optimizer';
 	readonly type = 'optimizer';
@@ -75,13 +76,6 @@ export class ZhtSynonymOptimizer extends SubSModule
 	}
 }
 
-export function init(segment: Segment, ...argv)
-{
-	let mod = new ZhtSynonymOptimizer();
-
-	mod.init(segment, ...argv);
-
-	return mod;
-}
+export const init = ZhtSynonymOptimizer.init.bind(ZhtSynonymOptimizer) as typeof ZhtSynonymOptimizer.init;
 
 export default init;

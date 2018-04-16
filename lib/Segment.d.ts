@@ -1,8 +1,8 @@
 /// <reference types="node" />
 import POSTAG from './POSTAG';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
-import Tokenizer, { ISubTokenizer } from './Tokenizer';
-import Optimizer, { ISubOptimizer } from './Optimizer';
+import Tokenizer, { ISubTokenizer } from './mod/Tokenizer';
+import Optimizer, { ISubOptimizer } from './mod/Optimizer';
 /**
  * 创建分词器接口
  */
@@ -45,7 +45,11 @@ export declare class Segment {
      * @param {String|Array|Object} module 模块名称(数组)或模块对象
      * @return {Segment}
      */
-    use(module: any): this;
+    use(mod: ISubOptimizer, ...argv: any[]): any;
+    use(mod: ISubTokenizer, ...argv: any[]): any;
+    use(mod: Array<ISubTokenizer | ISubOptimizer | string>, ...argv: any[]): any;
+    use(mod: string, ...argv: any[]): any;
+    use(mod: any, ...argv: any[]): any;
     _resolveDictFilename(name: string, pathPlus?: string[], extPlus?: string[]): string;
     /**
      * 载入字典文件
