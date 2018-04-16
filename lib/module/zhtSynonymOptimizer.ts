@@ -4,6 +4,9 @@
 import { SubSModule } from '../module';
 import Segment, { IWord } from '../Segment';
 
+/**
+ * 自動處理 `里|裏|后`
+ */
 export class ZhtSynonymOptimizer extends SubSModule
 {
 	static readonly type = 'optimizer';
@@ -17,6 +20,9 @@ export class ZhtSynonymOptimizer extends SubSModule
 		return this;
 	}
 
+	/**
+	 * 自動處理 `里|裏|后`
+	 */
 	doOptimize(words: IWord[]): IWord[]
 	{
 		const self = this;
@@ -32,6 +38,7 @@ export class ZhtSynonymOptimizer extends SubSModule
 
 			if (w1.w == '裏' || w1.w == '里')
 			{
+				// 如果前一個項目為 名詞 或 處所
 				if (w0 && (w0.p & POSTAG.D_N || w0.p & POSTAG.D_S))
 				{
 					// @ts-ignore
@@ -39,6 +46,7 @@ export class ZhtSynonymOptimizer extends SubSModule
 					w1.w = '裡';
 				}
 			}
+			// 如果項目為 方位
 			else if (w1.p & POSTAG.D_F)
 			{
 				let nw = w1.w
@@ -53,6 +61,7 @@ export class ZhtSynonymOptimizer extends SubSModule
 					w1.w = nw;
 				}
 			}
+			// 如果項目為 處所
 			else if (w1.p & POSTAG.D_S)
 			{
 				let nw = w1.w
