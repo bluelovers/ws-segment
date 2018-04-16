@@ -53,7 +53,7 @@ export declare function getPosInfo(words: IWord[], text: string): {
  */
 export declare function getChunks(wordpos: {
     [index: number]: IWord[];
-}, pos: number, text?: string): Segment.IWord[][];
+}, pos: number, text?: string, total_count?: number): Segment.IWord[][];
 /**
  * 评价排名
  *

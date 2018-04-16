@@ -464,6 +464,10 @@ export class Segment
 		const split_r = /([\r\n]+)/g;
 		const filter_r = new RegExp('^(?:' + split_r.source + ')$', 'g');
 
+		//this.max_cii = Math.max(this.max_cii || 0, this.cii || 0, 0);
+		//this.cii = 0;
+
+
 		// 将文本按照换行符分割成多段，并逐一分词
 		let ret = text.split(split_r).reduce(function (ret, section)
 		{
@@ -492,6 +496,9 @@ export class Segment
 
 			return ret;
 		}, []);
+
+		//this.max_cii = Math.max(this.max_cii, this.cii, 0);
+		//console.error('cii', this.cii, this.max_cii);
 
 		//console.log(ret);
 

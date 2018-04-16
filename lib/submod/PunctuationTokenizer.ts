@@ -61,6 +61,12 @@ export function split(words: IWord[]): IWord[]
 			{
 				ret.push({ w: sw.w, p: POSTAG.D_W });
 			}
+			else
+			{
+				// 保留空格
+				ret.push({ w: sw.w, p: POSTAG.D_W });
+			}
+
 			lastc = sw.c + sw.w.length;
 		}
 		let lastsw = stopinfo[stopinfo.length - 1];

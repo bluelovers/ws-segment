@@ -35,7 +35,9 @@ export enum ENUM_SUBMODS
 	 * 外文字符、数字识别，必须在标点符号识别之后
 	 */
 	ForeignTokenizer = 'ForeignTokenizer',
+
 	// 中文单词识别
+
 	/**
 	 * 词典识别
 	 */
@@ -46,6 +48,7 @@ export enum ENUM_SUBMODS
 	ChsNameTokenizer = 'ChsNameTokenizer',
 
 	// 优化模块
+
 	/**
 	 * 邮箱地址识别
 	 */

@@ -5,6 +5,8 @@ import { SubSModule, SubSModuleOptimizer } from '../mod';
 import { IWord } from '../Segment';
 /**
  * 自動處理 `里|裏|后`
+ *
+ * @todo 發于余干松冲准呆只范舍涂
  */
 export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     static readonly type: string;

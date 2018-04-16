@@ -6,6 +6,13 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 
+/**
+ * 防止因無分段導致分析過久甚至超過處理負荷
+ *
+ * @type {number}
+ */
+const MAX_CHUNK_COUNT = 50;
+
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
 import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
@@ -34,8 +41,8 @@ export function init(_segment)
 export function split(words: IWord[]): IWord[]
 {
 	// debug(words);
-	let POSTAG = exports.segment.POSTAG;
-	let TABLE = exports.segment.getDict('TABLE');
+	let POSTAG = segment.POSTAG;
+	let TABLE = segment.getDict('TABLE');
 	let ret: IWord[] = [];
 	for (let i = 0, word; word = words[i]; i++)
 	{
@@ -44,6 +51,7 @@ export function split(words: IWord[]): IWord[]
 			ret.push(word);
 			continue;
 		}
+
 		// 仅对未识别的词进行匹配
 		let wordinfo = matchWord(word.w, 0, words[i - 1]);
 		if (wordinfo.length < 1)
@@ -51,6 +59,7 @@ export function split(words: IWord[]): IWord[]
 			ret.push(word);
 			continue;
 		}
+
 		// 分离出已识别的单词
 		let lastc = 0;
 
@@ -96,7 +105,7 @@ export function matchWord(text: string, cur: number, preword: IWord)
 	if (isNaN(cur)) cur = 0;
 	let ret: IWord[] = [];
 	let s = false;
-	let TABLE = exports.segment.getDict('TABLE2');
+	let TABLE = segment.getDict('TABLE2');
 	// 匹配可能出现的单词
 	while (cur < text.length)
 	{
@@ -334,8 +343,12 @@ export function getPosInfo(words: IWord[], text: string): {
  */
 export function getChunks(wordpos: {
 	[index: number]: IWord[];
-}, pos: number, text?: string)
+}, pos: number, text?: string, total_count = 0)
 {
+	total_count++;
+
+	//segment.cii = Math.max(segment.cii || 0, total_count);
+
 	let words = wordpos[pos] || [];
 	// debug('getChunks: ');
 	// debug(words);
@@ -346,13 +359,13 @@ export function getChunks(wordpos: {
 		let word = words[i];
 		//debug(word);
 		let nextcur = word.c + word.w.length;
-		if (!wordpos[nextcur])
+		if (!wordpos[nextcur] || total_count > MAX_CHUNK_COUNT)
 		{
 			ret.push([word]);
 		}
 		else
 		{
-			let chunks = getChunks(wordpos, nextcur);
+			let chunks = getChunks(wordpos, nextcur, null, total_count);
 			for (let j = 0; j < chunks.length; j++)
 			{
 				ret.push([word].concat(chunks[j]));
@@ -360,7 +373,7 @@ export function getChunks(wordpos: {
 		}
 	}
 	return ret;
-};
+}
 
 /**
  * 评价排名

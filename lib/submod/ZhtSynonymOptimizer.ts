@@ -7,6 +7,8 @@ import Segment, { IWord } from '../Segment';
 
 /**
  * 自動處理 `里|裏|后`
+ *
+ * @todo 發于余干松冲准呆只范舍涂
  */
 export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 {
