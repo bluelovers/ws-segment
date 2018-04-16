@@ -39,7 +39,7 @@ file = './res/ウォルテニア戦記/第11話【西へ】其2_out.txt';
 //file = './res/ウォルテニア戦記/第11話【西へ】其2_opencc.txt';
 //file = './res/ウォルテニア戦記/第11話【西へ】其2_cn2tw.txt';
 
-export let rs = [
+let rs = [
 	/*
 	[/.[裏里后]|[后裏里]./, function ($0, offset, input, ...argv)
 	{
@@ -176,7 +176,7 @@ function add_info(v)
 	return v;
 }
 
-export function _lazyFix(text: string, bool?: boolean)
+function _lazyFix(text: string, bool?: boolean)
 {
 	let ks = segment
 		.doSegment(text, {
@@ -220,12 +220,12 @@ export function _lazyFix(text: string, bool?: boolean)
 	return ks;
 }
 
-export function lazyFix(text: string, bool?: boolean)
+function lazyFix(text: string, bool?: boolean)
 {
 	let ks = _lazyFix(text, bool);
 
 	return segment.stringify(ks);
 }
 
-export type IReplaceFn = (input: string, ...m: string[]) => string;
-export type IReplaceValue = string | IReplaceFn;
+type IReplaceFn = (input: string, ...m: string[]) => string;
+type IReplaceValue = string | IReplaceFn;

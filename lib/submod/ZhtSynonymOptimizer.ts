@@ -31,7 +31,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			let w1 = words[i];
 			let w2: IWord = words[i + 1] || null;
 
-			if (w1.w == '裏' || w1.w == '里')
+			if (w1.w == '里')
 			{
 				// 如果前一個項目為 名詞 或 處所
 				if (w0 && (w0.p & POSTAG.D_N || w0.p & POSTAG.D_S))
@@ -41,10 +41,16 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					w1.w = '裡';
 				}
 			}
-			if (w1.w == '后')
+			else if (w1.w == '后')
 			{
 				// 如果前一個項目為 动词 ex: 離開
-				if (w0 && (w0.p & POSTAG.D_V))
+				if (w0 && (w0.p & POSTAG.D_V || w0.p & POSTAG.D_S || w0.p & POSTAG.D_T || w0.p & POSTAG.D_N))
+				{
+					// @ts-ignore
+					w1.ow = w1.w;
+					w1.w = '後';
+				}
+				else if (w2 && (w2.p & POSTAG.D_V))
 				{
 					// @ts-ignore
 					w1.ow = w1.w;
@@ -55,8 +61,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			else if (w1.p & POSTAG.D_F || w1.p & POSTAG.BAD)
 			{
 				let nw = w1.w
-					.replace(/(.)[裏里]|[裏里](.)/, '$1裡$2')
-					.replace(/(.)[后]|[后](.)/, '$1後$2')
+					.replace(/(.)里|里(.)/, '$1裡$2')
+					.replace(/(.)后|后(.)/, '$1後$2')
 				;
 
 				if (nw != w1.w)
@@ -70,7 +76,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			else if (w1.p & POSTAG.D_S)
 			{
 				let nw = w1.w
-					.replace(/(.)[裏里]$/, '$1裡')
+					.replace(/(.)里$/, '$1裡')
 				;
 
 				if (nw != w1.w)
@@ -81,10 +87,10 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 			}
 			// 如果項目為 时间
-			else if (w1.p & POSTAG.D_T)
+			else if (w1.p & POSTAG.D_T || w1.p & POSTAG.D_V)
 			{
 				let nw = w1.w
-					.replace(/(.)[后]|[后](.)/, '$1後$2')
+					.replace(/(.)后|后(.)/, '$1後$2')
 				;
 
 				if (nw != w1.w)

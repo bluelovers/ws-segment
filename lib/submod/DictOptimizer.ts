@@ -87,8 +87,34 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 		//debug(w1.w + ', ' + w2.w);
 
 		// ==========================================
+		let nw: string = w1.w + w2.w;
+
+		// 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
+		if ((w1.p & POSTAG.D_A) > 0 && (w2.p & POSTAG.D_U))
+		{
+			let p = POSTAG.D_A;
+
+			if (nw in TABLE && (TABLE[nw].p & POSTAG.D_A))
+			{
+				p = TABLE[nw].p;
+			}
+			else if (w1.p & POSTAG.BAD)
+			{
+				p = POSTAG.D_A + POSTAG.BAD;
+			}
+
+			words.splice(i, 2, {
+				w: nw,
+				//p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
+				p,
+				m: [w1, w2],
+			});
+			ie--;
+			continue;
+		}
+
 		// 能组成一个新词的(词性必须相同)
-		let nw = w1.w + w2.w;
+
 		if (isMergeable(w1, w2, {
 			nw,
 			POSTAG,
@@ -100,18 +126,6 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 			words.splice(i, 2, {
 				w: nw,
 				p: TABLE[nw].p,
-				m: [w1, w2],
-			});
-			ie--;
-			continue;
-		}
-
-		// 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
-		if ((w1.p & POSTAG.D_A) > 0 && (w2.p & POSTAG.D_U))
-		{
-			words.splice(i, 2, {
-				w: nw,
-				p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
 				m: [w1, w2],
 			});
 			ie--;

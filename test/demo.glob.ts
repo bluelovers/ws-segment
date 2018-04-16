@@ -9,23 +9,28 @@ import * as fs from 'fs-extra';
 import * as Promise from 'bluebird';
 import Segment, { POSTAG } from '../index';
 import { useDefault, getDefaultModList } from '../lib';
-import { add_info } from './demo';
 
 let path_root = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel';
 
-let pathMain = 'cm';
+let pathMain = 'user';
+let pathMain_out;
 let novelID: string;
 
-novelID = 'モンスターがあふれる世界になったので、好きに生きたいと思います';
+pathMain_out = 'cm_out';
+
+novelID = '暗黒騎士物語　～勇者を倒すために魔王に召喚されました～';
 
 let cwd = _path(pathMain, novelID);
-let cwd_out = _path(pathMain + '_out', novelID);
+let cwd_out = _path((pathMain_out || pathMain + '_out'), novelID);
 
 const segment = createSegment();
 
 FastGlob([
 
-	'**/*.txt',
+	//'**/*.txt',
+
+	'00020_第２章　聖竜王の角/*.txt',
+
 	//'!*６５*.txt',
 
 ], {
@@ -55,7 +60,7 @@ FastGlob([
 
 			let text_new = segment.stringify(ks);
 
-			debug_info(ks);
+			let ks2 = debug_info(ks);
 
 			await fs.outputFile(path.join(cwd_out, file), text_new);
 
@@ -69,6 +74,12 @@ FastGlob([
 				file,
 				ks,
 				changed,
+			}, null, "\t"));
+
+			fs.writeFileSync(path.join(cwd_out, file) + '.2.json', JSON.stringify({
+				file,
+				changed,
+				ks2,
 			}, null, "\t"));
 
 			if (changed)
@@ -117,20 +128,42 @@ function createSegment()
 	 */
 	if (1 && fs.existsSync(cache_file))
 	{
-		console.log(`發現 ./temp/cache.db 開始載入字典`);
+		console.log(`發現 ./temp/cache.db`);
 
-		let data = JSON.parse(fs.readFileSync(cache_file).toString());
+		let st = fs.statSync(cache_file);
 
-		useDefault(segment, {
-			...options,
-			nodict: true,
-		});
+		let md = (Date.now() - st.mtimeMs) / 1000;
 
-		segment.DICT = data.DICT;
+		console.log(`距離上次緩存已過 ${md}s`);
 
-		segment.inited = true;
+		if (md < 300)
+		{
+			//console.log(st, md);
 
-		cache_file = null;
+			console.log(`開始載入緩存字典`);
+
+			let data = JSON.parse(fs.readFileSync(cache_file).toString());
+
+			useDefault(segment, {
+				...options,
+				nodict: true,
+			});
+
+			segment.DICT = data.DICT;
+
+			segment.inited = true;
+
+			cache_file = null;
+		}
+		else
+		{
+			console.log(`重新載入字典檔`);
+
+			segment.autoInit(options);
+
+			let db_dict = segment.getDictDatabase('TABLE');
+			console.log('主字典總數', db_dict.size());
+		}
 	}
 	else
 	{
@@ -166,6 +199,14 @@ function debug_info(ks)
 		if (v.p)
 		{
 			add_info(v);
+		}
+		else if (v.m)
+		{
+			v.m.map(add_info);
+		}
+		else
+		{
+			ks2.push(v);
 		}
 	});
 
