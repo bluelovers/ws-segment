@@ -50,7 +50,7 @@ FastGlob([
 
 			//console.time(label);
 
-			console.log(label);
+			console.log('[start]', label);
 
 			let text = await fs.readFile(path.join(cwd, file));
 
@@ -155,17 +155,9 @@ function createSegment()
 
 			cache_file = null;
 		}
-		else
-		{
-			console.log(`重新載入字典檔`);
-
-			segment.autoInit(options);
-
-			let db_dict = segment.getDictDatabase('TABLE');
-			console.log('主字典總數', db_dict.size());
-		}
 	}
-	else
+
+	if (!segment.inited)
 	{
 		segment.autoInit(options);
 
