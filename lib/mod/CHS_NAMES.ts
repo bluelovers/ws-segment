@@ -4,7 +4,7 @@
 
 'use strict';
 
-import CjkConv from 'cjk-conv';
+import CjkConv from '../../../cjk-convert/index';
 
 import { IDICT } from '../Segment';
 import { arr_cjk } from '../util/cjk';

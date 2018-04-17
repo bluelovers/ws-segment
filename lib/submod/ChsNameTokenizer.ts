@@ -6,7 +6,7 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 
-import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
+import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
 import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
 
