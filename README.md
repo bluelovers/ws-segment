@@ -19,6 +19,7 @@
 4. 精簡一部分多餘字典
 5. 可額外追加字典條目而不需要增加字典檔
 6. 可將結果轉換為原始格式
+7. 遇到長句，無分段，無標點符號的行時會捨棄部分處理，來避免處理時間過長過超過記憶體負荷
 
 **歡迎一同來追加字典**
 
@@ -33,11 +34,24 @@ npm install novel-segment
 ```
 
 * npm: [novel-segment](https://www.npmjs.com/package/novel-segment)
+* github: [novel-segment](https://github.com/bluelovers/node-segment)
 
 ## demo
 
-* [demo.ts](test/demo.ts)
+以下範例已經自動啟用以下功能
+
+* 新增字典項目時自動補充繁簡日的異體漢字
+* 啟用 ZhtSynonymOptimizer 模組
+* 緩存功能
+
+* [demo.glob.ts](test/demo.glob.ts)
 * [demo.cache.ts](test/demo.cache.ts)
+
+## 特點模組
+
+* [ZhtSynonymOptimizer.ts](lib/submod/ZhtSynonymOptimizer.ts) - 基於語意來修正各種需要人工修正的詞彙 例如 `里后`...等等
+
+可搭配其他繁簡轉換程式使用
 
 ## 1、使用方法
 
