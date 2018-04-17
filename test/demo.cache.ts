@@ -62,7 +62,7 @@ if (cache_file)
 
 console.time(`doSegment`);
 
-let text = `离开那两个人之后`;
+let text = `如果有万一，之后发生了什么事，也不用负责。`;
 
 let ret = segment.doSegment(text);
 

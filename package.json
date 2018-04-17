@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -67,14 +67,17 @@
     "test": "test"
   },
   "scripts": {
+    "local-link": "npm link segment-dict & npm link cjk-conv",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-js": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
+    "bluebird": "^3.5.1",
     "cjk-conv": "^1.0.28",
     "crlf-normalize": "^1.0.1",
     "fast-glob": "^2.2.0",
+    "fs-extra": "^5.0.0",
     "segment-dict": "^1.0.11",
     "ts-enum-util": "^2.0.2",
     "uni-string": "^1.0.1"
