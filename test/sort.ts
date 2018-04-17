@@ -3,67 +3,96 @@
  */
 
 import * as Promise from 'bluebird';
-import * as fs from "fs";
+import * as fs from "fs-extra";
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
 import { parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
 
 import UString from "uni-string";
+import FastGlob from "fast-glob";
+import * as path from "path";
+import ProjectConfig from "../project.config";
 
 let fa = [];
 
-let sa = Promise.map([
-	'../dict/segment/dict.txt',
-	'../dict/segment/dict2.txt',
-	'../dict/segment/dict3.txt',
-		'../dict/segment/dict4.txt',
-	'../dict/segment/names.txt',
-	//'../dict/segment/wildcard.txt',
+let cwd = path.join(ProjectConfig.dict_root, 'segment');
 
-		//'../dict/segment/jieba/jieba.txt',
-		//'../dict/segment/jieba/jieba2.txt',
-		//'../dict/segment/jieba/jieba3.txt',
+Promise
+	.resolve(FastGlob([
 
-], async function (file)
-{
-	let b = await load(file);
+		'dict*.txt',
+		'names.txt',
+		'area/pangu.txt',
 
-	b = b.filter(function (line)
+	], {
+		cwd: cwd,
+		absolute: true,
+	}))
+	.tap(function (ls: string[])
 	{
-		let data = parseLineSegment(line);
-
-		if (0 && UString.size(data[0]) == 1)
+		let a = ls.reduce(function (a, v)
 		{
+			let p = path.relative(cwd, v);
 
-			fa.push({
-				data,
-				line,
-			});
+			a.push(p);
 
-			return false;
-		}
+			return a;
+		}, []);
 
-		if (data[1] & 0x40)
+		//console.log(a);
+	})
+	.map(async function (file: string)
+	{
+		let b = await load(file);
+
+		b = b.filter(function (line)
 		{
-			fa.push({
-				data,
-				line,
-			});
+			let data = parseLineSegment(line);
 
-			return false;
-		}
+			let bool: boolean;
 
-		return true;
-	});
+			if (0 && UString.size(data[0]) == 1)
+			{
 
-	b.sort();
+				fa.push({
+					data,
+					line,
+				});
 
-	fs.writeFileSync(file, serialize(b));
+				return false;
+			}
 
-	console.log(file);
+			if (data[0].match(/.大学/))
+			{
+				bool = true;
+			}
 
-	return b;
-})
-	.tap(function ()
+			if (0 && data[1] & 0x08)
+			{
+				bool = true;
+			}
+
+			if (bool)
+			{
+				fa.push({
+					data,
+					line,
+				});
+
+				return false;
+			}
+
+			return true;
+		});
+
+		b.sort();
+
+		await fs.writeFile(file, serialize(b));
+
+		console.log(file);
+
+		return b;
+	})
+	.tap(async function (ls)
 	{
 		console.log('tap');
 
@@ -85,6 +114,6 @@ let sa = Promise.map([
 			fa.sort();
 		}
 
-		fs.writeFileSync('./temp/one.txt', serialize(fa));
+		await fs.writeFileSync(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa));
 	})
 ;

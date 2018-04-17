@@ -68,12 +68,14 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
-    "split2": "^2.2.0",
-    "stream-pipe": "^1.0.1",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.1",
-    "uni-string": "^1.0.1",
-    "through2": "^2.0.3"
+    "fast-glob": "^2.2.0",
+    "fs-extra": "^5.0.0",
+    "split2": "^2.2.0",
+    "stream-pipe": "^1.0.1",
+    "through2": "^2.0.3",
+    "uni-string": "^1.0.1"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
