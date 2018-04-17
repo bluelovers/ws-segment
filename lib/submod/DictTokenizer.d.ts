@@ -34,6 +34,13 @@ export declare function matchWord(text: string, cur: number, preword: IWord): Se
  */
 export declare function filterWord(words: IWord[], preword: IWord, text: string): Segment.IWord[];
 /**
+ * 评价排名
+ *
+ * @param {object} assess
+ * @return {object}
+ */
+export declare function getTops(assess: Array<IAssessRow>): number;
+/**
  * 将单词按照位置排列
  *
  * @param {array} words
@@ -54,16 +61,10 @@ export declare function getPosInfo(words: IWord[], text: string): {
 export declare function getChunks(wordpos: {
     [index: number]: IWord[];
 }, pos: number, text?: string, total_count?: number): Segment.IWord[][];
-/**
- * 评价排名
- *
- * @param {object} assess
- * @return {object}
- */
-export declare function getTops(assess: Array<{
+export declare type IAssessRow = {
     x: number;
     a: number;
     b: number;
     c: number;
     d: number;
-}>): number;
+};

@@ -13,6 +13,7 @@
  */
 const MAX_CHUNK_COUNT = 50;
 
+import { toHex } from '../util/index';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from './CHS_NAMES';
 import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
@@ -155,29 +156,19 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 	 */
 	let chunks = getChunks(wordpos, 0, text);
 	//debug(chunks);
-	let assess: Array<{
-		x: number,
-		a: number,
-		b: number,
-		c: number,
-		d: number,
-	}> = [];  // 评价表
+	let assess: Array<IAssessRow> = [];  // 评价表
 
 	// 对各个分支就行评估
 	for (let i = 0, chunk; chunk = chunks[i]; i++)
 	{
-		assess[i] = { x: chunk.length, a: 0, b: 0, c: 0, d: 0 }
+		assess[i] = { x: chunk.length, a: 0, b: 0, c: 0, d: 0 };
 		// 词平均长度
 		let sp = text.length / chunk.length;
 		// 句子经常包含的语法结构
 		let has_D_V = false;  // 是否包含动词
 
 		// 遍历各个词
-		let prew: {
-			w: string,
-			p: number,
-			f,
-		};
+		let prew: IWord;
 
 		if (preword)
 		{
@@ -194,6 +185,14 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 				w.p = TABLE[w.w].p;
 				assess[i].a += w.f;   // 总词频
 
+				if (j == 0 && !preword && (w.p & POSTAG.D_V) > 0)
+				{
+					/**
+					 * 將第一個字也計算進去是否包含動詞
+					 */
+					has_D_V = true;
+				}
+
 				// ================ 检查语法结构 ===================
 				if (prew)
 				{
@@ -203,6 +202,7 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 					{
 						assess[i].d++;
 					}
+
 					// 如果当前词是动词
 					if ((w.p & POSTAG.D_V) > 0)
 					{
@@ -275,6 +275,7 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 			assess[i].b += Math.pow(sp - w.w.length, 2);
 			prew = chunk[j];
 		}
+
 		// 如果句子中包含了至少一个动词
 		if (has_D_V === false) assess[i].d -= 0.5;
 
@@ -282,9 +283,15 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 		assess[i].b = assess[i].b / chunk.length;
 	}
 
+	//console.dir(assess);
+
 	// 计算排名
 	let top = getTops(assess);
 	let currchunk = chunks[top];
+
+	//console.log(chunks);
+	//console.log(top);
+	//console.log(currchunk);
 
 	// 剔除不能识别的词
 	for (let i = 0, word; word = currchunk[i]; i++)
@@ -298,7 +305,103 @@ export function filterWord(words: IWord[], preword: IWord, text: string)
 
 	//debug(ret);
 	return ret;
-};
+}
+
+/**
+ * 评价排名
+ *
+ * @param {object} assess
+ * @return {object}
+ */
+export function getTops(assess: Array<IAssessRow>)
+{
+	//debug(assess);
+	// 取各项最大值
+	let top: IAssessRow = { x: assess[0].x, a: assess[0].a, b: assess[0].b, c: assess[0].c, d: assess[0].d };
+
+	for (let i = 1, ass; ass = assess[i]; i++)
+	{
+		if (ass.a > top.a) top.a = ass.a;  // 取最大平均词频
+		if (ass.b < top.b) top.b = ass.b;  // 取最小标准差
+		if (ass.c > top.c) top.c = ass.c;  // 取最大未识别词
+		if (ass.d < top.d) top.d = ass.d;  // 取最小语法分数
+		if (ass.x > top.x) top.x = ass.x;  // 取最大单词数量
+	}
+	//debug(top);
+
+	// 评估排名
+	let tops: number[] = [];
+	for (let i = 0, ass; ass = assess[i]; i++)
+	{
+		tops[i] = 0;
+		// 词数量，越小越好
+		tops[i] += (top.x - ass.x) * 1.5;
+		// 词总频率，越大越好
+		if (ass.a >= top.a) tops[i] += 1;
+		// 词标准差，越小越好
+		if (ass.b <= top.b) tops[i] += 1;
+		// 未识别词，越小越好
+		tops[i] += (top.c - ass.c);//debug(tops[i]);
+		// 符合语法结构程度，越大越好
+		tops[i] += (ass.d < 0 ? top.d + ass.d : ass.d - top.d) * 1;
+		//debug(tops[i]);debug('---');
+	}
+	//debug(tops.join('  '));
+
+	//console.log(tops);
+	//console.log(assess);
+
+	// 取分数最高的
+	let curri = 0;
+	let maxs = tops[0];
+	for (let i in tops)
+	{
+		let s = tops[i];
+		if (s > maxs)
+		{
+			curri = i as any as number;
+			maxs = s;
+		}
+		else if (s == maxs)
+		{
+			// 如果分数相同，则根据词长度、未识别词个数和平均频率来选择
+			let a = 0;
+			let b = 0;
+			if (assess[i].c < assess[curri].c)
+			{
+				a++;
+			}
+			else
+			{
+				b++;
+			}
+			if (assess[i].a > assess[curri].a)
+			{
+				a++;
+			}
+			else
+			{
+				b++;
+			}
+			if (assess[i].x < assess[curri].x)
+			{
+				a++;
+			}
+			else
+			{
+				b++;
+			}
+			if (a > b)
+			{
+				curri = i as any as number;
+				maxs = s;
+			}
+		}
+		// debug('i=' + i + ', s=' + s + ', maxs=' + maxs);
+	}
+	//debug('max: i=' + curri + ', s=' + tops[curri]);
+	return curri;
+}
 
 /**
  * 将单词按照位置排列
@@ -376,100 +479,10 @@ export function getChunks(wordpos: {
 	return ret;
 }
 
-/**
- * 评价排名
- *
- * @param {object} assess
- * @return {object}
- */
-export function getTops(assess: Array<{
+export type IAssessRow = {
 	x: number,
 	a: number,
 	b: number,
 	c: number,
 	d: number,
-}>)
-{
-	//debug(assess);
-	// 取各项最大值
-	let top = { x: assess[0].x, a: assess[0].a, b: assess[0].b, c: assess[0].c, d: assess[0].d }
-	for (let i = 1, ass; ass = assess[i]; i++)
-	{
-		if (ass.a > top.a) top.a = ass.a;  // 取最大平均词频
-		if (ass.b < top.b) top.b = ass.b;  // 取最小标准差
-		if (ass.c > top.c) top.c = ass.c;  // 取最大未识别词
-		if (ass.d < top.d) top.d = ass.d;  // 取最小语法分数
-		if (ass.x > top.x) top.x = ass.x;  // 取最大单词数量
-	}
-	//debug(top);
-
-	// 评估排名
-	let tops = [];
-	for (let i = 0, ass; ass = assess[i]; i++)
-	{
-		tops[i] = 0;
-		// 词数量，越小越好
-		tops[i] += (top.x - ass.x) * 1.5;
-		// 词总频率，越大越好
-		if (ass.a >= top.a) tops[i] += 1;
-		// 词标准差，越小越好
-		if (ass.b <= top.b) tops[i] += 1;
-		// 未识别词，越小越好
-		tops[i] += (top.c - ass.c);//debug(tops[i]);
-		// 符合语法结构程度，越大越好
-		tops[i] += (ass.d < 0 ? top.d + ass.d : ass.d - top.d) * 1;
-		//debug(tops[i]);debug('---');
-	}
-	//debug(tops.join('  '));
-
-	// 取分数最高的
-	let curri = 0;
-	let maxs = tops[0];
-	for (let i in tops)
-	{
-		let s = tops[i];
-		if (s > maxs)
-		{
-			curri = i as any as number;
-			maxs = s;
-		}
-		else if (s == maxs)
-		{
-			// 如果分数相同，则根据词长度、未识别词个数和平均频率来选择
-			let a = 0;
-			let b = 0;
-			if (assess[i].c < assess[curri].c)
-			{
-				a++;
-			}
-			else
-			{
-				b++;
-			}
-			if (assess[i].a > assess[curri].a)
-			{
-				a++;
-			}
-			else
-			{
-				b++;
-			}
-			if (assess[i].x < assess[curri].x)
-			{
-				a++;
-			}
-			else
-			{
-				b++;
-			}
-			if (a > b)
-			{
-				curri = i as any as number;
-				maxs = s;
-			}
-		}
-		// debug('i=' + i + ', s=' + s + ', maxs=' + maxs);
-	}
-	//debug('max: i=' + curri + ', s=' + tops[curri]);
-	return curri;
-}
+};
