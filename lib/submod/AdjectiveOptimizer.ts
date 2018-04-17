@@ -19,12 +19,16 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 				// 对于<颜色>+<的>，直接判断颜色是形容词（字典里颜色都是名词）
 				if (nextword.p & POSTAG.D_U && COLOR_ALL[word.w])
 				{
+					// @ts-ignore
+					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
 				}
 
 				// 如果是连续的两个名词，前一个是颜色，那这个颜色也是形容词
 				if (word.p & POSTAG.D_N && this.isNominal(nextword.p) && COLOR_ALL[word.w])
 				{
+					// @ts-ignore
+					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
 					word.p |= POSTAG.D_N;
 				}
