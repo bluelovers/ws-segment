@@ -5,32 +5,32 @@
  */
 'use strict';
 
-import { Segment as libSegment } from './lib/Segment';
-import POSTAG from './lib/POSTAG';
+import { Segment } from './lib/Segment';
+import { POSTAG } from './lib/POSTAG';
 
-const _Segment = libSegment as typeof libSegment & {
+const _Segment = Segment as typeof Segment & {
 	version: string,
 	/**
 	 * 分词接口
 	 */
-	Segment: typeof libSegment,
+	Segment: typeof Segment,
 	/**
 	 * 词性接口
 	 */
 	POSTAG: typeof POSTAG,
 };
 
-const Segment = _Segment as typeof _Segment & {
+const __Segment = _Segment as typeof _Segment & {
 	default: typeof _Segment,
 };
 
-export = Segment;
+export = __Segment;
 
 // @ts-ignore
-Segment.version = require('./package.json').version;
-Segment.POSTAG = POSTAG;
-Segment.Segment = Segment;
-Segment.default = Segment;
+__Segment.version = require('./package.json').version;
+__Segment.POSTAG = POSTAG;
+__Segment.Segment = Segment;
+__Segment.default = __Segment;
 
 /*
 使用示例：

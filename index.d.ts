@@ -1,14 +1,14 @@
-import { Segment as libSegment } from './lib/Segment';
-import POSTAG from './lib/POSTAG';
-declare const Segment: typeof libSegment & {
+import { Segment } from './lib/Segment';
+import { POSTAG } from './lib/POSTAG';
+declare const __Segment: typeof Segment & {
     version: string;
-    Segment: typeof libSegment;
+    Segment: typeof Segment;
     POSTAG: typeof POSTAG;
 } & {
-    default: typeof libSegment & {
+    default: typeof Segment & {
         version: string;
-        Segment: typeof libSegment;
+        Segment: typeof Segment;
         POSTAG: typeof POSTAG;
     };
 };
-export = Segment;
+export = __Segment;

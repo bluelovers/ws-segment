@@ -7,10 +7,10 @@
 const Segment_1 = require("./lib/Segment");
 const POSTAG_1 = require("./lib/POSTAG");
 const _Segment = Segment_1.Segment;
-const Segment = _Segment;
+const __Segment = _Segment;
 // @ts-ignore
-Segment.version = require('./package.json').version;
-Segment.POSTAG = POSTAG_1.default;
-Segment.Segment = Segment;
-Segment.default = Segment;
-module.exports = Segment;
+__Segment.version = require('./package.json').version;
+__Segment.POSTAG = POSTAG_1.POSTAG;
+__Segment.Segment = Segment_1.Segment;
+__Segment.default = __Segment;
+module.exports = __Segment;
