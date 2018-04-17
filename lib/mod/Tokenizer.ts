@@ -3,8 +3,10 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
+
 'use strict';
 
+import { autobind } from 'core-decorators';
 import { Segment, IWord } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 
@@ -13,6 +15,12 @@ export type ISubTokenizer = ISubSModule & {
 	split(words: IWord[], ...argv): IWord[],
 }
 
+export interface ISubTokenizerSplit<T extends IWord, U extends IWord = T>
+{
+	(words: T[], ...argv): U[],
+}
+
+@autobind
 export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 {
 	public static readonly type = 'tokenizer';
@@ -21,6 +29,54 @@ export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 	public split(words: IWord[], ...argv): IWord[]
 	{
 		throw new Error();
+	}
+
+	/**
+	 * 仅对未识别的词进行匹配
+	 * 不包含 p 為 0
+	 */
+	protected _splitUnset<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv) => U[]): U[]
+	{
+		const POSTAG = this.segment.POSTAG;
+
+		let ret = [];
+		for (let i = 0, word; word = words[i]; i++)
+		{
+			if (typeof word.p == 'number')
+			{
+				ret.push(word);
+			}
+			else
+			{
+				ret = ret.concat(fn(word.w));
+			}
+		}
+
+		return ret;
+	}
+
+	/**
+	 * 仅对未识别的词进行匹配
+	 * 包含已存在 但 p 為 0
+	 */
+	protected _splitUnknow<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv) => U[]): U[]
+	{
+		const POSTAG = this.segment.POSTAG;
+
+		let ret = [];
+		for (let i = 0, word; word = words[i]; i++)
+		{
+			if (word.p)
+			{
+				ret.push(word);
+			}
+			else
+			{
+				ret = ret.concat(fn.call(this, word.w));
+			}
+		}
+
+		return ret;
 	}
 }
 

@@ -654,7 +654,12 @@ export class Segment
 	 * @param {Array} words 单词数组
 	 * @return {String}
 	 */
-	stringify(words: IWord[]): string
+	stringify(words: IWord[], ...argv): string
+	{
+		return Segment.stringify(words, ...argv);
+	}
+
+	static stringify(words: IWord[], ...argv): string
 	{
 		return words.map(function (item)
 		{

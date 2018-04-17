@@ -1,7 +1,7 @@
 'use strict';
 
 import { SubSModule, SubSModuleTokenizer } from '../mod';
-import { IWord } from '../Segment';
+import { Segment, IWord } from '../Segment';
 import { UString } from 'uni-string';
 
 /**

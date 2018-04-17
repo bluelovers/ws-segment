@@ -66,6 +66,7 @@ export function createSegment(useCache: boolean = true)
 
 	if (!segment.inited)
 	{
+		console.log(`重新載入分析字典`);
 		segment.autoInit(options);
 	}
 

@@ -5,6 +5,7 @@
  */
 'use strict';
 
+import { autobind } from 'core-decorators';
 import { Segment, IWord } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 
@@ -13,6 +14,7 @@ export type ISubOptimizer = ISubSModule & {
 	doOptimize(words: IWord[], ...argv): IWord[],
 }
 
+@autobind
 export class SubSModuleOptimizer extends SubSModule implements ISubOptimizer
 {
 	public static readonly type = 'optimizer';

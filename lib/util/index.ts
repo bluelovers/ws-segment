@@ -77,7 +77,7 @@ export function token_add_info<T extends IWordDebug>(v: T)
 		v.ps = POSTAG.zhName(v.p);
 		v.ps_en = POSTAG.enName(v.p);
 
-		v.pp = '0x' + toHex(v.p);
+		v.pp = toHex(v.p);
 
 		if (v.m)
 		{

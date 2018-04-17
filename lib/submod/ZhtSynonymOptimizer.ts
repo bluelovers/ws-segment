@@ -72,6 +72,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				let nw = w1.w
 					.replace(/(.)里|里(.)/, '$1裡$2')
 					.replace(/(.)后|后(.)/, '$1後$2')
+					.replace(/蔘(.)/, '參$1')
 				;
 
 				if (nw != w1.w)
