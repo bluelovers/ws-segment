@@ -4,9 +4,11 @@
 
 import { IWord, Segment } from '../Segment';
 
+export type ISModuleType = 'optimizer' | 'tokenizer' | string;
+
 export class SModule implements ISModule
 {
-	type?: string;
+	type?: ISModuleType;
 	segment: Segment;
 	/**
 	 * @param {Segment} segment 分词接口
@@ -19,15 +21,15 @@ export class SModule implements ISModule
 
 export class SubSModule implements ISubSModule
 {
-	static type: string;
-	type: string;
+	static type: ISModuleType;
+	type: ISModuleType;
 	segment: Segment;
 
 	priority?: number;
 
 	inited?: boolean;
 
-	constructor(type?: string, segment?: Segment, ...argv)
+	constructor(type?: ISModuleType, segment?: Segment, ...argv)
 	{
 		if (type)
 		{
@@ -75,7 +77,7 @@ export class SubSModule implements ISubSModule
 
 export interface ISModule
 {
-	type?: string,
+	type?: ISModuleType,
 	segment: Segment,
 }
 
@@ -86,7 +88,7 @@ export interface IModuleStatic<T = ISModule>
 
 export interface ISubSModule
 {
-	type: string,
+	type: ISModuleType,
 	segment: Segment,
 
 	priority?: number;
