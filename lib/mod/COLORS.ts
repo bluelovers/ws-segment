@@ -2,28 +2,44 @@
 
 import { IDICT } from '../Segment';
 import { arr_cjk } from '../util/cjk';
+import UString from 'uni-string';
 
 export namespace _COLORS
 {
+	export const ZH = '色';
 
 	export const COLOR_HAIR = [
-		'赤',
-		'朱',
-		'绯',
-		'茜',
-		'栗',
-		'褐',
-		'橘',
-		'翠',
-		'碧',
-		'金',
-		'靛',
-		'紫',
-		'桃',
-		'青',
 		'乌',
+		'朱',
+		'栗',
+		'桃',
+		'棕',
+		'橘',
+		'橙',
+		'灰',
+		'白',
+		'碧',
+		'紅',
+		'紫',
+		'綠',
+		'红',
+		'绯',
+		'绿',
+		'翠',
 		'苍',
+		'茜',
+		'蓝',
+		'藍',
+		'褐',
+		'赤',
+		'金',
 		'银',
+		'青',
+		'靛',
+		'黃',
+		'黄',
+		'黑',
+		'黒',
 	];
 
 	export const COLOR_WITH_RGB: string[][] = [
@@ -729,7 +745,7 @@ export namespace _COLORS
 		['暗灰色', '#404040', '64,64,64'],
 	];
 
-	export const colors = [
+	export const COLOR_ALL = [
 		'丹',
 		'彤',
 		'绛',
@@ -759,6 +775,14 @@ export namespace _COLORS
 	export function p(a: string[]): IDICT<number>
 	{
 		let data: IDICT<number> = arr_cjk(a)
+			.sort(function (a, b)
+			{
+				let len = UString.size(a);
+
+				let r = len - UString.size(b);
+
+				return r;
+			})
 			.reduce(function (data, v)
 			{
 				data[v] = v.length;
@@ -773,8 +797,7 @@ export namespace _COLORS
 }
 
 export const COLOR_HAIR = _COLORS.p(_COLORS.COLOR_HAIR);
-
-console.log(COLOR_HAIR);
+export const COLOR_ALL = _COLORS.p(_COLORS.COLOR_ALL);
 
 import * as self from './CHS_NAMES';
 export default self;
