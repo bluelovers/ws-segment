@@ -9,6 +9,7 @@ import * as fs from 'fs-extra';
 import * as Promise from 'bluebird';
 import Segment, { POSTAG } from '../index';
 import { useDefault, getDefaultModList } from '../lib';
+import { debug_token } from '../lib/util';
 
 let path_root = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel';
 
@@ -60,7 +61,7 @@ FastGlob([
 
 			let text_new = segment.stringify(ks);
 
-			let ks2 = debug_info(ks);
+			let ks2 = debug_token(ks);
 
 			await fs.outputFile(path.join(cwd_out, file), text_new);
 
@@ -177,49 +178,4 @@ function createSegment()
 	}
 
 	return segment;
-}
-
-function debug_info(ks)
-{
-	let ks2 = [];
-
-	ks.map(function (v, index)
-	{
-		// @ts-ignore
-		v.index = index;
-
-		if (v.p)
-		{
-			add_info(v);
-		}
-		else if (v.m)
-		{
-			v.m.map(add_info);
-		}
-		else
-		{
-			ks2.push(v);
-		}
-	});
-
-	return ks2;
-}
-
-function add_info(v)
-{
-	if (v.p)
-	{
-		v.ps = POSTAG.zhName(v.p);
-		v.ps_en = POSTAG.enName(v.p);
-
-		// @ts-ignore
-		v.pp = '0x' + v.p.toString(16).padStart(4, '0').toUpperCase();
-
-		if (v.m)
-		{
-			v.m.map(add_info);
-		}
-	}
-
-	return v;
 }

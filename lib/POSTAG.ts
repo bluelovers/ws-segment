@@ -1,6 +1,6 @@
 'use strict';
 
-import { enumList, enumIsNaN } from './util';
+import { enumList, enumIsNaN } from './util/core';
 
 /**
  * 单词类型

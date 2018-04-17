@@ -4,11 +4,7 @@
 
 import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IWord } from '../Segment';
-
-export type IWordSynonym = IWord & {
-	ow?: string,
-	op?: number,
-}
+import { IWordDebug } from '../util';
 
 /**
  * 自動處理 `里|后`
@@ -20,7 +16,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 	static readonly type = 'optimizer';
 	readonly type = 'optimizer';
 
-	doOptimize(words: IWordSynonym[]): IWordSynonym[]
+	doOptimize<T extends IWordDebug>(words: T[]): T[]
 	{
 		const self = this;
 		const POSTAG = self.segment.POSTAG;
