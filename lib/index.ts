@@ -30,10 +30,17 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('phrases')
 		.loadDict('phrases2')
 
+
+
+
 		.loadDict('dict')           // 盘古词典
 		.loadDict('dict2')          // 扩展词典（用于调整原盘古词典）
 		.loadDict('dict3')          // 扩展词典（用于调整原盘古词典）
 		.loadDict('names')          // 常见名词、人名
+
+		.loadDict('synonym/后')
+		.loadDict('names/zh')
+
 		.loadDict('wildcard', 'WILDCARD', true)   // 通配符
 		.loadSynonymDict('synonym')   // 同义词
 		.loadStopwordDict('stopword') // 停止符

@@ -83,8 +83,8 @@ export class TableDict
 			return this;
 		}
 
-		p = (Number.isNaN(p) || typeof p != 'number') ? 0 : p;
-		f = (Number.isNaN(f) || typeof f != 'number') ? 0 : f;
+		p = (typeof p != 'number' || Number.isNaN(p)) ? 0 : p;
+		f = (typeof f != 'number' || Number.isNaN(f)) ? 0 : f;
 
 		this._add({w, p, f});
 

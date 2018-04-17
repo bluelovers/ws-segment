@@ -465,7 +465,7 @@ export class Segment
 		const filter_r = new RegExp('^(?:' + split_r.source + ')$', 'g');
 
 		// 将文本按照换行符分割成多段，并逐一分词
-		let ret = text.split(split_r).reduce(function (ret, section)
+		let ret = text.split(/([\r\n]+|[，]|^[　 ]+)/gm).reduce(function (ret, section)
 		{
 			if (filter_r.test(section))
 			{

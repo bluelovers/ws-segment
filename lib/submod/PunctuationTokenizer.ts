@@ -91,7 +91,7 @@ export let _STOPWORD = (' ,.;+-|/\\\'":?<>[]{}=!@#$%^&*()~`' +
 	.split('') as any as string[]
 ;
 
-_STOPWORD.push('・');
+_STOPWORD = _STOPWORD.concat('・', '　');
 
 export let STOPWORD = {} as {
 	[key: string]: number,

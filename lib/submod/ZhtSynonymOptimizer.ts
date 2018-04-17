@@ -5,8 +5,13 @@
 import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IWord } from '../Segment';
 
+export type IWordSynonym = IWord & {
+	ow?: string,
+	op?: number,
+}
+
 /**
- * 自動處理 `里|裏|后`
+ * 自動處理 `里|后`
  *
  * @todo 發于余干松冲准呆只范舍涂
  */
@@ -15,13 +20,11 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 	static readonly type = 'optimizer';
 	readonly type = 'optimizer';
 
-	/**
-	 * 自動處理 `里|裏|后`
-	 */
-	doOptimize(words: IWord[]): IWord[]
+	doOptimize(words: IWordSynonym[]): IWordSynonym[]
 	{
 		const self = this;
 		const POSTAG = self.segment.POSTAG;
+		const TABLE = self.segment.getDict('TABLE');
 
 		let i = 0;
 
@@ -36,7 +39,6 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				// 如果前一個項目為 名詞 或 處所
 				if (w0 && (w0.p & POSTAG.D_N || w0.p & POSTAG.D_S))
 				{
-					// @ts-ignore
 					w1.ow = w1.w;
 					w1.w = '裡';
 				}
@@ -46,18 +48,30 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				// 如果前一個項目為 动词 ex: 離開
 				if (w0 && (w0.p & POSTAG.D_V || w0.p & POSTAG.D_S || w0.p & POSTAG.D_T || w0.p & POSTAG.D_N))
 				{
-					// @ts-ignore
 					w1.ow = w1.w;
 					w1.w = '後';
 				}
 				else if (w2 && (w2.p & POSTAG.D_V))
 				{
-					// @ts-ignore
 					w1.ow = w1.w;
 					w1.w = '後';
 				}
 			}
-			// 如果項目為 方位 錯字
+			// 如果項目為 錯字
+			else if (w1.p & POSTAG.BAD)
+			{
+				let nw = w1.w
+					.replace(/(.)里|里(.)/, '$1裡$2')
+					.replace(/(.)后|后(.)/, '$1後$2')
+				;
+
+				if (nw != w1.w)
+				{
+					w1.ow = w1.w;
+					w1.w = nw;
+				}
+			}
+			// 如果項目為 方位
 			else if (w1.p & POSTAG.D_F || w1.p & POSTAG.BAD)
 			{
 				let nw = w1.w
@@ -67,7 +81,6 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 				if (nw != w1.w)
 				{
-					// @ts-ignore
 					w1.ow = w1.w;
 					w1.w = nw;
 				}
@@ -81,7 +94,6 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 				if (nw != w1.w)
 				{
-					// @ts-ignore
 					w1.ow = w1.w;
 					w1.w = nw;
 				}
@@ -95,9 +107,19 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 				if (nw != w1.w)
 				{
-					// @ts-ignore
 					w1.ow = w1.w;
 					w1.w = nw;
+				}
+			}
+
+			if (w1.ow && w1.ow != w1.w && w1.w in TABLE)
+			{
+				let p = TABLE[w1.w].p;
+
+				if (p != w1.p)
+				{
+					w1.op = w1.op || w1.p;
+					w1.p = TABLE[w1.w].p;
 				}
 			}
 
