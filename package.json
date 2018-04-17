@@ -67,6 +67,7 @@
     "test": "test"
   },
   "scripts": {
+    "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
     "local-link": "npm link segment-dict & npm link cjk-conv",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-js": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",

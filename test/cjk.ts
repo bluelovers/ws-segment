@@ -1,6 +1,7 @@
 import { crlf } from 'crlf-normalize';
 import * as fs from "fs";
 import * as path from "path";
+import { debug } from '../lib/util';
 
 /**
  * Created by user on 2018/4/15/015.
@@ -9,20 +10,15 @@ import { text_list } from '../lib/util/cjk';
 import CjkConv, { zhTable } from 'cjk-conv';
 
 [
-	`們`,
+	`逆鳞`,
 	//`最后岁理所当儅當然|0x1000000|10864`,
 	//"轉換最後鉴个|0x20000|8定|0x100000|2918"
 ].forEach(function (s)
 {
 	let a = text_list(s);
 
-	console.dir(s, {
-		colors: true,
-	});
-
-	console.dir(a, {
-		colors: true,
-	});
+	debug(s);
+	debug(a);
 });
 
 let text: string;
