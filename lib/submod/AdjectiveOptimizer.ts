@@ -4,7 +4,7 @@ import Segment, { IWord } from '../Segment';
 import { COLOR_ALL } from '../mod/COLORS';
 
 // 把一些错认为名词的词标注为形容词，或者对名词作定语的情况
-class AdjectiveOptimizer extends SubSModuleOptimizer
+export class AdjectiveOptimizer extends SubSModuleOptimizer
 {
 	doOptimize(words: IWord[]): IWord[]
 	{
