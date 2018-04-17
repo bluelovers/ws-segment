@@ -140,7 +140,7 @@ var line = '';
 for (let i in ret)
 {
 	line += ret[i].w + '/';
-	ret[i].ps = POSTAG.chsName(ret[i].p);
+	ret[i].ps = POSTAG.zhName(ret[i].p);
 }
 console.log(ret);
 console.log(line);

@@ -209,7 +209,7 @@ function add_info(v)
 {
 	if (v.p)
 	{
-		v.ps = POSTAG.chsName(v.p);
+		v.ps = POSTAG.zhName(v.p);
 		v.ps_en = POSTAG.enName(v.p);
 
 		// @ts-ignore
