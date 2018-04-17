@@ -54,7 +54,7 @@ FastGlob([
 
 			console.log('[start]', label);
 
-			let text = await fs.readFile(path.join(cwd, file));
+			let text = await fs.readFile(path.join(cwd, file)) as any as string;
 
 			text = crlf(text.toString());
 

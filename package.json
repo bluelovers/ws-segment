@@ -83,8 +83,9 @@
     "uni-string": "^1.0.1"
   },
   "devDependencies": {
-    "core-decorators": "^0.20.0",
+    "@types/fs-extra": "^5.0.2",
     "@types/node": "^9.6.5",
+    "core-decorators": "^0.20.0",
     "regexp-cjk": "^1.2.12"
   },
   "optionalDependencies": {}

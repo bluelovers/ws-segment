@@ -12,7 +12,7 @@ import { useDefault, getDefaultModList } from '../../lib';
 import { debug_token } from '../../lib/util';
 import ProjectConfig from '../../project.config';
 
-export function createSegment()
+export function createSegment(useCache: boolean = true)
 {
 	const segment = new Segment({
 		autoCjk: true,
@@ -32,7 +32,7 @@ export function createSegment()
 	/**
 	 * 使用緩存的字典檔範例
 	 */
-	if (1 && fs.existsSync(cache_file))
+	if (useCache && fs.existsSync(cache_file))
 	{
 		console.log(`發現 cache.db`);
 
@@ -73,11 +73,11 @@ export function createSegment()
 
 	console.timeEnd(`讀取模組與字典`);
 
-	if (cache_file)
+	if (useCache && cache_file)
 	{
 		console.log(`緩存字典於 cache.db`);
 
-		fs.writeFileSync(cache_file, JSON.stringify({
+		fs.outputFileSync(cache_file, JSON.stringify({
 			DICT: segment.DICT,
 		}));
 	}
