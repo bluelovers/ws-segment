@@ -55,8 +55,18 @@ export declare enum ENUM_SUBMODS {
      */
     ZhtSynonymOptimizer = "ZhtSynonymOptimizer",
 }
-export declare const ENUM_SUBMODS_NOT_DEF: ENUM_SUBMODS[];
+/**
+ * 不包含在預設模組列表內 需要手動指定
+ */
+export declare enum ENUM_SUBMODS_OTHER {
+    /**
+     * 单字切分模块
+     */
+    SingleTokenizer = "SingleTokenizer",
+}
+export declare const LIST_SUBMODS_NOT_DEF: ENUM_SUBMODS[];
 export declare const SUBMODS_LIST: EnumWrapper<string, typeof ENUM_SUBMODS>;
+export declare const SUBMODS_OTHER_LIST: EnumWrapper<string, typeof ENUM_SUBMODS_OTHER>;
 /**
  * 取得列表並且保持 ENUM 順序
  * @param {boolean} all

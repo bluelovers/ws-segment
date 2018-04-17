@@ -5,6 +5,7 @@
 import { IWord, Segment } from '../Segment';
 
 import { $enum, EnumWrapper, } from "ts-enum-util";
+import SingleTokenizer from '../submod/SingleTokenizer';
 import { Optimizer, SubSModuleOptimizer, ISubOptimizer } from './Optimizer';
 import { Tokenizer, SubSModuleTokenizer, ISubTokenizer } from './Tokenizer';
 import { SubSModule, ISubSModule } from './mod';
@@ -72,11 +73,23 @@ export enum ENUM_SUBMODS
 	ZhtSynonymOptimizer = 'ZhtSynonymOptimizer',
 }
 
-export const ENUM_SUBMODS_NOT_DEF = [
+/**
+ * 不包含在預設模組列表內 需要手動指定
+ */
+export enum ENUM_SUBMODS_OTHER
+{
+	/**
+	 * 单字切分模块
+	 */
+	SingleTokenizer = 'SingleTokenizer',
+}
+
+export const LIST_SUBMODS_NOT_DEF = [
 	ENUM_SUBMODS.ZhtSynonymOptimizer,
 ];
 
 export const SUBMODS_LIST = $enum(ENUM_SUBMODS);
+export const SUBMODS_OTHER_LIST = $enum(ENUM_SUBMODS_OTHER);
 
 /**
  * 取得列表並且保持 ENUM 順序
@@ -92,14 +105,15 @@ export function getDefault(all?: boolean): ENUM_SUBMODS[]
 		{
 			if (!a.includes(m) && list.includes(m as any))
 			{
-				if (all || !ENUM_SUBMODS_NOT_DEF.includes(m as any))
+				if (all || !LIST_SUBMODS_NOT_DEF.includes(m as any))
 				{
 					a.push(m);
 				}
 			}
 
 			return a;
-		}, []);
+		}, [])
+		;
 }
 
 //console.log(getDefault(true));

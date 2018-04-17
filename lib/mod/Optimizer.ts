@@ -15,10 +15,10 @@ export type ISubOptimizer = ISubSModule & {
 
 export class SubSModuleOptimizer extends SubSModule implements ISubOptimizer
 {
-	static readonly type = 'optimizer';
-	readonly type = 'optimizer';
+	public static readonly type = 'optimizer';
+	public readonly type = 'optimizer';
 
-	doOptimize(words: IWord[], ...argv): IWord[]
+	public doOptimize(words: IWord[], ...argv): IWord[]
 	{
 		throw new Error();
 	}

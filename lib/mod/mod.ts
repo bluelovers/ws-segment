@@ -21,8 +21,8 @@ export class SModule implements ISModule
 
 export class SubSModule implements ISubSModule
 {
-	static type: ISModuleType;
-	type: ISModuleType;
+	public static type: ISModuleType;
+	public type: ISModuleType;
 	segment: Segment;
 
 	priority?: number;
@@ -48,7 +48,7 @@ export class SubSModule implements ISubSModule
 		}
 	}
 
-	static init(segment: Segment, ...argv)
+	public static init(segment: Segment, ...argv)
 	{
 		if (!this.type)
 		{
@@ -66,7 +66,7 @@ export class SubSModule implements ISubSModule
 		return mod;
 	}
 
-	init(segment: Segment, ...argv): this
+	public init(segment: Segment, ...argv): this
 	{
 		this.segment = segment;
 		this.inited = true;

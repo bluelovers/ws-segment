@@ -15,10 +15,10 @@ export type ISubTokenizer = ISubSModule & {
 
 export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 {
-	static readonly type = 'tokenizer';
-	readonly type = 'tokenizer';
+	public static readonly type = 'tokenizer';
+	public readonly type = 'tokenizer';
 
-	split(words: IWord[], ...argv): IWord[]
+	public split(words: IWord[], ...argv): IWord[]
 	{
 		throw new Error();
 	}
