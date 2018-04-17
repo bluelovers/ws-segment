@@ -151,9 +151,22 @@ export function doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 			// 数词 + 量词，合并。如： 100个
 			if ((w2.p & POSTAG.A_Q) > 0)
 			{
+				// 数量词
+				let p = POSTAG.D_MQ;
+				let nw: string = w1.w + w2.w;
+
+				if (nw in TABLE)
+				{
+					p = TABLE[nw].p | POSTAG.D_MQ;
+				}
+				else if (w2.p & POSTAG.D_T)
+				{
+					p = p | POSTAG.D_T;
+				}
+
 				words.splice(i, 2, {
-					w: w1.w + w2.w,
-					p: POSTAG.D_MQ, // 数量词
+					w: nw,
+					p,
 					m: [w1, w2],
 				});
 				ie--;
