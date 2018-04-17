@@ -5,6 +5,7 @@
 import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IWord } from '../Segment';
 import { IWordDebug } from '../util';
+import { hexAndAny } from '../util/index';
 
 /**
  * 自動處理 `里|后`
@@ -41,8 +42,20 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			}
 			else if (w1.w == '后')
 			{
-				// 如果前一個項目為 动词 ex: 離開
-				if (w0 && (w0.p & POSTAG.D_V || w0.p & POSTAG.D_S || w0.p & POSTAG.D_T || w0.p & POSTAG.D_N))
+				// 如果前一個項目為
+				if (w0 && (w0.p && hexAndAny(w0.p,
+
+					// 动词 離開
+					POSTAG.D_V,
+					// 处所词
+					POSTAG.D_S,
+					// 时间词
+					POSTAG.D_T,
+					// 名词 名语素
+					POSTAG.D_N,
+					// 数量词 - 几次后
+					POSTAG.D_MQ,
+				)))
 				{
 					w1.ow = w1.w;
 					w1.w = '後';

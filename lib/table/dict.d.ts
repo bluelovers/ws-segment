@@ -6,6 +6,9 @@ import { IDictRow } from 'segment-dict/lib/loader/segment';
 export declare type IOptions = {
     autoCjk?: boolean;
 };
+/**
+ * @todo 掛接其他 dict
+ */
 export declare class TableDict {
     type: string;
     TABLE: {

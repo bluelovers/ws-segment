@@ -11,6 +11,9 @@ export type IOptions = {
 	autoCjk?: boolean,
 }
 
+/**
+ * @todo 掛接其他 dict
+ */
 export class TableDict
 {
 	public type: string;
@@ -92,6 +95,7 @@ export class TableDict
 
 		/**
 		 * @todo 需要更聰明的作法 目前的做法實在太蠢
+		 * @BUG 在不明原因下 似乎不會正確的添加每個項目 如果遇到這種情形請手動添加簡繁項目
 		 */
 		if (1 && this.options.autoCjk)
 		{
