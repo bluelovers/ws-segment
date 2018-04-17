@@ -7,10 +7,11 @@ import * as FastGlob from 'fast-glob';
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import * as Promise from 'bluebird';
-import Segment from '../../lib/Segment';
+import { Segment } from '../../lib/Segment';
 import { useDefault, getDefaultModList } from '../../lib';
 import { debug_token } from '../../lib/util';
 import ProjectConfig from '../../project.config';
+import TableDict from '../../lib/table/dict';
 
 export function createSegment(useCache: boolean = true)
 {
@@ -66,10 +67,15 @@ export function createSegment(useCache: boolean = true)
 	if (!segment.inited)
 	{
 		segment.autoInit(options);
-
-		let db_dict = segment.getDictDatabase('TABLE');
-		console.log('主字典總數', db_dict.size());
 	}
+
+	let db_dict = segment.getDictDatabase('TABLE', true);
+	db_dict.TABLE = segment.DICT['TABLE'];
+	db_dict.TABLE2 = segment.DICT['TABLE2'];
+
+	db_dict.options.autoCjk = true;
+
+	console.log('主字典總數', db_dict.size());
 
 	console.timeEnd(`讀取模組與字典`);
 
@@ -83,6 +89,11 @@ export function createSegment(useCache: boolean = true)
 	}
 
 	return segment;
+}
+
+export function getDictMain(segment: Segment)
+{
+	return segment.getDictDatabase('TABLE');
 }
 
 import * as self from './index';
