@@ -20,6 +20,7 @@ import { crlf, LF } from 'crlf-normalize';
 import { debug } from './util';
 import SegmentDict from 'segment-dict';
 import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
+import { IWordDebug } from './util/index';
 
 /**
  * 创建分词器接口
@@ -584,9 +585,9 @@ export class Segment
 	/**
 	 * 转换同义词
 	 */
-	convertSynonym(ret: IWord[], showcount: true): { count: number, list: IWord[] }
-	convertSynonym(ret: IWord[], showcount?: boolean): IWord[]
-	convertSynonym(ret: IWord[], showcount?: boolean)
+	convertSynonym(ret: IWordDebug[], showcount: true): { count: number, list: IWordDebug[] }
+	convertSynonym(ret: IWordDebug[], showcount?: boolean): IWordDebug[]
+	convertSynonym(ret: IWordDebug[], showcount?: boolean)
 	{
 		const me = this;
 		let TABLE = me.getDict('SYNONYM');
@@ -595,14 +596,43 @@ export class Segment
 		let total_count = 0;
 
 		// 转换同义词
-		function _convertSynonym(list: IWord[])
+		function _convertSynonym(list: IWordDebug[])
 		{
 			let count = 0;
 			list = list.reduce(function (a, item)
 			{
+				let bool: boolean;
 				let w = item.w;
+				let nw: string;
 
 				if (w in TABLE)
+				{
+					bool = true;
+					nw = TABLE[w];
+				}
+				else if (item.autoCreate && !item.convertSynonym && !item.ow && item.m && item.m.length)
+				{
+					nw = item.m.reduce(function (a: string[], b)
+					{
+						if (typeof b == 'string')
+						{
+							a.push(b);
+						}
+						else if (b.w in TABLE)
+						{
+							a.push(TABLE[b.w]);
+							bool = true;
+						}
+						else
+						{
+							a.push(b.w);
+						}
+
+						return a;
+					}, []).join('');
+				}
+
+				if (bool)
 				{
 					count++;
 					total_count++;
@@ -622,10 +652,13 @@ export class Segment
 
 					a.push({
 						...item,
-						w: TABLE[w],
+
+						w: nw,
 						ow: w,
 						p,
 						op: item.p,
+
+						//source: item,
 
 						convertSynonym: true,
 					});
@@ -640,7 +673,7 @@ export class Segment
 			return { count: count, list: list };
 		}
 
-		let result: { count: number, list: IWord[] };
+		let result: { count: number, list: IWordDebug[] };
 		do
 		{
 			result = _convertSynonym(ret);
@@ -682,7 +715,7 @@ export class Segment
 	 * @param {Number|String} s 用于分割的单词或词性
 	 * @return {Array}
 	 */
-	split(words: IWord[], s?: string | number): IWord[]
+	split(words: IWord[], s: string | number): IWord[]
 	{
 		let ret = [];
 		let lasti = 0;

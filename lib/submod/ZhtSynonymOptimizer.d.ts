@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/16/016.
  */
-import { SubSModule, SubSModuleOptimizer } from '../mod';
+import { SubSModuleOptimizer } from '../mod';
 import { IWordDebug } from '../util';
 /**
  * 自動處理 `里|后`
@@ -13,5 +13,5 @@ export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     readonly type: string;
     doOptimize<T extends IWordDebug>(words: T[]): T[];
 }
-export declare const init: typeof SubSModule.init;
+export declare const init: typeof SubSModuleOptimizer.init;
 export default ZhtSynonymOptimizer;

@@ -31,6 +31,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			let w1 = words[i];
 			let w2: IWord = words[i + 1] || null;
 
+			let bool: boolean;
+
 			if (w1.w == '里')
 			{
 				// 如果前一個項目為 名詞 或 處所
@@ -38,6 +40,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					w1.ow = w1.w;
 					w1.w = '裡';
+
+					bool = true;
 				}
 			}
 			else if (w1.w == '后')
@@ -59,11 +63,15 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					w1.ow = w1.w;
 					w1.w = '後';
+
+					bool = true;
 				}
 				else if (w2 && (w2.p & POSTAG.D_V))
 				{
 					w1.ow = w1.w;
 					w1.w = '後';
+
+					bool = true;
 				}
 			}
 			// 如果項目為 錯字
@@ -79,6 +87,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					w1.ow = w1.w;
 					w1.w = nw;
+
+					bool = true;
 				}
 			}
 			// 如果項目為 方位
@@ -93,6 +103,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					w1.ow = w1.w;
 					w1.w = nw;
+
+					bool = true;
 				}
 			}
 			// 如果項目為 處所
@@ -106,6 +118,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					w1.ow = w1.w;
 					w1.w = nw;
+
+					bool = true;
 				}
 			}
 			// 如果項目為 时间
@@ -119,18 +133,25 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					w1.ow = w1.w;
 					w1.w = nw;
+
+					bool = true;
 				}
 			}
 
-			if (w1.ow && w1.ow != w1.w && w1.w in TABLE)
+			if (bool && w1.ow && w1.ow != w1.w)
 			{
-				let p = TABLE[w1.w].p;
-
-				if (p != w1.p)
+				if (w1.w in TABLE)
 				{
-					w1.op = w1.op || w1.p;
-					w1.p = TABLE[w1.w].p;
+					let p = TABLE[w1.w].p;
+
+					if (p != w1.p)
+					{
+						w1.op = w1.op || w1.p;
+						w1.p = TABLE[w1.w].p;
+					}
 				}
+
+				//w1.convertSynonym = true;
 			}
 
 			i++;

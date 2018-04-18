@@ -2,6 +2,7 @@
 import POSTAG from './POSTAG';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
 import { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
+import { IWordDebug } from './util/index';
 /**
  * 创建分词器接口
  */
@@ -106,11 +107,11 @@ export declare class Segment {
     /**
      * 转换同义词
      */
-    convertSynonym(ret: IWord[], showcount: true): {
+    convertSynonym(ret: IWordDebug[], showcount: true): {
         count: number;
-        list: IWord[];
+        list: IWordDebug[];
     };
-    convertSynonym(ret: IWord[], showcount?: boolean): IWord[];
+    convertSynonym(ret: IWordDebug[], showcount?: boolean): IWordDebug[];
     /**
      * 将单词数组连接成字符串
      *
@@ -126,7 +127,7 @@ export declare class Segment {
      * @param {Number|String} s 用于分割的单词或词性
      * @return {Array}
      */
-    split(words: IWord[], s?: string | number): IWord[];
+    split(words: IWord[], s: string | number): IWord[];
     /**
      * 在单词数组中查找某一个单词或词性所在的位置
      *
