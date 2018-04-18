@@ -13,6 +13,9 @@ import { hexAndAny } from '../util/index';
  *
  * 自動處理 `里|后`
  *
+ * 建議在字典內追加人名地名等等名字 來增加準確性
+ * 防止轉換錯誤
+ *
  * @todo 發于余干松冲准呆只范舍涂
  */
 export class ZhtSynonymOptimizer extends SubSModuleOptimizer
@@ -38,8 +41,16 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 			if (w1.w == '里')
 			{
-				// 如果前一個項目為 名詞 或 處所
-				if (w0 && (w0.p & POSTAG.D_N || w0.p & POSTAG.D_S))
+				if (w0 && hexAndAny(w0.p,
+					// 名詞
+					POSTAG.D_N,
+
+					// 處所
+					POSTAG.D_S,
+
+					// 方位
+					POSTAG.D_F,
+				))
 				{
 					w1.ow = w1.w;
 					w1.w = '裡';

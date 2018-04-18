@@ -9,6 +9,9 @@ import { IWordDebug } from '../util';
  *
  * 自動處理 `里|后`
  *
+ * 建議在字典內追加人名地名等等名字 來增加準確性
+ * 防止轉換錯誤
+ *
  * @todo 發于余干松冲准呆只范舍涂
  */
 export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
