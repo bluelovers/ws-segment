@@ -23,31 +23,39 @@ export function useDefault(segment: Segment, options: {
 	!options.nodict && segment
 		//.loadDict('jieba') <=== bad file
 
-		.loadDict('dict4')
-
 		.loadDict('char')
 
-		.loadDict('phrases')
-		.loadDict('phrases2')
+		// 盘古词典
+		.loadDict('pangu/phrases')
+		.loadDict('pangu/phrases2')
+		.loadDict('phrases/001')
 
-		.loadDict('dict')           // 盘古词典
-		.loadDict('dict2')          // 扩展词典（用于调整原盘古词典）
-		.loadDict('dict3')          // 扩展词典（用于调整原盘古词典）
-		.loadDict('names')          // 常见名词、人名
+		.loadDict('dict')
+		.loadDict('dict2')
+		.loadDict('dict3')
+		.loadDict('dict4')
+		.loadDict('pangu/dict005')
+		.loadDict('pangu/dict006')
 
 		.loadDict('synonym/后')
 		.loadDict('synonym/參')
-		.loadDict('names/zh')
 
-		.loadDict('wildcard', 'WILDCARD', true)   // 通配符
+		//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
 		.loadSynonymDict('synonym')   // 同义词
 		.loadStopwordDict('stopword') // 停止符
 
 		.loadDict('lazy/badword')
 		.loadDict('lazy/dict_synonym')
 
-		.loadDict('names/en')
+		.loadDict('names/area')
+		.loadDict('names/job')
+		.loadDict('names/food')
+
+		.loadDict('names/other')
 		.loadDict('names/jp')
+		.loadDict('names/zh')
+		.loadDict('names/en')
+
 		.loadDict('lazy/index')
 	;
 

@@ -181,7 +181,7 @@ export class Segment
 		{
 			//console.log(name, pathPlus, extPlus);
 
-			throw Error('Cannot find dict file "' + filename + '".');
+			throw Error(`Cannot find dict file "${name}".`);
 		}
 
 		return filename;
