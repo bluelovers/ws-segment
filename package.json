@@ -64,6 +64,7 @@
     "test": "test"
   },
   "scripts": {
+    "local-link": "npm link novel-segment",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {

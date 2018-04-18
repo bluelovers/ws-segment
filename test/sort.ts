@@ -19,13 +19,30 @@ let cwd = path.join(ProjectConfig.dict_root, 'segment');
 Promise
 	.resolve(FastGlob([
 
+		'*.txt',
+		'**/*.txt',
+
 		'dict*.txt',
 		'names.txt',
 		'area/pangu.txt',
 
+		'pangu/*.txt',
+
 	], {
 		cwd: cwd,
 		absolute: true,
+
+		ignore: [
+			'char*',
+			'**/skip',
+			'**/jieba',
+			'**/lazy',
+			'**/synonym',
+			'**/names',
+		],
+
+		markDirectories: true,
+
 	}))
 	.tap(function (ls: string[])
 	{
@@ -38,7 +55,9 @@ Promise
 			return a;
 		}, []);
 
-		//console.log(a);
+		console.log(a);
+
+		//process.exit();
 	})
 	.map(async function (file: string)
 	{
@@ -49,6 +68,8 @@ Promise
 			let data = parseLineSegment(line);
 
 			let bool: boolean;
+
+			let [w, p, f] = data;
 
 			if (0 && UString.size(data[0]) == 1)
 			{
@@ -61,7 +82,28 @@ Promise
 				return false;
 			}
 
-			if (data[0].match(/.大学/))
+			{
+				let s: string;
+
+				s = '//';
+
+				if (0 && s && w != s && w.indexOf(s) != -1)
+				{
+					bool = true;
+				}
+
+				if (0 && s && w != s && w.match(new RegExp(`${s}$`)))
+				{
+					bool = true;
+				}
+
+				if (1 && s && w != s && w.indexOf(s) == 0)
+				{
+					bool = true;
+				}
+			}
+
+			if (0 && w != '博物馆' && w.match(/博物馆/))
 			{
 				bool = true;
 			}
@@ -86,7 +128,7 @@ Promise
 
 		b.sort();
 
-		await fs.writeFile(file, serialize(b));
+		await fs.writeFile(file, serialize(b) + "\n");
 
 		console.log(file);
 
@@ -109,11 +151,11 @@ Promise
 			return d.line;
 		});
 
-		if (1)
+		if (0)
 		{
 			fa.sort();
 		}
 
-		await fs.writeFileSync(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa));
+		await fs.writeFileSync(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n");
 	})
 ;
