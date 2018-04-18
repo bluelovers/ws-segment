@@ -9,6 +9,7 @@
 import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
 import { arr_cjk } from '../util/cjk';
+import { DATETIME } from '../mod/const';
 
 /** 模块类型 */
 export const type = 'optimizer';
@@ -95,21 +96,3 @@ export function doOptimize(words: IWord[], is_not_first?: boolean)
 
 	return words;
 }
-
-// ====================================================
-// 日期时间常见组合
-export let _DATETIME = [
-	'世纪', '年', '年份', '年度', '月', '月份', '月度', '日', '号',
-	'时', '点', '点钟', '分', '分钟', '秒', '毫秒'
-];
-
-_DATETIME = arr_cjk(_DATETIME);
-
-export const DATETIME = _DATETIME.reduce(function (a, b)
-{
-	a[b] = b.length;
-
-	return a;
-}, {}) as {
-	[key: string]: number,
-};

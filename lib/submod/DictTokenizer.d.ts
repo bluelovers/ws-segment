@@ -1,70 +1,96 @@
+import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import Segment, { IWord } from '../Segment';
-/** 模块类型 */
-export declare const type = "tokenizer";
-export declare let segment: Segment;
 /**
- * 模块初始化
+ * 字典识别模块
  *
- * @param {Segment} segment 分词接口
+ * @author 老雷<leizongmin@gmail.com>
  */
-export declare function init(_segment: any): void;
-/**
- * 对未识别的单词进行分词
- *
- * @param {array} words 单词数组
- * @return {array}
- */
-export declare function split(words: IWord[]): IWord[];
-/**
- * 匹配单词，返回相关信息
- *
- * @param {string} text 文本
- * @param {int} cur 开始位置
- * @param {object} preword 上一个单词
- * @return {array}  返回格式   {w: '单词', c: 开始位置}
- */
-export declare function matchWord(text: string, cur: number, preword: IWord): Segment.IWord[];
-/**
- * 选择最有可能匹配的单词
- *
- * @param {array} words 单词信息数组
- * @param {object} preword 上一个单词
- * @param {string} text 本节要分词的文本
- * @return {array}
- */
-export declare function filterWord(words: IWord[], preword: IWord, text: string): Segment.IWord[];
-/**
- * 评价排名
- *
- * @param {object} assess
- * @return {object}
- */
-export declare function getTops(assess: Array<IAssessRow>): number;
-/**
- * 将单词按照位置排列
- *
- * @param {array} words
- * @param {string} text
- * @return {object}
- */
-export declare function getPosInfo(words: IWord[], text: string): {
-    [index: number]: IWord[];
-};
-/**
- * 取所有分支
- *
- * @param {object} wordpos
- * @param {int} pos 当前位置
- * @param {string} text 本节要分词的文本
- * @return {array}
- */
-export declare function getChunks(wordpos: {
-    [index: number]: IWord[];
-}, pos: number, text?: string, total_count?: number): Segment.IWord[][];
-export declare type IAssessRow = {
-    x: number;
-    a: number;
-    b: number;
-    c: number;
-    d: number;
-};
+export declare class DictTokenizer extends SubSModuleTokenizer {
+    /**
+     * 防止因無分段導致分析過久甚至超過處理負荷
+     *
+     * @type {number}
+     */
+    MAX_CHUNK_COUNT: number;
+    /**
+     * 对未识别的单词进行分词
+     *
+     * @param {array} words 单词数组
+     * @return {array}
+     */
+    split(words: IWord[]): IWord[];
+    /**
+     * 匹配单词，返回相关信息
+     *
+     * @param {string} text 文本
+     * @param {int} cur 开始位置
+     * @param {object} preword 上一个单词
+     * @return {array}  返回格式   {w: '单词', c: 开始位置}
+     */
+    protected matchWord(text: string, cur: number, preword: IWord): Segment.IWord[];
+    /**
+     * 选择最有可能匹配的单词
+     *
+     * @param {array} words 单词信息数组
+     * @param {object} preword 上一个单词
+     * @param {string} text 本节要分词的文本
+     * @return {array}
+     */
+    protected filterWord(words: IWord[], preword: IWord, text: string): Segment.IWord[];
+    /**
+     * 评价排名
+     *
+     * @param {object} assess
+     * @return {object}
+     */
+    getTops(assess: Array<IAssessRow>): number;
+    /**
+     * 将单词按照位置排列
+     *
+     * @param {array} words
+     * @param {string} text
+     * @return {object}
+     */
+    getPosInfo(words: IWord[], text: string): {
+        [index: number]: IWord[];
+    };
+    /**
+     * 取所有分支
+     *
+     * @param {{[p: number]: Segment.IWord[]}} wordpos
+     * @param {number} pos 当前位置
+     * @param {string} text 本节要分词的文本
+     * @param {number} total_count
+     * @returns {Segment.IWord[][]}
+     */
+    getChunks(wordpos: {
+        [index: number]: IWord[];
+    }, pos: number, text?: string, total_count?: number): Segment.IWord[][];
+}
+export declare namespace DictTokenizer {
+    type IAssessRow = {
+        /**
+         * 词数量，越小越好
+         */
+        x: number;
+        /**
+         * 词总频率，越大越好
+         */
+        a: number;
+        /**
+         * 词标准差，越小越好
+         */
+        b: number;
+        /**
+         * 未识别词，越小越好
+         */
+        c: number;
+        /**
+         * 符合语法结构程度，越大越好
+         */
+        d: number;
+    };
+}
+export import IAssessRow = DictTokenizer.IAssessRow;
+export declare const init: ISubTokenizerCreate<DictTokenizer, SubSModuleTokenizer>;
+export default DictTokenizer;

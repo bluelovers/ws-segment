@@ -21,7 +21,3 @@ export declare function init(_segment: any): void;
  * @return {array}
  */
 export declare function doOptimize(words: IWord[], is_not_first?: boolean): Segment.IWord[];
-export declare let _DATETIME: string[];
-export declare const DATETIME: {
-    [key: string]: number;
-};
