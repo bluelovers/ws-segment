@@ -13,10 +13,12 @@ import * as path from 'path';
 import { searchFirst } from './fs/get';
 import { useDefault } from './index';
 import POSTAG from './POSTAG';
+import AbstractTableDictCore from './table/core';
 import { TableDict, IOptions as IOptionsTableDict, ITableDictRow } from './table/dict';
 
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
+import TableDictSynonym from './table/synonym';
 import { debug, IWordDebugInfo } from './util';
 import SegmentDict from 'segment-dict';
 import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
@@ -93,11 +95,27 @@ export class Segment
 		delete this.options.db;
 	}
 
-	getDictDatabase<R extends TableDict>(type: string, autocreate?: boolean, libTableDict?): R
+	getDictDatabase<R extends TableDictSynonym>(type: 'SYNONYM',
+		autocreate?: boolean,
+		libTableDict?: { new(...argv): R }
+	): R
+	getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
+	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string,
+		autocreate?: boolean,
+		libTableDict?: { new(...argv): R }
+	): R
+	getDictDatabase(type: string, autocreate?: boolean, libTableDict?)
 	{
 		if (autocreate && !this.db[type])
 		{
-			libTableDict = libTableDict || TableDict;
+			if (type == 'SYNONYM')
+			{
+				libTableDict = libTableDict || TableDictSynonym;
+			}
+			else
+			{
+				libTableDict = libTableDict || TableDict;
+			}
 
 			this.db[type] = new libTableDict(type, this.options);
 		}
@@ -266,23 +284,33 @@ export class Segment
 	 *
 	 * @param {String} name 字典文件名
 	 */
-	loadSynonymDict(name: string)
+	loadSynonymDict(name: string, skipExists?: boolean)
 	{
 		let filename = this._resolveDictFilename(name, [
 			path.resolve(SegmentDict.DICT_ROOT, 'synonym'),
 		]);
+
 		let type = 'SYNONYM';
 
+		const db = this.getDictDatabase(type, true);
+
+		const TABLE = this.DICT[type] = db.TABLE;
+
+		/*
 		// 初始化词典
 		if (!this.DICT[type]) this.DICT[type] = {};
 		// 词典表  '同义词' => '标准词'
 		let TABLE = this.DICT[type] as IDICT_SYNONYM;
 		// 导入数据
+		*/
 
 		let data = Loader.SegmentSynonymLoader.loadSync(filename);
 
-		data.forEach(function (blocks)
+		data.forEach(function (blocks: string[])
 		{
+			db.add(blocks, skipExists);
+
+			/*
 			let [n1, n2] = blocks;
 
 			TABLE[n1] = n2;
@@ -290,7 +318,10 @@ export class Segment
 			{
 				delete TABLE[n2];
 			}
+			*/
 		});
+
+		console.log(TABLE);
 
 		this.inited = true;
 

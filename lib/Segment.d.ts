@@ -1,6 +1,8 @@
 /// <reference types="node" />
 import POSTAG from './POSTAG';
+import AbstractTableDictCore from './table/core';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
+import TableDictSynonym from './table/synonym';
 import { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
 import { IWordDebug } from './util/index';
 /**
@@ -34,7 +36,15 @@ export declare class Segment {
     options: IOptionsSegment;
     inited?: boolean;
     constructor(options?: IOptionsSegment);
-    getDictDatabase<R extends TableDict>(type: string, autocreate?: boolean, libTableDict?: any): R;
+    getDictDatabase<R extends TableDictSynonym>(type: 'SYNONYM', autocreate?: boolean, libTableDict?: {
+        new (...argv): R;
+    }): R;
+    getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: {
+        new (...argv): R;
+    }): R;
+    getDictDatabase<R extends AbstractTableDictCore<any>>(type: string, autocreate?: boolean, libTableDict?: {
+        new (...argv): R;
+    }): R;
     /**
      * 载入分词模块
      *
@@ -72,7 +82,7 @@ export declare class Segment {
      *
      * @param {String} name 字典文件名
      */
-    loadSynonymDict(name: string): this;
+    loadSynonymDict(name: string, skipExists?: boolean): this;
     /**
      * 载入停止符词典
      *

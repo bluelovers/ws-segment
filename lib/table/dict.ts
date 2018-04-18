@@ -6,30 +6,19 @@ import { IWord } from '../Segment';
 import { IDictRow } from 'segment-dict/lib/loader/segment';
 import CjkConv from 'cjk-conv';
 import { text_list } from '../util/cjk';
-
-export type IOptions = {
-	autoCjk?: boolean,
-}
+import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 
 export type ITableDictRow = {
 	p: number,
 	f: number,
 };
 
-export interface IDICT<T = any>
-{
-	[key: string]: T,
-}
-
-export interface IDICT2<T = any>
-{
-	[key: number]: IDICT<T>,
-}
+export { IDICT, IDICT2, IOptions }
 
 /**
  * @todo 掛接其他 dict
  */
-export class TableDict
+export class TableDict extends AbstractTableDictCore<ITableDictRow>
 {
 	public type: string;
 
@@ -37,15 +26,6 @@ export class TableDict
 	TABLE2: IDICT2<ITableDictRow> = {};
 
 	options: IOptions;
-
-	constructor(type: string, options: IOptions = {})
-	{
-		this.type = type;
-
-		this.options = Object.assign({}, this.options, options);
-
-		//console.log(this.options);
-	}
 
 	exists(data: IWord | IDictRow | string): ITableDictRow
 	{
@@ -146,11 +126,6 @@ export class TableDict
 		}
 
 		return this;
-	}
-
-	size()
-	{
-		return Object.keys(this.TABLE).length;
 	}
 
 	protected _add({w, p, f})
