@@ -46,7 +46,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [keywords:中文分词](https://www.npmjs.com/search?q=keywords:%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D)
 * [keywords:分词](https://www.npmjs.com/search?q=keywords:%E5%88%86%E8%AF%8D)
 
----
+### zh
 
 * [segmentit](https://www.npmjs.com/package/segmentit)
 * [node-opencc](https://github.com/compulim/node-opencc)
@@ -54,4 +54,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [hanzi](https://www.npmjs.com/package/hanzi)
 * [jieba-js](https://github.com/bluelovers/jieba-js)
 * [nodescws](https://github.com/dotSlashLu/nodescws)
-* 
+
+### jp
+
+* [rakutenma](https://www.npmjs.com/package/rakutenma)
