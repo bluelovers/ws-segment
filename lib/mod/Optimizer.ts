@@ -60,12 +60,7 @@ export class Optimizer extends SModule
 	 */
 	doOptimize(words: IWord[], mods: ISubOptimizer[], ...argv): IWord[]
 	{
-		// 按顺序分别调用各个mod来进行分词 ： 各个mod仅对没有识别类型的单词进行分词
-		mods.forEach(function (mod)
-		{
-			words = mod.doOptimize(words, ...argv);
-		});
-		return words;
+		return this._doMethod('doOptimize', words, mods, ...argv);
 	}
 }
 

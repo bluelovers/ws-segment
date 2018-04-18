@@ -36,8 +36,6 @@ export declare class Tokenizer extends SModule {
      * @param {array} modules 分词模块数组
      * @return {array}
      */
-    split(text: string, mods: ISubTokenizer[], ...argv: any[]): {
-        w: string;
-    }[];
+    split(text: string, mods: ISubTokenizer[], ...argv: any[]): Segment.IWord[];
 }
 export default Tokenizer;

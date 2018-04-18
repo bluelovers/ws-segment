@@ -11,6 +11,7 @@ export declare class SModule implements ISModule {
      * @param {Segment} segment 分词接口
      */
     constructor(segment: Segment);
+    protected _doMethod<S extends IWord, T extends ISubSModule>(fn: string, target: S[], mods: T[], ...argv: any[]): S[];
 }
 export declare class SubSModule implements ISubSModule {
     static type: ISModuleType;
@@ -25,6 +26,8 @@ export declare class SubSModule implements ISubSModule {
     protected static _init<T extends SubSModule>(libThis: IModuleStatic<T>, segment: Segment, ...argv: any[]): T;
     init(segment: Segment, ...argv: any[]): this;
     protected _cache(...argv: any[]): void;
+    protected createToken<T extends IWord>(data: T, skipCheck?: boolean): T;
+    protected sliceToken<T extends IWord>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean): T[];
 }
 export interface ISubSModuleMethod<T extends IWord, U extends IWord = T> {
     (words: T[], ...argv: any[]): U[];

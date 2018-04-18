@@ -780,6 +780,7 @@ export namespace Segment
 		m?: Array<IWord | string>,
 
 		convertSynonym?: boolean,
+		autoCreate?: boolean,
 	}
 
 	export interface IOptionsDoSegment

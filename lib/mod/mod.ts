@@ -19,6 +19,22 @@ export class SModule implements ISModule
 	{
 		this.segment = segment;
 	}
+
+	protected _doMethod<S extends IWord, T extends ISubSModule>(fn: string, target: S[], mods: T[], ...argv)
+	{
+		mods.forEach(function (mod)
+		{
+			// @ts-ignore
+			if (typeof mod._cache == 'function')
+			{
+				// @ts-ignore
+				mod._cache();
+			}
+
+			target = mod[fn](target, ...argv);
+		});
+		return target;
+	}
 }
 
 export class SubSModule implements ISubSModule
@@ -83,7 +99,7 @@ export class SubSModule implements ISubSModule
 		this.segment = segment;
 		this.inited = true;
 
-		this._cache();
+		//this._cache();
 
 		return this;
 	}
@@ -91,6 +107,25 @@ export class SubSModule implements ISubSModule
 	protected _cache(...argv)
 	{
 
+	}
+
+	protected createToken<T extends IWord>(data: T, skipCheck?: boolean)
+	{
+		let TABLE = this._TABLE;
+
+		if (!skipCheck && !(data.w in TABLE))
+		{
+			data.autoCreate = true;
+		}
+
+		return data;
+	}
+
+	protected sliceToken<T extends IWord>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean)
+	{
+		words.splice(pos, len, this.createToken(data, skipCheck));
+
+		return words;
 	}
 }
 
@@ -129,5 +164,6 @@ export interface ISubSModule
 }
 
 import * as self from './mod';
+import { ISubOptimizer } from './Optimizer';
 
 export default self;

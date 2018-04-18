@@ -174,6 +174,7 @@ export declare namespace Segment {
          */
         m?: Array<IWord | string>;
         convertSynonym?: boolean;
+        autoCreate?: boolean;
     }
     interface IOptionsDoSegment {
         /**

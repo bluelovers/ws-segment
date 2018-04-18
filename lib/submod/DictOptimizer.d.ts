@@ -15,7 +15,6 @@ export declare class DictOptimizer extends SubSModuleOptimizer {
         nw: string;
         i: number;
     }): boolean;
-    createToken(w: any, p: any, m: any): void;
     /**
      * 词典优化
      *

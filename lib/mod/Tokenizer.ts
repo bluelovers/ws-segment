@@ -115,13 +115,25 @@ export class Tokenizer extends SModule
 		}
 		else
 		{
+			let ret: IWord[] = [{ w: text }];
+
+			return this._doMethod('split', ret, mods, ...argv);
+
+			/*
 			// 按顺序分别调用各个module来进行分词 ： 各个module仅对没有识别类型的单词进行分词
-			let ret = [{ w: text }];
 			mods.forEach(function (mod)
 			{
+				// @ts-ignore
+				if (typeof mod._cache == 'function')
+				{
+					// @ts-ignore
+					mod._cache();
+				}
+
 				ret = mod.split(ret, ...argv);
 			});
 			return ret;
+			*/
 		}
 	}
 }

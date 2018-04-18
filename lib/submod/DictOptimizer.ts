@@ -58,11 +58,6 @@ export class DictOptimizer extends SubSModuleOptimizer
 		return bool && (nw in TABLE);
 	}
 
-	createToken(w, p, m)
-	{
-		let TABLE = this.segment.getDict('TABLE');
-	}
-
 	/**
 	 * 词典优化
 	 *
@@ -106,7 +101,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 					p = POSTAG.D_A + POSTAG.BAD;
 				}
 
-				words.splice(i, 2, {
+				this.sliceToken(words, i, 2, {
 					w: nw,
 					//p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
 					p,
@@ -126,7 +121,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 			}))
 			//if (w1.p == w2.p && nw in TABLE)
 			{
-				words.splice(i, 2, {
+				this.sliceToken(words, i, 2, {
 					w: nw,
 					p: TABLE[nw].p,
 					m: [w1, w2],
@@ -143,7 +138,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				// 百分比数字 如 10%，或者下一个词也是数词，则合并
 				if ((w2.p & POSTAG.A_M) > 0 || w2.w == '%')
 				{
-					words.splice(i, 2, {
+					this.sliceToken(words, i, 2, {
 						w: w1.w + w2.w,
 						p: POSTAG.A_M,
 						m: [w1, w2],
@@ -167,7 +162,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 						p = p | POSTAG.D_T;
 					}
 
-					words.splice(i, 2, {
+					this.sliceToken(words, i, 2, {
 						w: nw,
 						p,
 						m: [w1, w2],
@@ -181,7 +176,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				if (w3 && (w3.p & POSTAG.A_M) > 0 &&
 					(w2.w == '.' || w2.w == '点' || w2.w == '分之'))
 				{
-					words.splice(i, 3, {
+					this.sliceToken(words, i, 3, {
 						w: w1.w + w2.w + w3.w,
 						p: POSTAG.A_M,
 						m: [w1, w2, w3],
@@ -210,7 +205,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 						break;
 					}
 				}
-				words.splice(i, i2, {
+				this.sliceToken(words, i, i2, {
 					w: w1.w + w2.w + w4w,
 					p: POSTAG.D_MQ, // 数量词
 					m: [w1, w2, w4w],
