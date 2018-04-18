@@ -18,6 +18,9 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 	/**
 	 * 防止因無分段導致分析過久甚至超過處理負荷
+	 * 越高越精準但是處理時間會加倍成長甚至超過記憶體能處理的程度
+	 *
+	 * FATAL ERROR: CALL_AND_RETRY_LAST Allocation failed - JavaScript heap out of memory
 	 *
 	 * @type {number}
 	 */
