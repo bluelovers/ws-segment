@@ -8,6 +8,9 @@ import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
 
 /**
+ * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
+ * 適用於比較容易需要人工處理的轉換
+ *
  * 自動處理 `里|后`
  *
  * @todo 發于余干松冲准呆只范舍涂

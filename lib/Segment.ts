@@ -595,6 +595,8 @@ export class Segment
 
 		let total_count = 0;
 
+		const RAW = Symbol.for('RAW');
+
 		// 转换同义词
 		function _convertSynonym(list: IWordDebug[])
 		{
@@ -657,6 +659,8 @@ export class Segment
 						ow: w,
 						p,
 						op: item.p,
+
+						[RAW]: item,
 
 						//source: item,
 
