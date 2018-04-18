@@ -35,7 +35,22 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 
 			return s;
 		});
-	}
+	},
+
+	filter(line: string)
+	{
+		line = line
+			.replace(/\uFEFF/g, '')
+			.trim()
+			.replace(/^\s+|\s+$/, '')
+		;
+
+		if (line && line.indexOf('\/\/') != 0)
+		{
+			return line;
+		}
+	},
+
 });
 
 export const load = libLoader.load as typeof libLoader.load;
