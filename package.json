@@ -68,7 +68,7 @@
   },
   "scripts": {
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
-    "local-link": "npm link segment-dict & npm link cjk-conv",
+    "local-link": "npm link segment-dict & npm link cjk-conv & npm link @types/fs-extra & npm link @types/node & npm link @types/bluebird",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-js": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
@@ -85,8 +85,10 @@
     "uni-string": "^1.0.1"
   },
   "devDependencies": {
+    "@types/bluebird": "^3.5.20",
     "@types/fs-extra": "^5.0.2",
     "@types/node": "^9.6.5",
+    "diff": "^3.5.0",
     "regexp-cjk": "^1.2.12"
   },
   "optionalDependencies": {}

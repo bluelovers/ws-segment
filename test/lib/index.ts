@@ -17,6 +17,12 @@ export function createSegment(useCache: boolean = true)
 {
 	const segment = new Segment({
 		autoCjk: true,
+
+		optionsDoSegment: {
+
+			convertSynonym: true,
+
+		},
 	});
 
 	let cache_file = path.join(ProjectConfig.temp_root, 'cache.db');

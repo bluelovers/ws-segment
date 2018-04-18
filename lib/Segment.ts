@@ -65,15 +65,11 @@ export class Segment
 		[key: string]: TableDict,
 	} = {};
 
-	options: IOptionsTableDict & {
-		db?: TableDict[],
-	} = {};
+	options: IOptionsSegment = {};
 
 	inited?: boolean;
 
-	constructor(options: IOptionsTableDict & {
-		db?: TableDict[],
-	} = {})
+	constructor(options: IOptionsSegment = {})
 	{
 		const self = this;
 
@@ -419,6 +415,15 @@ export class Segment
 		return this;
 	}
 
+	getOptionsDoSegment<T extends IOptionsDoSegment>(options?: T): T
+	{
+		return Object.assign({},
+			Segment.defaultOptionsDoSegment,
+			this.options.optionsDoSegment,
+			options,
+		);
+	}
+
 	/**
 	 * 开始分词
 	 *
@@ -438,7 +443,7 @@ export class Segment
 	{
 		let me = this;
 
-		options = Object.assign({}, Segment.defaultOptionsDoSegment, options);
+		options = this.getOptionsDoSegment(options);
 
 		this.autoInit();
 
@@ -620,6 +625,8 @@ export class Segment
 						ow: w,
 						p,
 						op: item.p,
+
+						convertSynonym: true,
 					});
 				}
 				else
@@ -733,6 +740,11 @@ export namespace Segment
 		[key: string]: T,
 	}
 
+	export type IOptionsSegment = IOptionsTableDict & {
+		db?: TableDict[],
+		optionsDoSegment?: IOptionsDoSegment,
+	};
+
 	export type IDICT_SYNONYM = IDICT<string>;
 	export type IDICT_STOPWORD = IDICT<boolean>;
 
@@ -760,6 +772,8 @@ export namespace Segment
 		 * 合併項目
 		 */
 		m?: Array<IWord | string>,
+
+		convertSynonym?: boolean,
 	}
 
 	export interface IOptionsDoSegment
@@ -788,6 +802,7 @@ export namespace Segment
 	}
 }
 
+export import IOptionsSegment = Segment.IOptionsSegment;
 export import IWord = Segment.IWord;
 export import IOptionsDoSegment = Segment.IOptionsDoSegment;
 export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;

@@ -30,13 +30,9 @@ export declare class Segment {
     db: {
         [key: string]: TableDict;
     };
-    options: IOptionsTableDict & {
-        db?: TableDict[];
-    };
+    options: IOptionsSegment;
     inited?: boolean;
-    constructor(options?: IOptionsTableDict & {
-        db?: TableDict[];
-    });
+    constructor(options?: IOptionsSegment);
     getDictDatabase<R extends TableDict>(type: string, autocreate?: boolean, libTableDict?: any): R;
     /**
      * 载入分词模块
@@ -90,6 +86,7 @@ export declare class Segment {
     autoInit(options?: {
         all_mod?: boolean;
     }): this;
+    getOptionsDoSegment<T extends IOptionsDoSegment>(options?: T): T;
     /**
      * 开始分词
      *
@@ -143,6 +140,10 @@ export declare namespace Segment {
     interface IDICT<T = any> {
         [key: string]: T;
     }
+    type IOptionsSegment = IOptionsTableDict & {
+        db?: TableDict[];
+        optionsDoSegment?: IOptionsDoSegment;
+    };
     type IDICT_SYNONYM = IDICT<string>;
     type IDICT_STOPWORD = IDICT<boolean>;
     interface IWord {
@@ -168,6 +169,7 @@ export declare namespace Segment {
          * 合併項目
          */
         m?: Array<IWord | string>;
+        convertSynonym?: boolean;
     }
     interface IOptionsDoSegment {
         /**
@@ -189,6 +191,7 @@ export declare namespace Segment {
         stripSpace?: boolean;
     }
 }
+export import IOptionsSegment = Segment.IOptionsSegment;
 export import IWord = Segment.IWord;
 export import IOptionsDoSegment = Segment.IOptionsDoSegment;
 export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
