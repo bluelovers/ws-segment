@@ -83,6 +83,7 @@
     "fast-glob": "^2.2.0",
     "fs-extra": "^5.0.0",
     "segment-dict": "^1.0.13",
+    "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "^2.0.2",
     "uni-string": "^1.0.1"
   },

@@ -4,6 +4,7 @@
 
 import { POSTAG } from '../POSTAG';
 import { IWord } from '../Segment';
+import sortObjectKeys from 'sort-object-keys2';
 
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');
 export const SYMBOL_DEBUG_KEY = '_debug';
@@ -36,9 +37,18 @@ export type IWordDebug = IWord & {
 	[SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>,
 }
 
-export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr: U & IWordDebugInfo, returnSource: true): T
-export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnSource?: boolean): U & IWordDebugInfo
-export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnSource?: boolean)
+export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
+	attr: U & IWordDebugInfo,
+	returnSource: true
+): T
+export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
+	attr?: U & IWordDebugInfo,
+	returnSource?: boolean
+): U & IWordDebugInfo
+export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
+	attr?: U & IWordDebugInfo,
+	returnSource?: boolean
+)
 {
 	if (attr)
 	{
@@ -89,7 +99,7 @@ export function token_add_info<T extends IWordDebug>(v: T)
 		v.ps = POSTAG.zhName(v.p);
 		//v.ps_en = POSTAG.enName(v.p);
 
-		debugToken(v, {
+		let debug = debugToken(v, {
 			ps_en: POSTAG.enName(v.p),
 		});
 
@@ -99,7 +109,28 @@ export function token_add_info<T extends IWordDebug>(v: T)
 		{
 			v.m.map(token_add_info);
 		}
+
+		if (debug._source)
+		{
+			token_add_info(debug._source);
+		}
 	}
+
+	sortObjectKeys(v, {
+		keys: [
+			'w',
+			'p',
+			'f',
+
+			'ow',
+			'op',
+
+			'ps',
+			'pp',
+		],
+
+		useSource: true,
+	});
 
 	return v;
 }
@@ -114,5 +145,6 @@ export function toHex(p: number)
 }
 
 import * as self from './debug';
+
 export default self;
 

@@ -2,6 +2,7 @@
  * Created by user on 2018/4/16/016.
  */
 import { SubSModuleOptimizer } from '../mod';
+import { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
@@ -18,6 +19,10 @@ export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     static readonly type: string;
     readonly type: string;
     name: string;
+    protected _SYNONYM?: IDICT_SYNONYM;
+    protected _TABLE: IDICT<IWord>;
+    _cache(): void;
+    protected _getSynonym(w: string, nw: string): string;
     doOptimize<T extends IWordDebug>(words: T[]): T[];
 }
 export declare const init: typeof SubSModuleOptimizer.init;

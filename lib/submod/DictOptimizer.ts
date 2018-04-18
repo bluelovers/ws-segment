@@ -18,6 +18,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 	_cache()
 	{
+		super._cache();
 		this._TABLE = this.segment.getDict('TABLE');
 		this._POSTAG = this.segment.POSTAG;
 	}

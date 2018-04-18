@@ -3,7 +3,7 @@
  */
 
 import { SubSModule, SubSModuleOptimizer } from '../mod';
-import Segment, { IWord } from '../Segment';
+import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
 
@@ -25,11 +25,43 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 	name = 'ZhtSynonymOptimizer';
 
+	protected _SYNONYM?: IDICT_SYNONYM;
+	protected _TABLE: IDICT<IWord>;
+
+	_cache()
+	{
+		super._cache();
+
+		this._TABLE = this.segment.getDict('TABLE');
+		this._POSTAG = this.segment.POSTAG;
+
+		this._SYNONYM = this.segment.getDict('SYNONYM') || {};
+	}
+
+	protected _getSynonym(w: string, nw: string): string
+	{
+		const SYNONYM = this._SYNONYM;
+
+		if (w in SYNONYM)
+		{
+			nw = SYNONYM[w];
+		}
+
+		if (nw in SYNONYM)
+		{
+			//let w = nw;
+			nw = SYNONYM[nw];
+		}
+
+		return nw;
+	}
+
 	doOptimize<T extends IWordDebug>(words: T[]): T[]
 	{
 		const self = this;
-		const POSTAG = self.segment.POSTAG;
-		const TABLE = self.segment.getDict('TABLE');
+		const POSTAG = this._POSTAG;
+		const TABLE = this._TABLE;
+		const SYNONYM = this._SYNONYM;
 
 		let i = 0;
 
@@ -52,6 +84,12 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					// 方位
 					POSTAG.D_F,
+
+					// 时间词
+					POSTAG.D_T,
+
+					// 动词 训练
+					POSTAG.D_V,
 				))
 				{
 					w1.ow = w1.w;
@@ -93,11 +131,15 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			// 如果項目為 錯字
 			else if (w1.p & POSTAG.BAD)
 			{
-				let nw = w1.w
+				let nw: string;
+
+				nw = w1.w
 					.replace(/(.)里|里(.)/, '$1裡$2')
 					.replace(/(.)后|后(.)/, '$1後$2')
 					.replace(/蔘(.)/, '參$1')
 				;
+
+				nw = this._getSynonym(w1.w, nw);
 
 				if (nw != w1.w)
 				{
@@ -108,12 +150,14 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 			}
 			// 如果項目為 方位
-			else if (w1.p & POSTAG.D_F || w1.p & POSTAG.BAD)
+			else if (w1.p & POSTAG.D_F)
 			{
 				let nw = w1.w
 					.replace(/(.)里|里(.)/, '$1裡$2')
 					.replace(/(.)后|后(.)/, '$1後$2')
 				;
+
+				nw = this._getSynonym(w1.w, nw);
 
 				if (nw != w1.w)
 				{
@@ -130,6 +174,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					.replace(/(.)里$/, '$1裡')
 				;
 
+				nw = this._getSynonym(w1.w, nw);
+
 				if (nw != w1.w)
 				{
 					w1.ow = w1.w;
@@ -144,6 +190,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				let nw = w1.w
 					.replace(/(.)后|后(.)/, '$1後$2')
 				;
+
+				nw = this._getSynonym(w1.w, nw);
 
 				if (nw != w1.w)
 				{
