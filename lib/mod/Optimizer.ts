@@ -14,7 +14,12 @@ export type ISubOptimizer = ISubSModule & {
 	doOptimize(words: IWord[], ...argv): IWord[],
 }
 
+export type ISubOptimizerCreate<T extends SubSModuleOptimizer, R extends SubSModuleOptimizer = SubSModuleOptimizer> = {
+	(segment: Segment, ...argv): T & R,
+};
+
 @autobind
+// @ts-ignore
 export class SubSModuleOptimizer extends SubSModule implements ISubOptimizer
 {
 	public static readonly type = 'optimizer';
@@ -23,6 +28,19 @@ export class SubSModuleOptimizer extends SubSModule implements ISubOptimizer
 	public doOptimize(words: IWord[], ...argv): IWord[]
 	{
 		throw new Error();
+	}
+
+	public init(segment: Segment, ...argv)
+	{
+		super.init(segment, ...argv);
+
+		return this;
+	}
+
+	public static init<T extends SubSModuleOptimizer = SubSModuleOptimizer>(segment: Segment, ...argv): T
+	{
+		// @ts-ignore
+		return super.init<T>(segment, ...argv);
 	}
 }
 

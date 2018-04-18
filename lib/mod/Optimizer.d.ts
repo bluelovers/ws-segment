@@ -1,13 +1,18 @@
-import { IWord } from '../Segment';
+import { Segment, IWord } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 export declare type ISubOptimizer = ISubSModule & {
     type: 'optimizer';
     doOptimize(words: IWord[], ...argv): IWord[];
 };
+export declare type ISubOptimizerCreate<T extends SubSModuleOptimizer, R extends SubSModuleOptimizer = SubSModuleOptimizer> = {
+    (segment: Segment, ...argv): T & R;
+};
 export declare class SubSModuleOptimizer extends SubSModule implements ISubOptimizer {
     static readonly type: string;
     readonly type: string;
     doOptimize(words: IWord[], ...argv: any[]): IWord[];
+    init(segment: Segment, ...argv: any[]): this;
+    static init<T extends SubSModuleOptimizer = SubSModuleOptimizer>(segment: Segment, ...argv: any[]): T;
 }
 /**
  * 分词模块管理器

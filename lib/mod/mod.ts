@@ -10,6 +10,7 @@ export class SModule implements ISModule
 {
 	type?: ISModuleType;
 	segment: Segment;
+
 	/**
 	 * @param {Segment} segment 分词接口
 	 */
@@ -48,14 +49,20 @@ export class SubSModule implements ISubSModule
 		}
 	}
 
-	public static init(segment: Segment, ...argv)
+	public static init<T extends SubSModule = SubSModule>(segment: Segment, ...argv): T
 	{
-		if (!this.type)
+		// @ts-ignore
+		return this._init(this, segment, ...argv);
+	}
+
+	protected static _init<T extends SubSModule>(libThis: IModuleStatic<T>, segment: Segment, ...argv): T
+	{
+		if (!libThis.type)
 		{
 			throw new Error()
 		}
 
-		let mod = new this(this.type, segment, ...argv);
+		let mod = new libThis(libThis.type, segment, ...argv);
 
 		if (!mod.inited)
 		{
@@ -63,10 +70,11 @@ export class SubSModule implements ISubSModule
 			mod.inited = true;
 		}
 
+		// @ts-ignore
 		return mod;
 	}
 
-	public init(segment: Segment, ...argv): this
+	public init(segment: Segment, ...argv)
 	{
 		this.segment = segment;
 		this.inited = true;
@@ -75,15 +83,28 @@ export class SubSModule implements ISubSModule
 	}
 }
 
+export interface ISubSModuleMethod<T extends IWord, U extends IWord = T>
+{
+	(words: T[], ...argv): U[],
+}
+
+export interface ISubSModuleCreate<T extends SubSModule, R extends SubSModule = SubSModule>
+{
+	(segment: Segment, ...argv): T & R,
+}
+
 export interface ISModule
 {
 	type?: ISModuleType,
 	segment: Segment,
 }
 
-export interface IModuleStatic<T = ISModule>
+export interface IModuleStatic<T extends ISModule | SubSModule>
 {
-	new (segment: Segment): T,
+	type: ISModuleType;
+
+	new(type?: ISModuleType, segment?: Segment, ...argv): T,
+	init(segment: Segment, ...argv): T,
 }
 
 export interface ISubSModule
@@ -97,4 +118,5 @@ export interface ISubSModule
 }
 
 import * as self from './mod';
+
 export default self;

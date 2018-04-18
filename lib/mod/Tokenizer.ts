@@ -8,19 +8,19 @@
 
 import { autobind } from 'core-decorators';
 import { Segment, IWord } from '../Segment';
-import { ISubSModule, SModule, SubSModule } from './mod';
+import { IModuleStatic, ISubSModule, SModule, SubSModule, ISubSModuleCreate } from './mod';
 
 export type ISubTokenizer = ISubSModule & {
 	type: 'tokenizer',
 	split(words: IWord[], ...argv): IWord[],
 }
 
-export interface ISubTokenizerSplit<T extends IWord, U extends IWord = T>
-{
-	(words: T[], ...argv): U[],
-}
+export type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
+	(segment: Segment, ...argv): T & R,
+};
 
 @autobind
+// @ts-ignore
 export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 {
 	public static readonly type = 'tokenizer';
@@ -29,6 +29,19 @@ export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 	public split(words: IWord[], ...argv): IWord[]
 	{
 		throw new Error();
+	}
+
+	public init(segment: Segment, ...argv)
+	{
+		super.init(segment, ...argv);
+
+		return this;
+	}
+
+	public static init<T extends SubSModuleTokenizer = SubSModuleTokenizer>(segment: Segment, ...argv): T
+	{
+		// @ts-ignore
+		return super.init<T>(segment, ...argv);
 	}
 
 	/**

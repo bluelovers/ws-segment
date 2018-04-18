@@ -3,7 +3,7 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-import { SubSModule, SubSModuleTokenizer } from '../mod';
+import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import { IWord } from '../Segment';
 export declare class ForeignTokenizer extends SubSModuleTokenizer {
     /**
@@ -20,7 +20,7 @@ export declare class ForeignTokenizer extends SubSModuleTokenizer {
      * @param {int} cur 开始位置
      * @return {array}  返回格式   {w: '单词', c: 开始位置}
      */
-    splitForeign(text: string, cur?: number): any[];
+    splitForeign(text: string, cur?: number): IWord[];
 }
-export declare const init: typeof SubSModule.init;
+export declare const init: ISubTokenizerCreate<ForeignTokenizer, SubSModuleTokenizer>;
 export default ForeignTokenizer;

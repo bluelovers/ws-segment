@@ -1,16 +1,18 @@
-import { IWord } from '../Segment';
+import { Segment, IWord } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 export declare type ISubTokenizer = ISubSModule & {
     type: 'tokenizer';
     split(words: IWord[], ...argv): IWord[];
 };
-export interface ISubTokenizerSplit<T extends IWord, U extends IWord = T> {
-    (words: T[], ...argv: any[]): U[];
-}
+export declare type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
+    (segment: Segment, ...argv): T & R;
+};
 export declare class SubSModuleTokenizer extends SubSModule implements ISubTokenizer {
     static readonly type: string;
     readonly type: string;
     split(words: IWord[], ...argv: any[]): IWord[];
+    init(segment: Segment, ...argv: any[]): this;
+    static init<T extends SubSModuleTokenizer = SubSModuleTokenizer>(segment: Segment, ...argv: any[]): T;
     /**
      * 仅对未识别的词进行匹配
      * 不包含 p 為 0

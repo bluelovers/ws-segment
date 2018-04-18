@@ -6,13 +6,13 @@ import { IWord, Segment } from '../Segment';
 
 import { $enum, EnumWrapper, } from "ts-enum-util";
 import SingleTokenizer from '../submod/SingleTokenizer';
-import { Optimizer, SubSModuleOptimizer, ISubOptimizer } from './Optimizer';
-import { Tokenizer, SubSModuleTokenizer, ISubTokenizer } from './Tokenizer';
-import { SubSModule, ISubSModule } from './mod';
+import { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate } from './Optimizer';
+import { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate } from './Tokenizer';
+import { SubSModule, ISubSModule, ISubSModuleCreate, ISubSModuleMethod } from './mod';
 
-export { Optimizer, SubSModuleOptimizer, ISubOptimizer }
-export { Tokenizer, SubSModuleTokenizer, ISubTokenizer }
-export { SubSModule, ISubSModule }
+export { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate }
+export { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate }
+export { SubSModule, ISubSModule, ISubSModuleCreate, ISubSModuleMethod }
 
 /**
  * 识别模块

@@ -5,7 +5,7 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-import { SubSModule, SubSModuleTokenizer } from '../mod';
+import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import { Segment, IWord } from '../Segment';
 import { UString } from 'uni-string';
 
@@ -49,7 +49,7 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	 * @param {int} cur 开始位置
 	 * @return {array}  返回格式   {w: '单词', c: 开始位置}
 	 */
-	splitForeign(text: string, cur?: number)
+	splitForeign(text: string, cur?: number): IWord[]
 	{
 		const POSTAG = this.segment.POSTAG;
 
@@ -131,7 +131,7 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	}
 }
 
-export const init = ForeignTokenizer.init.bind(ForeignTokenizer) as typeof ForeignTokenizer.init;
+export const init = ForeignTokenizer.init.bind(ForeignTokenizer) as ISubTokenizerCreate<ForeignTokenizer>;
 
 export default ForeignTokenizer;
 
