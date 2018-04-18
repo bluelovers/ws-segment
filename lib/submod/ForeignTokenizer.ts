@@ -114,7 +114,7 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 				{
 					ret.push({
 						w: text.substr(lastcur, i - lastcur),
-						p: [lasttype]
+						p: lasttype
 					});
 					lastcur = i;
 				}
