@@ -2,7 +2,8 @@
  * Created by user on 2018/2/21/021.
  */
 
-import { IWord, Segment } from '../Segment';
+import { POSTAG } from '../POSTAG';
+import { IDICT, IWord, Segment } from '../Segment';
 
 export type ISModuleType = 'optimizer' | 'tokenizer' | string;
 
@@ -29,6 +30,9 @@ export class SubSModule implements ISubSModule
 	priority?: number;
 
 	inited?: boolean;
+
+	protected _TABLE?;
+	protected _POSTAG?: typeof POSTAG;
 
 	constructor(type?: ISModuleType, segment?: Segment, ...argv)
 	{
@@ -79,7 +83,14 @@ export class SubSModule implements ISubSModule
 		this.segment = segment;
 		this.inited = true;
 
+		this._cache();
+
 		return this;
+	}
+
+	protected _cache(...argv)
+	{
+
 	}
 }
 

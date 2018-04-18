@@ -64,6 +64,7 @@ export declare class Segment {
     getDict(type: 'STOPWORD'): IDICT_STOPWORD;
     getDict(type: 'SYNONYM'): IDICT_SYNONYM;
     getDict(type: 'TABLE'): IDICT<IWord>;
+    getDict(type: 'TABLE2'): IDICT2<IWord>;
     getDict(type: any): IDICT;
     /**
      * 载入同义词词典
@@ -140,6 +141,9 @@ export declare namespace Segment {
     interface IDICT<T = any> {
         [key: string]: T;
     }
+    interface IDICT2<T = any> {
+        [key: number]: IDICT<T>;
+    }
     type IOptionsSegment = IOptionsTableDict & {
         db?: TableDict[];
         optionsDoSegment?: IOptionsDoSegment;
@@ -196,7 +200,6 @@ export import IWord = Segment.IWord;
 export import IOptionsDoSegment = Segment.IOptionsDoSegment;
 export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
-export interface IDICT<T = any> {
-    [key: string]: T;
-}
+export import IDICT = Segment.IDICT;
+export import IDICT2 = Segment.IDICT2;
 export default Segment;

@@ -11,6 +11,21 @@ export type IOptions = {
 	autoCjk?: boolean,
 }
 
+export type ITableDictRow = {
+	p: number,
+	f: number,
+};
+
+export interface IDICT<T = any>
+{
+	[key: string]: T,
+}
+
+export interface IDICT2<T = any>
+{
+	[key: number]: IDICT<T>,
+}
+
 /**
  * @todo 掛接其他 dict
  */
@@ -18,15 +33,8 @@ export class TableDict
 {
 	public type: string;
 
-	TABLE: {
-		[key: string]: ITableDictRow,
-	} = {};
-
-	TABLE2: {
-		[key: number]: {
-			[key: string]: ITableDictRow
-		}
-	} = {};
+	TABLE: IDICT<ITableDictRow> = {};
+	TABLE2: IDICT2<ITableDictRow> = {};
 
 	options: IOptions;
 
@@ -159,10 +167,5 @@ export class TableDict
 		this.TABLE2[len][w] = this.TABLE[w];
 	}
 }
-
-export type ITableDictRow = {
-	p: number,
-	f: number,
-};
 
 export default TableDict

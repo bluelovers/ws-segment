@@ -1,6 +1,7 @@
 /**
  * Created by user on 2018/2/21/021.
  */
+import { POSTAG } from '../POSTAG';
 import { IWord, Segment } from '../Segment';
 export declare type ISModuleType = 'optimizer' | 'tokenizer' | string;
 export declare class SModule implements ISModule {
@@ -17,10 +18,13 @@ export declare class SubSModule implements ISubSModule {
     segment: Segment;
     priority?: number;
     inited?: boolean;
+    protected _TABLE?: any;
+    protected _POSTAG?: typeof POSTAG;
     constructor(type?: ISModuleType, segment?: Segment, ...argv: any[]);
     static init<T extends SubSModule = SubSModule>(segment: Segment, ...argv: any[]): T;
     protected static _init<T extends SubSModule>(libThis: IModuleStatic<T>, segment: Segment, ...argv: any[]): T;
     init(segment: Segment, ...argv: any[]): this;
+    protected _cache(...argv: any[]): void;
 }
 export interface ISubSModuleMethod<T extends IWord, U extends IWord = T> {
     (words: T[], ...argv: any[]): U[];

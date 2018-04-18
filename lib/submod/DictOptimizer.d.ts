@@ -7,12 +7,15 @@ import IPOSTAG from '../POSTAG';
  * @author 老雷<leizongmin@gmail.com>
  */
 export declare class DictOptimizer extends SubSModuleOptimizer {
+    protected _TABLE: IDICT<IWord>;
+    _cache(): void;
     isMergeable(w1: IWord, w2: IWord, {POSTAG, TABLE, nw, i}: {
         POSTAG: typeof IPOSTAG;
         TABLE: IDICT;
         nw: string;
         i: number;
     }): boolean;
+    createToken(w: any, p: any, m: any): void;
     /**
      * 词典优化
      *

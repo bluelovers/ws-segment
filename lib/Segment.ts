@@ -13,7 +13,7 @@ import * as path from 'path';
 import { searchFirst } from './fs/get';
 import { useDefault } from './index';
 import POSTAG from './POSTAG';
-import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
+import { TableDict, IOptions as IOptionsTableDict, ITableDictRow } from './table/dict';
 
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
@@ -250,6 +250,7 @@ export class Segment
 	getDict(type: 'STOPWORD'): IDICT_STOPWORD
 	getDict(type: 'SYNONYM'): IDICT_SYNONYM
 	getDict(type: 'TABLE'): IDICT<IWord>
+	getDict(type: 'TABLE2'): IDICT2<IWord>
 	getDict(type): IDICT
 	getDict(type)
 	{
@@ -740,6 +741,11 @@ export namespace Segment
 		[key: string]: T,
 	}
 
+	export interface IDICT2<T = any>
+	{
+		[key: number]: IDICT<T>,
+	}
+
 	export type IOptionsSegment = IOptionsTableDict & {
 		db?: TableDict[],
 		optionsDoSegment?: IOptionsDoSegment,
@@ -808,9 +814,7 @@ export import IOptionsDoSegment = Segment.IOptionsDoSegment;
 export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
 
-export interface IDICT<T = any>
-{
-	[key: string]: T,
-}
+export import IDICT = Segment.IDICT;
+export import IDICT2 = Segment.IDICT2;
 
 export default Segment;

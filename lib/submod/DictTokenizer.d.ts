@@ -1,5 +1,5 @@
 import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import Segment, { IWord } from '../Segment';
+import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 /**
  * 字典识别模块
  *
@@ -15,6 +15,9 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
      * @type {number}
      */
     MAX_CHUNK_COUNT: number;
+    protected _TABLE: IDICT<IWord>;
+    protected _TABLE2: IDICT2<IWord>;
+    _cache(): void;
     /**
      * 对未识别的单词进行分词
      *

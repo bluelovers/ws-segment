@@ -14,6 +14,14 @@ import { debug } from '../util';
 export class DictOptimizer extends SubSModuleOptimizer
 {
 
+	protected _TABLE: IDICT<IWord>;
+
+	_cache()
+	{
+		this._TABLE = this.segment.getDict('TABLE');
+		this._POSTAG = this.segment.POSTAG;
+	}
+
 	isMergeable(w1: IWord, w2: IWord, {
 		POSTAG,
 		TABLE,
@@ -50,6 +58,11 @@ export class DictOptimizer extends SubSModuleOptimizer
 		return bool && (nw in TABLE);
 	}
 
+	createToken(w, p, m)
+	{
+		let TABLE = this.segment.getDict('TABLE');
+	}
+
 	/**
 	 * 词典优化
 	 *
@@ -65,8 +78,8 @@ export class DictOptimizer extends SubSModuleOptimizer
 			is_not_first = false;
 		}
 		// 合并相邻的能组成一个单词的两个词
-		let TABLE = this.segment.getDict('TABLE');
-		let POSTAG = this.segment.POSTAG;
+		const TABLE = this._TABLE;
+		const POSTAG = this._POSTAG;
 
 		let i = 0;
 		let ie = words.length - 1;

@@ -6,19 +6,23 @@ import { IDictRow } from 'segment-dict/lib/loader/segment';
 export declare type IOptions = {
     autoCjk?: boolean;
 };
+export declare type ITableDictRow = {
+    p: number;
+    f: number;
+};
+export interface IDICT<T = any> {
+    [key: string]: T;
+}
+export interface IDICT2<T = any> {
+    [key: number]: IDICT<T>;
+}
 /**
  * @todo 掛接其他 dict
  */
 export declare class TableDict {
     type: string;
-    TABLE: {
-        [key: string]: ITableDictRow;
-    };
-    TABLE2: {
-        [key: number]: {
-            [key: string]: ITableDictRow;
-        };
-    };
+    TABLE: IDICT<ITableDictRow>;
+    TABLE2: IDICT2<ITableDictRow>;
     options: IOptions;
     constructor(type: string, options?: IOptions);
     exists(data: IWord | IDictRow | string): ITableDictRow;
@@ -30,8 +34,4 @@ export declare class TableDict {
         f: any;
     }): void;
 }
-export declare type ITableDictRow = {
-    p: number;
-    f: number;
-};
 export default TableDict;

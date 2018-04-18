@@ -2,11 +2,13 @@
 
 import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import { UString } from 'uni-string';
+import { ITableDictRow } from '../table/dict';
 import { toHex } from '../util/index';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
-import Segment, { IDICT, IWord } from '../Segment';
+import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 import { debug } from '../util';
 import { DATETIME } from '../mod/const';
+import IPOSTAG from '../POSTAG';
 
 /**
  * 字典识别模块
@@ -26,6 +28,16 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 */
 	MAX_CHUNK_COUNT = 50;
 
+	protected _TABLE: IDICT<IWord>;
+	protected _TABLE2: IDICT2<IWord>;
+
+	_cache()
+	{
+		this._TABLE = this.segment.getDict('TABLE');
+		this._TABLE2 = this.segment.getDict('TABLE2');
+		this._POSTAG = this.segment.POSTAG;
+	}
+
 	/**
 	 * 对未识别的单词进行分词
 	 *
@@ -35,8 +47,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 	split(words: IWord[]): IWord[]
 	{
 		// debug(words);
-		const POSTAG = this.segment.POSTAG;
-		const TABLE = this.segment.getDict('TABLE');
+		const TABLE = this._TABLE;
+		const POSTAG = this._POSTAG;
 
 		let ret: IWord[] = [];
 		for (let i = 0, word; word = words[i]; i++)
@@ -92,16 +104,18 @@ export class DictTokenizer extends SubSModuleTokenizer
 		if (isNaN(cur)) cur = 0;
 		let ret: IWord[] = [];
 		let s = false;
-		let TABLE = this.segment.getDict('TABLE2');
+
+		const TABLE2 = this._TABLE2;
+
 		// 匹配可能出现的单词
 		while (cur < text.length)
 		{
-			for (let i in TABLE)
+			for (let i in TABLE2)
 			{
 				let w = text.substr(cur, i as any as number);
-				if (w in TABLE[i])
+				if (w in TABLE2[i])
 				{
-					ret.push({ w: w, c: cur, f: TABLE[i][w].f });
+					ret.push({ w: w, c: cur, f: TABLE2[i][w].f });
 				}
 			}
 			cur++;
@@ -120,8 +134,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 */
 	protected filterWord(words: IWord[], preword: IWord, text: string)
 	{
-		let POSTAG = this.segment.POSTAG;
-		let TABLE = this.segment.getDict('TABLE');
+		const TABLE = this._TABLE;
+		const POSTAG = this._POSTAG;
 		let ret: IWord[] = [];
 
 		// 将单词按位置分组
