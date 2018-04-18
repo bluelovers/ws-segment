@@ -17,6 +17,7 @@ import { IWordDebug } from '../util';
 export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     static readonly type: string;
     readonly type: string;
+    name: string;
     doOptimize<T extends IWordDebug>(words: T[]): T[];
 }
 export declare const init: typeof SubSModuleOptimizer.init;

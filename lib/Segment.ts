@@ -17,10 +17,13 @@ import { TableDict, IOptions as IOptionsTableDict, ITableDictRow } from './table
 
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
-import { debug } from './util';
+import { debug, IWordDebugInfo } from './util';
 import SegmentDict from 'segment-dict';
 import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
+import { debugToken } from './util/debug';
 import { IWordDebug } from './util/index';
+
+import * as deepmerge from 'deepmerge-plus';
 
 /**
  * 创建分词器接口
@@ -601,18 +604,20 @@ export class Segment
 		function _convertSynonym(list: IWordDebug[])
 		{
 			let count = 0;
-			list = list.reduce(function (a, item)
+			list = list.reduce(function (a, item: IWordDebug)
 			{
 				let bool: boolean;
 				let w = item.w;
 				let nw: string;
+
+				let debug = debugToken(item);
 
 				if (w in TABLE)
 				{
 					bool = true;
 					nw = TABLE[w];
 				}
-				else if (item.autoCreate && !item.convertSynonym && !item.ow && item.m && item.m.length)
+				else if (debug.autoCreate && !debug.convertSynonym && !item.ow && item.m && item.m.length)
 				{
 					nw = item.m.reduce(function (a: string[], b)
 					{
@@ -652,7 +657,7 @@ export class Segment
 						p = p ^ me.POSTAG.BAD;
 					}
 
-					a.push({
+					let item_new = debugToken({
 						...item,
 
 						w: nw,
@@ -660,12 +665,22 @@ export class Segment
 						p,
 						op: item.p,
 
-						[RAW]: item,
+						//[RAW]: item,
 
 						//source: item,
-
+					}, {
 						convertSynonym: true,
-					});
+						//_source: item,
+
+						/**
+						 * JSON.stringify
+						 * avoid TypeError: Converting circular structure to JSON
+						 */
+						_source: deepmerge({}, item) as IWordDebug,
+
+					}, true);
+
+					a.push(item_new);
 				}
 				else
 				{
@@ -816,8 +831,8 @@ export namespace Segment
 		 */
 		m?: Array<IWord | string>,
 
-		convertSynonym?: boolean,
-		autoCreate?: boolean,
+		//convertSynonym?: boolean,
+		//autoCreate?: boolean,
 	}
 
 	export interface IOptionsDoSegment

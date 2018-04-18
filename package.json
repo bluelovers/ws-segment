@@ -75,13 +75,15 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
+    "circular-json": "^0.5.3",
     "cjk-conv": "^1.0.29",
+    "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.1",
+    "deepmerge-plus": "^2.1.1",
     "fast-glob": "^2.2.0",
     "fs-extra": "^5.0.0",
     "segment-dict": "^1.0.13",
     "ts-enum-util": "^2.0.2",
-    "core-decorators": "^0.20.0",
     "uni-string": "^1.0.1"
   },
   "devDependencies": {

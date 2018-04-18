@@ -23,6 +23,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 	static readonly type = 'optimizer';
 	readonly type = 'optimizer';
 
+	name = 'ZhtSynonymOptimizer';
+
 	doOptimize<T extends IWordDebug>(words: T[]): T[]
 	{
 		const self = this;
@@ -165,7 +167,9 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					}
 				}
 
-				//w1.convertSynonym = true;
+				this.debugToken(w1, {
+					[this.name]: true,
+				});
 			}
 
 			i++;

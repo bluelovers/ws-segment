@@ -3,6 +3,7 @@
  */
 import { POSTAG } from '../POSTAG';
 import { IWord, Segment } from '../Segment';
+import { IWordDebug, IWordDebugInfo } from '../util/index';
 export declare type ISModuleType = 'optimizer' | 'tokenizer' | string;
 export declare class SModule implements ISModule {
     type?: ISModuleType;
@@ -19,6 +20,7 @@ export declare class SubSModule implements ISubSModule {
     segment: Segment;
     priority?: number;
     inited?: boolean;
+    name: string;
     protected _TABLE?: any;
     protected _POSTAG?: typeof POSTAG;
     constructor(type?: ISModuleType, segment?: Segment, ...argv: any[]);
@@ -28,6 +30,7 @@ export declare class SubSModule implements ISubSModule {
     protected _cache(...argv: any[]): void;
     protected createToken<T extends IWord>(data: T, skipCheck?: boolean): T;
     protected sliceToken<T extends IWord>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean): T[];
+    protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo): U & IWordDebugInfo;
 }
 export interface ISubSModuleMethod<T extends IWord, U extends IWord = T> {
     (words: T[], ...argv: any[]): U[];

@@ -174,8 +174,6 @@ export declare namespace Segment {
          * 合併項目
          */
         m?: Array<IWord | string>;
-        convertSynonym?: boolean;
-        autoCreate?: boolean;
     }
     interface IOptionsDoSegment {
         /**

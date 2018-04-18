@@ -4,6 +4,8 @@
 
 import { POSTAG } from '../POSTAG';
 import { IDICT, IWord, Segment } from '../Segment';
+import { IWordDebug, IWordDebugInfo } from '../util/index';
+import { debugToken } from '../util/debug'
 
 export type ISModuleType = 'optimizer' | 'tokenizer' | string;
 
@@ -46,6 +48,8 @@ export class SubSModule implements ISubSModule
 	priority?: number;
 
 	inited?: boolean;
+
+	public name: string;
 
 	protected _TABLE?;
 	protected _POSTAG?: typeof POSTAG;
@@ -115,7 +119,9 @@ export class SubSModule implements ISubSModule
 
 		if (!skipCheck && !(data.w in TABLE))
 		{
-			data.autoCreate = true;
+			this.debugToken(data, {
+				autoCreate: true,
+			});
 		}
 
 		return data;
@@ -126,6 +132,11 @@ export class SubSModule implements ISubSModule
 		words.splice(pos, len, this.createToken(data, skipCheck));
 
 		return words;
+	}
+
+	protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo)
+	{
+		return debugToken(data, attr);
 	}
 }
 
@@ -150,6 +161,7 @@ export interface IModuleStatic<T extends ISModule | SubSModule>
 	type: ISModuleType;
 
 	new(type?: ISModuleType, segment?: Segment, ...argv): T,
+
 	init(segment: Segment, ...argv): T,
 }
 
@@ -164,6 +176,5 @@ export interface ISubSModule
 }
 
 import * as self from './mod';
-import { ISubOptimizer } from './Optimizer';
 
 export default self;
