@@ -25,6 +25,8 @@ import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer }
 import { debugToken } from './util/debug';
 import { IWordDebug } from './util/index';
 
+import ProjectConfig from '../project.config';
+
 import * as deepmerge from 'deepmerge-plus';
 
 /**
@@ -180,8 +182,8 @@ export class Segment
 		let filename = searchFirst(name, {
 			paths: [
 				'',
-				// @ts-ignore
-				path.resolve(__dirname, '../dicts'),
+				ProjectConfig.dict_root,
+
 				...pathPlus,
 				path.resolve(SegmentDict.DICT_ROOT, 'segment'),
 			],
