@@ -33,7 +33,9 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 
 ## links
 
-* [node-segment](https://github.com/bluelovers/node-segment)
+* [novel-segment](https://github.com/bluelovers/node-segment)
+
+* [線上測試 by RunKit](https://npm.runkit.com/novel-segment)
 
 ---
 
@@ -61,7 +63,12 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [hanzi](https://www.npmjs.com/package/hanzi)
 * [jieba-js](https://github.com/bluelovers/jieba-js)
 * [nodescws](https://github.com/dotSlashLu/nodescws)
+* [node-analyzer](https://www.npmjs.com/package/node-analyzer)
+* [nanalyzer](https://www.npmjs.com/package/nanalyzer)
 
 ### jp
 
 * [rakutenma](https://www.npmjs.com/package/rakutenma)
+* [tiny-segmenter](https://github.com/leungwensen/tiny-segmenter)
+
+

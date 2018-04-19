@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -28,7 +28,9 @@
     "pangu",
     "phrases",
     "segment",
+    "segmentalization",
     "segmentation",
+    "segmenter",
     "split",
     "stopword",
     "stream",
