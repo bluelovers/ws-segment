@@ -2,6 +2,7 @@
  * Created by user on 2018/4/15/015.
  */
 
+import { crlf } from 'crlf-normalize';
 import Segment, { POSTAG } from '../index';
 import { useDefault, getDefaultModList } from '../lib';
 import * as fs from "fs";
@@ -27,14 +28,33 @@ db_dict
 
 console.time(`doSegment`);
 
-let text = `新疆克拉玛依2015-2016学年新疆乌鲁木齐九十八中七年级
-（上）期中数学试卷`;
+let text = `主人公はラルフ＝エステーソン。転生者。
+昔（転生前の子供の頃）から無駄に頭が良く、更に無駄に耳が良かった（地獄耳）。
+常人なら唆される『世界の管理者』の策略を逆に利用して『チート』をお土産に異世界へと転生し赤ん坊から始める事に。
+没落貴族の地位で１５年間を平穏（？）に過ごし、１５歳で王立魔法学院に入学して…２ヵ月後に飛び級で卒業した。
+どうやら『歴代最速』記録だったらしい。
+その後、冒険者となってダラダラして過ごし、偶然娼館で出会った娼婦（ヒロイン）を身請けして嫁にしてイチャイチャエロエロして過ごす事に。
+※嫁（ヒロイン）は元娼婦なので処女厨には受け入れられない経歴です。
+※基本的にエロエロするのは嫁だけです。基本的には。
+※なんか問題があったみたいなのでタイトル変更しました。
+※凄く今更ですが『カクヨム』にも同作品を投降済みです。
+◇◇２０１８年１月１０日　カドカワＢＯＯＫＳ様より書籍化しました◇◇`;
 
 let ret = segment.doSegment(text);
 
 debug_token(ret);
 
+let changed = crlf(text.toString()) !== segment.stringify(ret);
+
+if (changed)
+{
+	console.warn(`changed: ${changed}`);
+}
+
 fs.writeFileSync('./temp/c1.json', JSON.stringify({
+
+	changed,
+
 	ret,
 }, null, "\t"));
 
