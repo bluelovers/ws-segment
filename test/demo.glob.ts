@@ -12,6 +12,8 @@ import { useDefault, getDefaultModList } from '../lib';
 import { debug_token } from '../lib/util';
 import { createSegment } from './lib';
 import { getDictMain } from './lib/index';
+import * as JsDiff from 'diff';
+//import * as JSON from 'circular-json';
 
 let path_root = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel';
 
@@ -21,7 +23,7 @@ let novelID: string;
 
 pathMain_out = 'cm_out';
 
-novelID = '暗黒騎士物語　～勇者を倒すために魔王に召喚されました～';
+novelID = 'ウォルテニア戦記/0004 ザルーダ王国激闘編';
 
 let cwd = _path(pathMain, novelID);
 let cwd_out = _path((pathMain_out || pathMain + '_out'), novelID);
@@ -42,18 +44,26 @@ db_dict
 	//.add(['錯字', POSTAG.BAD, 0])
 ;
 
-FastGlob([
+Promise
+	.resolve(FastGlob([
 
-	//'**/*.txt',
+	'**/*.txt',
 
-	'00020_第２章　聖竜王の角/*.txt',
+	//'00020_第２章　聖竜王の角/*.txt',
 
 	//'!*６５*.txt',
 
 ], {
 	cwd: cwd,
 	//absolute: true,
-})
+}) as any as Promise<string[]>)
+	.tap(function (ls)
+	{
+		if (ls.length == 0)
+		{
+			return Promise.reject(`沒有搜尋到任何檔案 請檢查搜尋條件`);
+		}
+	})
 	.then(async function (ls)
 	{
 		let label = `all file ${ls.length}`;
@@ -73,7 +83,11 @@ FastGlob([
 
 			text = crlf(text.toString());
 
+			let _now = Date.now();
+
 			let ks = await segment.doSegment(text);
+
+			let timeuse = Date.now() - _now;
 
 			let text_new = segment.stringify(ks);
 
@@ -89,19 +103,25 @@ FastGlob([
 
 			await fs.writeFile(path.join(cwd_out, file) + '.json', JSON.stringify({
 				file,
-				ks,
 				changed,
+				timeuse,
+				ks,
 			}, null, "\t"));
 
 			fs.writeFileSync(path.join(cwd_out, file) + '.2.json', JSON.stringify({
 				file,
 				changed,
+				timeuse,
 				ks2,
 			}, null, "\t"));
 
 			if (changed)
 			{
 				console.warn('[changed]', label);
+
+				await fs.outputFile(path.join(cwd_out, file) + '.patch', JsDiff.createPatch(path.basename(file), text, text_new, {
+					newlineIsToken: true
+				}));
 			}
 			else
 			{
