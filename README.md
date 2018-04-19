@@ -52,11 +52,18 @@ npm install novel-segment
 * [demo.glob.ts](test/demo.glob.ts)
 * [demo.cache.ts](test/demo.cache.ts)
 
-## 特點模組
-
-* [ZhtSynonymOptimizer.ts](lib/submod/ZhtSynonymOptimizer.ts) - 基於語意來修正各種需要人工修正的詞彙 例如 `里后`...等等
-
 可搭配其他繁簡轉換程式使用
+
+## API
+
+* [docs](docs) - 其他雜項 Readme
+* [Segment.d.ts](lib/Segment.d.ts)
+* [POSTAG.ts](lib/POSTAG.ts)
+* [segment-dict](https://www.npmjs.com/package/segment-dict) - 字典 dictionary data
+
+### 特點模組
+
+* [ZhtSynonymOptimizer.ts](lib/submod/ZhtSynonymOptimizer.ts) - 基於語意來修正各種需要人工修正的詞彙 例如 `里后`...等等 (預設不啟用 因為這與分詞無關)
 
 ## 1、使用方法
 

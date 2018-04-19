@@ -27,7 +27,8 @@ db_dict
 
 console.time(`doSegment`);
 
-let text = `如果有万一，之后发生了什么事，也不用负责。`;
+let text = `新疆克拉玛依2015-2016学年新疆乌鲁木齐九十八中七年级
+（上）期中数学试卷`;
 
 let ret = segment.doSegment(text);
 
@@ -36,5 +37,7 @@ debug_token(ret);
 fs.writeFileSync('./temp/c1.json', JSON.stringify({
 	ret,
 }, null, "\t"));
+
+fs.writeFileSync('./temp/c1.txt', segment.stringify(ret));
 
 console.timeEnd(`doSegment`);

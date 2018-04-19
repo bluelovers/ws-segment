@@ -11,6 +11,24 @@ import { IWordDebug } from './util/index';
 export declare class Segment {
     static defaultOptionsDoSegment: IOptionsDoSegment;
     /**
+     * 分段
+     *
+     * 由於 segment 是利用對內容的前後文分析來進行分詞
+     * 所以如何切割段落對於結果就會產生不同影響
+     *
+     * `RegExp` or 具有 `.[Symbol.split](input: string, limit?: number) => string[]` 的物件
+     *
+     * @type {Segment.ISPLIT}
+     */
+    SPLIT: ISPLIT;
+    /**
+     * 分段之後 如果符合以下條件 則直接忽略分析
+     * `RegExp` or 具有 `.test(input: string) => boolean` 的物件
+     *
+     * @type {Segment.ISPLIT_FILTER}
+     */
+    SPLIT_FILTER: ISPLIT_FILTER;
+    /**
      * 词性
      * @type {POSTAG}
      */
@@ -149,6 +167,12 @@ export declare class Segment {
     indexOf(words: IWord[], s: string | number, cur?: number): number;
 }
 export declare namespace Segment {
+    type ISPLIT = RegExp | string | {
+        [Symbol.split](input: string, limit?: number): string[];
+    };
+    type ISPLIT_FILTER = RegExp | {
+        test(input: string): boolean;
+    };
     interface IDICT<T = any> {
         [key: string]: T;
     }
@@ -212,4 +236,6 @@ export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
 export import IDICT = Segment.IDICT;
 export import IDICT2 = Segment.IDICT2;
+export import ISPLIT = Segment.ISPLIT;
+export import ISPLIT_FILTER = Segment.ISPLIT_FILTER;
 export default Segment;

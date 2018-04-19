@@ -38,6 +38,26 @@ export class Segment
 	static defaultOptionsDoSegment: IOptionsDoSegment = {};
 
 	/**
+	 * 分段
+	 *
+	 * 由於 segment 是利用對內容的前後文分析來進行分詞
+	 * 所以如何切割段落對於結果就會產生不同影響
+	 *
+	 * `RegExp` or 具有 `.[Symbol.split](input: string, limit?: number) => string[]` 的物件
+	 *
+	 * @type {Segment.ISPLIT}
+	 */
+	SPLIT: ISPLIT = /([\r\n]+|^[　\s+]+|[　\s]+$|[　\s]{2,})/gm as ISPLIT;
+
+	/**
+	 * 分段之後 如果符合以下條件 則直接忽略分析
+	 * `RegExp` or 具有 `.test(input: string) => boolean` 的物件
+	 *
+	 * @type {Segment.ISPLIT_FILTER}
+	 */
+	SPLIT_FILTER: ISPLIT_FILTER = /^([\r\n]+)$/g as ISPLIT_FILTER;
+
+	/**
 	 * 词性
 	 * @type {POSTAG}
 	 */
@@ -504,13 +524,10 @@ export class Segment
 			text = crlf(text);
 		}
 
-		const split_r = /([\r\n]+)/g;
-		const filter_r = new RegExp('^(?:' + split_r.source + ')$', 'g');
-
 		// 将文本按照换行符分割成多段，并逐一分词
-		let ret = text.split(/([\r\n]+|^[　\s+]+|[　\s]+$|[　\s]{2,})/gm).reduce(function (ret, section)
+		let ret = text.split(this.SPLIT).reduce(function (ret, section)
 		{
-			if (filter_r.test(section))
+			if (me.SPLIT_FILTER.test(section))
 			{
 				ret = ret.concat({ w: section });
 
@@ -821,6 +838,15 @@ export class Segment
 
 export namespace Segment
 {
+
+	export type ISPLIT = RegExp | string | {
+		[Symbol.split](input: string, limit?: number): string[],
+	};
+
+	export type ISPLIT_FILTER = RegExp | {
+		test(input: string): boolean,
+	};
+
 	export interface IDICT<T = any>
 	{
 		[key: string]: T,
@@ -902,5 +928,8 @@ export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
 
 export import IDICT = Segment.IDICT;
 export import IDICT2 = Segment.IDICT2;
+
+export import ISPLIT = Segment.ISPLIT;
+export import ISPLIT_FILTER = Segment.ISPLIT_FILTER;
 
 export default Segment;

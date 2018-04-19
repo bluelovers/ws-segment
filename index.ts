@@ -5,7 +5,7 @@
  */
 'use strict';
 
-import { Segment } from './lib/Segment';
+import { Segment, IWord, IDICT, IOptionsSegment, IDICT2, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment } from './lib/Segment';
 import { POSTAG } from './lib/POSTAG';
 
 const _Segment = Segment as typeof Segment & {
