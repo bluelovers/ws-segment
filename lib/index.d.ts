@@ -1,6 +1,3 @@
-/**
- * Created by user on 2018/4/16/016.
- */
 import getDefaultModList from './mod';
 export { getDefaultModList };
 import { Segment } from './Segment';

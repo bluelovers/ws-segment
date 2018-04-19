@@ -55,6 +55,7 @@ export declare enum ENUM_SUBMODS {
      * 自動處理 `里|裏|后`
      */
     ZhtSynonymOptimizer = "ZhtSynonymOptimizer",
+    AdjectiveOptimizer = "AdjectiveOptimizer",
 }
 /**
  * 不包含在預設模組列表內 需要手動指定

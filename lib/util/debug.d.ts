@@ -13,9 +13,11 @@ export declare type IWordDebugInfo<T extends IWordDebug = IWordDebug> = {
 export declare type IWordDebug = IWord & {
     m?: Array<IWordDebug | string>;
     ps?: string;
+    pp?: string;
     ow?: string;
     op?: number;
-    pp?: string;
+    ops?: string;
+    opp?: string;
     [SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>;
 };
 export declare function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr: U & IWordDebugInfo, returnToken: true, ...argv: any[]): T;

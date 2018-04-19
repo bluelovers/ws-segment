@@ -28,11 +28,12 @@ export type IWordDebug = IWord & {
 	m?: Array<IWordDebug | string>,
 
 	ps?: string,
+	pp?: string,
 
 	ow?: string,
 	op?: number,
-
-	pp?: string,
+	ops?: string,
+	opp?: string,
 
 	[SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>,
 }
@@ -105,6 +106,12 @@ export function token_add_info<T extends IWordDebug>(v: T)
 
 		v.pp = toHex(v.p);
 
+		if (v.op)
+		{
+			v.ops = POSTAG.zhName(v.op);
+			v.opp = toHex(v.op);
+		}
+
 		if (v.m)
 		{
 			v.m.map(token_add_info);
@@ -122,11 +129,13 @@ export function token_add_info<T extends IWordDebug>(v: T)
 			'p',
 			'f',
 
-			'ow',
-			'op',
-
 			'ps',
 			'pp',
+
+			'ow',
+			'op',
+			'ops',
+			'opp',
 		],
 
 		useSource: true,

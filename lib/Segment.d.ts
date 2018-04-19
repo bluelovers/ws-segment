@@ -74,7 +74,7 @@ export declare class Segment {
     use(mod: Array<ISubTokenizer | ISubOptimizer | string>, ...argv: any[]): any;
     use(mod: string, ...argv: any[]): any;
     use(mod: any, ...argv: any[]): any;
-    _resolveDictFilename(name: string, pathPlus?: string[], extPlus?: string[]): string;
+    _resolveDictFilename(name: string, pathPlus?: string[], extPlus?: string[]): string | string[];
     /**
      * 载入字典文件
      *

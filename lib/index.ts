@@ -2,6 +2,7 @@
  * Created by user on 2018/4/16/016.
  */
 
+import * as FastGlob from 'fast-glob';
 import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
 
 export { getDefaultModList }
@@ -37,8 +38,10 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('pangu/dict005')
 		.loadDict('pangu/dict006')
 
-		.loadDict('synonym/后')
-		.loadDict('synonym/參')
+		//.loadDict('synonym/后')
+		//.loadDict('synonym/參')
+		//.loadDict('synonym/发')
+		.loadDict('synonym/*')
 
 		//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
 		.loadSynonymDict('synonym')   // 同义词

@@ -10,7 +10,7 @@
 import * as fs from 'fs';
 // @ts-ignore
 import * as path from 'path';
-import { searchFirst } from './fs/get';
+import { searchFirstSync, searchGlobSync } from './fs/get';
 import { useDefault } from './index';
 import POSTAG from './POSTAG';
 import AbstractTableDictCore from './table/core';
@@ -197,9 +197,9 @@ export class Segment
 		return this;
 	}
 
-	_resolveDictFilename(name: string, pathPlus: string[] = [], extPlus: string[] = []): string
+	_resolveDictFilename(name: string, pathPlus: string[] = [], extPlus: string[] = []): string | string[]
 	{
-		let filename = searchFirst(name, {
+		let options = {
 			paths: [
 				'',
 				ProjectConfig.dict_root,
@@ -215,7 +215,21 @@ export class Segment
 			],
 
 			onlyFile: true,
-		});
+		};
+
+		if (name.indexOf('*') != -1)
+		{
+			let ls = searchGlobSync(name, options);
+
+			if (!ls || !ls.length)
+			{
+				throw Error(`Cannot find dict file "${name}".`);
+			}
+
+			return ls;
+		}
+
+		let filename = searchFirstSync(name, options);
 
 		if (!filename)
 		{
@@ -238,6 +252,18 @@ export class Segment
 	loadDict(name: string, type?: string, convert_to_lower?: boolean, skipExists?: boolean)
 	{
 		let filename = this._resolveDictFilename(name);
+
+		if (Array.isArray(filename))
+		{
+			let self = this;
+
+			filename.forEach(v => this.loadDict(v, type, convert_to_lower, skipExists));
+
+			//console.log(filename);
+
+			return this;
+		}
+
 		if (!type) type = 'TABLE';     // 默认为TABLE
 
 		const db = this.getDictDatabase(type, true);
@@ -312,6 +338,15 @@ export class Segment
 			path.resolve(SegmentDict.DICT_ROOT, 'synonym'),
 		]);
 
+		if (Array.isArray(filename))
+		{
+			let self = this;
+
+			filename.forEach(v => this.loadSynonymDict(v, skipExists));
+
+			return this;
+		}
+
 		let type = 'SYNONYM';
 
 		const db = this.getDictDatabase(type, true);
@@ -360,6 +395,16 @@ export class Segment
 		let filename = this._resolveDictFilename(name, [
 			path.resolve(SegmentDict.DICT_ROOT, 'stopword'),
 		]);
+
+		if (Array.isArray(filename))
+		{
+			let self = this;
+
+			filename.forEach(v => this.loadStopwordDict(v));
+
+			return this;
+		}
+
 		let type = 'STOPWORD';
 
 		// 初始化词典

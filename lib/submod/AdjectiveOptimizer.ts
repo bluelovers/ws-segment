@@ -3,12 +3,16 @@ import Segment, { IWord } from '../Segment';
 
 import { COLOR_ALL } from '../mod/COLORS';
 
-// 把一些错认为名词的词标注为形容词，或者对名词作定语的情况
+/**
+ * 把一些错认为名词的词标注为形容词，或者对名词作定语的情况
+ */
 export class AdjectiveOptimizer extends SubSModuleOptimizer
 {
+	name = 'AdjectiveOptimizer';
+
 	doOptimize(words: IWord[]): IWord[]
 	{
-		const POSTAG = this.segment.POSTAG;
+		const POSTAG = this._POSTAG;
 		let index = 0;
 		while (index < words.length)
 		{
@@ -22,6 +26,10 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 					// @ts-ignore
 					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
+
+					this.debugToken(word, {
+						[this.name]: true,
+					});
 				}
 
 				// 如果是连续的两个名词，前一个是颜色，那这个颜色也是形容词
@@ -31,6 +39,10 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
 					word.p |= POSTAG.D_N;
+
+					this.debugToken(word, {
+						[this.name]: true,
+					});
 				}
 			}
 			// 移到下一个单词
@@ -45,7 +57,7 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 		{
 			return this.isNominal(pos[0]);
 		}
-		const POSTAG = this.segment.POSTAG;
+		const POSTAG = this._POSTAG;
 		return (
 			pos === POSTAG.D_N ||
 			pos === POSTAG.A_NT ||

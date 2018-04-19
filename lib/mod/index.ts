@@ -74,6 +74,8 @@ export enum ENUM_SUBMODS
 	 * 自動處理 `里|裏|后`
 	 */
 	ZhtSynonymOptimizer = 'ZhtSynonymOptimizer',
+
+	AdjectiveOptimizer = 'AdjectiveOptimizer',
 }
 
 /**

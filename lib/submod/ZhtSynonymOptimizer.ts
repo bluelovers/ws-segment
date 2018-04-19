@@ -6,6 +6,7 @@ import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
+import { COLOR_ALL } from '../mod/COLORS';
 
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
@@ -198,6 +199,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					bool = true;
 				}
 			}
+			else if (w1.w.match(/ /))
 
 			if (bool && w1.ow && w1.ow != w1.w)
 			{

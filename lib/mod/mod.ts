@@ -110,7 +110,7 @@ export class SubSModule implements ISubSModule
 
 	protected _cache(...argv)
 	{
-
+		this._POSTAG = this.segment.POSTAG;
 	}
 
 	protected createToken<T extends IWord, U extends IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
