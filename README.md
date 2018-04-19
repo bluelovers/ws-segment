@@ -25,7 +25,12 @@
 
 * [segment-dict](https://www.npmjs.com/package/segment-dict) - dictionary data
 
-Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
+## Breaking Changes
+
+請注意 從 2.0.0 版之後 開始 更改了 synonym 字典的格式
+
+* 原版為一對一 => 錯字,正字
+* 這裡為一對多 並且順序與原版相反 => 正字,錯字,...以,分隔更多字
 
 ## 安装
 
@@ -314,6 +319,8 @@ segment.use({
 
 
 ## MIT License
+
+Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
 
 ```
 Copyright (c) 2012-2015 Zongmin Lei (雷宗民) <leizongmin@gmail.com>
