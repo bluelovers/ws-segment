@@ -24,9 +24,12 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 			throw new ReferenceError(`${input}`);
 		}
 
-		return ret.map(function (s)
+		return ret.map(function (s: string)
 		{
-			s = s.trim();
+			s = s
+				.replace(/^\s+|\s+$/, '')
+				.trim()
+			;
 
 			if (s == '')
 			{
