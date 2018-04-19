@@ -46,7 +46,7 @@ name 可以為
 依照以下順序搜尋第一個符合的檔案
 
 1. 目前 cwd 的相對路徑
-2. novel-segment 模組底下的 [dicts](https://github.com/bluelovers/node-segment/dicts)
+2. novel-segment 模組底下的 [dicts](https://github.com/bluelovers/node-segment/tree/master/dicts)
 3. 如果是呼叫 loadSynonymDict 時 會額外搜尋 [segment-dict/dict/synonym](https://github.com/bluelovers/node-segment-dict/tree/master/dict/synonym)
 4. 如果是呼叫 loadStopwordDict 時 會額外搜尋 [segment-dict/dict/stopword](https://github.com/bluelovers/node-segment-dict/tree/master/dict/stopword)
 5. segment-dict 模組底下的 [segment-dict/dict/segment](https://github.com/bluelovers/node-segment-dict/tree/master/dict/segment)
