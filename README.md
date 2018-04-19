@@ -26,7 +26,7 @@
 
 **歡迎一同來追加字典**
 
-* [segment-dict](https://www.npmjs.com/package/segment-dict) - dictionary data
+* [segment-dict](https://github.com/bluelovers/node-segment-dict) - dictionary data
 
 ## Breaking Changes
 

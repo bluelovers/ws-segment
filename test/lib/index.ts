@@ -74,6 +74,9 @@ export function createSegment(useCache: boolean = true)
 	{
 		console.log(`重新載入分析字典`);
 		segment.autoInit(options);
+
+		// 簡轉繁專用
+		segment.loadSynonymDict('zht.synonym.txt');
 	}
 
 	let db_dict = segment.getDictDatabase('TABLE', true);
