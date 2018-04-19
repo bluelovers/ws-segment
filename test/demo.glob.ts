@@ -23,7 +23,7 @@ let novelID: string;
 
 pathMain_out = 'cm_out';
 
-novelID = 'ウォルテニア戦記/0004 ザルーダ王国激闘編';
+novelID = '暗黒騎士物語　～勇者を倒すために魔王に召喚されました～/00020_第２章　聖竜王の角';
 
 let cwd = _path(pathMain, novelID);
 let cwd_out = _path((pathMain_out || pathMain + '_out'), novelID);

@@ -6,7 +6,7 @@ import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
-import { COLOR_ALL } from '../mod/COLORS';
+import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
@@ -199,7 +199,25 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					bool = true;
 				}
 			}
-			else if (w1.w.match(/ /))
+			else if (w1.w.match(/^(.+)[发發]$/))
+			{
+				let c = RegExp.$1;
+
+				if (COLOR_HAIR[c])
+				{
+					let nw = c + '髮';
+
+					nw = this._getSynonym(w1.w, nw);
+
+					if (nw != w1.w)
+					{
+						w1.ow = w1.w;
+						w1.w = nw;
+
+						bool = true;
+					}
+				}
+			}
 
 			if (bool && w1.ow && w1.ow != w1.w)
 			{

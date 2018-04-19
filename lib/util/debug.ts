@@ -123,23 +123,26 @@ export function token_add_info<T extends IWordDebug>(v: T)
 		}
 	}
 
-	sortObjectKeys(v, {
-		keys: [
-			'w',
-			'p',
-			'f',
+	if (v)
+	{
+		sortObjectKeys(v, {
+			keys: [
+				'w',
+				'p',
+				'f',
 
-			'ps',
-			'pp',
+				'ps',
+				'pp',
 
-			'ow',
-			'op',
-			'ops',
-			'opp',
-		],
+				'ow',
+				'op',
+				'ops',
+				'opp',
+			],
 
-		useSource: true,
-	});
+			useSource: true,
+		});
+	}
 
 	return v;
 }
