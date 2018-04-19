@@ -8,6 +8,14 @@ import CjkConv from 'cjk-conv';
 import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 import { TableDictSynonymPanGu } from './synonym.pangu';
+import UString from 'uni-string';
+
+export type ArrayTwoOrMore<T> = {
+	0: T,
+	1: T,
+	[n: number]: T,
+	length: number,
+}
 
 /**
  * 請注意 這與原版 node-segment 的格式不同
@@ -18,7 +26,12 @@ import { TableDictSynonymPanGu } from './synonym.pangu';
 export class TableDictSynonym extends TableDictSynonymPanGu
 {
 
-	add(data: [string, string] & string[], skipExists?: boolean)
+	/**
+	 * 緩存主KEY
+	 */
+	public TABLE2: IDICT<string[]> = {};
+
+	add(data: ArrayTwoOrMore<string>, skipExists?: boolean)
 	{
 		if (!Array.isArray(data) || data.length < 2)
 		{
@@ -34,6 +47,8 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 
 		let self = this;
 
+		self.TABLE2[w] = self.TABLE2[w] || [];
+
 		data.forEach(function (bw, index)
 		{
 			bw = self._trim(bw);
@@ -48,11 +63,12 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 				return;
 			}
 
-			if (skipExists && self.exists(bw))
+			if (skipExists && self.exists(bw) || bw in self.TABLE2)
 			{
 				return;
 			}
 
+			self.TABLE2[w].push(bw);
 			self._add(bw, w);
 
 			skipExists = true;

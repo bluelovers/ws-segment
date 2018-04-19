@@ -15,7 +15,7 @@ export interface IDICT2<T = any> {
 export declare abstract class AbstractTableDictCore<T> {
     type: string;
     TABLE: IDICT<T>;
-    TABLE2: IDICT2<T>;
+    TABLE2: any | IDICT2<T>;
     options: IOptions;
     constructor(type: string, options?: IOptions, ...argv: any[]);
     exists<U extends IWord | IDictRow | string>(data: U, ...argv: any[]): T;

@@ -27,7 +27,7 @@ export abstract class AbstractTableDictCore<T>
 	public type: string;
 
 	public TABLE: IDICT<T> = {};
-	public TABLE2: IDICT2<T> = {};
+	public TABLE2: any | IDICT2<T> = {};
 
 	public options: IOptions;
 
