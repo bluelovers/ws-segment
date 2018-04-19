@@ -16,8 +16,6 @@ import { IWordDebug } from '../util';
  * @todo 發于余干松冲准呆只范舍涂
  */
 export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
-    static readonly type: string;
-    readonly type: string;
     name: string;
     protected _SYNONYM?: IDICT_SYNONYM;
     protected _TABLE: IDICT<IWord>;

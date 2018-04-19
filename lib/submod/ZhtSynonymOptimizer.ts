@@ -20,9 +20,6 @@ import { hexAndAny } from '../util/index';
  */
 export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 {
-	static readonly type = 'optimizer';
-	readonly type = 'optimizer';
-
 	name = 'ZhtSynonymOptimizer';
 
 	protected _SYNONYM?: IDICT_SYNONYM;

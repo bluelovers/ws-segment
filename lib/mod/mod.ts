@@ -113,7 +113,7 @@ export class SubSModule implements ISubSModule
 
 	}
 
-	protected createToken<T extends IWord>(data: T, skipCheck?: boolean)
+	protected createToken<T extends IWord, U extends IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
 	{
 		let TABLE = this._TABLE;
 
@@ -122,6 +122,11 @@ export class SubSModule implements ISubSModule
 			this.debugToken(data, {
 				autoCreate: true,
 			});
+		}
+
+		if (attr)
+		{
+			this.debugToken(data, attr);
 		}
 
 		return data;

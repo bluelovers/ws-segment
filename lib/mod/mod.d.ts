@@ -28,7 +28,7 @@ export declare class SubSModule implements ISubSModule {
     protected static _init<T extends SubSModule>(libThis: IModuleStatic<T>, segment: Segment, ...argv: any[]): T;
     init(segment: Segment, ...argv: any[]): this;
     protected _cache(...argv: any[]): void;
-    protected createToken<T extends IWord>(data: T, skipCheck?: boolean): T;
+    protected createToken<T extends IWord, U extends IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo): T;
     protected sliceToken<T extends IWord>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean): T[];
     protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnToken?: true, ...argv: any[]): T;
 }
