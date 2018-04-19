@@ -64,7 +64,7 @@ npm install novel-segment
 * [docs](docs) - 其他雜項 Readme
 * [Segment.d.ts](lib/Segment.d.ts)
 * [POSTAG.ts](lib/POSTAG.ts)
-* [segment-dict](https://www.npmjs.com/package/segment-dict) - 字典 dictionary data
+* [segment-dict](https://github.com/bluelovers/node-segment-dict) - 字典 dictionary data
 
 ### 特點模組
 

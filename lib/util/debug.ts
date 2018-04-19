@@ -38,6 +38,33 @@ export type IWordDebug = IWord & {
 	[SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>,
 }
 
+// @ts-ignore
+export function clearTokemDebug(data: IWordDebugInfo, returnClone?: false): data is IWord
+export function clearTokemDebug(data: IWordDebugInfo, returnClone?: true): IWord
+export function clearTokemDebug(data: IWordDebugInfo, returnClone?: boolean): IWord
+{
+	if (returnClone)
+	{
+		return {
+			w: data.w,
+			p: data.p,
+			f: data.f,
+		};
+	}
+
+	for (let k in data)
+	{
+		if (k != 'w' && k != 'p' && k != 'f')
+		{
+			delete data[k];
+		}
+	}
+
+	delete data[SYMBOL_DEBUG_KEY];
+
+	return data as IWord;
+}
+
 export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
 	attr: U & IWordDebugInfo,
 	returnToken: true, ...argv

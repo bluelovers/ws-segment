@@ -2,6 +2,7 @@ import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IWord } from '../Segment';
 
 import { COLOR_ALL } from '../mod/COLORS';
+import { IWordDebug } from '../util';
 
 /**
  * 把一些错认为名词的词标注为形容词，或者对名词作定语的情况
@@ -10,7 +11,7 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 {
 	name = 'AdjectiveOptimizer';
 
-	doOptimize(words: IWord[]): IWord[]
+	doOptimize(words: IWordDebug[]): IWordDebug[]
 	{
 		const POSTAG = this._POSTAG;
 		let index = 0;
@@ -23,7 +24,6 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 				// 对于<颜色>+<的>，直接判断颜色是形容词（字典里颜色都是名词）
 				if (nextword.p & POSTAG.D_U && COLOR_ALL[word.w])
 				{
-					// @ts-ignore
 					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
 
@@ -35,7 +35,6 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 				// 如果是连续的两个名词，前一个是颜色，那这个颜色也是形容词
 				if (word.p & POSTAG.D_N && this.isNominal(nextword.p) && COLOR_ALL[word.w])
 				{
-					// @ts-ignore
 					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
 					word.p |= POSTAG.D_N;
@@ -53,10 +52,13 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 
 	isNominal(pos: number | number[]): boolean
 	{
+		/*
 		if (Array.isArray(pos))
 		{
 			return this.isNominal(pos[0]);
 		}
+		*/
+
 		const POSTAG = this._POSTAG;
 		return (
 			pos === POSTAG.D_N ||

@@ -20,6 +20,8 @@ export declare type IWordDebug = IWord & {
     opp?: string;
     [SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>;
 };
+export declare function clearTokemDebug(data: IWordDebugInfo, returnClone?: false): data is IWord;
+export declare function clearTokemDebug(data: IWordDebugInfo, returnClone?: true): IWord;
 export declare function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr: U & IWordDebugInfo, returnToken: true, ...argv: any[]): T;
 export declare function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnToken?: boolean, ...argv: any[]): U & IWordDebugInfo;
 export declare function debug_token<T extends IWordDebug>(ks: Array<T>, returnSource?: boolean): Array<T | IWordDebug>;
