@@ -34,7 +34,7 @@ const segment = new Segment();
 
 ## dictionary
 
-以下方法會載入字典 name
+> 以下方法會載入字典 name
 
 name 可以為
 
