@@ -5,5 +5,6 @@ import AbstractTableDictCore from './core';
 export declare class TableDictSynonymPanGu extends AbstractTableDictCore<string> {
     add(data: [string, string] & string[], skipExists?: boolean): this;
     _add(n1: string, n2: string): void;
+    protected _trim(s: string): string;
 }
 export default TableDictSynonymPanGu;

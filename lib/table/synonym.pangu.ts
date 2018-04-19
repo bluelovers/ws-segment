@@ -21,6 +21,14 @@ export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 			throw new TypeError(JSON.stringify(data));
 		}
 
+		data[0] = this._trim(data[0]);
+		data[1] = this._trim(data[1]);
+
+		if (!data[0])
+		{
+			throw new TypeError(JSON.stringify(data));
+		}
+
 		if (skipExists && this.exists(data[0]))
 		{
 			return this;
@@ -36,12 +44,17 @@ export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 		if (n1 !== n2)
 		{
 			this.TABLE[n1] = n2;
-
-			if (this.TABLE[n2] === n1)
-			{
-				delete this.TABLE[n2];
-			}
 		}
+
+		if (this.TABLE[n2] === n1)
+		{
+			delete this.TABLE[n2];
+		}
+	}
+
+	protected _trim(s: string)
+	{
+		return s.replace(/^\s+|\s+$/g, '').trim();
 	}
 
 }

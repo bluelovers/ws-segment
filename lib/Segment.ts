@@ -321,7 +321,7 @@ export class Segment
 			*/
 		});
 
-		console.log(TABLE);
+		//console.log(TABLE);
 
 		this.inited = true;
 

@@ -25,18 +25,37 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 			throw new TypeError(JSON.stringify(data));
 		}
 
-		if (skipExists && this.exists(data[0]))
-		{
-			return this;
-		}
+		let w = this._trim(data.shift());
 
-		let w = data.shift();
+		if (!w)
+		{
+			throw new TypeError(JSON.stringify(data));
+		}
 
 		let self = this;
 
-		data.forEach(function (bw)
+		data.forEach(function (bw, index)
 		{
+			bw = self._trim(bw);
+
+			if (!bw)
+			{
+				if (index == 0)
+				{
+					throw new TypeError();
+				}
+
+				return;
+			}
+
+			if (skipExists && self.exists(bw))
+			{
+				return;
+			}
+
 			self._add(bw, w);
+
+			skipExists = true;
 		});
 
 		return this;
