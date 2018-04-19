@@ -22,6 +22,8 @@
 7. 遇到長句，無分段，無標點符號的行時會捨棄部分處理，來避免處理時間過長過超過記憶體負荷
 8. 與原版不同預設會返回所有字元(包含分行與空格)
 
+* [線上測試 by RunKit](https://npm.runkit.com/novel-segment)
+
 **歡迎一同來追加字典**
 
 * [segment-dict](https://www.npmjs.com/package/segment-dict) - dictionary data
@@ -54,6 +56,8 @@ npm install novel-segment
 * [demo.cache.ts](test/demo.cache.ts)
 
 可搭配其他繁簡轉換程式使用
+
+* [線上測試 by RunKit](https://npm.runkit.com/novel-segment)
 
 ## API
 
