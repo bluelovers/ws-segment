@@ -34,6 +34,7 @@ export declare enum ENUM_SUBMODS {
      * 人名识别，建议在词典识别之后
      */
     ChsNameTokenizer = "ChsNameTokenizer",
+    JpSimpleTokenizer = "JpSimpleTokenizer",
     /**
      * 邮箱地址识别
      */

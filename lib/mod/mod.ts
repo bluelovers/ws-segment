@@ -134,9 +134,9 @@ export class SubSModule implements ISubSModule
 		return words;
 	}
 
-	protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo)
+	protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnToken?: true, ...argv)
 	{
-		return debugToken(data, attr);
+		return debugToken(data, attr, returnToken, ...argv);
 	}
 }
 

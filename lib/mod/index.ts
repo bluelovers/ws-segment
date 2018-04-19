@@ -5,6 +5,7 @@
 import { IWord, Segment } from '../Segment';
 
 import { $enum, EnumWrapper, } from "ts-enum-util";
+import JpSimpleTokenizer from '../submod/JpSimpleTokenizer';
 import SingleTokenizer from '../submod/SingleTokenizer';
 import { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate } from './Optimizer';
 import { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate } from './Tokenizer';
@@ -48,7 +49,9 @@ export enum ENUM_SUBMODS
 	 */
 	ChsNameTokenizer = 'ChsNameTokenizer',
 
-	// 优化模块
+	JpSimpleTokenizer = 'JpSimpleTokenizer',
+
+	// @todo 优化模块
 
 	/**
 	 * 邮箱地址识别

@@ -39,15 +39,15 @@ export type IWordDebug = IWord & {
 
 export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
 	attr: U & IWordDebugInfo,
-	returnSource: true
+	returnToken: true, ...argv
 ): T
 export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
 	attr?: U & IWordDebugInfo,
-	returnSource?: boolean
+	returnToken?: boolean, ...argv
 ): U & IWordDebugInfo
 export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T,
 	attr?: U & IWordDebugInfo,
-	returnSource?: boolean
+	returnToken?: boolean, ...argv
 )
 {
 	if (attr)
@@ -55,7 +55,7 @@ export function debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data:
 		data[SYMBOL_DEBUG_KEY] = Object.assign(data[SYMBOL_DEBUG_KEY] || {}, attr);
 	}
 
-	if (returnSource)
+	if (returnToken)
 	{
 		return data;
 	}

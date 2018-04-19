@@ -30,7 +30,7 @@ export declare class SubSModule implements ISubSModule {
     protected _cache(...argv: any[]): void;
     protected createToken<T extends IWord>(data: T, skipCheck?: boolean): T;
     protected sliceToken<T extends IWord>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean): T[];
-    protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo): U & IWordDebugInfo;
+    protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnToken?: true, ...argv: any[]): T;
 }
 export interface ISubSModuleMethod<T extends IWord, U extends IWord = T> {
     (words: T[], ...argv: any[]): U[];

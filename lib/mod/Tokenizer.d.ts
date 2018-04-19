@@ -7,10 +7,10 @@ export declare type ISubTokenizer = ISubSModule & {
 export declare type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
     (segment: Segment, ...argv): T & R;
 };
-export declare class SubSModuleTokenizer extends SubSModule implements ISubTokenizer {
+export declare abstract class SubSModuleTokenizer extends SubSModule implements ISubTokenizer {
     static readonly type: string;
     readonly type: string;
-    split(words: IWord[], ...argv: any[]): IWord[];
+    abstract split(words: IWord[], ...argv: any[]): IWord[];
     init(segment: Segment, ...argv: any[]): this;
     static init<T extends SubSModuleTokenizer = SubSModuleTokenizer>(segment: Segment, ...argv: any[]): T;
     /**

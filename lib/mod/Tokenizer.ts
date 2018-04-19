@@ -21,15 +21,12 @@ export type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSMod
 
 @autobind
 // @ts-ignore
-export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
+export abstract class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 {
 	public static readonly type = 'tokenizer';
 	public readonly type = 'tokenizer';
 
-	public split(words: IWord[], ...argv): IWord[]
-	{
-		throw new Error();
-	}
+	public abstract split(words: IWord[], ...argv): IWord[]
 
 	public init(segment: Segment, ...argv)
 	{
@@ -50,7 +47,9 @@ export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 	 */
 	protected _splitUnset<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv) => U[]): U[]
 	{
-		const POSTAG = this.segment.POSTAG;
+		//const POSTAG = this.segment.POSTAG;
+
+		fn = fn.bind(this);
 
 		let ret = [];
 		for (let i = 0, word; word = words[i]; i++)
@@ -61,7 +60,16 @@ export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 			}
 			else
 			{
-				ret = ret.concat(fn(word.w));
+				let words_new = fn(word.w);
+
+				if (typeof words_new == 'undefined' || words_new === null)
+				{
+					ret.push(word);
+				}
+				else
+				{
+					ret = ret.concat(words_new);
+				}
 			}
 		}
 
@@ -74,7 +82,9 @@ export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 	 */
 	protected _splitUnknow<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv) => U[]): U[]
 	{
-		const POSTAG = this.segment.POSTAG;
+		//const POSTAG = this.segment.POSTAG;
+
+		fn = fn.bind(this);
 
 		let ret = [];
 		for (let i = 0, word; word = words[i]; i++)
@@ -85,7 +95,18 @@ export class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 			}
 			else
 			{
-				ret = ret.concat(fn.call(this, word.w));
+				//let words_new = fn.call(this, word.w);
+				let words_new = fn(word.w);
+
+				if (typeof words_new == 'undefined' || words_new === null)
+				{
+					ret.push(word);
+				}
+				else
+				{
+					ret = ret.concat(words_new);
+				}
+
 			}
 		}
 
