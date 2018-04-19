@@ -11,8 +11,8 @@ const segment = new Segment();
 
 |       | |
 |:------|:--|
-| SPLIT | `RegExp` or 具有 `.[Symbol.split](input: string, limit?: number) => string[]` 的物件 |
-| SPLIT_FILTER | `RegExp` or 具有 `.test(input: string) => boolean` 的物件 |
+| `SPLIT` | `RegExp` or 具有 `.[Symbol.split](input: string, limit?: number) => string[]` 的物件 |
+| `SPLIT_FILTER` | `RegExp` or 具有 `.test(input: string) => boolean` 的物件 |
 
 ```ts
 	/**
@@ -21,7 +21,7 @@ const segment = new Segment();
 	 *
 	 * @type {Segment.ISPLIT}
 	 */
-	SPLIT: ISPLIT = /([\r\n]+|^[　\s+]+|[　\s]+$|[　\s]{2,})/gm as ISPLIT;
+	segment.SPLIT: ISPLIT = /([\r\n]+|^[　\s+]+|[　\s]+$|[　\s]{2,})/gm as ISPLIT;
 
 	/**
 	 * 分段之後 如果符合以下條件 則直接忽略分析
@@ -29,14 +29,14 @@ const segment = new Segment();
 	 *
 	 * @type {Segment.ISPLIT_FILTER}
 	 */
-	SPLIT_FILTER: ISPLIT_FILTER = /^([\r\n]+)$/g as ISPLIT_FILTER;
+	segment.SPLIT_FILTER: ISPLIT_FILTER = /^([\r\n]+)$/g as ISPLIT_FILTER;
 ```
 
 ## dictionary
 
-> 以下方法會載入字典 name
+> 以下方法會載入字典 `name`
 
-name 可以為
+`name` 可以為
 
 * 字典檔案絕對/相對路徑
 * 字典檔名(可以忽略副檔名)
@@ -45,15 +45,15 @@ name 可以為
 會呼叫 `_resolveDictFilename(name: string, pathPlus?: string[], extPlus?: string[]): string;`  
 依照以下順序搜尋第一個符合的檔案
 
-1. 目前 cwd 的相對路徑
-2. novel-segment 模組底下的 [dicts](https://github.com/bluelovers/node-segment/tree/master/dicts)
-3. 如果是呼叫 loadSynonymDict 時 會額外搜尋 [segment-dict/dict/synonym](https://github.com/bluelovers/node-segment-dict/tree/master/dict/synonym)
-4. 如果是呼叫 loadStopwordDict 時 會額外搜尋 [segment-dict/dict/stopword](https://github.com/bluelovers/node-segment-dict/tree/master/dict/stopword)
-5. segment-dict 模組底下的 [segment-dict/dict/segment](https://github.com/bluelovers/node-segment-dict/tree/master/dict/segment)
+1. 目前 `cwd` 的相對路徑
+2. novel-segment 模組底下的 [`novel-segment/dicts`](https://github.com/bluelovers/node-segment/tree/master/dicts)
+3. 如果是呼叫 `loadSynonymDict` 時 會額外搜尋 [`segment-dict/dict/synonym`](https://github.com/bluelovers/node-segment-dict/tree/master/dict/synonym)
+4. 如果是呼叫 `loadStopwordDict` 時 會額外搜尋 [`segment-dict/dict/stopword`](https://github.com/bluelovers/node-segment-dict/tree/master/dict/stopword)
+5. `segment-dict` 模組底下的 [`segment-dict/dict/segment`](https://github.com/bluelovers/node-segment-dict/tree/master/dict/segment)
 
 副檔名為以下順序
 
-1. `''` => 無 也就是與 name 同名的檔案
+1. `''` => 無 也就是與 `name` 同名的檔案
 2. `.utf8`
 3. `.txt`
 
