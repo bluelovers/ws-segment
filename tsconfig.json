@@ -37,7 +37,10 @@
     "newLine": "lf"
   },
 
+  "jsdoc": "jsdoc",
+
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "test"
   ]
 }
