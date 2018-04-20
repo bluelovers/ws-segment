@@ -8,13 +8,20 @@ import createLoadStream, { ICallback } from '../../fs/stream';
 import createLoadStreamSync from '../../fs/sync';
 import LoaderClass from '../_class';
 
-export type IDictRow = [string, number, number];
+export type IDictRow<T = string> = {
+	0: string,
+	1: number,
+	2: number,
+	[index: number]: T | string | number,
+	//length: number,
+} & Array<string | number>;
+
 export type IDict = IDictRow[];
 
 const libLoader = new LoaderClass<IDict, IDictRow>({
 	parseLine(input: string): IDictRow
 	{
-		let [str, n, s] = input
+		let [str, n, s, ...plus] = input
 			.replace(/^\s+|\s+$/, '')
 			.split(/\|/g)
 			.map(v => v.trim())
@@ -34,7 +41,8 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 			d2 = 0;
 		}
 
-		return [str, d1, d2];
+		// @ts-ignore
+		return [str, d1, d2, ...plus];
 	},
 
 	filter(line: string)
