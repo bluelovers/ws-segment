@@ -50,6 +50,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	add(data: IWord | IDictRow | string, skipExists?: boolean)
 	{
 		let w: string, p: number, f: number;
+		let plus: Array<string | number>;
 
 		if (typeof data == 'string')
 		{
@@ -57,7 +58,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		}
 		else if (Array.isArray(data))
 		{
-			[w, p, f] = data;
+			[w, p, f, ...plus] = data;
 		}
 		else
 		{
@@ -76,6 +77,11 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 
 		p = (typeof p != 'number' || Number.isNaN(p)) ? 0 : p;
 		f = (typeof f != 'number' || Number.isNaN(f)) ? 0 : f;
+
+		if (plus && plus.length)
+		{
+			// @todo do something
+		}
 
 		this._add({w, p, f});
 
