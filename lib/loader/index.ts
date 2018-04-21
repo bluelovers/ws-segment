@@ -9,7 +9,7 @@ import * as OPENCC from './opencc';
 import LoaderClass from './_class';
 
 export function requireDefault<T = any>(id, subtype: string): (file: string) => Promise<T>
-export function requireDefault(id: 'jieba'): typeof JIEBA.default
+export function requireDefault(id: 'jieba'): typeof JIEBA.load
 export function requireDefault(id: 'segment'): typeof SEGMENT.Loader.load
 export function requireDefault(id: 'opencc'): typeof OPENCC.Loader.load
 export function requireDefault<T = any>(id, subtype?: string): (file: string) => Promise<T>
