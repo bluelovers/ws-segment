@@ -18,3 +18,4 @@ export const DICT_ROOT = projectConfig.dict_root;
 
 import * as self from './index';
 export default self;
+
