@@ -2,7 +2,7 @@
 
 ## dict
 
-* [dict](dict)
+* [dict](https://github.com/bluelovers/node-segment-dict/tree/master/dict)
 
 ### Breaking Changes
 
