@@ -83,7 +83,6 @@
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
-    "@types/node": "^9.6.5",
-    "typedoc-plugin-context": "0.0.1"
+    "@types/node": "^9.6.5"
   }
 }
