@@ -52,8 +52,8 @@ npm install novel-segment
 * 啟用 ZhtSynonymOptimizer 模組
 * 緩存功能
 
-* [demo.glob.ts](test/demo.glob.ts)
-* [demo.cache.ts](test/demo.cache.ts)
+* [demo.glob.ts](https://github.com/bluelovers/node-segment/tree/master/test/demo.glob.ts)
+* [demo.cache.ts](https://github.com/bluelovers/node-segment/tree/master/test/demo.cache.ts)
 
 可搭配其他繁簡轉換程式使用
 
@@ -62,15 +62,15 @@ npm install novel-segment
 ## API
 
 * [API](docs)
-* [其他雜項 Readme](demo)
-* [Segment.d.ts](lib/Segment.d.ts)
-* [POSTAG.ts](lib/POSTAG.ts)
+* [其他雜項 Readme](https://github.com/bluelovers/node-segment/tree/master/demo)
+* [Segment.d.ts](https://github.com/bluelovers/node-segment/tree/master/lib/Segment.d.ts)
+* [POSTAG.ts](https://github.com/bluelovers/node-segment/tree/master/lib/POSTAG.ts)
 * [segment-dict](https://github.com/bluelovers/node-segment-dict) - 字典 dictionary data
 
 ### 特點模組
 
-* [ZhtSynonymOptimizer.ts](lib/submod/ZhtSynonymOptimizer.ts) - 基於語意來修正各種需要人工修正的詞彙 例如 `里后`...等等 (預設不啟用 因為這與分詞無關)
-* [JpSimpleTokenizer.ts](lib/submod/JpSimpleTokenizer.ts) 簡易的日文切割 (預設啟用)
+* [ZhtSynonymOptimizer.ts](https://github.com/bluelovers/node-segment/tree/master/lib/submod/ZhtSynonymOptimizer.ts) - 基於語意來修正各種需要人工修正的詞彙 例如 `里后`...等等 (預設不啟用 因為這與分詞無關)
+* [JpSimpleTokenizer.ts](https://github.com/bluelovers/node-segment/tree/master/lib/submod/JpSimpleTokenizer.ts) 簡易的日文切割 (預設啟用)
 
 ## 1、使用方法
 
