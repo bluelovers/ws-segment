@@ -18,7 +18,9 @@ module.exports = {
 	ignoreCompilerErrors: true,
 	excludeExternals: true,
 
-	externalPattern: "**/node_modules/**",
+	externalPattern: "**/node_modules/**/*",
+
+	mode: "modules",
 
 	exclude: [
 		"test",

@@ -112,4 +112,4 @@ export const serialize = libLoader.serialize as typeof libLoader.serialize;
 
 export const Loader = libLoader;
 
-export default libLoader.load;
+export default libLoader.load as typeof libLoader.load;
