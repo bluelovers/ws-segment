@@ -70,7 +70,7 @@
     "test": "test"
   },
   "scripts": {
-    "docs": "npx typedoc --options typedoc.config.js",
+    "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
     "local-link": "npm link segment-dict & npm link cjk-conv & npm link @types/fs-extra & npm link @types/node & npm link @types/bluebird",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
