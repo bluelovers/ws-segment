@@ -61,7 +61,8 @@ npm install novel-segment
 
 ## API
 
-* [docs](docs) - 其他雜項 Readme
+* [API](docs)
+* [其他雜項 Readme](demo)
 * [Segment.d.ts](lib/Segment.d.ts)
 * [POSTAG.ts](lib/POSTAG.ts)
 * [segment-dict](https://github.com/bluelovers/node-segment-dict) - 字典 dictionary data

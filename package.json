@@ -65,10 +65,12 @@
   ],
   "main": "./index.js",
   "directories": {
+    "doc": "docs",
     "lib": "lib",
     "test": "test"
   },
   "scripts": {
+    "docs": "npx typedoc --options typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
     "local-link": "npm link segment-dict & npm link cjk-conv & npm link @types/fs-extra & npm link @types/node & npm link @types/bluebird",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
@@ -84,7 +86,7 @@
     "deepmerge-plus": "^2.1.1",
     "fast-glob": "^2.2.0",
     "fs-extra": "^5.0.0",
-    "segment-dict": "^2.0.3",
+    "segment-dict": "^2.0.4",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "^2.0.2",
     "regexp-cjk": "^1.2.12",

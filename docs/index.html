@@ -1,0 +1,660 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>novel-segment</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">novel-segment</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> novel-segment</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="-">中文分词模块</h1>
+				<pre><code>Chinese <span class="hljs-built_in">word</span> segmentation 簡繁中文分词模块 以網路小說為樣本
+</code></pre><p>本模块以<strong><a href="http://pangusegment.codeplex.com/">盘古分词组件</a></strong>中的词库为基础，
+				算法设计也部分参考了盘古分词组件中的算法。</p>
+				<p>本分词模块具有以下特点：</p>
+				<ul>
+					<li>纯JavaScript编写，可以在任何支持ECMAScript5的引擎上执行（需要稍微修改部分代码）</li>
+					<li>基于词性进行联想识别</li>
+					<li>可使用JavaScript编写自定义的分词模块</li>
+				</ul>
+				<hr>
+				<ol>
+					<li>以網路翻譯小說為樣本增加字典</li>
+					<li>可緩存字典數據讓下次使用勉強快一丁點</li>
+					<li>可啟用自動將字典無視簡繁日漢字</li>
+					<li>精簡一部分多餘字典</li>
+					<li>可額外追加字典條目而不需要增加字典檔</li>
+					<li>可將結果轉換為原始格式</li>
+					<li>遇到長句，無分段，無標點符號的行時會捨棄部分處理，來避免處理時間過長過超過記憶體負荷</li>
+					<li><p>與原版不同預設會返回所有字元(包含分行與空格)</p>
+					</li>
+					<li><p><a href="https://npm.runkit.com/novel-segment">線上測試 by RunKit</a></p>
+					</li>
+				</ol>
+				<p><strong>歡迎一同來追加字典</strong></p>
+				<ul>
+					<li><a href="https://github.com/bluelovers/node-segment-dict">segment-dict</a> - dictionary data</li>
+				</ul>
+				<h2 id="breaking-changes">Breaking Changes</h2>
+				<p>請注意 從 2.0.0 版之後 開始 更改了 synonym 字典的格式</p>
+				<ul>
+					<li>原版為一對一 =&gt; 錯字,正字</li>
+					<li>這裡為一對多 並且順序與原版相反 =&gt; 正字,錯字,...以,分隔更多字</li>
+				</ul>
+				<h2 id="-">安装</h2>
+				<pre><code class="lang-bash">npm install novel-segment
+</code></pre>
+				<ul>
+					<li>npm: <a href="https://www.npmjs.com/package/novel-segment">novel-segment</a></li>
+					<li>github: <a href="https://github.com/bluelovers/node-segment">novel-segment</a></li>
+				</ul>
+				<h2 id="demo">demo</h2>
+				<p>以下範例已經自動啟用以下功能</p>
+				<ul>
+					<li>新增字典項目時自動補充繁簡日的異體漢字</li>
+					<li>啟用 ZhtSynonymOptimizer 模組</li>
+					<li><p>緩存功能</p>
+					</li>
+					<li><p><a href="test/demo.glob.ts">demo.glob.ts</a></p>
+					</li>
+					<li><a href="test/demo.cache.ts">demo.cache.ts</a></li>
+				</ul>
+				<p>可搭配其他繁簡轉換程式使用</p>
+				<ul>
+					<li><a href="https://npm.runkit.com/novel-segment">線上測試 by RunKit</a></li>
+				</ul>
+				<h2 id="api">API</h2>
+				<ul>
+					<li><a href="docs">docs</a> - 其他雜項 Readme</li>
+					<li><a href="lib/Segment.d.ts">Segment.d.ts</a></li>
+					<li><a href="lib/POSTAG.ts">POSTAG.ts</a></li>
+					<li><a href="https://github.com/bluelovers/node-segment-dict">segment-dict</a> - 字典 dictionary data</li>
+				</ul>
+				<h3 id="-">特點模組</h3>
+				<ul>
+					<li><a href="lib/submod/ZhtSynonymOptimizer.ts">ZhtSynonymOptimizer.ts</a> - 基於語意來修正各種需要人工修正的詞彙 例如 <code>里后</code>...等等 (預設不啟用 因為這與分詞無關)</li>
+					<li><a href="lib/submod/JpSimpleTokenizer.ts">JpSimpleTokenizer.ts</a> 簡易的日文切割 (預設啟用)</li>
+				</ul>
+				<h2 id="1-">1、使用方法</h2>
+				<p>使用方法：</p>
+				<pre><code class="lang-javascript"><span class="hljs-comment">// 载入模块</span>
+<span class="hljs-keyword">var</span> Segment = <span class="hljs-built_in">require</span>(<span class="hljs-string">'novel-segment'</span>);
+<span class="hljs-comment">// 创建实例</span>
+<span class="hljs-keyword">var</span> segment = <span class="hljs-keyword">new</span> Segment();
+<span class="hljs-comment">// 使用默认的识别模块及字典，载入字典文件需要1秒，仅初始化时执行一次即可</span>
+segment.useDefault();
+
+<span class="hljs-comment">// 开始分词</span>
+<span class="hljs-built_in">console</span>.log(segment.doSegment(<span class="hljs-string">'这是一个基于Node.js的中文分词模块。'</span>));
+</code></pre>
+				<p>返回结果格式：</p>
+				<pre><code class="lang-javascript">[ { <span class="hljs-attr">w</span>: <span class="hljs-string">'这是'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">0</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'一个'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">2097152</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'基于'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">262144</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'Node.js'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">8</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'的'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">8192</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'中文'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1048576</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'分词'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'模块'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1048576</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'。'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">2048</span> } ]
+</code></pre>
+				<p>其中 <code>w</code> 表示词的内容，<code>p</code> 表示词性（具体参考 <a href="https://github.com/bluelovers/node-segment/blob/master/lib/POSTAG.ts">https://github.com/bluelovers/node-segment/blob/master/lib/POSTAG.ts</a> 中的定义）</p>
+				<h3 id="-">不返回词性</h3>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">'这是一个基于Node.js的中文分词模块。'</span>;
+<span class="hljs-keyword">var</span> result = segment.doSegment(text, {
+  <span class="hljs-attr">simple</span>: <span class="hljs-literal">true</span>
+});
+<span class="hljs-built_in">console</span>.log(result);
+</code></pre>
+				<p>结果：</p>
+				<pre><code class="lang-javascript">[ <span class="hljs-string">'这是'</span>, <span class="hljs-string">'一个'</span>, <span class="hljs-string">'基于'</span>, <span class="hljs-string">'Node.js'</span>, <span class="hljs-string">'的'</span>, <span class="hljs-string">'中文'</span>, <span class="hljs-string">'分词'</span>, <span class="hljs-string">'模块'</span>, <span class="hljs-string">'。'</span> ]
+</code></pre>
+				<h3 id="-">去除标点符号</h3>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">'这是一个基于Node.js的中文分词模块。'</span>;
+<span class="hljs-keyword">var</span> result = segment.doSegment(text, {
+  <span class="hljs-attr">stripPunctuation</span>: <span class="hljs-literal">true</span>
+});
+<span class="hljs-built_in">console</span>.log(result);
+</code></pre>
+				<p>结果：</p>
+				<pre><code class="lang-javascript">[ { <span class="hljs-attr">w</span>: <span class="hljs-string">'这是'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">0</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'一个'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">2097152</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'基于'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">262144</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'Node.js'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">8</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'的'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">8192</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'中文'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1048576</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'分词'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'模块'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1048576</span> } ]
+</code></pre>
+				<h3 id="-">转换同义词</h3>
+				<p>载入同义词词典：</p>
+				<pre><code class="lang-javascript">segment.loadSynonymDict(<span class="hljs-string">'synonym.txt'</span>);
+</code></pre>
+				<p>词典格式：</p>
+				<pre><code>什么时候,何时
+入眠,入睡
+</code></pre><p>在分词时设置<code>convertSynonym=true</code>则结果中的<code>&quot;什么时候&quot;</code>将被转换为<code>&quot;何时&quot;</code>，<code>&quot;入眠&quot;</code>将被转换为<code>&quot;入睡&quot;</code>：</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">'什么时候我也开始夜夜无法入睡'</span>;
+<span class="hljs-keyword">var</span> result = segment.doSegment(text, {
+  <span class="hljs-attr">convertSynonym</span>: <span class="hljs-literal">true</span>
+});
+<span class="hljs-built_in">console</span>.log(result);
+</code></pre>
+				<p>结果：</p>
+				<pre><code class="lang-javascript">[ { <span class="hljs-attr">w</span>: <span class="hljs-string">'何时'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">0</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'我'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">65536</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'也'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">134217728</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'开始'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'夜夜'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">131072</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'无法'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">134217728</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'入睡'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> } ]
+</code></pre>
+				<h3 id="-">去除停止符</h3>
+				<p>载入词典：</p>
+				<pre><code class="lang-javascript">segment.loadStopwordDict(<span class="hljs-string">'stopword.txt'</span>);
+</code></pre>
+				<p>词典格式：</p>
+				<pre><code>之所以
+因为
+</code></pre><p>在分词时设置<code>stripStopword=true</code>则结果中的<code>&quot;之所以&quot;</code>和<code>&quot;因为&quot;</code>将被去除：</p>
+				<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> text = <span class="hljs-string">'之所以要编写一个纯JS的分词器是因为当时没有一个简单易用的Node.js模块'</span>;
+<span class="hljs-keyword">var</span> result = segment.doSegment(text, {
+  <span class="hljs-attr">stripStopword</span>: <span class="hljs-literal">true</span>
+});
+<span class="hljs-built_in">console</span>.log(result);
+</code></pre>
+				<p>结果：</p>
+				<pre><code class="lang-javascript">[ { <span class="hljs-attr">w</span>: <span class="hljs-string">'编写'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'纯'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1073741824</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'JS'</span>, <span class="hljs-attr">p</span>: [ <span class="hljs-number">16</span> ] },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'分词'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'器'</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'当时'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">16384</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'没有'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">4096</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'简单'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1073741824</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'易用'</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'Node.js'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">8</span> },
+  { <span class="hljs-attr">w</span>: <span class="hljs-string">'模块'</span>, <span class="hljs-attr">p</span>: <span class="hljs-number">1048576</span> } ]
+</code></pre>
+				<h2 id="2-">2、词典格式</h2>
+				<p>词典文件为纯文本文件，每行定义一个词，格式为： <code>词|词性|词权值</code> ，如：<code>工信处|0x0020|100</code></p>
+				<p><strong>词性</strong> 的定义可参考文件 <a href="https://github.com/bluelovers/node-segment/blob/master/lib/POSTAG.ts">https://github.com/bluelovers/node-segment/blob/master/lib/POSTAG.ts</a></p>
+				<p><strong>词权值</strong> 越大表示词出现的频率越高</p>
+				<p>词典文件可参考：<a href="https://github.com/bluelovers/node-segment/tree/master/dicts">https://github.com/bluelovers/node-segment/tree/master/dicts</a></p>
+				<h2 id="2-">2、自定义识别模块</h2>
+				<pre><code class="lang-javascript"><span class="hljs-comment">// 载入模块</span>
+<span class="hljs-keyword">var</span> Segment = <span class="hljs-built_in">require</span>(<span class="hljs-string">'novel-segment'</span>);
+<span class="hljs-comment">// 创建实例</span>
+<span class="hljs-keyword">var</span> segment = <span class="hljs-keyword">new</span> Segment();
+<span class="hljs-comment">// 配置，可根据实际情况增删，详见segment.useDefault()方法</span>
+segment.use(<span class="hljs-string">'URLTokenizer'</span>);  <span class="hljs-comment">// 载入识别模块，详见lib/module目录，或者是自定义模块的绝对路径</span>
+segment.loadDict(<span class="hljs-string">'dict.txt'</span>); <span class="hljs-comment">// 载入字典，详见dicts目录，或者是自定义字典文件的绝对路径</span>
+
+<span class="hljs-comment">// 开始分词</span>
+<span class="hljs-built_in">console</span>.log(segment.doSegment(<span class="hljs-string">'这是一个基于Node.js的中文分词模块。'</span>));
+</code></pre>
+				<p>一般可通过 <code>segment.useDefault()</code> 来载入默认的配置，若要自定义加载，可参考 <code>useDefault()</code> 的代码：</p>
+				<pre><code class="lang-javascript">segment
+  <span class="hljs-comment">// 分词模块</span>
+  <span class="hljs-comment">// 强制分割类单词识别</span>
+  .use(<span class="hljs-string">'URLTokenizer'</span>)            <span class="hljs-comment">// URL识别</span>
+  .use(<span class="hljs-string">'WildcardTokenizer'</span>)       <span class="hljs-comment">// 通配符，必须在标点符号识别之前</span>
+  .use(<span class="hljs-string">'PunctuationTokenizer'</span>)    <span class="hljs-comment">// 标点符号识别</span>
+  .use(<span class="hljs-string">'ForeignTokenizer'</span>)        <span class="hljs-comment">// 外文字符、数字识别，必须在标点符号识别之后</span>
+  <span class="hljs-comment">// 中文单词识别</span>
+  .use(<span class="hljs-string">'DictTokenizer'</span>)           <span class="hljs-comment">// 词典识别</span>
+  .use(<span class="hljs-string">'ChsNameTokenizer'</span>)        <span class="hljs-comment">// 人名识别，建议在词典识别之后</span>
+
+  <span class="hljs-comment">// 优化模块</span>
+  .use(<span class="hljs-string">'EmailOptimizer'</span>)          <span class="hljs-comment">// 邮箱地址识别</span>
+  .use(<span class="hljs-string">'ChsNameOptimizer'</span>)        <span class="hljs-comment">// 人名识别优化</span>
+  .use(<span class="hljs-string">'DictOptimizer'</span>)           <span class="hljs-comment">// 词典识别优化</span>
+  .use(<span class="hljs-string">'DatetimeOptimizer'</span>)       <span class="hljs-comment">// 日期时间识别优化</span>
+
+  <span class="hljs-comment">// 字典文件</span>
+  .loadDict(<span class="hljs-string">'dict.txt'</span>)           <span class="hljs-comment">// 盘古词典</span>
+  .loadDict(<span class="hljs-string">'dict2.txt'</span>)          <span class="hljs-comment">// 扩展词典（用于调整原盘古词典）</span>
+  .loadDict(<span class="hljs-string">'names.txt'</span>)          <span class="hljs-comment">// 常见名词、人名</span>
+  .loadDict(<span class="hljs-string">'wildcard.txt'</span>, <span class="hljs-string">'WILDCARD'</span>, <span class="hljs-literal">true</span>)   <span class="hljs-comment">// 通配符</span>
+  .loadSynonymDict(<span class="hljs-string">'synonym.txt'</span>)   <span class="hljs-comment">// 同义词</span>
+  .loadStopwordDict(<span class="hljs-string">'stopword.txt'</span>) <span class="hljs-comment">// 停止符</span>
+</code></pre>
+				<p>自定义分词器：</p>
+				<pre><code class="lang-javascript">segment.use({
+
+  <span class="hljs-comment">// 类型</span>
+  type: <span class="hljs-string">'tokenizer'</span>,
+
+  <span class="hljs-comment">// segment.use() 载入模块，初始化时执行</span>
+  init: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">segment</span>) </span>{
+    <span class="hljs-comment">// segment 为当前的Segment实例</span>
+  },
+
+  <span class="hljs-comment">// 分词</span>
+  split: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">words</span>) </span>{
+    <span class="hljs-comment">// words 为单词数组，如：['中文', '分词']</span>
+    <span class="hljs-comment">// 返回一个新的数组用来替换旧的数组</span>
+    <span class="hljs-keyword">return</span> words;
+  }
+
+});
+</code></pre>
+				<p>自定义优化器：</p>
+				<pre><code class="lang-javascript">segment.use({
+
+  <span class="hljs-comment">// 类型</span>
+  type: <span class="hljs-string">'optimizer'</span>,
+
+  <span class="hljs-comment">// segment.use() 载入模块，初始化时执行</span>
+  init: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">segment</span>) </span>{
+    <span class="hljs-comment">// segment 为当前的Segment实例</span>
+  },
+
+  <span class="hljs-comment">// 优化</span>
+  doOptimize: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">words</span>) </span>{
+    <span class="hljs-comment">// words 为分词结果的单词数组，如：[{w: '中文', p: 1048576}, {w: '分词', p: 4096}]</span>
+    <span class="hljs-comment">// 返回一个新的数组用来替换旧的数组</span>
+    <span class="hljs-keyword">return</span> words;
+  }
+
+})
+</code></pre>
+				<p>分词器和优化器可参考默认模块：<a href="https://github.com/bluelovers/node-segment/tree/master/lib/module">https://github.com/bluelovers/node-segment/tree/master/lib/module</a></p>
+				<p>其中 <code>*Tokenizer</code> 表示分词器， <code>*Optimizer</code> 表示优化器。</p>
+				<h2 id="-">注意</h2>
+				<p><strong>请勿用此模块来对较长且无任何标点符号的文本进行分词，否则会导致分词时间成倍增加。</strong></p>
+				<h2 id="mit-license">MIT License</h2>
+				<p>Fork From <a href="https://github.com/leizongmin/node-segment">leizongmin/segment</a></p>
+				<pre><code>Copyright (c) <span class="hljs-number">2012</span>-<span class="hljs-number">2015</span> Zongmin Lei (雷宗民) &lt;leizongmin@gmail.com&gt;
+http://ucdok.com
+
+The MIT License
+
+Permission <span class="hljs-keyword">is</span> hereby granted, free <span class="hljs-keyword">of</span> charge, <span class="hljs-keyword">to</span> any person obtaining
+a copy <span class="hljs-keyword">of</span> this software <span class="hljs-keyword">and</span> associated documentation files (the
+<span class="hljs-string">"Software"</span>), <span class="hljs-keyword">to</span> deal <span class="hljs-keyword">in</span> the Software without restriction, including
+without limitation the rights <span class="hljs-keyword">to</span> <span class="hljs-keyword">use</span>, copy, modify, merge, publish,
+distribute, sublicense, <span class="hljs-keyword">and</span>/<span class="hljs-keyword">or</span> sell copies <span class="hljs-keyword">of</span> the Software, <span class="hljs-keyword">and</span> <span class="hljs-keyword">to</span>
+permit persons <span class="hljs-keyword">to</span> whom the Software <span class="hljs-keyword">is</span> furnished <span class="hljs-keyword">to</span> do so, subject <span class="hljs-keyword">to</span>
+the following conditions:
+
+The above copyright notice <span class="hljs-keyword">and</span> this permission notice shall be
+included <span class="hljs-keyword">in</span> <span class="hljs-keyword">all</span> copies <span class="hljs-keyword">or</span> substantial portions <span class="hljs-keyword">of</span> the Software.
+
+THE SOFTWARE <span class="hljs-keyword">IS</span> PROVIDED <span class="hljs-string">"AS IS"</span>, WITHOUT WARRANTY <span class="hljs-keyword">OF</span> ANY KIND,
+EXPRESS <span class="hljs-keyword">OR</span> IMPLIED, INCLUDING BUT <span class="hljs-keyword">NOT</span> LIMITED <span class="hljs-keyword">TO</span> THE WARRANTIES <span class="hljs-keyword">OF</span>
+MERCHANTABILITY, FITNESS <span class="hljs-keyword">FOR</span> A PARTICULAR PURPOSE <span class="hljs-keyword">AND</span>
+NONINFRINGEMENT. <span class="hljs-keyword">IN</span> NO EVENT SHALL THE AUTHORS <span class="hljs-keyword">OR</span> COPYRIGHT HOLDERS BE
+LIABLE <span class="hljs-keyword">FOR</span> ANY CLAIM, DAMAGES <span class="hljs-keyword">OR</span> OTHER LIABILITY, WHETHER <span class="hljs-keyword">IN</span> AN ACTION
+<span class="hljs-keyword">OF</span> CONTRACT, TORT <span class="hljs-keyword">OR</span> OTHERWISE, ARISING FROM, <span class="hljs-keyword">OUT</span> <span class="hljs-keyword">OF</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">IN</span> CONNECTION
+<span class="hljs-keyword">WITH</span> THE SOFTWARE <span class="hljs-keyword">OR</span> THE <span class="hljs-keyword">USE</span> <span class="hljs-keyword">OR</span> OTHER DEALINGS <span class="hljs-keyword">IN</span> THE SOFTWARE.
+</code></pre>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Internals</span>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_index_.html">"node-<wbr>segment/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_postag_.html">"node-<wbr>segment/lib/POSTAG"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_segment_.html">"node-<wbr>segment/lib/<wbr>Segment"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_fs_get_.html">"node-<wbr>segment/lib/fs/get"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_index_.html">"node-<wbr>segment/lib/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_loader_.html">"node-<wbr>segment/lib/loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_chs_names_.html">"node-<wbr>segment/lib/mod/CHS_<wbr>NAMES"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_colors_.html">"node-<wbr>segment/lib/mod/COLORS"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_optimizer_.html">"node-<wbr>segment/lib/mod/<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_tokenizer_.html">"node-<wbr>segment/lib/mod/<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_const_.html">"node-<wbr>segment/lib/mod/const"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_index_.html">"node-<wbr>segment/lib/mod/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_mod_mod_.html">"node-<wbr>segment/lib/mod/mod"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_adjectiveoptimizer_.html">"node-<wbr>segment/lib/submod/<wbr>Adjective<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_chsnameoptimizer_.html">"node-<wbr>segment/lib/submod/<wbr>Chs<wbr>Name<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_chsnametokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>Chs<wbr>Name<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_datetimeoptimizer_.html">"node-<wbr>segment/lib/submod/<wbr>Datetime<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_dictoptimizer_.html">"node-<wbr>segment/lib/submod/<wbr>Dict<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_dicttokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>Dict<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_emailoptimizer_.html">"node-<wbr>segment/lib/submod/<wbr>Email<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_foreigntokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>Foreign<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_jpsimpletokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>JpSimple<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_punctuationtokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>Punctuation<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_singletokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>Single<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_urltokenizer_.html">"node-<wbr>segment/lib/submod/URLTokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_wildcardtokenizer_.html">"node-<wbr>segment/lib/submod/<wbr>Wildcard<wbr>Tokenizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_submod_zhtsynonymoptimizer_.html">"node-<wbr>segment/lib/submod/<wbr>Zht<wbr>Synonym<wbr>Optimizer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_table_core_.html">"node-<wbr>segment/lib/table/core"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_table_dict_.html">"node-<wbr>segment/lib/table/dict"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_table_synonym_.html">"node-<wbr>segment/lib/table/synonym"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_table_synonym_pangu_.html">"node-<wbr>segment/lib/table/synonym.pangu"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_util_cjk_.html">"node-<wbr>segment/lib/util/cjk"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_util_core_.html">"node-<wbr>segment/lib/util/core"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_util_debug_.html">"node-<wbr>segment/lib/util/debug"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_util_index_.html">"node-<wbr>segment/lib/util/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_lib_util_sleep_.html">"node-<wbr>segment/lib/util/sleep"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_project_config_.html">"node-<wbr>segment/project.config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_test_lib_delete_cache_.html">"node-<wbr>segment/test/lib/delete-<wbr>cache"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_node_segment_test_lib_index_.html">"node-<wbr>segment/test/lib/index"</a>
+					</li>
+					<li class="label tsd-is-external">
+						<span>Externals</span>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_index_.html">"cjk-<wbr>convert/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_index_.html">"cjk-<wbr>convert/lib/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_jp_core_.html">"cjk-<wbr>convert/lib/jp/core"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_jp_index_.html">"cjk-<wbr>convert/lib/jp/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_jp_table_.html">"cjk-<wbr>convert/lib/jp/table"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_novel_filename_.html">"cjk-<wbr>convert/lib/novel/filename"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_util_.html">"cjk-<wbr>convert/lib/util"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_zh_convert_index_.html">"cjk-<wbr>convert/lib/zh/convert/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_zh_table_index_.html">"cjk-<wbr>convert/lib/zh/table/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_lib_zh_table_table_.html">"cjk-<wbr>convert/lib/zh/table/table"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_node_modules_deepmerge_plus_index_.html">"cjk-<wbr>convert/node_<wbr>modules/deepmerge-<wbr>plus/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_cjk_convert_node_modules_uni_string_index_.html">"cjk-<wbr>convert/node_<wbr>modules/uni-<wbr>string/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_jp_core_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/jp/core"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_jp_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/jp/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_jp_table_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/jp/table"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_novel_filename_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/novel/filename"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_util_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/util"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_zh_convert_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/zh/convert/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_zh_table_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/zh/table/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_lib_zh_table_table_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/lib/zh/table/table"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_node_modules_deepmerge_plus_core_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/node_<wbr>modules/deepmerge-<wbr>plus/core"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_node_modules_deepmerge_plus_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/node_<wbr>modules/deepmerge-<wbr>plus/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_cjk_conv_node_modules_uni_string_index_.html">"node-<wbr>segment/node_<wbr>modules/cjk-<wbr>conv/node_<wbr>modules/uni-<wbr>string/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_class_proxy_index_.html">"node-<wbr>segment/node_<wbr>modules/class-<wbr>proxy/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_crlf_normalize_index_.html">"node-<wbr>segment/node_<wbr>modules/crlf-<wbr>normalize/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_deepmerge_plus_index_.html">"node-<wbr>segment/node_<wbr>modules/deepmerge-<wbr>plus/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_es6_class_prototype_index_.html">"node-<wbr>segment/node_<wbr>modules/es6-<wbr>class-<wbr>prototype/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_runes2_index_.html">"node-<wbr>segment/node_<wbr>modules/runes2/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_runes2_runes_.html">"node-<wbr>segment/node_<wbr>modules/runes2/runes"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_sort_object_keys2_core_.html">"node-<wbr>segment/node_<wbr>modules/sort-<wbr>object-<wbr>keys2/core"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_sort_object_keys2_index_.html">"node-<wbr>segment/node_<wbr>modules/sort-<wbr>object-<wbr>keys2/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_uni_string_index_.html">"node-<wbr>segment/node_<wbr>modules/uni-<wbr>string/index"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_node_segment_node_modules_uni_string_src_core_.html">"node-<wbr>segment/node_<wbr>modules/uni-<wbr>string/src/core"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

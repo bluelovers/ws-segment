@@ -15,15 +15,20 @@ import { getDictMain } from './lib/index';
 import * as JsDiff from 'diff';
 //import * as JSON from 'circular-json';
 
+let NO_DEBUG = false;
+
 let path_root = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel';
 
 let pathMain = 'user';
 let pathMain_out;
 let novelID: string;
 
-pathMain_out = 'cm_out';
+//pathMain_out = 'cm_out';
+pathMain_out = 'user';
 
-novelID = '暗黒騎士物語　～勇者を倒すために魔王に召喚されました～/00020_第２章　聖竜王の角';
+novelID = '暗黒騎士物語　～勇者を倒すために魔王に召喚されました～';
+
+NO_DEBUG = true;
 
 let cwd = _path(pathMain, novelID);
 let cwd_out = _path((pathMain_out || pathMain + '_out'), novelID);
@@ -83,6 +88,17 @@ Promise
 
 			text = crlf(text.toString());
 
+			if (!text.replace(/\s+/g, ''))
+			{
+				console.warn('[skin]', label);
+
+				return {
+					file,
+					changed: false,
+					exists: true,
+				};
+			}
+
 			let _now = Date.now();
 
 			let ks = await segment.doSegment(text);
@@ -93,35 +109,50 @@ Promise
 
 			let ks2 = debug_token(ks);
 
-			await fs.outputFile(path.join(cwd_out, file), text_new);
-
 			//console.log('[done]', file);
 
 			//console.timeEnd(label);
 
 			let changed = text_new != text;
 
-			await fs.writeFile(path.join(cwd_out, file) + '.json', JSON.stringify({
-				file,
-				changed,
-				timeuse,
-				ks,
-			}, null, "\t"));
+			if (NO_DEBUG)
+			{
+				if (changed)
+				{
+					console.warn('[changed]', label);
 
-			fs.writeFileSync(path.join(cwd_out, file) + '.2.json', JSON.stringify({
-				file,
-				changed,
-				timeuse,
-				ks2,
-			}, null, "\t"));
+					await fs.outputFile(path.join(cwd_out, file), text_new);
+				}
+			}
+			else
+			{
+				await fs.writeFile(path.join(cwd_out, file) + '.json', JSON.stringify({
+					file,
+					changed,
+					timeuse,
+					ks,
+				}, null, "\t"));
+
+				fs.writeFileSync(path.join(cwd_out, file) + '.2.json', JSON.stringify({
+					file,
+					changed,
+					timeuse,
+					ks2,
+				}, null, "\t"));
+
+				if (changed)
+				{
+					console.warn('[changed]', label);
+
+					await fs.outputFile(path.join(cwd_out, file) + '.patch', JsDiff.createPatch(path.basename(file), text, text_new, {
+						newlineIsToken: true
+					}));
+				}
+			}
 
 			if (changed)
 			{
-				console.warn('[changed]', label);
 
-				await fs.outputFile(path.join(cwd_out, file) + '.patch', JsDiff.createPatch(path.basename(file), text, text_new, {
-					newlineIsToken: true
-				}));
 			}
 			else
 			{
