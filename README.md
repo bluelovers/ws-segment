@@ -66,9 +66,11 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [node-analyzer](https://www.npmjs.com/package/node-analyzer)
 * [nanalyzer](https://www.npmjs.com/package/nanalyzer)
 
+#### java
+
+* [ansj_seg](https://github.com/NLPchina/ansj_seg)
+
 ### jp
 
 * [rakutenma](https://www.npmjs.com/package/rakutenma)
 * [tiny-segmenter](https://github.com/leungwensen/tiny-segmenter)
-
-

@@ -66,6 +66,7 @@
     "test": "test"
   },
   "scripts": {
+    "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-link": "npm link novel-segment",
     "test": "echo \"Error: no test specified\" && exit 1"
