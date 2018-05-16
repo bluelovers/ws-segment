@@ -73,7 +73,7 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
      */
     getChunks(wordpos: {
         [index: number]: IWord[];
-    }, pos: number, text?: string, total_count?: number): Segment.IWord[][];
+    }, pos: number, text?: string, total_count?: number): IWord[][];
 }
 export declare namespace DictTokenizer {
     type IAssessRow = {

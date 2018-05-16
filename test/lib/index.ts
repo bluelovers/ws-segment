@@ -49,7 +49,7 @@ export function createSegment(useCache: boolean = true)
 
 		console.log(`距離上次緩存已過 ${md}s`);
 
-		if (md < 300)
+		if (md < 1200)
 		{
 			//console.log(st, md);
 

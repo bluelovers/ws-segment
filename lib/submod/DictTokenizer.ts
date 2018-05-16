@@ -159,6 +159,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 		//debug(chunks);
 		let assess: Array<IAssessRow> = [];  // 评价表
 
+		//console.log(chunks);
+
 		// 对各个分支就行评估
 		for (let i = 0, chunk; chunk = chunks[i]; i++)
 		{
@@ -448,8 +450,42 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 */
 	getChunks(wordpos: {
 		[index: number]: IWord[];
-	}, pos: number, text?: string, total_count = 0)
+	}, pos: number, text?: string, total_count = 0): IWord[][]
 	{
+		if (pos == 0 && total_count == 0)
+		{
+
+			/*
+			console.dir(wordpos[pos], {
+				colors: true,
+				depth: 5,
+			});
+
+			console.dir([pos, text, total_count], {
+				colors: true,
+				depth: 3,
+			});
+
+			process.exit();
+			*/
+
+			/**
+			 * 忽略連字
+			 *
+			 * 例如: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+			 */
+			if (/^(.)\1{5,}$/g.test(text))
+			{
+				return [[{
+					w: text,
+					c: 0,
+					f: 0,
+				}]];
+
+				//return wordpos;
+			}
+		}
+
 		total_count++;
 
 		let words = wordpos[pos] || [];
