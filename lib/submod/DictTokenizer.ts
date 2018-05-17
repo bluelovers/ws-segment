@@ -29,7 +29,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 *
 	 * @type {number}
 	 */
-	MAX_CHUNK_COUNT = 50;
+	MAX_CHUNK_COUNT = 40;
 
 	protected _TABLE: IDICT<IWord>;
 	protected _TABLE2: IDICT2<IWord>;
@@ -40,6 +40,11 @@ export class DictTokenizer extends SubSModuleTokenizer
 		this._TABLE = this.segment.getDict('TABLE');
 		this._TABLE2 = this.segment.getDict('TABLE2');
 		this._POSTAG = this.segment.POSTAG;
+
+		if (typeof this.segment.options.maxChunkCount == 'number' && this.segment.options.maxChunkCount)
+		{
+			this.MAX_CHUNK_COUNT = this.segment.options.maxChunkCount;
+		}
 	}
 
 	/**

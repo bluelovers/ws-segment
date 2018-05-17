@@ -182,6 +182,7 @@ export declare namespace Segment {
     type IOptionsSegment = IOptionsTableDict & {
         db?: TableDict[];
         optionsDoSegment?: IOptionsDoSegment;
+        maxChunkCount?: number;
     };
     type IDICT_SYNONYM = IDICT<string>;
     type IDICT_STOPWORD = IDICT<boolean>;

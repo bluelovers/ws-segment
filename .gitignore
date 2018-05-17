@@ -19,3 +19,4 @@ test/**/*.d.ts
 test/**/*.js
 test/temp*
 package-lock.json
+/yarn.lock
