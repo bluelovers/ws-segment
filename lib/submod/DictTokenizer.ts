@@ -504,9 +504,13 @@ export class DictTokenizer extends SubSModuleTokenizer
 			/**
 			 * @FIXME
 			 */
-			if (!wordpos[nextcur] || total_count > this.MAX_CHUNK_COUNT)
+			if (!wordpos[nextcur])
 			{
 				ret.push([word]);
+			}
+			else if (total_count > this.MAX_CHUNK_COUNT)
+			{
+				// do something
 			}
 			else
 			{
