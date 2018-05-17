@@ -15,3 +15,15 @@ package-lock.json
 
 test
 /yarn.lock
+/demo/
+### npm template
+
+
+
+#package-lock.json
+
+
+.github
+.gitkeep
+
+/.*

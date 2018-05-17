@@ -526,7 +526,26 @@ export class DictTokenizer extends SubSModuleTokenizer
 //				console.log(444, words.slice(i));
 //				console.log(333, word);
 
-				ret.push(words.slice(i));
+				let w1: IWord[] = [word];
+
+				let j = nextcur;
+				while (j in wordpos)
+				{
+					let w2 = wordpos[j][0];
+
+					if (w2)
+					{
+						w1.push(w2);
+
+						j += w2.w.length;
+					}
+					else
+					{
+						break;
+					}
+				}
+
+				ret.push(w1);
 			}
 			else
 			{
