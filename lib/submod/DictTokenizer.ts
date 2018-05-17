@@ -486,6 +486,12 @@ export class DictTokenizer extends SubSModuleTokenizer
 				ret.push([word]);
 			}
 
+//			console.dir(wordpos);
+//
+//			console.dir(ret);
+//
+//			console.dir([pos, text, total_count]);
+
 			return ret;
 		}
 
@@ -511,6 +517,11 @@ export class DictTokenizer extends SubSModuleTokenizer
 			else if (total_count > this.MAX_CHUNK_COUNT)
 			{
 				// do something
+
+//				console.log(444, words.slice(i));
+//				console.log(333, word);
+
+				ret.push(words.slice(i));
 			}
 			else
 			{
