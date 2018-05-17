@@ -1,6 +1,7 @@
 'use strict';
 
 import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
+// @ts-ignore
 import { UString } from 'uni-string';
 import { ITableDictRow } from '../table/dict';
 import { toHex } from '../util/index';
@@ -452,38 +453,40 @@ export class DictTokenizer extends SubSModuleTokenizer
 		[index: number]: IWord[];
 	}, pos: number, text?: string, total_count = 0): IWord[][]
 	{
-		if (pos == 0 && total_count == 0)
+		/**
+		 * 忽略連字
+		 *
+		 * 例如: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+		 */
+		let m;
+		if (m = text.match(/^((.)\2{5,})/))
 		{
+			let s1 = text.slice(0, m[1].length);
+			let s2 = text.slice(m[1].length);
 
-			/*
-			console.dir(wordpos[pos], {
-				colors: true,
-				depth: 5,
-			});
+			let word = {
+				w: s1,
+				c: pos,
+				f: 0,
+			} as IWord;
 
-			console.dir([pos, text, total_count], {
-				colors: true,
-				depth: 3,
-			});
+			let ret: IWord[][] = [];
 
-			process.exit();
-			*/
-
-			/**
-			 * 忽略連字
-			 *
-			 * 例如: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-			 */
-			if (/^(.)\1{5,}$/g.test(text))
+			if (s2 !== '')
 			{
-				return [[{
-					w: text,
-					c: 0,
-					f: 0,
-				}]];
+				let chunks = this.getChunks(wordpos, pos + s1.length, s2, total_count);
 
-				//return wordpos;
+				for (let j = 0; j < chunks.length; j++)
+				{
+					ret.push([word].concat(chunks[j]));
+				}
 			}
+			else
+			{
+				ret.push([word]);
+			}
+
+			return ret;
 		}
 
 		total_count++;
@@ -507,7 +510,9 @@ export class DictTokenizer extends SubSModuleTokenizer
 			}
 			else
 			{
-				let chunks = this.getChunks(wordpos, nextcur, null, total_count);
+				let t = text.slice(word.w.length);
+
+				let chunks = this.getChunks(wordpos, nextcur, t, total_count);
 				for (let j = 0; j < chunks.length; j++)
 				{
 					ret.push([word].concat(chunks[j]));

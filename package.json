@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -70,6 +70,7 @@
     "test": "test"
   },
   "scripts": {
+    "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
     "local-link": "npm link segment-dict & npm link cjk-conv & npm link @types/fs-extra & npm link @types/node & npm link @types/bluebird",
@@ -86,10 +87,10 @@
     "deepmerge-plus": "^2.1.2",
     "fast-glob": "^2.2.2",
     "fs-extra": "^6.0.1",
-    "segment-dict": "^2.0.4",
+    "regexp-cjk": "^2.0.7",
+    "segment-dict": "^2.0.5",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "^2.0.2",
-    "regexp-cjk": "^2.0.7",
     "uni-string": "^1.0.2"
   },
   "devDependencies": {

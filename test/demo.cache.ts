@@ -10,6 +10,10 @@ import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
 
+let file: string;
+
+file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user_out/豚公爵に転生したから、今度は君に好きと言いたい/Ⅱ　風の神童は帰還する/６２豚　敲響地獄之鐘吧，鳴響起始之鐘吧.txt';
+
 const segment = createSegment();
 
 let db_dict = getDictMain(segment);
@@ -28,7 +32,18 @@ db_dict
 
 console.time(`doSegment`);
 
-let text = `那里民风保守', 'expected' => '那裡民風保守`;
+let text = `
+
+「王室騎士（Royal Knight）！！！即便要用生命交換也有守住卡莉娜王女啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊」
+
+
+
+`;
+
+if (file)
+{
+	text = fs.readFileSync(file).toString()
+}
 
 let ret = segment.doSegment(text);
 

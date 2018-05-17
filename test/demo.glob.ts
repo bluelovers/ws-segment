@@ -23,10 +23,11 @@ let pathMain = 'user';
 let pathMain_out;
 let novelID: string;
 
-//pathMain_out = 'cm_out';
-pathMain_out = 'user';
+pathMain_out = 'cm_out';
+//pathMain_out = 'user';
+//pathMain = 'cm';
 
-novelID = '暗黒騎士物語　～勇者を倒すために魔王に召喚されました～';
+novelID = '異世界支配のスキルテイカー　～　ゼロから始める奴隷ハーレム　～/00030_第４章';
 
 NO_DEBUG = true;
 
