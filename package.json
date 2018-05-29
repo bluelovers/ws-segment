@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.0.11",
+  "version": "2.0.12",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -73,7 +73,7 @@
     "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
-    "local-link": "npm link segment-dict & npm link cjk-conv & npm link @types/fs-extra & npm link @types/node & npm link @types/bluebird",
+    "local-link": "npm link segment-dict",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-js": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""

@@ -73,7 +73,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 			if (w1.w == '里')
 			{
-				if (w0.w.slice(-1) == '的')
+				if (w0 && w0.w.slice(-1) == '的')
 				{
 
 				}
