@@ -1,4 +1,4 @@
-import { SubSModule, SubSModuleTokenizer } from '../mod';
+import { SubSModuleTokenizer } from '../mod';
 import { IWord } from '../Segment';
 /**
  * 单字切分模块
@@ -23,5 +23,5 @@ export declare class SingleTokenizer extends SubSModuleTokenizer {
      */
     splitSingle(text: any, cur?: number): IWord[];
 }
-export declare const init: typeof SubSModule.init;
+export declare const init: typeof SubSModuleTokenizer.init;
 export default SingleTokenizer;

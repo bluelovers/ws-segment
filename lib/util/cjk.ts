@@ -12,6 +12,7 @@ export function char_table(text: string)
 	return a
 		.reduce(function (a, c)
 		{
+			// @ts-ignore
 			a.push(zhTable.auto(c, {
 				// @ts-ignore
 				safe: true,

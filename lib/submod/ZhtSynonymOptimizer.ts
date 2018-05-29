@@ -73,7 +73,11 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 			if (w1.w == '里')
 			{
-				if (w0 && hexAndAny(w0.p,
+				if (w0.w.slice(-1) == '的')
+				{
+
+				}
+				else if (w0 && hexAndAny(w0.p,
 					// 名詞
 					POSTAG.D_N,
 
