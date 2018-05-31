@@ -81,14 +81,14 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "circular-json": "^0.5.4",
-    "cjk-conv": "^1.0.35",
+    "cjk-conv": "^1.0.37",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.2",
     "deepmerge-plus": "^2.1.2",
     "fast-glob": "^2.2.2",
     "fs-extra": "^6.0.1",
     "regexp-cjk": "^2.0.8",
-    "segment-dict": "^2.0.5",
+    "segment-dict": "^2.0.8",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "^2.0.2",
     "uni-string": "^1.0.2"
@@ -96,7 +96,7 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
     "@types/fs-extra": "^5.0.2",
-    "@types/node": "^10.1.2",
+    "@types/node": "^10.1.4",
     "diff": "^3.5.0"
   },
   "optionalDependencies": {}
