@@ -31,6 +31,11 @@ export function text_list(text: string): string[]
 
 	if (arr.length <= 1)
 	{
+		if (Array.isArray(arr[0]))
+		{
+			arr = arr[0];
+		}
+
 		return arr;
 	}
 
