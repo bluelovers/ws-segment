@@ -64,6 +64,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 		let i = 0;
 
 		let CLOSE_P = ['】', '」', '》', '』', '］', '’', '”'];
+		let SEP_P = ['、', ',', '…'];
 
 		while (i < words.length)
 		{
@@ -112,6 +113,13 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					bool = true;
 				}
+				else if (w0 && ['腰'].includes(w0.w))
+				{
+					w1.ow = w1.w;
+					w1.w = '後';
+
+					bool = true;
+				}
 				// 如果前一個項目為
 				else if (w0 && (w0.p && hexAndAny(w0.p,
 
@@ -125,6 +133,13 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					POSTAG.D_N,
 					// 数量词 - 几次后
 					POSTAG.D_MQ,
+					POSTAG.A_M,
+
+					// 方位词 方位语素
+					POSTAG.D_F,
+
+					// 副词
+					POSTAG.D_D,
 				)))
 				{
 					w1.ow = w1.w;
@@ -132,7 +147,26 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					bool = true;
 				}
-				else if (w2 && (w2.p & POSTAG.D_V))
+				else if (w2 && (w2.p && hexAndAny(w2.p,
+					POSTAG.D_V,
+				)))
+				{
+					w1.ow = w1.w;
+					w1.w = '後';
+
+					bool = true;
+				}
+				else if (w2 && ((w0 && !w0.p) && (w2.p && hexAndAny(w2.p,
+					// 副词
+					POSTAG.D_D,
+				))))
+				{
+					w1.ow = w1.w;
+					w1.w = '後';
+
+					bool = true;
+				}
+				else if (w2 && ((!w0 || !w0.p) && SEP_P.includes(w2.w)))
 				{
 					w1.ow = w1.w;
 					w1.w = '後';
