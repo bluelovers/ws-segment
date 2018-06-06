@@ -65,6 +65,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [nodescws](https://github.com/dotSlashLu/nodescws)
 * [node-analyzer](https://www.npmjs.com/package/node-analyzer)
 * [nanalyzer](https://www.npmjs.com/package/nanalyzer)
+* [THULAC：一个高效的中文词法分析工具包](http://thulac.thunlp.org/)
 
 #### java
 
