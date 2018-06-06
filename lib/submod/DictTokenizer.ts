@@ -4,7 +4,7 @@ import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 // @ts-ignore
 import { UString } from 'uni-string';
 import { ITableDictRow } from '../table/dict';
-import { toHex } from '../util/index';
+import { hexAndAny, toHex } from '../util/index';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
 import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 import { debug } from '../util';
@@ -149,7 +149,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		// 将单词按位置分组
 		let wordpos = this.getPosInfo(words, text);
-		//debug(wordpos);
+		debug(wordpos);
 
 		/**
 		 * 使用类似于MMSG的分词算法
@@ -271,6 +271,26 @@ export class DictTokenizer extends SubSModuleTokenizer
 							))
 							{
 								assess[i].d += 1.5;
+							}
+
+							if (nextw.w == '后')
+							{
+								console.log({
+									i,
+									prew,
+									w,
+									nextw,
+									assess: assess,
+								});
+							}
+
+							// @FIXME 暴力解決 三天后 的問題
+							if (nextw.w == '后' && w.p & POSTAG.D_T && hexAndAny(prew.p,
+								POSTAG.D_MQ,
+								POSTAG.A_M,
+							))
+							{
+								assess[i].d++;
 							}
 						}
 					}

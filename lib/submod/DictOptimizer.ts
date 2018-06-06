@@ -2,6 +2,7 @@
 
 import { SubSModule, SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
 import { Segment, IWord, IDICT } from '../Segment';
+// @ts-ignore
 import { UString } from 'uni-string';
 import IPOSTAG from '../POSTAG';
 import { debug } from '../util';
