@@ -149,7 +149,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		// 将单词按位置分组
 		let wordpos = this.getPosInfo(words, text);
-		debug(wordpos);
+		//debug(wordpos);
 
 		/**
 		 * 使用类似于MMSG的分词算法
@@ -271,17 +271,6 @@ export class DictTokenizer extends SubSModuleTokenizer
 							))
 							{
 								assess[i].d += 1.5;
-							}
-
-							if (nextw.w == '后')
-							{
-								console.log({
-									i,
-									prew,
-									w,
-									nextw,
-									assess: assess,
-								});
 							}
 
 							// @FIXME 暴力解決 三天后 的問題
