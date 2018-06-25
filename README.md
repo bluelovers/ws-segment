@@ -66,6 +66,9 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [node-analyzer](https://www.npmjs.com/package/node-analyzer)
 * [nanalyzer](https://www.npmjs.com/package/nanalyzer)
 * [THULAC：一个高效的中文词法分析工具包](http://thulac.thunlp.org/)
+* [HanLP](https://github.com/hankcs/HanLP)
+* [node-hanlp](https://github.com/beyai/node-hanlp)
+
 
 #### java
 
@@ -75,3 +78,21 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 
 * [rakutenma](https://www.npmjs.com/package/rakutenma)
 * [tiny-segmenter](https://github.com/leungwensen/tiny-segmenter)
+
+## trie
+
+* [aho-corasick](https://github.com/xudejian/aho-corasick)
+* [aho-corasick-node](https://github.com/guofei/aho-corasick-node)
+
+## other
+
+* [moji](https://github.com/niwaringo/moji) 半角全角変換ライブラリ
+
+## post
+
+* [Aho Corasick自动机结合DoubleArrayTrie极速多模式匹配](http://www.hankcs.com/program/algorithm/aho-corasick-double-array-trie.html)
+* [DoubleArrayTrie和AhoCorasickDoubleArrayTrie的实用性对比](http://www.hankcs.com/program/algorithm/double-array-trie-vs-aho-corasick-double-array-trie.html)
+* [层叠隐马模型下的音译人名和日本人名识别](http://www.hankcs.com/nlp/name-transliteration-cascaded-hidden-markov-model-and-japanese-personal-names-recognition.html)
+* [简单有效的多标准中文分词](http://www.hankcs.com/nlp/segment/multi-criteria-cws.html)
+* [词性标注](http://www.hankcs.com/nlp/part-of-speech-tagging.html)
+* 
