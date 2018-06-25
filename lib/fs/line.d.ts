@@ -1,15 +1,17 @@
+/**
+ * Created by user on 2018/4/11/011.
+ */
 /// <reference types="node" />
-/// <reference types="bluebird" />
 import * as Promise from 'bluebird';
 import { IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';
 export declare type IOptions = {
-    mapper?(data: string);
-    onpipe?(src);
-    onclose?(...argv);
-    onfinish?(...argv);
-    onready?(...argv);
-    ondata?(...argv);
+    mapper?(data: string): any;
+    onpipe?(src: any): any;
+    onclose?(...argv: any[]): any;
+    onfinish?(...argv: any[]): any;
+    onready?(...argv: any[]): any;
+    ondata?(...argv: any[]): any;
 };
 export declare function byLine(fn?: any, options?: IOptions): IPipe<ReadStream, NodeJS.WritableStream>;
 export declare function createStreamLine(file: string, options: IOptions): IStreamLine;

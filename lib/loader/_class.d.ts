@@ -1,4 +1,3 @@
-/// <reference types="bluebird" />
 /**
  * Created by user on 2018/4/13/013.
  */
@@ -7,8 +6,8 @@ import { IStreamLineWithValue } from '../fs/line';
 import createLoadStream, { ICallback } from '../fs/stream';
 export declare type IOptions<T, R> = {
     parseLine?(input: string, oldFn?: (input: string) => R): R;
-    mapper?(line);
-    filter?(line);
+    mapper?(line: any): any;
+    filter?(line: any): any;
     stringifyLine?(data: R): string;
 };
 export declare class LoaderClass<T, R> {

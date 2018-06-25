@@ -1,4 +1,3 @@
-/// <reference types="bluebird" />
 import * as Promise from 'bluebird';
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';

@@ -1,15 +1,15 @@
-/// <reference types="node" />
 /**
  * Created by user on 2018/4/13/013.
  */
+/// <reference types="node" />
 import * as stream from 'stream';
 import { IOptions, IStreamLine, IStreamLineWithValue } from './line';
 import { ICallback } from './stream';
 export declare function createLoadStreamSync<T>(file: string, options?: {
-    mapper?(line: string);
-    ondata?(data);
+    mapper?(line: string): any;
+    ondata?(data: any): any;
     callback?: ICallback<T>;
-    onready?(...argv);
+    onready?(...argv: any[]): any;
 }): IStreamLineWithValue<T>;
 export declare function createStreamLineSync(file: string, options: IOptions): IStreamLine;
 export declare function createStreamLineSync(file: string, fn?: (data: string) => any, options?: IOptions): IStreamLine;

@@ -74,16 +74,16 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.1",
-    "fast-glob": "^2.2.0",
-    "fs-extra": "^5.0.0",
+    "crlf-normalize": "^1.0.2",
+    "fast-glob": "^2.2.2",
+    "fs-extra": "^6.0.1",
     "split2": "^2.2.0",
     "stream-pipe": "^1.0.1",
     "through2": "^2.0.3",
-    "uni-string": "^1.0.1"
+    "uni-string": "^1.0.2"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
-    "@types/node": "^9.6.5"
+    "@types/node": "^10.3.5"
   }
 }

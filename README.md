@@ -95,4 +95,10 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [层叠隐马模型下的音译人名和日本人名识别](http://www.hankcs.com/nlp/name-transliteration-cascaded-hidden-markov-model-and-japanese-personal-names-recognition.html)
 * [简单有效的多标准中文分词](http://www.hankcs.com/nlp/segment/multi-criteria-cws.html)
 * [词性标注](http://www.hankcs.com/nlp/part-of-speech-tagging.html)
+* [形容詞和副詞的用法說明](http://210.240.55.2/~t311/moe/engb5/diagnose/adj_adv/adjandadv_e.htm)
+* [形容詞 - 實用基礎文法](http://www.taiwantestcentral.com/Grammar/Title.aspx?ID=4)
+* [什麼是複合形容詞？教你有力又到位的形容人事物！](https://tw.blog.voicetube.com/archives/11889 "Permalink to 【實用】什麼是複合形容詞？教你有力又到位的形容人事物！")
+* [HanLP在线演示](http://hanlp.hankcs.com/)
 * 
+
+
