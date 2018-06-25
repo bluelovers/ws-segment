@@ -1,11 +1,16 @@
+/**
+ * 分词模块管理器
+ *
+ * @author 老雷<leizongmin@gmail.com>
+ */
 import { Segment, IWord } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 export declare type ISubTokenizer = ISubSModule & {
     type: 'tokenizer';
-    split(words: IWord[], ...argv): IWord[];
+    split(words: IWord[], ...argv: any[]): IWord[];
 };
 export declare type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
-    (segment: Segment, ...argv): T & R;
+    (segment: Segment, ...argv: any[]): T & R;
 };
 export declare abstract class SubSModuleTokenizer extends SubSModule implements ISubTokenizer {
     static readonly type: string;
@@ -17,12 +22,12 @@ export declare abstract class SubSModuleTokenizer extends SubSModule implements 
      * 仅对未识别的词进行匹配
      * 不包含 p 為 0
      */
-    protected _splitUnset<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv) => U[]): U[];
+    protected _splitUnset<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv: any[]) => U[]): U[];
     /**
      * 仅对未识别的词进行匹配
      * 包含已存在 但 p 為 0
      */
-    protected _splitUnknow<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv) => U[]): U[];
+    protected _splitUnknow<T extends IWord, U extends IWord = T>(words: T[], fn: (text: string, ...argv: any[]) => U[]): U[];
 }
 /**
  * 分词模块管理器

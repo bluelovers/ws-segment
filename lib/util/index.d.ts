@@ -1,3 +1,6 @@
+/**
+ * Created by user on 2018/4/17/017.
+ */
 /// <reference types="node" />
 import * as util from 'util';
 export * from './core';

@@ -1,3 +1,6 @@
+/**
+ * 中文姓
+ */
 import { IDICT } from '../Segment';
 export declare namespace _CHS_NAMES {
     const FAMILY_NAME_1: string[];

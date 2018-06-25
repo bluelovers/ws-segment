@@ -1,6 +1,6 @@
 import { IDICT } from '../Segment';
 export declare namespace _COLORS {
-    const ZH = "色";
+    const ZH = "\u8272";
     const COLOR_HAIR: string[];
     const COLOR_WITH_RGB: string[][];
     const COLOR_ALL: string[];

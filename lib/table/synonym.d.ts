@@ -1,3 +1,6 @@
+/**
+ * Created by user on 2018/4/19/019.
+ */
 import { IDICT } from './core';
 import { TableDictSynonymPanGu } from './synonym.pangu';
 export declare type ArrayTwoOrMore<T> = {

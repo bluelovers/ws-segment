@@ -34,7 +34,7 @@ export declare enum POSTAG {
     D_ZH = 4,
     D_K = 2,
     URL = 1,
-    UNK = 0,
+    UNK = 0
 }
 export declare namespace POSTAG {
     const POSTAG_KEYS: string[];
@@ -74,7 +74,7 @@ export declare namespace POSTAG {
         D_ZH = "\u524D\u63A5\u6210\u5206",
         D_K = "\u540E\u63A5\u6210\u5206",
         URL = "\u7F51\u5740 \u90AE\u7BB1\u5730\u5740",
-        UNK = "\u672A\u77E5",
+        UNK = "\u672A\u77E5"
     }
     enum ZHNAME {
         BAD = "\u932F\u5B57",
@@ -109,7 +109,7 @@ export declare namespace POSTAG {
         D_ZH = "\u524D\u63A5\u6210\u5206",
         D_K = "\u5F8C\u63A5\u6210\u5206",
         URL = "\u7DB2\u5740 \u90F5\u7BB1\u5730\u5740",
-        UNK = "\u672A\u77E5",
+        UNK = "\u672A\u77E5"
     }
     enum ENNAME {
         D_A = "a",
@@ -143,7 +143,7 @@ export declare namespace POSTAG {
         D_ZH = "h",
         D_K = "k",
         URL = "uri",
-        UNK = "un",
+        UNK = "un"
     }
     const enName: (p: string | number) => string;
     const chsName: (p: string | number) => string;

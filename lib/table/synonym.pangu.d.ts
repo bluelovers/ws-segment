@@ -1,3 +1,6 @@
+/**
+ * Created by user on 2018/4/19/019.
+ */
 import AbstractTableDictCore from './core';
 /**
  * 原版 node-segment 的格式

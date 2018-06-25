@@ -81,22 +81,22 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "circular-json": "^0.5.4",
-    "cjk-conv": "^1.0.38",
+    "cjk-conv": "^1.0.42",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.2",
     "deepmerge-plus": "^2.1.2",
     "fast-glob": "^2.2.2",
     "fs-extra": "^6.0.1",
     "regexp-cjk": "^2.0.8",
-    "segment-dict": "^2.0.9",
+    "segment-dict": "^2.0.10",
     "sort-object-keys2": "^1.0.3",
-    "ts-enum-util": "3.0.4",
+    "ts-enum-util": "3.0.6",
     "uni-string": "^1.0.2"
   },
   "devDependencies": {
     "@types/bluebird": "^3.5.20",
-    "@types/fs-extra": "^5.0.2",
-    "@types/node": "^10.3.1",
+    "@types/fs-extra": "^5.0.3",
+    "@types/node": "^10.3.5",
     "diff": "^3.5.0"
   },
   "optionalDependencies": {}

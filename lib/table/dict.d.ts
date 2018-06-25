@@ -19,7 +19,7 @@ export declare class TableDict extends AbstractTableDictCore<ITableDictRow> {
     options: IOptions;
     exists(data: IWord | IDictRow | string): ITableDictRow;
     add(data: IWord | IDictRow | string, skipExists?: boolean): this;
-    protected _add({w, p, f}: {
+    protected _add({ w, p, f }: {
         w: any;
         p: any;
         f: any;

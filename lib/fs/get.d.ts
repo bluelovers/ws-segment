@@ -1,3 +1,6 @@
+/**
+ * Created by user on 2018/4/13/013.
+ */
 export declare type IOptions = {
     extensions?: string[];
     paths: string[];

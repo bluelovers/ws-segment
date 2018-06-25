@@ -1,3 +1,8 @@
+/**
+ * 分词器接口
+ *
+ * @author 老雷<leizongmin@gmail.com>
+ */
 /// <reference types="node" />
 import POSTAG from './POSTAG';
 import AbstractTableDictCore from './table/core';
@@ -55,13 +60,13 @@ export declare class Segment {
     inited?: boolean;
     constructor(options?: IOptionsSegment);
     getDictDatabase<R extends TableDictSynonym>(type: 'SYNONYM', autocreate?: boolean, libTableDict?: {
-        new (...argv): R;
+        new (...argv: any[]): R;
     }): R;
     getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: {
-        new (...argv): R;
+        new (...argv: any[]): R;
     }): R;
     getDictDatabase<R extends AbstractTableDictCore<any>>(type: string, autocreate?: boolean, libTableDict?: {
-        new (...argv): R;
+        new (...argv: any[]): R;
     }): R;
     /**
      * 载入分词模块

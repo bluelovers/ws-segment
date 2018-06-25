@@ -1,3 +1,6 @@
+/**
+ * Created by user on 2018/4/16/016.
+ */
 import { EnumWrapper } from "ts-enum-util";
 import { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate } from './Optimizer';
 import { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate } from './Tokenizer';
@@ -55,7 +58,7 @@ export declare enum ENUM_SUBMODS {
      * 自動處理 `里|裏|后`
      */
     ZhtSynonymOptimizer = "ZhtSynonymOptimizer",
-    AdjectiveOptimizer = "AdjectiveOptimizer",
+    AdjectiveOptimizer = "AdjectiveOptimizer"
 }
 /**
  * 不包含在預設模組列表內 需要手動指定
@@ -64,7 +67,7 @@ export declare enum ENUM_SUBMODS_OTHER {
     /**
      * 单字切分模块
      */
-    SingleTokenizer = "SingleTokenizer",
+    SingleTokenizer = "SingleTokenizer"
 }
 export declare const LIST_SUBMODS_NOT_DEF: ENUM_SUBMODS[];
 export declare const SUBMODS_LIST: EnumWrapper<string, typeof ENUM_SUBMODS>;

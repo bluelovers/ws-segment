@@ -1,3 +1,9 @@
+/**
+ * 人名优化模块
+ *
+ * @author 老雷<leizongmin@gmail.com>
+ * @version 0.1
+ */
 import Segment, { IWord } from '../Segment';
 declare module ChsNameOptimizer {
     /** 模块类型 */
