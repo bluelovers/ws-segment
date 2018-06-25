@@ -10,6 +10,7 @@ import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DO
 import { debug } from '../util';
 import { SubSModule, SubSModuleTokenizer } from '../mod';
 import { Segment, IWord, IDICT, IDICT_SYNONYM } from '../Segment';
+// @ts-ignore
 import { UString } from 'uni-string';
 
 export class ChsNameTokenizer extends SubSModuleTokenizer
