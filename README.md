@@ -99,6 +99,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [形容詞 - 實用基礎文法](http://www.taiwantestcentral.com/Grammar/Title.aspx?ID=4)
 * [什麼是複合形容詞？教你有力又到位的形容人事物！](https://tw.blog.voicetube.com/archives/11889 "Permalink to 【實用】什麼是複合形容詞？教你有力又到位的形容人事物！")
 * [HanLP在线演示](http://hanlp.hankcs.com/)
-* 
+* [全国名字ランキング](https://myoji-yurai.net/prefectureRanking.htm)
+* [跳跃表，字典树（单词查找树，Trie树），后缀树，KMP算法，AC 自动机相关算法原理详细汇总](https://blog.csdn.net/zhongwen7710/article/details/39274349)
 
 
