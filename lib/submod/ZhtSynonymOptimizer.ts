@@ -80,6 +80,13 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 
 				}
+				else if (w0 && CLOSE_P.includes(w0.w))
+				{
+					w1.ow = w1.w;
+					w1.w = '裡';
+
+					bool = true;
+				}
 				else if (w0 && hexAndAny(w0.p,
 					// 名詞
 					POSTAG.D_N,
