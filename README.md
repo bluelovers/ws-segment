@@ -43,6 +43,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * http://cdict.info/
 * http://www.kwuntung.net/synonym/
 * [萌典](https://www.moedict.tw)
+* [教育部重編國語辭典修訂本](http://dict.revised.moe.edu.tw/cgi-bin/cbdic/gsweb.cgi?ccd=bKKilu&o=e0&sec=sec1&index=1)
 
 ---
 
