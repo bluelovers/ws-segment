@@ -7,29 +7,14 @@
 
 'use strict';
 
-import { SubSModule, SubSModuleOptimizer, ISubOptimizer } from '../mod';
+import { SubSModule, SubSModuleOptimizer, ISubOptimizer, SubSModuleTokenizer } from '../mod';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
 import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
 
-module ChsNameOptimizer
+export class ChsNameOptimizer extends SubSModuleOptimizer
 {
-	/** 模块类型 */
-	export const type = 'optimizer';
-
-	export let segment: Segment;
-
-	/**
-	 * 模块初始化
-	 *
-	 * @param {Segment} segment 分词接口
-	 */
-	export function init(_segment)
-	{
-		segment = _segment;
-
-		return ChsNameOptimizer;
-	}
+	name = 'ChsNameOptimizer';
 
 	/**
 	 * 对可能是人名的单词进行优化
@@ -37,10 +22,10 @@ module ChsNameOptimizer
 	 * @param {array} words 单词数组
 	 * @return {array}
 	 */
-	export function doOptimize(words: IWord[]): IWord[]
+	doOptimize(words: IWord[]): IWord[]
 	{
 		//debug(words);
-		let POSTAG = segment.POSTAG;
+		const POSTAG = this._POSTAG;
 		let i = 0;
 
 		/* 第一遍扫描 */
@@ -55,11 +40,22 @@ module ChsNameOptimizer
 				if (nextword && (word.w == '小' || word.w == '老') &&
 					(nextword.w in CHS_NAMES.FAMILY_NAME_1 || nextword.w in CHS_NAMES.FAMILY_NAME_2))
 				{
+					/*
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					});
+					*/
+
+					this.sliceToken(words, i, 2, {
+						w: word.w + nextword.w,
+						p: POSTAG.A_NR,
+						m: [word, nextword],
+					}, undefined, {
+						[this.name]: true,
+					});
+
 					i++;
 					continue;
 				}
@@ -68,11 +64,22 @@ module ChsNameOptimizer
 				if ((word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2) &&
 					((nextword.p & POSTAG.A_NR) > 0 && nextword.w.length <= 2))
 				{
+					/*
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					});
+					*/
+
+					this.sliceToken(words, i, 2, {
+						w: word.w + nextword.w,
+						p: POSTAG.A_NR,
+						m: [word, nextword],
+					}, undefined, {
+						[this.name]: true,
+					});
+
 					i++;
 					continue;
 				}
@@ -83,21 +90,44 @@ module ChsNameOptimizer
 					if ((word.w in CHS_NAMES.SINGLE_NAME && word.w == nextword.w) ||
 						(word.w in CHS_NAMES.DOUBLE_NAME_1 && nextword.w in CHS_NAMES.DOUBLE_NAME_2))
 					{
+						/*
 						words.splice(i, 2, {
 							w: word.w + nextword.w,
 							p: POSTAG.A_NR,
 							m: [word, nextword],
 						});
+						*/
+
+						this.sliceToken(words, i, 2, {
+							w: word.w + nextword.w,
+							p: POSTAG.A_NR,
+							m: [word, nextword],
+						}, undefined, {
+							[this.name]: true,
+						});
+
 						// 如果上一个单词可能是一个姓，则合并
 						let preword = words[i - 1];
 						if (preword &&
 							(preword.w in CHS_NAMES.FAMILY_NAME_1 || preword.w in CHS_NAMES.FAMILY_NAME_2))
 						{
+
+							/*
 							words.splice(i - 1, 2, {
 								w: preword.w + word.w + nextword.w,
 								p: POSTAG.A_NR,
 								m: [preword, word, nextword],
 							});
+							*/
+
+							this.sliceToken(words, i - 1, 2, {
+								w: preword.w + word.w + nextword.w,
+								p: POSTAG.A_NR,
+								m: [preword, word, nextword],
+							}, undefined, {
+								[this.name]: true,
+							});
+
 						}
 						else
 						{
@@ -119,10 +149,20 @@ module ChsNameOptimizer
 				)
 				{
 					//debug(word, nextword);
+					/*
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
+					});
+					*/
+
+					this.sliceToken(words, i, 2, {
+						w: word.w + nextword.w,
+						p: POSTAG.A_NR,
+						m: [word, nextword],
+					}, undefined, {
+						[this.name]: true,
 					});
 				}
 			}
@@ -143,11 +183,22 @@ module ChsNameOptimizer
 				if ((word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2) &&
 					nextword.w in CHS_NAMES.SINGLE_NAME)
 				{
+					/*
 					words.splice(i, 2, {
 						w: word.w + nextword.w,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					});
+					*/
+
+					this.sliceToken(words, i, 2, {
+						w: word.w + nextword.w,
+						p: POSTAG.A_NR,
+						m: [word, nextword],
+					}, undefined, {
+						[this.name]: true,
+					});
+
 					i++;
 					continue;
 				}
@@ -161,4 +212,7 @@ module ChsNameOptimizer
 	}
 }
 
-export = ChsNameOptimizer;
+export const init = ChsNameOptimizer.init.bind(ChsNameOptimizer) as typeof ChsNameOptimizer.init;
+
+export default ChsNameOptimizer;
+

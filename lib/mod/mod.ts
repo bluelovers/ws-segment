@@ -132,9 +132,9 @@ export class SubSModule implements ISubSModule
 		return data;
 	}
 
-	protected sliceToken<T extends IWord>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean)
+	protected sliceToken<T extends IWord, U extends IWordDebugInfo>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
 	{
-		words.splice(pos, len, this.createToken(data, skipCheck));
+		words.splice(pos, len, this.createToken(data, skipCheck, attr));
 
 		return words;
 	}
