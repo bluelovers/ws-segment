@@ -9,12 +9,21 @@
 
 import { SubSModule, SubSModuleOptimizer, ISubOptimizer, SubSModuleTokenizer } from '../mod';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
-import Segment, { IWord } from '../Segment';
+import Segment, { IDICT, IWord } from '../Segment';
 import { debug } from '../util';
 
 export class ChsNameOptimizer extends SubSModuleOptimizer
 {
+	protected _TABLE: IDICT<IWord>;
+
 	name = 'ChsNameOptimizer';
+
+	_cache()
+	{
+		super._cache();
+
+		this._TABLE = this.segment.getDict('TABLE');
+	}
 
 	/**
 	 * 对可能是人名的单词进行优化

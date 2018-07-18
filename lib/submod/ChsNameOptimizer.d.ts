@@ -5,9 +5,11 @@
  * @version 0.1
  */
 import { SubSModuleOptimizer } from '../mod';
-import { IWord } from '../Segment';
+import { IDICT, IWord } from '../Segment';
 export declare class ChsNameOptimizer extends SubSModuleOptimizer {
+    protected _TABLE: IDICT<IWord>;
     name: string;
+    _cache(): void;
     /**
      * 对可能是人名的单词进行优化
      *

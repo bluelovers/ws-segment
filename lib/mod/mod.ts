@@ -117,7 +117,7 @@ export class SubSModule implements ISubSModule
 	{
 		let TABLE = this._TABLE;
 
-		if (!skipCheck && !(data.w in TABLE))
+		if (!skipCheck && TABLE && !(data.w in TABLE))
 		{
 			this.debugToken(data, {
 				autoCreate: true,
