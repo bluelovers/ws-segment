@@ -63,7 +63,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 		let i = 0;
 
-		let CLOSE_P = ['】', '」', '》', '』', '］', '’', '”'];
+		let CLOSE_P = ['】', '」', '》', '』', '］', '’', '”', '〉'];
 		let SEP_P = ['、', ',', '…'];
 
 		while (i < words.length)
@@ -181,6 +181,49 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					bool = true;
 				}
 			}
+			else if (w1.w == '发' || w1.w == '發')
+			{
+				let c: string;
+
+				if (w0)
+				{
+					c = w0.w;
+				}
+
+				if (c && COLOR_HAIR[c])
+				{
+					let nw = '髮';
+
+					nw = this._getSynonym(w1.w, nw);
+
+					if (nw != w1.w)
+					{
+						w1.ow = w1.w;
+						w1.w = nw;
+
+						bool = true;
+					}
+				}
+			}
+			else if (w1.w.match(/^(.+)[发發]$/))
+			{
+				let c = RegExp.$1;
+
+				if (COLOR_HAIR[c])
+				{
+					let nw = c + '髮';
+
+					nw = this._getSynonym(w1.w, nw);
+
+					if (nw != w1.w)
+					{
+						w1.ow = w1.w;
+						w1.w = nw;
+
+						bool = true;
+					}
+				}
+			}
 			// 如果項目為 錯字
 			else if (w1.p & POSTAG.BAD)
 			{
@@ -248,29 +291,13 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 				if (nw != w1.w)
 				{
+					w1.op = w1.op || w1.p;
 					w1.ow = w1.w;
+
 					w1.w = nw;
+					w1.p = TABLE[w1.w].p || POSTAG.D_N;
 
 					bool = true;
-				}
-			}
-			else if (w1.w.match(/^(.+)[发發]$/))
-			{
-				let c = RegExp.$1;
-
-				if (COLOR_HAIR[c])
-				{
-					let nw = c + '髮';
-
-					nw = this._getSynonym(w1.w, nw);
-
-					if (nw != w1.w)
-					{
-						w1.ow = w1.w;
-						w1.w = nw;
-
-						bool = true;
-					}
 				}
 			}
 
