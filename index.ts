@@ -7,6 +7,9 @@ import * as Promise from 'bluebird';
 import projectConfig from './project.config';
 import * as path from 'path';
 
+// @ts-ignore
+import * as _pkg from './package.json';
+
 import requireLoader, { requireModule as requireLoaderModule } from './lib/loader';
 export { requireLoader, requireLoaderModule }
 
@@ -16,6 +19,7 @@ export { getDictPath }
 export const ROOT = projectConfig.project_root;
 export const DICT_ROOT = projectConfig.dict_root;
 
+export const version: string = _pkg.version;
+
 import * as self from './index';
 export default self;
-

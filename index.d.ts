@@ -7,5 +7,6 @@ import getDictPath from './lib/dict';
 export { getDictPath };
 export declare const ROOT: string;
 export declare const DICT_ROOT: string;
+export declare const version: string;
 import * as self from './index';
 export default self;
