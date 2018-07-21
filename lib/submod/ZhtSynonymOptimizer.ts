@@ -237,6 +237,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 				nw = this._getSynonym(w1.w, nw);
 
+				//console.log(w1, nw);
+
 				if (nw != w1.w)
 				{
 					w1.ow = w1.w;
@@ -310,6 +312,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					{
 						w1.op = w1.op || w1.p;
 						w1.p = TABLE[w1.w].p;
+
+						//console.log(TABLE[w1.w]);
 					}
 				}
 

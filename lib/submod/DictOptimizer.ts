@@ -159,9 +159,16 @@ export class DictOptimizer extends SubSModuleOptimizer
 					{
 						p = TABLE[nw].p | POSTAG.D_MQ;
 					}
-					else if (w2.p & POSTAG.D_T)
+					else
 					{
-						p = p | POSTAG.D_T;
+						if (w2.p & POSTAG.D_T)
+						{
+							p = p | POSTAG.D_T;
+						}
+						if (w2.p & POSTAG.D_N)
+						{
+							p = p | POSTAG.D_N;
+						}
 					}
 
 					this.sliceToken(words, i, 2, {
