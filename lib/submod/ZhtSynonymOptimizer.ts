@@ -295,7 +295,6 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					w1.ow = w1.w;
 
 					w1.w = nw;
-					w1.p = TABLE[w1.w].p || POSTAG.D_N;
 
 					bool = true;
 				}
