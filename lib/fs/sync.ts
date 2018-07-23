@@ -132,7 +132,9 @@ export class ReadableSync extends stream.Readable
 
 	__read(size: number): Buffer
 	{
-		let readBuffer = new Buffer(this.options.readChunk);
+		//let readBuffer = new Buffer(this.options.readChunk);
+		let readBuffer = Buffer.alloc(this.options.readChunk);
+
 		let bytesRead = fs.readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
 
 		if (bytesRead === 0)
