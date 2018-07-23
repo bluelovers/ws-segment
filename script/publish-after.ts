@@ -5,16 +5,21 @@
 import * as path from 'path';
 import ProjectConfig from '../project.config';
 import * as PackageJson from '../package.json';
-import * as crossSpawn from 'cross-spawn';
+import * as CrossSpawn from 'cross-spawn';
+/// <reference types="cross-spawn" />
 
 (async () =>
 {
+	let crossSpawn: typeof CrossSpawn;
+	// @ts-ignore
+	crossSpawn = await import('cross-spawn');
+
 	let gitroot: string;
 
 	// @ts-ignore
 	gitroot = await import('git-root2');
 	// @ts-ignore
-	gitroot = gitroot();
+	gitroot = gitroot(__dirname);
 
 	if (!gitroot || path.relative(gitroot, ProjectConfig.project_root))
 	{

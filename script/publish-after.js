@@ -6,13 +6,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const project_config_1 = require("../project.config");
 const PackageJson = require("../package.json");
-const crossSpawn = require("cross-spawn");
+/// <reference types="cross-spawn" />
 (async () => {
+    let crossSpawn;
+    // @ts-ignore
+    crossSpawn = await Promise.resolve().then(() => require('cross-spawn'));
     let gitroot;
     // @ts-ignore
     gitroot = await Promise.resolve().then(() => require('git-root2'));
     // @ts-ignore
-    gitroot = gitroot();
+    gitroot = gitroot(__dirname);
     if (!gitroot || path.relative(gitroot, project_config_1.default.project_root)) {
         console.warn(`no git exists`);
         return;
