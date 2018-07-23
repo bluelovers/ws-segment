@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.0.35",
+  "version": "2.0.36",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -66,6 +66,13 @@
     "test": "test"
   },
   "scripts": {
+
+    "prepack": "echo prepack",
+    "postpack": "echo postpack",
+    "prepublishOnly": "echo prepublishOnly",
+    "publish": "echo publish",
+    "postpublish": "echo postpublish",
+
     "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-link": "npm link novel-segment",
