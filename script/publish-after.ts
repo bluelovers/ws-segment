@@ -36,6 +36,11 @@ import * as crossSpawn from 'cross-spawn';
 		msg,
 	], options);
 
+	await new Promise(function (done)
+	{
+		setTimeout(done, 500);
+	});
+
 	await crossSpawn('git', [
 		'tag',
 		'-a',
