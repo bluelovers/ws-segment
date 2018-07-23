@@ -44,5 +44,4 @@ import * as crossSpawn from 'cross-spawn';
 		msg,
 	], options);
 
-	console.log(gitroot, PackageJson);
 })().catch(e => console.error(e));

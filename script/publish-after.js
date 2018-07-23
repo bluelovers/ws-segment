@@ -35,5 +35,4 @@ const crossSpawn = require("cross-spawn");
         '-m',
         msg,
     ], options);
-    console.log(gitroot, PackageJson);
 })().catch(e => console.error(e));
