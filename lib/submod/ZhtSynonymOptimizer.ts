@@ -8,6 +8,8 @@ import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
 import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
+import UString = require('uni-string');
+
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
  * 適用於比較容易需要人工處理的轉換
@@ -74,125 +76,201 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 			let bool: boolean;
 
-			if (w1.w == '里')
+			let w1_len = UString.size(w1.w);
+
+			if (w1_len == 1)
 			{
-				if (w0 && w0.w.slice(-1) == '的')
+				if (w1.w == '里')
+				{
+					if (w0 && w0.w.slice(-1) == '的')
+					{
+
+					}
+					else if (w0 && CLOSE_P.includes(w0.w))
+					{
+						w1.ow = w1.w;
+						w1.w = '裡';
+
+						bool = true;
+					}
+					else if (w0 && hexAndAny(w0.p,
+						// 名詞
+						POSTAG.D_N,
+
+						// 處所
+						POSTAG.D_S,
+
+						// 方位
+						POSTAG.D_F,
+
+						// 时间词
+						POSTAG.D_T,
+
+						// 动词 训练
+						POSTAG.D_V,
+					))
+					{
+						w1.ow = w1.w;
+						w1.w = '裡';
+
+						bool = true;
+					}
+				}
+				else if (w1.w == '后')
 				{
 
+					if (w0 && CLOSE_P.includes(w0.w))
+					{
+						w1.ow = w1.w;
+						w1.w = '後';
+
+						bool = true;
+					}
+					else if (w0 && ['腰'].includes(w0.w))
+					{
+						w1.ow = w1.w;
+						w1.w = '後';
+
+						bool = true;
+					}
+					// 如果前一個項目為
+					else if (w0 && (w0.p && hexAndAny(w0.p,
+
+						// 动词 離開
+						POSTAG.D_V,
+						// 处所词
+						POSTAG.D_S,
+						// 时间词
+						POSTAG.D_T,
+						// 名词 名语素
+						POSTAG.D_N,
+						// 数量词 - 几次后
+						POSTAG.D_MQ,
+						POSTAG.A_M,
+
+						// 方位词 方位语素
+						POSTAG.D_F,
+
+						// 副词
+						POSTAG.D_D,
+					)))
+					{
+						w1.ow = w1.w;
+						w1.w = '後';
+
+						bool = true;
+					}
+					else if (w2 && (w2.p && hexAndAny(w2.p,
+						POSTAG.D_V,
+					)))
+					{
+						w1.ow = w1.w;
+						w1.w = '後';
+
+						bool = true;
+					}
+					else if (w2 && ((w0 && !w0.p) && (w2.p && hexAndAny(w2.p,
+						// 副词
+						POSTAG.D_D,
+					))))
+					{
+						w1.ow = w1.w;
+						w1.w = '後';
+
+						bool = true;
+					}
+					else if (w2 && ((!w0 || !w0.p) && SEP_P.includes(w2.w)))
+					{
+						w1.ow = w1.w;
+						w1.w = '後';
+
+						bool = true;
+					}
 				}
-				else if (w0 && CLOSE_P.includes(w0.w))
+				else if (w1.w == '发' || w1.w == '發')
 				{
-					w1.ow = w1.w;
-					w1.w = '裡';
+					let c: string;
 
-					bool = true;
+					if (w0)
+					{
+						c = w0.w;
+					}
+
+					if (c && COLOR_HAIR[c])
+					{
+						let nw = '髮';
+
+						nw = this._getSynonym(w1.w, nw);
+
+						if (nw != w1.w)
+						{
+							w1.ow = w1.w;
+							w1.w = nw;
+
+							bool = true;
+						}
+					}
 				}
-				else if (w0 && hexAndAny(w0.p,
-					// 名詞
-					POSTAG.D_N,
+			}
+			else if (w1_len > 1)
+			{
+				if (w1.w.match(/^(.+)[发發]$/))
+				{
+					let c = RegExp.$1;
 
-					// 處所
-					POSTAG.D_S,
+					if (COLOR_HAIR[c])
+					{
+						let nw = c + '髮';
 
-					// 方位
-					POSTAG.D_F,
+						nw = this._getSynonym(w1.w, nw);
 
-					// 时间词
-					POSTAG.D_T,
+						if (nw != w1.w)
+						{
+							w1.ow = w1.w;
+							w1.w = nw;
 
-					// 动词 训练
-					POSTAG.D_V,
+							bool = true;
+						}
+					}
+				}
+				// 如果項目為 量词
+				else if (hexAndAny(w1.p,
+					POSTAG.A_Q,
+					POSTAG.D_MQ,
 				))
 				{
-					w1.ow = w1.w;
-					w1.w = '裡';
 
-					bool = true;
 				}
-			}
-			else if (w1.w == '后')
-			{
-
-				if (w0 && CLOSE_P.includes(w0.w))
+				// 如果項目為 錯字
+				else if (w1.p & POSTAG.BAD)
 				{
-					w1.ow = w1.w;
-					w1.w = '後';
+					let nw: string;
 
-					bool = true;
+					nw = w1.w
+						.replace(/(.)里|里(.)/, '$1裡$2')
+						.replace(/(.)后|后(.)/, '$1後$2')
+						.replace(/蔘(.)/, '參$1')
+					;
+
+					nw = this._getSynonym(w1.w, nw);
+
+					//console.log(w1, nw);
+
+					if (nw != w1.w)
+					{
+						w1.ow = w1.w;
+						w1.w = nw;
+
+						bool = true;
+					}
 				}
-				else if (w0 && ['腰'].includes(w0.w))
+				// 如果項目為 方位
+				else if (w1.p & POSTAG.D_F)
 				{
-					w1.ow = w1.w;
-					w1.w = '後';
-
-					bool = true;
-				}
-				// 如果前一個項目為
-				else if (w0 && (w0.p && hexAndAny(w0.p,
-
-					// 动词 離開
-					POSTAG.D_V,
-					// 处所词
-					POSTAG.D_S,
-					// 时间词
-					POSTAG.D_T,
-					// 名词 名语素
-					POSTAG.D_N,
-					// 数量词 - 几次后
-					POSTAG.D_MQ,
-					POSTAG.A_M,
-
-					// 方位词 方位语素
-					POSTAG.D_F,
-
-					// 副词
-					POSTAG.D_D,
-				)))
-				{
-					w1.ow = w1.w;
-					w1.w = '後';
-
-					bool = true;
-				}
-				else if (w2 && (w2.p && hexAndAny(w2.p,
-					POSTAG.D_V,
-				)))
-				{
-					w1.ow = w1.w;
-					w1.w = '後';
-
-					bool = true;
-				}
-				else if (w2 && ((w0 && !w0.p) && (w2.p && hexAndAny(w2.p,
-					// 副词
-					POSTAG.D_D,
-				))))
-				{
-					w1.ow = w1.w;
-					w1.w = '後';
-
-					bool = true;
-				}
-				else if (w2 && ((!w0 || !w0.p) && SEP_P.includes(w2.w)))
-				{
-					w1.ow = w1.w;
-					w1.w = '後';
-
-					bool = true;
-				}
-			}
-			else if (w1.w == '发' || w1.w == '發')
-			{
-				let c: string;
-
-				if (w0)
-				{
-					c = w0.w;
-				}
-
-				if (c && COLOR_HAIR[c])
-				{
-					let nw = '髮';
+					let nw = w1.w
+						.replace(/(.)里|里(.)/, '$1裡$2')
+						.replace(/(.)后|后(.)/, '$1後$2')
+					;
 
 					nw = this._getSynonym(w1.w, nw);
 
@@ -204,14 +282,12 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-			}
-			else if (w1.w.match(/^(.+)[发發]$/))
-			{
-				let c = RegExp.$1;
-
-				if (COLOR_HAIR[c])
+				// 如果項目為 處所
+				else if (w1.p & POSTAG.D_S)
 				{
-					let nw = c + '髮';
+					let nw = w1.w
+						.replace(/(.)里$/, '$1裡')
+					;
 
 					nw = this._getSynonym(w1.w, nw);
 
@@ -223,82 +299,24 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-			}
-			// 如果項目為 錯字
-			else if (w1.p & POSTAG.BAD)
-			{
-				let nw: string;
-
-				nw = w1.w
-					.replace(/(.)里|里(.)/, '$1裡$2')
-					.replace(/(.)后|后(.)/, '$1後$2')
-					.replace(/蔘(.)/, '參$1')
-				;
-
-				nw = this._getSynonym(w1.w, nw);
-
-				//console.log(w1, nw);
-
-				if (nw != w1.w)
+				// 如果項目為 时间
+				else if (w1.p & POSTAG.D_T || w1.p & POSTAG.D_V)
 				{
-					w1.ow = w1.w;
-					w1.w = nw;
+					let nw = w1.w
+						.replace(/(.)后|后(.)/, '$1後$2')
+					;
 
-					bool = true;
-				}
-			}
-			// 如果項目為 方位
-			else if (w1.p & POSTAG.D_F)
-			{
-				let nw = w1.w
-					.replace(/(.)里|里(.)/, '$1裡$2')
-					.replace(/(.)后|后(.)/, '$1後$2')
-				;
+					nw = this._getSynonym(w1.w, nw);
 
-				nw = this._getSynonym(w1.w, nw);
+					if (nw != w1.w)
+					{
+						w1.op = w1.op || w1.p;
+						w1.ow = w1.w;
 
-				if (nw != w1.w)
-				{
-					w1.ow = w1.w;
-					w1.w = nw;
+						w1.w = nw;
 
-					bool = true;
-				}
-			}
-			// 如果項目為 處所
-			else if (w1.p & POSTAG.D_S)
-			{
-				let nw = w1.w
-					.replace(/(.)里$/, '$1裡')
-				;
-
-				nw = this._getSynonym(w1.w, nw);
-
-				if (nw != w1.w)
-				{
-					w1.ow = w1.w;
-					w1.w = nw;
-
-					bool = true;
-				}
-			}
-			// 如果項目為 时间
-			else if (w1.p & POSTAG.D_T || w1.p & POSTAG.D_V)
-			{
-				let nw = w1.w
-					.replace(/(.)后|后(.)/, '$1後$2')
-				;
-
-				nw = this._getSynonym(w1.w, nw);
-
-				if (nw != w1.w)
-				{
-					w1.op = w1.op || w1.p;
-					w1.ow = w1.w;
-
-					w1.w = nw;
-
-					bool = true;
+						bool = true;
+					}
 				}
 			}
 
