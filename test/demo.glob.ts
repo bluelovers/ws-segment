@@ -27,7 +27,7 @@ pathMain_out = 'cm_out';
 //pathMain_out = 'user';
 //pathMain = 'cm';
 
-novelID = '異世界支配のスキルテイカー　～　ゼロから始める奴隷ハーレム　～/00030_第４章';
+novelID = '蘇りの魔王';
 
 NO_DEBUG = true;
 

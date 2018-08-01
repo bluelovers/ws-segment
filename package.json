@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.0.23",
+  "version": "2.0.24",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -70,6 +70,13 @@
     "test": "test"
   },
   "scripts": {
+
+    "prepack": "echo prepack",
+    "postpack": "echo postpack",
+    "prepublishOnly": "echo prepublishOnly",
+    "publish": "echo publish",
+    "postpublish": "echo postpublish && node ./script/publish-after",
+
     "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",

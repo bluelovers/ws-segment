@@ -22,7 +22,9 @@
     "locale": "zh-TW",
     "pretty": true,
 
-//    "removeComments": true,
+    "resolveJsonModule": true,
+
+    "removeComments": false,
 
 //    "baseUrl": ".",
 //    "sourceRoot": ".",
