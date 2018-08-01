@@ -939,6 +939,11 @@ export namespace Segment
 
 		//convertSynonym?: boolean,
 		//autoCreate?: boolean,
+
+		/**
+		 * 代表原生存在於字典內的項目
+		 */
+		s?: boolean,
 	}
 
 	export interface IOptionsDoSegment

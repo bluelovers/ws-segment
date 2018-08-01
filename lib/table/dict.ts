@@ -83,7 +83,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			// @todo do something
 		}
 
-		this._add({w, p, f});
+		this._add({w, p, f, s: true});
 
 		let self = this;
 
@@ -134,13 +134,19 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		return this;
 	}
 
-	protected _add({w, p, f})
+	protected _add({w, p, f, s} : {
+		w: string,
+		p: number,
+		f: number,
+		s?: boolean,
+	})
 	{
 		let len = w.length;
 
 		this.TABLE[w] = {
 			p,
 			f,
+			s,
 		} as ITableDictRow;
 
 		if (!this.TABLE2[len]) this.TABLE2[len] = {};

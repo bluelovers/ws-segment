@@ -28,6 +28,10 @@ export declare class SubSModule implements ISubSModule {
     protected static _init<T extends SubSModule>(libThis: IModuleStatic<T>, segment: Segment, ...argv: any[]): T;
     init(segment: Segment, ...argv: any[]): this;
     protected _cache(...argv: any[]): void;
+    /**
+     * 回傳最簡版的 IWord { w, p, f, s }
+     */
+    protected createRawToken<T extends IWord>(data: T, ow?: T): T;
     protected createToken<T extends IWord, U extends IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo): T;
     protected sliceToken<T extends IWord, U extends IWordDebugInfo>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo): T[];
     protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnToken?: true, ...argv: any[]): T;

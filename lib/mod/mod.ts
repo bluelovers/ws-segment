@@ -113,6 +113,22 @@ export class SubSModule implements ISubSModule
 		this._POSTAG = this.segment.POSTAG;
 	}
 
+	/**
+	 * 回傳最簡版的 IWord { w, p, f, s }
+	 */
+	protected createRawToken<T extends IWord>(data: T, ow?: T)
+	{
+		// @ts-ignore
+		ow = ow || {};
+
+		return {
+			w: typeof data.w == 'undefined' ? ow.w : data.w,
+			p: typeof data.p == 'undefined' ? ow.p : data.p,
+			f: typeof data.f == 'undefined' ? ow.f : data.f,
+			s: typeof data.s == 'undefined' ? ow.s : data.s,
+		} as T;
+	}
+
 	protected createToken<T extends IWord, U extends IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
 	{
 		let TABLE = this._TABLE;

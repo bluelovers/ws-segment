@@ -59,6 +59,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 		const TABLE = this._TABLE;
 		const POSTAG = this._POSTAG;
 
+		const self = this;
+
 		let ret: IWord[] = [];
 		for (let i = 0, word; word = words[i]; i++)
 		{
@@ -83,9 +85,26 @@ export class DictTokenizer extends SubSModuleTokenizer
 			{
 				if (bw.c > lastc)
 				{
-					ret.push({ w: word.w.substr(lastc, bw.c - lastc) });
+					ret.push({
+						w: word.w.substr(lastc, bw.c - lastc)
+					});
 				}
-				ret.push({ w: bw.w, p: TABLE[bw.w].p, f: bw.f });
+
+				let cw = self.createRawToken({
+					w: bw.w,
+					f: bw.f,
+				}, TABLE[bw.w]);
+
+				ret.push(cw);
+
+				/*
+				ret.push({
+					w: bw.w,
+					p: ww.p,
+					f: bw.f,
+					s: ww.s,
+				});
+				*/
 				lastc = bw.c + bw.w.length;
 			});
 
@@ -124,7 +143,11 @@ export class DictTokenizer extends SubSModuleTokenizer
 				let w = text.substr(cur, i as any as number);
 				if (w in TABLE2[i])
 				{
-					ret.push({ w: w, c: cur, f: TABLE2[i][w].f });
+					ret.push({
+						w: w,
+						c: cur,
+						f: TABLE2[i][w].f,
+					});
 				}
 			}
 			cur++;
@@ -181,7 +204,17 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 			if (preword)
 			{
-				prew = { w: preword.w, p: preword.p, f: preword.f }
+				/*
+				prew = {
+					w: preword.w,
+					p: preword.p,
+					f: preword.f,
+					s: preword.s,
+				}
+				*/
+
+				prew = this.createRawToken(preword);
+
 			}
 			else
 			{
