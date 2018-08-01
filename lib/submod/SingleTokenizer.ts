@@ -2,7 +2,7 @@
 
 import { SubSModule, SubSModuleTokenizer } from '../mod';
 import { Segment, IWord } from '../Segment';
-import { UString } from 'uni-string';
+import UString = require('uni-string');
 
 /**
  * 单字切分模块

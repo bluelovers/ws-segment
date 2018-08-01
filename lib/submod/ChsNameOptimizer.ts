@@ -62,7 +62,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					}, undefined, {
-						[this.name]: true,
+						[this.name]: 1,
 					});
 
 					i++;
@@ -86,7 +86,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					}, undefined, {
-						[this.name]: true,
+						[this.name]: 2,
 					});
 
 					i++;
@@ -112,7 +112,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 							p: POSTAG.A_NR,
 							m: [word, nextword],
 						}, undefined, {
-							[this.name]: true,
+							[this.name]: 3,
 						});
 
 						// 如果上一个单词可能是一个姓，则合并
@@ -134,7 +134,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 								p: POSTAG.A_NR,
 								m: [preword, word, nextword],
 							}, undefined, {
-								[this.name]: true,
+								[this.name]: 4,
 							});
 
 						}
@@ -171,7 +171,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					}, undefined, {
-						[this.name]: true,
+						[this.name]: 5,
 					});
 				}
 			}
@@ -189,8 +189,11 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 			if (nextword)
 			{
 				// 如果为 姓 + 单字名
-				if ((word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2) &&
-					nextword.w in CHS_NAMES.SINGLE_NAME)
+				if (
+					(word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2)
+					&&
+					nextword.w in CHS_NAMES.SINGLE_NAME
+				)
 				{
 					/*
 					words.splice(i, 2, {
@@ -200,16 +203,26 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 					});
 					*/
 
-					this.sliceToken(words, i, 2, {
-						w: word.w + nextword.w,
-						p: POSTAG.A_NR,
-						m: [word, nextword],
-					}, undefined, {
-						[this.name]: true,
-					});
+					let nw = word.w + nextword.w;
+					let ew = this._TABLE[nw];
 
-					i++;
-					continue;
+					/**
+					 * 更改為只有新詞屬於人名或未知詞時才會合併
+					 */
+					if (!ew || !ew.p || ew.p & POSTAG.A_NR)
+					{
+						this.sliceToken(words, i, 2, {
+							w: nw,
+							p: POSTAG.A_NR,
+							m: [word, nextword],
+						}, undefined, {
+							[this.name]: 6,
+							exists_word: ew,
+						});
+
+						i++;
+						continue;
+					}
 				}
 			}
 
