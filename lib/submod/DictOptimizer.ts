@@ -17,6 +17,8 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 	protected _TABLE: IDICT<IWord>;
 
+	name = 'DictOptimizer';
+
 	_cache()
 	{
 		super._cache();
@@ -93,10 +95,14 @@ export class DictOptimizer extends SubSModuleOptimizer
 			if ((w1.p & POSTAG.D_A) > 0 && (w2.p & POSTAG.D_U))
 			{
 				let p = POSTAG.D_A;
+				let f: number;
 
-				if (nw in TABLE && (TABLE[nw].p & POSTAG.D_A))
+				let mw = TABLE[nw];
+
+				if (mw && (mw.p & POSTAG.D_A))
 				{
-					p = TABLE[nw].p;
+					p = mw.p;
+					f = mw.f;
 				}
 				else if (w1.p & POSTAG.BAD)
 				{
@@ -107,7 +113,10 @@ export class DictOptimizer extends SubSModuleOptimizer
 					w: nw,
 					//p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
 					p,
+					f,
 					m: [w1, w2],
+				}, undefined, {
+					[this.name]: 1,
 				});
 				ie--;
 				continue;
@@ -123,10 +132,15 @@ export class DictOptimizer extends SubSModuleOptimizer
 			}))
 			//if (w1.p == w2.p && nw in TABLE)
 			{
+				let mw = TABLE[nw];
+
 				this.sliceToken(words, i, 2, {
 					w: nw,
-					p: TABLE[nw].p,
+					p: mw.p,
+					f: mw.f,
 					m: [w1, w2],
+				}, undefined, {
+					[this.name]: 2,
 				});
 				ie--;
 				continue;
@@ -144,6 +158,8 @@ export class DictOptimizer extends SubSModuleOptimizer
 						w: w1.w + w2.w,
 						p: POSTAG.A_M,
 						m: [w1, w2],
+					}, undefined, {
+						[this.name]: 3,
 					});
 					ie--;
 					continue;
@@ -175,6 +191,8 @@ export class DictOptimizer extends SubSModuleOptimizer
 						w: nw,
 						p,
 						m: [w1, w2],
+					}, undefined, {
+						[this.name]: 4,
 					});
 					ie--;
 					continue;
@@ -189,6 +207,8 @@ export class DictOptimizer extends SubSModuleOptimizer
 						w: w1.w + w2.w + w3.w,
 						p: POSTAG.A_M,
 						m: [w1, w2, w3],
+					}, undefined, {
+						[this.name]: 5,
 					});
 					ie -= 2;
 					continue;
@@ -218,6 +238,8 @@ export class DictOptimizer extends SubSModuleOptimizer
 					w: w1.w + w2.w + w4w,
 					p: POSTAG.D_MQ, // 数量词
 					m: [w1, w2, w4w],
+				}, undefined, {
+					[this.name]: 6,
 				});
 				ie -= i2 - 1;
 				continue;

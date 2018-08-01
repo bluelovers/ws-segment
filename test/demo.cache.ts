@@ -12,7 +12,7 @@ import { getDictMain } from './lib/index';
 
 let file: string;
 
-file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user_out/豚公爵に転生したから、今度は君に好きと言いたい/Ⅱ　風の神童は帰還する/６２豚　敲響地獄之鐘吧，鳴響起始之鐘吧.txt';
+//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user_out/回復術士のやり直し～即死魔法とスキルコピーの超越ヒール～/00040_第四章：回復術士は魔王を超える/00070_第七話：回復術士は卵に魔力を注ぐ.txt';
 
 const segment = createSegment();
 
@@ -34,11 +34,11 @@ console.time(`doSegment`);
 
 let text = `
 
-「王室騎士（Royal Knight）！！！即便要用生命交換也有守住卡莉娜王女啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊」
-
-
+結果，我，我只单方面被干掉
 
 `;
+
+text = text.replace(/^\s+|\s+$/g, '');
 
 if (file)
 {
@@ -49,7 +49,9 @@ let ret = segment.doSegment(text);
 
 debug_token(ret);
 
-let changed = crlf(text.toString()) !== segment.stringify(ret);
+let output_text = segment.stringify(ret);
+
+let changed = crlf(text.toString()) !== output_text;
 
 if (changed)
 {
@@ -63,6 +65,12 @@ fs.writeFileSync('./temp/c1.json', JSON.stringify({
 	ret,
 }, null, "\t"));
 
-fs.writeFileSync('./temp/c1.txt', segment.stringify(ret));
+fs.writeFileSync('./temp/c1.txt', output_text);
+
+console.log("------------------\n\n");
+
+console.log(output_text);
+
+console.log("\n\n------------------");
 
 console.timeEnd(`doSegment`);

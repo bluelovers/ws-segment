@@ -4,7 +4,7 @@
 
 import { SubSModule, SubSModuleTokenizer } from '../mod';
 import { Segment, IWord } from '../Segment';
-import { UString } from 'uni-string';
+import UString = require('uni-string');
 
 export class JpSimpleTokenizer extends SubSModuleTokenizer
 {

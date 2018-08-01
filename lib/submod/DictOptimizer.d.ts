@@ -8,6 +8,7 @@ import IPOSTAG from '../POSTAG';
  */
 export declare class DictOptimizer extends SubSModuleOptimizer {
     protected _TABLE: IDICT<IWord>;
+    name: string;
     _cache(): void;
     isMergeable(w1: IWord, w2: IWord, { POSTAG, TABLE, nw, i, }: {
         POSTAG: typeof IPOSTAG;
