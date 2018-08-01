@@ -124,6 +124,17 @@ export class SubSModule implements ISubSModule
 			});
 		}
 
+		// 自動將模組名稱血入 debug 資訊
+		if (this.name)
+		{
+			attr = Object.assign(attr || {});
+
+			if (!(this.name in attr))
+			{
+				attr[this.name] = true;
+			}
+		}
+
 		if (attr)
 		{
 			this.debugToken(data, attr);
