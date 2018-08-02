@@ -28,11 +28,16 @@ db_dict
 	//.add(['机构团体', POSTAG.A_NT, 0])
 	//.add(['名词', POSTAG.D_N, 0])
 	//.add(['錯字', POSTAG.BAD, 0])
+	.add(['l10n', POSTAG.A_NX, 0])
+	.add(['i18n', POSTAG.A_NX, 0])
 ;
 
 console.time(`doSegment`);
 
 let text = `
+
+l10n i18n
+i18n
 
 工作1也从２VR里與SS2２客户vr1见面内乱 ③.patch學院的里側1２２2２
 lingua latīna
