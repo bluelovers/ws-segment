@@ -28,6 +28,12 @@
 
 * [segment-dict](https://github.com/bluelovers/node-segment-dict) - dictionary data
 
+### TODO
+
+> 以下功能距離實現可能遙遙無期
+
+1. 追加支援常見混雜於中文內的英文辭典
+
 ## Breaking Changes
 
 請注意 從 2.0.0 版之後 開始 更改了 synonym 字典的格式

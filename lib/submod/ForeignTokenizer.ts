@@ -9,16 +9,55 @@ import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import { Segment, IWord } from '../Segment';
 import { debugToken } from '../util/debug';
 import UString = require('uni-string');
+import { debug } from '../util';
+import { IWordDebugInfo } from '../util/index';
 
 export class ForeignTokenizer extends SubSModuleTokenizer
 {
 
 	name = 'ForeignTokenizer';
 
+	/**
+	 * 分詞用(包含中文)
+	 */
+	_REGEXP_SPLIT_1: RegExp;
+	/**
+	 * 分詞用(不包含中文的全詞符合)
+	 */
+	_REGEXP_SPLIT_2: RegExp;
+
 	_cache()
 	{
 		super._cache();
 		this._TABLE = this.segment.getDict('TABLE');
+
+		let arr = [
+			/[\w+０-９Ａ-Ｚａ-ｚ\u0100-\u017F]+/,
+			/[\u0600-\u06FF\u0750-\u077F]+/,
+		];
+
+		this._REGEXP_SPLIT_1 = new RegExp('(' +_join([
+			/[\u4E00-\u9FFF]+/,
+		].concat(arr)) + ')', 'iu');
+
+		this._REGEXP_SPLIT_2 = new RegExp('^(' +_join(arr) + ')$', 'iu');
+
+		function _join(arr: Array<string | RegExp>)
+		{
+			return arr.reduce(function (a, b)
+			{
+				if (b instanceof RegExp)
+				{
+					a.push(b.source);
+				}
+				else
+				{
+					a.push(b);
+				}
+
+				return a;
+			}, []).join('|')
+		}
 	}
 
 	/**
@@ -29,7 +68,8 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	 */
 	split(words: IWord[]): IWord[]
 	{
-		return this._splitUnknow(words, this.splitForeign);
+		//return this._splitUnknow(words, this.splitForeign);
+		return this._splitUnknow(words, this.splitForeign2);
 
 		/*
 		const POSTAG = this.segment.POSTAG;
@@ -52,6 +92,119 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	}
 
 	/**
+	 * 支援更多外文判定(但可能會降低效率)
+	 *
+	 * 並且避免誤切割 例如 latīna Русский
+	 */
+	splitForeign2(text: string, cur?: number): IWord[]
+	{
+		const POSTAG = this.segment.POSTAG;
+		const TABLE = this._TABLE;
+
+		//console.time('splitForeign2');
+
+		let ret: IWord[] = [];
+		let self = this;
+
+		let ls = text
+			.split(this._REGEXP_SPLIT_1)
+		;
+
+		for (let w of ls)
+		{
+			if (w !== '')
+			{
+				if (this._REGEXP_SPLIT_2.test(w))
+				{
+					let cw = TABLE[w];
+
+					if (cw)
+					{
+						let nw = this.createRawToken({
+							w,
+						}, cw, {
+							[this.name]: 1,
+						});
+
+						ret.push(nw);
+						continue;
+					}
+
+					/**
+					 * 當分詞不存在於字典中時
+					 * 則再度分詞一次
+					 */
+					let ls2 = w
+						.split(/([\d+０-９]+)/)
+					;
+
+					for (let w of ls2)
+					{
+						if (w === '')
+						{
+							continue;
+						}
+
+						let lasttype = 0;
+
+						let c = w.charCodeAt(0);
+						if (c >= 65296 && c <= 65370) c -= 65248;
+
+						if (c >= 48 && c <= 57)
+						{
+							lasttype = POSTAG.A_M;
+						}// 字母 lasttype = POSTAG.A_NX
+						else if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+						{
+							lasttype = POSTAG.A_NX;
+						}
+						else
+						{
+							lasttype = POSTAG.UNK;
+						}
+
+						if (lasttype === POSTAG.A_NX)
+						{
+							let cw = TABLE[w];
+
+							if (cw)
+							{
+								let nw = this.createRawToken({
+									w,
+								}, cw, {
+									[this.name]: 2,
+								});
+
+								ret.push(nw);
+								continue;
+							}
+						}
+
+						ret.push(self.debugToken({
+							w: w,
+							p: lasttype || undefined,
+						}, {
+							[self.name]: 3,
+						}, true));
+					}
+				}
+				else
+				{
+					ret.push({
+						w,
+					});
+				}
+			}
+		}
+
+		//console.timeEnd('splitForeign2');
+
+		//console.log(ret);
+
+		return ret.length ? ret : undefined;
+	}
+
+	/**
 	 * 匹配包含的英文字符和数字，并分割
 	 *
 	 * @param {string} text 文本
@@ -62,6 +215,8 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	{
 		const POSTAG = this.segment.POSTAG;
 		const TABLE = this._TABLE;
+
+		//console.time('splitForeign');
 
 		if (isNaN(cur)) cur = 0;
 		let ret = [];
@@ -100,7 +255,9 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 				{
 					let nw = this.createForeignToken({
 						w: text.substr(lastcur, i - lastcur),
-					}, lasttype);
+					}, lasttype, {
+						[this.name]: 1,
+					});
 					//let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
 
 					//if (lasttype !== POSTAG.UNK) nw.p = lasttype;
@@ -116,9 +273,13 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 				{
 					//let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
 
-					let nw = this.createForeignToken({
+					let nw = this.createRawToken({
 						w: text.substr(lastcur, i - lastcur),
-					}, lasttype);
+					}, {
+						p: lasttype
+					}, {
+						[this.name]: 2,
+					});
 
 					//if (lasttype !== POSTAG.UNK) nw.p = lasttype;
 					ret.push(nw);
@@ -134,6 +295,8 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 					let nw = this.createForeignToken({
 						w: text.substr(lastcur, i - lastcur),
 						p: lasttype
+					}, undefined, {
+						[this.name]: 3,
 					});
 
 					ret.push(nw);
@@ -145,31 +308,32 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 		// 剩余部分
 		//let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
 
-		let nw = this.createForeignToken({
+		let nw = this.createRawToken<IWord>({
 			w: text.substr(lastcur, i - lastcur),
-		}, lasttype);
+		});
 
-		//if (lasttype !== POSTAG.UNK) nw.p = lasttype;
+		if (lasttype !== POSTAG.UNK) nw.p = lasttype;
 		ret.push(nw);
 
-		// debug(ret);
+		//console.timeEnd('splitForeign');
+
+		//debug(ret);
 		return ret;
 	}
 
-	createForeignToken(word: IWord, lasttype?: number)
+	createForeignToken(word: IWord, lasttype?: number, attr?: IWordDebugInfo)
 	{
-		let nw = this.createToken<IWord>(word);
+		let nw = this.createToken<IWord>(word, true, attr);
 
-		let attr = debugToken(nw);
+		let ow = this._TABLE[nw.w];
 
-		if (!attr.autoCreate)
+		if (ow)
 		{
-			let ow = this._TABLE[nw.w];
+			debugToken(nw, {
+				_source: ow,
+			});
 
-			attr._source = ow;
 			nw.p = nw.p | ow.p;
-
-			debugToken(nw, attr);
 		}
 
 		if (lasttype && lasttype !== this._POSTAG.UNK)

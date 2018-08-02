@@ -34,9 +34,12 @@ console.time(`doSegment`);
 
 let text = `
 
-工作也从VR里與SS客户见面學院的里側
-
-
+工作1也从２VR里與SS2２客户vr1见面内乱 ③.patch學院的里側1２２2２
+lingua latīna
+ Русский; English; 
+ 
+ 「يعمل من خلال سرعة القدم لتشغيل أسرع──『速度大強化』」
+ 
 `;
 
 text = text.replace(/^\s+|\s+$/g, '');

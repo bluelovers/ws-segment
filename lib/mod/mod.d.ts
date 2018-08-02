@@ -31,7 +31,7 @@ export declare class SubSModule implements ISubSModule {
     /**
      * 回傳最簡版的 IWord { w, p, f, s }
      */
-    protected createRawToken<T extends IWord>(data: T, ow?: T): T;
+    protected createRawToken<T extends IWord, U extends IWordDebugInfo = IWordDebugInfo>(data: T, ow?: Partial<T & IWord>, attr?: U & IWordDebugInfo): T;
     protected createToken<T extends IWord, U extends IWordDebugInfo = IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo): T;
     protected sliceToken<T extends IWord, U extends IWordDebugInfo>(words: T[], pos: number, len: number, data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo): T[];
     protected debugToken<T extends IWordDebug, U extends IWordDebugInfo>(data: T, attr?: U & IWordDebugInfo, returnToken?: true, ...argv: any[]): T;

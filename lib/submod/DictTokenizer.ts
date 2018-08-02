@@ -55,7 +55,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 */
 	split(words: IWord[]): IWord[]
 	{
-		// debug(words);
+		//debug(words);
 		const TABLE = this._TABLE;
 		const POSTAG = this._POSTAG;
 

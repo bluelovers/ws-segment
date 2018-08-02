@@ -116,17 +116,24 @@ export class SubSModule implements ISubSModule
 	/**
 	 * 回傳最簡版的 IWord { w, p, f, s }
 	 */
-	protected createRawToken<T extends IWord>(data: T, ow?: T)
+	protected createRawToken<T extends IWord, U extends IWordDebugInfo = IWordDebugInfo>(data: T, ow?: Partial<T & IWord>, attr?: U & IWordDebugInfo)
 	{
 		// @ts-ignore
 		ow = ow || {};
 
-		return {
+		let nw = {
 			w: typeof data.w == 'undefined' ? ow.w : data.w,
 			p: typeof data.p == 'undefined' ? ow.p : data.p,
 			f: typeof data.f == 'undefined' ? ow.f : data.f,
 			s: typeof data.s == 'undefined' ? ow.s : data.s,
 		} as T;
+
+		if (attr)
+		{
+			this.debugToken(nw, attr);
+		}
+
+		return nw;
 	}
 
 	protected createToken<T extends IWord, U extends IWordDebugInfo = IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
