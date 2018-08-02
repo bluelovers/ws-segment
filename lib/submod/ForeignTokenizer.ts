@@ -34,13 +34,14 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 		let arr = [
 			/[\w+０-９Ａ-Ｚａ-ｚ\u0100-\u017F]+/,
 			/[\u0600-\u06FF\u0750-\u077F]+/,
+			/[\u0400-\u04FF]+/,
 		];
 
 		this._REGEXP_SPLIT_1 = new RegExp('(' +_join([
 			/[\u4E00-\u9FFF]+/,
 		].concat(arr)) + ')', 'iu');
 
-		this._REGEXP_SPLIT_2 = new RegExp('^(' +_join(arr) + ')$', 'iu');
+		this._REGEXP_SPLIT_2 = new RegExp('(' +_join(arr) + ')', 'iu');
 
 		function _join(arr: Array<string | RegExp>)
 		{
