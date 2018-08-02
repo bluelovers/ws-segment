@@ -2,7 +2,7 @@
 
 import { SubSModule, SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
 import { Segment, IWord, IDICT } from '../Segment';
-import { UString } from 'uni-string';
+import UString = require('uni-string');
 
 /**
  * 邮箱地址中允许出现的字符

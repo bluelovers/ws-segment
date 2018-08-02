@@ -129,7 +129,7 @@ export class SubSModule implements ISubSModule
 		} as T;
 	}
 
-	protected createToken<T extends IWord, U extends IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
+	protected createToken<T extends IWord, U extends IWordDebugInfo = IWordDebugInfo>(data: T, skipCheck?: boolean, attr?: U & IWordDebugInfo)
 	{
 		let TABLE = this._TABLE;
 

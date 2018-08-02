@@ -111,9 +111,14 @@ export class DictTokenizer extends SubSModuleTokenizer
 			let lastword = wordinfo[wordinfo.length - 1];
 			if (lastword.c + lastword.w.length < word.w.length)
 			{
-				ret.push({ w: word.w.substr(lastword.c + lastword.w.length) });
+				let cw = self.createRawToken({
+					w: word.w.substr(lastword.c + lastword.w.length),
+				});
+
+				ret.push(cw);
 			}
 		}
+
 		return ret;
 	}
 

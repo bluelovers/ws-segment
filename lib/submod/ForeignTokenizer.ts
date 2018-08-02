@@ -7,10 +7,19 @@
  */
 import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import { Segment, IWord } from '../Segment';
-import { UString } from 'uni-string';
+import { debugToken } from '../util/debug';
+import UString = require('uni-string');
 
 export class ForeignTokenizer extends SubSModuleTokenizer
 {
+
+	name = 'ForeignTokenizer';
+
+	_cache()
+	{
+		super._cache();
+		this._TABLE = this.segment.getDict('TABLE');
+	}
 
 	/**
 	 * 对未识别的单词进行分词
@@ -52,6 +61,7 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	splitForeign(text: string, cur?: number): IWord[]
 	{
 		const POSTAG = this.segment.POSTAG;
+		const TABLE = this._TABLE;
 
 		if (isNaN(cur)) cur = 0;
 		let ret = [];
@@ -88,8 +98,12 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 			{
 				if (lasttype !== POSTAG.A_M)
 				{
-					let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
-					if (lasttype !== POSTAG.UNK) nw.p = lasttype;
+					let nw = this.createForeignToken({
+						w: text.substr(lastcur, i - lastcur),
+					}, lasttype);
+					//let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
+
+					//if (lasttype !== POSTAG.UNK) nw.p = lasttype;
 					ret.push(nw);
 					lastcur = i;
 				}
@@ -100,8 +114,13 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 				// 字母 lasttype = POSTAG.A_NX
 				if (lasttype !== POSTAG.A_NX)
 				{
-					let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
-					if (lasttype !== POSTAG.UNK) nw.p = lasttype;
+					//let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
+
+					let nw = this.createForeignToken({
+						w: text.substr(lastcur, i - lastcur),
+					}, lasttype);
+
+					//if (lasttype !== POSTAG.UNK) nw.p = lasttype;
 					ret.push(nw);
 					lastcur = i;
 				}
@@ -112,22 +131,53 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 				// 其他
 				if (lasttype !== POSTAG.UNK)
 				{
-					ret.push({
+					let nw = this.createForeignToken({
 						w: text.substr(lastcur, i - lastcur),
 						p: lasttype
 					});
+
+					ret.push(nw);
 					lastcur = i;
 				}
 				lasttype = POSTAG.UNK;
 			}
 		}
 		// 剩余部分
-		let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
-		if (lasttype !== POSTAG.UNK) nw.p = lasttype;
+		//let nw = { w: text.substr(lastcur, i - lastcur) } as IWord;
+
+		let nw = this.createForeignToken({
+			w: text.substr(lastcur, i - lastcur),
+		}, lasttype);
+
+		//if (lasttype !== POSTAG.UNK) nw.p = lasttype;
 		ret.push(nw);
 
 		// debug(ret);
 		return ret;
+	}
+
+	createForeignToken(word: IWord, lasttype?: number)
+	{
+		let nw = this.createToken<IWord>(word);
+
+		let attr = debugToken(nw);
+
+		if (!attr.autoCreate)
+		{
+			let ow = this._TABLE[nw.w];
+
+			attr._source = ow;
+			nw.p = nw.p | ow.p;
+
+			debugToken(nw, attr);
+		}
+
+		if (lasttype && lasttype !== this._POSTAG.UNK)
+		{
+			nw.p = lasttype | nw.p;
+		}
+
+		return nw;
 	}
 }
 
