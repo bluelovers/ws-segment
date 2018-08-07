@@ -49,7 +49,7 @@ export function createSegment(useCache: boolean = true)
 
 		console.log(`距離上次緩存已過 ${md}s`);
 
-		if (md < 1200)
+		if (md < 3600)
 		{
 			//console.log(st, md);
 
@@ -86,6 +86,10 @@ export function createSegment(useCache: boolean = true)
 	db_dict.options.autoCjk = true;
 
 	console.log('主字典總數', db_dict.size());
+
+	segment.loadSynonymDict('synonym', true);
+
+	console.log('Synonym', Object.keys(segment.getDict('SYNONYM')).length);
 
 	console.timeEnd(`讀取模組與字典`);
 
