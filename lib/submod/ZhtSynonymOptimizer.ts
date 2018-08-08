@@ -215,6 +215,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					if (w0 && w2 && hexAndAny(w0.p,
 						POSTAG.D_V,
+						POSTAG.D_R,
 					) && hexAndAny(w2.p,
 						POSTAG.D_N,
 					))

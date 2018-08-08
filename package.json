@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.0.26",
+  "version": "2.0.27",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -88,7 +88,7 @@
   "dependencies": {
     "bluebird": "^3.5.1",
     "circular-json": "^0.5.5",
-    "cjk-conv": "^1.0.68",
+    "cjk-conv": "^1.0.76",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.2",
     "deepmerge-plus": "^2.1.2",
@@ -96,7 +96,7 @@
     "fs-extra": "^7.0.0",
     "hex-lib": "^1.0.1",
     "regexp-cjk": "^2.0.9",
-    "segment-dict": "^2.0.52",
+    "segment-dict": "^2.0.59",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "3.1.0",
     "uni-string": "^1.0.2"
