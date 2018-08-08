@@ -30,14 +30,14 @@ db_dict
 	//.add(['錯字', POSTAG.BAD, 0])
 	.add(['l10n', POSTAG.A_NX, 0])
 	.add(['i18n', POSTAG.A_NX, 0])
-	//.add(['中', 0x4A101002, 5000])
+	//.add(['場', 0x120000, 4000])
 ;
 
 console.time(`doSegment`);
 
 let text = `
 
-然後在躲起来等候布雷德回来时干掉他
+接受了现状的說明之後便伊芙便當場解散让他们全部离开了
 
 `;
 
