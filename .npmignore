@@ -27,3 +27,4 @@ test
 
 /.*
 /script/
+/yarn-error.log
