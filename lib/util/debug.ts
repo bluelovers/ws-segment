@@ -35,6 +35,8 @@ export type IWordDebug = IWord & {
 	ops?: string,
 	opp?: string,
 
+	os?: boolean,
+
 	[SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>,
 }
 
@@ -165,6 +167,8 @@ export function token_add_info<T extends IWordDebug>(v: T)
 				'op',
 				'ops',
 				'opp',
+
+				'os',
 			],
 
 			useSource: true,

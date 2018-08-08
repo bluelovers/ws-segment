@@ -21,6 +21,7 @@ export declare type IWordDebug = IWord & {
     op?: number;
     ops?: string;
     opp?: string;
+    os?: boolean;
     [SYMBOL_DEBUG_KEY]?: IWordDebugInfo<IWordDebug>;
 };
 export declare function clearTokemDebug(data: IWordDebugInfo, returnClone?: false): data is IWord;

@@ -256,6 +256,31 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 
 				}
+				else if (w1.p & POSTAG.D_V && /^干(.)$/.test(w1.w))
+				{
+					/**
+					 * @todo 需要更嚴謹的判斷方式
+					 */
+
+					let c = RegExp.$1;
+					let nw = '幹' + c;
+					let ow: IWord = TABLE[nw];
+
+					if (ow && hexAndAny(ow.p,
+						POSTAG.D_V,
+					))
+					{
+						if (w2 && hexAndAny(w2.p,
+							POSTAG.D_R,
+						))
+						{
+							w1.ow = w1.w;
+							w1.w = nw;
+
+							bool = true;
+						}
+					}
+				}
 				// 如果項目為 錯字
 				else if (w1.p & POSTAG.BAD)
 				{
@@ -339,14 +364,20 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			{
 				if (w1.w in TABLE)
 				{
-					let p = TABLE[w1.w].p;
+					let ow = TABLE[w1.w];
 
-					if (p != w1.p)
+					if (ow.p != w1.p)
 					{
 						w1.op = w1.op || w1.p;
-						w1.p = TABLE[w1.w].p;
+						w1.p = ow.p;
 
 						//console.log(TABLE[w1.w]);
+					}
+
+					if (ow.s !== w1.s)
+					{
+						w1.os = ('os' in w1) ? w1.os : w1.s;
+						w1.s = ow.s;
 					}
 				}
 

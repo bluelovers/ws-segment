@@ -218,6 +218,7 @@ export declare namespace Segment {
          * 代表原生存在於字典內的項目
          */
         s?: boolean;
+        os?: boolean;
     }
     interface IOptionsDoSegment {
         /**
