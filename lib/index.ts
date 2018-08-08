@@ -47,7 +47,6 @@ export function useDefault(segment: Segment, options: {
 		.loadSynonymDict('synonym')   // 同义词
 		.loadStopwordDict('stopword') // 停止符
 
-		.loadDict('lazy/badword')
 		.loadDict('lazy/dict_synonym')
 
 		.loadDict('names/area')
@@ -60,6 +59,8 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('names/en')
 
 		.loadDict('lazy/index')
+
+		.loadDict('lazy/badword')
 	;
 
 	return segment;
