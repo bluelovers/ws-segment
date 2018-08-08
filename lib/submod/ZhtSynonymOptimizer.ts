@@ -211,6 +211,20 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						}
 					}
 				}
+				else if (w1.w == '于')
+				{
+					if (w0 && hexAndAny(w0.p,
+						POSTAG.D_V,
+					) && w2 && hexAndAny(w2.p,
+						POSTAG.D_N,
+					))
+					{
+						w1.ow = w1.w;
+						w1.w = '於';
+
+						bool = true;
+					}
+				}
 			}
 			else if (w1_len > 1)
 			{
