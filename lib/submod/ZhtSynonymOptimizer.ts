@@ -213,9 +213,9 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 				else if (w1.w == '于')
 				{
-					if (w0 && hexAndAny(w0.p,
+					if (w0 && w2 && hexAndAny(w0.p,
 						POSTAG.D_V,
-					) && w2 && hexAndAny(w2.p,
+					) && hexAndAny(w2.p,
 						POSTAG.D_N,
 					))
 					{
