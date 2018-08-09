@@ -80,6 +80,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 			if (w1_len == 1)
 			{
+				//console.log(w1);
+
 				if (w1.w == '里')
 				{
 					if (w0 && w0.w.slice(-1) == '的')
@@ -213,17 +215,22 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 				else if (w1.w == '于')
 				{
-					if (w0 && w2 && hexAndAny(w0.p,
-						POSTAG.D_V,
-						POSTAG.D_R,
-					) && hexAndAny(w2.p,
-						POSTAG.D_N,
-					))
+					if (w0 && w2)
 					{
-						w1.ow = w1.w;
-						w1.w = '於';
+						if (hexAndAny(w0.p,
+							POSTAG.D_V,
+							POSTAG.D_R,
+						) && hexAndAny(w2.p,
+							POSTAG.D_N,
+							POSTAG.D_V,
+							POSTAG.D_R,
+						))
+						{
+							w1.ow = w1.w;
+							w1.w = '於';
 
-						bool = true;
+							bool = true;
+						}
 					}
 				}
 			}
