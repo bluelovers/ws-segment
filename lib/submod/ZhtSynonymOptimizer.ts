@@ -3,6 +3,7 @@
  */
 
 import { SubSModule, SubSModuleOptimizer } from '../mod';
+import POSTAG from '../POSTAG';
 import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
@@ -77,6 +78,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			let bool: boolean;
 
 			let w1_len = UString.size(w1.w);
+
+			let new_p: number;
 
 			if (w1_len == 1)
 			{
@@ -209,6 +212,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							w1.ow = w1.w;
 							w1.w = nw;
 
+							new_p = POSTAG.D_N;
+
 							bool = true;
 						}
 					}
@@ -228,6 +233,9 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						{
 							w1.ow = w1.w;
 							w1.w = '於';
+
+							new_p = POSTAG.D_P;
+							w1.p = new_p;
 
 							bool = true;
 						}
@@ -373,7 +381,12 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					let ow = TABLE[w1.w];
 
-					if (ow.p != w1.p)
+					if (typeof new_p !== 'undefined')
+					{
+						w1.op = w1.op || ow.p;
+						w1.p = new_p;
+					}
+					else if (ow.p != w1.p)
 					{
 						w1.op = w1.op || w1.p;
 						w1.p = ow.p;
