@@ -91,8 +91,13 @@ export class DictOptimizer extends SubSModuleOptimizer
 			// ==========================================
 			let nw: string = w1.w + w2.w;
 
-			// 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
-			if ((w1.p & POSTAG.D_A) > 0 && (w2.p & POSTAG.D_U))
+			/**
+			 * 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
+			 */
+			if (w1.w != '了'
+				&& (w1.p & POSTAG.D_A)
+				&& (w2.p & POSTAG.D_U)
+			)
 			{
 				let p = POSTAG.D_A;
 				let f: number;
@@ -148,11 +153,11 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 			// ============================================
 			// 数词组合
-			if ((w1.p & POSTAG.A_M) > 0)
+			if ((w1.p & POSTAG.A_M))
 			{
 				//debug(w2.w + ' ' + (w2.p & POSTAG.A_M));
 				// 百分比数字 如 10%，或者下一个词也是数词，则合并
-				if ((w2.p & POSTAG.A_M) > 0 || w2.w == '%')
+				if ((w2.p & POSTAG.A_M) || w2.w == '%')
 				{
 					this.sliceToken(words, i, 2, {
 						w: w1.w + w2.w,
@@ -165,7 +170,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 					continue;
 				}
 				// 数词 + 量词，合并。如： 100个
-				if ((w2.p & POSTAG.A_Q) > 0)
+				if ((w2.p & POSTAG.A_Q))
 				{
 					// 数量词
 					let p = POSTAG.D_MQ;
@@ -204,7 +209,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				// 带小数点的数字 ，如 “3 . 14”，或者 “十五点三”
 				// 数词 + "分之" + 数词，如“五十分之一”
 				let w3 = words[i + 2];
-				if (w3 && (w3.p & POSTAG.A_M) > 0 &&
+				if (w3 && (w3.p & POSTAG.A_M) &&
 					(w2.w == '.' || w2.w == '点' || w2.w == '分之'))
 				{
 					this.sliceToken(words, i, 3, {
@@ -220,7 +225,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 			}
 
 			// 修正 “十五点五八”问题
-			if ((w1.p & POSTAG.D_MQ) > 0 && w1.w.substr(-1) === '点' && w2.p & POSTAG.A_M)
+			if ((w1.p & POSTAG.D_MQ) && w1.w.substr(-1) === '点' && w2.p & POSTAG.A_M)
 			{
 				//debug(w1, w2);
 				let i2 = 2;
