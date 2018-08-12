@@ -265,6 +265,17 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						}
 					}
 				}
+				else if (hexAndAny(w1.p,
+					POSTAG.D_MQ,
+				) && /^(.+)余$/.test(w1.w))
+				{
+					let nw = RegExp.$1 + '餘';
+
+					w1.ow = w1.w;
+					w1.w = nw;
+
+					bool = true;
+				}
 				// 如果項目為 量词
 				else if (hexAndAny(w1.p,
 					POSTAG.A_Q,
