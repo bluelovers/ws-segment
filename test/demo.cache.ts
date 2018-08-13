@@ -12,7 +12,7 @@ import { getDictMain } from './lib/index';
 
 let file: string;
 
-//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user_out/回復術士のやり直し～即死魔法とスキルコピーの超越ヒール～/00040_第四章：回復術士は魔王を超える/00070_第七話：回復術士は卵に魔力を注ぐ.txt';
+//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user/再臨勇者の復讐譚　～失望しました、勇者やめて元魔王と組みます～/00020_第三章　死沼/00570_第二十話　『ディオニス・ハーベルク』.txt';
 
 const segment = createSegment();
 
@@ -37,7 +37,7 @@ console.time(`doSegment`);
 
 let text = `
 
-凱遞過來的是几卷紙。是運用改良過的魔法制造出來的書籍嗎，紙質異常地好。
+眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛
 
 `;
 

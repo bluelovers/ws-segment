@@ -511,7 +511,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		 * 例如: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
 		 */
 		let m;
-		if (m = text.match(/^((.)\2{5,})/))
+		if (m = text.match(/^((.+)\2{5,})/))
 		{
 			let s1 = text.slice(0, m[1].length);
 			let s2 = text.slice(m[1].length);

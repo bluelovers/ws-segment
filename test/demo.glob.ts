@@ -27,7 +27,7 @@ pathMain_out = 'cm_out';
 //pathMain_out = 'user';
 //pathMain = 'cm';
 
-novelID = '蘇りの魔王';
+novelID = '再臨勇者の復讐譚　～失望しました、勇者やめて元魔王と組みます～/00020_第三章　死沼';
 
 NO_DEBUG = true;
 
