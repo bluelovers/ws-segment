@@ -104,27 +104,30 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 				let mw = TABLE[nw];
 
-				if (mw && (mw.p & POSTAG.D_A))
+				if (!mw || (mw.p & POSTAG.D_A))
 				{
-					p = mw.p;
-					f = mw.f;
-				}
-				else if (w1.p & POSTAG.BAD)
-				{
-					p = POSTAG.D_A + POSTAG.BAD;
-				}
+					if (mw && (mw.p & POSTAG.D_A))
+					{
+						p = mw.p;
+						f = mw.f;
+					}
+					else if (w1.p & POSTAG.BAD)
+					{
+						p = POSTAG.D_A + POSTAG.BAD;
+					}
 
-				this.sliceToken(words, i, 2, {
-					w: nw,
-					//p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
-					p,
-					f,
-					m: [w1, w2],
-				}, undefined, {
-					[this.name]: 1,
-				});
-				ie--;
-				continue;
+					this.sliceToken(words, i, 2, {
+						w: nw,
+						//p: ((nw in TABLE && TABLE[nw].p & POSTAG.D_A) ? TABLE[nw].p : POSTAG.D_A),
+						p,
+						f,
+						m: [w1, w2],
+					}, undefined, {
+						[this.name]: 1,
+					});
+					ie--;
+					continue;
+				}
 			}
 
 			// 能组成一个新词的(词性必须相同)
