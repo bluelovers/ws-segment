@@ -12,7 +12,7 @@ import { getDictMain } from './lib/index';
 
 let file: string;
 
-file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user/再臨勇者の復讐譚　～失望しました、勇者やめて元魔王と組みます～/00020_第三章　死沼/00570_第二十話　『ディオニス・ハーベルク』.txt';
+//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user/再臨勇者の復讐譚　～失望しました、勇者やめて元魔王と組みます～/00020_第三章　死沼/00570_第二十話　『ディオニス・ハーベルク』.txt';
 
 const segment = createSegment();
 
@@ -37,7 +37,7 @@ console.time(`doSegment`);
 
 let text = `
 
-眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛眼睛
+划離岸邊某種程度、到湖中間后手終於能休息了
 
 `;
 

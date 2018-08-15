@@ -319,6 +319,47 @@ export class DictTokenizer extends SubSModuleTokenizer
 							{
 								assess[i].d++;
 							}
+
+							// @FIXME 到湖中間后手終於能休息了
+							if (
+								(
+									nextw.w == '后'
+									|| nextw.w == '後'
+								)
+								&& hexAndAny(w.p,
+								POSTAG.D_F,
+							)
+							)
+							{
+								console.log({
+									prew,
+									w,
+									nextw,
+								});
+
+								assess[i].d++;
+							}
+							if (
+								(
+									w.w == '后'
+									|| w.w == '後'
+								)
+								&& hexAndAny(prew.p,
+								POSTAG.D_F,
+								)
+								&& hexAndAny(nextw.p,
+								POSTAG.D_N,
+								)
+							)
+							{
+								console.log({
+									prew,
+									w,
+									nextw,
+								});
+
+								assess[i].d++;
+							}
 						}
 					}
 					// ===========================================
