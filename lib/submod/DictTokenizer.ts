@@ -331,12 +331,6 @@ export class DictTokenizer extends SubSModuleTokenizer
 							)
 							)
 							{
-								console.log({
-									prew,
-									w,
-									nextw,
-								});
-
 								assess[i].d++;
 							}
 							if (
@@ -352,12 +346,6 @@ export class DictTokenizer extends SubSModuleTokenizer
 								)
 							)
 							{
-								console.log({
-									prew,
-									w,
-									nextw,
-								});
-
 								assess[i].d++;
 							}
 						}
