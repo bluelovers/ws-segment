@@ -5,6 +5,7 @@
 import { IWord, Segment } from '../Segment';
 
 import { $enum, EnumWrapper, } from "ts-enum-util";
+import ForeignOptimizer from '../submod/ForeignOptimizer';
 import JpSimpleTokenizer from '../submod/JpSimpleTokenizer';
 import SingleTokenizer from '../submod/SingleTokenizer';
 import { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate } from './Optimizer';
@@ -69,6 +70,12 @@ export enum ENUM_SUBMODS
 	 * 日期时间识别优化
 	 */
 	DatetimeOptimizer = 'DatetimeOptimizer',
+
+	/**
+	 * 合併外文與中文的詞
+	 * 例如 Ｔ恤
+	 */
+	ForeignOptimizer = 'ForeignOptimizer',
 
 	/**
 	 * 自動處理 `里|裏|后`
