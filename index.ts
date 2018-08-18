@@ -10,6 +10,7 @@ import { POSTAG } from './lib/POSTAG';
 
 const _Segment = Segment as typeof Segment & {
 	version: string,
+	version_dict: string,
 	/**
 	 * 分词接口
 	 */
@@ -28,6 +29,8 @@ export = __Segment;
 
 // @ts-ignore
 __Segment.version = require('./package.json').version;
+// @ts-ignore
+__Segment.version_dict = require('segment-dict/package.json').version;
 __Segment.POSTAG = POSTAG;
 __Segment.Segment = Segment;
 __Segment.default = __Segment;

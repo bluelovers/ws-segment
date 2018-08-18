@@ -2,6 +2,7 @@ import { Segment } from './lib/Segment';
 import { POSTAG } from './lib/POSTAG';
 declare const __Segment: typeof Segment & {
     version: string;
+    version_dict: string;
     /**
      * 分词接口
      */
@@ -13,6 +14,7 @@ declare const __Segment: typeof Segment & {
 } & {
     default: typeof Segment & {
         version: string;
+        version_dict: string;
         /**
          * 分词接口
          */
