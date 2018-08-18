@@ -40,7 +40,7 @@ export class ForeignOptimizer extends SubSModuleOptimizer
 			let w1: IWordDebug = words[i];
 			let w2: IWordDebug = words[i + 1];
 
-			if (!(w1.p & POSTAG.A_NX))
+			if (!(w1.p === POSTAG.A_NX))
 			{
 				i++;
 				continue;
