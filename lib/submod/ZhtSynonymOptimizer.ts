@@ -227,6 +227,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						if (hexAndAny(w0.p,
 							POSTAG.D_V,
 							POSTAG.D_R,
+							POSTAG.D_A,
 						) && hexAndAny(w2.p,
 							POSTAG.D_N,
 							POSTAG.D_V,
@@ -264,7 +265,19 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							bool = true;
 						}
 					}
-					else if (w0 && COLOR_HAIR[w0.w])
+					else if (
+						// 不修正繁體的 發
+						w1.w === (c + '发')
+						&& (
+							!w0
+							|| (
+								w0 && (
+									w0.p === POSTAG.D_W
+									|| COLOR_HAIR[w0.w]
+								)
+							)
+						)
+					)
 					{
 						let nw = c + '髮';
 
