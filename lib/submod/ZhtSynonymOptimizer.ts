@@ -264,6 +264,22 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							bool = true;
 						}
 					}
+					else if (w0 && COLOR_HAIR[w0.w])
+					{
+						let nw = c + '髮';
+
+						let ow: IWord = TABLE[nw];
+
+						if (ow && ow.s)
+						{
+							w1.ow = w1.w;
+							w1.w = nw;
+
+							new_p = ow.p;
+
+							bool = true;
+						}
+					}
 				}
 				else if (hexAndAny(w1.p,
 					POSTAG.D_MQ,
@@ -409,7 +425,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					if (ow.s !== w1.s)
 					{
-						w1.os = ('os' in w1) ? w1.os : w1.s;
+						w1.os = ('os' in w1) ? w1.os : (w1.s || false);
 						w1.s = ow.s;
 					}
 				}
