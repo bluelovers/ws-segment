@@ -5,7 +5,10 @@ import { Segment, IWord, IDICT } from '../Segment';
 // @ts-ignore
 import { UString } from 'uni-string';
 import IPOSTAG from '../POSTAG';
-import { debug } from '../util';
+import { debug, IWordDebug } from '../util';
+import { zhRegExp } from 'regexp-cjk';
+
+const DIRECTIONS_REGEXP = /^[東西南北东]+$/;
 
 /**
  * 词典优化模块
@@ -79,6 +82,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 		// 合并相邻的能组成一个单词的两个词
 		const TABLE = this._TABLE;
 		const POSTAG = this._POSTAG;
+		const self = this;
 
 		let i = 0;
 		let ie = words.length - 1;
@@ -255,6 +259,29 @@ export class DictOptimizer extends SubSModuleOptimizer
 				});
 				ie -= i2 - 1;
 				continue;
+			}
+
+			/**
+			 * 合併 東南西北
+			 */
+			if (DIRECTIONS_REGEXP.test(w1.w))
+			{
+				if (DIRECTIONS_REGEXP.test(w2.w))
+				{
+					let mw: IWordDebug = this.createToken({
+						p: POSTAG.D_F,
+						...TABLE[nw],
+						w: nw,
+						m: [w1, w2],
+					});
+
+					mw.p = mw.p | POSTAG.D_F;
+
+					this.sliceToken(words, i, 2, mw);
+
+					ie--;
+					continue;
+				}
 			}
 
 			// 移到下一个词
