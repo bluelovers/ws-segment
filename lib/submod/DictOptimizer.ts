@@ -164,7 +164,10 @@ export class DictOptimizer extends SubSModuleOptimizer
 			{
 				//debug(w2.w + ' ' + (w2.p & POSTAG.A_M));
 				// 百分比数字 如 10%，或者下一个词也是数词，则合并
-				if ((w2.p & POSTAG.A_M) || w2.w == '%')
+				if ((
+					w2.p & POSTAG.A_M
+					&& !/^第/.test(w2.w)
+				) || w2.w == '%')
 				{
 					this.sliceToken(words, i, 2, {
 						w: w1.w + w2.w,
