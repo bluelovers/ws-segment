@@ -9,6 +9,7 @@ import * as fs from "fs";
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
+import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
 
 let file: string;
 
@@ -39,7 +40,8 @@ console.time(`doSegment`);
 
 let text = `
 
-男子──帕维尔．巴拉哈──的绰号是守夜人。他跟奥兰多一样，都是领受了九色中一色的人物。
+对方提出单方面于己方有利的交易，会令人难以相信，但对双方都有利的交易就信得过了。看来这点亚人类也是一样的。
+
 
 `;
 
@@ -76,6 +78,11 @@ console.log("------------------\n\n");
 
 console.log(output_text);
 
+console.log("\n\n------------------\n\n");
+
+console.log(cn2tw_min(output_text));
+
 console.log("\n\n------------------");
 
 console.timeEnd(`doSegment`);
+
