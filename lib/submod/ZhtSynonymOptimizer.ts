@@ -232,6 +232,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							POSTAG.D_N,
 							POSTAG.D_V,
 							POSTAG.D_R,
+							POSTAG.D_S,
 						))
 						{
 							w1.ow = w1.w;
