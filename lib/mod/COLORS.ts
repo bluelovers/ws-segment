@@ -799,5 +799,5 @@ export namespace _COLORS
 export const COLOR_HAIR = _COLORS.p(_COLORS.COLOR_HAIR);
 export const COLOR_ALL = _COLORS.p(_COLORS.COLOR_ALL);
 
-import * as self from './CHS_NAMES';
-export default self;
+import * as COLORS from './CHS_NAMES';
+export default COLORS;

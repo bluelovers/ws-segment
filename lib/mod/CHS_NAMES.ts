@@ -130,6 +130,5 @@ export const DOUBLE_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_1, 1);
 export const DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2, 2);
 export const SINGLE_NAME = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME, 1);
 
-import * as self from './CHS_NAMES';
-
-export default self;
+import * as CHS_NAMES from './CHS_NAMES';
+export default CHS_NAMES;

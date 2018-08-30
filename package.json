@@ -70,13 +70,11 @@
     "test": "test"
   },
   "scripts": {
-
     "prepack": "echo prepack",
     "postpack": "echo postpack",
     "prepublishOnly": "echo prepublishOnly",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after",
-
     "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
@@ -86,6 +84,7 @@
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\""
   },
   "dependencies": {
+    "array-hyper-unique": "^1.0.2",
     "bluebird": "^3.5.1",
     "circular-json": "^0.5.5",
     "cjk-conv": "^1.0.84",
