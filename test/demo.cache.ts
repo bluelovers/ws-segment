@@ -40,7 +40,7 @@ console.time(`doSegment`);
 
 let text = `
 
-她也还没完全恢复好，覺得身体有点重。
+脚上使劲儿、注入力量确认了不滑后
 
 `;
 
@@ -73,15 +73,15 @@ fs.writeFileSync('./temp/c1.json', JSON.stringify({
 
 fs.writeFileSync('./temp/c1.txt', output_text);
 
-console.log("------------------\n\n");
+console.log("------------------");
 
 console.log(output_text);
 
-console.log("\n\n------------------\n\n");
+console.log("------------------");
 
 console.log(cn2tw_min(output_text));
 
-console.log("\n\n------------------");
+console.log("------------------");
 
 console.timeEnd(`doSegment`);
 

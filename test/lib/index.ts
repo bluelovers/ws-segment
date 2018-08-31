@@ -12,6 +12,9 @@ import { useDefault, getDefaultModList } from '../../lib';
 import { debug_token } from '../../lib/util';
 import ProjectConfig from '../../project.config';
 import TableDict from '../../lib/table/dict';
+import * as util from 'util';
+
+util.inspect.defaultOptions.colors = true;
 
 export function createSegment(useCache: boolean = true)
 {
@@ -85,21 +88,53 @@ export function createSegment(useCache: boolean = true)
 
 	db_dict.options.autoCjk = true;
 
-	console.log('主字典總數', db_dict.size());
+	let size_db_dict = db_dict.size();
+
+	console.log('主字典總數', size_db_dict);
 
 	segment.loadSynonymDict('synonym', true);
 
-	console.log('Synonym', Object.keys(segment.getDict('SYNONYM')).length);
+	let size_segment = Object.keys(segment.getDict('SYNONYM')).length;
+
+		console.log('Synonym', size_segment);
 
 	console.timeEnd(`讀取模組與字典`);
 
 	if (useCache && cache_file)
 	{
+		let _info;
+
+		try
+		{
+			_info = fs.readJSONSync(cache_file + '.info.json')
+		}
+		catch (e)
+		{
+
+		}
+
+		_info = _info || {};
+		_info.last = _info.last || {};
+		_info.current = _info.current || {};
+
+		_info.last = Object.assign({}, _info.current);
+
+		_info.current = {
+			size_db_dict,
+			size_segment,
+			size_db_dict_diff: size_db_dict - (_info.last.size_db_dict || 0),
+			size_segment_diff: size_segment - (_info.last.size_segment || 0),
+		};
+
 		console.log(`緩存字典於 cache.db`);
+
+		console.dir(_info);
 
 		fs.outputFileSync(cache_file, JSON.stringify({
 			DICT: segment.DICT,
 		}));
+
+		fs.outputJSONSync(cache_file + '.info.json', _info);
 	}
 
 	return segment;
