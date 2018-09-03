@@ -78,7 +78,7 @@ else
 	ret = segment.doSegment(text);
 }
 
-console.log(ret);
+//console.log(ret);
 
 debug_token(ret);
 
