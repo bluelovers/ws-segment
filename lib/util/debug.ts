@@ -143,7 +143,15 @@ export function token_add_info<T extends IWordDebug>(v: T)
 
 		if (v.m)
 		{
-			v.m.map(token_add_info);
+			v.m.map(function (v)
+			{
+				if (typeof v == 'string')
+				{
+					return v;
+				}
+
+				return token_add_info(v);
+			});
 		}
 
 		if (debug._source)

@@ -27,7 +27,9 @@ pathMain_out = 'cm_out';
 //pathMain_out = 'user';
 //pathMain = 'cm';
 
-novelID = '再臨勇者の復讐譚　～失望しました、勇者やめて元魔王と組みます～/00020_第三章　死沼';
+pathMain = 'wenku8';
+
+novelID = 'OVERLORD不死者之王/00030_第四卷 蜥蜴人勇者们';
 
 NO_DEBUG = true;
 

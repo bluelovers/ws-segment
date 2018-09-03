@@ -40,7 +40,7 @@ console.time(`doSegment`);
 
 let text = `
 
-脚上使劲儿、注入力量确认了不滑后
+安兹大人命令七点二十一分和十九点十九分等幾个时间点不要设定呼叫。
 
 `;
 
@@ -52,6 +52,8 @@ if (file)
 }
 
 let ret = segment.doSegment(text);
+
+console.log(ret);
 
 debug_token(ret);
 
