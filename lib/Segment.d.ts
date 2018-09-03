@@ -122,6 +122,7 @@ export declare class Segment {
         all_mod?: boolean;
     }): this;
     getOptionsDoSegment<T extends IOptionsDoSegment>(options?: T): T;
+    protected _get_text(text: string | Buffer): string;
     /**
      * 开始分词
      *

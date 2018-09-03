@@ -306,6 +306,8 @@ export class Segment
 			*/
 		});
 
+		data = undefined;
+
 		this.inited = true;
 
 		return this;
@@ -380,6 +382,8 @@ export class Segment
 
 		//console.log(TABLE);
 
+		data = undefined;
+
 		this.inited = true;
 
 		return this;
@@ -431,6 +435,8 @@ export class Segment
 				TABLE[line] = true;
 			}
 		});
+
+		data = undefined;
 
 		this.inited = true;
 
@@ -527,6 +533,30 @@ export class Segment
 		);
 	}
 
+	protected _get_text(text: string | Buffer): string
+	{
+		try
+		{
+			if (Buffer.isBuffer(text))
+			{
+				text = text.toString();
+			}
+		}
+		catch (e)
+		{}
+		finally
+		{
+			if (typeof text != 'string')
+			{
+				throw new TypeError(`text must is string or Buffer`)
+			}
+
+			text = crlf(text);
+		}
+
+		return text;
+	}
+
 	/**
 	 * 开始分词
 	 *
@@ -550,27 +580,14 @@ export class Segment
 
 		this.autoInit();
 
-		try
-		{
-			if (Buffer.isBuffer(text))
-			{
-				text = text.toString();
-			}
-		}
-		catch (e)
-		{}
-		finally
-		{
-			if (typeof text != 'string')
-			{
-				throw new TypeError(`text must is string or Buffer`)
-			}
-
-			text = crlf(text);
-		}
+		let text_list = this._get_text(text)
+			// @ts-ignore
+			.split(this.SPLIT)
+		;
+		text = undefined;
 
 		// 将文本按照换行符分割成多段，并逐一分词
-		let ret = text.split(this.SPLIT).reduce(function (ret, section)
+		let ret = text_list.reduce(function (ret, section)
 		{
 			//console.dir(section);
 

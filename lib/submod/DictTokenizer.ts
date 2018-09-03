@@ -388,6 +388,10 @@ export class DictTokenizer extends SubSModuleTokenizer
 		}
 		ret = currchunk;
 
+		// 試圖主動清除記憶體
+		assess = undefined;
+		chunks = undefined;
+
 		//debug(ret);
 		return ret;
 	}
@@ -632,8 +636,13 @@ export class DictTokenizer extends SubSModuleTokenizer
 				{
 					ret.push([word].concat(chunks[j]));
 				}
+
+				chunks = null;
 			}
 		}
+
+		words = undefined;
+
 		return ret;
 	}
 }
