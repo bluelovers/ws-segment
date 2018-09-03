@@ -29,7 +29,7 @@ pathMain_out = 'cm_out';
 
 pathMain = 'wenku8';
 
-novelID = 'OVERLORD不死者之王/00030_第四卷 蜥蜴人勇者们';
+novelID = 'OVERLORD不死者之王';
 
 NO_DEBUG = true;
 

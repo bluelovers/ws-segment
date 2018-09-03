@@ -6,14 +6,18 @@ import { crlf } from 'crlf-normalize';
 import Segment, { POSTAG } from '../index';
 import { useDefault, getDefaultModList } from '../lib';
 import * as fs from "fs";
+import { IWordDebug } from '../lib/util/debug';
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
 import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
 
 let file: string;
+let DEBUG_EACH: boolean;
 
-//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/user/再臨勇者の復讐譚　～失望しました、勇者やめて元魔王と組みます～/00020_第三章　死沼/00570_第二十話　『ディオニス・ハーベルク』.txt';
+//DEBUG_EACH = true;
+
+//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/wenku8/OVERLORD不死者之王/00110_短篇/00010_剧场版 特典小说 昴宿星团的一日.txt';
 
 const segment = createSegment();
 
@@ -40,7 +44,7 @@ console.time(`doSegment`);
 
 let text = `
 
-安兹大人命令七点二十一分和十九点十九分等幾个时间点不要设定呼叫。
+召集了作为佣兵召唤而来的上位不死者和使用无上至尊的特殊技能做出的不死者以及纳萨力克内自动出现的下位不死者後进行的各种数据收集
 
 `;
 
@@ -51,7 +55,28 @@ if (file)
 	text = fs.readFileSync(file).toString()
 }
 
-let ret = segment.doSegment(text);
+let ret: IWordDebug[];
+
+if (DEBUG_EACH)
+{
+	ret = text
+		.split(/([\n\p{Punctuation}])/u)
+		.reduce(function (a, line)
+		{
+			console.dir(line);
+
+			let r = segment.doSegment(line);
+
+			a.push(...r);
+
+			return a;
+		}, [])
+	;
+}
+else
+{
+	ret = segment.doSegment(text);
+}
 
 console.log(ret);
 
