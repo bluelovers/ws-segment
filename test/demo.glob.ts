@@ -162,6 +162,9 @@ Promise
 				console.log('[done]', label);
 			}
 
+			text_new = undefined;
+			text = undefined;
+
 			return {
 				file,
 				changed,
