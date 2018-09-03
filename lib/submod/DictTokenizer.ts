@@ -11,6 +11,8 @@ import { debug } from '../util';
 import { DATETIME } from '../mod/const';
 import IPOSTAG from '../POSTAG';
 
+export const DEFAULT_MAX_CHUNK_COUNT = 40;
+
 /**
  * 字典识别模块
  *
@@ -29,7 +31,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 *
 	 * @type {number}
 	 */
-	MAX_CHUNK_COUNT = 40;
+	MAX_CHUNK_COUNT = DEFAULT_MAX_CHUNK_COUNT;
 
 	protected _TABLE: IDICT<IWord>;
 	protected _TABLE2: IDICT2<IWord>;
