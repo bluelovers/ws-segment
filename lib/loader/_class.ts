@@ -92,7 +92,11 @@ export class LoaderClass<T, R>
 
 	loadSync(file: string, options: IOptions<T, R> = {})
 	{
-		return this.loadStreamSync(file, options).value;
+		let r = this.loadStreamSync(file, options);
+		let value = r.value;
+		// 試圖手動清除記憶體占用
+		r = undefined;
+		return value;
 	}
 
 	loadStream(file: string, options: IOptions<T, R> = {}, callback?: ICallback<T>)
