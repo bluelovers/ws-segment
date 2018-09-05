@@ -10,6 +10,8 @@ import { parseLine as parseLineSegment, serialize as serializeSegment } from '..
 import UString from "uni-string";
 import FastGlob from "fast-glob";
 import * as path from "path";
+import { console } from "debug-color2";
+
 import ProjectConfig from "../project.config";
 
 let fa = [];
@@ -61,6 +63,8 @@ Promise
 	})
 	.map(async function (file: string)
 	{
+		let _basepath = path.relative(cwd, file);
+
 		let b = await load(file);
 
 		b = b.filter(function (line)
@@ -128,9 +132,9 @@ Promise
 
 		b.sort();
 
-		await fs.writeFile(file, serialize(b) + "\n");
+		await fs.writeFile(file, serialize(b) + "\n\n");
 
-		console.log(file);
+		console.ok(_basepath);
 
 		return b;
 	})
@@ -156,6 +160,6 @@ Promise
 			fa.sort();
 		}
 
-		await fs.writeFileSync(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n");
+		await fs.outputFile(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
 	})
 ;
