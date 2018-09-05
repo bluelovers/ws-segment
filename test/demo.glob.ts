@@ -14,6 +14,8 @@ import { createSegment } from './lib';
 import { getDictMain } from './lib/index';
 import * as JsDiff from 'diff';
 //import * as JSON from 'circular-json';
+import prettyuse = require('prettyuse');
+import { console } from 'debug-color2';
 
 let NO_DEBUG = false;
 
@@ -153,6 +155,9 @@ Promise
 				}
 			}
 
+			console.log(prettyuse());
+			freeGC();
+
 			if (changed)
 			{
 
@@ -178,4 +183,19 @@ Promise
 function _path(pathMain, novelID)
 {
 	return path.resolve(path_root, pathMain, novelID);
+}
+
+export function freeGC()
+{
+	if (global && typeof global.gc === 'function')
+	{
+		try
+		{
+			global.gc();
+		}
+		catch (e)
+		{
+			console.error(e);
+		}
+	}
 }

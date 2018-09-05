@@ -105,7 +105,8 @@
     "@types/fs-extra": "^5.0.4",
     "@types/node": "^10.9.4",
     "debug-color2": "^1.0.6",
-    "diff": "^3.5.0"
+    "diff": "^3.5.0",
+    "prettyuse": "^0.0.0"
   },
   "optionalDependencies": {}
 }

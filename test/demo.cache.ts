@@ -11,6 +11,8 @@ import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
 import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
+import prettyuse = require('prettyuse');
+import { console } from 'debug-color2';
 
 let file: string;
 let DEBUG_EACH: boolean;
@@ -44,7 +46,7 @@ console.time(`doSegment`);
 
 let text = `
 
-碰上牆壁的米爾琪特，用指甲喀哩喀哩的抓著壁紙。
+唰的，用力拉上簾幕。
 
 `;
 
@@ -100,15 +102,16 @@ fs.writeFileSync('./temp/c1.json', JSON.stringify({
 
 fs.writeFileSync('./temp/c1.txt', output_text);
 
-console.log("------------------");
+console.gray("------------------");
 
 console.log(output_text);
 
-console.log("------------------");
+console.gray("------------------");
 
 console.log(cn2tw_min(output_text));
 
-console.log("------------------");
+console.gray("------------------");
 
 console.timeEnd(`doSegment`);
 
+console.debug(prettyuse());
