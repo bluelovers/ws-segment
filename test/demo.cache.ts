@@ -46,7 +46,7 @@ console.time(`doSegment`);
 
 let text = `
 
-唰的，用力拉上簾幕。
+最後任务定为Ｅ級，毫无疑問就是公会职员冥思苦想之後的結果。
 
 `;
 
@@ -90,7 +90,7 @@ let changed = crlf(text.toString()) !== output_text;
 
 if (changed)
 {
-	console.warn(`changed: ${changed}`);
+	console.red(`changed: ${changed}`);
 }
 
 fs.writeFileSync('./temp/c1.json', JSON.stringify({

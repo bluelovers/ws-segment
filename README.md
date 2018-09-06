@@ -11,6 +11,8 @@
 + 基于词性进行联想识别
 + 可使用JavaScript编写自定义的分词模块
 
+Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
+
 ---
 
 1. 以網路翻譯小說為樣本增加字典
@@ -19,7 +21,7 @@
 4. 精簡一部分多餘字典
 5. 可額外追加字典條目而不需要增加字典檔
 6. 可將結果轉換為原始格式
-7. 遇到長句，無分段，無標點符號的行時會捨棄部分處理，來避免處理時間過長過超過記憶體負荷
+7. 遇到長句，無分段，無標點符號的行時會捨棄部分處理，來避免處理時間過長過超過記憶體負荷<br/>可於啟動 nodejs 時 加上參數 例如 `node --max-old-space-size=2048 xxxx.js` 可以避免記憶體洩漏問題
 8. 與原版不同預設會返回所有字元(包含分行與空格)
 
 * [線上測試 by RunKit](https://npm.runkit.com/novel-segment)
@@ -340,8 +342,6 @@ segment.use({
 
 
 ## MIT License
-
-Fork From [leizongmin/segment](https://github.com/leizongmin/node-segment)
 
 ```
 Copyright (c) 2012-2015 Zongmin Lei (雷宗民) <leizongmin@gmail.com>
