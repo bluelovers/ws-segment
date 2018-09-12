@@ -104,6 +104,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [跳跃表，字典树（单词查找树，Trie树），后缀树，KMP算法，AC 自动机相关算法原理详细汇总](https://blog.csdn.net/zhongwen7710/article/details/39274349)
 * [現代漢語常用簡繁一對多字義辨析表](http://ytenx.org/byohlyuk/KienxPyan)
 * [ACG/Vocaloid同人粵語中文歌詞wiki](http://canto.acgvlyric.org/doku.php/w:%E7%94%A8%E5%AD%97%E6%A8%99%E6%BA%96?redirect=1)
+* [如何分辨動詞、名詞、形容詞、副詞？](https://tw.answers.yahoo.com/question/index?qid=20130404000010KK03888)
 * 
 
 
