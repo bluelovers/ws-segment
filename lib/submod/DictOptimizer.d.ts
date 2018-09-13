@@ -1,5 +1,5 @@
 import { SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
-import { IWord, IDICT } from '../Segment';
+import { Segment, IWord, IDICT } from '../Segment';
 import IPOSTAG from '../POSTAG';
 /**
  * 词典优化模块
@@ -10,12 +10,19 @@ export declare class DictOptimizer extends SubSModuleOptimizer {
     protected _TABLE: IDICT<IWord>;
     name: string;
     _cache(): void;
-    isMergeable(w1: IWord, w2: IWord, { POSTAG, TABLE, nw, i, }: {
+    isMergeable(w1: IWord, w2: IWord, { POSTAG, TABLE, nw, i, nw_cache, nw_cache_exists, }: {
         POSTAG: typeof IPOSTAG;
         TABLE: IDICT;
         nw: string;
         i: number;
+        nw_cache: IWord;
+        nw_cache_exists: boolean;
     }): boolean;
+    _getWordCache(nw: string, nw_cache: IWord, nw_cache_exists: boolean): {
+        nw: string;
+        nw_cache: Segment.IWord;
+        nw_cache_exists: boolean;
+    };
     /**
      * 词典优化
      *

@@ -34,11 +34,15 @@ export class DictOptimizer extends SubSModuleOptimizer
 		TABLE,
 		nw,
 		i,
+		nw_cache,
+		nw_cache_exists,
 	}: {
 		POSTAG: typeof IPOSTAG,
 		TABLE: IDICT,
 		nw: string,
 		i: number,
+		nw_cache: IWord,
+		nw_cache_exists: boolean,
 	}): boolean
 	{
 		let bool: boolean;
@@ -69,7 +73,25 @@ export class DictOptimizer extends SubSModuleOptimizer
 			bool = true;
 		}
 
-		return bool && (nw in TABLE);
+		return bool
+			&& this._getWordCache(nw, nw_cache, nw_cache_exists).nw_cache_exists;
+	}
+
+	_getWordCache(nw: string, nw_cache: IWord, nw_cache_exists: boolean)
+	{
+		if (typeof nw_cache_exists === 'undefined')
+		{
+			const TABLE = this._TABLE;
+
+			nw_cache = nw_cache || TABLE[nw];
+			nw_cache_exists = !!nw_cache;
+		}
+
+		return {
+			nw,
+			nw_cache,
+			nw_cache_exists,
+		}
 	}
 
 	/**
@@ -102,6 +124,9 @@ export class DictOptimizer extends SubSModuleOptimizer
 			// ==========================================
 			let nw: string = w1.w + w2.w;
 
+			let nw_cache: IWord;
+			let nw_cache_exists: boolean;
+
 			/**
 			 * 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
 			 */
@@ -113,7 +138,12 @@ export class DictOptimizer extends SubSModuleOptimizer
 				let p = POSTAG.D_A;
 				let f: number;
 
-				let mw = TABLE[nw];
+				({
+					nw_cache,
+					nw_cache_exists,
+				} = self._getWordCache(nw, nw_cache, nw_cache_exists));
+
+				let mw = nw_cache;
 
 				if (!mw || (mw.p & POSTAG.D_A))
 				{
@@ -141,6 +171,38 @@ export class DictOptimizer extends SubSModuleOptimizer
 				}
 			}
 
+			/**
+			 * 形容詞 + 名詞 = 名詞
+			 */
+			if ((w1.p & POSTAG.D_A)
+				&& (w2.p & POSTAG.D_N)
+			)
+			{
+				({
+					nw_cache,
+					nw_cache_exists,
+				} = self._getWordCache(nw, nw_cache, nw_cache_exists));
+
+				if (nw_cache_exists)
+				{
+					let mw = nw_cache;
+
+					if (mw.p & POSTAG.D_N)
+					{
+						this.sliceToken(words, i, 2, {
+							w: nw,
+							p: mw.p,
+							f: mw.f,
+							m: [w1, w2],
+						}, undefined, {
+							[this.name]: 7,
+						});
+						ie--;
+						continue;
+					}
+				}
+			}
+
 			// 能组成一个新词的(词性必须相同)
 
 			if (this.isMergeable(w1, w2, {
@@ -148,10 +210,17 @@ export class DictOptimizer extends SubSModuleOptimizer
 				POSTAG,
 				TABLE,
 				i,
+				nw_cache,
+				nw_cache_exists,
 			}))
 			//if (w1.p == w2.p && nw in TABLE)
 			{
-				let mw = TABLE[nw];
+				({
+					nw_cache,
+					nw_cache_exists,
+				} = self._getWordCache(nw, nw_cache, nw_cache_exists));
+
+				let mw = nw_cache;
 
 				this.sliceToken(words, i, 2, {
 					w: nw,
@@ -193,9 +262,14 @@ export class DictOptimizer extends SubSModuleOptimizer
 					let p = POSTAG.D_MQ;
 					let nw: string = w1.w + w2.w;
 
-					if (nw in TABLE)
+					({
+						nw_cache,
+						nw_cache_exists,
+					} = self._getWordCache(nw, nw_cache, nw_cache_exists));
+
+					if (nw_cache)
 					{
-						p = TABLE[nw].p | POSTAG.D_MQ;
+						p = nw_cache.p | POSTAG.D_MQ;
 					}
 					else
 					{
@@ -278,16 +352,23 @@ export class DictOptimizer extends SubSModuleOptimizer
 			{
 				if (DIRECTIONS_REGEXP.test(w2.w))
 				{
+					({
+						nw_cache,
+						nw_cache_exists,
+					} = self._getWordCache(nw, nw_cache, nw_cache_exists));
+
 					let mw: IWordDebug = this.createToken({
 						p: POSTAG.D_F,
-						...TABLE[nw],
+						...nw_cache,
 						w: nw,
 						m: [w1, w2],
 					});
 
 					mw.p = mw.p | POSTAG.D_F;
 
-					this.sliceToken(words, i, 2, mw);
+					this.sliceToken(words, i, 2, mw, true, {
+						[this.name]: 8,
+					});
 
 					ie--;
 					continue;
