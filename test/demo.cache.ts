@@ -46,7 +46,7 @@ console.time(`doSegment`);
 
 let text = `
 
-現在正在本市滯留中、有著尊貴身分的公主殿下。因為是非常時期，所以希望能在這裡列席
+把熟識的人吸干血液殺死
 
 `;
 
@@ -119,14 +119,14 @@ let output_text2 = cn2tw_min(output_text);
 
 if (output_text == output_text2)
 {
-	console.gray(output_text2);
+	//console.gray(output_text2);
 }
 else
 {
 	console.log(output_text2);
-}
 
-console.gray("------------------");
+	console.gray("------------------");
+}
 
 console.timeEnd(`doSegment`);
 
