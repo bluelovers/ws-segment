@@ -61,6 +61,13 @@ export class DictOptimizer extends SubSModuleOptimizer
 				bool = true;
 			}
 		}
+		/**
+		 * 允許例如 幾 + ％
+		 */
+		else if (w1.p && typeof w2.p == 'undefined')
+		{
+			bool = true;
+		}
 
 		return bool && (nw in TABLE);
 	}

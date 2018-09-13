@@ -46,7 +46,7 @@ console.time(`doSegment`);
 
 let text = `
 
-像是切出的黑曜石與不知名的金屬，用放出燐光的謎之物質做成高７～８美加，直徑３０～４０美加巨大的環狀列石群
+几％程度的傷害
 
 `;
 
@@ -104,11 +104,27 @@ fs.writeFileSync('./temp/c1.txt', output_text);
 
 console.gray("------------------");
 
-console.log(output_text);
+if (changed)
+{
+	console.success(output_text);
+}
+else
+{
+	console.log(output_text);
+}
 
 console.gray("------------------");
 
-console.log(cn2tw_min(output_text));
+let output_text2 = cn2tw_min(output_text);
+
+if (output_text == output_text2)
+{
+	console.gray(output_text2);
+}
+else
+{
+	console.log(output_text2);
+}
 
 console.gray("------------------");
 
