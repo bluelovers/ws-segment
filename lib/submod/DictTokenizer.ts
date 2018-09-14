@@ -290,6 +290,19 @@ export class DictTokenizer extends SubSModuleTokenizer
 							assess[i].d++;
 						}
 
+						/**
+						 * 地名/处所 + 方位
+						 */
+						if (hexAndAny(prew.p
+							,POSTAG.D_S
+							, POSTAG.A_NS
+						) && hexAndAny(w.p
+							,POSTAG.D_F
+						))
+						{
+							assess[i].d += 0.5;
+						}
+
 						// 探测下一个词
 						let nextw = chunk[j + 1];
 						if (nextw)

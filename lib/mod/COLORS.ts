@@ -40,6 +40,7 @@ export namespace _COLORS
 		'黄',
 		'黑',
 		'黒',
+		'茶',
 	];
 
 	export const COLOR_WITH_RGB: string[][] = [

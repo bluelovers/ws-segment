@@ -13,6 +13,7 @@ import { getDictMain } from './lib/index';
 import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
 import prettyuse = require('prettyuse');
 import { console } from 'debug-color2';
+import jsdiff = require('diff');
 
 let file: string;
 let DEBUG_EACH: boolean;
@@ -29,24 +30,26 @@ let db_dict = getDictMain(segment);
  * 最後一個參數的數字是代表權重 數字越高 越優先
  */
 db_dict
-	//.add(['在這裡', POSTAG.D_F, 0])
-	//.add(['人名', POSTAG.A_NR, 0])
-	//.add(['地名', POSTAG.A_NS, 0])
-	//.add(['机构团体', POSTAG.A_NT, 0])
-	//.add(['名词', POSTAG.D_N, 0])
-	//.add(['錯字', POSTAG.BAD, 0])
+//.add(['在這裡', POSTAG.D_F, 0])
+//.add(['人名', POSTAG.A_NR, 0])
+//.add(['地名', POSTAG.A_NS, 0])
+//.add(['机构团体', POSTAG.A_NT, 0])
+//.add(['名词', POSTAG.D_N, 0])
+//.add(['錯字', POSTAG.BAD, 0])
 	.add(['l10n', POSTAG.A_NX, 0])
 	.add(['i18n', POSTAG.A_NX, 0])
-	//.add(['像', 0x141000, 20000])
-	//.add(['建筑', 0x000000, 0])
-	//.add(['發现', 0x1000, 10000])
+//.add(['像', 0x141000, 20000])
+//.add(['建筑', 0x000000, 0])
+//.add(['發现', 0x1000, 10000])
 ;
 
 console.time(`doSegment`);
 
 let text = `
 
-把熟識的人吸干血液殺死
+當然，無論在哪個国家魔法陣都會被嚴格管理。比如說從Ａ地點轉移到Ｂ地點的情況下，在轉移之前先在Ｂ地點記錄本人的魔力印記是必須執行的步驟。
+所以，雖說是要從Ａ地點支付高額的使用費轉移到Ｂ地點，但如果是沒有登記的人或許可被取消的人則不能進行轉移。根據情況的不同，甚至有可能會被卷進時空的夾隙，從而無法回到現世，是以相當程度的風險博取高回報的手段。而這次喬伊事先在亞拉進行記錄，目的在於利用地下城內無人管理的轉移魔法陣回去的樣子。
+雖說乍一看是個盡是好事的計劃……
 
 `;
 
@@ -106,7 +109,7 @@ console.gray("------------------");
 
 if (changed)
 {
-	console.success(output_text);
+	console.success(diff_log(text, output_text));
 }
 else
 {
@@ -123,7 +126,9 @@ if (output_text == output_text2)
 }
 else
 {
-	console.log(output_text2);
+	console.log(diff_log(output_text, output_text2));
+
+	//console.log(output_text2);
 
 	console.gray("------------------");
 }
@@ -131,3 +136,24 @@ else
 console.timeEnd(`doSegment`);
 
 console.debug(prettyuse());
+
+function diff_log(src_text: string, new_text: string): string
+{
+	let diff = jsdiff.diffChars(src_text, new_text);
+
+	let diff_arr = diff
+		.reduce(function (a, part)
+		{
+			let color = part.added ? 'green' :
+				part.removed ? 'red' : 'grey';
+
+			let t = console[color].chalk(part.value);
+
+			a.push(t);
+
+			return a;
+		}, [])
+	;
+
+	return diff_arr.join('');
+}
