@@ -4,6 +4,7 @@
 
 import * as Promise from 'bluebird';
 import * as fs from "fs-extra";
+import POSTAG from 'novel-segment/lib/POSTAG';
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
 import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
@@ -245,7 +246,7 @@ Promise
 				}
 			}
 
-			if (1 && USE_CJK)
+			if (0 && USE_CJK)
 			{
 				let ta = CACHE_TABLE_CJK[cjk_id];
 
@@ -283,6 +284,11 @@ Promise
 			}
 
 			if (0 && w != '博物馆' && w.match(/博物馆/))
+			{
+				bool = true;
+			}
+
+			if (1 && p == POSTAG.A_NR)
 			{
 				bool = true;
 			}

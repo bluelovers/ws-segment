@@ -92,6 +92,7 @@
     "@types/node": "^10.9.4",
     "cjk-conv": "^1.0.100",
     "debug-color2": "^1.0.6",
+    "novel-segment": "^2.0.45",
     "string-natural-compare": "^2.0.2"
   }
 }
