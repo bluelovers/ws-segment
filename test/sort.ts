@@ -42,7 +42,7 @@ let CACHE_TABLE_CJK = {} as {
 	[k: string]: ICUR_WORD[];
 };
 
-const USE_CJK = true;
+const USE_CJK = false;
 
 Promise
 	.resolve(FastGlob([
@@ -338,7 +338,7 @@ Promise
 		}
 		else
 		{
-			sortList(fa);
+			sortList(fa, true);
 		}
 
 		fa = fa.map(function (d)
@@ -355,7 +355,7 @@ Promise
 	})
 ;
 
-function sortList(ls: ICUR_WORD[])
+function sortList(ls: ICUR_WORD[], bool?: boolean)
 {
 	return ls.sort(function (a, b)
 	{
