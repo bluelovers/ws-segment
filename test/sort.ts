@@ -18,6 +18,8 @@ let fa = [];
 
 let cwd = path.join(ProjectConfig.dict_root, 'segment');
 
+let CACHE_TABLE = {};
+
 Promise
 	.resolve(FastGlob([
 
@@ -75,6 +77,12 @@ Promise
 
 			let [w, p, f] = data;
 
+			let CUR_WORD = {
+				w,
+				p,
+				f,
+			};
+
 			if (0 && UString.size(data[0]) == 1)
 			{
 
@@ -107,6 +115,38 @@ Promise
 				}
 			}
 
+			if (w.indexOf('，'))
+			{
+				let aa = w.split('，');
+
+				if (aa.length > 1)
+				{
+					let bb: boolean;
+
+					for (let k of aa)
+					{
+						if (k in CACHE_TABLE)
+						{
+							bb = true;
+						}
+						else
+						{
+							bb = false;
+							break;
+						}
+					}
+
+					if (bb)
+					{
+						bool = true;
+					}
+					else
+					{
+						console.red(line);
+					}
+				}
+			}
+
 			if (0 && w != '博物馆' && w.match(/博物馆/))
 			{
 				bool = true;
@@ -126,6 +166,8 @@ Promise
 
 				return false;
 			}
+
+			CACHE_TABLE[w] = CUR_WORD;
 
 			return true;
 		});
