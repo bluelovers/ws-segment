@@ -6,6 +6,9 @@ import * as Promise from 'bluebird';
 import * as fs from "fs-extra";
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
+import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
+import libTable from 'cjk-conv/lib/zh/table';
+import naturalCompare = require('string-natural-compare');
 
 import UString from "uni-string";
 import FastGlob from "fast-glob";
@@ -26,6 +29,7 @@ export interface ICUR_WORD
 	index: number,
 	line: string,
 	file: string,
+	cjk_id: string,
 }
 
 let CACHE_TABLE = {} as {
@@ -34,6 +38,11 @@ let CACHE_TABLE = {} as {
 let CACHE_FILE_TABLE = {} as {
 	[k: string]: ICUR_WORD[];
 };
+let CACHE_TABLE_CJK = {} as {
+	[k: string]: ICUR_WORD[];
+};
+
+const USE_CJK = true;
 
 Promise
 	.resolve(FastGlob([
@@ -94,11 +103,25 @@ Promise
 
 			let [w, p, f] = data;
 
+			let cjk_id = w;
+
+			if (USE_CJK)
+			{
+				let cjk_list = textList(w);
+				cjk_id = cjk_list[0];
+			}
+			else
+			{
+				let cjk_list = libTable.auto(w);
+				cjk_id = cjk_list[0];
+			}
+
 			let CUR_WORD = {
 				data,
 				index,
 				line,
 				file,
+				cjk_id,
 			};
 
 			CACHE_FILE_TABLE[file].push(CUR_WORD);
@@ -106,6 +129,13 @@ Promise
 			CACHE_TABLE[w] = CACHE_TABLE[w] || [];
 
 			CACHE_TABLE[w].push(CUR_WORD);
+
+			if (USE_CJK)
+			{
+				CACHE_TABLE_CJK[cjk_id] = CACHE_TABLE_CJK[cjk_id] || [];
+
+				CACHE_TABLE_CJK[cjk_id].push(CUR_WORD);
+			}
 
 			return true;
 		});
@@ -121,8 +151,10 @@ Promise
 
 		let b_len = b.length;
 
-		b = b.filter(function ({ data, line, index })
+		b = b.filter(function (current_data)
 		{
+			let { data, line, index, cjk_id } = current_data;
+
 			//let data = parseLineSegment(line);
 
 			let bool: boolean;
@@ -132,10 +164,7 @@ Promise
 			if (0 && UString.size(data[0]) == 1)
 			{
 
-				fa.push({
-					data,
-					line,
-				});
+				fa.push(current_data);
 
 				return false;
 			}
@@ -195,7 +224,7 @@ Promise
 				}
 			}
 
-			if (1 && w in CACHE_TABLE)
+			if (0 && w in CACHE_TABLE)
 			{
 				let ta = CACHE_TABLE[w];
 
@@ -205,14 +234,51 @@ Promise
 
 					if (ta0.file != file)
 					{
-						console.red(w, index, line, _basepath);
+						//console.red(w, index, line, _basepath);
 						bool = true;
 					}
 					else if (ta0.index != index)
 					{
-						console.red(w, index, line, _basepath);
+						//console.red(w, index, line, _basepath);
 						bool = true;
 					}
+				}
+			}
+
+			if (1 && USE_CJK)
+			{
+				let ta = CACHE_TABLE_CJK[cjk_id];
+
+				if (ta && ta.length > 1)
+				{
+					if (!p)
+					{
+						ta.some(function (a)
+						{
+							if (a.data[1])
+							{
+								let ps = '0x' + a.data[1]
+									.toString(16)
+									.padStart(4, '0')
+									.toUpperCase()
+								;
+
+								f = a.data[2];
+
+								current_data.line = [
+									w,
+									ps,
+									f,
+									...data.slice(3)
+								].join('|');
+
+								return true;
+							}
+						})
+					}
+
+					console.red(w);
+					bool = true;
 				}
 			}
 
@@ -228,10 +294,7 @@ Promise
 
 			if (bool)
 			{
-				fa.push({
-					data,
-					line,
-				});
+				fa.push(current_data);
 
 				return false;
 			}
@@ -239,11 +302,13 @@ Promise
 			return true;
 		});
 
+		sortList(b);
+
 		let c = b
 			.map(v => v.line)
 		;
 
-		c.sort();
+		//c.sort(naturalCompare.caseInsensitive);
 
 		let method = 'debug';
 
@@ -271,6 +336,10 @@ Promise
 				return (a.data[1] - b.data[1]) || (a.data[0] - b.data[0]);
 			});
 		}
+		else
+		{
+			sortList(fa);
+		}
 
 		fa = fa.map(function (d)
 		{
@@ -285,3 +354,15 @@ Promise
 		await fs.outputFile(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
 	})
 ;
+
+function sortList(ls: ICUR_WORD[])
+{
+	return ls.sort(function (a, b)
+	{
+		return naturalCompare.caseInsensitive(a.cjk_id, b.cjk_id)
+			|| naturalCompare.caseInsensitive(b.data[1], a.data[1])
+			|| naturalCompare.caseInsensitive(a.data[0], b.data[0])
+			|| naturalCompare.caseInsensitive(a.data[2], b.data[2])
+			;
+	});
+}

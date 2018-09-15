@@ -90,6 +90,8 @@
   "devDependencies": {
     "@types/bluebird": "^3.5.24",
     "@types/node": "^10.9.4",
-    "debug-color2": "^1.0.6"
+    "cjk-conv": "^1.0.100",
+    "debug-color2": "^1.0.6",
+    "string-natural-compare": "^2.0.2"
   }
 }
