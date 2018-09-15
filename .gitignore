@@ -23,3 +23,5 @@ package-lock.json
 /test/temp
 /demo/
 /segment-dict.iml
+/test/
+/test/*.temp*

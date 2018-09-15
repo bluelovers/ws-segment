@@ -5,7 +5,7 @@
 import * as Promise from 'bluebird';
 import * as fs from "fs-extra";
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
-import { parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
+import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
 
 import UString from "uni-string";
 import FastGlob from "fast-glob";
@@ -18,7 +18,21 @@ let fa = [];
 
 let cwd = path.join(ProjectConfig.dict_root, 'segment');
 
-let CACHE_TABLE = {};
+export type ICUR_WORD_DATA = [string, number, number];
+
+export interface ICUR_WORD
+{
+	data: [string, number, number],
+	line: string,
+	file: string,
+}
+
+let CACHE_TABLE = {} as {
+	[k: string]: ICUR_WORD[];
+};
+let CACHE_FILE_TABLE = {} as {
+	[k: string]: ICUR_WORD[];
+};
 
 Promise
 	.resolve(FastGlob([
@@ -69,19 +83,49 @@ Promise
 
 		let b = await load(file);
 
+		CACHE_FILE_TABLE[file] = [];
+
 		b = b.filter(function (line)
 		{
-			let data = parseLineSegment(line);
+			let data = parseLineSegment(line) as ICUR_WORD_DATA;
 
 			let bool: boolean;
 
 			let [w, p, f] = data;
 
 			let CUR_WORD = {
-				w,
-				p,
-				f,
+				data,
+				line,
+				file,
 			};
+
+			CACHE_FILE_TABLE[file].push(CUR_WORD);
+
+			CACHE_TABLE[w] = CACHE_TABLE[w] || [];
+
+			CACHE_TABLE[w].push(CUR_WORD);
+
+			return true;
+		});
+
+		return file;
+	})
+	.map(async function (file: string, ls_index, ls_len)
+	{
+		let _basepath = path.relative(cwd, file);
+
+		//let b = await load(file);
+		let b = CACHE_FILE_TABLE[file];
+
+		let b_len = b.length;
+
+		b = b.filter(function ({ data, line })
+		{
+			//let data = parseLineSegment(line);
+
+			let bool: boolean;
+
+			let [w, p, f] = data;
 
 			if (0 && UString.size(data[0]) == 1)
 			{
@@ -115,8 +159,10 @@ Promise
 				}
 			}
 
-			if (w.indexOf('，'))
+			if (1 && !bool && w.indexOf('，'))
 			{
+				// 清理多餘片語
+
 				let aa = w.split('，');
 
 				if (aa.length > 1)
@@ -167,16 +213,27 @@ Promise
 				return false;
 			}
 
-			CACHE_TABLE[w] = CUR_WORD;
-
 			return true;
 		});
 
-		b.sort();
+		let c = b
+			.map(v => v.line)
+		;
 
-		await fs.writeFile(file, serialize(b) + "\n\n");
+		c.sort();
 
-		console.ok(_basepath);
+		let method = 'debug';
+
+		if (b.length != b_len)
+		{
+			method = 'ok';
+		}
+
+		let out = serialize(c) + "\n\n";
+
+		await fs.writeFile(file, out);
+
+		console[method](_basepath, `${ls_index} / ${ls_len}`);
 
 		return b;
 	})
