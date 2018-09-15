@@ -23,6 +23,7 @@ export type ICUR_WORD_DATA = [string, number, number];
 export interface ICUR_WORD
 {
 	data: [string, number, number],
+	index: number,
 	line: string,
 	file: string,
 }
@@ -85,7 +86,7 @@ Promise
 
 		CACHE_FILE_TABLE[file] = [];
 
-		b = b.filter(function (line)
+		b = b.filter(function (line, index)
 		{
 			let data = parseLineSegment(line) as ICUR_WORD_DATA;
 
@@ -95,6 +96,7 @@ Promise
 
 			let CUR_WORD = {
 				data,
+				index,
 				line,
 				file,
 			};
@@ -119,7 +121,7 @@ Promise
 
 		let b_len = b.length;
 
-		b = b.filter(function ({ data, line })
+		b = b.filter(function ({ data, line, index })
 		{
 			//let data = parseLineSegment(line);
 
@@ -159,7 +161,7 @@ Promise
 				}
 			}
 
-			if (1 && !bool && w.indexOf('，'))
+			if (0 && !bool && w.indexOf('，'))
 			{
 				// 清理多餘片語
 
@@ -189,6 +191,27 @@ Promise
 					else
 					{
 						console.red(line);
+					}
+				}
+			}
+
+			if (1 && w in CACHE_TABLE)
+			{
+				let ta = CACHE_TABLE[w];
+
+				if (ta.length > 1)
+				{
+					let ta0 = ta[0];
+
+					if (ta0.file != file)
+					{
+						console.red(w, index, line, _basepath);
+						bool = true;
+					}
+					else if (ta0.index != index)
+					{
+						console.red(w, index, line, _basepath);
+						bool = true;
 					}
 				}
 			}
