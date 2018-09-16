@@ -5,6 +5,7 @@
 import * as Promise from 'bluebird';
 import * as fs from "fs-extra";
 import POSTAG from 'novel-segment/lib/POSTAG';
+import zhRegExp from 'regexp-cjk';
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
 import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
@@ -19,6 +20,7 @@ import { console } from "debug-color2";
 import ProjectConfig from "../project.config";
 
 let fa = [];
+let fa2 = [];
 
 let cwd = path.join(ProjectConfig.dict_root, 'segment');
 
@@ -164,12 +166,12 @@ Promise
 
 			if (0 && UString.size(data[0]) == 1)
 			{
-
-				fa.push(current_data);
+				fa2.push(current_data);
 
 				return false;
 			}
 
+			if (!bool)
 			{
 				let s: string;
 
@@ -188,6 +190,10 @@ Promise
 				if (1 && s && w != s && w.indexOf(s) == 0)
 				{
 					bool = true;
+
+					fa2.push(current_data);
+
+					return false;
 				}
 			}
 
@@ -225,7 +231,7 @@ Promise
 				}
 			}
 
-			if (0 && w in CACHE_TABLE)
+			if (0 && !bool && w in CACHE_TABLE)
 			{
 				let ta = CACHE_TABLE[w];
 
@@ -246,7 +252,7 @@ Promise
 				}
 			}
 
-			if (0 && USE_CJK)
+			if (0 && !bool && USE_CJK)
 			{
 				let ta = CACHE_TABLE_CJK[cjk_id];
 
@@ -283,17 +289,22 @@ Promise
 				}
 			}
 
-			if (0 && w != '博物馆' && w.match(/博物馆/))
+			if (0 && !bool && zhRegExp.create(/採|采|埰|彩/).test(w))
 			{
 				bool = true;
 			}
 
-			if (0 && p == POSTAG.A_NR)
+			if (0 && !bool && w != '博物馆' && w.match(/博物馆/))
 			{
 				bool = true;
 			}
 
-			if (0 && data[1] & 0x08)
+			if (0 && !bool && p == POSTAG.A_NR)
+			{
+				bool = true;
+			}
+
+			if (0 && !bool && data[1] & 0x08)
 			{
 				bool = true;
 			}
@@ -352,12 +363,19 @@ Promise
 			return d.line;
 		});
 
+		fa2 = sortList(fa2, true).map(function (d)
+		{
+			return d.line;
+		});
+
 		if (0)
 		{
 			fa.sort();
 		}
 
 		await fs.outputFile(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
+
+		await fs.appendFile(path.join(ProjectConfig.temp_root, 'skip.txt'), "\n\n" + serialize(fa2) + "\n\n");
 	})
 ;
 
