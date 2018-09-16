@@ -288,7 +288,7 @@ Promise
 				bool = true;
 			}
 
-			if (1 && p == POSTAG.A_NR)
+			if (0 && p == POSTAG.A_NR)
 			{
 				bool = true;
 			}
