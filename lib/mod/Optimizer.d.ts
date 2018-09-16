@@ -8,8 +8,8 @@ export declare type ISubOptimizerCreate<T extends SubSModuleOptimizer, R extends
     (segment: Segment, ...argv: any[]): T & R;
 };
 export declare class SubSModuleOptimizer extends SubSModule implements ISubOptimizer {
-    static readonly type: string;
-    readonly type: string;
+    static readonly type = "optimizer";
+    readonly type = "optimizer";
     doOptimize(words: IWord[], ...argv: any[]): IWord[];
     init(segment: Segment, ...argv: any[]): this;
     static init<T extends SubSModuleOptimizer = SubSModuleOptimizer>(segment: Segment, ...argv: any[]): T;

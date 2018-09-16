@@ -13,8 +13,8 @@ export declare type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends
     (segment: Segment, ...argv: any[]): T & R;
 };
 export declare abstract class SubSModuleTokenizer extends SubSModule implements ISubTokenizer {
-    static readonly type: string;
-    readonly type: string;
+    static readonly type = "tokenizer";
+    readonly type = "tokenizer";
     abstract split(words: IWord[], ...argv: any[]): IWord[];
     init(segment: Segment, ...argv: any[]): this;
     static init<T extends SubSModuleTokenizer = SubSModuleTokenizer>(segment: Segment, ...argv: any[]): T;
