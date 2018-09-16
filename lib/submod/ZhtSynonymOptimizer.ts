@@ -224,6 +224,8 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				{
 					if (w0 && w2)
 					{
+						let w3: IWord;
+
 						if (hexAndAny(w0.p,
 							POSTAG.D_V,
 							POSTAG.D_R,
@@ -242,6 +244,23 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							w1.p = new_p;
 
 							bool = true;
+						}
+						else if (w3 = words[i + 2])
+						{
+							if (
+								w0.p & POSTAG.D_V
+								&& w2.p & POSTAG.D_D
+								&& w3.p & POSTAG.D_V
+							)
+							{
+								w1.ow = w1.w;
+								w1.w = '於';
+
+								new_p = POSTAG.D_P;
+								w1.p = new_p;
+
+								bool = true;
+							}
 						}
 					}
 				}
