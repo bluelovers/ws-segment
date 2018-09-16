@@ -2,7 +2,7 @@
  * Created by user on 2018/4/14/014.
  */
 
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import * as fs from "fs-extra";
 import POSTAG from 'novel-segment/lib/POSTAG';
 import zhRegExp from 'regexp-cjk';

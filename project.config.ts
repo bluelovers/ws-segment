@@ -11,5 +11,6 @@ export const dict_root = path.join(project_root, 'dict');
 //export const dist_root = path.join(project_root, 'dist');
 export const temp_root = path.join(project_root, 'test/temp');
 
-import * as self from './project.config';
-export default self;
+import * as ProjectConfig from './project.config';
+export { ProjectConfig }
+export default ProjectConfig;
