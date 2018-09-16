@@ -41,7 +41,7 @@ export function useDefault(segment: Segment, options: {
 		//.loadDict('synonym/后')
 		//.loadDict('synonym/參')
 		//.loadDict('synonym/发')
-		.loadDict('synonym/*')
+		.loadDict('dict_synonym/*')
 
 		//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
 		.loadSynonymDict('synonym')   // 同义词
