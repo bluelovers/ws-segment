@@ -1,8 +1,8 @@
 import { console } from "debug-color2";
 import * as fs from "fs-extra";
 import * as path from "upath2";
-import { serialize } from '../../lib/loader/line';
-import ProjectConfig from "../../project.config";
+import { serialize } from '../lib/loader/line';
+import ProjectConfig from "../project.config";
 
 import { chkLineType, EnumLineType, getCjkName, globDict, ILoadDictFileRow2, loadDictFile } from './util';
 import naturalCompare = require('string-natural-compare');
@@ -17,6 +17,8 @@ let CACHE_LIST = {
 
 globDict(CWD, [
 	'dict_synonym/*.txt',
+	'names/*.txt',
+	'lazy/badword.txt',
 ])
 	.tap(function (ls: string[])
 	{

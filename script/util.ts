@@ -2,9 +2,9 @@ import libTable from 'cjk-conv/lib/zh/table';
 import { textList } from 'cjk-conv/lib/zh/table/list';
 import FastGlob from 'fast-glob';
 import BluebirdPromise = require('bluebird');
-import load, { parseLine, stringifyLine, serialize } from '../../lib/loader/line';
-import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../../lib/loader/segment';
-import { ICUR_WORD } from '../sort';
+import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
+import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment/index';
+import { ICUR_WORD } from '../test/sort';
 import naturalCompare = require('string-natural-compare');
 
 export type ILoadDictFileRow2 = ILoadDictFileRow & {
@@ -26,11 +26,7 @@ export const DEFAULT_IGNORE = [
 export function globDict(cwd: string, pattern?: string[], ignore = DEFAULT_IGNORE)
 {
 	return BluebirdPromise
-		.resolve(FastGlob<string>([
-
-			'dict_synonym/*.txt',
-
-		], {
+		.resolve(FastGlob<string>(pattern, {
 			cwd,
 			absolute: true,
 			ignore,
