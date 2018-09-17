@@ -26,3 +26,5 @@ package-lock.json
 /test/
 /test/*.temp*
 !/test/lib/
+/script/*.d.ts
+/script/*.js
