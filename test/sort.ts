@@ -68,6 +68,7 @@ Promise
 			'**/skip',
 			'**/jieba',
 			'**/lazy',
+			'**/dict_synonym',
 			'**/synonym',
 			'**/names',
 		],
@@ -289,7 +290,9 @@ Promise
 				}
 			}
 
-			if (0 && !bool && zhRegExp.create(/採|采|埰|彩/).test(w))
+			if (1 && !bool
+				&& zhRegExp.create(/斗|鬥/).test(w)
+			)
 			{
 				bool = true;
 			}

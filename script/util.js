@@ -61,7 +61,7 @@ function chkLineType(line) {
     let ret = EnumLineType.BASE;
     if (line.indexOf('//') == 0) {
         ret = EnumLineType.COMMENT;
-        if (/ @todo /i.test(line)) {
+        if (/ @todo/i.test(line)) {
             ret = EnumLineType.COMMENT_TAG;
         }
     }

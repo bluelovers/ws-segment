@@ -97,7 +97,7 @@ export function chkLineType(line: string): EnumLineType
 	{
 		ret = EnumLineType.COMMENT;
 
-		if (/ @todo /i.test(line))
+		if (/ @todo/i.test(line))
 		{
 			ret = EnumLineType.COMMENT_TAG;
 		}
