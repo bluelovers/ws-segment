@@ -2,6 +2,7 @@
 
 import yargs = require('yargs');
 import { processFile, processText, SegmentCliError } from '../index';
+import { checkUpdateSelf, checkUpdate } from '../lib/ncu';
 import { console } from '../lib/util';
 import bluebird = require('bluebird');
 import path = require('upath2');
@@ -62,6 +63,23 @@ cli_argv = yargs
 let err: Error | SegmentCliError;
 
 bluebird.resolve()
+	.tap(function ()
+	{
+		if (!cli_argv.text)
+		{
+			let k = [
+					checkUpdateSelf(),
+					checkUpdate('novel-segment'),
+					checkUpdate('segment-dict'),
+				]
+				.forEach(function (data)
+				{
+					data.notify();
+				})
+			;
+		}
+	})
+	.catchReturn(null)
 	.then(async function ()
 	{
 		if (cli_argv.text)
@@ -130,7 +148,7 @@ bluebird.resolve()
 
 						return p
 							.catch(setError)
-						;
+							;
 					})
 					;
 			}
