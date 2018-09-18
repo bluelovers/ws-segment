@@ -1,0 +1,42 @@
+{
+  "name": "novel-segment-cli",
+  "version": "1.0.0",
+  "description": "novel-segment cli",
+  "homepage": "https://github.com/bluelovers/novel-segment-cli#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/novel-segment-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/novel-segment-cli.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "bin": {
+    "novel-segment-cli": "novel-segment-cli.js"
+  },
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/bluebird": "^3.5.24",
+    "bluebird": "^3.5.2",
+    "cacache": "^11.2.0",
+    "crlf-normalize": "^1.0.2",
+    "debug-color2": "^1.0.6",
+    "diff": "^3.5.0",
+    "find-cache-dir": "^2.0.0",
+    "fs-extra": "^7.0.0",
+    "node-alias": "^1.0.4",
+    "novel-segment": "^2",
+    "npm-check-updates": "^2.14.2",
+    "prettyuse": "^0.0.0",
+    "upath2": "^2.1.2",
+    "yargs": "^12.0.2"
+  },
+  "devDependencies": {}
+}
