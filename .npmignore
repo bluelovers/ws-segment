@@ -70,3 +70,5 @@ gen
 
 
 /readme/
+/readme/*
+/bin/*.d.ts
