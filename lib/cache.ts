@@ -1,8 +1,9 @@
 import cacache = require('cacache');
-import { getCacheDirPath } from './util';
+import { debugConsole, getCacheDirPath } from './util';
 import bluebird = require('bluebird');
 import TypedArray = NodeJS.TypedArray;
 import crypto = require('crypto');
+import * as fs from 'fs-extra';
 
 export interface ICacacheOptionsCore
 {
@@ -99,6 +100,13 @@ export class Cacache
 		}
 
 		this.cachePath = options.cachePath;
+
+		if (!fs.existsSync(this.cachePath))
+		{
+			throw new Error(`發生錯誤 快取目錄不存在 '${this.cachePath}'`);
+		}
+
+		debugConsole.debug(`cachePath: ${this.cachePath}`);
 	}
 
 	list<M>(): bluebird<ICacacheList<M>>

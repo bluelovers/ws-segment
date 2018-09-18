@@ -3,7 +3,7 @@
 import yargs = require('yargs');
 import { processFile, processText, SegmentCliError } from '../index';
 import { checkUpdateSelf, checkUpdate } from '../lib/ncu';
-import { console } from '../lib/util';
+import { console, getCacheDirPath } from '../lib/util';
 import bluebird = require('bluebird');
 import path = require('upath2');
 import * as fs from 'fs-extra';
