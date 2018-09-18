@@ -1,6 +1,6 @@
 # README
 
-   cli & lazy version for novel-segment
+   cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞
 
 ## usage
 
