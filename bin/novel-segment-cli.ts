@@ -133,7 +133,7 @@ bluebird.resolve()
 				return processFile(file)
 					.tap(async function (text)
 					{
-						console.info(`[${index}/${len}]`, file);
+						console.info(`[${index+1}/${len}]`, file);
 
 						let p: Promise<any>;
 

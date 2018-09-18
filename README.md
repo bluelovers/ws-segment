@@ -5,6 +5,7 @@
 ## usage
 
 ```
+npm install -g novel-segment-cli
 npx novel-segment-cli --file input.txt --outDir output_dir
 ```
 
