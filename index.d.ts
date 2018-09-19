@@ -16,7 +16,7 @@ export declare function processText(text: string, options?: ISegmentOptions): bl
 export declare function processFile(file: string, options?: ISegmentOptions): bluebird<string>;
 export declare class SegmentCliError extends Error {
 }
-export declare function readFile(file: string): Promise<Buffer>;
+export declare function readFile(file: string): bluebird<Buffer>;
 export declare function getCacache(): bluebird<Cacache>;
 export declare function getSegment(disableCache?: boolean): bluebird<import("novel-segment/lib/Segment").Segment>;
 export interface IDataCacheInfo {

@@ -11,6 +11,7 @@ const util_1 = require("./lib/util");
 exports.enableDebug = util_1.enableDebug;
 const PACKAGE_JSON = require("./package.json");
 const util_2 = require("novel-segment/lib/util");
+const iconv = require("iconv-jschardet");
 let CACHED_SEGMENT;
 let CACHED_CACACHE;
 const DB_KEY = 'cache.db';
@@ -63,11 +64,27 @@ exports.processFile = processFile;
 class SegmentCliError extends Error {
 }
 exports.SegmentCliError = SegmentCliError;
-async function readFile(file) {
-    if (!fs.existsSync(file)) {
-        throw new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
-    }
-    return fs.readFile(file);
+function readFile(file) {
+    return new bluebird((resolve, reject) => {
+        if (!fs.existsSync(file)) {
+            let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
+            reject(e);
+        }
+        else {
+            fs.readFile(file).then(resolve);
+        }
+    })
+        .tap(function (buf) {
+        if (!buf.length) {
+            util_1.console.warn(`此檔案無內容`, file);
+        }
+        else {
+            let chk = iconv.detect(buf);
+            if (chk.encoding != 'UTF-8' && chk.encoding != 'ascii') {
+                util_1.console.warn('此檔案可能不是 UTF8 請檢查編碼或利用 MadEdit 等工具轉換', chk, file);
+            }
+        }
+    });
 }
 exports.readFile = readFile;
 function getCacache() {

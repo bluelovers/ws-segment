@@ -8,6 +8,7 @@ import { Cacache } from './lib/cache';
 import { console, debugConsole, getCacheDirPath, enableDebug } from './lib/util';
 import PACKAGE_JSON = require('./package.json');
 import { debug_token } from 'novel-segment/lib/util'
+import * as iconv from 'iconv-jschardet';
 
 let CACHED_SEGMENT: import("novel-segment/lib/Segment").Segment;
 let CACHED_CACACHE: Cacache;
@@ -94,14 +95,38 @@ export class SegmentCliError extends Error
 
 }
 
-export async function readFile(file: string)
+export function readFile(file: string): bluebird<Buffer>
 {
-	if (!fs.existsSync(file))
+	return new bluebird<Buffer>((resolve, reject) =>
 	{
-		throw new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
-	}
+		if (!fs.existsSync(file))
+		{
+			let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
+			reject(e)
+		}
+		else
+		{
 
-	return fs.readFile(file);
+			fs.readFile(file).then(resolve);
+		}
+	})
+		.tap(function (buf)
+		{
+			if (!buf.length)
+			{
+				console.warn(`此檔案無內容`, file);
+			}
+			else
+			{
+				let chk = iconv.detect(buf);
+
+				if (chk.encoding != 'UTF-8' && chk.encoding != 'ascii')
+				{
+					console.warn('此檔案可能不是 UTF8 請檢查編碼或利用 MadEdit 等工具轉換', chk, file);
+				}
+			}
+		})
+		;
 }
 
 export function getCacache()
@@ -165,7 +190,8 @@ export function getSegment(disableCache?: boolean)
 				)
 				{
 					Object.keys(version)
-						.some(key => {
+						.some(key =>
+						{
 							let bool = _info[key] != version[key];
 
 							if (bool)
@@ -295,7 +321,7 @@ export function loadCacheInfo()
 					{
 						return ret.json;
 					})
-					;
+				;
 			}
 
 			data = data || {};
@@ -316,7 +342,7 @@ export function loadCacheDb(disableCache?: boolean): bluebird<IDataCache>
 	{
 		return bluebird
 			.resolve(null)
-		;
+			;
 	}
 
 	return bluebird
@@ -339,7 +365,7 @@ export function loadCacheDb(disableCache?: boolean): bluebird<IDataCache>
 					{
 						return ret.json;
 					})
-				;
+					;
 			}
 
 			return null;
