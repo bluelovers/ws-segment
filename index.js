@@ -87,18 +87,31 @@ function readFile(file) {
     });
 }
 exports.readFile = readFile;
-function getCacache() {
+function fixOptions(options) {
+    return options || {};
+}
+exports.fixOptions = fixOptions;
+function getCacache(options) {
     if (!CACHED_CACACHE) {
-        CACHED_CACACHE = new cache_1.Cacache();
+        if (options && options.useGlobalCache) {
+            CACHED_CACACHE = new cache_1.Cacache({
+                useGlobalCache: options.useGlobalCache,
+            });
+        }
+        else {
+            CACHED_CACACHE = new cache_1.Cacache();
+        }
     }
     return bluebird.resolve(CACHED_CACACHE);
 }
 exports.getCacache = getCacache;
-function getSegment(disableCache) {
+function getSegment(options) {
+    options = fixOptions(options);
+    let { disableCache } = options;
     return bluebird
         .resolve()
         .then(async function () {
-        await getCacache();
+        await getCacache(options);
         if (!CACHED_SEGMENT) {
             CACHED_SEGMENT = new novel_segment_1.default({
                 autoCjk: true,
@@ -106,19 +119,19 @@ function getSegment(disableCache) {
                     convertSynonym: true,
                 },
             });
-            let options = {
+            let _options = {
                 /**
                  * 開啟 all_mod 才會在自動載入時包含 ZhtSynonymOptimizer
                  */
                 all_mod: true,
             };
-            let _info = await loadCacheInfo();
+            let _info = await loadCacheInfo(options);
             let version = {
                 [PACKAGE_JSON.name]: PACKAGE_JSON.version,
                 'novel-segment': novel_segment_1.default.version,
                 'segment-dict': novel_segment_1.default.version_dict,
             };
-            let cache_db = await loadCacheDb(disableCache);
+            let cache_db = await loadCacheDb(options);
             let _do_init;
             if (disableCache) {
                 _do_init = true;
@@ -148,7 +161,7 @@ function getSegment(disableCache) {
             }
             if (typeof _do_init == 'undefined' || _do_init) {
                 util_1.debugConsole.debug(`重新載入分析字典`);
-                CACHED_SEGMENT.autoInit(options);
+                CACHED_SEGMENT.autoInit(_options);
                 _do_init = true;
             }
             let db_dict = CACHED_SEGMENT.getDictDatabase('TABLE', true);
@@ -179,11 +192,11 @@ function getSegment(disableCache) {
     });
 }
 exports.getSegment = getSegment;
-function loadCacheInfo() {
+function loadCacheInfo(options) {
     return bluebird
         .resolve()
         .then(async function () {
-        await getCacache();
+        await getCacache(options);
         let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY_INFO);
         let data;
         if (has_cache_db) {
@@ -202,7 +215,9 @@ function loadCacheInfo() {
     });
 }
 exports.loadCacheInfo = loadCacheInfo;
-function loadCacheDb(disableCache) {
+function loadCacheDb(options) {
+    options = fixOptions(options);
+    let { disableCache } = options;
     if (disableCache) {
         return bluebird
             .resolve(null);
@@ -210,7 +225,7 @@ function loadCacheDb(disableCache) {
     return bluebird
         .resolve()
         .then(async function () {
-        await getCacache();
+        await getCacache(options);
         let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY, {
             ttl: DB_TTL,
         });

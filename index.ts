@@ -19,15 +19,18 @@ const DB_TTL = 3600 * 1000;
 
 export { enableDebug, stringify }
 
-export interface ISegmentOptions
+export interface ISegmentCLIOptions
 {
 	/**
 	 * 格式化分行符號
 	 */
-	crlf: string | boolean,
+	crlf?: string | boolean,
+
+	useGlobalCache?: boolean,
+	disableCache?: boolean,
 }
 
-export function textSegment(text: string, options?: ISegmentOptions)
+export function textSegment(text: string, options?: ISegmentCLIOptions)
 {
 	return getSegment()
 		.then(function (segment)
@@ -41,7 +44,7 @@ export function textSegment(text: string, options?: ISegmentOptions)
 		;
 }
 
-export function fileSegment(file: string, options?: ISegmentOptions)
+export function fileSegment(file: string, options?: ISegmentCLIOptions)
 {
 	return bluebird.resolve(readFile(file))
 		.then(function (buf)
@@ -51,7 +54,7 @@ export function fileSegment(file: string, options?: ISegmentOptions)
 		;
 }
 
-export function processText(text: string, options?: ISegmentOptions)
+export function processText(text: string, options?: ISegmentCLIOptions)
 {
 	return textSegment(text, options)
 		.then(function (data)
@@ -80,7 +83,7 @@ export function processText(text: string, options?: ISegmentOptions)
 		;
 }
 
-export function processFile(file: string, options?: ISegmentOptions)
+export function processFile(file: string, options?: ISegmentCLIOptions)
 {
 	return bluebird.resolve(readFile(file))
 		.then(function (buf)
@@ -129,23 +132,40 @@ export function readFile(file: string): bluebird<Buffer>
 		;
 }
 
-export function getCacache()
+export function fixOptions(options?: ISegmentCLIOptions): ISegmentCLIOptions
+{
+	return options || {};
+}
+
+export function getCacache(options?: ISegmentCLIOptions)
 {
 	if (!CACHED_CACACHE)
 	{
-		CACHED_CACACHE = new Cacache();
+		if (options && options.useGlobalCache)
+		{
+			CACHED_CACACHE = new Cacache({
+				useGlobalCache: options.useGlobalCache,
+			});
+		}
+		else
+		{
+			CACHED_CACACHE = new Cacache();
+		}
 	}
 
 	return bluebird.resolve(CACHED_CACACHE);
 }
 
-export function getSegment(disableCache?: boolean)
+export function getSegment(options?: ISegmentCLIOptions)
 {
+	options = fixOptions(options);
+	let { disableCache } = options;
+
 	return bluebird
 		.resolve()
 		.then(async function ()
 		{
-			await getCacache();
+			await getCacache(options);
 
 			if (!CACHED_SEGMENT)
 			{
@@ -159,14 +179,14 @@ export function getSegment(disableCache?: boolean)
 					},
 				});
 
-				let options = {
+				let _options = {
 					/**
 					 * 開啟 all_mod 才會在自動載入時包含 ZhtSynonymOptimizer
 					 */
 					all_mod: true,
 				};
 
-				let _info = await loadCacheInfo();
+				let _info = await loadCacheInfo(options);
 
 				let version = {
 					[PACKAGE_JSON.name]: PACKAGE_JSON.version,
@@ -174,7 +194,7 @@ export function getSegment(disableCache?: boolean)
 					'segment-dict': Segment.version_dict,
 				};
 
-				let cache_db = await loadCacheDb(disableCache);
+				let cache_db = await loadCacheDb(options);
 
 				let _do_init: boolean;
 
@@ -228,7 +248,7 @@ export function getSegment(disableCache?: boolean)
 				{
 					debugConsole.debug(`重新載入分析字典`);
 
-					CACHED_SEGMENT.autoInit(options);
+					CACHED_SEGMENT.autoInit(_options);
 
 					_do_init = true;
 				}
@@ -301,13 +321,13 @@ export interface IDataCache
 	DICT?: any,
 }
 
-export function loadCacheInfo()
+export function loadCacheInfo(options?: ISegmentCLIOptions)
 {
 	return bluebird
 		.resolve()
 		.then(async function ()
 		{
-			await getCacache();
+			await getCacache(options);
 
 			let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY_INFO);
 
@@ -336,8 +356,11 @@ export function loadCacheInfo()
 		;
 }
 
-export function loadCacheDb(disableCache?: boolean): bluebird<IDataCache>
+export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
 {
+	options = fixOptions(options);
+	let { disableCache } = options;
+
 	if (disableCache)
 	{
 		return bluebird
@@ -349,7 +372,7 @@ export function loadCacheDb(disableCache?: boolean): bluebird<IDataCache>
 		.resolve()
 		.then(async function ()
 		{
-			await getCacache();
+			await getCacache(options);
 
 			let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY, {
 				ttl: DB_TTL,

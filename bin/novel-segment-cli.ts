@@ -15,6 +15,7 @@ let cli_argv: yargs.Arguments & {
 	overwrite: boolean,
 	outDir: string,
 	createDir: boolean,
+	useGlobalCache: boolean,
 };
 
 // @ts-ignore
@@ -44,6 +45,9 @@ cli_argv = yargs
 		desc: `允許當目標資料夾不存在時自動建立`,
 	})
 	.option('overwrite', {
+		boolean: true,
+	})
+	.option('useGlobalCache', {
 		boolean: true,
 	})
 	.option('outDir', {
@@ -82,9 +86,13 @@ bluebird.resolve()
 	.catchReturn(null)
 	.then(async function ()
 	{
+		let options = {
+			useGlobalCache: cli_argv.useGlobalCache
+		};
+
 		if (cli_argv.text)
 		{
-			console.log(await processText(cli_argv.text));
+			console.log(await processText(cli_argv.text, options));
 		}
 		else if (cli_argv.file)
 		{
@@ -130,7 +138,7 @@ bluebird.resolve()
 
 			async function loopEach(file: string, index: number, len: number)
 			{
-				return processFile(file)
+				return processFile(file, options)
 					.tap(async function (text)
 					{
 						console.info(`[${index+1}/${len}]`, file);

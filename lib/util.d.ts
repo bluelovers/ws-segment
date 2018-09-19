@@ -2,7 +2,6 @@ import { Console } from 'debug-color2';
 export declare const console: Console;
 export declare const debugConsole: Console;
 export declare function enableDebug(bool?: boolean): boolean;
-export declare function getCacheDirPath(): string;
-export declare function getNpmCacheEnv(): string;
+export declare function getCacheDirPath(useGlobal?: boolean): string;
 import * as self from './util';
 export default self;

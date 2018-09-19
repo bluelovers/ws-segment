@@ -3,6 +3,7 @@ import path = require('path');
 import * as fs from 'fs-extra';
 import * as os from 'os';
 import { exec, execSync } from 'child_process';
+import { getCachePath, findNpmCachePath, getOSTempPath, findPkgModulePath } from 'cache-path';
 
 import { Console } from 'debug-color2';
 export const console = new Console();
@@ -38,45 +39,17 @@ export function enableDebug(bool?: boolean)
 	return debugConsole.enabled;
 }
 
-export function getCacheDirPath(): string
+export function getCacheDirPath(useGlobal?: boolean): string
 {
-	let ret = findCacheDir({
+	return getCachePath({
 		name: PACKAGE_JSON.name,
 		create: true,
+		fnOrder: useGlobal ? [
+			findNpmCachePath,
+			getOSTempPath,
+			findPkgModulePath,
+		]: null,
 	});
-
-	if (!ret)
-	{
-		let k = getNpmCacheEnv();
-
-		if (k && fs.existsSync(k))
-		{
-			ret = k;
-		}
-		else if (k = os.homedir())
-		{
-			ret = k;
-		}
-		else
-		{
-			ret = process.cwd();
-		}
-
-		if (ret)
-		{
-			ret = path.join(k, '.cache', PACKAGE_JSON.name);
-
-			fs.ensureDirSync(ret);
-		}
-	}
-
-	return ret;
-}
-
-export function getNpmCacheEnv()
-{
-	let k = execSync('npm config get cache');
-	return k.toString().trim();
 }
 
 import * as self from './util';

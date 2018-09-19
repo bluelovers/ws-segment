@@ -22,6 +22,7 @@ export interface ICacacheOptionsPlus extends ICacacheOptionsCore
 export interface ICacacheOptions extends ICacacheOptionsCore
 {
 	cachePath?: string,
+	useGlobalCache?: boolean,
 }
 
 type valueof<T> = T[keyof T]
@@ -96,7 +97,7 @@ export class Cacache
 
 		if (!options.cachePath)
 		{
-			options.cachePath = getCacheDirPath();
+			options.cachePath = getCacheDirPath(options.useGlobalCache);
 		}
 
 		this.cachePath = options.cachePath;

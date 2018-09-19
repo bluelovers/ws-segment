@@ -13,6 +13,7 @@ export interface ICacacheOptionsPlus extends ICacacheOptionsCore {
 }
 export interface ICacacheOptions extends ICacacheOptionsCore {
     cachePath?: string;
+    useGlobalCache?: boolean;
 }
 export declare type ICacacheAlgorithm = 'sha512' | string;
 export interface ICacacheIntegrity<T = ICacacheHash> {

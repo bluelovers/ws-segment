@@ -1,4 +1,4 @@
-import ncu = require('npm-check-updates');
+
 import PACKAGE_JSON = require('../package.json');
 import path = require('path');
 import updateNotifier = require('update-notifier');
