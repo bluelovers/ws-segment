@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/斗|鬥/).test(w)
+				&& zhRegExp.create(/裏|里/).test(w)
 			)
 			{
 				bool = true;
