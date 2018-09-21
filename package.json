@@ -1,6 +1,6 @@
 {
   "name": "novel-segment-cli",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞",
   "homepage": "https://github.com/bluelovers/novel-segment-cli#readme",
   "bugs": {
@@ -26,7 +26,7 @@
     "@types/bluebird": "^3.5.24",
     "bluebird": "^3.5.2",
     "cacache": "^11.2.0",
-    "cache-path": "^1.0.0",
+    "cache-path": "^1.0.1",
     "crlf-normalize": "^1.0.2",
     "debug-color2": "^1.0.6",
     "diff": "^3.5.0",
