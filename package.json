@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.0.104",
+  "version": "2.0.105",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -77,22 +77,22 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "bluebird": "^3.5.2",
+    "bluebird": "^3",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.2",
+    "crlf-normalize": "^1",
     "fast-glob": "^2.2.2",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^7",
     "split2": "^3.0.0",
     "stream-pipe": "^1.0.1",
     "through2": "^2.0.3",
-    "uni-string": "^1.0.2",
-    "upath2": "^2.1.2"
+    "uni-string": "^1",
+    "upath2": "^2"
   },
   "devDependencies": {
     "@types/bluebird": "^3",
     "@types/node": "^10",
     "cjk-conv": "^1",
-    "debug-color2": "^1.0.6",
+    "debug-color2": "^1",
     "novel-segment": "^2",
     "string-natural-compare": "^2"
   }
