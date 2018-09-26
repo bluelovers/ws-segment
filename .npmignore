@@ -1,23 +1,18 @@
 # Created by .ignore support plugin (hsz.mobi)
+
 ### npm template
 .idea
-
 ~ci.list.txt
 ~ci.log.txt
 ~ci.errors.txt
-
 *.stackdump
 *.bak
 *.old
-
 tsconfig.json
 package-lock.json
-
 test
-
 .github
 .gitkeep
-
 /.*
 /script/
 /dict/segment/jieba/
@@ -26,53 +21,50 @@ test
 *.log
 /typedoc.config.js
 ### npm2 template
-
-
-
 #package-lock.json
-
-
-
-
 tests
-
-
-
 /~*
-
 __test__
-__tests__### Example user template template
+__tests__
+### Example user template template
 ### Example user template
-
 # IntelliJ project files
 *.iml
 out
-gen### temp template
-
-
+gen
+### temp template
 /*.log
 /*.lock
-
-*.tmp### test template
+*.tmp
+### test template
 *.spec.ts
 *.spec.js
 *.spec.js.map
 *.test.ts
 *.test.js
-*.test.js.map### git2 template
-
-
-
-
+*.test.js.map
+### git2 template
 test/**/*.js
 test/**/*.d.ts
 test/*.js
 test/*.d.ts
 test/temp*
-
 tests/**/*.js
 tests/**/*.d.ts
 tests/*.js
 tests/*.d.ts
 tests/temp*
 /.travis.yml
+### jsonly template
+*.ts
+!*.d.ts
+### jsonly_bin template
+bin/*.ts
+bin/*.d.ts
+### tsonly_test template
+__test__/*.js
+__test__/*.d.ts
+__tests__/*.js
+__tests__/*.d.ts
+/dict/nodejieba/
+/dict/opencc/
