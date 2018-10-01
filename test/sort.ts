@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/塗|涂|凃/).test(w)
+				&& zhRegExp.create(/云/).test(w)
 			)
 			{
 				bool = true;
