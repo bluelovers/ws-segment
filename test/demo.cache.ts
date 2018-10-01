@@ -42,14 +42,14 @@ db_dict
 //.add(['建筑', 0x000000, 0])
 //.add(['發现', 0x1000, 10000])
 
-	.add(['不輸', 0x8001000, 1000])
+	//.add(['几處', 0x320000, 100000])
 ;
 
 console.time(`doSegment`);
 
 let text = `
 
-魔氣船一一使用操作大氣的魔法
+會做那個料理的只有发明者聖女斯諾大人
 
 `;
 
@@ -157,3 +157,5 @@ function diff_log(src_text: string, new_text: string): string
 
 	return diff_arr.join('');
 }
+
+console.log(module.parent);

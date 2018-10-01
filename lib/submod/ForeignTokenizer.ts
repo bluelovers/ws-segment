@@ -32,7 +32,7 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 		this._TABLE = this.segment.getDict('TABLE');
 
 		let arr = [
-			/[\w０-９Ａ-Ｚａ-ｚ\u0100-\u017F]+/,
+			/[\w０-９Ａ-Ｚａ-ｚ\u0100-\u017F\u00A1-\u00FF]+/,
 			/[\u0600-\u06FF\u0750-\u077F]+/,
 			/[\u0400-\u04FF]+/,
 		];
