@@ -286,6 +286,20 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						}
 					}
 					else if (
+						w1.w === (c + '发')
+						&& (w1.p & POSTAG.D_MQ)
+					)
+					{
+						// 　一发、兩发、三发、四发、五发、六发——
+
+						let nw = c + '發';
+
+						w1.ow = w1.w;
+						w1.w = nw;
+
+						bool = true;
+					}
+					else if (
 						// 不修正繁體的 發
 						w1.w === (c + '发')
 						&& (
@@ -293,7 +307,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							|| (
 								w0 && (
 									w0.p === POSTAG.D_W
-									|| COLOR_HAIR[w0.w]
+									//|| COLOR_HAIR[w0.w]
 								)
 							)
 						)
