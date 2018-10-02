@@ -35,6 +35,8 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 			/[\w０-９Ａ-Ｚａ-ｚ\u0100-\u017F\u00A1-\u00FF]+/,
 			/[\u0600-\u06FF\u0750-\u077F]+/,
 			/[\u0400-\u04FF]+/,
+			// https://unicode-table.com/cn/blocks/greek-coptic/
+			/[\u0370-\u03FF]+/,
 		];
 
 		this._REGEXP_SPLIT_1 = new RegExp('(' +_join([
