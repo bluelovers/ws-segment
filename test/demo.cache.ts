@@ -49,7 +49,7 @@ console.time(`doSegment`);
 
 let text = `
 
-　一发、兩发、三发、四发、五发、六发——
+數据
 
 `;
 
