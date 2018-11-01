@@ -226,16 +226,25 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 					{
 						let w3: IWord;
 
-						if (hexAndAny(w0.p,
-							POSTAG.D_V,
-							POSTAG.D_R,
-							POSTAG.D_A,
-						) && hexAndAny(w2.p,
-							POSTAG.D_N,
-							POSTAG.D_V,
-							POSTAG.D_R,
-							POSTAG.D_S,
-						))
+						if (
+							(hexAndAny(w0.p,
+								POSTAG.D_V,
+								POSTAG.D_R,
+								POSTAG.D_A,
+							) && hexAndAny(w2.p,
+								POSTAG.D_N,
+								POSTAG.D_V,
+								POSTAG.D_R,
+								POSTAG.D_S,
+							))
+							||
+							(hexAndAny(w0.p,
+								POSTAG.D_V,
+							) && hexAndAny(w2.p,
+								POSTAG.D_F,
+								POSTAG.D_T,
+							))
+						)
 						{
 							w1.ow = w1.w;
 							w1.w = '於';

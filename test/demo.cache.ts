@@ -49,7 +49,7 @@ console.time(`doSegment`);
 
 let text = `
 
-數据
+几縷細絲閃爍著光輝
 
 `;
 
