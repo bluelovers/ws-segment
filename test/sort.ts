@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/暱|昵/).test(w)
+				&& zhRegExp.create(/剋|克/).test(w)
 			)
 			{
 				bool = true;
