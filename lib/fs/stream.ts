@@ -29,6 +29,7 @@ export function createLoadStream<T>(file: string, options: {
 
 	options.ondata = options.ondata || function (data)
 	{
+		this.value = this.value || [];
 		this.value.push(data);
 	};
 

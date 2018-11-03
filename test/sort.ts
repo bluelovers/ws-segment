@@ -91,7 +91,7 @@ Promise
 
 		//process.exit();
 	})
-	.map(async function (file: string)
+	.mapSeries(async function (file: string)
 	{
 		let _basepath = path.relative(cwd, file);
 
@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/云/).test(w)
+				&& zhRegExp.create(/暱|昵/).test(w)
 			)
 			{
 				bool = true;
