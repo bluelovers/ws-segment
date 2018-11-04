@@ -10,7 +10,7 @@ import { IWordDebug } from '../lib/util/debug';
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
-import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
+import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
 import prettyuse = require('prettyuse');
 import { console } from 'debug-color2';
 import jsdiff = require('diff');
@@ -36,20 +36,20 @@ db_dict
 //.add(['机构团体', POSTAG.A_NT, 0])
 //.add(['名词', POSTAG.D_N, 0])
 //.add(['錯字', POSTAG.BAD, 0])
-	.add(['l10n', POSTAG.A_NX, 0])
-	.add(['i18n', POSTAG.A_NX, 0])
+	//.add(['l10n', POSTAG.A_NX, 0])
+	//.add(['i18n', POSTAG.A_NX, 0])
 //.add(['像', 0x141000, 20000])
 //.add(['建筑', 0x000000, 0])
 //.add(['發现', 0x1000, 10000])
 
-	//.add(['几處', 0x320000, 100000])
+//	.add(['发展', 0x001000, 4000])
 ;
 
 console.time(`doSegment`);
 
 let text = `
 
-几縷細絲閃爍著光輝
+追加的戰斗機正不斷從UFO里飛出來。
 
 `;
 
@@ -157,5 +157,3 @@ function diff_log(src_text: string, new_text: string): string
 
 	return diff_arr.join('');
 }
-
-console.log(module.parent);

@@ -223,7 +223,7 @@ export class Segment
 
 			if (!ls || !ls.length)
 			{
-				throw Error(`Cannot find dict file "${name}".`);
+				throw Error(`Cannot find dict glob file "${name}".`);
 			}
 
 			return ls;

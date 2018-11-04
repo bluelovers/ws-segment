@@ -33,6 +33,11 @@ pathMain = 'wenku8';
 
 novelID = 'OVERLORD不死者之王';
 
+pathMain = 'dmzj';
+pathMain_out = pathMain;
+
+novelID = '蜘蛛ですが、なにか？';
+
 NO_DEBUG = true;
 
 let cwd = _path(pathMain, novelID);
@@ -138,7 +143,7 @@ Promise
 					ks,
 				}, null, "\t"));
 
-				fs.writeFileSync(path.join(cwd_out, file) + '.2.json', JSON.stringify({
+				await fs.writeFile(path.join(cwd_out, file) + '.2.json', JSON.stringify({
 					file,
 					changed,
 					timeuse,

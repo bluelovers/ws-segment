@@ -61,6 +61,8 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('lazy/index')
 
 		.loadDict('lazy/badword')
+
+		.loadDict('pangu/wildcard', 'WILDCARD', true)
 	;
 
 	return segment;
