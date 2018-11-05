@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/只|隻/).test(w)
+				&& zhRegExp.create(/划|劃|画/).test(w)
 			)
 			{
 				bool = true;
