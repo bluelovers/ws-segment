@@ -62,6 +62,12 @@ export abstract class AbstractTableDictCore<T>
 
 	protected abstract _add(data, ...argv)
 
+	public remove?(data, ...argv): this
+	protected _remove?(data, ...argv)
+
+	public json?(...argv): IDICT<T>
+	public stringify?(...argv): string
+
 	public size(): number
 	{
 		return Object.keys(this.TABLE).length;

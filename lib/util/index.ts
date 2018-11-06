@@ -90,6 +90,11 @@ export function hexOr(n: number, ...argv: number[])
 	return n;
 }
 
+export declare function cloneDeep<T extends object | Array<any>>(data: T): T
+
+// @ts-ignore
+exports.cloneDeep = require('lodash.clonedeep');
+
 //let p = hexAnd(0x6000 | 0x8000, 0x2000, 0x4000)
 //debug(p, toHex(p));
 

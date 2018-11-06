@@ -3,14 +3,18 @@
  */
 
 import { IWord } from '../Segment';
-import { IDictRow } from 'segment-dict/lib/loader/segment';
+import { IDictRow, serialize, stringifyLine } from 'segment-dict/lib/loader/segment';
 import CjkConv from 'cjk-conv';
 import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
+import { cloneDeep } from '../util';
+
+declare function _cloneDeep<T>(data: T): T
 
 export type ITableDictRow = {
 	p: number,
 	f: number,
+	s?: boolean,
 };
 
 export { IDICT, IDICT2, IOptions }
@@ -41,13 +45,13 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		}
 		else
 		{
-			({w, p, f} = data);
+			({ w, p, f } = data);
 		}
 
 		return this.TABLE[w] || null;
 	}
 
-	add(data: IWord | IDictRow | string, skipExists?: boolean)
+	protected __handleInput(data: IWord | IDictRow | string)
 	{
 		let w: string, p: number, f: number;
 		let plus: Array<string | number>;
@@ -62,7 +66,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		}
 		else
 		{
-			({w, p, f} = data);
+			({ w, p, f } = data);
 		}
 
 		if (typeof w !== 'string' || w === '')
@@ -70,20 +74,40 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			throw new TypeError(JSON.stringify(data));
 		}
 
+		p = (typeof p != 'number' || Number.isNaN(p)) ? 0 : p;
+		f = (typeof f != 'number' || Number.isNaN(f)) ? 0 : f;
+
+		return {
+			data: {
+				w, p, f,
+			},
+			plus,
+		}
+	}
+
+	add(data: IWord | IDictRow | string, skipExists?: boolean)
+	{
+		let w: string, p: number, f: number;
+		let plus: Array<string | number>;
+
+		{
+			let ret = this.__handleInput(data);
+
+			({ w, p, f } = ret.data);
+			plus = ret.plus;
+		}
+
 		if (skipExists && this.exists(w))
 		{
 			return this;
 		}
-
-		p = (typeof p != 'number' || Number.isNaN(p)) ? 0 : p;
-		f = (typeof f != 'number' || Number.isNaN(f)) ? 0 : f;
 
 		if (plus && plus.length)
 		{
 			// @todo do something
 		}
 
-		this._add({w, p, f, s: true});
+		this._add({ w, p, f, s: true });
 
 		let self = this;
 
@@ -99,7 +123,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			{
 				if (w2 != w && !self.exists(w2))
 				{
-					self._add({w: w2, p, f});
+					self._add({ w: w2, p, f });
 				}
 			});
 
@@ -134,7 +158,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		return this;
 	}
 
-	protected _add({w, p, f, s} : {
+	protected _add({ w, p, f, s }: {
 		w: string,
 		p: number,
 		f: number,
@@ -152,6 +176,55 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		if (!this.TABLE2[len]) this.TABLE2[len] = {};
 
 		this.TABLE2[len][w] = this.TABLE[w];
+	}
+
+	remove(target: IWord | IDictRow | string)
+	{
+		let { data, plus } = this.__handleInput(target);
+
+		this._remove(data);
+
+		return this
+	}
+
+	protected _remove({ w, p, f, s }: IWord)
+	{
+		let len = w.length;
+
+		delete this.TABLE[w];
+		if (this.TABLE2[len])
+		{
+			delete this.TABLE2[len][w]
+		}
+
+		return this
+	}
+
+	json(): IDICT<ITableDictRow>
+	{
+		return cloneDeep(this.TABLE)
+	}
+
+	/**
+	 * 將目前的 表格 匯出
+	 */
+	stringify(LF = "\n")
+	{
+		let self = this;
+
+		return Object.keys(self.TABLE)
+			.reduce(function (a, w)
+			{
+				let { p, f } = self.TABLE[w];
+
+				let line = stringifyLine([w, p, f]);
+
+				a.push(line);
+
+				return a
+			}, [])
+			.join(typeof LF === 'string' ? LF : "\n")
+			;
 	}
 }
 

@@ -12,5 +12,6 @@ export declare function debug_options(argv: any[], options?: util.InspectOptions
 export declare function hexAndAny(n: number, p?: number, ...argv: number[]): number;
 export declare function hexAnd(n: number, p?: number, ...argv: number[]): number;
 export declare function hexOr(n: number, p?: number, ...argv: number[]): number;
+export declare function cloneDeep<T extends object | Array<any>>(data: T): T;
 import * as self from './index';
 export default self;

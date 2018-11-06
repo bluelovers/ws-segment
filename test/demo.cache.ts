@@ -5,7 +5,7 @@
 import { crlf } from 'crlf-normalize';
 import Segment, { POSTAG } from '../index';
 import { useDefault, getDefaultModList } from '../lib';
-import * as fs from "fs";
+import * as fs from "fs-extra";
 import { IWordDebug } from '../lib/util/debug';
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
@@ -51,7 +51,7 @@ console.time(`doSegment`);
 
 let text = `
 
-我會隻身一人來魔王城的理由，第一個是在通關之後要回到現實的時候，要是大家在身邊決心似乎會動搖。
+「今天還真是充滿驚喜的一天啊。不過回過頭來仔細想想，這架飛行器確實可以說是一個出色的發明對吧。它可以引起產業革命，不僅如此，它甚至可以改変今後戰爭的形式。」
 
 `;
 
@@ -159,3 +159,5 @@ function diff_log(src_text: string, new_text: string): string
 
 	return diff_arr.join('');
 }
+
+fs.writeFile('./temp/stringify.txt', db_dict.stringify())

@@ -94,6 +94,7 @@
     "fast-glob": "^2.2.3",
     "fs-extra": "^7.0.0",
     "hex-lib": "^1.0.2",
+    "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^2",
     "segment-dict": "^2.1.14",
     "sort-object-keys2": "^1.0.3",

@@ -7,6 +7,7 @@ import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 export declare type ITableDictRow = {
     p: number;
     f: number;
+    s?: boolean;
 };
 export { IDICT, IDICT2, IOptions };
 /**
@@ -18,6 +19,14 @@ export declare class TableDict extends AbstractTableDictCore<ITableDictRow> {
     TABLE2: IDICT2<ITableDictRow>;
     options: IOptions;
     exists(data: IWord | IDictRow | string): ITableDictRow;
+    protected __handleInput(data: IWord | IDictRow | string): {
+        data: {
+            w: string;
+            p: number;
+            f: number;
+        };
+        plus: (string | number)[];
+    };
     add(data: IWord | IDictRow | string, skipExists?: boolean): this;
     protected _add({ w, p, f, s }: {
         w: string;
@@ -25,5 +34,12 @@ export declare class TableDict extends AbstractTableDictCore<ITableDictRow> {
         f: number;
         s?: boolean;
     }): void;
+    remove(target: IWord | IDictRow | string): this;
+    protected _remove({ w, p, f, s }: IWord): this;
+    json(): IDICT<ITableDictRow>;
+    /**
+     * 將目前的 表格 匯出
+     */
+    stringify(LF?: string): string;
 }
 export default TableDict;
