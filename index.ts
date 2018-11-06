@@ -11,6 +11,14 @@ import { POSTAG } from './lib/POSTAG';
 const _Segment = Segment as typeof Segment & {
 	version: string,
 	version_dict: string,
+
+	versions: {
+		'novel-segment': string,
+		'segment-dict': string,
+		'regexp-cjk': string,
+		'cjk-conv': string,
+	},
+
 	/**
 	 * 分词接口
 	 */
@@ -25,12 +33,26 @@ const __Segment = _Segment as typeof _Segment & {
 	default: typeof _Segment,
 };
 
+// @ts-ignore
 export = __Segment;
 
-// @ts-ignore
-__Segment.version = require('./package.json').version;
-// @ts-ignore
-__Segment.version_dict = require('segment-dict/package.json').version;
+import _segment_dict = require('segment-dict');
+import _cjk_conv = require('cjk-conv');
+import _regexp_cjk = require('regexp-cjk');
+import _package_json = require('./package.json');
+
+__Segment.version = _package_json.version;
+__Segment.version_dict = _segment_dict.version;
+
+export const versions =
+
+__Segment.versions = Object.assign(__Segment.versions || {}, {
+	'novel-segment': _package_json.version,
+	'segment-dict': _segment_dict.version,
+	'regexp-cjk': _regexp_cjk.version,
+	'cjk-conv': _cjk_conv.version,
+});
+
 __Segment.POSTAG = POSTAG;
 __Segment.Segment = Segment;
 __Segment.default = __Segment;

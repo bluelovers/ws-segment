@@ -22,6 +22,8 @@ let DEBUG_EACH: boolean;
 
 //file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/wenku8/OVERLORD不死者之王/00110_短篇/00010_剧场版 特典小说 昴宿星团的一日.txt';
 
+console.log(Segment.versions);
+
 const segment = createSegment();
 
 let db_dict = getDictMain(segment);
@@ -49,7 +51,7 @@ console.time(`doSegment`);
 
 let text = `
 
-追加的戰斗機正不斷從UFO里飛出來。
+我會隻身一人來魔王城的理由，第一個是在通關之後要回到現實的時候，要是大家在身邊決心似乎會動搖。
 
 `;
 
