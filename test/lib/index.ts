@@ -135,6 +135,9 @@ export function createSegment(useCache: boolean = true)
 		}));
 
 		fs.outputJSONSync(cache_file + '.info.json', _info);
+
+		fs.writeFile(path.join(ProjectConfig.temp_root, 'stringify.txt'), db_dict.stringify())
+
 	}
 
 	return segment;

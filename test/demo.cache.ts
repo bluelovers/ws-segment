@@ -44,7 +44,7 @@ db_dict
 //.add(['建筑', 0x000000, 0])
 //.add(['發现', 0x1000, 10000])
 
-//	.add(['发展', 0x001000, 4000])
+//	.add(['一天', 0x324000, 500])
 ;
 
 console.time(`doSegment`);
@@ -160,4 +160,3 @@ function diff_log(src_text: string, new_text: string): string
 	return diff_arr.join('');
 }
 
-fs.writeFile('./temp/stringify.txt', db_dict.stringify())

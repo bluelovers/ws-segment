@@ -212,11 +212,9 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	{
 		let self = this;
 
-		return Object.keys(self.TABLE)
-			.reduce(function (a, w)
+		return Object.entries(self.TABLE)
+			.reduce(function (a, [w, { p, f }])
 			{
-				let { p, f } = self.TABLE[w];
-
 				let line = stringifyLine([w, p, f]);
 
 				a.push(line);
