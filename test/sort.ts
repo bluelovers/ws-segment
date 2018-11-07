@@ -290,7 +290,7 @@ Promise
 				}
 			}
 
-			if (1 && !bool
+			if (0 && !bool
 				&& zhRegExp.create(/划|劃|画/).test(w)
 			)
 			{
