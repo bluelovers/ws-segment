@@ -82,7 +82,7 @@ export class Segment
 		/**
 		 * 优化模块
 		 */
-		optimizer: []
+		optimizer: [],
 	} as {
 		tokenizer: ISubTokenizer[],
 		optimizer: ISubOptimizer[],
@@ -121,14 +121,20 @@ export class Segment
 
 	getDictDatabase<R extends TableDictSynonym>(type: 'SYNONYM',
 		autocreate?: boolean,
-		libTableDict?: { new(...argv): R }
+		libTableDict?: { new(...argv): R },
 	): R
 	getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
-	getDictDatabase<R extends TableDictStopword>(type: 'STOPWORD', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
-	getDictDatabase<R extends TableDictBlacklist>(type: 'BLACKLIST', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
+	getDictDatabase<R extends TableDictStopword>(type: 'STOPWORD',
+		autocreate?: boolean,
+		libTableDict?: { new(...argv): R },
+	): R
+	getDictDatabase<R extends TableDictBlacklist>(type: 'BLACKLIST',
+		autocreate?: boolean,
+		libTableDict?: { new(...argv): R },
+	): R
 	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string,
 		autocreate?: boolean,
-		libTableDict?: { new(...argv): R }
+		libTableDict?: { new(...argv): R },
 	): R
 	getDictDatabase(type: string, autocreate?: boolean, libTableDict?)
 	{
@@ -428,7 +434,7 @@ export class Segment
 				filter(line: string)
 				{
 					return line.trim();
-				}
+				},
 			})
 		;
 
@@ -473,7 +479,7 @@ export class Segment
 				filter(line: string)
 				{
 					return line.trim();
-				}
+				},
 			})
 		;
 
@@ -897,16 +903,27 @@ export class Segment
 	 * @param {Array} words 单词数组
 	 * @return {String}
 	 */
-	stringify(words: IWord[], ...argv): string
+	stringify(words: Array<IWord | string>, ...argv): string
 	{
 		return Segment.stringify(words, ...argv);
 	}
 
-	static stringify(words: IWord[], ...argv): string
+	static stringify(words: Array<IWord | string>, ...argv): string
 	{
 		return words.map(function (item)
 		{
-			return item.w;
+			if (typeof item === 'string')
+			{
+				return item;
+			}
+			else if ('w' in item)
+			{
+				return item.w;
+			}
+			else
+			{
+				throw new TypeError(`not a valid segment result list`)
+			}
 		}).join('');
 	}
 
