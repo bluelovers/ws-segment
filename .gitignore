@@ -28,3 +28,4 @@ package-lock.json
 !/test/lib/
 /script/*.d.ts
 /script/*.js
+!/test/res
