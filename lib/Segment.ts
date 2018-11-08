@@ -13,11 +13,13 @@ import * as path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
 import { useDefault } from './index';
 import POSTAG from './POSTAG';
+import TableDictBlacklist from './table/blacklist';
 import AbstractTableDictCore from './table/core';
 import { TableDict, IOptions as IOptionsTableDict, ITableDictRow } from './table/dict';
 
 import Loader from './loader';
 import { crlf, LF } from 'crlf-normalize';
+import { TableDictStopword } from './table/stopword';
 import TableDictSynonym from './table/synonym';
 import { debug, IWordDebugInfo } from './util';
 import SegmentDict from 'segment-dict';
@@ -122,6 +124,8 @@ export class Segment
 		libTableDict?: { new(...argv): R }
 	): R
 	getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
+	getDictDatabase<R extends TableDictStopword>(type: 'STOPWORD', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
+	getDictDatabase<R extends TableDictBlacklist>(type: 'BLACKLIST', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
 	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R }
@@ -130,9 +134,17 @@ export class Segment
 	{
 		if (autocreate && !this.db[type])
 		{
-			if (type == 'SYNONYM')
+			if (type == TableDictSynonym.type)
 			{
 				libTableDict = libTableDict || TableDictSynonym;
+			}
+			else if (type == TableDictStopword.type)
+			{
+				libTableDict = libTableDict || TableDictStopword;
+			}
+			else if (type == TableDictBlacklist.type)
+			{
+				libTableDict = libTableDict || TableDictStopword;
 			}
 			else
 			{
@@ -389,6 +401,46 @@ export class Segment
 		return this;
 	}
 
+	loadBlacklistDict(name: string)
+	{
+		let filename = this._resolveDictFilename(name, [
+			path.resolve(SegmentDict.DICT_ROOT, 'blacklist'),
+		]);
+
+		if (Array.isArray(filename))
+		{
+			let self = this;
+
+			filename.forEach(v => this.loadBlacklistDict(v));
+
+			return this;
+		}
+
+		const type = 'BLACKLIST';
+
+		const db = this.getDictDatabase(type, true);
+
+		const TABLE = this.DICT[type] = db.TABLE;
+
+		let data = Loader.SegmentDict
+			.requireLoaderModule('line')
+			.loadSync(filename, {
+				filter(line: string)
+				{
+					return line.trim();
+				}
+			})
+		;
+
+		data.forEach(v => db.add(v));
+
+		data = undefined;
+
+		this.inited = true;
+
+		return this;
+	}
+
 	/**
 	 * 载入停止符词典
 	 *
@@ -409,13 +461,11 @@ export class Segment
 			return this;
 		}
 
-		let type = 'STOPWORD';
+		const type = 'STOPWORD';
 
-		// 初始化词典
-		if (!this.DICT[type]) this.DICT[type] = {};
+		const db = this.getDictDatabase(type, true);
 
-		let TABLE = this.DICT[type] as IDICT_STOPWORD;
-		// 导入数据
+		const TABLE = this.DICT[type] = db.TABLE;
 
 		let data = Loader.SegmentDict
 			.requireLoaderModule('line')
@@ -427,14 +477,7 @@ export class Segment
 			})
 		;
 
-		data.forEach(function (line)
-		{
-			line = line.trim();
-			if (line)
-			{
-				TABLE[line] = true;
-			}
-		});
+		data.forEach(v => db.add(v));
 
 		data = undefined;
 
@@ -555,6 +598,28 @@ export class Segment
 		}
 
 		return text;
+	}
+
+	/**
+	 * remove key in TABLE by BLACKLIST
+	 */
+	doBlacklist()
+	{
+		let me = this;
+
+		this.autoInit();
+
+		const BLACKLIST = me.getDict('BLACKLIST');
+		const TABLE = me.getDictDatabase('TABLE');
+
+		Object.entries(BLACKLIST)
+			.forEach(function ([key, bool])
+			{
+				bool && TABLE.remove(key)
+			})
+		;
+
+		return this
 	}
 
 	/**

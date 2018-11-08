@@ -13,6 +13,12 @@ import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
  */
 export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 {
+	static readonly type = 'SYNONYM';
+
+	constructor(type: string = TableDictSynonymPanGu.type, options: IOptions = {}, ...argv)
+	{
+		super(type, options)
+	}
 
 	add(data: [string, string] & string[], skipExists?: boolean)
 	{

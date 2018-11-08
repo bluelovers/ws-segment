@@ -26,6 +26,11 @@ export type ArrayTwoOrMore<T> = {
 export class TableDictSynonym extends TableDictSynonymPanGu
 {
 
+	constructor(type: string = TableDictSynonym.type, options: IOptions = {}, ...argv)
+	{
+		super(type, options)
+	}
+
 	/**
 	 * 緩存主KEY
 	 */

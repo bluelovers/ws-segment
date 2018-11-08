@@ -5,8 +5,10 @@
  */
 /// <reference types="node" />
 import POSTAG from './POSTAG';
+import TableDictBlacklist from './table/blacklist';
 import AbstractTableDictCore from './table/core';
 import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
+import { TableDictStopword } from './table/stopword';
 import TableDictSynonym from './table/synonym';
 import { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
 import { IWordDebug } from './util/index';
@@ -65,6 +67,12 @@ export declare class Segment {
     getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
+    getDictDatabase<R extends TableDictStopword>(type: 'STOPWORD', autocreate?: boolean, libTableDict?: {
+        new (...argv: any[]): R;
+    }): R;
+    getDictDatabase<R extends TableDictBlacklist>(type: 'BLACKLIST', autocreate?: boolean, libTableDict?: {
+        new (...argv: any[]): R;
+    }): R;
     getDictDatabase<R extends AbstractTableDictCore<any>>(type: string, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
@@ -106,6 +114,7 @@ export declare class Segment {
      * @param {String} name 字典文件名
      */
     loadSynonymDict(name: string, skipExists?: boolean): this;
+    loadBlacklistDict(name: string): this;
     /**
      * 载入停止符词典
      *
@@ -123,6 +132,10 @@ export declare class Segment {
     }): this;
     getOptionsDoSegment<T extends IOptionsDoSegment>(options?: T): T;
     protected _get_text(text: string | Buffer): string;
+    /**
+     * remove key in TABLE by BLACKLIST
+     */
+    doBlacklist(): this;
     /**
      * 开始分词
      *

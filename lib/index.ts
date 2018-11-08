@@ -63,6 +63,10 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('lazy/badword')
 
 		.loadDict('pangu/wildcard', 'WILDCARD', true)
+
+		.loadBlacklistDict('blacklist')
+
+		.doBlacklist()
 	;
 
 	return segment;

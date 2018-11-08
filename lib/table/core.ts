@@ -24,6 +24,7 @@ export interface IDICT2<T = any>
 
 export abstract class AbstractTableDictCore<T>
 {
+	public static type: string;
 	public type: string;
 
 	public TABLE: IDICT<T> = {};
@@ -38,7 +39,7 @@ export abstract class AbstractTableDictCore<T>
 		this.options = Object.assign({}, this.options, options);
 	}
 
-	public exists<U extends IWord | IDictRow | string>(data: U, ...argv)
+	protected _exists<U extends IWord | IDictRow | string>(data: U, ...argv)
 	{
 		let w, p, f;
 
@@ -54,6 +55,13 @@ export abstract class AbstractTableDictCore<T>
 		{
 			({ w, p, f } = data as IWord);
 		}
+
+		return w
+	}
+
+	public exists<U extends IWord | IDictRow | string>(data: U, ...argv)
+	{
+		let w = this._exists(data);
 
 		return this.TABLE[w] || null;
 	}

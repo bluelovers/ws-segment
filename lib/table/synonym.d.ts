@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/19/019.
  */
-import { IDICT } from './core';
+import { IDICT, IOptions } from './core';
 import { TableDictSynonymPanGu } from './synonym.pangu';
 export declare type ArrayTwoOrMore<T> = {
     0: T;
@@ -16,6 +16,7 @@ export declare type ArrayTwoOrMore<T> = {
  * 這裡為一對多 並且順序與原版相反 => 正字,錯字,...以,分隔更多字
  */
 export declare class TableDictSynonym extends TableDictSynonymPanGu {
+    constructor(type?: string, options?: IOptions, ...argv: any[]);
     /**
      * 緩存主KEY
      */
