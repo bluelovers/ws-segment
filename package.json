@@ -85,21 +85,21 @@
   },
   "dependencies": {
     "array-hyper-unique": "^1.0.7",
-    "bluebird": "^3.5.2",
+    "bluebird": "^3.5.3",
     "circular-json": "^0.5.9",
-    "cjk-conv": "^1.0.107",
+    "cjk-conv": "^1.0.110",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.2",
     "deepmerge-plus": "^2.1.2",
     "fast-glob": "^2.2.3",
-    "fs-extra": "^7.0.0",
+    "fs-extra": "^7.0.1",
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^2",
-    "segment-dict": "^2.1.14",
+    "segment-dict": "^2.2.0",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "3.1.0",
-    "uni-string": "^1.0.2"
+    "uni-string": "^1.1.0"
   },
   "devDependencies": {
     "@types/bluebird": "^3",
