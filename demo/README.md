@@ -4,6 +4,19 @@
 const segment = new Segment();
 ```
 
+## 如何將目前已加入的字典匯出
+
+```ts
+// 用來確保字典的確已載入
+segment.autoInit()
+
+// 字典類型
+let type = 'TABLE';
+
+let db_dict = segment.getDictDatabase(type)
+fs.writeFileSync('./exported.table.dict.txt', db_dict.stringify())
+```
+
 ## 段落切分
 
 > 由於 segment 是利用對內容的前後文分析來進行分詞  
@@ -80,3 +93,4 @@ const segment = new Segment();
      */
     loadStopwordDict(name: string): this;
 ```
+

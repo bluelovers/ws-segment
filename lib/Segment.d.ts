@@ -123,10 +123,14 @@ export declare class Segment {
     loadStopwordDict(name: string): this;
     /**
      * 使用默认的识别模块和字典文件
+     * 在使用預設值的情況下，不需要主動呼叫此函數
      *
      * @return {Segment}
      */
     useDefault(...argv: any[]): this;
+    /**
+     * 此函數只需執行一次，並且一般狀況下不需要手動呼叫
+     */
     autoInit(options?: {
         all_mod?: boolean;
     }): this;
