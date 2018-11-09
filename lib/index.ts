@@ -45,6 +45,7 @@ export function useDefault(segment: Segment, options: {
 
 		//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
 		.loadSynonymDict('synonym')   // 同义词
+		.loadSynonymDict('zht.synonym')
 		.loadStopwordDict('stopword') // 停止符
 
 		.loadDict('lazy/dict_synonym')
@@ -59,6 +60,8 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('names/en')
 
 		.loadDict('lazy/index')
+
+		.loadDict('pangu/num')
 
 		.loadDict('lazy/badword')
 
