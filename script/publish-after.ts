@@ -39,6 +39,7 @@ import * as CrossSpawn from 'cross-spawn';
 		'-a',
 		'-m',
 		msg,
+		// @ts-ignore
 	], options);
 
 	await new Promise(function (done)
@@ -52,6 +53,7 @@ import * as CrossSpawn from 'cross-spawn';
 		PackageJson.version,
 		'-m',
 		msg,
+		// @ts-ignore
 	], options);
 
 })().catch(e => console.error(e));
