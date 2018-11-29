@@ -290,8 +290,8 @@ Promise
 				}
 			}
 
-			if (0 && !bool
-				&& zhRegExp.create(/划|劃|画/).test(w)
+			if (1 && !bool
+				&& zhRegExp.create(/醜|丑/).test(w)
 			)
 			{
 				bool = true;
