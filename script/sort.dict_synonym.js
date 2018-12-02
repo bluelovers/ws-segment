@@ -17,7 +17,7 @@ util_1.globDict(CWD, [
     'names/*.txt',
     'lazy/badword.txt',
     //'lazy/index.txt',
-    'dict*.txt',
+    //'dict*.txt',
     'phrases/*.txt',
     'pangu/*.txt',
 ])
