@@ -87,7 +87,10 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 				if (w1.w == '里')
 				{
-					if (w0 && w0.w.slice(-1) == '的')
+					if (w0 && (
+						w0.w.slice(-1) == '的'
+						|| w0.w === '和'
+					))
 					{
 
 					}
@@ -124,7 +127,13 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				else if (w1.w == '后')
 				{
 
-					if (w0 && CLOSE_P.includes(w0.w))
+					if (w0 && (
+						w0.w === '和'
+					))
+					{
+
+					}
+					else if (w0 && CLOSE_P.includes(w0.w))
 					{
 						w1.ow = w1.w;
 						w1.w = '後';
