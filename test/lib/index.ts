@@ -81,6 +81,13 @@ export function createSegment(useCache: boolean = true)
 		// 簡轉繁專用
 		//segment.loadSynonymDict('zht.synonym.txt');
 	}
+	else
+	{
+		segment
+			.loadSynonymDict('synonym')
+			.loadSynonymDict('zht.synonym')
+		;
+	}
 
 	let db_dict = segment.getDictDatabase('TABLE', true);
 	db_dict.TABLE = segment.DICT['TABLE'];
