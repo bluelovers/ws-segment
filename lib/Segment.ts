@@ -617,7 +617,7 @@ export class Segment
 	{
 		let me = this;
 
-		this.autoInit();
+		this.autoInit(this.options);
 
 		const BLACKLIST = me.getDict('BLACKLIST');
 		const TABLE = me.getDictDatabase('TABLE');
@@ -653,7 +653,7 @@ export class Segment
 
 		options = this.getOptionsDoSegment(options);
 
-		this.autoInit();
+		this.autoInit(this.options);
 
 		let text_list = this._get_text(text)
 			// @ts-ignore
@@ -1010,6 +1010,8 @@ export namespace Segment
 	export type IOptionsSegment = IOptionsTableDict & {
 		db?: TableDict[],
 		optionsDoSegment?: IOptionsDoSegment,
+
+		all_mod?: boolean,
 
 		maxChunkCount?: number,
 	};

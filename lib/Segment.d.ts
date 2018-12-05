@@ -205,6 +205,7 @@ export declare namespace Segment {
     type IOptionsSegment = IOptionsTableDict & {
         db?: TableDict[];
         optionsDoSegment?: IOptionsDoSegment;
+        all_mod?: boolean;
         maxChunkCount?: number;
     };
     type IDICT_SYNONYM = IDICT<string>;
