@@ -56,11 +56,15 @@ export function fileSegment(file: string, options?: ISegmentCLIOptions)
 
 export function processText(text: string, options?: ISegmentCLIOptions)
 {
+	if (!text.length || !text.replace(/\s+/g, '').length)
+	{
+		return bluebird.resolve('');
+	}
+
 	return textSegment(text, options)
 		.then(function (data)
 		{
 			let text = stringify(data);
-
 			if (options)
 			{
 				if (options.crlf)

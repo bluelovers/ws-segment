@@ -35,6 +35,9 @@ function fileSegment(file, options) {
 }
 exports.fileSegment = fileSegment;
 function processText(text, options) {
+    if (!text.length || !text.replace(/\s+/g, '').length) {
+        return bluebird.resolve('');
+    }
     return textSegment(text, options)
         .then(function (data) {
         let text = novel_segment_1.stringify(data);

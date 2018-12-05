@@ -106,9 +106,7 @@ bluebird.resolve()
 		}
 		else if (cli_argv.file || cli_argv.glob)
 		{
-			if (!cli_argv.overwrite
-				|| (cli_argv.overwrite && cli_argv.outDir)
-			)
+			if (cli_argv.outDir)
 			{
 				let k = path.resolve(cli_argv.outDir);
 
@@ -169,6 +167,12 @@ bluebird.resolve()
 				return processFile(file, options)
 					.tap(async function (text)
 					{
+						if (!text.length)
+						{
+							console.gray.info(`[${index+1}/${len}]`, file);
+							return;
+						}
+
 						console.info(`[${index+1}/${len}]`, file);
 
 						let p: Promise<any>;
