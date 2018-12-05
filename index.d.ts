@@ -12,8 +12,8 @@ export interface ISegmentCLIOptions {
     useGlobalCache?: boolean;
     disableCache?: boolean;
 }
-export declare function textSegment(text: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").Segment.IWord[]>;
-export declare function fileSegment(file: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").Segment.IWord[]>;
+export declare function textSegment(text: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib").Segment.IWord[]>;
+export declare function fileSegment(file: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib").Segment.IWord[]>;
 export declare function processText(text: string, options?: ISegmentCLIOptions): bluebird<string>;
 export declare function processFile(file: string, options?: ISegmentCLIOptions): bluebird<string>;
 export declare class SegmentCliError extends Error {
@@ -21,7 +21,7 @@ export declare class SegmentCliError extends Error {
 export declare function readFile(file: string): bluebird<Buffer>;
 export declare function fixOptions(options?: ISegmentCLIOptions): ISegmentCLIOptions;
 export declare function getCacache(options?: ISegmentCLIOptions): bluebird<Cacache>;
-export declare function getSegment(options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").Segment>;
+export declare function getSegment(options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib").Segment>;
 export interface IDataCacheInfo {
     size_db_dict?: number;
     size_segment?: number;

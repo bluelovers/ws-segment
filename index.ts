@@ -177,6 +177,8 @@ export function getSegment(options?: ISegmentCLIOptions)
 						convertSynonym: true,
 
 					},
+
+					all_mod: true,
 				});
 
 				let _options = {

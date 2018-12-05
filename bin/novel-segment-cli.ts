@@ -7,6 +7,8 @@ import { console, getCacheDirPath } from '../lib/util';
 import bluebird = require('bluebird');
 import path = require('upath2');
 import * as fs from 'fs-extra';
+import FastGlob = require('fast-glob');
+import { array_unique } from 'array-hyper-unique';
 
 let cli_argv: yargs.Arguments & {
 	file: string[],
@@ -16,6 +18,8 @@ let cli_argv: yargs.Arguments & {
 	outDir: string,
 	createDir: boolean,
 	useGlobalCache: boolean,
+
+	glob: string[],
 };
 
 // @ts-ignore
@@ -27,6 +31,12 @@ cli_argv = yargs
 		array: true,
 		group: 'file',
 		desc: `處理的檔案，可同時處理多個檔案`,
+	})
+	.option('glob', {
+		alias: ['g'],
+		requiresArg: true,
+		array: true,
+		group: 'file',
 	})
 	.option('text', {
 		alias: ['t'],
@@ -94,7 +104,7 @@ bluebird.resolve()
 		{
 			console.log(await processText(cli_argv.text, options));
 		}
-		else if (cli_argv.file)
+		else if (cli_argv.file || cli_argv.glob)
 		{
 			if (!cli_argv.overwrite
 				|| (cli_argv.overwrite && cli_argv.outDir)
@@ -124,10 +134,26 @@ bluebird.resolve()
 				}
 			}
 
+			let files: string[] = cli_argv.file || [];
+
+			if (cli_argv.glob && cli_argv.glob.length)
+			{
+				await FastGlob.async<string>(cli_argv.glob, {
+					cwd: process.cwd(),
+				})
+					.then(ls => {
+						if (ls.length)
+						{
+							files = files.concat(ls);
+							files = array_unique(files);
+						}
+					})
+			}
+
 			await (
 				cli_argv.mapSeries ?
-					bluebird.mapSeries(cli_argv.file, loopEach)
-					: bluebird.map(cli_argv.file, loopEach)
+					bluebird.mapSeries(files, loopEach)
+					: bluebird.map(files, loopEach)
 			)
 				.catch(setError)
 				.tap(function ()

@@ -118,6 +118,7 @@ function getSegment(options) {
                 optionsDoSegment: {
                     convertSynonym: true,
                 },
+                all_mod: true,
             });
             let _options = {
                 /**
