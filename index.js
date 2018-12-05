@@ -37,9 +37,7 @@ exports.fileSegment = fileSegment;
 function processText(text, options) {
     return textSegment(text, options)
         .then(function (data) {
-        return novel_segment_1.stringify(data);
-    })
-        .then(function (text) {
+        let text = novel_segment_1.stringify(data);
         if (options) {
             if (options.crlf) {
                 if (typeof options.crlf === 'string') {
@@ -50,6 +48,7 @@ function processText(text, options) {
                 }
             }
         }
+        util_1.freeGC();
         return text;
     });
 }
@@ -188,6 +187,7 @@ function getSegment(options) {
                 await CACHED_CACACHE.writeJSON(DB_KEY, Object.assign({}, _info, { DICT: CACHED_SEGMENT.DICT }));
                 util_1.debugConsole.debug(`緩存字典於 ${DB_KEY}`);
             }
+            util_1.freeGC();
         }
         return CACHED_SEGMENT;
     });

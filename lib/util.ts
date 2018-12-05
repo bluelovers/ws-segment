@@ -52,5 +52,24 @@ export function getCacheDirPath(useGlobal?: boolean): string
 	});
 }
 
+export function freeGC(): boolean
+{
+	if (global && typeof global.gc === 'function')
+	{
+		try
+		{
+			global.gc();
+
+			return true;
+		}
+		catch (e)
+		{
+			console.error(e);
+		}
+	}
+
+	return false;
+}
+
 import * as self from './util';
 export default self;

@@ -5,7 +5,7 @@ import bluebird = require('bluebird');
 import * as fs from 'fs-extra';
 import { useDefault } from 'novel-segment/lib';
 import { Cacache } from './lib/cache';
-import { console, debugConsole, getCacheDirPath, enableDebug } from './lib/util';
+import { console, debugConsole, getCacheDirPath, enableDebug, freeGC } from './lib/util';
 import PACKAGE_JSON = require('./package.json');
 import { debug_token } from 'novel-segment/lib/util'
 import * as iconv from 'iconv-jschardet';
@@ -59,10 +59,8 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 	return textSegment(text, options)
 		.then(function (data)
 		{
-			return stringify(data)
-		})
-		.then(function (text)
-		{
+			let text = stringify(data);
+
 			if (options)
 			{
 				if (options.crlf)
@@ -77,6 +75,8 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 					}
 				}
 			}
+
+			freeGC();
 
 			return text;
 		})
@@ -295,6 +295,8 @@ export function getSegment(options?: ISegmentCLIOptions)
 
 					debugConsole.debug(`緩存字典於 ${DB_KEY}`);
 				}
+
+				freeGC();
 			}
 
 			return CACHED_SEGMENT;
@@ -397,9 +399,3 @@ export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
 		})
 		;
 }
-
-
-
-
-
-

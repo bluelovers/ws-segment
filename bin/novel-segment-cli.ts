@@ -3,7 +3,7 @@
 import yargs = require('yargs');
 import { processFile, processText, SegmentCliError } from '../index';
 import { checkUpdateSelf, checkUpdate } from '../lib/ncu';
-import { console, getCacheDirPath } from '../lib/util';
+import { console, getCacheDirPath, freeGC } from '../lib/util';
 import bluebird = require('bluebird');
 import path = require('upath2');
 import * as fs from 'fs-extra';
@@ -150,6 +150,8 @@ bluebird.resolve()
 					})
 			}
 
+			freeGC();
+
 			await (
 				cli_argv.mapSeries ?
 					bluebird.mapSeries(files, loopEach)
@@ -158,7 +160,7 @@ bluebird.resolve()
 				.catch(setError)
 				.tap(function ()
 				{
-
+					freeGC();
 				})
 			;
 
