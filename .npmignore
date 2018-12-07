@@ -68,3 +68,4 @@ __tests__/*.js
 __tests__/*.d.ts
 /dict/nodejieba/
 /dict/opencc/
+/dict/segment/**/README.md
