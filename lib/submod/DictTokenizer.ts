@@ -437,8 +437,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		//console.log(assess);
 		//console.log(Object.entries(chunks));
-		console.log(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }));
-		console.log({ i: top, asses: assess[top], currchunk });
+		//console.log(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }));
+		//console.log({ i: top, asses: assess[top], currchunk });
 		//console.log(top);
 		//console.log(currchunk);
 
