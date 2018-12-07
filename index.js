@@ -17,6 +17,7 @@ __Segment.version_dict = _segment_dict.version;
 exports.versions = __Segment.versions = Object.assign(__Segment.versions || {}, {
     'novel-segment': _package_json.version,
     'segment-dict': _segment_dict.version,
+    // @ts-ignore
     'regexp-cjk': _regexp_cjk.version,
     'cjk-conv': _cjk_conv.version,
 });

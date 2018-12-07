@@ -77,6 +77,18 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
     }, pos: number, text?: string, total_count?: number): IWord[][];
 }
 export declare namespace DictTokenizer {
+    /**
+     * 使用类似于MMSG的分词算法
+     * 找出所有分词可能，主要根据一下几项来评价：
+     *
+     * x、词数量最少；
+     * a、词平均频率最大；
+     * b、每个词长度标准差最小；
+     * c、未识别词最少；
+     * d、符合语法结构项：如两个连续的动词减分，数词后面跟量词加分；
+     *
+     * 取以上几项综合排名最最好的
+     */
     type IAssessRow = {
         /**
          * 词数量，越小越好
@@ -88,6 +100,7 @@ export declare namespace DictTokenizer {
         a: number;
         /**
          * 词标准差，越小越好
+         * 每个词长度标准差最小
          */
         b: number;
         /**
@@ -96,8 +109,14 @@ export declare namespace DictTokenizer {
         c: number;
         /**
          * 符合语法结构程度，越大越好
+         * 符合语法结构项：如两个连续的动词减分，数词后面跟量词加分
          */
         d: number;
+        /**
+         * 結算評分(自動計算)
+         */
+        score?: number;
+        readonly index?: number;
     };
 }
 export import IAssessRow = DictTokenizer.IAssessRow;

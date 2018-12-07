@@ -198,9 +198,17 @@ export class DictTokenizer extends SubSModuleTokenizer
 		//console.log(chunks);
 
 		// 对各个分支就行评估
-		for (let i = 0, chunk; chunk = chunks[i]; i++)
+		for (let i = 0, chunk: IWord[]; chunk = chunks[i]; i++)
 		{
-			assess[i] = { x: chunk.length, a: 0, b: 0, c: 0, d: 0 };
+			assess[i] = {
+				x: chunk.length,
+				a: 0,
+				b: 0,
+				c: 0,
+				d: 0,
+
+				index: i,
+			};
 			// 词平均长度
 			let sp = text.length / chunk.length;
 			// 句子经常包含的语法结构
@@ -418,6 +426,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		let top = this.getTops(assess);
 		let currchunk = chunks[top];
 
+		//console.log(assess);
 		//console.log(chunks);
 		//console.log(top);
 		//console.log(currchunk);
@@ -450,9 +459,15 @@ export class DictTokenizer extends SubSModuleTokenizer
 	{
 		//debug(assess);
 		// 取各项最大值
-		let top: IAssessRow = { x: assess[0].x, a: assess[0].a, b: assess[0].b, c: assess[0].c, d: assess[0].d };
+		let top: IAssessRow = {
+			x: assess[0].x,
+			a: assess[0].a,
+			b: assess[0].b,
+			c: assess[0].c,
+			d: assess[0].d,
+		};
 
-		for (let i = 1, ass; ass = assess[i]; i++)
+		for (let i = 1, ass: IAssessRow; ass = assess[i]; i++)
 		{
 			if (ass.a > top.a) top.a = ass.a;  // 取最大平均词频
 			if (ass.b < top.b) top.b = ass.b;  // 取最小标准差
@@ -464,7 +479,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		// 评估排名
 		let tops: number[] = [];
-		for (let i = 0, ass; ass = assess[i]; i++)
+		for (let i = 0, ass: IAssessRow; ass = assess[i]; i++)
 		{
 			tops[i] = 0;
 			// 词数量，越小越好
@@ -477,6 +492,9 @@ export class DictTokenizer extends SubSModuleTokenizer
 			tops[i] += (top.c - ass.c);//debug(tops[i]);
 			// 符合语法结构程度，越大越好
 			tops[i] += (ass.d < 0 ? top.d + ass.d : ass.d - top.d) * 1;
+
+			ass.score = tops[i];
+
 			//debug(tops[i]);debug('---');
 		}
 		//debug(tops.join('  '));
@@ -497,14 +515,18 @@ export class DictTokenizer extends SubSModuleTokenizer
 			}
 			else if (s == maxs)
 			{
-				// 如果分数相同，则根据词长度、未识别词个数和平均频率来选择
+				/**
+				 * 如果分数相同，则根据词长度、未识别词个数和平均频率来选择
+				 *
+				 * 如果依然同分，則保持不變
+				 */
 				let a = 0;
 				let b = 0;
 				if (assess[i].c < assess[curri].c)
 				{
 					a++;
 				}
-				else
+				else if (assess[i].c !== assess[curri].c)
 				{
 					b++;
 				}
@@ -512,7 +534,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 				{
 					a++;
 				}
-				else
+				else if (assess[i].a !== assess[curri].a)
 				{
 					b++;
 				}
@@ -520,7 +542,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 				{
 					a++;
 				}
-				else
+				else if (assess[i].x !== assess[curri].x)
 				{
 					b++;
 				}
@@ -530,7 +552,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 					maxs = s;
 				}
 			}
-			// debug('i=' + i + ', s=' + s + ', maxs=' + maxs);
+			//debug({ i, s, maxs, curri });
 		}
 		//debug('max: i=' + curri + ', s=' + tops[curri]);
 		return curri;
@@ -693,6 +715,18 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 export namespace DictTokenizer
 {
+	/**
+	 * 使用类似于MMSG的分词算法
+	 * 找出所有分词可能，主要根据一下几项来评价：
+	 *
+	 * x、词数量最少；
+	 * a、词平均频率最大；
+	 * b、每个词长度标准差最小；
+	 * c、未识别词最少；
+	 * d、符合语法结构项：如两个连续的动词减分，数词后面跟量词加分；
+	 *
+	 * 取以上几项综合排名最最好的
+	 */
 	export type IAssessRow = {
 		/**
 		 * 词数量，越小越好
@@ -704,6 +738,7 @@ export namespace DictTokenizer
 		a: number,
 		/**
 		 * 词标准差，越小越好
+		 * 每个词长度标准差最小
 		 */
 		b: number,
 		/**
@@ -712,8 +747,15 @@ export namespace DictTokenizer
 		c: number,
 		/**
 		 * 符合语法结构程度，越大越好
+		 * 符合语法结构项：如两个连续的动词减分，数词后面跟量词加分
 		 */
 		d: number,
+
+		/**
+		 * 結算評分(自動計算)
+		 */
+		score?: number,
+		readonly index?: number,
 	};
 }
 

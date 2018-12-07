@@ -49,7 +49,8 @@ export const versions =
 __Segment.versions = Object.assign(__Segment.versions || {}, {
 	'novel-segment': _package_json.version,
 	'segment-dict': _segment_dict.version,
-	'regexp-cjk': _regexp_cjk.version,
+	// @ts-ignore
+	'regexp-cjk': _regexp_cjk.version as string,
 	'cjk-conv': _cjk_conv.version,
 });
 
