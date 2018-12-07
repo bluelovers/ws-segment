@@ -1,3 +1,2 @@
-//import _ = require('lazy-cacache');
-//export = _;
-export * from 'lazy-cacache'
+import _ = require('lazy-cacache');
+export = _;

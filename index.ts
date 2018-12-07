@@ -369,7 +369,7 @@ export function loadCacheInfo(options?: ISegmentCLIOptions)
 			if (has_cache_db)
 			{
 				data = await CACHED_CACACHE
-					.readJSON(DB_KEY_INFO)
+					.readJSON<IDataCache>(DB_KEY_INFO)
 					.then(function (ret)
 					{
 						return ret.json;
@@ -416,7 +416,7 @@ export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
 				debugConsole.debug(`發現緩存 ${DB_KEY}`, has_cache_db.path);
 
 				return CACHED_CACACHE
-					.readJSON(DB_KEY)
+					.readJSON<IDataCache>(DB_KEY)
 					.then(function (ret)
 					{
 						return ret.json;
