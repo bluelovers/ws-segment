@@ -57,7 +57,7 @@ function processText(text, options) {
 }
 exports.processText = processText;
 function processFile(file, options) {
-    return bluebird.resolve(readFile(file))
+    return bluebird.resolve(readFile(file, options))
         .then(function (buf) {
         return processText(buf.toString(), options);
     });
@@ -66,7 +66,7 @@ exports.processFile = processFile;
 class SegmentCliError extends Error {
 }
 exports.SegmentCliError = SegmentCliError;
-function readFile(file) {
+function readFile(file, options) {
     return new bluebird((resolve, reject) => {
         if (!fs.existsSync(file)) {
             let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
@@ -77,6 +77,9 @@ function readFile(file) {
         }
     })
         .tap(function (buf) {
+        if (options && options.disableWarn) {
+            return;
+        }
         if (!buf.length) {
             util_1.console.warn(`此檔案無內容`, file);
         }

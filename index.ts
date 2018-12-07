@@ -28,6 +28,8 @@ export interface ISegmentCLIOptions
 
 	useGlobalCache?: boolean,
 	disableCache?: boolean,
+
+	disableWarn?: boolean,
 }
 
 export function textSegment(text: string, options?: ISegmentCLIOptions)
@@ -89,7 +91,7 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 
 export function processFile(file: string, options?: ISegmentCLIOptions)
 {
-	return bluebird.resolve(readFile(file))
+	return bluebird.resolve(readFile(file, options))
 		.then(function (buf)
 		{
 			return processText(buf.toString(), options);
@@ -102,7 +104,7 @@ export class SegmentCliError extends Error
 
 }
 
-export function readFile(file: string): bluebird<Buffer>
+export function readFile(file: string, options?: ISegmentCLIOptions): bluebird<Buffer>
 {
 	return new bluebird<Buffer>((resolve, reject) =>
 	{
@@ -119,6 +121,11 @@ export function readFile(file: string): bluebird<Buffer>
 	})
 		.tap(function (buf)
 		{
+			if (options && options.disableWarn)
+			{
+				return;
+			}
+
 			if (!buf.length)
 			{
 				console.warn(`此檔案無內容`, file);
