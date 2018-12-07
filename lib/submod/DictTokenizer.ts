@@ -427,7 +427,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 		let currchunk = chunks[top];
 
 		//console.log(assess);
-		//console.log(chunks);
+		//console.log(Object.entries(chunks));
+		//console.log(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }));
 		//console.log(top);
 		//console.log(currchunk);
 
@@ -501,6 +502,9 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		//console.log(tops);
 		//console.log(assess);
+
+		//const old_method = true;
+		const old_method = false;
 
 		// 取分数最高的
 		let curri = 0;
