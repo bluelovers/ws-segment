@@ -235,7 +235,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 			{
 				prew = null;
 			}
-			for (let j = 0, w; w = chunk[j]; j++)
+			for (let j = 0, w: IWord; w = chunk[j]; j++)
 			{
 				if (w.w in TABLE)
 				{
@@ -273,8 +273,17 @@ export class DictTokenizer extends SubSModuleTokenizer
 							// 如果是连续的两个动词，则减分
 							//if ((prew.p & POSTAG.D_V) > 0)
 							//assess[i].d--;
+
+							/*
 							// 如果是 形容词 + 动词，则加分
 							if ((prew.p & POSTAG.D_A))
+							{
+								assess[i].d++;
+							}
+							*/
+
+							// 如果是 副词 + 动词，则加分
+							if (prew.p & POSTAG.D_D)
 							{
 								assess[i].d++;
 							}
@@ -344,7 +353,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 								nextw.p = TABLE[nextw.w].p;
 							}
 							// 如果是连词，前后两个词词性相同则加分
-							if ((w.p & POSTAG.D_C) > 0 && prew.p == nextw.p)
+							if ((w.p & POSTAG.D_C) && prew.p == nextw.p)
 							{
 								assess[i].d++;
 							}
@@ -370,9 +379,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 							{
 								assess[i].d++;
 							}
-
 							// @FIXME 到湖中間后手終於能休息了
-							if (
+							else if (
 								(
 									nextw.w == '后'
 									|| nextw.w == '後'
@@ -384,6 +392,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 							{
 								assess[i].d++;
 							}
+
 							if (
 								(
 									w.w == '后'
@@ -428,12 +437,13 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		//console.log(assess);
 		//console.log(Object.entries(chunks));
-		//console.log(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }));
+		console.log(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }));
+		console.log({ i: top, asses: assess[top], currchunk });
 		//console.log(top);
 		//console.log(currchunk);
 
 		// 剔除不能识别的词
-		for (let i = 0, word; word = currchunk[i]; i++)
+		for (let i = 0, word: IWord; word = currchunk[i]; i++)
 		{
 			if (!(word.w in TABLE))
 			{
