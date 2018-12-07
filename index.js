@@ -18,7 +18,7 @@ const DB_KEY = 'cache.db';
 const DB_KEY_INFO = 'cache.info';
 const DB_TTL = 3600 * 1000;
 function textSegment(text, options) {
-    return getSegment()
+    return getSegment(options)
         .then(function (segment) {
         return segment.doSegment(text);
     })
@@ -93,23 +93,34 @@ function readFile(file, options) {
 }
 exports.readFile = readFile;
 function fixOptions(options) {
-    return options || {};
+    options = options || {};
+    if (typeof options.ttl !== 'number' || options.ttl < 1) {
+        delete options.ttl;
+    }
+    return options;
 }
 exports.fixOptions = fixOptions;
 function getCacache(options) {
-    if (!CACHED_CACACHE) {
-        if (options && options.useGlobalCache) {
-            CACHED_CACACHE = new cache_1.Cacache({
-                useGlobalCache: options.useGlobalCache,
-            });
+    return new bluebird(function (resolve, reject) {
+        if (!CACHED_CACACHE) {
+            if (options && options.useGlobalCache) {
+                CACHED_CACACHE = new cache_1.Cacache({
+                    name: PACKAGE_JSON.name,
+                    useGlobalCache: options.useGlobalCache,
+                });
+            }
+            else {
+                CACHED_CACACHE = new cache_1.Cacache(PACKAGE_JSON.name);
+            }
         }
-        else {
-            CACHED_CACACHE = new cache_1.Cacache();
-        }
-    }
-    return bluebird.resolve(CACHED_CACACHE);
+        resolve(CACHED_CACACHE);
+    });
 }
 exports.getCacache = getCacache;
+function resetSegment() {
+    CACHED_SEGMENT = void 0;
+}
+exports.resetSegment = resetSegment;
 function getSegment(options) {
     options = fixOptions(options);
     let { disableCache } = options;
@@ -132,11 +143,7 @@ function getSegment(options) {
                 all_mod: true,
             };
             let _info = await loadCacheInfo(options);
-            let version = {
-                [PACKAGE_JSON.name]: PACKAGE_JSON.version,
-                'novel-segment': novel_segment_1.default.version,
-                'segment-dict': novel_segment_1.default.version_dict,
-            };
+            let version = Object.assign({ [PACKAGE_JSON.name]: PACKAGE_JSON.version }, novel_segment_1.default.versions, { [PACKAGE_JSON.name]: PACKAGE_JSON.version });
             let cache_db = await loadCacheDb(options);
             let _do_init;
             if (disableCache) {
@@ -191,7 +198,7 @@ function getSegment(options) {
             if (!disableCache
                 && (_do_init || !cache_db || !cache_db.DICT)) {
                 await CACHED_CACACHE.writeJSON(DB_KEY, Object.assign({}, _info, { DICT: CACHED_SEGMENT.DICT }));
-                util_1.debugConsole.debug(`緩存字典於 ${DB_KEY}`);
+                util_1.debugConsole.debug(`緩存字典於 ${DB_KEY}`, CACHED_CACACHE.cachePath);
             }
             util_1.freeGC();
         }
@@ -234,10 +241,10 @@ function loadCacheDb(options) {
         .then(async function () {
         await getCacache(options);
         let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY, {
-            ttl: DB_TTL,
+            ttl: options.ttl > 0 ? options.ttl : DB_TTL,
         });
         if (has_cache_db) {
-            util_1.debugConsole.debug(`發現緩存 ${DB_KEY}`);
+            util_1.debugConsole.debug(`發現緩存 ${DB_KEY}`, has_cache_db.path);
             return CACHED_CACACHE
                 .readJSON(DB_KEY)
                 .then(function (ret) {
@@ -248,3 +255,15 @@ function loadCacheDb(options) {
     });
 }
 exports.loadCacheDb = loadCacheDb;
+function removeCache(options) {
+    return getCacache(fixOptions(options))
+        .tap(async function (cache) {
+        await cache.clearMemoized();
+        await cache.removeAll();
+    });
+}
+exports.removeCache = removeCache;
+function resetCache() {
+    CACHED_CACACHE = void 0;
+}
+exports.resetCache = resetCache;

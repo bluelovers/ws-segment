@@ -30,11 +30,13 @@ export interface ISegmentCLIOptions
 	disableCache?: boolean,
 
 	disableWarn?: boolean,
+
+	ttl?: number,
 }
 
 export function textSegment(text: string, options?: ISegmentCLIOptions)
 {
-	return getSegment()
+	return getSegment(options)
 		.then(function (segment)
 		{
 			return segment.doSegment(text);
@@ -145,26 +147,42 @@ export function readFile(file: string, options?: ISegmentCLIOptions): bluebird<B
 
 export function fixOptions(options?: ISegmentCLIOptions): ISegmentCLIOptions
 {
-	return options || {};
+	options = options || {};
+
+	if (typeof options.ttl !== 'number' || options.ttl < 1)
+	{
+		delete options.ttl;
+	}
+
+	return options;
 }
 
 export function getCacache(options?: ISegmentCLIOptions)
 {
-	if (!CACHED_CACACHE)
+	return new bluebird<Cacache>(function (resolve, reject)
 	{
-		if (options && options.useGlobalCache)
+		if (!CACHED_CACACHE)
 		{
-			CACHED_CACACHE = new Cacache({
-				useGlobalCache: options.useGlobalCache,
-			});
+			if (options && options.useGlobalCache)
+			{
+				CACHED_CACACHE = new Cacache({
+					name: PACKAGE_JSON.name,
+					useGlobalCache: options.useGlobalCache,
+				});
+			}
+			else
+			{
+				CACHED_CACACHE = new Cacache(PACKAGE_JSON.name);
+			}
 		}
-		else
-		{
-			CACHED_CACACHE = new Cacache();
-		}
-	}
 
-	return bluebird.resolve(CACHED_CACACHE);
+		resolve(CACHED_CACACHE)
+	});
+}
+
+export function resetSegment()
+{
+	CACHED_SEGMENT = void 0;
 }
 
 export function getSegment(options?: ISegmentCLIOptions)
@@ -203,8 +221,8 @@ export function getSegment(options?: ISegmentCLIOptions)
 
 				let version = {
 					[PACKAGE_JSON.name]: PACKAGE_JSON.version,
-					'novel-segment': Segment.version,
-					'segment-dict': Segment.version_dict,
+					...Segment.versions,
+					[PACKAGE_JSON.name]: PACKAGE_JSON.version,
 				};
 
 				let cache_db = await loadCacheDb(options);
@@ -304,7 +322,7 @@ export function getSegment(options?: ISegmentCLIOptions)
 						DICT: CACHED_SEGMENT.DICT,
 					} as IDataCache);
 
-					debugConsole.debug(`緩存字典於 ${DB_KEY}`);
+					debugConsole.debug(`緩存字典於 ${DB_KEY}`, CACHED_CACACHE.cachePath);
 				}
 
 				freeGC();
@@ -390,12 +408,12 @@ export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
 			await getCacache(options);
 
 			let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY, {
-				ttl: DB_TTL,
+				ttl: options.ttl > 0 ? options.ttl : DB_TTL,
 			});
 
 			if (has_cache_db)
 			{
-				debugConsole.debug(`發現緩存 ${DB_KEY}`);
+				debugConsole.debug(`發現緩存 ${DB_KEY}`, has_cache_db.path);
 
 				return CACHED_CACACHE
 					.readJSON(DB_KEY)
@@ -409,4 +427,20 @@ export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
 			return null;
 		})
 		;
+}
+
+export function removeCache(options?: ISegmentCLIOptions)
+{
+	return getCacache(fixOptions(options))
+		.tap(async function (cache)
+		{
+			await cache.clearMemoized();
+			await cache.removeAll();
+		})
+	;
+}
+
+export function resetCache()
+{
+	CACHED_CACACHE = void 0
 }
