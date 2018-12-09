@@ -352,15 +352,13 @@ export class DictTokenizer extends SubSModuleTokenizer
 							{
 								nextw.p = TABLE[nextw.w].p;
 							}
-							// 如果是连词，前后两个词词性相同则加分
-							if ((w.p & POSTAG.D_C) && prew.p == nextw.p)
-							{
-								assess[i].d++;
-							}
-							// 如果当前是“的”+ 名词，则加分
+
+							/**
+							 * 如果当前是“的”+ 名词，则加分
+							 */
 							if (
 								(w.w == '的' || w.w == '之')
-								&& (
+								&& nextw.p && (
 									(nextw.p & POSTAG.D_N)
 									|| (nextw.p & POSTAG.A_NR)
 									|| (nextw.p & POSTAG.A_NS)
@@ -369,6 +367,37 @@ export class DictTokenizer extends SubSModuleTokenizer
 								))
 							{
 								assess[i].d += 1.5;
+							}
+							/**
+							 * 如果是连词，前后两个词词性相同则加分
+							 */
+							else if (prew.p && (w.p & POSTAG.D_C))
+							{
+								if (prew.p === nextw.p)
+								{
+									assess[i].d++;
+								}
+								else if (prew.p & nextw.p)
+								{
+									assess[i].d += 0.25;
+								}
+							}
+							else if (nextw.p && (w.p & POSTAG.D_P))
+							{
+								if (nextw.p & POSTAG.A_NR && (
+									nextw.w.length > 1
+								))
+								{
+									assess[i].d++;
+
+									if (prew.w == '的')
+									{
+										/**
+										 * 的 + 介詞 + 人名
+										 */
+										assess[i].d += 1;
+									}
+								}
 							}
 
 							// @FIXME 暴力解決 三天后 的問題
@@ -437,8 +466,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		//console.log(assess);
 		//console.log(Object.entries(chunks));
-		//console.log(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }));
-		//console.log({ i: top, asses: assess[top], currchunk });
+		//console.dir(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }), { depth: 5 });
+		//console.dir({ i: top, asses: assess[top], currchunk });
 		//console.log(top);
 		//console.log(currchunk);
 
