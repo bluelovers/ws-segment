@@ -12,13 +12,17 @@ export interface IDICT<T = any> {
 export interface IDICT2<T = any> {
     [key: number]: IDICT<T>;
 }
+export interface ITableDictExistsTable<T> {
+    TABLE?: IDICT<T>;
+    TABLE2?: any | IDICT2<T>;
+}
 export declare abstract class AbstractTableDictCore<T> {
     static type: string;
     type: string;
     TABLE: IDICT<T>;
     TABLE2: any | IDICT2<T>;
     options: IOptions;
-    constructor(type: string, options?: IOptions, ...argv: any[]);
+    constructor(type: string, options?: IOptions, existsTable?: ITableDictExistsTable<T>, ...argv: any[]);
     protected _exists<U extends IWord | IDictRow | string>(data: U, ...argv: any[]): any;
     exists<U extends IWord | IDictRow | string>(data: U, ...argv: any[]): T;
     abstract add(data: any, ...argv: any[]): this;

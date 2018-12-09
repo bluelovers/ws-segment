@@ -15,7 +15,7 @@ export class TableDictBlacklist extends TableDictLine
 
 	constructor(type: string = TableDictBlacklist.type, options: IOptions = {}, ...argv)
 	{
-		super(type, options)
+		super(type, options, ...argv)
 	}
 }
 

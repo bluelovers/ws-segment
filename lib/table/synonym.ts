@@ -28,7 +28,7 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 
 	constructor(type: string = TableDictSynonym.type, options: IOptions = {}, ...argv)
 	{
-		super(type, options)
+		super(type, options, ...argv)
 	}
 
 	/**

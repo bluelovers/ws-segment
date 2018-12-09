@@ -157,7 +157,9 @@ export class Segment
 				libTableDict = libTableDict || TableDict;
 			}
 
-			this.db[type] = new libTableDict(type, this.options);
+			this.db[type] = new libTableDict(type, this.options, {
+				TABLE: this.DICT[type],
+			});
 		}
 
 		// @ts-ignore
@@ -653,6 +655,8 @@ export class Segment
 
 		options = this.getOptionsDoSegment(options);
 
+		//console.dir(options);
+
 		this.autoInit(this.options);
 
 		let text_list = this._get_text(text)
@@ -787,7 +791,7 @@ export class Segment
 
 		let total_count = 0;
 
-		const RAW = Symbol.for('RAW');
+		//const RAW = Symbol.for('RAW');
 
 		// 转换同义词
 		function _convertSynonym(list: IWordDebug[])

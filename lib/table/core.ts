@@ -22,6 +22,12 @@ export interface IDICT2<T = any>
 	[key: number]: IDICT<T>,
 }
 
+export interface ITableDictExistsTable<T>
+{
+	TABLE?: IDICT<T>,
+	TABLE2?: any | IDICT2<T>,
+}
+
 export abstract class AbstractTableDictCore<T>
 {
 	public static type: string;
@@ -32,11 +38,24 @@ export abstract class AbstractTableDictCore<T>
 
 	public options: IOptions;
 
-	constructor(type: string, options: IOptions = {}, ...argv)
+	constructor(type: string, options: IOptions = {}, existsTable?: ITableDictExistsTable<T>, ...argv)
 	{
 		this.type = type;
 
 		this.options = Object.assign({}, this.options, options);
+
+		if (existsTable)
+		{
+			if (existsTable.TABLE)
+			{
+				this.TABLE = existsTable.TABLE;
+			}
+
+			if (existsTable.TABLE2)
+			{
+				this.TABLE2 = existsTable.TABLE2;
+			}
+		}
 	}
 
 	protected _exists<U extends IWord | IDictRow | string>(data: U, ...argv)

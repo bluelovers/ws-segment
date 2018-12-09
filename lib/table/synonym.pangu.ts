@@ -17,7 +17,7 @@ export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 
 	constructor(type: string = TableDictSynonymPanGu.type, options: IOptions = {}, ...argv)
 	{
-		super(type, options)
+		super(type, options, ...argv)
 	}
 
 	add(data: [string, string] & string[], skipExists?: boolean)
