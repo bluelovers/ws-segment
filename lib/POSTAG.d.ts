@@ -26,6 +26,9 @@ export declare enum POSTAG {
     D_X = 1024,
     D_Y = 512,
     D_Z = 256,
+    /**
+     * name
+     */
     A_NR = 128,
     A_NS = 64,
     A_NT = 32,

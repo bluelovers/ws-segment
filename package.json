@@ -87,7 +87,7 @@
     "array-hyper-unique": "^1.0.7",
     "bluebird": "^3.5.3",
     "circular-json": "^0.5.9",
-    "cjk-conv": "^1.0.113",
+    "cjk-conv": "^1.1",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.2",
     "deepmerge-plus": "^2.1.2",
@@ -96,7 +96,7 @@
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^2",
-    "segment-dict": "^2.2.11",
+    "segment-dict": "^2.2.12",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "3.1.0",
     "uni-string": "^1.1.0"

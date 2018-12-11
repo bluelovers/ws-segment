@@ -249,10 +249,12 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							||
 							(hexAndAny(w0.p,
 								POSTAG.D_V,
+								POSTAG.D_N,
 							) && hexAndAny(w2.p,
 								POSTAG.D_F,
 								POSTAG.D_T,
 								POSTAG.A_NR,
+								POSTAG.D_R,
 							))
 						)
 						{

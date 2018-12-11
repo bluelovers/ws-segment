@@ -353,6 +353,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 								nextw.p = TABLE[nextw.w].p;
 							}
 
+							let _temp_ok: boolean = true;
+
 							/**
 							 * 如果当前是“的”+ 名词，则加分
 							 */
@@ -367,6 +369,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 								))
 							{
 								assess[i].d += 1.5;
+								_temp_ok = false;
 							}
 							/**
 							 * 如果是连词，前后两个词词性相同则加分
@@ -376,13 +379,16 @@ export class DictTokenizer extends SubSModuleTokenizer
 								if (prew.p === nextw.p)
 								{
 									assess[i].d++;
+									_temp_ok = false;
 								}
 								else if (prew.p & nextw.p)
 								{
 									assess[i].d += 0.25;
+									_temp_ok = false;
 								}
 							}
-							else if (nextw.p && (w.p & POSTAG.D_P))
+
+							if (_temp_ok && nextw.p && (w.p & POSTAG.D_P))
 							{
 								if (nextw.p & POSTAG.A_NR && (
 									nextw.w.length > 1
@@ -396,6 +402,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 										 * 的 + 介詞 + 人名
 										 */
 										assess[i].d += 1;
+										_temp_ok = false;
 									}
 								}
 							}
@@ -464,12 +471,16 @@ export class DictTokenizer extends SubSModuleTokenizer
 		let top = this.getTops(assess);
 		let currchunk = chunks[top];
 
-		//console.log(assess);
-		//console.log(Object.entries(chunks));
-		//console.dir(Object.entries(chunks).map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }), { depth: 5 });
-		//console.dir({ i: top, asses: assess[top], currchunk });
-		//console.log(top);
-		//console.log(currchunk);
+		if (false)
+		{
+			//console.log(assess);
+			//console.log(Object.entries(chunks));
+			console.dir(Object.entries(chunks)
+				.map(([i, chunk]) => { return { i, asses: assess[i as unknown as number], chunk } }), { depth: 5 });
+			console.dir({ i: top, asses: assess[top], currchunk });
+			//console.log(top);
+			//console.log(currchunk);
+		}
 
 		// 剔除不能识别的词
 		for (let i = 0, word: IWord; word = currchunk[i]; i++)
