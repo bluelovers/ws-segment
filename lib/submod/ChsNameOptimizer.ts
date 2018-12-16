@@ -12,6 +12,9 @@ import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DO
 import Segment, { IDICT, IWord } from '../Segment';
 import { debug } from '../util';
 
+/**
+ * @todo 支援 XX氏
+ */
 export class ChsNameOptimizer extends SubSModuleOptimizer
 {
 	protected _TABLE: IDICT<IWord>;

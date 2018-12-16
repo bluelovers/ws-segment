@@ -6,6 +6,9 @@
  */
 import { SubSModuleOptimizer } from '../mod';
 import { IDICT, IWord } from '../Segment';
+/**
+ * @todo 支援 XX氏
+ */
 export declare class ChsNameOptimizer extends SubSModuleOptimizer {
     protected _TABLE: IDICT<IWord>;
     name: string;

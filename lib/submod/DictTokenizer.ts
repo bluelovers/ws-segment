@@ -362,6 +362,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 								(w.w == '的' || w.w == '之')
 								&& nextw.p && (
 									(nextw.p & POSTAG.D_N)
+									|| (nextw.p & POSTAG.D_V)
 									|| (nextw.p & POSTAG.A_NR)
 									|| (nextw.p & POSTAG.A_NS)
 									|| (nextw.p & POSTAG.A_NZ)
@@ -376,15 +377,22 @@ export class DictTokenizer extends SubSModuleTokenizer
 							 */
 							else if (prew.p && (w.p & POSTAG.D_C))
 							{
+								let p = prew.p & nextw.p;
+
 								if (prew.p === nextw.p)
 								{
 									assess[i].d++;
 									_temp_ok = false;
 								}
-								else if (prew.p & nextw.p)
+								else if (p)
 								{
 									assess[i].d += 0.25;
 									_temp_ok = false;
+
+									if (p & POSTAG.D_N)
+									{
+										assess[i].d += 0.75;
+									}
 								}
 							}
 
@@ -471,7 +479,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		let top = this.getTops(assess);
 		let currchunk = chunks[top];
 
-		if (false)
+		if (1)
 		{
 			//console.log(assess);
 			//console.log(Object.entries(chunks));
@@ -818,7 +826,3 @@ export import IAssessRow = DictTokenizer.IAssessRow;
 export const init = DictTokenizer.init.bind(DictTokenizer) as ISubTokenizerCreate<DictTokenizer>;
 
 export default DictTokenizer;
-
-//debug(DATETIME);
-
-//debug(matchWord('长春市长春药店'));
