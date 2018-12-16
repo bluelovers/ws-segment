@@ -479,7 +479,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		let top = this.getTops(assess);
 		let currchunk = chunks[top];
 
-		if (1)
+		if (false)
 		{
 			//console.log(assess);
 			//console.log(Object.entries(chunks));
