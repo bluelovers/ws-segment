@@ -6,14 +6,14 @@ import * as path from 'path';
 import ProjectConfig from '../project.config';
 // @ts-ignore
 import * as PackageJson from '../package.json';
-import * as CrossSpawn from 'cross-spawn';
+import CrossSpawn = require('cross-spawn-extra');
 /// <reference types="cross-spawn" />
 
 (async () =>
 {
 	let crossSpawn: typeof CrossSpawn;
 	// @ts-ignore
-	crossSpawn = await import('cross-spawn');
+	crossSpawn = await import('cross-spawn-extra');
 
 	let gitroot: string;
 
