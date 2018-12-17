@@ -1,10 +1,14 @@
 {
   "compilerOptions": {
     "module": "CommonJS",
-    "target": "es2017",
+    "target": "esnext",
 
     "moduleResolution": "node",
     "allowJs": false,
+
+    "sourceMap": true,
+    "inlineSourceMap": true,
+    "inlineSources": true,
 
     "declaration": true,
     "experimentalDecorators": true,
@@ -17,6 +21,8 @@
 
     "locale": "zh-TW",
     "pretty": true,
+
+    "removeComments": false,
 
     "traceResolution": true,
     "newLine": "lf"

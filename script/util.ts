@@ -7,7 +7,7 @@ import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment 
 import { ICUR_WORD } from '../test/sort';
 import naturalCompare = require('string-natural-compare');
 
-export type ILoadDictFileRow2 = ILoadDictFileRow & {
+export type ILoadDictFileRow2<D extends any = [string, number, number, ...any[]]> = ILoadDictFileRow<D> & {
 	file: string,
 	cjk_id: string,
 
@@ -35,17 +35,23 @@ export function globDict(cwd: string, pattern?: string[], ignore = DEFAULT_IGNOR
 		;
 }
 
-export interface ILoadDictFileRow
+export interface ILoadDictFileRow<D = [string, number, number, ...any[]]>
 {
-	data: [string, number, number, ...any[]],
+	data: D,
 	line: string,
 	index: number,
 }
 
 export function loadDictFile<T = ILoadDictFileRow>(file: string,
 	fn?: (list: T[], cur: T) => boolean,
+	options?: {
+		parseFn?: (line: string) => any,
+	},
 ): BluebirdPromise<T[]>
 {
+	options = options || {};
+	const parseFn = options.parseFn = options.parseFn || parseLineSegment;
+
 	return load(file)
 		.then(function (b)
 		{
@@ -53,7 +59,7 @@ export function loadDictFile<T = ILoadDictFileRow>(file: string,
 			{
 				let bool: boolean;
 
-				let data = parseLineSegment(line) as [string, number, number, ...any[]];
+				let data = parseFn(line);
 
 				let cur = {
 					data,
@@ -113,7 +119,7 @@ export function baseSortList<T = ILoadDictFileRow2>(ls: T[], bool?: boolean)
 		// @ts-ignore
 		return naturalCompare.caseInsensitive(a.cjk_id, b.cjk_id)
 			// @ts-ignore
-			|| naturalCompare.caseInsensitive(b.data[1], a.data[1])
+			|| naturalCompare.caseInsensitive(a.data[1], b.data[1])
 			// @ts-ignore
 			|| naturalCompare.caseInsensitive(a.data[0], b.data[0])
 			// @ts-ignore

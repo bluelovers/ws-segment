@@ -66,9 +66,10 @@
     "test": "test"
   },
   "scripts": {
+    "sort-synonym-table": "ts-node ./script/sort.synonym.table.js",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "prepublishOnly": "echo prepublishOnly",
+    "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after",
     "travis": "typedoc --options ./typedoc.config.js",
@@ -92,7 +93,9 @@
     "@types/bluebird": "^3",
     "@types/node": "^10",
     "cjk-conv": "^1",
+    "cross-spawn-extra": "^1.0.3",
     "debug-color2": "^1",
+    "git-root2": "^1.0.4",
     "novel-segment": "^2",
     "string-natural-compare": "^2"
   }
