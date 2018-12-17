@@ -66,7 +66,7 @@
     "test": "test"
   },
   "scripts": {
-    "sort-synonym-table": "ts-node ./script/sort.synonym.table.js",
+    "sort-synonym-table": "ts-node ./script/sort.synonym.table.ts",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
     "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table",
