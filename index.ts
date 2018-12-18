@@ -265,6 +265,7 @@ export function getSegment(options?: ISegmentCLIOptions)
 						useDefault(CACHED_SEGMENT, {
 							...options,
 							nodict: true,
+							all_mod: true,
 						});
 
 						CACHED_SEGMENT.DICT = cache_db.DICT;
@@ -272,6 +273,8 @@ export function getSegment(options?: ISegmentCLIOptions)
 						CACHED_SEGMENT.inited = true;
 
 						_do_init = false;
+
+						//console.dir(CACHED_SEGMENT.modules);
 					}
 				}
 
@@ -283,6 +286,13 @@ export function getSegment(options?: ISegmentCLIOptions)
 
 					_do_init = true;
 				}
+				else
+				{
+					CACHED_SEGMENT
+						.loadSynonymDict('synonym')
+						.loadSynonymDict('zht.synonym')
+					;
+				}
 
 				let db_dict = CACHED_SEGMENT.getDictDatabase('TABLE', true);
 				db_dict.TABLE = CACHED_SEGMENT.DICT['TABLE'];
@@ -290,7 +300,7 @@ export function getSegment(options?: ISegmentCLIOptions)
 
 				db_dict.options.autoCjk = true;
 
-				CACHED_SEGMENT.loadSynonymDict('synonym', true);
+				//CACHED_SEGMENT.loadSynonymDict('synonym', true);
 
 				let size_db_dict = db_dict.size();
 				let size_segment = Object.keys(CACHED_SEGMENT.getDict('SYNONYM')).length;
