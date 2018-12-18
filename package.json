@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
