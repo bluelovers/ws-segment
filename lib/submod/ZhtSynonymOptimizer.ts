@@ -285,6 +285,16 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						}
 					}
 				}
+				else if (w1.w == '么')
+				{
+					if (!w2 || w2.p & POSTAG.D_W)
+					{
+						w1.ow = w1.w;
+						w1.w = '麼';
+
+						bool = true;
+					}
+				}
 			}
 			else if (w1_len > 1)
 			{
