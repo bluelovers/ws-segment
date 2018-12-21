@@ -1,5 +1,6 @@
 import { console } from "debug-color2";
 import * as fs from "fs-extra";
+import { array_unique } from 'array-hyper-unique';
 import * as path from "upath2";
 import { serialize } from '../lib/loader/line';
 import ProjectConfig from "../project.config";
@@ -69,9 +70,11 @@ globDict(CWD, [
 			},
 		});
 
-		list = SortList( list);
+		list = SortList(list);
 
 		let out_list = list.map(v => v.line);
+
+		out_list = array_unique(out_list);
 
 		//console.log(list);
 
@@ -82,7 +85,7 @@ globDict(CWD, [
 			out_file = path.join(ProjectConfig.temp_root, path.basename(_basepath));
 		}
 
-		let out_data = serialize(out_list) + "\n\n";
+		let out_data = serialize(out_list) + "\n\n\n";
 
 		await fs.outputFile(out_file, out_data);
 
@@ -92,7 +95,7 @@ globDict(CWD, [
 	{
 		if (CACHE_LIST.skip.length)
 		{
-			let list = SortList( CACHE_LIST.skip);
+			let list = SortList(CACHE_LIST.skip);
 			let out_list = list.map(v => v.line);
 
 			let out_file = path.join(ProjectConfig.temp_root, 'skip2.txt');

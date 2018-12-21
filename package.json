@@ -92,6 +92,7 @@
   "devDependencies": {
     "@types/bluebird": "^3",
     "@types/node": "^10",
+    "array-hyper-unique": "^1.0.7",
     "cjk-conv": "^1",
     "cross-spawn-extra": "^1.0.3",
     "debug-color2": "^1",
