@@ -1,6 +1,6 @@
+import { array_unique } from 'array-hyper-unique';
 import { console } from "debug-color2";
 import * as fs from "fs-extra";
-import { array_unique } from 'array-hyper-unique';
 import * as path from "upath2";
 import { serialize } from '../lib/loader/line';
 import ProjectConfig from "../project.config";
@@ -49,6 +49,11 @@ globDict(CWD, [
 
 			let [w] = cur.data;
 
+			let ls = cur.data.slice(1);
+
+			ls = array_unique(ls);
+			ls.sort();
+
 			cur.line_type = chkLineType(cur.line);
 
 			if (cur.line_type == EnumLineType.COMMENT)
@@ -56,6 +61,10 @@ globDict(CWD, [
 				w = w.replace(/^\/\//, '');
 
 				//console.log(w);
+			}
+			else if (cur.line_type == EnumLineType.BASE)
+			{
+				cur.line = [w].concat(ls).join(',');
 			}
 
 			let cjk_id = getCjkName(w, USE_CJK_MODE);
