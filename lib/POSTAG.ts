@@ -40,6 +40,7 @@ export enum POSTAG
 	/**
 	 * name
 	 */
+
 	A_NR = 0x00000080, // 人名
 	A_NS = 0x00000040, // 地名
 	A_NT = 0x00000020, // 机构团体
