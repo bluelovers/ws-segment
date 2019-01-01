@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -77,7 +77,7 @@
     "postpack": "echo postpack",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after",
-    "prepublishOnly": "echo prepublishOnly",
+    "prepublishOnly": "npx npm-check-updates -a --packageFile ./package.json",
     "test": "npx mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-js": "mocha -t 5000 \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-ts": "mocha --require ts-node/register -t 5000 \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
@@ -95,7 +95,7 @@
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^2",
-    "segment-dict": "^2.2.30",
+    "segment-dict": "^2.2.31",
     "sort-object-keys2": "^1.0.3",
     "ts-enum-util": "3.1.0",
     "uni-string": "^1.1.0"

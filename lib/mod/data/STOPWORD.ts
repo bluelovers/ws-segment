@@ -12,6 +12,7 @@ export namespace NS_STOPWORD
 		'╚╩╝╲╱┞┟┠┡┢┦┧┨┩┪╉╊┭┮┯┰┱┲┵┶┷┸╇╈┹┺┽┾┿╀╁╂╃╄╅╆' +
 		'○◇□△▽☆●◆■▲▼★♠♥♦♣☼☺◘♀√☻◙♂×▁▂▃▄▅▆▇█⊙◎۞卍卐╱╲▁▏↖↗↑←↔◤◥╲╱▔▕↙↘↓→↕◣◢∷▒░℡™',
 		'．・　※',
+		'⋯',
 	].join('');
 
 	export const { _STOPWORD, STOPWORD, STOPWORD2 } = parseStopWord(_TABLE);
