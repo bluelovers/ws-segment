@@ -51,7 +51,7 @@ globDict(CWD, [
 
 			let ls = cur.data.slice(1);
 
-			ls = array_unique(ls);
+			ls = array_unique(ls).filter(v => v != w);
 			ls.sort();
 
 			cur.line_type = chkLineType(cur.line);
@@ -65,6 +65,11 @@ globDict(CWD, [
 			else if (cur.line_type == EnumLineType.BASE)
 			{
 				cur.line = [w].concat(ls).join(',');
+
+				if (!ls.length)
+				{
+					return false;
+				}
 			}
 
 			let cjk_id = getCjkName(w, USE_CJK_MODE);
