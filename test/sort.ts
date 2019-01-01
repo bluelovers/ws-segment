@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/准|準/).test(w)
+				&& zhRegExp.create(/喂|餵/).test(w)
 			)
 			{
 				bool = true;
