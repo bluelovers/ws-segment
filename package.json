@@ -67,9 +67,10 @@
   },
   "scripts": {
     "sort-synonym-table": "ts-node ./script/sort.synonym.table.ts",
+    "sort-dict-synonym": "ts-node ./script/sort.dict_synonym.ts",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table",
+    "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table & npm run sort-dict-synonym",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after",
     "travis": "typedoc --options ./typedoc.config.js",

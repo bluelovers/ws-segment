@@ -19,7 +19,7 @@ globDict(CWD, [
 	'dict_synonym/*.txt',
 	'names/*.txt',
 	'lazy/badword.txt',
-	//'lazy/index.txt',
+	'lazy/index.txt',
 	//'dict*.txt',
 	'phrases/*.txt',
 	'pangu/*.txt',
