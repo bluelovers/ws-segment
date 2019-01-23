@@ -195,7 +195,4 @@ export function toHex(p: number)
 		;
 }
 
-import * as self from './debug';
-
-export default self;
-
+export default exports as typeof import('./debug');

@@ -31,5 +31,5 @@ export declare function debugToken<T extends IWordDebug, U extends IWordDebugInf
 export declare function debug_token<T extends IWordDebug>(ks: Array<T>, returnSource?: boolean): Array<T | IWordDebug>;
 export declare function token_add_info<T extends IWordDebug>(v: T): T;
 export declare function toHex(p: number): string;
-import * as self from './debug';
-export default self;
+declare const _default: typeof import("./debug");
+export default _default;

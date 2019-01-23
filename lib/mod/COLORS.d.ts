@@ -8,5 +8,5 @@ export declare namespace _COLORS {
 }
 export declare const COLOR_HAIR: IDICT<number>;
 export declare const COLOR_ALL: IDICT<number>;
-import * as COLORS from './CHS_NAMES';
-export default COLORS;
+declare const _default: typeof import("./COLORS");
+export default _default;

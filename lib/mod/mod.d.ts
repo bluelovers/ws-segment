@@ -57,5 +57,5 @@ export interface ISubSModule {
     priority?: number;
     init(segment: Segment, ...argv: any[]): ISubSModule;
 }
-import * as self from './mod';
-export default self;
+declare const _default: typeof import("./mod");
+export default _default;

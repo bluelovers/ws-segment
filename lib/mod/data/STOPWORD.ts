@@ -57,5 +57,4 @@ export namespace NS_STOPWORD
 
 export const { _STOPWORD, STOPWORD, STOPWORD2 } = NS_STOPWORD;
 
-import * as self from './STOPWORD';
-export default self;
+export default exports as typeof import('./STOPWORD');

@@ -6,5 +6,5 @@ import SegmentDictLoader = require('segment-dict/lib/loader/segment');
 import SegmentSynonymLoader = require('segment-dict/lib/loader/segment/synonym');
 export { SegmentDict };
 export { SegmentDictLoader, SegmentSynonymLoader };
-import * as self from './loader';
-export default self;
+declare const _default: typeof import("./loader");
+export default _default;

@@ -22,5 +22,4 @@ export const DATETIME: IDICT<number> = arr_cjk(_DATETIME)
 	}, {})
 ;
 
-import * as self from './const';
-export default self;
+export default exports as typeof import('./const');

@@ -26,5 +26,5 @@ export declare const _STOPWORD: string[], STOPWORD: {
         [key: string]: number;
     };
 };
-import * as self from './STOPWORD';
-export default self;
+declare const _default: typeof import("./STOPWORD");
+export default _default;

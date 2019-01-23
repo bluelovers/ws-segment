@@ -12,7 +12,4 @@ import SegmentSynonymLoader = require('segment-dict/lib/loader/segment/synonym')
 export { SegmentDict }
 export { SegmentDictLoader, SegmentSynonymLoader }
 
-import * as self from './loader';
-
-export default self;
-
+export default exports as typeof import('./loader');

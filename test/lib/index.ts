@@ -6,7 +6,7 @@ import { crlf } from 'crlf-normalize';
 import * as FastGlob from 'fast-glob';
 import * as path from 'path';
 import * as fs from 'fs-extra';
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import { Segment } from '../../lib/Segment';
 import { useDefault, getDefaultModList } from '../../lib';
 import { debug_token } from '../../lib/util';

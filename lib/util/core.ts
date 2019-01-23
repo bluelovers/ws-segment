@@ -21,5 +21,4 @@ export function enumList(varEnum, byValue?: boolean)
 	}
 }
 
-import * as self from './core';
-export default self;
+export default exports as typeof import('./core');

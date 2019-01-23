@@ -7,5 +7,5 @@ import { IDICT } from '../Segment';
  */
 export declare let _DATETIME: string[];
 export declare const DATETIME: IDICT<number>;
-import * as self from './const';
-export default self;
+declare const _default: typeof import("./const");
+export default _default;

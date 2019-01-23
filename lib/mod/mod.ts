@@ -214,6 +214,4 @@ export interface ISubSModule
 	init(segment: Segment, ...argv): ISubSModule,
 }
 
-import * as self from './mod';
-
-export default self;
+export default exports as typeof import('./mod');
