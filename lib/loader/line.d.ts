@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/13/013.
  */
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import { IStreamLineWithValue } from '../fs/line';
 import { ICallback } from '../fs/stream';
 import { LoaderClass } from './_class';

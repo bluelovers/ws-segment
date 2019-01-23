@@ -1,4 +1,4 @@
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
 import * as OPENCC from './opencc';

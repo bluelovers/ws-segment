@@ -2,7 +2,7 @@
  * Created by user on 2018/4/14/014.
  */
 
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import { wrapStreamToPromise, IStreamLineWithValue } from '../fs/line';
 import createLoadStream, { ICallback } from '../fs/stream';
 import createLoadStreamSync from '../fs/sync';

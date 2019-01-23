@@ -2,7 +2,7 @@
  * Created by user on 2018/3/14/014.
  */
 import { IStreamLineWithValue } from '../../fs/line';
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import { ICallback } from '../../fs/stream';
 import { LoaderClass } from '../_class';
 export declare type IDictRow = string[];

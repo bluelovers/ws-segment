@@ -3,7 +3,7 @@
  */
 
 import { DICT_ROOT } from '../index';
-import * as path from 'path';
+import path = require('path');
 
 export type IDictID = 'jieba-js' | 'nodejieba' | 'segment' | 'stopword' | 'synonym';
 

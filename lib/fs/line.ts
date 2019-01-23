@@ -2,11 +2,11 @@
  * Created by user on 2018/4/11/011.
  */
 
-import * as fs from "fs";
-import * as split2 from 'split2';
-import * as path from 'path';
-import * as Promise from 'bluebird';
-import * as stream from 'stream';
+import fs = require('fs');
+import split2 = require('split2');
+import path = require('path');
+import Promise = require('bluebird');
+import stream = require('stream');
 
 import { createReadStream, IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';
@@ -178,5 +178,4 @@ p.then(function (d: IPipe<ReadStream, NodeJS.WritableStream>)
 });
 */
 
-import * as self from './line';
-export default self;
+export default exports as typeof import('./line');

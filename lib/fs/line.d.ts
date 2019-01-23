@@ -2,7 +2,7 @@
  * Created by user on 2018/4/11/011.
  */
 /// <reference types="node" />
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import { IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';
 export declare type IOptions = {
@@ -26,5 +26,5 @@ export declare type IStreamLineWithValue<T> = IStreamLine & {
 export declare type IPromiseStream<T> = Promise<T> & {
     stream: T;
 };
-import * as self from './line';
-export default self;
+declare const _default: typeof import("./line");
+export default _default;

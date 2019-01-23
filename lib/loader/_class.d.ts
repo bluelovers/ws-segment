@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/13/013.
  */
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import { IStreamLineWithValue } from '../fs/line';
 import createLoadStream, { ICallback } from '../fs/stream';
 export declare type IOptions<T, R> = {

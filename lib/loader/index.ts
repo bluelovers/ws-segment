@@ -1,6 +1,6 @@
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 // @ts-ignore
-import * as path from "path";
+import path = require('path');
 import { ROOT } from '../../index';
 import { IStreamLineWithValue } from '../fs/line';
 import * as JIEBA from './jieba';

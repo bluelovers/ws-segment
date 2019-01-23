@@ -3,7 +3,7 @@
  */
 
 import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
-import * as Promise from 'bluebird';
+import Promise = require('bluebird');
 import createLoadStream, { ICallback } from '../../fs/stream';
 import createLoadStreamSync from '../../fs/sync';
 import LoaderClass from '../_class';
