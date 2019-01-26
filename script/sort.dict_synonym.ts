@@ -20,9 +20,11 @@ globDict(CWD, [
 	'names/*.txt',
 	'lazy/badword.txt',
 	'lazy/index.txt',
+	'lazy/dict_synonym.txt',
 	//'dict*.txt',
 	'phrases/*.txt',
 	'pangu/*.txt',
+	'infrequent/**/*.txt',
 ])
 	.tap(function (ls: string[])
 	{
