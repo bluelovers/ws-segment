@@ -72,6 +72,20 @@ export class DictOptimizer extends SubSModuleOptimizer
 		{
 			bool = true;
 		}
+		else if (w1.p & POSTAG.D_D && w2.p & POSTAG.D_V)
+		{
+			({
+				nw_cache,
+				nw_cache_exists,
+			} = this._getWordCache(nw, nw_cache, nw_cache_exists));
+
+			let mw = nw_cache;
+
+			if (mw && (mw.p & POSTAG.D_D || mw.p & POSTAG.D_V))
+			{
+				bool = true;
+			}
+		}
 
 		return bool
 			&& this._getWordCache(nw, nw_cache, nw_cache_exists).nw_cache_exists;

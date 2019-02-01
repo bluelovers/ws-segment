@@ -55,7 +55,7 @@ console.time(`doSegment`);
 
 let text = `
 
-羅澤瑪麗剛松一口氣、
+你會預先考慮几手呢？
 
 `;
 
