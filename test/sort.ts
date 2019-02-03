@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/衝|冲|沖/).test(w)
+				&& zhRegExp.create(/恶|噁/).test(w)
 			)
 			{
 				bool = true;
