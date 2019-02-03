@@ -291,7 +291,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/喂|餵/).test(w)
+				&& zhRegExp.create(/衝|冲|沖/).test(w)
 			)
 			{
 				bool = true;
@@ -322,7 +322,7 @@ Promise
 			return true;
 		});
 
-		sortList(b);
+		//sortList(b);
 
 		let c = b
 			.map(v => v.line)
