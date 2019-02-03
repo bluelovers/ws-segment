@@ -58,6 +58,7 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('names/jp')
 		.loadDict('names/zh')
 		.loadDict('names/en')
+		.loadDict('names/name')
 
 		.loadDict('lazy/index')
 
