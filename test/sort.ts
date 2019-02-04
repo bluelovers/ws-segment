@@ -59,6 +59,9 @@ Promise
 
 		'pangu/*.txt',
 
+		'lazy/badword.txt',
+		'lazy/dict_synonym.txt',
+
 	], {
 		cwd: cwd,
 		absolute: true,
@@ -291,7 +294,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/恶|噁/).test(w)
+				&& zhRegExp.create(/志|誌/).test(w)
 			)
 			{
 				bool = true;
