@@ -95,7 +95,7 @@
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^2.0.21",
-    "segment-dict": "^2.2.50",
+    "segment-dict": "^2.2.54",
     "sort-object-keys2": "^1.1.0",
     "ts-enum-util": "3.1.0",
     "uni-string": "^1.1.0"
