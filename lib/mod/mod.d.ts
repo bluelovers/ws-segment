@@ -2,7 +2,7 @@
  * Created by user on 2018/2/21/021.
  */
 import { POSTAG } from '../POSTAG';
-import { IWord, Segment } from '../Segment';
+import { IDICT_BLACKLIST, IWord, Segment } from '../Segment';
 import { IWordDebug, IWordDebugInfo } from '../util/index';
 export declare type ISModuleType = 'optimizer' | 'tokenizer' | string;
 export declare class SModule implements ISModule {
@@ -23,6 +23,7 @@ export declare class SubSModule implements ISubSModule {
     name: string;
     protected _TABLE?: any;
     protected _POSTAG?: typeof POSTAG;
+    protected _BLACKLIST?: IDICT_BLACKLIST;
     constructor(type?: ISModuleType, segment?: Segment, ...argv: any[]);
     static init<T extends SubSModule = SubSModule>(segment: Segment, ...argv: any[]): T;
     protected static _init<T extends SubSModule>(libThis: IModuleStatic<T>, segment: Segment, ...argv: any[]): T;

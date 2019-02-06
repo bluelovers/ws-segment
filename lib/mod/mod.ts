@@ -3,7 +3,7 @@
  */
 
 import { POSTAG } from '../POSTAG';
-import { IDICT, IWord, Segment } from '../Segment';
+import { IDICT, IDICT_BLACKLIST, IWord, Segment } from '../Segment';
 import { IWordDebug, IWordDebugInfo } from '../util/index';
 import { debugToken } from '../util/debug'
 
@@ -53,6 +53,8 @@ export class SubSModule implements ISubSModule
 
 	protected _TABLE?;
 	protected _POSTAG?: typeof POSTAG;
+
+	protected _BLACKLIST?: IDICT_BLACKLIST;
 
 	constructor(type?: ISModuleType, segment?: Segment, ...argv)
 	{

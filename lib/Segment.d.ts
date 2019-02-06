@@ -7,11 +7,12 @@
 import POSTAG from './POSTAG';
 import TableDictBlacklist from './table/blacklist';
 import AbstractTableDictCore from './table/core';
-import { TableDict, IOptions as IOptionsTableDict } from './table/dict';
+import { IOptions as IOptionsTableDict, TableDict } from './table/dict';
 import { TableDictStopword } from './table/stopword';
 import TableDictSynonym from './table/synonym';
-import { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
+import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from './mod';
 import { IWordDebug } from './util/index';
+import { EnumDictDatabase } from './const';
 /**
  * 创建分词器接口
  */
@@ -61,19 +62,22 @@ export declare class Segment {
     options: IOptionsSegment;
     inited?: boolean;
     constructor(options?: IOptionsSegment);
-    getDictDatabase<R extends TableDictSynonym>(type: 'SYNONYM', autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDict>(type: EnumDictDatabase.TABLE, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDictStopword>(type: 'STOPWORD', autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictStopword>(type: EnumDictDatabase.STOPWORD, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDictBlacklist>(type: 'BLACKLIST', autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends AbstractTableDictCore<any>>(type: string, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER, autocreate?: boolean, libTableDict?: {
+        new (...argv: any[]): R;
+    }): R;
+    getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
     /**
@@ -103,10 +107,13 @@ export declare class Segment {
      * @param {String} type 类型
      * @return {object}
      */
-    getDict(type: 'STOPWORD'): IDICT_STOPWORD;
-    getDict(type: 'SYNONYM'): IDICT_SYNONYM;
-    getDict(type: 'TABLE'): IDICT<IWord>;
+    getDict(type: EnumDictDatabase.STOPWORD): IDICT_STOPWORD;
+    getDict(type: EnumDictDatabase.SYNONYM): IDICT_SYNONYM;
+    getDict(type: EnumDictDatabase.TABLE): IDICT<IWord>;
+    getDict(type: EnumDictDatabase.BLACKLIST): IDICT_BLACKLIST;
+    getDict(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER): IDICT_BLACKLIST;
     getDict(type: 'TABLE2'): IDICT2<IWord>;
+    getDict(type: EnumDictDatabase): IDICT;
     getDict(type: any): IDICT;
     /**
      * 载入同义词词典
@@ -114,7 +121,9 @@ export declare class Segment {
      * @param {String} name 字典文件名
      */
     loadSynonymDict(name: string, skipExists?: boolean): this;
+    protected _loadBlacklistDict(name: string, type: EnumDictDatabase): this;
     loadBlacklistDict(name: string): this;
+    loadBlacklistOptimizerDict(name: string): this;
     /**
      * 载入停止符词典
      *
@@ -136,6 +145,7 @@ export declare class Segment {
     }): this;
     getOptionsDoSegment<T extends IOptionsDoSegment>(options?: T): T;
     protected _get_text(text: string | Buffer): string;
+    addBlacklist(word: string, remove?: boolean): this;
     /**
      * remove key in TABLE by BLACKLIST
      */
@@ -210,6 +220,7 @@ export declare namespace Segment {
     };
     type IDICT_SYNONYM = IDICT<string>;
     type IDICT_STOPWORD = IDICT<boolean>;
+    type IDICT_BLACKLIST = IDICT<boolean>;
     interface IWord {
         w: string;
         /**
@@ -264,6 +275,7 @@ export import IWord = Segment.IWord;
 export import IOptionsDoSegment = Segment.IOptionsDoSegment;
 export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
+export import IDICT_BLACKLIST = Segment.IDICT_BLACKLIST;
 export import IDICT = Segment.IDICT;
 export import IDICT2 = Segment.IDICT2;
 export import ISPLIT = Segment.ISPLIT;

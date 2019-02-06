@@ -7,7 +7,6 @@
 'use strict';
 
 // @ts-ignore
-import * as fs from 'fs';
 // @ts-ignore
 import * as path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
@@ -15,21 +14,21 @@ import { useDefault } from './index';
 import POSTAG from './POSTAG';
 import TableDictBlacklist from './table/blacklist';
 import AbstractTableDictCore from './table/core';
-import { TableDict, IOptions as IOptionsTableDict, ITableDictRow } from './table/dict';
+import { IOptions as IOptionsTableDict, TableDict } from './table/dict';
 
 import Loader from './loader';
-import { crlf, LF } from 'crlf-normalize';
+import { crlf } from 'crlf-normalize';
 import { TableDictStopword } from './table/stopword';
 import TableDictSynonym from './table/synonym';
-import { debug, IWordDebugInfo } from './util';
 import SegmentDict from 'segment-dict';
-import getDefaultModList, { Optimizer, ISubOptimizer, Tokenizer, ISubTokenizer } from './mod';
+import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from './mod';
 import { debugToken } from './util/debug';
 import { IWordDebug } from './util/index';
 
 import ProjectConfig from '../project.config';
 
 import * as deepmerge from 'deepmerge-plus';
+import { EnumDictDatabase } from './const';
 
 /**
  * 创建分词器接口
@@ -119,26 +118,30 @@ export class Segment
 		delete this.options.db;
 	}
 
-	getDictDatabase<R extends TableDictSynonym>(type: 'SYNONYM',
+	getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDict>(type: 'TABLE', autocreate?: boolean, libTableDict?: { new(...argv): R }): R
-	getDictDatabase<R extends TableDictStopword>(type: 'STOPWORD',
+	getDictDatabase<R extends TableDict>(type: EnumDictDatabase.TABLE, autocreate?: boolean, libTableDict?: { new(...argv): R }): R
+	getDictDatabase<R extends TableDictStopword>(type: EnumDictDatabase.STOPWORD,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDictBlacklist>(type: 'BLACKLIST',
+	getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string,
+	getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER,
+		autocreate?: boolean,
+		libTableDict?: { new(...argv): R },
+	): R
+	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
 	getDictDatabase(type: string, autocreate?: boolean, libTableDict?)
 	{
-		if (autocreate && !this.db[type])
+		if ((autocreate || this.inited) && !this.db[type])
 		{
 			if (type == TableDictSynonym.type)
 			{
@@ -339,10 +342,13 @@ export class Segment
 	 * @param {String} type 类型
 	 * @return {object}
 	 */
-	getDict(type: 'STOPWORD'): IDICT_STOPWORD
-	getDict(type: 'SYNONYM'): IDICT_SYNONYM
-	getDict(type: 'TABLE'): IDICT<IWord>
+	getDict(type: EnumDictDatabase.STOPWORD): IDICT_STOPWORD
+	getDict(type: EnumDictDatabase.SYNONYM): IDICT_SYNONYM
+	getDict(type: EnumDictDatabase.TABLE): IDICT<IWord>
+	getDict(type: EnumDictDatabase.BLACKLIST): IDICT_BLACKLIST
+	getDict(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER): IDICT_BLACKLIST
 	getDict(type: 'TABLE2'): IDICT2<IWord>
+	getDict(type: EnumDictDatabase): IDICT
 	getDict(type): IDICT
 	getDict(type)
 	{
@@ -409,7 +415,7 @@ export class Segment
 		return this;
 	}
 
-	loadBlacklistDict(name: string)
+	protected _loadBlacklistDict(name: string, type: EnumDictDatabase)
 	{
 		let filename = this._resolveDictFilename(name, [
 			path.resolve(SegmentDict.DICT_ROOT, 'blacklist'),
@@ -419,12 +425,10 @@ export class Segment
 		{
 			let self = this;
 
-			filename.forEach(v => this.loadBlacklistDict(v));
+			filename.forEach(v => this._loadBlacklistDict(v, type));
 
 			return this;
 		}
-
-		const type = 'BLACKLIST';
 
 		const db = this.getDictDatabase(type, true);
 
@@ -449,6 +453,16 @@ export class Segment
 		return this;
 	}
 
+	loadBlacklistDict(name: string)
+	{
+		return this._loadBlacklistDict(name, EnumDictDatabase.BLACKLIST)
+	}
+
+	loadBlacklistOptimizerDict(name: string)
+	{
+		return this._loadBlacklistDict(name, EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER)
+	}
+
 	/**
 	 * 载入停止符词典
 	 *
@@ -469,7 +483,7 @@ export class Segment
 			return this;
 		}
 
-		const type = 'STOPWORD';
+		const type = EnumDictDatabase.STOPWORD;
 
 		const db = this.getDictDatabase(type, true);
 
@@ -612,6 +626,30 @@ export class Segment
 		return text;
 	}
 
+	addBlacklist(word: string, remove?: boolean)
+	{
+		let me = this;
+
+		this.autoInit(this.options);
+
+		const BLACKLIST = me.getDictDatabase(EnumDictDatabase.BLACKLIST);
+		const TABLE = me.getDictDatabase(EnumDictDatabase.TABLE);
+
+		let bool = !remove;
+
+		if (bool)
+		{
+			BLACKLIST.add(word);
+			TABLE.remove(word);
+		}
+		else
+		{
+			BLACKLIST.remove(word)
+		}
+
+		return this
+	}
+
 	/**
 	 * remove key in TABLE by BLACKLIST
 	 */
@@ -621,8 +659,8 @@ export class Segment
 
 		this.autoInit(this.options);
 
-		const BLACKLIST = me.getDict('BLACKLIST');
-		const TABLE = me.getDictDatabase('TABLE');
+		const BLACKLIST = me.getDict(EnumDictDatabase.BLACKLIST);
+		const TABLE = me.getDictDatabase(EnumDictDatabase.TABLE);
 
 		Object.entries(BLACKLIST)
 			.forEach(function ([key, bool])
@@ -1022,6 +1060,7 @@ export namespace Segment
 
 	export type IDICT_SYNONYM = IDICT<string>;
 	export type IDICT_STOPWORD = IDICT<boolean>;
+	export type IDICT_BLACKLIST = IDICT<boolean>;
 
 	export interface IWord
 	{
@@ -1089,6 +1128,7 @@ export import IWord = Segment.IWord;
 export import IOptionsDoSegment = Segment.IOptionsDoSegment;
 export import IDICT_SYNONYM = Segment.IDICT_SYNONYM;
 export import IDICT_STOPWORD = Segment.IDICT_STOPWORD;
+export import IDICT_BLACKLIST = Segment.IDICT_BLACKLIST;
 
 export import IDICT = Segment.IDICT;
 export import IDICT2 = Segment.IDICT2;

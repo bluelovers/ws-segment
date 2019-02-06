@@ -69,6 +69,7 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('pangu/wildcard', 'WILDCARD', true)
 
 		.loadBlacklistDict('blacklist')
+		.loadBlacklistOptimizerDict('blacklist.name')
 
 		.doBlacklist()
 	;

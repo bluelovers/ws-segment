@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.2.14",
+  "version": "2.2.15",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -101,6 +101,7 @@
     "uni-string": "^1.1.0"
   },
   "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.1",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^5",
     "@types/node": "^10",

@@ -11,6 +11,7 @@ import { SubSModule, SubSModuleOptimizer, ISubOptimizer, SubSModuleTokenizer } f
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
 import Segment, { IDICT, IWord } from '../Segment';
 import { debug } from '../util';
+import { EnumDictDatabase } from '../const';
 
 /**
  * @todo 支援 XX氏
@@ -26,6 +27,35 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		super._cache();
 
 		this._TABLE = this.segment.getDict('TABLE');
+
+		this._BLACKLIST = this.segment.getDict(EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER) || {};
+	}
+
+	isMergeable(word: IWord, nextword: IWord)
+	{
+		if (word && nextword)
+		{
+			let nw = word.w + nextword.w;
+
+			/**
+			 * 不合併存在於 BLACKLIST 內的字詞
+			 */
+			if (!this._BLACKLIST[nw])
+			{
+				return true;
+
+				/*
+				return {
+					word,
+					nextword,
+					nw,
+					bool: true,
+				}
+				*/
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -45,7 +75,8 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		{
 			let word = words[i];
 			let nextword = words[i + 1];
-			if (nextword)
+
+			if (this.isMergeable(word, nextword))
 			{
 				//debug(nextword);
 				// 如果为  "小|老" + 姓
@@ -189,7 +220,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		{
 			let word = words[i];
 			let nextword = words[i + 1];
-			if (nextword)
+			if (this.isMergeable(word, nextword))
 			{
 				// 如果为 姓 + 单字名
 				if (
