@@ -86,7 +86,12 @@ export function createSegment(useCache: boolean = true)
 		segment
 			.loadSynonymDict('synonym')
 			.loadSynonymDict('zht.synonym')
+
+			.loadBlacklistDict('blacklist')
+			.loadBlacklistOptimizerDict('blacklist.name')
 		;
+
+		segment.doBlacklist();
 	}
 
 	let db_dict = segment.getDictDatabase('TABLE', true);

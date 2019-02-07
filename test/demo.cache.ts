@@ -59,9 +59,7 @@ console.time(`doSegment`);
 
 let text = `
 
-擋開
-戰棍
-龍太郎擋開戰棍后
+甚至視一百名的神殿騎士于無物
 
 `;
 
