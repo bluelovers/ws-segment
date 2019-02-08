@@ -231,7 +231,26 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 				else if (w1.w == '于')
 				{
-					if (w0 && w2)
+					if (w0 == null)
+					{
+						/**
+						 * 當 於 在句子開頭並且後面是名詞或動詞時
+						 */
+						if (w2 && (
+							w2.p & POSTAG.D_N
+							|| w2.p & POSTAG.D_V
+						))
+						{
+							w1.ow = w1.w;
+							w1.w = '於';
+
+							new_p = POSTAG.D_P;
+							w1.p = new_p;
+
+							bool = true;
+						}
+					}
+					else if (w0 && w2)
 					{
 						let w3: IWord;
 
@@ -297,6 +316,12 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 								POSTAG.D_S,
 								POSTAG.D_N,
 								POSTAG.D_V,
+							))
+							||
+							(hexAndAny(w0.p,
+								POSTAG.D_V,
+							) && hexAndAny(w2.p,
+								POSTAG.D_W,
 							))
 						)
 						{

@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.2.16",
+  "version": "2.2.17",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -95,7 +95,7 @@
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^2.0.21",
-    "segment-dict": "^2.2.55",
+    "segment-dict": "^2.2.56",
     "sort-object-keys2": "^1.1.0",
     "ts-enum-util": "3.1.0",
     "uni-string": "^1.1.0"
