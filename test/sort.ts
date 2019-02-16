@@ -61,6 +61,7 @@ Promise
 
 		'lazy/badword.txt',
 		'lazy/dict_synonym.txt',
+		'lazy/index.txt',
 
 	], {
 		cwd: cwd,
@@ -294,7 +295,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/志|誌/).test(w)
+				&& zhRegExp.create(/併|並/).test(w)
 			)
 			{
 				bool = true;
