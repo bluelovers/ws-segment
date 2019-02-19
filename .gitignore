@@ -29,3 +29,4 @@ package-lock.json
 /script/*.d.ts
 /script/*.js
 !/test/res
+*.tgz

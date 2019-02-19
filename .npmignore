@@ -70,3 +70,4 @@ __tests__/*.d.ts
 /dict/opencc/
 /dict/segment/**/*.md
 /dict/segment/infrequent/README.md
+*.tgz
