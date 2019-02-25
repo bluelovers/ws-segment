@@ -295,7 +295,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/併|並/).test(w)
+				&& zhRegExp.create(/系|係/).test(w)
 			)
 			{
 				bool = true;

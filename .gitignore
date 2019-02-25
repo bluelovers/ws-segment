@@ -30,3 +30,4 @@ package-lock.json
 /script/*.js
 !/test/res
 *.tgz
+!/test/sort.ts
