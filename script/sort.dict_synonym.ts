@@ -4,7 +4,15 @@ import * as path from "upath2";
 import { serialize } from '../lib/loader/line';
 import ProjectConfig from "../project.config";
 
-import { chkLineType, EnumLineType, getCjkName, globDict, ILoadDictFileRow2, loadDictFile } from './util';
+import {
+	chkLineType,
+	EnumLineType,
+	getCjkName,
+	globDict,
+	ILoadDictFileRow2,
+	loadDictFile,
+	zhDictCompare,
+} from './util';
 import naturalCompare = require('string-natural-compare');
 
 let CWD = path.join(ProjectConfig.dict_root, 'segment');
@@ -25,6 +33,7 @@ globDict(CWD, [
 	'phrases/*.txt',
 	'pangu/*.txt',
 	'infrequent/**/*.txt',
+	'char.txt',
 ])
 	.tap(function (ls: string[])
 	{
@@ -115,8 +124,15 @@ function SortList<T = ILoadDictFileRow2>(ls: T[])
 		{
 			return (a.index - b.index);
 		}
+		else if (
+			a.line_type == EnumLineType.COMMENT
+			|| b.line_type == EnumLineType.COMMENT
+		)
+		{
+			return (a.index - b.index);
+		}
 
-		let ret = naturalCompare.caseInsensitive(a.cjk_id, b.cjk_id)
+		let ret = zhDictCompare(a.cjk_id, b.cjk_id)
 			|| (a.index - b.index)
 			|| 0
 		;
