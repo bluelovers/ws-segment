@@ -295,7 +295,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/系|係|繫/).test(w)
+				&& zhRegExp.create(/藉|借/).test(w)
 			)
 			{
 				bool = true;

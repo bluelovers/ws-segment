@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.64",
+  "version": "2.2.65",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -91,11 +91,12 @@
     "upath2": "^2.1.3"
   },
   "devDependencies": {
+    "@bluelovers/tsconfig": "^1.0.1",
     "@types/bluebird": "^3",
-    "@types/node": "^10",
+    "@types/node": "^11",
     "array-hyper-unique": "^1.0.7",
     "cjk-conv": "^1",
-    "cross-spawn-extra": "^1.0.4",
+    "cross-spawn-extra": "^1.0.5",
     "debug-color2": "^1",
     "git-root2": "^1.0.4",
     "novel-segment": "^2",
