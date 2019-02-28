@@ -295,7 +295,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/藉|借/).test(w)
+				&& zhRegExp.create(/徵|征/).test(w)
 			)
 			{
 				bool = true;
