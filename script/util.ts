@@ -223,7 +223,7 @@ export function zhDictCompare(a: string, b: string): number
 
 		if (aa && !bb)
 		{
-			return 0
+			return -1
 		}
 		else if (!aa && bb)
 		{
@@ -281,4 +281,4 @@ export function zhDictCompare(a: string, b: string): number
 	return _c || naturalCompare.caseInsensitive(a, b);
 }
 
-//console.log(['第', '一', 'Ｔ', ].sort(zhDictCompare));
+//console.log(['第', '一', 'Ｔ', '网开一面', '三街六市'].sort(zhDictCompare));
