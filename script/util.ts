@@ -1,5 +1,5 @@
 import libTable from 'cjk-conv/lib/zh/table';
-import { textList } from 'cjk-conv/lib/zh/table/list';
+import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 import FastGlob from 'fast-glob';
 import BluebirdPromise = require('bluebird');
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
@@ -134,7 +134,11 @@ export function getCjkName(w: string, USE_CJK_MODE: number)
 {
 	let cjk_id = w;
 
-	if (USE_CJK_MODE > 1)
+	if (1)
+	{
+		cjk_id = slugify(w, true);
+	}
+	else if (USE_CJK_MODE > 1)
 	{
 		let cjk_list = textList(w);
 		cjk_list.sort();
@@ -181,6 +185,7 @@ let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 	['的', '得'],
 	['胡', '糊', '鬍'],
 	['壹', '貳', '參', '肆', '伍', '陸', '柒', '捌', '玖', '拾', '什'],
+	[ '儅', '噹', '当', '當' ]
 ], [
 	['一', '二', '两', '三', '四', '五', '六', '七', '八', '九', '十', '十', '零', '几', '个', '百', '千', '万', '亿'],
 	['上', '下', '左', '右'],
@@ -200,6 +205,7 @@ let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 	['的', '得'],
 	['胡', '糊', '鬍'],
 	['壹', '贰', '参', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '什'],
+	[ '儅', '噹', '当', '當' ]
 ]);
 
 let _zhDictCompareTable_chars = array_unique(_zhDictCompareTable.flat());
