@@ -177,7 +177,10 @@ let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 	['快', '慢'],
 	['春', '夏', '秋', '冬'],
 	['什', '甚'],
-	[ '侭', '儘', '尽', '盡' ],
+	['侭', '儘', '尽', '盡'],
+	['的', '得'],
+	['胡', '糊', '鬍'],
+	['壹', '貳', '參', '肆', '伍', '陸', '柒', '捌', '玖', '拾', '什'],
 ], [
 	['一', '二', '两', '三', '四', '五', '六', '七', '八', '九', '十', '十', '零', '几', '个', '百', '千', '万', '亿'],
 	['上', '下', '左', '右'],
@@ -193,7 +196,10 @@ let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 	['快', '慢'],
 	['春', '夏', '秋', '冬'],
 	['什', '甚'],
-	[ '侭', '儘', '尽', '盡' ],
+	['侭', '儘', '尽', '盡'],
+	['的', '得'],
+	['胡', '糊', '鬍'],
+	['壹', '贰', '参', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '什'],
 ]);
 
 let _zhDictCompareTable_chars = array_unique(_zhDictCompareTable.flat());
@@ -217,7 +223,6 @@ export function zhDictCompare(a: string, b: string): number
 		{
 			return a.length - b.length
 		}
-
 
 		_a = _zhDictCompareTable[0].indexOf(a[0]);
 		_b = _zhDictCompareTable[0].indexOf(b[0]);
