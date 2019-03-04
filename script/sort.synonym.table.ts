@@ -57,11 +57,6 @@ globDict(CWD, [
 
 			let [w] = cur.data;
 
-			let ls = cur.data.slice(1);
-
-			ls = array_unique(ls).filter(v => v != w);
-			ls.sort();
-
 			cur.line_type = chkLineType(cur.line);
 
 			if (cur.line_type == EnumLineType.COMMENT)
@@ -72,6 +67,20 @@ globDict(CWD, [
 			}
 			else if (cur.line_type == EnumLineType.BASE)
 			{
+				let ls = cur.data.slice(1);
+
+				ls = array_unique(ls).filter(v => v != w);
+				//ls.sort();
+
+				ls.sort(function (a, b)
+				{
+					let ca = getCjkName(a, USE_CJK_MODE);
+					let cb = getCjkName(b, USE_CJK_MODE);
+
+					return zhDictCompare(ca, cb)
+					|| zhDictCompare(a, b)
+				});
+
 				cur.line = [w].concat(ls).join(',');
 
 				if (!ls.length)
