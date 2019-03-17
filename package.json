@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.72",
+  "version": "2.2.73",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -98,7 +98,7 @@
     "cjk-conv": "^1",
     "cross-spawn-extra": "^1.0.5",
     "debug-color2": "^1",
-    "git-root2": "^1.0.4",
+    "git-root2": "^1.0.5",
     "novel-segment": "^2",
     "str-util": "^2.3.17",
     "string-natural-compare": "^2"

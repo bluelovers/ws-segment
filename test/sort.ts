@@ -63,6 +63,8 @@ Promise
 		'lazy/dict_synonym.txt',
 		'lazy/index.txt',
 
+
+
 	], {
 		cwd: cwd,
 		absolute: true,
@@ -75,6 +77,7 @@ Promise
 			'**/dict_synonym',
 			'**/synonym',
 			'**/names',
+			'**/infrequent',
 		],
 
 		markDirectories: true,
@@ -295,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/糊|胡/).test(w)
+				&& zhRegExp.create(/面|麵/).test(w)
 			)
 			{
 				bool = true;
