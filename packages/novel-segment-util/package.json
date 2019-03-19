@@ -1,0 +1,19 @@
+{
+  "name": "@novel-segment/util",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+
+  },
+  "peerDependencies": {
+    "array-hyper-unique": "^1.0.7",
+    "cjk-conv": "^1.1.23",
+    "string-natural-compare": "^2.0.3"
+  }
+}
