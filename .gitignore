@@ -34,3 +34,6 @@ yarn.lock
 *.tgz
 
 yarn-error.log
+
+/packages/*
+!/packages/novel-segment-util/
