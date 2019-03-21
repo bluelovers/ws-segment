@@ -291,7 +291,12 @@ export function getSegment(options?: ISegmentCLIOptions)
 					CACHED_SEGMENT
 						.loadSynonymDict('synonym')
 						.loadSynonymDict('zht.synonym')
+
+						.loadBlacklistDict('blacklist')
+						.loadBlacklistOptimizerDict('blacklist.name')
 					;
+
+					CACHED_SEGMENT.doBlacklist();
 				}
 
 				let db_dict = CACHED_SEGMENT.getDictDatabase('TABLE', true);
@@ -303,6 +308,9 @@ export function getSegment(options?: ISegmentCLIOptions)
 				//CACHED_SEGMENT.loadSynonymDict('synonym', true);
 
 				let size_db_dict = db_dict.size();
+
+				CACHED_SEGMENT.loadSynonymDict('synonym', true);
+
 				let size_segment = Object.keys(CACHED_SEGMENT.getDict('SYNONYM')).length;
 
 				debugConsole.debug('主字典總數', size_db_dict);
