@@ -1,4 +1,6 @@
 import BluebirdPromise = require('bluebird');
+import { zhDictCompare, getCjkName } from '@novel-segment/util';
+export { zhDictCompare, getCjkName };
 export declare type ILoadDictFileRow2<D extends any = [string, number, number, ...any[]]> = ILoadDictFileRow<D> & {
     file: string;
     cjk_id: string;
@@ -21,5 +23,3 @@ export declare enum EnumLineType {
 }
 export declare function chkLineType(line: string): EnumLineType;
 export declare function baseSortList<T = ILoadDictFileRow2>(ls: T[], bool?: boolean): T[];
-export declare function getCjkName(w: string, USE_CJK_MODE: number): string;
-export declare function zhDictCompare(a: string, b: string): number;

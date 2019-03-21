@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/面|麵/).test(w)
+				&& zhRegExp.create(/滷|鹵|卤|魯|鲁/).test(w)
 			)
 			{
 				bool = true;
