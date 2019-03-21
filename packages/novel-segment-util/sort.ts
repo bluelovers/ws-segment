@@ -4,6 +4,9 @@ import StrUtil = require('str-util');
 import libTable from 'cjk-conv/lib/zh/table';
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 
+/**
+ * @private
+ */
 export let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 {
 	return array_unique(a.map((value, index, array) =>
@@ -68,6 +71,122 @@ export let _zhDictCompareTable_chars = array_unique(_zhDictCompareTable.flat());
 
 export const RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
 
+
+export interface IFnCompare
+{
+	(a: string, b: string): number
+}
+
+export function zhDictCompareNew(failback?: IFnCompare): IFnCompare
+export function zhDictCompareNew(options?: {
+	failback?: IFnCompare
+}): IFnCompare
+export function zhDictCompareNew(options?: IFnCompare | {
+	failback?: IFnCompare
+}): IFnCompare
+{
+	if (typeof options === 'function')
+	{
+		options = { failback: options };
+	}
+
+	let failback = (options = options || {}).failback;
+
+	if (failback == null)
+	{
+		failback = naturalCompare.caseInsensitive
+	}
+
+	return function zhDictCompare(a: string, b: string): number
+	{
+		let _c = 0;
+
+		let _a0 = a[0];
+		let _b0 = b[0];
+
+		let _a: number;
+		let _b: number;
+
+		let aa = RE_ZH.test(a[0]);
+		let bb = RE_ZH.test(b[0]);
+
+		if (aa && bb)
+		{
+			if (a.length != b.length && (a.length == 1 || b.length == 1))
+			{
+				return a.length - b.length
+			}
+
+			_a = _zhDictCompareTable[0].indexOf(a[0]);
+			_b = _zhDictCompareTable[0].indexOf(b[0]);
+
+			aa = _a != -1;
+			bb = _b != -1;
+
+			if (aa && !bb)
+			{
+				return -1
+			}
+			else if (!aa && bb)
+			{
+				return 1
+			}
+		}
+		else
+		{
+			if (aa && !bb)
+			{
+				return 0
+			}
+			else if (!aa && bb)
+			{
+				return -1
+			}
+		}
+
+		if (_a0 != null)
+		{
+			let len = a.length;
+
+			for (let i = 0; i < len; i++)
+			{
+				if (!a[i] || !b[i] || a[i] == null || b[i] == null)
+				{
+					break;
+				}
+				else if (a[i] !== b[i])
+				{
+					_a0 = a[i];
+					_b0 = b[i];
+
+					break;
+				}
+			}
+		}
+
+		if (_zhDictCompareTable_chars.includes(_a0) && _zhDictCompareTable_chars.includes(_b0))
+		{
+			for (let _arr of _zhDictCompareTable)
+			{
+				_a = _arr.indexOf(_a0);
+				_b = _arr.indexOf(_b0);
+
+				if (_a > -1 && _b > -1)
+				{
+					_c = (_a - _b) || 0;
+
+					break;
+				}
+			}
+		}
+
+		return _c || failback(a, b);
+	}
+}
+
+export const zhDictCompare = zhDictCompareNew();
+
+/*
 export function zhDictCompare(a: string, b: string): number
 {
 	let _c = 0;
@@ -153,3 +272,6 @@ export function zhDictCompare(a: string, b: string): number
 
 	return _c || naturalCompare.caseInsensitive(a, b);
 }
+*/
+
+export default exports as typeof import('./sort');

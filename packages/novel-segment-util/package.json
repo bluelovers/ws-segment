@@ -1,6 +1,7 @@
 {
   "name": "@novel-segment/util",
   "version": "1.0.0",
+  "private": false,
   "description": "",
   "license": "ISC",
   "author": "",
@@ -8,12 +9,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "dependencies": {
-
-  },
+  "dependencies": {},
+  "devDependencies": {},
   "peerDependencies": {
     "array-hyper-unique": "^1.0.7",
     "cjk-conv": "^1.1.23",
+    "str-util": "^2.3.17",
     "string-natural-compare": "^2.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
