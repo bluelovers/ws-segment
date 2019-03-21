@@ -415,6 +415,17 @@ export class DictTokenizer extends SubSModuleTokenizer
 								}
 							}
 
+							if (_temp_ok && (w.p & POSTAG.D_P) && hexAndAny(prew.p,
+								POSTAG.D_N,
+							) && hexAndAny(nextw.p,
+								POSTAG.D_N,
+								POSTAG.D_V,
+							))
+							{
+								assess[i].d++;
+								_temp_ok = false;
+							}
+
 							// @FIXME 暴力解決 三天后 的問題
 							if (nextw.w == '后' && w.p & POSTAG.D_T && hexAndAny(prew.p,
 								POSTAG.D_MQ,
@@ -451,6 +462,21 @@ export class DictTokenizer extends SubSModuleTokenizer
 							)
 							{
 								assess[i].d++;
+							}
+						}
+						else
+						{
+							let _temp_ok: boolean = true;
+
+							/**
+							 * 她把荷包蛋摆在像是印度烤饼的面包上
+							 */
+							if (_temp_ok && (w.p & POSTAG.D_F) && hexAndAny(prew.p,
+								POSTAG.D_N,
+							))
+							{
+								assess[i].d += 1;
+								_temp_ok = false;
 							}
 						}
 					}
