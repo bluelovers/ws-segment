@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.76",
+  "version": "2.2.77",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -80,7 +80,7 @@
   },
   "dependencies": {
     "@novel-segment/util": "^1.0.0",
-    "bluebird": "^3.5.3",
+    "bluebird": "^3.5.4",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
     "fast-glob": "^2.2.6",
