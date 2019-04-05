@@ -231,24 +231,21 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 				else if (w1.w == '于')
 				{
-					if (w0 == null)
+					if ((w0 == null || w0.p & POSTAG.D_W) && (w2 && (
+						w2.p & POSTAG.D_N
+						|| w2.p & POSTAG.D_V
+					)))
 					{
 						/**
 						 * 當 於 在句子開頭並且後面是名詞或動詞時
 						 */
-						if (w2 && (
-							w2.p & POSTAG.D_N
-							|| w2.p & POSTAG.D_V
-						))
-						{
-							w1.ow = w1.w;
-							w1.w = '於';
+						w1.ow = w1.w;
+						w1.w = '於';
 
-							new_p = POSTAG.D_P;
-							w1.p = new_p;
+						new_p = POSTAG.D_P;
+						w1.p = new_p;
 
-							bool = true;
-						}
+						bool = true;
 					}
 					else if (w0 && w2)
 					{
