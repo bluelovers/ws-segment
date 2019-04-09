@@ -33,7 +33,15 @@
     "git-root2": "^1.0.5"
   },
   "resolutions": {
-    "cjk-conv": "^1",
+    "string-natural-compare": "^2.0.3",
+    "regexp-cjk": "^3",
+    "string-width": "^3",
+    "strip-ansi": "^5.1",
+    "supports-color": "^5",
+    "uni-string": "^1.1",
+    "bluebird": "^3.5.4",
+    "fs-extra": "^7.0.1",
+    "cjk-conv": "^1.1.25",
     "@types/node": "^11"
   }
 }
