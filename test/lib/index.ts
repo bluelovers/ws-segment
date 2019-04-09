@@ -7,7 +7,7 @@ import * as FastGlob from 'fast-glob';
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import Promise = require('bluebird');
-import { Segment } from '../../lib/Segment';
+import { IOptionsSegment, Segment } from '../../lib/Segment';
 import { useDefault, getDefaultModList } from '../../lib';
 import { debug_token } from '../../lib/util';
 import ProjectConfig from '../../project.config';
@@ -16,7 +16,7 @@ import * as util from 'util';
 
 util.inspect.defaultOptions.colors = true;
 
-export function createSegment(useCache: boolean = true)
+export function createSegment(useCache: boolean = true, optionsSegment?: IOptionsSegment)
 {
 	const segment = new Segment({
 		autoCjk: true,
@@ -26,6 +26,8 @@ export function createSegment(useCache: boolean = true)
 			convertSynonym: true,
 
 		},
+
+		...optionsSegment,
 	});
 
 	let cache_file = path.join(ProjectConfig.temp_root, 'cache.db');
@@ -85,7 +87,7 @@ export function createSegment(useCache: boolean = true)
 	{
 		segment
 			.loadSynonymDict('synonym')
-			.loadSynonymDict('zht.synonym')
+			.loadSynonymDict('zht.synonym', false)
 
 			.loadBlacklistDict('blacklist')
 			.loadBlacklistOptimizerDict('blacklist.name')

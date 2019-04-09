@@ -8,7 +8,7 @@
 
 // @ts-ignore
 // @ts-ignore
-import * as path from 'path';
+import path = require('path');
 import { searchFirstSync, searchGlobSync } from './fs/get';
 import { useDefault } from './index';
 import POSTAG from './POSTAG';
@@ -27,8 +27,9 @@ import { IWordDebug } from './util/index';
 
 import ProjectConfig from '../project.config';
 
-import * as deepmerge from 'deepmerge-plus';
+import deepmerge = require('deepmerge-plus');
 import { EnumDictDatabase } from './const';
+import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from './mod/index';
 
 /**
  * 创建分词器接口
@@ -190,6 +191,10 @@ export class Segment
 			{
 				me.use(m);
 			});
+		}
+		else if (me.options && me.options.disableModules && me.options.disableModules.includes(mod))
+		{
+			console.warn(`can't use this mod, because it got disable: ${mod}`)
 		}
 		else
 		{
@@ -672,6 +677,82 @@ export class Segment
 		return this
 	}
 
+	listModules(options: IOptionsDoSegment = {})
+	{
+		let me = this;
+
+		options = this.getOptionsDoSegment(options);
+
+		let ret = {
+			enable: {
+				tokenizer: [] as ISubTokenizer[],
+				optimizer: [] as ISubOptimizer[],
+			},
+			disable: {
+				tokenizer: [] as ISubTokenizer[],
+				optimizer: [] as ISubOptimizer[],
+			},
+		};
+
+		if (options && options.disableModules)
+		{
+			me.modules.tokenizer
+				.forEach(function (mod)
+				{
+					let bool: boolean;
+
+					if (mod.name)
+					{
+						if (options.disableModules.includes(mod.name))
+						{
+							bool = true;
+						}
+					}
+					else
+					{
+						if (options.disableModules.includes(mod as any))
+						{
+							bool = true;
+						}
+					}
+
+					ret[bool ? 'disable' : 'enable'].tokenizer.push(mod);
+				})
+			;
+
+			me.modules.optimizer
+				.forEach(function (mod)
+				{
+					let bool: boolean;
+
+					if (mod.name)
+					{
+						if (options.disableModules.includes(mod.name))
+						{
+							bool = true;
+						}
+					}
+					else
+					{
+						if (options.disableModules.includes(mod as any))
+						{
+							bool = true;
+						}
+					}
+
+					ret[bool ? 'disable' : 'enable'].optimizer.push(mod);
+				})
+			;
+		}
+		else
+		{
+			ret.enable.tokenizer = me.modules.tokenizer.slice();
+			ret.enable.optimizer = me.modules.optimizer.slice();
+		}
+
+		return ret;
+	}
+
 	/**
 	 * 开始分词
 	 *
@@ -703,6 +784,8 @@ export class Segment
 		;
 		text = undefined;
 
+		const mods = this.listModules(options).enable;
+
 		// 将文本按照换行符分割成多段，并逐一分词
 		let ret = text_list.reduce(function (ret, section)
 		{
@@ -719,10 +802,10 @@ export class Segment
 			if (section.length > 0)
 			{
 				// 分词
-				let sret = me.tokenizer.split(section, me.modules.tokenizer);
+				let sret = me.tokenizer.split(section, mods.tokenizer);
 
 				// 优化
-				sret = me.optimizer.doOptimize(sret, me.modules.optimizer);
+				sret = me.optimizer.doOptimize(sret, mods.optimizer);
 
 				// 连接分词结果
 				if (sret.length > 0)
@@ -1056,6 +1139,8 @@ export namespace Segment
 		all_mod?: boolean,
 
 		maxChunkCount?: number,
+
+		disableModules?: (ENUM_SUBMODS_NAME | unknown)[],
 	};
 
 	export type IDICT_SYNONYM = IDICT<string>;
@@ -1120,6 +1205,8 @@ export namespace Segment
 		stripStopword?: boolean,
 
 		stripSpace?: boolean,
+
+		disableModules?: (ENUM_SUBMODS_NAME | unknown)[],
 	}
 }
 

@@ -96,6 +96,8 @@ export enum ENUM_SUBMODS_OTHER
 	SingleTokenizer = 'SingleTokenizer',
 }
 
+export type ENUM_SUBMODS_NAME = ENUM_SUBMODS | ENUM_SUBMODS_OTHER;
+
 export const LIST_SUBMODS_NOT_DEF = [
 	ENUM_SUBMODS.ZhtSynonymOptimizer,
 ];

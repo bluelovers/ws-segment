@@ -4,6 +4,7 @@
 import { POSTAG } from '../POSTAG';
 import { IDICT_BLACKLIST, IWord, Segment } from '../Segment';
 import { IWordDebug, IWordDebugInfo } from '../util/index';
+import { ENUM_SUBMODS_NAME } from './index';
 export declare type ISModuleType = 'optimizer' | 'tokenizer' | string;
 export declare class SModule implements ISModule {
     type?: ISModuleType;
@@ -55,6 +56,7 @@ export interface IModuleStatic<T extends ISModule | SubSModule> {
 export interface ISubSModule {
     type: ISModuleType;
     segment: Segment;
+    name?: ENUM_SUBMODS_NAME | string;
     priority?: number;
     init(segment: Segment, ...argv: any[]): ISubSModule;
 }

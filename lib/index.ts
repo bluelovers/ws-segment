@@ -45,7 +45,7 @@ export function useDefault(segment: Segment, options: {
 
 		//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
 		.loadSynonymDict('synonym')   // 同义词
-		.loadSynonymDict('zht.synonym')
+		.loadSynonymDict('zht.synonym', false)
 		.loadStopwordDict('stopword') // 停止符
 
 		.loadDict('lazy/dict_synonym')

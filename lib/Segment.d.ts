@@ -13,6 +13,7 @@ import TableDictSynonym from './table/synonym';
 import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from './mod';
 import { IWordDebug } from './util/index';
 import { EnumDictDatabase } from './const';
+import { ENUM_SUBMODS_NAME } from './mod/index';
 /**
  * 创建分词器接口
  */
@@ -150,6 +151,16 @@ export declare class Segment {
      * remove key in TABLE by BLACKLIST
      */
     doBlacklist(): this;
+    listModules(options?: IOptionsDoSegment): {
+        enable: {
+            tokenizer: ISubTokenizer[];
+            optimizer: ISubOptimizer[];
+        };
+        disable: {
+            tokenizer: ISubTokenizer[];
+            optimizer: ISubOptimizer[];
+        };
+    };
     /**
      * 开始分词
      *
@@ -217,6 +228,7 @@ export declare namespace Segment {
         optionsDoSegment?: IOptionsDoSegment;
         all_mod?: boolean;
         maxChunkCount?: number;
+        disableModules?: (ENUM_SUBMODS_NAME | unknown)[];
     };
     type IDICT_SYNONYM = IDICT<string>;
     type IDICT_STOPWORD = IDICT<boolean>;
@@ -268,6 +280,7 @@ export declare namespace Segment {
          */
         stripStopword?: boolean;
         stripSpace?: boolean;
+        disableModules?: (ENUM_SUBMODS_NAME | unknown)[];
     }
 }
 export import IOptionsSegment = Segment.IOptionsSegment;

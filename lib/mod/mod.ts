@@ -6,6 +6,7 @@ import { POSTAG } from '../POSTAG';
 import { IDICT, IDICT_BLACKLIST, IWord, Segment } from '../Segment';
 import { IWordDebug, IWordDebugInfo } from '../util/index';
 import { debugToken } from '../util/debug'
+import { ENUM_SUBMODS_NAME } from './index';
 
 export type ISModuleType = 'optimizer' | 'tokenizer' | string;
 
@@ -210,6 +211,8 @@ export interface ISubSModule
 {
 	type: ISModuleType,
 	segment: Segment,
+
+	name?: ENUM_SUBMODS_NAME | string;
 
 	priority?: number;
 

@@ -54,6 +54,11 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 
 		self.TABLE2[w] = self.TABLE2[w] || [];
 
+		if (skipExists == null)
+		{
+			skipExists = true;
+		}
+
 		data.forEach(function (bw, index)
 		{
 			bw = self._trim(bw);
@@ -76,7 +81,7 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 			self.TABLE2[w].push(bw);
 			self._add(bw, w);
 
-			skipExists = true;
+			//skipExists = true;
 		});
 
 		return this;
