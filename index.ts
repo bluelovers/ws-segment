@@ -290,7 +290,7 @@ export function getSegment(options?: ISegmentCLIOptions)
 				{
 					CACHED_SEGMENT
 						.loadSynonymDict('synonym')
-						.loadSynonymDict('zht.synonym')
+						.loadSynonymDict('zht.synonym', false)
 
 						.loadBlacklistDict('blacklist')
 						.loadBlacklistOptimizerDict('blacklist.name')
