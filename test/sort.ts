@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/鉴|鑑|鑒/).test(w)
+				&& zhRegExp.create(/原|元/).test(w)
 			)
 			{
 				bool = true;
