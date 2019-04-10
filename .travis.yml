@@ -19,7 +19,7 @@ cache:
 
 before_install:
   #- npm install -g typedoc typedoc-themes-color typedoc-plugin-nojekyll
-  - npm install -g typescript
+  - npm install -g typescript@next ts-node
 
 install:
   #- npm install
@@ -30,3 +30,4 @@ before_script:
 script:
   npm run travis
   #typedoc --options ./typedoc.config.js
+  npm run test
