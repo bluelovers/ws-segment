@@ -17,7 +17,7 @@ import tests_lazy_array from './res/lazy.array';
 import { Segment } from '../lib';
 import { createSegment } from './lib';
 import { IOptionsDoSegment } from '../lib/Segment';
-import { lazyMatch, lazyMatch002, toStringArray } from './lib/util';
+import { lazyMatch, lazyMatch002, mochaSetup, toStringArray } from './lib/util';
 import { console } from 'debug-color2';
 
 // @ts-ignore
@@ -29,7 +29,7 @@ describe(relative(__filename), () =>
 
 	before(function ()
 	{
-		this.timeout(15000);
+		mochaSetup(this);
 
 		segment = createSegment(true, {
 			disableModules: [

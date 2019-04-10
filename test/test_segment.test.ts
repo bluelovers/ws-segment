@@ -1,19 +1,19 @@
 import { createSegment } from './lib';
 import { IOptionsDoSegment, Segment } from '../lib/Segment';
-import { toStringArray } from './lib/util';
-import { assert, expect } from './_local-dev';
+import { mochaSetup, toStringArray } from './lib/util';
 import { ENUM_SUBMODS } from '../lib/mod/index';
 import { tests_old } from './res/default';
 import { console } from 'debug-color2';
+import { chai, relative, expect, path, assert, util, mochaAsync } from './_local-dev';
 
-describe('ChsNameTokenizer', function ()
+describe(relative(__filename), function ()
 {
 
 	let segment: Segment = null;
 
 	before(function ()
 	{
-		this.timeout(15000);
+		mochaSetup(this);
 
 		segment = createSegment(false, {
 			disableModules: [

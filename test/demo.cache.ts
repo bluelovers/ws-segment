@@ -54,20 +54,23 @@ db_dict
 //	.add(['在干的',0x18801000,500])
 //	.add(['面包',0x100000, 800])
 //	.add(['之间',0x2100000, 1000])
-//	.add(['中国',0x100040, 5000])
+//	.add(['干吗',0x802000, 0])
+//	.add(['樹干',0x100000, 500])
 ;
 
 segment
-//	.addBlacklist('于方')
+//	.addBlacklist('領民間')
 ;
 
 console.time(`doSegment`);
 
 let text = `
 
-
+你就躲在幕簾后面發著抖
+你就躲在幕簾后面发着抖
 
 `;
+
 
 text = text.replace(/^\s+|\s+$/g, '');
 

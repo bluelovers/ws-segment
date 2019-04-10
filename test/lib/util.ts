@@ -5,6 +5,13 @@
 import { Segment, IWord, IDICT, IOptionsSegment, IDICT2, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment } from '../../lib/Segment';
 import { assert, expect, chai } from '../_local-dev';
 
+export function mochaSetup(mocha: Mocha.Context)
+{
+	mocha.timeout(30000);
+
+	return mocha;
+}
+
 export function toStringArray<T extends IWord[]>(arr: T)
 {
 	return arr.map(function (w) {
