@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/烟|菸|煙/).test(w)
+				&& zhRegExp.create(/台|檯|臺|颱/).test(w)
 			)
 			{
 				bool = true;
