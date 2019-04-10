@@ -257,7 +257,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				if ((
 					w2.p & POSTAG.A_M
 					&& !/^第/.test(w2.w)
-				) || w2.w == '%')
+				) || w2.w == '%' || w2.w == '％')
 				{
 					this.sliceToken(words, i, 2, {
 						w: w1.w + w2.w,
@@ -314,8 +314,13 @@ export class DictOptimizer extends SubSModuleOptimizer
 				// 带小数点的数字 ，如 “3 . 14”，或者 “十五点三”
 				// 数词 + "分之" + 数词，如“五十分之一”
 				let w3 = words[i + 2];
-				if (w3 && (w3.p & POSTAG.A_M) &&
-					(w2.w == '.' || w2.w == '点' || w2.w == '分之'))
+				if (w3 && (w3.p & POSTAG.A_M)
+					&& (w2.w == '.'
+						|| w2.w == '点'
+						|| w2.w == '點'
+						|| w2.w == '分之'
+					)
+				)
 				{
 					this.sliceToken(words, i, 3, {
 						w: w1.w + w2.w + w3.w,
@@ -330,7 +335,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 			}
 
 			// 修正 “十五点五八”问题
-			if ((w1.p & POSTAG.D_MQ) && w1.w.substr(-1) === '点' && w2.p & POSTAG.A_M)
+			if ((w1.p & POSTAG.D_MQ) && ['點', '点'].includes(w1.w.substr(-1)) && w2.p & POSTAG.A_M)
 			{
 				//debug(w1, w2);
 				let i2 = 2;

@@ -83,6 +83,30 @@ export const tests: [string, Parameters<typeof lazyMatch>['1'], Parameters<typeo
 		],
 	],
 
+	[
+		'爲了收集有能力對術文獻上祈禱的人',
+		[
+			'收集',
+			'獻上',
+			'祈禱',
+		],
+	],
+
+	[
+		'賽拉正站在馬車的貨台上',
+		[
+			'馬車',
+			'貨台',
+		],
+	],
+
+	[
+		'平均比重為一點七',
+		[
+			'一點七',
+		],
+	],
+
 ];
 
 export default tests
