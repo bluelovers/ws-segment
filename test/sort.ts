@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/迷|謎|谜/).test(w)
+				&& zhRegExp.create(/鉴|鑑|鑒/).test(w)
 			)
 			{
 				bool = true;
