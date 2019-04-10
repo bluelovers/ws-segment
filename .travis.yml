@@ -23,9 +23,10 @@ before_install:
 
 install:
   - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra
+  - yarn
 
 before_script:
   - echo before_script
 script:
-  npm run travis
+#  npm run travis
   npm run test
