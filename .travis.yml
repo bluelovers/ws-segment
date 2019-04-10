@@ -1,11 +1,11 @@
 language: node_js
 node_js:
-    - "9"
+    - "node"
 
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  github-token: $GITHUB_TOKEN
   keep-history: true
   on:
     branch: master
@@ -22,12 +22,10 @@ before_install:
   - npm install -g typescript@next ts-node
 
 install:
-  #- npm install
   - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra
 
 before_script:
-
+  - echo before_script
 script:
   npm run travis
-  #typedoc --options ./typedoc.config.js
   npm run test
