@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/台|檯|臺|颱/).test(w)
+				&& zhRegExp.create(/梁|樑/).test(w)
 			)
 			{
 				bool = true;
