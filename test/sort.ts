@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/罗|啰|囉|羅|㑩|儸/).test(w)
+				&& zhRegExp.create(/烟|菸|煙/).test(w)
 			)
 			{
 				bool = true;

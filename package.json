@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.78",
+  "version": "2.2.79",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -70,13 +70,12 @@
     "sort-dict-synonym": "ts-node ./script/sort.dict_synonym.ts",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table & npm run sort-dict-synonym",
+    "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table & npm run sort-dict-synonym && npm run test",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after",
     "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
-    "local-link": "npm link novel-segment",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npx lerna run --scope novel-segment test"
   },
   "dependencies": {
     "@novel-segment/util": "^1.0.0",
