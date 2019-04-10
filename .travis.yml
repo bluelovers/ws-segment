@@ -19,11 +19,11 @@ cache:
 
 before_install:
   #- npm install -g typedoc typedoc-themes-color typedoc-plugin-nojekyll
-  - npm install -g typescript@next ts-node
+  - npm install -g typescript@next ts-node mocha chai
 
 install:
   - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra
-  - yarn
+  - npm install
 
 before_script:
   - echo before_script
