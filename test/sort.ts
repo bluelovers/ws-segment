@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/原|元/).test(w)
+				&& zhRegExp.create(/[踩采彩採埰綵睬䌽]/).test(w)
 			)
 			{
 				bool = true;
