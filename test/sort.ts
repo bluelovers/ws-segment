@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/密|宻|祕|秘/).test(w)
+				&& zhRegExp.create(/迷|謎|谜/).test(w)
 			)
 			{
 				bool = true;
