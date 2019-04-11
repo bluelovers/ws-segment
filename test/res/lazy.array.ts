@@ -47,6 +47,25 @@ export const tests: [string, Parameters<typeof lazyMatch002>['1'], Parameters<ty
 		],
 	],
 
+	[
+		'世間萬物終歸于虛無',
+		[
+			[
+				'世間',
+				'萬物',
+				'終歸',
+				'於',
+				'虛無',
+			],
+			[
+				'世間',
+				'萬物',
+				'終歸於',
+				'虛無',
+			],
+		],
+	],
+
 ];
 
 export default tests
