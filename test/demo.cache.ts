@@ -67,7 +67,7 @@ console.time(`doSegment`);
 
 let text = `
 
-海藤卡納塔干的壞事
+在看到他的身影后
 
 `;
 

@@ -168,4 +168,83 @@ export function lazyMatchSynonym001(a: string, b_arr: string[], options: {
 	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have index of ordered members in ${chai.util.inspect(b_arr)}`);
 }
 
+export function lazyMatchNot(a: string[], b: string[] | (string | string[])[], options: {
+	firstOne?: boolean,
+} = {})
+{
+	let i: number = null;
+
+	let bool = b.every(function (value, index, array)
+	{
+		let j: number = -1;
+		let ii = i;
+
+		if (i == null)
+		{
+			i = -1;
+		}
+
+		if (Array.isArray(value))
+		{
+			if (options.firstOne)
+			{
+				value.some(function (bb)
+				{
+					let jj = a.indexOf(bb, ii);
+
+					if ((jj > -1) && (jj > i))
+					{
+						j = jj;
+
+						return true
+					}
+				});
+			}
+			else
+			{
+				j = value.reduce(function (aa, bb)
+				{
+					let jj = a.indexOf(bb, ii);
+
+					if ((jj > -1) && (jj > i))
+					{
+						if (aa == -1)
+						{
+							return jj;
+						}
+
+						return Math.min(jj, aa)
+					}
+
+					return aa;
+				}, -1)
+			}
+		}
+		else
+		{
+			j = a.indexOf(value, ii);
+		}
+
+		if (j > -1)
+		{
+			i = j;
+
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	});
+
+	if (i === -1)
+	{
+		bool = true;
+	}
+
+	!bool && assert.fail(`expected ${chai.util.inspect(a)} should not include ordered members ${chai.util.inspect(b)}`);
+
+	return bool;
+}
+
 export default exports as typeof import('./util');

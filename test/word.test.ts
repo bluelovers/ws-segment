@@ -12,12 +12,16 @@ import { chai, relative, expect, path, assert, util, mochaAsync } from './_local
 // @ts-ignore
 import { ITest } from 'mocha';
 
-import { tests_lazy_indexof, tests_lazy_array, tests_lazy_base } from './res/lazy.index';
-import { Segment } from '../lib';
+import { tests_lazy_indexof, tests_lazy_array, tests_lazy_base, tests_lazy_base_not } from './res/lazy.index';
+import { Segment } from '../lib/Segment';
 import { createSegment } from './lib';
 import { IOptionsDoSegment } from '../lib/Segment';
-import { lazyMatch, lazyMatch002, lazyMatchSynonym001, mochaSetup, toStringArray } from './lib/util';
+import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, mochaSetup, toStringArray } from './lib/util';
 import { console } from 'debug-color2';
+
+console.setOptions({
+	label: true,
+});
 
 // @ts-ignore
 describe(relative(__filename), () =>
@@ -95,6 +99,27 @@ describe(relative(__filename), () =>
 				console.debug(actual);
 
 				lazyMatchSynonym001(actual, expected, args[2]);
+			});
+		});
+
+
+
+	});
+
+	// @ts-ignore
+	describe(`tests_lazy_base_not`, () =>
+	{
+		tests_lazy_base_not.forEach(function (args)
+		{
+			it(args[0], function ()
+			{
+				let actual = toStringArray(doSegment(args[0]));
+
+				let expected = args[1];
+
+				console.debug(actual.join('/'));
+
+				lazyMatchNot(actual, expected, args[2]);
 			});
 		});
 	});

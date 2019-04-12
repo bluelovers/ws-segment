@@ -16,6 +16,8 @@ import * as util from 'util';
 
 util.inspect.defaultOptions.colors = true;
 
+
+
 export function createSegment(useCache: boolean = true, optionsSegment?: IOptionsSegment)
 {
 	const segment = new Segment({
