@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.2.23",
+  "version": "2.2.24",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -84,10 +84,10 @@
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
-    "@novel-segment/util": "^1.0.0",
+    "@novel-segment/util": "^1.0.1",
     "array-hyper-unique": "^1.0.7",
     "bluebird": "^3.5.4",
-    "cjk-conv": "^1.1.28",
+    "cjk-conv": "^1.1.29",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
     "deepmerge-plus": "^2.1.3",
@@ -96,7 +96,7 @@
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^3.0.3",
-    "segment-dict": "^2.2.80",
+    "segment-dict": "^2.2.81",
     "sort-object-keys2": "^1.1.0",
     "str-util": "^2.3.17",
     "string-natural-compare": "^2.0.3",

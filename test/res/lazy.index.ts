@@ -199,10 +199,25 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'这并不是要吞并卡拉萨斯领的计划吗',
+		[
+			'並不是',
+			'吞併',
+		],
+	],
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
-	//
+
+	[
+		'這份毫不守舊的率直',
+		[
+			'份毫',
+		],
+	],
+
 ];
 
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
@@ -311,6 +326,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'奧莉薇婭率領的騎兵聯隊將作為第二批部隊于一周後出發',
 		[
 			'於',
+		],
+	],
+
+	[
+		'完全沒有注意的我們都因為這下冲擊摔倒在地',
+		[
+			'衝',
+		],
+	],
+
+	[
+		'而且我希望能一直就這麼干下去',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'從旁邊看來肯定是一副相當恶心的畫面',
+		[
+			'噁',
 		],
 	],
 
