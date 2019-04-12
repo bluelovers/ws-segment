@@ -67,7 +67,7 @@ console.time(`doSegment`);
 
 let text = `
 
-對於這些邂逅，我发自內心表示感謝。
+海藤卡納塔干的壞事
 
 `;
 

@@ -10,6 +10,8 @@ import ChaiPlugin from 'chai-asserttype-extra'
 const chai = ChaiPlugin.install(_chai);
 let { expect, assert } = chai;
 
+chai.use(require('chai-string'));
+
 export { chai, expect, assert }
 
 // @ts-ignore
