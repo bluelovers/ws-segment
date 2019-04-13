@@ -22,11 +22,17 @@ before_install:
   - npm install -g typescript@next ts-node mocha chai
 
 install:
-  - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra
   - npm install
+  - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra chai-string @types/mocha
+
 
 before_script:
   - echo before_script
 script:
 #  npm run travis
   npm run test
+
+env:
+  - TS_NODE_TRANSPILE_ONLY=true
+  - color=1
+  - FORCE_COLOR=1
