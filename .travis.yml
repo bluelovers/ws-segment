@@ -33,6 +33,7 @@ script:
   npm run test
 
 env:
-  - TS_NODE_TRANSPILE_ONLY=true
-  - color=1
-  - FORCE_COLOR=1
+  global:
+    - TS_NODE_TRANSPILE_ONLY=true
+    - color=1
+    - FORCE_COLOR=1
