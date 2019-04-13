@@ -23,7 +23,7 @@ before_install:
 
 install:
   - npm install
-  - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra chai-string @types/mocha  mocha chai chai-asserttype-extra
+  - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra chai-string @types/mocha   typescript@next ts-node mocha chai chai-asserttype-extra
 
 
 before_script:
