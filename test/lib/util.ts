@@ -2,17 +2,10 @@
  * Created by user on 2019/4/9.
  */
 
-import {
-	Segment,
-	IWord,
-	IDICT,
-	IOptionsSegment,
-	IDICT2,
-	IDICT_STOPWORD,
-	IDICT_SYNONYM,
-	IOptionsDoSegment,
-} from '../../lib/Segment';
-import { assert, expect, chai } from '../_local-dev';
+import { IWord } from '../../lib/Segment';
+import { assert, chai } from '../_local-dev';
+import tests_lazy_index from '../res/lazy.index';
+import { zhDictCompare } from '@novel-segment/util';
 
 export function mochaSetup(mocha: Mocha.Context)
 {
@@ -248,3 +241,12 @@ export function lazyMatchNot(a: string[], b: string[] | (string | string[])[], o
 }
 
 export default exports as typeof import('./util');
+
+export function sortTests<T extends typeof tests_lazy_index['tests_lazy_base'] | typeof tests_lazy_index['tests_lazy_base_not'] | typeof tests_lazy_index['tests_lazy_array'] | typeof tests_lazy_index['tests_lazy_indexof']>(list: T)
+{
+	list.sort(function (a, b)
+	{
+		return zhDictCompare(String(a[1]), String(b[1]))
+			|| zhDictCompare(a[0], b[0])
+	})
+}

@@ -13,6 +13,7 @@ export declare class ChsNameOptimizer extends SubSModuleOptimizer {
     protected _TABLE: IDICT<IWord>;
     name: string;
     _cache(): void;
+    isMergeable2(...words: string[]): boolean;
     isMergeable(word: IWord, nextword: IWord): boolean;
     /**
      * 对可能是人名的单词进行优化

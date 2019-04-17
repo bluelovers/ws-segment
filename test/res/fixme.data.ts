@@ -3,6 +3,7 @@
  */
 
 import tests_lazy_index from './lazy.index';
+import { sortTests } from '../lib/util';
 
 export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 
@@ -50,6 +51,13 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'于錯綜複雜的基礎上誕生出現在的羅迪斯王家',
+		[
+			'現在',
+		]
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [
@@ -81,6 +89,15 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 			'是以',
 		]
 	],
+
+
+	[
+		'艾蓮娜有時間的話不要值班准備料理嗎',
+		[
+			'備料',
+		]
+	],
+
 
 ];
 
@@ -154,8 +171,159 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 	],
 
 
+	[
+		'當然這都是后話了',
+		[
+			'後',
+		],
+	],
 
+	[
+		'只是照他們要求的干而已',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'看到她沒干的頭髮粘在她鎖骨上的光景',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'說不定會被里伊氏族察覺到',
+		[
+			'里',
+		],
+	],
+
+	[
+		'至于武器',
+		[
+			'於',
+		],
+	],
+
+	[
+		'干她就對了',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'干這一行的基本都是大公會的人',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'本來行會不會發佈這種任務',
+		[
+			'公會',
+		],
+	],
+
+	[
+		'伊莉娜凝視那樣的夏倫的后影',
+		[
+			'後',
+		],
+	],
+
+	[
+		'作為父親后妻的女人是和親生母親不變的存在',
+		[
+			'後',
+		],
+	],
+
+	[
+		'那些注入全身的力量還是讓它的身體略微往后傾',
+		[
+			'後',
+		],
+	],
+
+
+	[
+		'夏倫甚麼牢騷都沒发也沒把伊莉娜的手撥開',
+		[
+			'發',
+		],
+	],
+
+	[
+		'七人里有五人和遙遠的回廊有關聯',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'男人穿著有點脏的皮甲從中露出的衣服也絕對說不上好',
+		[
+			'髒',
+		],
+	],
+
+	[
+		'這些都是后話了',
+		[
+			'後',
+		],
+	],
+
+	[
+		'但手中的雙劍在他松手後掉在地上',
+		[
+			'鬆',
+		],
+	],
+
+	[
+		'會有益于加華特商的莫大利潤和南部地區巨大信用的話',
+		[
+			'於',
+		],
+	],
+
+	[
+		'上次大會的准優勝者',
+		[
+			'準',
+		],
+	],
+
+	[
+		'但是轉過頭來卻发現眼前站著的人和那些男人不同',
+		[
+			'發',
+		],
+	],
+
+	[
+		'之後的第四場比賽也沒有发生意外',
+		[
+			'發',
+		],
+	],
+
+	[
+		'不要发小孩子脾氣',
+		[
+			'發',
+		],
+	],
 
 ];
+
+sortTests(tests_fixme_base);
+sortTests(tests_fixme_base_not);
+sortTests(tests_fixme_array);
+sortTests(tests_fixme_indexof);
 
 export default exports as typeof import('./fixme.data');

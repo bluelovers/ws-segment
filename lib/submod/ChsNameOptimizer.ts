@@ -31,6 +31,19 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		this._BLACKLIST = this.segment.getDict(EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER) || {};
 	}
 
+	isMergeable2(...words: string[])
+	{
+		let nw = words.join('');
+
+		if (!this._BLACKLIST[nw])
+
+		{
+			return true;
+		}
+
+		return null;
+	}
+
 	isMergeable(word: IWord, nextword: IWord)
 	{
 		if (word && nextword)
@@ -151,8 +164,10 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 
 						// 如果上一个单词可能是一个姓，则合并
 						let preword = words[i - 1];
-						if (preword &&
-							(preword.w in CHS_NAMES.FAMILY_NAME_1 || preword.w in CHS_NAMES.FAMILY_NAME_2))
+						if (preword
+							&& (preword.w in CHS_NAMES.FAMILY_NAME_1 || preword.w in CHS_NAMES.FAMILY_NAME_2)
+							&& this.isMergeable2(preword.w, word.w,  nextword.w)
+						)
 						{
 
 							/*

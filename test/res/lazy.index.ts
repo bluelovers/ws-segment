@@ -2,7 +2,7 @@
  * Created by user on 2019/4/12.
  */
 
-import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001 } from '../lib/util';
+import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, sortTests } from '../lib/util';
 
 export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parameters<typeof lazyMatch>['2']?][] = [
 
@@ -207,6 +207,56 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'世间独一无二的标志才行',
+		[
+			'标誌',
+		],
+	],
+
+	[
+		'而是縷了一下前发',
+		[
+			'前髮',
+		],
+	],
+
+	[
+		'但是明天會在利得亞港上岸然后從陸路向王都瑪露提那前進',
+		[
+			'然後',
+		],
+	],
+
+	[
+		'把靈魂轉移到其他容器後就會完全切斷與原本身體的联系',
+		[
+			'联繫',
+		],
+	],
+
+	[
+		'作為父親后妻的女人是和親生母親不變的存在',
+		[
+			'後妻',
+			['親生母親', '親生'],
+		],
+	],
+
+	[
+		'女性的雇傭兵中她那樣強的人還有沒有艾蓮娜不知道',
+		[
+			['雇傭兵', '僱傭兵'],
+		],
+	],
+
+	[
+		'在倫巴達確認自己的貨船裝滿貨物和完成出航手續后預定馬上趕到萊斯沃斯',
+		[
+			['手續', '出航手續',],
+		],
+	],
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
@@ -215,6 +265,50 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		'這份毫不守舊的率直',
 		[
 			'份毫',
+		],
+	],
+
+	[
+		'在外面放哨的大概有十來人',
+		[
+			'在外',
+		]
+	],
+
+	[
+		'正是這份工作的不二人選',
+		[
+			'份工',
+		],
+	],
+
+
+	[
+		'好像是有商人為了攬客正大聲吆喝著',
+		[
+			'正大',
+		],
+	],
+
+	[
+		'比起《水月迷宮》中出現的哥布林身體能力有若干的提高',
+		[
+			'體能',
+			['干的', '幹的', '乾的'],
+		],
+	],
+
+	[
+		'所以来办一场上梁仪式吧',
+		[
+			'以来',
+		],
+	],
+
+	[
+		'莉法娜发出沒力的聲音',
+		[
+			'出沒',
 		],
 	],
 
@@ -350,6 +444,110 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'這票干成之後我們就要發財了',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'但是想要干一番能改變世界的大事',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'看來真有把臉捏丑一點的必要了',
+		[
+			'醜',
+		],
+	],
+
+	[
+		'除了里長烏拉諾斯之外',
+		[
+			'里',
+		],
+	],
+
+	[
+		'少女的右手如云霧般消失',
+		[
+			'雲',
+		],
+	],
+
+	[
+		'緊貼著濕发的前額',
+		[
+			'髮',
+		],
+	],
+
+	[
+		'不遜色于阿尼艾絲的美麗女人',
+		[
+			'於',
+		],
+	],
+
+	[
+		'毀于蟻穴',
+		[
+			'於',
+		],
+	],
+
+	[
+		'放心后男人們發呆地凝視著',
+		[
+			'後',
+		],
+	],
+
+	[
+		'這個書信是在早上发放到所有公會的',
+		[
+			'發',
+		],
+	],
+
+	[
+		'任何國家都對騎士和士兵的征用表現積極態度',
+		[
+			'徵',
+		],
+	],
+
+	[
+		'而這些是起因于強烈的嫉妒心',
+		[
+			'於',
+		],
+	],
+
+	[
+		'就這樣真正的為余效力如何',
+		[
+			'余',
+		],
+	],
+
+	[
+		'為什麼要拒絶余的邀請',
+		[
+			'余',
+		],
+	],
+
+
 ];
+
+sortTests(tests_lazy_base);
+sortTests(tests_lazy_base_not);
+sortTests(tests_lazy_array);
+sortTests(tests_lazy_indexof);
 
 export default exports as typeof import('./lazy.index');
