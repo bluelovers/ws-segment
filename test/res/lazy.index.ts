@@ -326,6 +326,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'伯納士坐在馬車的御馬台上緊緊攥著繮繩',
+		[
+			'上緊',
+		],
+	],
+
+	[
+		'每個桌子邊都有數名手拿酒翁的女性等候在一旁',
+		[
+			'名手',
+		],
+	],
+
 ];
 
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
@@ -588,6 +602,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'对方提出单方面于己方有利的交易',
 		[
 			'於',
+		],
+	],
+
+	[
+		'血什么的一滴都沒喝',
+		[
+			'麼',
+		],
+	],
+
+	[
+		'以奧蘭多王国為例子的話就是准騎士團',
+		[
+			'準',
+		],
+	],
+
+	[
+		'但什麼都不需要就能好好干事是不可能的',
+		[
+			'幹',
 		],
 	],
 

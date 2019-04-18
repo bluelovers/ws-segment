@@ -98,6 +98,20 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		]
 	],
 
+	[
+		'說出來只會被當做無稽之談',
+		[
+			'會被',
+		]
+	],
+
+
+	[
+		'民兵團團長和其他托魯森的男人都明里暗里露出了不滿的表情',
+		[
+			'團團',
+		]
+	],
 
 ];
 
@@ -340,6 +354,12 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'血什么的一滴都沒喝',
+		[
+			'麼',
+		],
+	],
 
 
 ];
