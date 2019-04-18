@@ -319,6 +319,29 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'在伯納士知道的人里恐怕只有伊莉娜能完全躲開了',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'眼前的屍體已經變成了像干物一樣乾巴巴的',
+		[
+			'乾物',
+		],
+	],
+
+	[
+		'那就干給你看吧',
+		[
+			'幹',
+		],
+	],
+
+
+
 ];
 
 sortTests(tests_fixme_base);

@@ -257,6 +257,20 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'但是果然世間對同性愛侶的看法一般都不怎麼友好',
+		[
+			['同性', '同性愛侶',],
+		],
+	],
+
+	[
+		'眼前的建筑物像教堂一样',
+		[
+			'建筑物',
+		],
+	],
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
@@ -539,6 +553,41 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'為什麼要拒絶余的邀請',
 		[
 			'余',
+		],
+	],
+
+	[
+		'我終于成為了魔法使',
+		[
+			'於',
+		],
+	],
+
+	[
+		'嗯，余滿足了。',
+		[
+			'余',
+		],
+	],
+
+	[
+		'我也正想要放開手腳大干一場',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'反正也是沒事干',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'对方提出单方面于己方有利的交易',
+		[
+			'於',
 		],
 	],
 

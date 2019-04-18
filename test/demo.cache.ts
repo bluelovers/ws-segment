@@ -72,7 +72,7 @@ console.time(`doSegment`);
 
 let text = `
 
-因为还处于实验阶段
+对方提出单方面于己方有利的交易
 
 `;
 
