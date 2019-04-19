@@ -298,7 +298,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/侂|托|託|讬/u).test(w)
+				&& zhRegExp.create(/杰|傑/u).test(w)
 			)
 			{
 				bool = true;
