@@ -626,6 +626,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'這個時間點雷里歐和伊莉娜一樣',
+		[
+			'里',
+		],
+	],
+
 
 ];
 

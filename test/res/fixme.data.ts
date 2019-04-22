@@ -113,6 +113,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		]
 	],
 
+	[
+		'他们继续往回宿舍的路上走著',
+		[
+			'往回',
+		]
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -358,6 +365,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'血什么的一滴都沒喝',
 		[
 			'麼',
+		],
+	],
+
+	[
+		'如果后半天潛伏在森林裡',
+		[
+			'後',
 		],
 	],
 
