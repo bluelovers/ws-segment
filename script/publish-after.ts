@@ -9,6 +9,8 @@ import * as PackageJson from '../package.json';
 import CrossSpawn = require('cross-spawn-extra');
 /// <reference types="cross-spawn" />
 
+import index = require('../index');
+
 (async () =>
 {
 	let crossSpawn: typeof CrossSpawn;
@@ -34,6 +36,8 @@ import CrossSpawn = require('cross-spawn-extra');
 	};
 
 	let msg = `npm publish ${PackageJson.version}`;
+
+	msg += `\n\nnovel-segment@${index.versions['novel-segment']}, segment-dict@${index.versions['segment-dict']}, cjk-conv@${index.versions['cjk-conv']}, regexp-cjk@${index.versions['regexp-cjk']}`;
 
 	await crossSpawn('git', [
 		'commit',
