@@ -340,6 +340,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'舌头互相交缠的淫秽声响静静地传了出来',
+		[
+			'相交',
+		],
+	],
+
 ];
 
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
@@ -633,6 +640,55 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+
+	[
+		'他拿起几粒稻谷进行鉴定后',
+		[
+			'穀',
+		],
+	],
+
+	[
+		'居然敢干出这种勾当',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'可是加上兽人王后难度便大幅向上提升',
+		[
+			'后',
+		],
+	],
+
+	[
+		'乌尔娜将魔法术式刻划在潜意识内后',
+		[
+			'後',
+		],
+	],
+
+	[
+		'而且超恶心',
+		[
+			'噁',
+		],
+	],
+
+	[
+		'「那個，叫什麼來著⋯⋯烏賊干嗎？」',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'「烏賊干嗎？沾上蛋黃醬可是十分美味啊」',
+		[
+			'乾',
+		],
+	],
 
 ];
 
