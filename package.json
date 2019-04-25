@@ -72,7 +72,8 @@
     "postpack": "echo postpack",
     "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table & npm run sort-dict-synonym && npm run test",
     "publish": "echo publish",
-    "postpublish": "echo postpublish && node ./script/publish-after",
+    "postpublish": "echo postpublish && node ./script/publish-after && npm run postpublish2",
+    "postpublish2": "npx lerna run --scope novel-segment postpublish2",
     "travis": "typedoc --options ./typedoc.config.js",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "test": "npx lerna run --scope novel-segment test"
