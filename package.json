@@ -23,25 +23,25 @@
     "yargs2": "^1.0.4"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.1",
+    "@bluelovers/tsconfig": "^1.0.3",
     "@types/benchmark": "^1.0.31",
     "@types/chai": "^4.1.7",
     "@types/cross-spawn": "^6.0.0",
     "@types/mocha": "^5.2.6",
-    "@types/yargs": "^12.0.10",
+    "@types/yargs": "^13.0.0",
     "cross-spawn": "^6.0.5",
     "git-root2": "^1.0.5"
   },
   "resolutions": {
-    "string-natural-compare": "^2.0.3",
+    "string-natural-compare": "^2",
     "regexp-cjk": "^3",
     "string-width": "^3",
     "strip-ansi": "^5.1",
     "supports-color": "^5",
     "uni-string": "^1.1",
-    "bluebird": "^3.5.4",
-    "fs-extra": "^7.0.1",
-    "cjk-conv": "^1.1.25",
+    "bluebird": "^3",
+    "fs-extra": "^7",
+    "cjk-conv": "^1",
     "@types/node": "^11"
   }
 }
