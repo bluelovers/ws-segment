@@ -1,20 +1,21 @@
 {
   "name": "@novel-segment/util",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "private": false,
   "description": "",
   "license": "ISC",
   "author": "",
   "main": "index.js",
   "scripts": {
+    "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
     "array-hyper-unique": "^1.0.7",
-    "cjk-conv": "^1.1.29",
-    "str-util": "^2.3.17",
+    "cjk-conv": "^1.1.37",
+    "str-util": "^2.3.19",
     "string-natural-compare": "^2.0.3"
   },
   "publishConfig": {
