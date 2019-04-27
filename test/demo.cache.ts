@@ -20,7 +20,7 @@ let DEBUG_EACH: boolean;
 
 //DEBUG_EACH = true;
 
-//file = 'D:/Users/Documents/The Project/nodejs-test/node-novel2/dist_novel/wenku8/OVERLORD不死者之王/00110_短篇/00010_剧场版 特典小说 昴宿星团的一日.txt';
+//file = 'C:/Home/link/dist_novel/syosetu/Ｌｖ２からチートだった元勇者候補のまったり異世界ライフ/00100_10章　それぞれの向かう先/00050_邪を滅したのは.txt';
 
 console.log(Segment.versions);
 
@@ -75,9 +75,7 @@ console.time(`doSegment`);
 
 let text = `
 
-嗎
-「那個，叫什麼來著⋯⋯烏賊干嗎？」
-「烏賊干嗎？沾上蛋黃醬可是十分美味啊」
+把靈魂轉移到其他容器後就會完全切斷與原本身體的联系
 
 `;
 
