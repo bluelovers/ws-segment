@@ -13,6 +13,10 @@ export namespace NS_STOPWORD
 		'○◇□△▽☆●◆■▲▼★♠♥♦♣☼☺◘♀√☻◙♂×▁▂▃▄▅▆▇█⊙◎۞卍卐╱╲▁▏↖↗↑←↔◤◥╲╱▔▕↙↘↓→↕◣◢∷▒░℡™',
 		'．・　※',
 		'⋯',
+		/**
+		 * 丶並非標點符號 而為部首 但有的人會用這個作為 標點符號使用
+		 */
+		'丶',
 	].join('');
 
 	export const { _STOPWORD, STOPWORD, STOPWORD2 } = parseStopWord(_TABLE);
