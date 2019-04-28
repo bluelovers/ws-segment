@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.89",
+  "version": "2.2.90",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -79,7 +79,7 @@
     "test": "npx lerna run --scope novel-segment test"
   },
   "dependencies": {
-    "@novel-segment/util": "^1.0.1",
+    "@novel-segment/util": "^1.0.2",
     "bluebird": "^3.5.4",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
@@ -96,12 +96,12 @@
     "@types/bluebird": "^3",
     "@types/node": "^11",
     "array-hyper-unique": "^1.0.7",
-    "cjk-conv": "^1",
+    "cjk-conv": "^1.1.37",
     "cross-spawn-extra": "^1.0.5",
     "debug-color2": "^1",
     "git-root2": "^1.0.5",
     "novel-segment": "^2",
-    "str-util": "^2.3.18",
+    "str-util": "^2.3.19",
     "string-natural-compare": "^2"
   }
 }
