@@ -7,6 +7,7 @@ import { enumList, enumIsNaN } from './util/core';
  */
 export enum POSTAG
 {
+	
 	/**
 	 * 錯字
 	 */

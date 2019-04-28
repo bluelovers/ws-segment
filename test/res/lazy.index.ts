@@ -690,6 +690,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'到头来，连衣服都自己缝制了',
+		[
+			'製',
+		],
+	],
+
+	[
+		'然後把干蘑菇和湯汁混合',
+		[
+			'乾',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);

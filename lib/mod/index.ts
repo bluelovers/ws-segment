@@ -52,6 +52,16 @@ export enum ENUM_SUBMODS
 
 	JpSimpleTokenizer = 'JpSimpleTokenizer',
 
+	/**
+	 * 注音
+	 */
+	ZhuyinTokenizer = 'ZhuyinTokenizer',
+
+	/**
+	 * 部首
+	 */
+	//ZhRadicalTokenizer = 'ZhRadicalTokenizer',
+
 	// @todo 优化模块
 
 	/**

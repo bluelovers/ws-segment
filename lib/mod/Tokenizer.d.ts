@@ -10,6 +10,7 @@ export declare type ISubTokenizer = ISubSModule & {
     split(words: IWord[], ...argv: any[]): IWord[];
 };
 export declare type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
+    (...argv: Parameters<T["init"]>): T & R;
     (segment: Segment, ...argv: any[]): T & R;
 };
 export declare abstract class SubSModuleTokenizer extends SubSModule implements ISubTokenizer {

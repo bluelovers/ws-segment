@@ -5,15 +5,38 @@
 import { SubSModule, SubSModuleTokenizer } from '../mod';
 import { Segment, IWord } from '../Segment';
 import UString = require('uni-string');
+import { IWordDebug, IWordDebugInfo } from '../util';
+
+export const enum EnumJpSimpleTokenizerType
+{
+	/**
+	 * 平仮名
+	 * https://en.wikipedia.org/wiki/Hiragana
+	 */
+	HIRAGANA = 0x1,
+	/**
+	 * 片仮名
+	 * https://en.wikipedia.org/wiki/Katakana
+	 */
+	KATAKANA = 0x2,
+}
 
 export class JpSimpleTokenizer extends SubSModuleTokenizer
 {
+	static NAME = 'JpSimpleTokenizer' as const;
 
-	name = 'JpSimpleTokenizer';
+	name = 'JpSimpleTokenizer' as const;
 
 	split(words: IWord[], ...argv): IWord[]
 	{
 		return this._splitUnset(words, this._splitText);
+	}
+
+	protected createJpSimpleToken<T extends IWordDebug>(data: T, type: EnumJpSimpleTokenizerType)
+	{
+		return super.debugToken(data, {
+			[this.name]: type,
+		}, true);
 	}
 
 	protected _splitText(text: string): IWord[]
@@ -29,11 +52,10 @@ export class JpSimpleTokenizer extends SubSModuleTokenizer
 		{
 			if (b1 && /^[ぁ-ん]+$/.test(text) || b2 && /^[ァ-ヴーｱ-ﾝﾞｰ]+$/.test(text))
 			{
-				return [self.debugToken({
+				return [self.createJpSimpleToken({
 					w: text,
-				}, {
-					[self.name]: b1 ? 0x1 : 0x2,
-				}, true)];
+				}, b1 ? EnumJpSimpleTokenizerType.HIRAGANA : EnumJpSimpleTokenizerType.KATAKANA
+				)];
 			}
 
 			return null;
@@ -47,13 +69,14 @@ export class JpSimpleTokenizer extends SubSModuleTokenizer
 			{
 				if (w !== '')
 				{
-					ret.push(self.debugToken({
+					ret.push(self.createJpSimpleToken({
 						w,
-					}, {
-						[self.name]: /[ぁ-ん]/.test(w) ? 0x1 : 0x2,
-					}, true));
+					}, /[ぁ-ん]/.test(w) ? EnumJpSimpleTokenizerType.HIRAGANA
+							: EnumJpSimpleTokenizerType.KATAKANA
+					));
 				}
 			})
+
 		;
 
 		return ret;

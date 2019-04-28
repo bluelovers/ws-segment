@@ -21,6 +21,7 @@ export declare class SubSModule implements ISubSModule {
     segment: Segment;
     priority?: number;
     inited?: boolean;
+    static NAME: string;
     name: string;
     protected _TABLE?: any;
     protected _POSTAG?: typeof POSTAG;

@@ -39,6 +39,13 @@ export declare enum ENUM_SUBMODS {
     ChsNameTokenizer = "ChsNameTokenizer",
     JpSimpleTokenizer = "JpSimpleTokenizer",
     /**
+     * 注音
+     */
+    ZhuyinTokenizer = "ZhuyinTokenizer",
+    /**
+     * 部首
+     */
+    /**
      * 邮箱地址识别
      */
     EmailOptimizer = "EmailOptimizer",

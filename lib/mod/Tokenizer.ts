@@ -16,6 +16,7 @@ export type ISubTokenizer = ISubSModule & {
 }
 
 export type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
+	(...argv: Parameters<T["init"]>): T & R,
 	(segment: Segment, ...argv): T & R,
 };
 
@@ -62,7 +63,7 @@ export abstract class SubSModuleTokenizer extends SubSModule implements ISubToke
 			{
 				let words_new = fn(word.w);
 
-				if (typeof words_new == 'undefined' || words_new === null)
+				if (words_new == null)
 				{
 					ret.push(word);
 				}

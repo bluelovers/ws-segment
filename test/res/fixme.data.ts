@@ -190,6 +190,14 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		]
 	],
 
+	[
+		'托瓦哈迪可以在資訊絶對不洩露的環境下生產卵磷脂',
+		[
+			'下生',
+			'產卵',
+		]
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -470,6 +478,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'而大叔也因为这样没事可干',
 		[
 			'幹',
+		],
+	],
+
+	[
+		'托里和多瓦夫也誕生了',
+		[
+			'里',
 		],
 	],
 

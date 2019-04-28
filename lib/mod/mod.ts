@@ -50,6 +50,7 @@ export class SubSModule implements ISubSModule
 
 	inited?: boolean;
 
+	public static NAME: string;
 	public name: string;
 
 	protected _TABLE?;
@@ -157,6 +158,7 @@ export class SubSModule implements ISubSModule
 
 			if (!(this.name in attr))
 			{
+				// @ts-ignore
 				attr[this.name] = true;
 			}
 		}
