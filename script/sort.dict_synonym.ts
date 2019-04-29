@@ -14,6 +14,7 @@ import {
 	zhDictCompare,
 } from './util';
 import naturalCompare = require('string-natural-compare');
+import { array_unique } from 'array-hyper-unique';
 
 let CWD = path.join(ProjectConfig.dict_root, 'segment');
 
@@ -82,6 +83,8 @@ globDict(CWD, [
 		list = SortList( list);
 
 		let out_list = list.map(v => v.line);
+
+		out_list = array_unique(out_list);
 
 		//console.log(list);
 
