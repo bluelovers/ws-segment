@@ -75,7 +75,7 @@ console.time(`doSegment`);
 
 let text = `
 
-鶴皮袋
+「《寶之山的狂猿阿、誘蛾之粉沐浴其身・怒火向著遺骸而來》！」
 
 
 `;

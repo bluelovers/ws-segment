@@ -488,6 +488,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'目里奈就像是等候多时了一样露出胜利的笑容冲我打起了招呼',
+		[
+			'里',
+		],
+	],
+
 ];
 
 sortTests(tests_fixme_base);

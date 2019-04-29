@@ -271,6 +271,22 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'職業上也相當的平衡是非常理想的隊伍',
+		[
+			'非常',
+			'理想',
+		],
+	],
+
+	[
+		'該如何反制',
+		[
+			'如何',
+			'反制',
+		],
+	],
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
@@ -344,6 +360,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		'舌头互相交缠的淫秽声响静静地传了出来',
 		[
 			'相交',
+		],
+	],
+
+	[
+		'《寂靜領域》的發動和操作最好不要依賴聲音',
+		[
+			'好不',
 		],
 	],
 
@@ -699,6 +722,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 
 	[
 		'然後把干蘑菇和湯汁混合',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'野兽的脂肪与锅炒用的干货一同在锅里交融',
 		[
 			'乾',
 		],
