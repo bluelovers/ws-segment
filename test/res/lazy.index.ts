@@ -287,6 +287,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'從重要的血管到各種肌腱',
+		[
+			['重要', '重要的',]
+		],
+	],
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
