@@ -1,12 +1,11 @@
 {
   "name": "segment-dict",
-  "version": "2.2.91",
+  "version": "2.2.92",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
     "PanGuSegment",
     "PoS tagging",
-
     "analyzer",
     "async",
     "chinese",
