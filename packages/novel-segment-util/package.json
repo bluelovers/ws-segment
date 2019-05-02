@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/util",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "private": false,
   "description": "",
   "license": "ISC",
@@ -14,7 +14,7 @@
   "devDependencies": {},
   "peerDependencies": {
     "array-hyper-unique": "^1.0.7",
-    "cjk-conv": "^1.1.37",
+    "cjk-conv": "^1.1.40",
     "str-util": "^2.3.19",
     "string-natural-compare": "^2.0.3"
   },
