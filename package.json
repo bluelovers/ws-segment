@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.92",
+  "version": "2.2.93",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -62,24 +62,26 @@
   "main": "index.js",
   "directories": {
     "lib": "lib",
-    "dict": "dict",
     "test": "test"
   },
   "scripts": {
-    "sort-synonym-table": "ts-node ./script/sort.synonym.table.ts",
-    "sort-dict-synonym": "ts-node ./script/sort.dict_synonym.ts",
+    "coverage": "npx nyc npm run test",
+    "docs": "npx typedoc --options ./typedoc.config.js",
+    "ncu": "npx npm-check-updates -u",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "prepublishOnly": "echo prepublishOnly & npm run sort-synonym-table & npm run sort-dict-synonym && npm run test",
+    "postpublish2": "npx lerna run --scope novel-segment postpublish2",
+    "prepublishOnly": "echo prepublishOnly & npm run ncu & npm run sort-synonym-table & npm run sort-dict-synonym && npm run test",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after && npm run postpublish2",
-    "postpublish2": "npx lerna run --scope novel-segment postpublish2",
-    "travis": "typedoc --options ./typedoc.config.js",
-    "docs": "npx typedoc --options ./typedoc.config.js",
-    "test": "npx lerna run --scope novel-segment test"
+    "sort-dict-synonym": "ts-node ./script/sort.dict_synonym.ts",
+    "sort-package-json": "npx sort-package-json ./package.json",
+    "sort-synonym-table": "ts-node ./script/sort.synonym.table.ts",
+    "test": "npx lerna run --scope novel-segment test",
+    "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
-    "@novel-segment/util": "^1.0.2",
+    "@novel-segment/util": "^1.0.3",
     "bluebird": "^3.5.4",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
@@ -94,9 +96,9 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.3",
     "@types/bluebird": "^3",
-    "@types/node": "^11",
+    "@types/node": "^12",
     "array-hyper-unique": "^1.0.7",
-    "cjk-conv": "^1.1.37",
+    "cjk-conv": "^1.1.44",
     "cross-spawn-extra": "^1.0.5",
     "debug-color2": "^1",
     "git-root2": "^1.0.5",
