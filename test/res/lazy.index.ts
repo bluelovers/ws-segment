@@ -741,6 +741,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'喂我要實現你的願望讓你實體化咯',
+		[
+			'喂',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
