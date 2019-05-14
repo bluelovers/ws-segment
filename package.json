@@ -34,14 +34,9 @@
   },
   "resolutions": {
     "string-natural-compare": "^2",
-    "regexp-cjk": "^3.0.3",
     "string-width": "^3",
-    "strip-ansi": "^5.1",
+    "strip-ansi": "^5",
     "supports-color": "^5",
-    "uni-string": "^1.1",
-    "bluebird": "^3",
-    "fs-extra": "^7",
-    "cjk-conv": "^1.1.37",
-    "@types/node": "^11"
+    "@types/node": "^12"
   }
 }
