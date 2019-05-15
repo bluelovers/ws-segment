@@ -198,6 +198,27 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		]
 	],
 
+	[
+		'你想說的就只有這句話嗎',
+		[
+			'說的',
+		]
+	],
+
+	[
+		'奪走了塞利斯的唇瓣',
+		[
+			'走了',
+		]
+	],
+
+	[
+		'從前代惡政后踏踏實實重建國家的實績',
+		[
+			'從前',
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -495,6 +516,47 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'也能夠理解這几點了',
+		[
+			'幾',
+		],
+	],
+
+	[
+		'我們也該做出发的準備了嗎？',
+		[
+			'發',
+		],
+	],
+
+	[
+		'何必干這種愚蠢的行為',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'就算只是干這一件事',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'我想先試著干一件事',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'集中精力于打倒那傢伙',
+		[
+			'於',
+		],
+	],
 
 
 ];
