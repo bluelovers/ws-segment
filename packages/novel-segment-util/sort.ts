@@ -40,8 +40,8 @@ export let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 	['壹', '貳', '參', '肆', '伍', '陸', '柒', '捌', '玖', '拾', '什'],
 	['儅', '噹', '当', '當'],
 	['炮', '砲', '炰', '泡'],
-	['仲'],
-	['原'],
+	['初', '中', '上'],
+	['劣', '優'],
 ], [
 	['一', '二', '两', '三', '四', '五', '六', '七', '八', '九', '十', '十', '零', '几', '个', '百', '千', '万', '亿'],
 	['上', '下', '左', '右'],
@@ -63,8 +63,8 @@ export let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 	['壹', '贰', '参', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '什'],
 	['儅', '噹', '当', '當'],
 	['炮', '砲', '炰', '泡'],
-	['中'],
-	['元'],
+	['初', '中', '上'],
+	['劣', '优'],
 ]);
 
 export let _zhDictCompareTable_chars = array_unique(_zhDictCompareTable.flat());
@@ -76,6 +76,9 @@ export interface IFnCompare
 	(a: string, b: string): number
 }
 
+/**
+ * 包裝排序比較函數
+ */
 export function zhDictCompareNew(failback?: IFnCompare): IFnCompare
 export function zhDictCompareNew(options?: {
 	failback?: IFnCompare
@@ -183,6 +186,9 @@ export function zhDictCompareNew(options?: IFnCompare | {
 	}
 }
 
+/**
+ * 排序字典專用的比較函數
+ */
 export const zhDictCompare = zhDictCompareNew();
 
 /*
