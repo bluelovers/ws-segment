@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.98",
+  "version": "2.2.99",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -81,7 +81,7 @@
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
-    "@novel-segment/util": "^1.0.3",
+    "@novel-segment/util": "^1.0.4",
     "bluebird": "^3.5.4",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
@@ -96,6 +96,7 @@
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.3",
     "@types/bluebird": "^3",
+    "@types/diff": "^4.0.2",
     "@types/node": "^12",
     "array-hyper-unique": "^1.0.7",
     "cjk-conv": "^1.1.49",
