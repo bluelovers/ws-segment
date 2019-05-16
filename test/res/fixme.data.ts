@@ -219,6 +219,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'看老師批准後面對著克莉絲塔',
+		[
+			'後面',
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -555,6 +562,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'集中精力于打倒那傢伙',
 		[
 			'於',
+		],
+	],
+
+	[
+		'看老师批准后面对着克莉丝塔',
+		[
+			'後',
+		],
+	],
+
+	[
+		'翹課多出來的時間就可以干別的事吧',
+		[
+			'幹',
 		],
 	],
 

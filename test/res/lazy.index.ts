@@ -925,6 +925,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'對家里人也要保密哦',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'還有缺什么的話不用客氣直接說出來就行了',
+		[
+			'麼',
+		],
+	],
+
+	[
+		'對于平日在大圖書室搜集書籍看書',
+		[
+			'於',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);

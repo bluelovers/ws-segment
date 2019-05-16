@@ -76,7 +76,8 @@ console.time(`doSegment`);
 
 let text = `
 
-從前代惡政后踏踏實實重建國家的實績
+平日
+對于平日在大圖書室搜集書籍看書
 
 `;
 
