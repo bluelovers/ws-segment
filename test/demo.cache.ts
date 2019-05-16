@@ -5,15 +5,16 @@
 import { crlf } from 'crlf-normalize';
 import Segment, { POSTAG } from '../index';
 import { useDefault, getDefaultModList } from '../lib';
-import * as fs from "fs-extra";
+import fs = require("fs-extra");
 import { IWordDebug } from '../lib/util/debug';
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
 import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
 import prettyuse = require('prettyuse');
-import { console } from 'debug-color2';
+import { console, chalkByConsole } from 'debug-color2';
 import jsdiff = require('diff');
+import { IStylesColorNames } from 'debug-color2/lib/styles';
 
 let file: string;
 let DEBUG_EACH: boolean;
@@ -76,8 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-平日
-對于平日在大圖書室搜集書籍看書
+早知道不干這詭異的打工了
 
 `;
 
@@ -170,20 +170,23 @@ function diff_log(src_text: string, new_text: string): string
 {
 	let diff = jsdiff.diffChars(src_text, new_text);
 
-	let diff_arr = diff
-		.reduce(function (a, part)
-		{
-			let color = part.added ? 'green' :
-				part.removed ? 'red' : 'grey';
+	return chalkByConsole(function (chalk, _console)
+	{
+		let diff_arr: string[] = diff
+			.reduce(function (a: string[], part)
+			{
+				let color: IStylesColorNames = part.added ? 'green' :
+					part.removed ? 'red' : 'grey';
 
-			let t = console[color].chalk(part.value);
+				let t = chalk[color](part.value);
 
-			a.push(t);
+				a.push(t);
 
-			return a;
-		}, [])
-	;
+				return a;
+			}, [])
+		;
 
-	return diff_arr.join('');
+		return diff_arr.join('');
+	});
 }
 

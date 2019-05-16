@@ -398,6 +398,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'N在抵達異世界的數天后',
+		[
+			'天后',
+		],
+	],
+
+
+	[
+		'只要用對方法說不定就能無人犧牲',
+		[
+			'對方',
+		],
+	],
 
 
 ];
