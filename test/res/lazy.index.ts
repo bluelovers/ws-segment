@@ -960,6 +960,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'以前是被歸為准男爵的騎士家的家族',
+		[
+			'準',
+		],
+	],
+
+	[
+		'但是與氣流相反的方向准沒錯',
+		[
+			'準',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);

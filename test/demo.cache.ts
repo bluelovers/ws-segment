@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-早知道不干這詭異的打工了
+完全想不到這是幾周前才剛入行打算划水混過去的Master所做的
 
 `;
 
