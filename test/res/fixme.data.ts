@@ -65,6 +65,13 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'一年生的代表里出場的吉爾克',
+		[
+			'代表',
+		]
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [
@@ -604,6 +611,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'早知道不干這詭異的打工了',
 		[
 			'幹',
+		],
+	],
+
+	[
+		'五個人聚在機庫里忙著',
+		[
+			'裡',
 		],
 	],
 
