@@ -1128,6 +1128,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'有发自真心的笑容',
+		[
+			'發',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
