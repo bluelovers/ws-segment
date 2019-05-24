@@ -1114,6 +1114,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'跳上茶几跨過手槍打了埃里克一巴掌',
+		[
+			'几',
+		],
+	],
+
+	[
+		'防範叛亂于未然',
+		[
+			'於',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
