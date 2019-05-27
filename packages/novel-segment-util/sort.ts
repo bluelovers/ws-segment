@@ -3,6 +3,7 @@ import { array_unique } from 'array-hyper-unique';
 import StrUtil = require('str-util');
 import libTable from 'cjk-conv/lib/zh/table';
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
+import UString = require('uni-string');
 
 /**
  * @private
@@ -101,6 +102,17 @@ export function zhDictCompareNew(options?: IFnCompare | {
 
 	return function zhDictCompare(a: string, b: string): number
 	{
+		let len01 = UString.size(a);
+		let len02 = UString.size(b);
+
+		/**
+		 * 優先排序單一字元
+		 */
+		if ((len01 != len02) && (len01 === 1 || len02 === 1))
+		{
+			return len01 - len02
+		}
+
 		let _c = 0;
 
 		let _a0 = a[0];

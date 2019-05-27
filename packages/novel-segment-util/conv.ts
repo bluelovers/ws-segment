@@ -9,7 +9,7 @@ export function getCjkName(w: string, USE_CJK_MODE: number)
 {
 	let cjk_id = slugify(w, true);
 
-	return StrUtil.toHalfWidth(cjk_id);
+	return StrUtil.toHalfWidth(cjk_id).toLocaleLowerCase();
 }
 
 export default exports as typeof import('./conv');
