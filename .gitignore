@@ -25,3 +25,10 @@ package-lock.json
 /test/res/*.d.ts
 
 /.idea/
+!/test/temp/cache.db.info.json
+!/test/temp/cache/
+!/test/temp/cache/**/*
+!/test/temp/stringify.sorted.txt
+!/test/temp/.gitignore
+/.eslintrc.json.tpl
+/.browserslistrc

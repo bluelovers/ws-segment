@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.2.31",
+  "version": "2.2.32",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -75,7 +75,8 @@
     "ncu": "npx npm-check-updates -u",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "postpublish2": "node ./script/publish-after2",
+    "build:sort:stringify:cache": "node ./script/sort-stringify-cache.js",
+    "postpublish2": "npm run build:sort:stringify:cache && node ./script/publish-after2",
     "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json && npm run test",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after && npm run postpublish2",
@@ -111,6 +112,7 @@
     "@types/bluebird": "^3",
     "@types/fs-extra": "^7",
     "@types/node": "^12",
+    "@types/transliteration": "^1.6.1",
     "chai": "^4.2.0",
     "chai-asserttype-extra": "^1.2.0",
     "chai-string": "^1.5.0",
@@ -118,7 +120,10 @@
     "debug-color2": "^1.1.5",
     "diff": "^4.0.1",
     "git-root2": "^1.0.5",
-    "prettyuse": "^0.0.0"
+    "n-readlines": "^1.0.0",
+    "pinyin": "^2.9.0",
+    "prettyuse": "^0.0.0",
+    "transliteration": "^2.1.3"
   },
   "optionalDependencies": {}
 }

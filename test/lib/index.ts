@@ -150,7 +150,9 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 			DICT: segment.DICT,
 		}));
 
-		fs.outputJSONSync(cache_file + '.info.json', _info);
+		fs.outputJSONSync(cache_file + '.info.json', _info, {
+			spaces: 2,
+		});
 
 		fs.writeFile(path.join(ProjectConfig.temp_root, 'stringify.txt'), db_dict.stringify())
 
