@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/util",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": false,
   "description": "",
   "license": "ISC",
@@ -8,15 +8,16 @@
   "main": "index.js",
   "scripts": {
     "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json",
+    "postpublish": "git commit -a -m \"postpublish new version\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
     "array-hyper-unique": "^1.0.7",
-    "cjk-conv": "^1.1.56",
-    "str-util": "^2.3.19",
-    "uni-string": "^1.1.0",
+    "cjk-conv": "^1.1.58",
+    "str-util": "^2.3.21",
+    "uni-string": "^1.1.2",
     "string-natural-compare": "^2.0.3"
   },
   "publishConfig": {

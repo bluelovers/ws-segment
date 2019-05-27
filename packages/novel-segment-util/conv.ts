@@ -5,7 +5,7 @@
 import StrUtil = require('str-util');
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 
-export function getCjkName(w: string, USE_CJK_MODE: number)
+export function getCjkName(w: string, USE_CJK_MODE?: number)
 {
 	let cjk_id = slugify(w, true);
 
