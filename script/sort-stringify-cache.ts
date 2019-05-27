@@ -36,6 +36,13 @@ const enum EnumC1
 	eng = 'eng',
 }
 
+const CWD_SAVETO = path.join(CWD, 'cache');
+
+if (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')))
+{
+	process.exit();
+}
+
 if (isMainThread)
 {
 	log("This is the main thread", threadId);
@@ -61,8 +68,6 @@ if (isMainThread)
 //	}, [subChannel.port2]);
 
 	let timeDiff: Date;
-
-	const CWD_SAVETO = path.join(CWD, 'cache');
 
 	fs.removeSync(CWD_SAVETO);
 
