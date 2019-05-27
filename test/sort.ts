@@ -297,7 +297,12 @@ Promise
 				}
 			}
 
-			if (1 && !bool
+			if (0 && !bool && UString.size(w) === 1)
+			{
+				bool = true;
+			}
+
+			if (0 && !bool
 				&& zhRegExp.create(/券|劵|卷|巻|捲/u).test(w)
 			)
 			{

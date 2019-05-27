@@ -31,3 +31,5 @@ package-lock.json
 !/test/res
 *.tgz
 !/test/sort.ts
+/.eslintrc.json.tpl
+/.browserslistrc
