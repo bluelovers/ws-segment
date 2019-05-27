@@ -33,10 +33,10 @@
     "git-root2": "^1.0.5"
   },
   "resolutions": {
-    "string-natural-compare": "^2",
-    "string-width": "^3",
-    "strip-ansi": "^5",
-    "supports-color": "^5",
-    "@types/node": "^12"
+    "string-natural-compare": "*",
+    "string-width": "*",
+    "strip-ansi": "*",
+    "supports-color": "*",
+    "@types/node": "*"
   }
 }
