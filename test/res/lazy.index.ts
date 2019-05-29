@@ -1177,6 +1177,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'那是米拉沉迷于安心呼吸面罩不能自拔的時候',
+		[
+			'於',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
