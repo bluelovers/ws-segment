@@ -302,8 +302,8 @@ Promise
 				bool = true;
 			}
 
-			if (0 && !bool
-				&& zhRegExp.create(/券|劵|卷|巻|捲/u).test(w)
+			if (1 && !bool
+				&& zhRegExp.create(/嘛|痲|痳|麻/u).test(w)
 			)
 			{
 				bool = true;
