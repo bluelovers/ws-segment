@@ -231,9 +231,11 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 				else if (w1.w == '于')
 				{
-					if ((w0 == null || w0.p & POSTAG.D_W) && (w2 && (
+					if ((w0 == null || w0.p & POSTAG.D_W) && (w2 && w2.p && (
 						w2.p & POSTAG.D_N
 						|| w2.p & POSTAG.D_V
+						|| w2.p & POSTAG.D_R
+						|| w2.p & POSTAG.D_D
 					)))
 					{
 						/**
