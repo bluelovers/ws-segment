@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-如果說卡麗婭各處所營造出的舉止和氛圍是高貴的話
+被占領了
 
 `;
 

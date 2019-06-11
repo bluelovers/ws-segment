@@ -427,6 +427,12 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'被占領了',
+		[
+			['被占', '被佔'],
+		],
+	],
 
 ];
 
@@ -1293,6 +1299,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'所有的感情，就像要把脏腑翻過來一樣瘋狂著。',
 		[
 			'臟',
+		],
+	],
+
+	[
+		'這麼說著，青年指向了機庫里擺放著的',
+		[
+			'裡',
 		],
 	],
 
