@@ -69,6 +69,7 @@ describe(relative(__filename), () =>
 
 	it(`don't care this fail`, function ()
 	{
+		// @ts-ignore
 		if (cli.reporter && cli.reporter.indexOf('mochaIntellijReporter'))
 		{
 			this.skip();

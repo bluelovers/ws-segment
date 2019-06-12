@@ -12,6 +12,7 @@ import { DATETIME } from '../mod/const';
 import IPOSTAG from '../POSTAG';
 
 export const DEFAULT_MAX_CHUNK_COUNT = 40;
+export const DEFAULT_MAX_CHUNK_COUNT_MIN = 25;
 
 /**
  * 字典识别模块
@@ -32,6 +33,11 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 * @type {number}
 	 */
 	MAX_CHUNK_COUNT = DEFAULT_MAX_CHUNK_COUNT;
+	/**
+	 *
+	 * 追加新模式使 MAX_CHUNK_COUNT 遞減來防止無分段長段落的總處理次數過高 由 DEFAULT_MAX_CHUNK_COUNT_MIN 來限制最小值
+	 */
+	DEFAULT_MAX_CHUNK_COUNT_MIN = DEFAULT_MAX_CHUNK_COUNT_MIN;
 
 	protected _TABLE: IDICT<IWord>;
 	protected _TABLE2: IDICT2<IWord>;
@@ -43,9 +49,14 @@ export class DictTokenizer extends SubSModuleTokenizer
 		this._TABLE2 = this.segment.getDict('TABLE2');
 		this._POSTAG = this.segment.POSTAG;
 
-		if (typeof this.segment.options.maxChunkCount == 'number' && this.segment.options.maxChunkCount)
+		if (typeof this.segment.options.maxChunkCount == 'number' && this.segment.options.maxChunkCount > DEFAULT_MAX_CHUNK_COUNT_MIN)
 		{
 			this.MAX_CHUNK_COUNT = this.segment.options.maxChunkCount;
+		}
+
+		if (typeof this.segment.options.minChunkCount == 'number' && this.segment.options.minChunkCount > DEFAULT_MAX_CHUNK_COUNT_MIN)
+		{
+			this.DEFAULT_MAX_CHUNK_COUNT_MIN = this.segment.options.minChunkCount;
 		}
 	}
 
@@ -699,8 +710,22 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 */
 	getChunks(wordpos: {
 		[index: number]: IWord[];
-	}, pos: number, text?: string, total_count = 0): IWord[][]
+	}, pos: number, text?: string, total_count = 0, MAX_CHUNK_COUNT?: number): IWord[][]
 	{
+
+		/**
+		 *
+		 * 追加新模式使 MAX_CHUNK_COUNT 遞減來防止無分段長段落的總處理次數過高 由 DEFAULT_MAX_CHUNK_COUNT_MIN 來限制最小值
+		 */
+		if (total_count == 0)
+		{
+			MAX_CHUNK_COUNT = this.MAX_CHUNK_COUNT;
+		}
+		else
+		{
+			MAX_CHUNK_COUNT = Math.max(MAX_CHUNK_COUNT, this.DEFAULT_MAX_CHUNK_COUNT_MIN, DEFAULT_MAX_CHUNK_COUNT_MIN)
+		}
+
 		/**
 		 * 忽略連字
 		 *
@@ -722,7 +747,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 			if (s2 !== '')
 			{
-				let chunks = this.getChunks(wordpos, pos + s1.length, s2, total_count);
+				let chunks = this.getChunks(wordpos, pos + s1.length, s2, total_count, MAX_CHUNK_COUNT - 1);
 
 				for (let j = 0; j < chunks.length; j++)
 				{
@@ -746,9 +771,20 @@ export class DictTokenizer extends SubSModuleTokenizer
 		total_count++;
 
 		let words = wordpos[pos] || [];
+
+		//debug(total_count, MAX_CHUNK_COUNT);
+
+//		debug({
+//			total_count,
+//			MAX_CHUNK_COUNT: this.MAX_CHUNK_COUNT,
+//			text,
+//			words,
+//		});
+
 		// debug('getChunks: ');
 		// debug(words);
-		// throw new Error();
+		//throw new Error();
+
 		let ret: IWord[][] = [];
 		for (let i = 0; i < words.length; i++)
 		{
@@ -762,7 +798,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 			{
 				ret.push([word]);
 			}
-			else if (total_count > this.MAX_CHUNK_COUNT)
+			else if (total_count > MAX_CHUNK_COUNT - 1)
 			{
 				// do something
 
@@ -794,7 +830,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 			{
 				let t = text.slice(word.w.length);
 
-				let chunks = this.getChunks(wordpos, nextcur, t, total_count);
+				let chunks = this.getChunks(wordpos, nextcur, t, total_count, MAX_CHUNK_COUNT - 1);
 				for (let j = 0; j < chunks.length; j++)
 				{
 					ret.push([word].concat(chunks[j]));

@@ -1309,6 +1309,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'莫希干的平泽',
+		[
+			'干',
+		],
+	],
+
+	[
+		'姐妹倆充分地理解了亮真发惱騷的理由。',
+		[
+			'發',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);

@@ -228,6 +228,7 @@ export declare namespace Segment {
         optionsDoSegment?: IOptionsDoSegment;
         all_mod?: boolean;
         maxChunkCount?: number;
+        minChunkCount?: number;
         disableModules?: (ENUM_SUBMODS_NAME | unknown)[];
     };
     type IDICT_SYNONYM = IDICT<string>;

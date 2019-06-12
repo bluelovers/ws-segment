@@ -1,6 +1,7 @@
 import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 export declare const DEFAULT_MAX_CHUNK_COUNT = 40;
+export declare const DEFAULT_MAX_CHUNK_COUNT_MIN = 25;
 /**
  * 字典识别模块
  *
@@ -18,6 +19,11 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
      * @type {number}
      */
     MAX_CHUNK_COUNT: number;
+    /**
+     *
+     * 追加新模式使 MAX_CHUNK_COUNT 遞減來防止無分段長段落的總處理次數過高 由 DEFAULT_MAX_CHUNK_COUNT_MIN 來限制最小值
+     */
+    DEFAULT_MAX_CHUNK_COUNT_MIN: number;
     protected _TABLE: IDICT<IWord>;
     protected _TABLE2: IDICT2<IWord>;
     _cache(): void;
@@ -74,7 +80,7 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
      */
     getChunks(wordpos: {
         [index: number]: IWord[];
-    }, pos: number, text?: string, total_count?: number): IWord[][];
+    }, pos: number, text?: string, total_count?: number, MAX_CHUNK_COUNT?: number): IWord[][];
 }
 export declare namespace DictTokenizer {
     /**
