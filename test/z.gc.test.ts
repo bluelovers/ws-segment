@@ -46,7 +46,7 @@ describe(relative(__filename), () =>
 	});
 
 	// @ts-ignore
-	describe(`suite`, () =>
+	describe(`suite`, function ()
 	{
 
 		fixedGC.forEach(text => {
@@ -54,6 +54,7 @@ describe(relative(__filename), () =>
 			// @ts-ignore
 			it(text, function ()
 			{
+				this.timeout(60000);
 
 				let actual = toStringArray(doSegment(text));
 

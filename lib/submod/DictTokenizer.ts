@@ -12,7 +12,7 @@ import { DATETIME } from '../mod/const';
 import IPOSTAG from '../POSTAG';
 
 export const DEFAULT_MAX_CHUNK_COUNT = 40;
-export const DEFAULT_MAX_CHUNK_COUNT_MIN = 25;
+export const DEFAULT_MAX_CHUNK_COUNT_MIN = 30;
 
 /**
  * 字典识别模块
@@ -720,10 +720,22 @@ export class DictTokenizer extends SubSModuleTokenizer
 		if (total_count == 0)
 		{
 			MAX_CHUNK_COUNT = this.MAX_CHUNK_COUNT;
+
+			/**
+			 * 只有當目前文字長度大於 MAX_CHUNK_COUNT 時才遞減
+			 */
+			if (text.length < MAX_CHUNK_COUNT)
+			{
+				MAX_CHUNK_COUNT += 1;
+			}
+		}
+		else if (MAX_CHUNK_COUNT <= this.MAX_CHUNK_COUNT)
+		{
+			MAX_CHUNK_COUNT = Math.max(MAX_CHUNK_COUNT - 1, this.DEFAULT_MAX_CHUNK_COUNT_MIN, DEFAULT_MAX_CHUNK_COUNT_MIN)
 		}
 		else
 		{
-			MAX_CHUNK_COUNT = Math.max(MAX_CHUNK_COUNT, this.DEFAULT_MAX_CHUNK_COUNT_MIN, DEFAULT_MAX_CHUNK_COUNT_MIN)
+			//MAX_CHUNK_COUNT = Math.max(MAX_CHUNK_COUNT, this.DEFAULT_MAX_CHUNK_COUNT_MIN, DEFAULT_MAX_CHUNK_COUNT_MIN)
 		}
 
 		/**
@@ -747,7 +759,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 			if (s2 !== '')
 			{
-				let chunks = this.getChunks(wordpos, pos + s1.length, s2, total_count, MAX_CHUNK_COUNT - 1);
+				let chunks = this.getChunks(wordpos, pos + s1.length, s2, total_count, MAX_CHUNK_COUNT);
 
 				for (let j = 0; j < chunks.length; j++)
 				{
@@ -798,7 +810,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 			{
 				ret.push([word]);
 			}
-			else if (total_count > MAX_CHUNK_COUNT - 1)
+			else if (total_count > MAX_CHUNK_COUNT)
 			{
 				// do something
 
@@ -830,7 +842,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 			{
 				let t = text.slice(word.w.length);
 
-				let chunks = this.getChunks(wordpos, nextcur, t, total_count, MAX_CHUNK_COUNT - 1);
+				let chunks = this.getChunks(wordpos, nextcur, t, total_count, MAX_CHUNK_COUNT );
 				for (let j = 0; j < chunks.length; j++)
 				{
 					ret.push([word].concat(chunks[j]));

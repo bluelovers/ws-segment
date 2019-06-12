@@ -1,7 +1,7 @@
 import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 export declare const DEFAULT_MAX_CHUNK_COUNT = 40;
-export declare const DEFAULT_MAX_CHUNK_COUNT_MIN = 25;
+export declare const DEFAULT_MAX_CHUNK_COUNT_MIN = 30;
 /**
  * 字典识别模块
  *
