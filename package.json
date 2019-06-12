@@ -100,7 +100,7 @@
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^3.3.3",
-    "segment-dict": "^2.2.112",
+    "segment-dict": "^2.2.113",
     "sort-object-keys2": "^1.1.0",
     "str-util": "^2.3.21",
     "string-natural-compare": "^2.0.3",
