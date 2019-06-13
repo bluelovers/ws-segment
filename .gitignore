@@ -32,3 +32,4 @@ package-lock.json
 !/test/temp/.gitignore
 /.eslintrc.json.tpl
 /.browserslistrc
+/test/t.ts

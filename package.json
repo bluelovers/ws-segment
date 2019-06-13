@@ -109,6 +109,8 @@
   },
   "devDependencies": {
     "@bluelovers/tsconfig": "^1.0.8",
+    "@git-lazy/diff-staged": "^1.0.2",
+    "@git-lazy/util": "^1.0.4",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^7",
     "@types/node": "^12",

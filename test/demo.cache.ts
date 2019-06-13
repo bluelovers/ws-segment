@@ -21,7 +21,7 @@ let DEBUG_EACH: boolean;
 
 //DEBUG_EACH = true;
 
-file = 'C:/Home/link/dist_novel/h/在喪屍橫行的世界裡唯獨我不被襲擊/00020_第三章　市役所/00380_038　【晚宴】.txt';
+//file = 'C:/Home/link/dist_novel/h/在喪屍橫行的世界裡唯獨我不被襲擊/00020_第三章　市役所/00380_038　【晚宴】.txt';
 
 console.log(Segment.versions);
 
@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-接著就是對市政府的對外放送讓他能跑來避難以及多虧了市政府提供了這般安全的地方讓他歇息表達深深地感謝
+她轻轻将金色的鬓发撩向耳朵后方
 
 `;
 

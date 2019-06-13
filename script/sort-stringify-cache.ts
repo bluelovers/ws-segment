@@ -26,6 +26,8 @@ import { console, chalkByConsole } from 'debug-color2';
 import { greedyTableReplace } from 'cjk-conv/lib/zh/table/greedy';
 import pinyin = require("pinyin");
 import libTable from 'cjk-conv/lib/zh/table';
+import { gitDiffStagedFile } from '@git-lazy/diff-staged';
+import { matchGlob } from '@git-lazy/util/util/match';
 
 let CWD = path.join(ProjectConfig.temp_root);
 
@@ -38,7 +40,9 @@ const enum EnumC1
 
 const CWD_SAVETO = path.join(CWD, 'cache');
 
-if (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')))
+if (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')) || !matchGlob(gitDiffStagedFile(CWD), [
+	'cache.db.info.json'
+]).length)
 {
 	process.exit();
 }
@@ -137,7 +141,7 @@ if (isMainThread)
 
 	});
 
-	w1.on('error', console.error);
+	w1.on('error', console.error.bind(console));
 	w1.on('exit', (code) =>
 	{
 
