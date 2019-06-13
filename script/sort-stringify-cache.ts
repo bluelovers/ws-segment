@@ -141,7 +141,7 @@ if (isMainThread)
 
 	});
 
-	w1.on('error', console.error.bind(console));
+	w1.on('error', e => console.error(console));
 	w1.on('exit', (code) =>
 	{
 
