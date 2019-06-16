@@ -434,6 +434,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'兩個人像浮屍一樣浮上了水面時競技也已經結束了',
+		[
+			['人像'],
+		],
+	],
+
 ];
 
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
@@ -1320,6 +1327,34 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'姐妹倆充分地理解了亮真发惱騷的理由。',
 		[
 			'發',
+		],
+	],
+
+	[
+		'一边吸着面条,一边偷偷互相使眼色的五人组。',
+		[
+			'麵',
+		],
+	],
+
+	[
+		'“就交给我吧。一发胜负!”',
+		[
+			'發',
+		],
+	],
+
+	[
+		'所以取出事先「收納」好的固體肥皂，在溫水里弄出泡沫',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'嗅著鋪滿干稻草的地面四腳著地到處爬來爬去的少女',
+		[
+			'乾',
 		],
 	],
 

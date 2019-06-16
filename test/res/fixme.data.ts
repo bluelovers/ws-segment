@@ -233,6 +233,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'飄著好聞到令人吃驚的',
+		[
+			'聞到',
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -616,6 +623,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 
 	[
 		'五個人聚在機庫里忙著',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'有勇氣首先跳入不知道有什麼危險的大海里找魚吃的企鵝',
 		[
 			'裡',
 		],
