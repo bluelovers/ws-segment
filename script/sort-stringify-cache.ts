@@ -40,9 +40,9 @@ const enum EnumC1
 
 const CWD_SAVETO = path.join(CWD, 'cache');
 
-if (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')) || !matchGlob(gitDiffStagedFile(CWD), [
+if (1 && (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')) || !matchGlob(gitDiffStagedFile(CWD), [
 	'cache.db.info.json'
-]).length)
+]).length))
 {
 	process.exit();
 }
