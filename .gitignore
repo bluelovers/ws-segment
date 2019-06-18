@@ -18,6 +18,7 @@ test/*.js
 test/**/*.d.ts
 test/**/*.js
 test/temp*
+!test/temp
 package-lock.json
 /yarn.lock
 !/test/res/
@@ -25,6 +26,7 @@ package-lock.json
 /test/res/*.d.ts
 
 /.idea/
+
 !/test/temp/cache.db.info.json
 !/test/temp/cache/
 !/test/temp/cache/**/*
@@ -33,3 +35,7 @@ package-lock.json
 /.eslintrc.json.tpl
 /.browserslistrc
 /test/t.ts
+/test/temp/cache.db
+/test/temp/stringify.txt
+/test/temp/c1.json
+/test/temp/c1.txt
