@@ -2,5 +2,5 @@
 !/cache/**/*
 !/cache
 !/cache.db.info.json
-!/stringify.txt
 !/stringify.sorted.txt
+/stringify.txt
