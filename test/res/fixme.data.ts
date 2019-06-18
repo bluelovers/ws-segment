@@ -635,6 +635,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'難道說買這種奴隷是想在房間裡干那些事嗎',
+		[
+			'幹',
+		],
+	],
+
 
 ];
 
