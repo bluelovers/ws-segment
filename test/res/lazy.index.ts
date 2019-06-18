@@ -1358,6 +1358,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'他朝我遞出了一把傘和一片面包。',
+		[
+			'麵',
+		],
+	],
+
+	[
+		'啊啊，脏死了。',
+		[
+			'髒',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
