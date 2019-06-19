@@ -1421,6 +1421,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'所以最需要擔心的是每個村莊都儲存著的干木柴',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'他有著長而美麗的披肩发',
+		[
+			'髮',
+		],
+	],
+
+	[
+		'都是发源自阿蒙諾爾黑山脈的融雪水',
+		[
+			'發',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
