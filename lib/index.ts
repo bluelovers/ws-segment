@@ -50,6 +50,7 @@ export function useDefault(segment: Segment, options: {
 
 		.loadDict('lazy/dict_synonym')
 
+		/*
 		.loadDict('names/area')
 		.loadDict('names/job')
 		.loadDict('names/food')
@@ -59,6 +60,9 @@ export function useDefault(segment: Segment, options: {
 		.loadDict('names/zh')
 		.loadDict('names/en')
 		.loadDict('names/name')
+		 */
+
+		.loadDict('names/*')
 
 		.loadDict('lazy/index')
 

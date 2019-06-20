@@ -1442,6 +1442,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'鞋里的泥很滑，我半摔的抓住了槍柄。',
+		[
+			'裡',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
