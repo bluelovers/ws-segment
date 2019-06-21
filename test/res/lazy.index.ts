@@ -1449,6 +1449,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'這是今天的第二发，也就是最後一發了。',
+		[
+			'發',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
