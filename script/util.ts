@@ -1,6 +1,6 @@
 import libTable from 'cjk-conv/lib/zh/table';
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
-import FastGlob from 'fast-glob';
+import FastGlob = require('fast-glob');
 import BluebirdPromise = require('bluebird');
 import load, { parseLine, stringifyLine, serialize } from '../lib/loader/line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment/index';
