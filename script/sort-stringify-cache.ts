@@ -18,7 +18,7 @@ import fs = require('fs-extra');
 import Bluebird = require('bluebird');
 import { cjk2zhs, cjk2zht } from 'cjk-conv';
 import StrUtil = require('str-util');
-import FastGlob from 'fast-glob';
+import { sync as FastGlobSync } from 'fast-glob';
 import { chkLineType, EnumLineType, ILoadDictFileRow2 } from 'segment-dict/script/util';
 import { array_unique } from 'array-hyper-unique';
 import { serialize } from 'segment-dict/lib/loader/line';
@@ -160,7 +160,7 @@ if (isMainThread)
 
 		if (bool)
 		{
-			let ls = FastGlob.sync<string>([
+			let ls = FastGlobSync([
 				'**/*.txt'
 			], {
 				cwd: CWD_SAVETO,
