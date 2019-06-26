@@ -1,3 +1,4 @@
 import SegmentCore from './core';
-export declare abstract class SegmentAbstract extends SegmentCore {
+export declare class SegmentBase extends SegmentCore {
 }
+export default SegmentBase;

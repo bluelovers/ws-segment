@@ -97,24 +97,29 @@ export function debug_token<T extends IWordDebug>(ks: Array<T>, returnSource?: b
 {
 	let ks2: Array<T | IWordDebug> = [];
 
+	// @ts-ignore
 	ks.map(function (v, index)
 	{
 		//v.index = index;
 
+		// @ts-ignore
 		debugToken(v, {
 			index,
 		});
 
 		if (v.p)
 		{
+			// @ts-ignore
 			token_add_info(v);
 		}
 		else if (v.m)
 		{
+			// @ts-ignore
 			v.m.map(token_add_info);
 		}
 		else
 		{
+			// @ts-ignore
 			ks2.push(v);
 		}
 	});

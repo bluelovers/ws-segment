@@ -2,9 +2,13 @@
  * Created by user on 2018/2/24/024.
  */
 import SegmentDict from 'segment-dict';
-import SegmentDictLoader = require('segment-dict/lib/loader/segment');
-import SegmentSynonymLoader = require('segment-dict/lib/loader/segment/synonym');
+import * as SegmentDictLoader from 'segment-dict/lib/loader/segment';
+import * as SegmentSynonymLoader from 'segment-dict/lib/loader/segment/synonym';
 export { SegmentDict };
 export { SegmentDictLoader, SegmentSynonymLoader };
-declare const _default: typeof import("./loader");
+declare const _default: {
+    SegmentDict: typeof import("segment-dict");
+    SegmentDictLoader: typeof SegmentDictLoader;
+    SegmentSynonymLoader: typeof SegmentSynonymLoader;
+};
 export default _default;

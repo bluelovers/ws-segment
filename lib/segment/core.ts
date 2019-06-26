@@ -23,7 +23,7 @@ import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from '../mod/index
 import { debugToken } from '../util/debug';
 import { IWordDebug } from '../util/index';
 
-import deepmerge = require('deepmerge-plus');
+import deepmerge from 'deepmerge-plus/core';
 import { EnumDictDatabase } from '../const';
 import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from '../mod/index';
 import { defaultOptionsDoSegment } from './defaults';

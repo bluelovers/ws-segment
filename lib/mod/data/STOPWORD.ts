@@ -1,4 +1,4 @@
-import UString = require('uni-string');
+import UString from 'uni-string';
 import { array_unique } from 'array-hyper-unique';
 
 export namespace NS_STOPWORD

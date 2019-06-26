@@ -8,7 +8,6 @@
 
 import * as path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
-import { useDefault } from './index';
 import POSTAG from './POSTAG';
 import TableDictBlacklist from './table/blacklist';
 import AbstractTableDictCore from './table/core';
@@ -25,7 +24,7 @@ import { IWordDebug } from './util/index';
 
 import ProjectConfig from '../project.config';
 
-import deepmerge = require('deepmerge-plus');
+import deepmerge from 'deepmerge-plus/core';
 import { EnumDictDatabase } from './const';
 import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from './mod/index';
 
@@ -44,6 +43,9 @@ import {
 import SegmentCore from './segment/core';
 import { _isIgnoreModules } from './segment/methods/useModules';
 import { ITSOverwrite } from 'ts-type';
+import { defaultOptionsDoSegment } from './segment/defaults';
+import { useDefault } from './defaults/index';
+import { useModules } from './segment/methods/useModules2';
 
 /**
  * 创建分词器接口
@@ -51,7 +53,7 @@ import { ITSOverwrite } from 'ts-type';
 export class Segment extends SegmentCore
 {
 
-	static defaultOptionsDoSegment: IOptionsDoSegment = {};
+	static defaultOptionsDoSegment: IOptionsDoSegment = defaultOptionsDoSegment;
 
 	getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM,
 		autocreate?: boolean,
@@ -119,31 +121,7 @@ export class Segment extends SegmentCore
 	use(mod, ...argv)
 	use(mod, ...argv)
 	{
-		let me = this;
-
-		if (Array.isArray(mod))
-		{
-			mod.forEach(function (m)
-			{
-				me.use(m);
-			});
-		}
-		else
-		{
-			if (!_isIgnoreModules(this, mod, ...argv) && typeof mod == 'string')
-			{
-				//console.log('module', mod);
-
-				// @ts-ignore
-				//let filename = path.resolve(__dirname, 'module', module + '.js');
-				let filename = path.resolve(__dirname, 'submod', mod);
-
-				// @ts-ignore
-				mod = require(filename);
-			}
-
-			super.use(mod)
-		}
+		useModules(this, mod, ...argv);
 
 		this.inited = true;
 

@@ -6,10 +6,14 @@
 import * as fs from 'fs';
 import { crlf, LF } from 'crlf-normalize';
 import SegmentDict from 'segment-dict';
-import SegmentDictLoader = require('segment-dict/lib/loader/segment');
-import SegmentSynonymLoader = require('segment-dict/lib/loader/segment/synonym');
+import * as SegmentDictLoader from 'segment-dict/lib/loader/segment';
+import * as SegmentSynonymLoader from 'segment-dict/lib/loader/segment/synonym';
 
 export { SegmentDict }
 export { SegmentDictLoader, SegmentSynonymLoader }
 
-export default exports as typeof import('./loader');
+export default {
+	SegmentDict,
+	SegmentDictLoader,
+	SegmentSynonymLoader,
+};

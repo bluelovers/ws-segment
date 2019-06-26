@@ -66,7 +66,7 @@ export function _searchGlobSync(file, options: IOptions, cwd?: string): string[]
 			'*.old',
 		],
 
-		deep: false,
+		deep: 0,
 
 		absolute: true,
 	};
