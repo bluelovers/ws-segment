@@ -9,7 +9,7 @@ import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
 import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
-import UString = require('uni-string');
+import UString from 'uni-string';
 
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt

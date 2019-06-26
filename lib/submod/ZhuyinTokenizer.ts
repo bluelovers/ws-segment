@@ -3,7 +3,7 @@
 import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 import { Segment, IWord, IDICT, IDICT2 } from '../Segment';
 import { debugToken } from '../util/debug';
-import UString = require('uni-string');
+import UString from 'uni-string';
 import { debug } from '../util';
 import { IWordDebugInfo } from '../util/index';
 

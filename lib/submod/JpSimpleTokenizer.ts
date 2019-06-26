@@ -4,7 +4,7 @@
 
 import { SubSModule, SubSModuleTokenizer } from '../mod';
 import { Segment, IWord } from '../Segment';
-import UString = require('uni-string');
+import UString from 'uni-string';
 import { IWordDebug, IWordDebugInfo } from '../util';
 
 export const enum EnumJpSimpleTokenizerType

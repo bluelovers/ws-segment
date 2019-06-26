@@ -9,7 +9,7 @@
 import { SubSModuleTokenizer } from '../mod';
 import Segment, { IWord } from '../Segment';
 import { debug } from '../util';
-import UString = require('uni-string');
+import UString from 'uni-string';
 import { _STOPWORD, STOPWORD, STOPWORD2 } from '../mod/data/STOPWORD';
 
 export class PunctuationTokenizer extends SubSModuleTokenizer

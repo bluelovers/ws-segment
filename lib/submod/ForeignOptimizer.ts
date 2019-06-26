@@ -9,7 +9,7 @@ import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
 import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
-import UString = require('uni-string');
+import UString from 'uni-string';
 
 export class ForeignOptimizer extends SubSModuleOptimizer
 {
