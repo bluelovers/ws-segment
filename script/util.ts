@@ -32,7 +32,7 @@ export const DEFAULT_IGNORE = [
 export function globDict(cwd: string, pattern?: string[], ignore = DEFAULT_IGNORE)
 {
 	return BluebirdPromise
-		.resolve(FastGlob<string>(pattern, {
+		.resolve<string[]>(FastGlob(pattern, {
 			cwd,
 			absolute: true,
 			ignore,
