@@ -1,10 +1,9 @@
 import { IOptionsSegment } from '../types';
 import SegmentCore from '../core';
-import Segment from '../../Segment';
 import { ISubOptimizer } from '../../mod/Optimizer';
 import { ISubTokenizer } from '../../mod/Tokenizer';
 
-export function _isIgnoreModules<T extends SegmentCore | Segment>(me: T, mod: ISubOptimizer | ISubTokenizer | any, ...argv)
+export function _isIgnoreModules<T extends SegmentCore>(me: T, mod: ISubOptimizer | ISubTokenizer | any, ...argv)
 {
 	return (me.options && me.options.disableModules && me.options.disableModules.includes(mod))
 }
@@ -14,9 +13,9 @@ export function _warnIgnoreModules(mod)
 	console.warn(`can't use this mod, because it got disable: ${mod}`)
 }
 
-export function useModules<T extends SegmentCore | Segment>(me: T, mod: ISubOptimizer | ISubTokenizer | any, ...argv)
+export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any, ...argv)
 {
-	if (_isIgnoreModules(me, mod, ...argv))
+	if (_isIgnoreModules(me as any, mod, ...argv))
 	{
 		_warnIgnoreModules(mod)
 	}
@@ -30,6 +29,7 @@ export function useModules<T extends SegmentCore | Segment>(me: T, mod: ISubOpti
 			mod = c;
 		}
 
+		// @ts-ignore
 		me.modules[mod.type].push(mod);
 	}
 

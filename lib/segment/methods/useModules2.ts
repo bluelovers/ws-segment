@@ -1,22 +1,20 @@
 import { _isIgnoreModules, useModules as _useModules } from './useModules';
-import SegmentCore from '../core';
-import Segment from '../../Segment';
 import { ISubOptimizer } from '../../mod/Optimizer';
 import { ISubTokenizer } from '../../mod/Tokenizer';
 import * as path from "path";
 
-export function useModules<T extends SegmentCore | Segment>(me: T, mod: ISubOptimizer | ISubTokenizer | any | string | (ISubTokenizer | ISubOptimizer | string)[], ...argv)
+export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any | string | (ISubTokenizer | ISubOptimizer | string)[], ...argv)
 {
 	if (Array.isArray(mod))
 	{
 		mod.forEach(function (m)
 		{
-			useModules(me, m, ...argv)
+			useModules(me as any, m, ...argv)
 		});
 	}
 	else
 	{
-		if (!_isIgnoreModules(me, mod, ...argv) && typeof mod == 'string')
+		if (!_isIgnoreModules(me as any, mod, ...argv) && typeof mod == 'string')
 		{
 			//console.log('module', mod);
 			// @ts-ignore
@@ -26,7 +24,7 @@ export function useModules<T extends SegmentCore | Segment>(me: T, mod: ISubOpti
 			mod = require(filename);
 		}
 
-		_useModules(me, mod, ...argv)
+		_useModules(me as any, mod, ...argv)
 	}
 
 	return me;

@@ -169,7 +169,9 @@ export class SegmentCore
 	use(mod, ...argv): this
 	use(mod, ...argv)
 	{
-		return useModules(this, mod, ...argv);
+		useModules(this, mod, ...argv);
+
+		return this
 	}
 
 	/**
