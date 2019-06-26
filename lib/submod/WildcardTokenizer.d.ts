@@ -4,7 +4,7 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import { Segment, IWord, IDICT, IDICT2 } from '../Segment';
+import { IWord, IDICT, IDICT2 } from '../Segment';
 import { IWordDebugInfo } from '../util/index';
 export declare class WildcardTokenizer extends SubSModuleTokenizer {
     name: string;
@@ -18,7 +18,7 @@ export declare class WildcardTokenizer extends SubSModuleTokenizer {
      * @return {array}
      */
     split(words: IWord[]): IWord[];
-    createWildcardToken(word: IWord, lasttype?: number, attr?: IWordDebugInfo): Segment.IWord;
+    createWildcardToken(word: IWord, lasttype?: number, attr?: IWordDebugInfo): IWord;
     splitWildcard(text: string, cur?: number): IWord[];
     /**
      * 匹配单词，返回相关信息
@@ -27,7 +27,7 @@ export declare class WildcardTokenizer extends SubSModuleTokenizer {
      * @param {int} cur 开始位置
      * @return {array}  返回格式   {w: '单词', c: 开始位置}
      */
-    matchWord(text: string, cur?: number): Segment.IWord[];
+    matchWord(text: string, cur?: number): IWord[];
 }
 export declare const init: ISubTokenizerCreate<WildcardTokenizer, SubSModuleTokenizer>;
 export default WildcardTokenizer;

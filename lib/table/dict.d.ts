@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/15/015.
  */
-import { IWord } from '../Segment';
+import { IWord } from '../segment/types';
 import { IDictRow } from 'segment-dict/lib/loader/segment';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 export declare type ITableDictRow = {

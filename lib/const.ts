@@ -1,6 +1,7 @@
 
-export enum EnumDictDatabase
+export const enum EnumDictDatabase
 {
+
 	SYNONYM = 'SYNONYM',
 	TABLE = 'TABLE',
 	STOPWORD = 'STOPWORD',

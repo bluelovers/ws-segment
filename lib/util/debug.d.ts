@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/19/019.
  */
-import { IWord } from '../Segment';
+import { IWord } from '../segment/types';
 export declare const SYMBOL_DEBUG_KEY = "_debug";
 export declare type IWordDebugInfo<T extends IWordDebug = IWordDebug> = {
     ZhtSynonymOptimizer?: boolean;
@@ -31,5 +31,3 @@ export declare function debugToken<T extends IWordDebug, U extends IWordDebugInf
 export declare function debug_token<T extends IWordDebug>(ks: Array<T>, returnSource?: boolean): Array<T | IWordDebug>;
 export declare function token_add_info<T extends IWordDebug>(v: T): T;
 export declare function toHex(p: number): string;
-declare const _default: typeof import("./debug");
-export default _default;

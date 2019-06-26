@@ -2,7 +2,7 @@
  * Created by user on 2018/4/19/019.
  */
 
-import { IWord } from '../Segment';
+import { IWord } from '../segment/types';
 import { IDictRow } from 'segment-dict/lib/loader/segment';
 import CjkConv from 'cjk-conv';
 import { text_list } from '../util/cjk';

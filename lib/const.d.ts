@@ -1,4 +1,4 @@
-export declare enum EnumDictDatabase {
+export declare const enum EnumDictDatabase {
     SYNONYM = "SYNONYM",
     TABLE = "TABLE",
     STOPWORD = "STOPWORD",

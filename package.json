@@ -105,6 +105,7 @@
     "str-util": "^2.3.21",
     "string-natural-compare": "^2.0.3",
     "ts-enum-util": "4.0.1",
+    "ts-type": "^1.2.9",
     "uni-string": "^1.1.2"
   },
   "devDependencies": {

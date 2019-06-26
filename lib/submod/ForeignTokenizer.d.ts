@@ -4,7 +4,7 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import { Segment, IWord } from '../Segment';
+import { IWord } from '../Segment';
 import { IWordDebugInfo } from '../util/index';
 export declare class ForeignTokenizer extends SubSModuleTokenizer {
     name: string;
@@ -38,7 +38,7 @@ export declare class ForeignTokenizer extends SubSModuleTokenizer {
      * @return {array}  返回格式   {w: '单词', c: 开始位置}
      */
     splitForeign(text: string, cur?: number): IWord[];
-    createForeignToken(word: IWord, lasttype?: number, attr?: IWordDebugInfo): Segment.IWord;
+    createForeignToken(word: IWord, lasttype?: number, attr?: IWordDebugInfo): IWord;
 }
 export declare const init: ISubTokenizerCreate<ForeignTokenizer, SubSModuleTokenizer>;
 export default ForeignTokenizer;

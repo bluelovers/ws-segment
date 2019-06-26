@@ -98,4 +98,4 @@ exports.cloneDeep = require('lodash.clonedeep');
 //let p = hexAnd(0x6000 | 0x8000, 0x2000, 0x4000)
 //debug(p, toHex(p));
 
-export default exports as typeof import('./index');
+

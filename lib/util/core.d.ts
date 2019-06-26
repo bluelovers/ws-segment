@@ -3,5 +3,3 @@
  */
 export declare function enumIsNaN(v: any): boolean;
 export declare function enumList(varEnum: any, byValue?: boolean): string[];
-declare const _default: typeof import("./core");
-export default _default;

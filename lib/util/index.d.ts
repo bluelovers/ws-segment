@@ -13,5 +13,3 @@ export declare function hexAndAny(n: number, p?: number, ...argv: number[]): num
 export declare function hexAnd(n: number, p?: number, ...argv: number[]): number;
 export declare function hexOr(n: number, p?: number, ...argv: number[]): number;
 export declare function cloneDeep<T extends object | Array<any>>(data: T): T;
-declare const _default: typeof import(".");
-export default _default;

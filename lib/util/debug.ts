@@ -3,7 +3,7 @@
  */
 
 import { POSTAG } from '../POSTAG';
-import { IWord } from '../Segment';
+import { IWord } from '../segment/types';
 import sortObjectKeys from 'sort-object-keys2';
 
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');
@@ -195,4 +195,4 @@ export function toHex(p: number)
 		;
 }
 
-export default exports as typeof import('./debug');
+
