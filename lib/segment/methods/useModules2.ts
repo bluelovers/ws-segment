@@ -11,7 +11,7 @@ export function useModules<T extends SegmentCore | Segment>(me: T, mod: ISubOpti
 	{
 		mod.forEach(function (m)
 		{
-			_useModules(me, mod, ...argv)
+			useModules(me, m, ...argv)
 		});
 	}
 	else
@@ -20,7 +20,7 @@ export function useModules<T extends SegmentCore | Segment>(me: T, mod: ISubOpti
 		{
 			//console.log('module', mod);
 			// @ts-ignore
-			let filename = path.resolve(__dirname, 'submod', mod);
+			let filename = path.resolve(__dirname, '../..', 'submod', mod);
 
 			// @ts-ignore
 			mod = require(filename);
