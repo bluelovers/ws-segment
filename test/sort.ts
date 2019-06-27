@@ -13,7 +13,7 @@ import libTable from 'cjk-conv/lib/zh/table';
 import naturalCompare = require('string-natural-compare');
 
 import UString from "uni-string";
-import FastGlob from "fast-glob";
+import FastGlob from "@bluelovers/fast-glob";
 import * as path from "path";
 import { console } from "debug-color2";
 
@@ -303,7 +303,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/加|迦|伽|珈|枷/u).test(w)
+				&& zhRegExp.create(/拼|拚/u).test(w)
 			)
 			{
 				bool = true;
