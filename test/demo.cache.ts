@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-這其中也存在交易要衝的考量
+年幼的少女正在床上操作著掌上遊戲機。
 
 `;
 

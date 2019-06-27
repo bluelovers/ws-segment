@@ -24,7 +24,6 @@ import { array_unique } from 'array-hyper-unique';
 import { serialize } from 'segment-dict/lib/loader/line';
 import { console, chalkByConsole } from 'debug-color2';
 import { greedyTableReplace } from 'cjk-conv/lib/zh/table/greedy';
-import pinyin = require("pinyin");
 import libTable from 'cjk-conv/lib/zh/table';
 import { gitDiffStagedFile } from '@git-lazy/diff-staged';
 import { matchGlob } from '@git-lazy/util/util/match';
@@ -357,30 +356,6 @@ function getCid(w: string)
 	let s = getCjkName(w);
 
 	let r = slugifyTr(s);
-
-	if (!r)
-	{
-		try
-		{
-			r = slugifyTr(pinyin(s)[0][0]);
-		}
-		catch (e)
-		{
-
-		}
-	}
-
-	if (!r)
-	{
-		try
-		{
-			r = slugifyTr(pinyin(w)[0][0]);
-		}
-		catch (e)
-		{
-
-		}
-	}
 
 	if (!r)
 	{

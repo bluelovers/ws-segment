@@ -124,7 +124,6 @@
     "diff": "^4.0.1",
     "git-root2": "^1.0.7",
     "n-readlines": "^1.0.0",
-    "pinyin": "^2.9.0",
     "prettyuse": "^0.0.0",
     "transliteration": "^2.1.3"
   },
