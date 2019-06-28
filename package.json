@@ -27,13 +27,13 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs-extra": "^8.0.1",
-    "novel-segment": "^2.3.1",
-    "now": "^15.6.1"
+    "novel-segment": "^2.3.1"
   },
   "engines": {
     "node": ">=10"
   },
   "devDependencies": {
-    "@types/express": "^4.17.0"
+    "@types/express": "^4.17.0",
+    "now": "^15.6.1"
   }
 }
