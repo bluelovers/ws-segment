@@ -134,6 +134,26 @@ export function baseSortList<T = ILoadDictFileRow2>(ls: T[], bool?: boolean)
 	});
 }
 
+export function all_default_load_dict()
+{
+	return [
+		'dict_synonym/*.txt',
+		'names/*.txt',
+		'lazy/*.txt',
+		'dict*.txt',
+		'phrases/*.txt',
+		'pangu/*.txt',
+		'char.txt',
+	];
+}
+
+export function all_extra_dict()
+{
+	return [
+		'infrequent/**/*.txt',
+	];
+}
+
 /*
 export function getCjkName(w: string, USE_CJK_MODE: number)
 {

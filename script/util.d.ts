@@ -23,3 +23,5 @@ export declare enum EnumLineType {
 }
 export declare function chkLineType(line: string): EnumLineType;
 export declare function baseSortList<T = ILoadDictFileRow2>(ls: T[], bool?: boolean): T[];
+export declare function all_default_load_dict(): string[];
+export declare function all_extra_dict(): string[];
