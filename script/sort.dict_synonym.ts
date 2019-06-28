@@ -15,6 +15,7 @@ import {
 } from './util';
 import naturalCompare = require('string-natural-compare');
 import { array_unique } from 'array-hyper-unique';
+import { toHex } from 'novel-segment/lib/util';
 
 let CWD = path.join(ProjectConfig.dict_root, 'segment');
 
@@ -30,7 +31,7 @@ globDict(CWD, [
 	'lazy/badword.txt',
 	'lazy/index.txt',
 	'lazy/dict_synonym.txt',
-	//'dict*.txt',
+	'dict*.txt',
 	'phrases/*.txt',
 	'pangu/*.txt',
 	'infrequent/**/*.txt',
@@ -75,6 +76,11 @@ globDict(CWD, [
 				CACHE_LIST.skip.push(cur);
 
 				return false;
+			}
+
+			if (f > 15000)
+			{
+				//cur.line = [w, toHex(p), 0].join('|');
 			}
 
 			return true;
