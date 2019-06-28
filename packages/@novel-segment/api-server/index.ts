@@ -1,4 +1,5 @@
 import express = require('express');
+import cors = require('cors')
 import { NextFunction, Request, Response } from 'express-serve-static-core';
 import Segment, { IOptionsDoSegment } from 'novel-segment/lib/segment/core';
 import { useModules } from 'novel-segment/lib/segment/methods/useModules2';
@@ -9,6 +10,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 let CACHED_SEGMENT: Segment;
 
@@ -27,7 +29,7 @@ function fn (req: Request, res: Response, next: NextFunction)
 	} = Object.assign({}, req.query, url_parse(req.url, true).query, req.body);
 
 	res.set({
-		'Access-Control-Allow-Origin': '*',
+		//'Access-Control-Allow-Origin': '*',
 		'Content-Type': 'application/json',
 	});
 
@@ -57,7 +59,7 @@ function fn (req: Request, res: Response, next: NextFunction)
 						line = Buffer.from(line).toString();
 					}
 
-					return CACHED_SEGMENT.doSegment(line)
+					return CACHED_SEGMENT.doSegment(line, rq.options)
 				});
 
 				if (!rq.nocache && !rq.debug)
@@ -73,6 +75,7 @@ function fn (req: Request, res: Response, next: NextFunction)
 					timestamp,
 					time: Date.now() - timestamp,
 					results,
+					options: rq.options,
 				};
 
 				if (rq.debug)
