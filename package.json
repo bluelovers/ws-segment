@@ -1,0 +1,39 @@
+{
+  "name": "@novel-segment/api-server",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/bluelovers/ws-segment#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/ws-segment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/ws-segment.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "scripts": {
+    "now-deploy": "now deploy",
+    "now-build": "node ./build.js",
+    "coverage": "npx nyc npm run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "sort-package-json": "npx sort-package-json package.json",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "fs-extra": "^8.0.1",
+    "novel-segment": "^2.3.0",
+    "now": "^15.6.1"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0"
+  }
+}
