@@ -2,6 +2,12 @@
   "version": 2,
   "name": "segment-api",
   "builds": [
-    { "src": "index.js", "use": "@now/node@canary" }
+    {
+      "src": "index.js",
+      "use": "@now/node@canary",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
   ]
 }

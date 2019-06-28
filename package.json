@@ -27,7 +27,7 @@
   "dependencies": {
     "express": "^4.17.1",
     "fs-extra": "^8.0.1",
-    "novel-segment": "^2.3.0",
+    "novel-segment": "^2.3.1",
     "now": "^15.6.1"
   },
   "engines": {

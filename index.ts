@@ -48,7 +48,7 @@ function fn (req: Request, res: Response, next: NextFunction)
 			{
 				const CACHED_SEGMENT = getSegment();
 
-				rq.input.map(line => {
+				const results = rq.input.map(line => {
 
 					if (typeof line !== 'string')
 					{
@@ -67,10 +67,10 @@ function fn (req: Request, res: Response, next: NextFunction)
 
 				res.status(200).json({
 					code: 1,
-					count: rq.input.length,
+					count: results.length,
 					timestamp,
 					time: Date.now() - timestamp,
-					results: rq.input,
+					results,
 				});
 
 				return;
