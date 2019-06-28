@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "name": "segment-api",
+  "builds": [
+    { "src": "index.js", "use": "@now/node@canary" }
+  ]
+}
