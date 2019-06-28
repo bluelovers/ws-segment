@@ -91,16 +91,16 @@
     "@novel-segment/util": "^1.0.6",
     "array-hyper-unique": "^1.0.7",
     "bluebird": "^3.5.5",
-    "cjk-conv": "^1.1.63",
+    "cjk-conv": "^1.1.65",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
     "deepmerge-plus": "^2.1.3",
-    "fast-glob": "^3.0.2",
+    "fast-glob": "^3.0.3",
     "fs-extra": "^8.0.1",
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^3.3.4",
-    "segment-dict": "^2.2.121",
+    "segment-dict": "^2.2.124",
     "sort-object-keys2": "^1.1.0",
     "str-util": "^2.3.21",
     "string-natural-compare": "^2.0.3",
@@ -113,7 +113,7 @@
     "@git-lazy/diff-staged": "^1.0.3",
     "@git-lazy/util": "^1.0.5",
     "@types/bluebird": "^3",
-    "@types/fs-extra": "^7",
+    "@types/fs-extra": "^8",
     "@types/node": "^12",
     "@types/transliteration": "^1.6.1",
     "chai": "^4.2.0",
@@ -125,7 +125,7 @@
     "git-root2": "^1.0.7",
     "n-readlines": "^1.0.0",
     "prettyuse": "^0.0.0",
-    "transliteration": "^2.1.3"
+    "transliteration": "^2.1.4"
   },
   "optionalDependencies": {}
 }
