@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-年幼的少女正在床上操作著掌上遊戲機。
+飄著好聞到令人吃驚的
 
 `;
 

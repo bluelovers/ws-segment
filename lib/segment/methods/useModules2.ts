@@ -16,12 +16,8 @@ export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any | 
 	{
 		if (!_isIgnoreModules(me as any, mod, ...argv) && typeof mod == 'string')
 		{
-			//console.log('module', mod);
-			// @ts-ignore
-			let filename = path.resolve(__dirname, '../..', 'submod', mod);
-
-			// @ts-ignore
-			mod = require(filename);
+			//mod = require(path.join(__dirname, '../..', 'submod', mod));
+			mod = require(`../../submod/${mod}`);
 		}
 
 		_useModules(me as any, mod, ...argv)

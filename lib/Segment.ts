@@ -91,9 +91,9 @@ export class Segment extends SegmentCore
 			{
 				libTableDict = libTableDict || TableDictStopword;
 			}
-			else if (type == TableDictBlacklist.type)
+			else if (type == TableDictBlacklist.type || type == EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER)
 			{
-				libTableDict = libTableDict || TableDictStopword;
+				libTableDict = libTableDict || TableDictBlacklist;
 			}
 			else
 			{
