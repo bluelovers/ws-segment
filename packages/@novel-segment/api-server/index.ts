@@ -3,6 +3,7 @@ import { NextFunction, Request, Response } from 'express-serve-static-core';
 import Segment, { IOptionsDoSegment } from 'novel-segment/lib/segment/core';
 import { useModules } from 'novel-segment/lib/segment/methods/useModules2';
 import getDefaultModList from 'novel-segment/lib/mod';
+import { parse as url_parse } from 'url';
 
 const app = express();
 
@@ -22,7 +23,8 @@ function fn (req: Request, res: Response, next: NextFunction)
 		input: string | (string | Buffer)[],
 		options: IOptionsDoSegment,
 		nocache: boolean,
-	} = Object.assign({}, req.query, req.body);
+		debug: boolean,
+	} = Object.assign({}, req.query, url_parse(req.url, true).query, req.body);
 
 	res.set({
 		'Access-Control-Allow-Origin': '*',
@@ -58,20 +60,36 @@ function fn (req: Request, res: Response, next: NextFunction)
 					return CACHED_SEGMENT.doSegment(line)
 				});
 
-				if (!rq.nocache)
+				if (!rq.nocache && !rq.debug)
 				{
 					res.set({
 						'Cache-Control': 'public, max-age=3600000',
 					});
 				}
 
-				res.status(200).json({
+				const json = {
 					code: 1,
 					count: results.length,
 					timestamp,
 					time: Date.now() - timestamp,
 					results,
-				});
+				};
+
+				if (rq.debug)
+				{
+					// @ts-ignore
+					json.request = {
+						rq,
+						params: req.params,
+						query: req.query,
+						body: req.body,
+						baseUrl: req.baseUrl,
+						url: req.url,
+						query2: url_parse(req.url, true).query,
+					};
+				}
+
+				res.status(200).json(json);
 
 				return;
 			}
