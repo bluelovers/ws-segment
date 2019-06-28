@@ -33,5 +33,7 @@ export function split(words: IWord[], s: string | number, ...argv): IWord[]
 		ret.push(words.slice(lasti, words.length));
 	}
 
+	words = undefined;
+
 	return ret;
 }

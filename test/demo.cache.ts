@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-飄著好聞到令人吃驚的
+密
 
 `;
 

@@ -132,6 +132,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 			}
 		}
 
+		words = undefined;
+
 		return ret;
 	}
 
@@ -549,6 +551,9 @@ export class DictTokenizer extends SubSModuleTokenizer
 		// 試圖主動清除記憶體
 		assess = undefined;
 		chunks = undefined;
+		currchunk = undefined;
+		top = undefined;
+		wordpos = undefined;
 
 		//debug(ret);
 		return ret;
@@ -663,6 +668,10 @@ export class DictTokenizer extends SubSModuleTokenizer
 			//debug({ i, s, maxs, curri });
 		}
 		//debug('max: i=' + curri + ', s=' + tops[curri]);
+
+		assess = undefined;
+		top = undefined;
+
 		return curri;
 	}
 
@@ -853,6 +862,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 		}
 
 		words = undefined;
+		wordpos = undefined;
+		m = undefined;
 
 		return ret;
 	}

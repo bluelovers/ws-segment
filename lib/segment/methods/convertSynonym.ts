@@ -129,6 +129,8 @@ export function convertSynonym(ret: IWordDebug[], options: IOptions)
 				a.push(item);
 			}
 
+			debug = undefined;
+
 			return a;
 		}, [] as IWordDebug[]);
 		return { count: count, list: list } as IConvertSynonymWithShowcount;
@@ -139,8 +141,12 @@ export function convertSynonym(ret: IWordDebug[], options: IOptions)
 	{
 		result = _convertSynonym(ret);
 		ret = result.list;
+
+		result.list = undefined;
 	}
 	while (result.count > 0);
+
+	result = undefined;
 
 	if (showcount)
 	{
