@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-自动贩卖机
+講話
 
 `;
 
