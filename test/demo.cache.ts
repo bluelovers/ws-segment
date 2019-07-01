@@ -77,7 +77,7 @@ console.time(`doSegment`);
 
 let text = `
 
-密
+自动贩卖机
 
 `;
 
