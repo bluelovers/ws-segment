@@ -73,7 +73,7 @@ Promise
 			'char*',
 			'**/skip',
 			'**/jieba',
-			'**/lazy',
+			//'**/lazy',
 			'**/dict_synonym',
 			'**/synonym',
 			'**/names',
@@ -303,7 +303,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/漂|飃|飄|飘/u).test(w)
+				&& zhRegExp.create(/杆|桿/u).test(w)
 			)
 			{
 				bool = true;
