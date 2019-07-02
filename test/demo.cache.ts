@@ -77,7 +77,8 @@ console.time(`doSegment`);
 
 let text = `
 
-講話
+蒐 搜 捜 
+
 
 `;
 
