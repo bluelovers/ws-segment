@@ -72,6 +72,13 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'我依然將視線專注于哥布林與狗頭人身上。',
+		[
+			'視線',
+		]
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [
@@ -642,8 +649,12 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
-
-
+	[
+		'雖然我認為後者應該占多數',
+		[
+			'佔',
+		],
+	],
 
 ];
 
