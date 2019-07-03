@@ -303,7 +303,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/植|殖/u).test(w)
+				&& zhRegExp.create(/踨|踪|蹤/u).test(w)
 			)
 			{
 				bool = true;
