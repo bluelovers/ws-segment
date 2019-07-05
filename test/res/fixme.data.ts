@@ -79,6 +79,13 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'女形演員──日本歌舞伎中模仿女性形態的男舞者',
+		[
+			'演員',
+		]
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [
