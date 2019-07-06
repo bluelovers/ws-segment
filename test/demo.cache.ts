@@ -78,7 +78,9 @@ console.time(`doSegment`);
 
 let text = `
 
-「２８號，有里牡丹拒絕了！」
+要剁要殺       要剮要煮
+
+㓥劏
 
 
 `;
