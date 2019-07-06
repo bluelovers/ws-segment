@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.2.132",
+  "version": "2.2.133",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -84,12 +84,12 @@
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
-    "@bluelovers/fast-glob": "^3.0.3",
+    "@bluelovers/fast-glob": "^3.0.4",
     "@novel-segment/util": "^1.0.7",
     "bluebird": "^3.5.5",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
-    "fast-glob": "^3.0.3",
+    "fast-glob": "^3.0.4",
     "fs-extra": "^8.1.0",
     "split2": "^3.1.1",
     "stream-pipe": "^1.0.1",
@@ -103,7 +103,7 @@
     "@types/diff": "^4.0.2",
     "@types/node": "^12",
     "array-hyper-unique": "^1.0.7",
-    "cjk-conv": "^1.1.73",
+    "cjk-conv": "^1.1.74",
     "cross-spawn-extra": "^1.0.6",
     "debug-color2": "^1.1.6",
     "git-root2": "^1.0.7",
