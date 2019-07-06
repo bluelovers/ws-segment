@@ -1668,6 +1668,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'「２８號，有里牡丹拒絕了！」',
+		[
+			'里',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
