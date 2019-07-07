@@ -1675,6 +1675,41 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'「沒准是那樣也說不定',
+		[
+			'準',
+		],
+	],
+
+	[
+		'腳上穿著系鞋帶的長靴。',
+		[
+			'繫',
+		],
+	],
+
+	[
+		'万一会突然变成敌人也说不准呢',
+		[
+			'準',
+		],
+	],
+
+	[
+		'鎮座著一個紅白涂裝的機械',
+		[
+			'塗',
+		],
+	],
+
+	[
+		'應該是被完全封印在保管庫里的',
+		[
+			'裡',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
