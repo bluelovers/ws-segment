@@ -303,7 +303,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/錶|表/u).test(w)
+				&& zhRegExp.create(/希|悕|睎|稀/u).test(w)
 			)
 			{
 				bool = true;
