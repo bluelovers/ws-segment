@@ -25,7 +25,9 @@ export function checkUpdate(name: string)
 
 export function findPackagePath(name: string): string
 {
-	return pkgUp.sync(require.resolve(name));
+	return pkgUp.sync({
+		cwd: require.resolve(name)
+	});
 }
 
 export function readPackageJson<T>(name: string): T & typeof PACKAGE_JSON

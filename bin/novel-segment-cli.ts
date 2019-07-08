@@ -6,8 +6,8 @@ import { checkUpdateSelf, checkUpdate } from '../lib/ncu';
 import { console, getCacheDirPath, freeGC } from '../lib/util';
 import bluebird = require('bluebird');
 import path = require('upath2');
-import * as fs from 'fs-extra';
-import FastGlob = require('fast-glob');
+import * as fs from 'fs-iconv';
+import FastGlob = require('@bluelovers/fast-glob');
 import { array_unique } from 'array-hyper-unique';
 
 let cli_argv: yargs.Arguments & {
@@ -18,6 +18,9 @@ let cli_argv: yargs.Arguments & {
 	outDir: string,
 	createDir: boolean,
 	useGlobalCache: boolean,
+
+	crlf: boolean,
+	convertToZhTw: boolean,
 
 	glob: string[],
 };
@@ -67,6 +70,14 @@ cli_argv = yargs
 		normalize: true,
 		group: 'file',
 	})
+	.option('convertToZhTw', {
+		boolean: true,
+		desc: `是否在轉換後轉為繁體`,
+	})
+	.option('crlf', {
+		boolean: true,
+		desc: `轉換換行符號`,
+	})
 	.version()
 	.help()
 	.argv
@@ -97,7 +108,9 @@ bluebird.resolve()
 	.then(async function ()
 	{
 		let options = {
-			useGlobalCache: cli_argv.useGlobalCache
+			useGlobalCache: cli_argv.useGlobalCache,
+			convertToZhTw: cli_argv.convertToZhTw,
+			crlf: cli_argv.crlf,
 		};
 
 		if (cli_argv.text)

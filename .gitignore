@@ -56,3 +56,10 @@ gen
 *.test.js.map
 /bin/*.d.ts
 /bin/*.js
+/.eslintignore
+/tsconfig.json.tpl
+/tsconfig.esm.json.tpl
+/.eslintrc.json.tpl
+/.browserslistrc
+/.nvmrc
+*.tgz

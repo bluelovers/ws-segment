@@ -2,13 +2,14 @@ import cacache = require('cacache');
 import crlf from 'crlf-normalize';
 import Segment, { stringify } from 'novel-segment';
 import bluebird = require('bluebird');
-import * as fs from 'fs-extra';
+import * as fs from 'fs-iconv';
 import { useDefault } from 'novel-segment/lib';
 import { Cacache } from './lib/cache';
 import { console, debugConsole, getCacheDirPath, enableDebug, freeGC } from './lib/util';
 import PACKAGE_JSON = require('./package.json');
 import { debug_token } from 'novel-segment/lib/util'
 import * as iconv from 'iconv-jschardet';
+import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
 
 let CACHED_SEGMENT: import("novel-segment/lib/Segment").Segment;
 let CACHED_CACACHE: Cacache;
@@ -32,6 +33,8 @@ export interface ISegmentCLIOptions
 	disableWarn?: boolean,
 
 	ttl?: number,
+
+	convertToZhTw?: boolean,
 }
 
 export function textSegment(text: string, options?: ISegmentCLIOptions)
@@ -84,6 +87,11 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 				}
 			}
 
+			if (options.convertToZhTw)
+			{
+				text = cn2tw_min(text);
+			}
+
 			freeGC();
 
 			return text;
@@ -108,19 +116,20 @@ export class SegmentCliError extends Error
 
 export function readFile(file: string, options?: ISegmentCLIOptions): bluebird<Buffer>
 {
-	return new bluebird<Buffer>((resolve, reject) =>
-	{
-		if (!fs.existsSync(file))
+	return bluebird.resolve().then(() =>
 		{
-			let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
-			reject(e)
-		}
-		else
-		{
+			if (!fs.existsSync(file))
+			{
+				let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
+				return bluebird.reject(e)
+			}
 
-			fs.readFile(file).then(resolve);
-		}
-	})
+			return fs.loadFile(file, {
+					autoDecode: true,
+				})
+				.then(v => Buffer.from(v))
+				;
+		})
 		.tap(function (buf)
 		{
 			if (options && options.disableWarn)
@@ -455,7 +464,7 @@ export function removeCache(options?: ISegmentCLIOptions)
 			await cache.clearMemoized();
 			await cache.removeAll();
 		})
-	;
+		;
 }
 
 export function resetCache()

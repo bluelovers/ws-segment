@@ -71,5 +71,4 @@ export function freeGC(): boolean
 	return false;
 }
 
-import * as self from './util';
-export default self;
+export default exports as typeof import('./util');

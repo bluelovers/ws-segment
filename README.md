@@ -7,11 +7,15 @@
 ```
 npm install -g novel-segment-cli
 npx novel-segment-cli --file input.txt --outDir output_dir
+npx novel-segment-cli --glob *.txt --outDir output_dir
 ```
+
+> npx novel-segment-cli --help
 
 ```
 file
   --file, -f    處理的檔案，可同時處理多個檔案                           [array]
+  --glob, -g                                                             [array]
   --mapSeries   按照順序並且每次只處理一個檔案                         [boolean]
   --createDir   允許當目標資料夾不存在時自動建立                       [boolean]
   --outDir, -o  將處理後的結果儲存到目標資料夾                          [string]
@@ -21,8 +25,11 @@ text
 
 Options:
   --overwrite                                                          [boolean]
-  --version    Show version number                                     [boolean]
-  --help       Show help                                               [boolean]
+  --useGlobalCache                                                     [boolean]
+  --convertToZhTw   是否在轉換後轉為繁體                               [boolean]
+  --crlf            轉換換行符號                                       [boolean]
+  --version         Show version number                                [boolean]
+  --help            Show help                                          [boolean]
 ```
 
 ## install
@@ -95,10 +102,10 @@ function diff_log(src_text: string, new_text: string): string
 }
 ```
 
-![2018-09-19-05-22-30-1.png](readme/2018-09-19-05-22-30-1.png)
+![image](readme/image.png)
 
 ```
 「这裡是···什麼地方？」
 「好了，这样最後的班会结束了」
-「喂，灰斗，接下来幹什么？」
+「喂，灰斗，接下来幹什麼？」
 ```

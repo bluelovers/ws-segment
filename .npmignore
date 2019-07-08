@@ -72,3 +72,10 @@ gen
 /readme/
 /readme/*
 /bin/*.d.ts
+/.eslintignore
+/tsconfig.json.tpl
+/tsconfig.esm.json.tpl
+/.eslintrc.json.tpl
+/.browserslistrc
+/.nvmrc
+*.tgz

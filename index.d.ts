@@ -13,9 +13,10 @@ export interface ISegmentCLIOptions {
     disableCache?: boolean;
     disableWarn?: boolean;
     ttl?: number;
+    convertToZhTw?: boolean;
 }
-export declare function textSegment(text: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib").Segment.IWord[]>;
-export declare function fileSegment(file: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib").Segment.IWord[]>;
+export declare function textSegment(text: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").IWord[]>;
+export declare function fileSegment(file: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").IWord[]>;
 export declare function processText(text: string, options?: ISegmentCLIOptions): bluebird<string>;
 export declare function processFile(file: string, options?: ISegmentCLIOptions): bluebird<string>;
 export declare class SegmentCliError extends Error {
