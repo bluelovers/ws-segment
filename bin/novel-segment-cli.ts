@@ -113,6 +113,11 @@ bluebird.resolve()
 			crlf: cli_argv.crlf,
 		};
 
+		if (!cli_argv.text && !cli_argv.file)
+		{
+			cli_argv.glob = cli_argv.glob || ['*.txt'];
+		}
+
 		if (cli_argv.text)
 		{
 			console.log(await processText(cli_argv.text, options));
