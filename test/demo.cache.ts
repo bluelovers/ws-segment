@@ -78,7 +78,7 @@ console.time(`doSegment`);
 
 let text = `
 
-萬一會突然變成敵人也說不准呢
+聖堂騎士團團長希由密里
 
 `;
 
