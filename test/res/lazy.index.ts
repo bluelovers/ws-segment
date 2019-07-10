@@ -448,6 +448,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'魚如果干巴巴的',
+		[
+			['果干','果乾'],
+		],
+	],
+
 ];
 
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
@@ -1707,6 +1714,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'應該是被完全封印在保管庫里的',
 		[
 			'裡',
+		],
+	],
+
+	[
+		'魚如果干巴巴的',
+		[
+			'乾',
 		],
 	],
 
