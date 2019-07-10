@@ -85,11 +85,11 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 						text = crlf(text);
 					}
 				}
-			}
 
-			if (options.convertToZhTw)
-			{
-				text = cn2tw_min(text);
+				if (options.convertToZhTw)
+				{
+					text = cn2tw_min(text);
+				}
 			}
 
 			freeGC();
