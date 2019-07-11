@@ -663,6 +663,27 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'已經不想再繼續干別的事情了',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'乾脆別干冒険者',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'領主有发補助金哦',
+		[
+			'發',
+		],
+	],
+
 ];
 
 sortTests(tests_fixme_base);
