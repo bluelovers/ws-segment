@@ -70,7 +70,7 @@
     "ncu": "npx npm-check-updates -u",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "postpublish2": "npx lerna run --scope novel-segment postpublish2",
+    "postpublish2": "npx lerna run --scope novel-segment postpublish2 && npx lerna run --scope @novel-segment/api-server now-deploy",
     "prepublishOnly": "echo prepublishOnly & yarn run ncu & npm run sort:all && yarn run test",
     "publish": "echo publish",
     "postpublish:after": "node ./script/publish-after",
