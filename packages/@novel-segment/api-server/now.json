@@ -11,7 +11,7 @@
     },
     {
       "src": "public/index.html",
-      "use": "@now/html-minifier"
+      "use": "@now/static"
     }
   ],
   "routes": [
