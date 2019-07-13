@@ -10,7 +10,8 @@
 	<link href="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css" rel="stylesheet">
 	<script src="https://unpkg.com/vuesax"></script>
 	<style>
-		:root, htnl, body {
+		:root, htnl, body
+		{
 			font-size: 9pt;
 		}
 
@@ -20,10 +21,17 @@
 			min-height: 45vh;
 			min-height: max(45vh, 300px);
 		}
+
 		.vs-component.vs-con-textarea.vs-textarea-primary textarea
 		{
 			min-height: 300px;
 			height: 45vh;
+		}
+
+		#div-with-loading
+		{
+			height: 100%;
+			width: 100%;
 		}
 	</style>
 </head>
@@ -37,11 +45,11 @@
 			style="padding-bottom: 10px"
 		>
 
-					<vs-radio color="success" v-model="convType" vs-value="0">無</vs-radio>
+			<vs-radio color="success" v-model="convType" vs-value="0">無</vs-radio>
 
-					<vs-radio color="danger" v-model="convType" vs-value="1">轉繁</vs-radio>
+			<vs-radio color="danger" v-model="convType" vs-value="1">轉繁</vs-radio>
 
-					<vs-radio color="warning" v-model="convType" vs-value="2">轉簡</vs-radio>
+			<vs-radio color="warning" v-model="convType" vs-value="2">轉簡</vs-radio>
 
 		</vs-row>
 
@@ -84,14 +92,41 @@
 				vs-xs="12"
 			>
 
-				<vs-textarea
-					outlined
-					name="output-field"
-					label="輸出內容"
-					v-model="output"
-				></vs-textarea>
+				<div id="div-with-loading" class="vs-con-loading__container">
+
+					<vs-textarea
+						outlined
+						name="output-field"
+						label="輸出內容"
+						v-model="output"
+					></vs-textarea>
+
+				</div>
 
 			</vs-col>
+		</vs-row>
+
+		<vs-row
+			vs-justify="center"
+			vs-align="center"
+		>
+
+
+			<vs-alert
+				color="primary"
+				title="Primary"
+				active="true"
+			>
+				<div style="text-align: center">
+					<a href="https://github.com/bluelovers/node-segment" target="_blank">novel-segment</a>
+
+					|
+
+					<vs-button color="danger" href="https://github.com/bluelovers/node-segment-dict/issues" target="_blank">回報問題</vs-button>
+				</div>
+
+			</vs-alert>
+
 		</vs-row>
 
 	</div>
@@ -122,12 +157,19 @@
 				output: '',
 
 				convType: 0,
+
+				err: null,
 			}
 		},
 
 		methods: {
 			doSegment: async function ()
 			{
+				this.$vs.loading({
+					container: '#div-with-loading',
+					scale: 0.6
+				});
+
 				let url = '/';
 
 				let data = {
@@ -142,22 +184,81 @@
 					case 1:
 					case '1':
 						url += 'conv';
-						console.dir(url)
+						//console.dir(url)
 						break;
 					case 2:
 					case '2':
 						url += 'conv';
-						console.dir(url)
+						//console.dir(url)
 						data.options.tw2cn = true;
 						break;
 				}
 
-				let ret = await axios.post(url, data);
+				let ret = await axios.post(url, data).catch(e =>
+				{
+					this.err = e;
+				});
 
-				let results = ret.data.results[0];
+				if (ret && ret.data)
+				{
+					this.$vs.notify({
+						color: 'primary',
+						title: `回傳資料`,
+						text: ret
+					});
+				}
 
-				this.output = Array.isArray(results) ? results.join('') : results;
-			}
+				if (ret != null && ret.data && ret.data.results)
+				{
+					let results = ret.data.results[0];
+
+					results = Array.isArray(results) ? results.join('') : results;
+
+					this.output = results;
+
+					if (results != this.input)
+					{
+						this.$vs.notify({
+							color: 'success',
+							title: `處理完成`,
+							text: '內容已更新'
+						})
+					}
+					else
+					{
+						this.$vs.notify({
+							color: 'warning',
+							title: `處理完成`,
+							text: '內容無變化'
+						})
+					}
+				}
+				else
+				{
+					this.$vs.dialog({
+						color: 'danger',
+						title: `發生錯誤`,
+						text: this.err.toString(),
+						accept: this.acceptAlert,
+					});
+				}
+
+				this.closeLoading();
+			},
+
+			closeLoading()
+			{
+				this.$vs.loading.close('#div-with-loading > .con-vs-loading')
+			},
+
+			acceptAlert(color)
+			{
+				this.$vs.notify({
+					color: 'danger',
+					title: `Error`,
+					text: this.err.toString()
+				})
+			},
 		},
 	})
 </script>
