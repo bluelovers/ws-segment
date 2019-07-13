@@ -2,7 +2,7 @@
   "name": "@novel-segment/api-server",
   "version": "1.0.0",
   "private": true,
-  "description": "",
+  "description": "simple segment api server",
   "homepage": "https://github.com/bluelovers/ws-segment#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-segment/issues"
@@ -20,9 +20,13 @@
     "ncu": "npx yarn-tool ncu -u",
     "now-build": "node ./build.js",
     "now-deploy": "now deploy",
+    "npm:publish": "npm publish",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish": "git commit -m \"publish new version\" .",
     "sort-package-json": "npx sort-package-json package.json",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -33,7 +37,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.0",
-    "now": "^15.6.2"
+    "now": "^15.8.0"
   },
   "engines": {
     "node": ">=10"

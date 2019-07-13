@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>@novel-segment/api-server</title>
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/vuesax/dist/vuesax.css" rel="stylesheet">
+	<script src="https://unpkg.com/vuesax"></script>
+	<style>
+		:root, htnl, body {
+			font-size: 9pt;
+		}
+
+		.vs-component.vs-con-textarea.vs-textarea-primary
+		{
+			min-height: 300px;
+			min-height: 45vh;
+			min-height: max(45vh, 300px);
+		}
+		.vs-component.vs-con-textarea.vs-textarea-primary textarea
+		{
+			min-height: 300px;
+			height: 45vh;
+		}
+	</style>
+</head>
+<body>
+<div id="app">
+	<div>
+
+		<vs-row
+			vs-w="12"
+			vs-justify="center"
+		>
+
+					<vs-radio color="success" v-model="convType" vs-value="0">無</vs-radio>
+
+					<vs-radio color="danger" v-model="convType" vs-value="1">轉繁</vs-radio>
+
+					<vs-radio color="warning" v-model="convType" vs-value="2">轉簡</vs-radio>
+
+		</vs-row>
+
+		<vs-row
+			vs-w="12"
+			vs-justify="center"
+		>
+			<vs-button type="relief" @click="doSegment">GO</vs-button>
+		</vs-row>
+
+
+		<vs-row
+			vs-w="12"
+			vs-justify="center"
+		>
+			<vs-col
+				vs-type="flex"
+				vs-justify="center"
+				vs-align="center"
+				vs-lg="5"
+				vs-sm="12"
+				vs-xs="12"
+			>
+
+				<vs-textarea
+					outlined
+					name="input-field"
+					label="輸入內容"
+					v-model="input"
+				></vs-textarea>
+
+			</vs-col>
+			<vs-col
+				vs-type="flex"
+				vs-justify="center"
+				vs-align="center"
+				vs-lg="5"
+				vs-sm="12"
+				vs-xs="12"
+			>
+
+				<vs-textarea
+					outlined
+					name="output-field"
+					label="輸出內容"
+					v-model="output"
+				></vs-textarea>
+
+			</vs-col>
+		</vs-row>
+
+	</div>
+
+</div>
+<!-- built files will be auto injected -->
+</body>
+<script>
+	new Vue({
+		el: '#app',
+
+		data()
+		{
+			let list = [
+				'Hello Vue.js!',
+				`这个世界上有为了一片面包出卖尊严的人`,
+			];
+
+			let idx = Math.min(Math.max((Math.random() * list.length) | 0, 0), (list.length - 1) | 0);
+
+			return {
+				input: list[idx],
+				output: '',
+
+				convType: 0,
+			}
+		},
+
+		methods: {
+			doSegment: async function ()
+			{
+				let url = 'https://segment-api.bluelovers.now.sh/';
+
+				let data = {
+					options: {
+						simple: true,
+					},
+					input: this.input
+				};
+
+				console.dir(this.convType);
+
+				switch (this.convType)
+				{
+					case 1:
+					case '1':
+						url += 'conv';
+						console.dir(url)
+						break;
+					case 2:
+					case '2':
+						url += 'conv';
+						console.dir(url)
+						data.options.tw2cn = true;
+						break;
+				}
+
+				console.dir({
+					url,
+					data,
+				});
+
+				let ret = await axios.post(url, data);
+
+				let results = ret.data.results[0];
+
+				this.output = Array.isArray(results) ? results.join('') : results;
+			}
+		},
+	})
+</script>
+</html>
