@@ -29,11 +29,12 @@
 </head>
 <body>
 <div id="app">
-	<div>
+	<div style="padding-top: 10px">
 
 		<vs-row
 			vs-w="12"
 			vs-justify="center"
+			style="padding-bottom: 10px"
 		>
 
 					<vs-radio color="success" v-model="convType" vs-value="0">無</vs-radio>
@@ -47,6 +48,7 @@
 		<vs-row
 			vs-w="12"
 			vs-justify="center"
+			style="padding-bottom: 10px"
 		>
 			<vs-button type="relief" @click="doSegment">GO</vs-button>
 		</vs-row>
@@ -106,6 +108,11 @@
 			let list = [
 				'Hello Vue.js!',
 				`这个世界上有为了一片面包出卖尊严的人`,
+				`從旁邊看來肯定是一副相當恶心的畫面`,
+				`帶刺的紅色中長发很獨特`,
+				`跳上茶几跨過手槍打了埃里克一巴掌`,
+				`第一天就从轻松地跑3千公尺的地方开始吧！`,
+				`天鹅绒的盒子打开后，银色的心型珍珠项链像泪水一样从里裡溢出了。`,
 			];
 
 			let idx = Math.min(Math.max((Math.random() * list.length) | 0, 0), (list.length - 1) | 0);
@@ -121,7 +128,7 @@
 		methods: {
 			doSegment: async function ()
 			{
-				let url = 'https://segment-api.bluelovers.now.sh/';
+				let url = '/';
 
 				let data = {
 					options: {
