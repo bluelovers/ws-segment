@@ -130,8 +130,6 @@
 					input: this.input
 				};
 
-				console.dir(this.convType);
-
 				switch (this.convType)
 				{
 					case 1:
@@ -146,11 +144,6 @@
 						data.options.tw2cn = true;
 						break;
 				}
-
-				console.dir({
-					url,
-					data,
-				});
 
 				let ret = await axios.post(url, data);
 
