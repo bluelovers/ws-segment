@@ -17,8 +17,7 @@
   "routes": [
     {
       "src": "/demo.html",
-      "dest": "/public/index.html",
-      "cache-control": "public, max-age=3600000"
+      "dest": "/public/index.html"
     },
     {
       "src": ".*",
