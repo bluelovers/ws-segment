@@ -159,12 +159,25 @@
 				convType: 0,
 
 				err: null,
+
+				isLoading: false,
 			}
 		},
 
 		methods: {
 			doSegment: async function ()
 			{
+				if (this.isLoading)
+				{
+					this.err = new Error(`上次請求尚未完成`);
+
+					this.showError(this.err.toString());
+
+					return;
+				}
+
+				this.isLoading = true;
+
 				this.$vs.loading({
 					container: '#div-with-loading',
 					scale: 0.6
@@ -235,12 +248,7 @@
 				}
 				else
 				{
-					this.$vs.dialog({
-						color: 'danger',
-						title: `發生錯誤`,
-						text: this.err.toString(),
-						accept: this.acceptAlert,
-					});
+					this.showError(this.err.toString());
 				}
 
 				this.closeLoading();
@@ -248,7 +256,23 @@
 
 			closeLoading()
 			{
-				this.$vs.loading.close('#div-with-loading > .con-vs-loading')
+				this.isLoading = false;
+				this.$vs.loading.close('#div-with-loading > .con-vs-loading');
+			},
+
+			showError(text, title = `發生錯誤`)
+			{
+				this.$vs.dialog({
+					color: 'danger',
+					title,
+					text,
+				});
+
+				this.$vs.notify({
+					color: 'danger',
+					title,
+					text,
+				})
 			},
 
 			acceptAlert(color)
