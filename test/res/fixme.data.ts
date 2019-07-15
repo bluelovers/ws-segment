@@ -684,6 +684,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'成年牛般大小的如狼獸類──烏利波──自人影后現出了身姿。',
+		[
+			'後',
+		],
+	],
+
 ];
 
 sortTests(tests_fixme_base);

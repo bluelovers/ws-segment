@@ -1949,6 +1949,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'身著武具的市民們一臉慌張地從各個被征招的家舍跑出。',
+		[
+			'徵',
+		],
+	],
+
+	[
+		'由我來分发就行了。」',
+		[
+			'發',
+		],
+	],
+
+	[
+		'后尾的騎兵們也跟倒下的自軍衝撞，一個接一個地摔倒。',
+		[
+			'後',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
