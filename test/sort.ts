@@ -303,7 +303,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/炭|碳/u).test(w)
+				&& zhRegExp.create(/舖|舗|鋪|铺/u).test(w)
 			)
 			{
 				bool = true;
