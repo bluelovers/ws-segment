@@ -254,6 +254,20 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'森林里長著高大的樹木',
+		[
+			'里長',
+		],
+	],
+
+	[
+		'已經見不到用土制作出的靶子的踪影了。',
+		[
+			['土製', '土制',],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -688,6 +702,34 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'成年牛般大小的如狼獸類──烏利波──自人影后現出了身姿。',
 		[
 			'後',
+		],
+	],
+
+	[
+		'５天后的馬車可以麼',
+		[
+			'後',
+		],
+	],
+
+	[
+		'我們出發3天后還沒有發生什麼',
+		[
+			'後',
+		],
+	],
+
+	[
+		'但為了魔石熱潮不得不干。',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'但希絲哈也說會陪我一起干',
+		[
+			'幹',
 		],
 	],
 
