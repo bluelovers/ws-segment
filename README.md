@@ -2,6 +2,8 @@
 
     simple segment api server 
 
+https://segment-api.bluelovers.now.sh/demo.html
+
 > https://segment-api.bluelovers.now.sh/?input=%E5%8E%BB%E9%99%A4%E5%81%9C%E6%AD%A2%E7%AC%A6
 
 can use `GET` , `POST`
