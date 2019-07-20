@@ -2103,6 +2103,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'往後轉動頭部並割斷背後的人的頸部，然後進一步扎進來到旁邊的一名士兵',
+		[
+			'扎',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
