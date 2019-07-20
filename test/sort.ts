@@ -303,7 +303,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/捏|涅|湼/u).test(w)
+				&& zhRegExp.create(/脏|臓|臟|贓|赃|髒/u).test(w)
 			)
 			{
 				bool = true;
