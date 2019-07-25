@@ -316,6 +316,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'用人和怪物的血混合而成製作的專用墨水繪制法陣',
+		[
+			['繪製',]
+		],
+	],
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
@@ -2107,6 +2114,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'往後轉動頭部並割斷背後的人的頸部，然後進一步扎進來到旁邊的一名士兵',
 		[
 			'扎',
+		],
+	],
+
+	[
+		'“啊，我現在終于明白了，為何妮露公主會如此的害怕她。”',
+		[
+			'於',
+		],
+	],
+
+	[
+		'其象征，就是那個紅黑色的蝴蝶翅膀。',
+		[
+			'徵',
+		],
+	],
+
+	[
+		'完全是賽利斯專用的特制品了',
+		[
+			'製',
 		],
 	],
 
