@@ -42,7 +42,7 @@ globDict(CWD, [
 
 		//process.exit();
 	})
-	.mapSeries(async function (file)
+	.mapSeries(async function (file: string)
 	{
 		let _basepath = path.relative(CWD, file);
 

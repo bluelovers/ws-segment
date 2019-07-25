@@ -61,6 +61,11 @@ export function loadDictFile<T = ILoadDictFileRow>(file: string,
 	return load(file)
 		.then(function (b)
 		{
+			if (!b)
+			{
+				return []
+			}
+
 			return b.reduce(function (a, line, index, arr)
 			{
 				let bool: boolean;
