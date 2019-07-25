@@ -78,7 +78,7 @@ console.time(`doSegment`);
 
 let text = `
 
-不放過破防的瞬間，塞利斯擊出渾身的攻擊。
+造成月嬌喘了
 
 `;
 
