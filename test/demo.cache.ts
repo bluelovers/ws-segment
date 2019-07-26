@@ -78,7 +78,8 @@ console.time(`doSegment`);
 
 let text = `
 
-造成月嬌喘了
+另外就算有开始乱斗的人
+
 
 `;
 

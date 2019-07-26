@@ -2138,6 +2138,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'认准了就绝不动摇，每天都满脑子希德的事情。',
+		[
+			'準',
+		],
+	],
+
+	[
+		'不仅那些经手咒物和禁制品等表面上不准交易的物品的暗之商人们无人不知',
+		[
+			'制',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
