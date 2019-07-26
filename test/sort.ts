@@ -104,6 +104,8 @@ Promise
 
 		let b = await load(file);
 
+		b = b || [];
+
 		CACHE_FILE_TABLE[file] = [];
 
 		b = b.filter(function (line, index)
@@ -303,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/拨|撥|播/u).test(w)
+				&& zhRegExp.create(/林|玲|琳|鈴|铃/u).test(w)
 			)
 			{
 				bool = true;
