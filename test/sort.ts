@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/林|玲|琳|鈴|铃/u).test(w)
+				&& zhRegExp.create(/淋/u).test(w)
 			)
 			{
 				bool = true;
