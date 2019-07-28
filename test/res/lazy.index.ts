@@ -2152,6 +2152,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'而僅僅只是模仿類似人的情感的仿制品',
+		[
+			'製',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
