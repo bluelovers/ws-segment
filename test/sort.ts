@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/趾|指/u).test(w)
+				&& zhRegExp.create(/慄|栗/u).test(w)
 			)
 			{
 				bool = true;
