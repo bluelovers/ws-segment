@@ -268,6 +268,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'如果這個對象是平民的話',
+		[
+			['象是',],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
