@@ -477,6 +477,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'在我把買來的炒面面包吞下去的時候',
+		[
+			'面面',
+		],
+	],
+
 ];
 
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
@@ -2233,6 +2240,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'在突击的余势下',
 		[
 			'餘',
+		],
+	],
+
+	[
+		'「淡路，快回來！別在意，如果准心對了就是個好球！」',
+		[
+			'準',
+		],
+	],
+
+	[
+		'「這個數據庫里就連死亡和失踪的人都會記錄在內的',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'說起來現在大概几點了',
+		[
+			'幾',
 		],
 	],
 
