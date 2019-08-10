@@ -275,6 +275,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'盆栽裡的植物是要制成藥的藥草和樹苗，與咒術師工會在城裡所栽培的，是同一類的東西。',
+		[
+			['成藥',],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [

@@ -323,6 +323,15 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'而且也希望先生產加工木材的木材加工機或加工金屬的鍛造機」',
+		[
+			['生產',]
+		],
+	],
+
+
+
 ];
 
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
@@ -2289,6 +2298,48 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'【嗯……叫干酵母、是嗎？原來有這麼方便的東西啊】',
 		[
 			'乾',
+		],
+	],
+
+	[
+		'哈維爾對于力保健的味道，看起來也感到意外。',
+		[
+			'於',
+		],
+	],
+
+	[
+		'一良打开布袋一看，里面是用附有银扣子的蓝布制作的手炼似的东西。',
+		[
+			'鍊',
+		],
+	],
+
+	[
+		'，想著這個就只能干著急',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'，想着这个就只能干着急',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'「请好好地系紧。如果这个掉到头上的话可不是开玩笑的」',
+		[
+			'繫',
+		],
+	],
+
+	[
+		'写完之后把纸贴在计划书的相应部分上影印复本，就是重复着这样的作业。',
+		[
+			'複',
 		],
 	],
 
