@@ -2343,6 +2343,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'從剛才開始莉特就一邊发著火，一邊用胸部頂著我的後背。',
+		[
+			'發',
+		],
+	],
+
+	[
+		'「難道又是老樣子藏在了大自然的險要之地里？如果是這樣的話那就是南洋的海底或者是世界盡頭之壁了啊」',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'只是抖动身体便把身上的水给甩干了',
+		[
+			'乾',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
