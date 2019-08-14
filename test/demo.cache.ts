@@ -79,7 +79,7 @@ console.time(`doSegment`);
 
 let text = `
 
- 亦為神的仿製品
+【注①：后文的「呵」发「Ke」音，而非「He」音，还请注意】
 
 `;
 
