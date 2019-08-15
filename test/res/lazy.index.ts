@@ -1,5 +1,7 @@
 /**
  * Created by user on 2019/4/12.
+ *
+ * 測試段落 每次發布版本時 會保證以下分析轉換是符合預期
  */
 
 import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, sortTests } from '../lib/util';
@@ -2562,6 +2564,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'只有被多蘭喂下了血液',
 		[
 			'餵',
+		],
+	],
+
+	[
+		'皇后伊莉莎白布殊离开后宫',
+		[
+			'后',
+		],
+	],
+
+	[
+		'准备颁布新政令。',
+		[
+			'佈',
+		],
+	],
+
+	[
+		'依依墟里烟',
+		[
+			'里',
 		],
 	],
 

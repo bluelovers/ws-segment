@@ -93,6 +93,7 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 
 			.loadBlacklistDict('blacklist')
 			.loadBlacklistOptimizerDict('blacklist.name')
+			.loadBlacklistSynonymDict('blacklist.synonym')
 		;
 
 		segment.doBlacklist();

@@ -1,5 +1,8 @@
 /**
  * Created by user on 2019/4/12.
+ *
+ * 現存 因為算法或者字典優先權之類的問題導致 可能還無法去修正處理的
+ * (有部分可能已經修正 但因為惰性問題 沒有確認)
  */
 
 import tests_lazy_index from './lazy.index';
