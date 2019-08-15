@@ -303,6 +303,7 @@ export function getSegment(options?: ISegmentCLIOptions)
 
 						.loadBlacklistDict('blacklist')
 						.loadBlacklistOptimizerDict('blacklist.name')
+						.loadBlacklistSynonymDict('blacklist.synonym')
 					;
 
 					CACHED_SEGMENT.doBlacklist();
