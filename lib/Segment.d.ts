@@ -34,6 +34,9 @@ export declare class Segment extends SegmentCore {
     getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
+    getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_SYNONYM, autocreate?: boolean, libTableDict?: {
+        new (...argv: any[]): R;
+    }): R;
     getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
@@ -65,8 +68,19 @@ export declare class Segment extends SegmentCore {
      */
     loadSynonymDict(name: string, skipExists?: boolean): this;
     protected _loadBlacklistDict(name: string, type: EnumDictDatabase): this;
+    /**
+     * 字典黑名單 在主字典內刪除此字典內有的條目
+     */
     loadBlacklistDict(name: string): this;
+    /**
+     * 優化器黑名單 會防止部分優化器去組合此字典內的詞
+     * 例如 人名 自動組合之類
+     */
     loadBlacklistOptimizerDict(name: string): this;
+    /**
+     * 轉換黑名單 動態轉換字詞時會忽略此字典內的詞
+     */
+    loadBlacklistSynonymDict(name: string): this;
     /**
      * 载入停止符词典
      *

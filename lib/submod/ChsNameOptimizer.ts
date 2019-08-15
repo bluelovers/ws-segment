@@ -36,7 +36,6 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		let nw = words.join('');
 
 		if (!this._BLACKLIST[nw])
-
 		{
 			return true;
 		}

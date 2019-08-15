@@ -10,6 +10,7 @@ import { hexAndAny } from '../util/index';
 import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
 import UString from 'uni-string';
+import { EnumDictDatabase } from '../const';
 
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
@@ -37,6 +38,18 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 		this._POSTAG = this.segment.POSTAG;
 
 		this._SYNONYM = this.segment.getDict('SYNONYM') || {};
+
+		this._BLACKLIST = this.segment.getDict(EnumDictDatabase.BLACKLIST_FOR_SYNONYM) || {};
+	}
+
+	isSynonymBlacklist(w: string)
+	{
+		if (this._BLACKLIST[w])
+		{
+			return true;
+		}
+
+		return null;
 	}
 
 	protected _getSynonym(w: string, nw: string): string
@@ -74,6 +87,12 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 			let w0: IWord = words[i - 1] || null;
 			let w1 = words[i];
 			let w2: IWord = words[i + 1] || null;
+
+			if (this.isSynonymBlacklist(w1.w))
+			{
+				i++;
+				continue;
+			}
 
 			let bool: boolean;
 

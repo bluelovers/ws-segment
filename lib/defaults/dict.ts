@@ -59,6 +59,7 @@ export function useDefaultDicts(segment: Segment, options: IUseDefaultOptions = 
 
 		.loadBlacklistDict('blacklist')
 		.loadBlacklistOptimizerDict('blacklist.name')
+		.loadBlacklistSynonymDict('blacklist.synonym')
 
 		.doBlacklist()
 	;

@@ -20,6 +20,7 @@ export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     protected _SYNONYM?: IDICT_SYNONYM;
     protected _TABLE: IDICT<IWord>;
     _cache(): void;
+    isSynonymBlacklist(w: string): boolean;
     protected _getSynonym(w: string, nw: string): string;
     doOptimize<T extends IWordDebug>(words: T[]): T[];
 }

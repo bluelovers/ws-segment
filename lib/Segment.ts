@@ -75,6 +75,10 @@ export class Segment extends SegmentCore
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
+	getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_SYNONYM,
+		autocreate?: boolean,
+		libTableDict?: { new(...argv): R },
+	): R
 	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
@@ -91,7 +95,7 @@ export class Segment extends SegmentCore
 			{
 				libTableDict = libTableDict || TableDictStopword;
 			}
-			else if (type == TableDictBlacklist.type || type == EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER)
+			else if (type == TableDictBlacklist.type || type == EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER || type == EnumDictDatabase.BLACKLIST_FOR_SYNONYM)
 			{
 				libTableDict = libTableDict || TableDictBlacklist;
 			}
@@ -342,14 +346,29 @@ export class Segment extends SegmentCore
 		return this;
 	}
 
+	/**
+	 * 字典黑名單 在主字典內刪除此字典內有的條目
+	 */
 	loadBlacklistDict(name: string)
 	{
 		return this._loadBlacklistDict(name, EnumDictDatabase.BLACKLIST)
 	}
 
+	/**
+	 * 優化器黑名單 會防止部分優化器去組合此字典內的詞
+	 * 例如 人名 自動組合之類
+	 */
 	loadBlacklistOptimizerDict(name: string)
 	{
 		return this._loadBlacklistDict(name, EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER)
+	}
+
+	/**
+	 * 轉換黑名單 動態轉換字詞時會忽略此字典內的詞
+	 */
+	loadBlacklistSynonymDict(name: string)
+	{
+		return this._loadBlacklistDict(name, EnumDictDatabase.BLACKLIST_FOR_SYNONYM)
 	}
 
 	/**
