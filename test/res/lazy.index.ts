@@ -6,6 +6,9 @@
 
 import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, sortTests } from '../lib/util';
 
+/**
+ * 分析後應該要符合以下結果
+ */
 export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parameters<typeof lazyMatch>['2']?][] = [
 
 	[
@@ -346,8 +349,32 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'拿出舞蹈衣服上藏著的曲奇餅。',
+		[
+			['曲奇','曲奇餅']
+		],
+	],
+
+	[
+		'接受過英才教育',
+		[
+			['接受']
+		],
+	],
+
+	[
+		'「我來回答你的問題吧。',
+		[
+			['回答']
+		],
+	],
+
 ];
 
+/**
+ * 分析後不應該存在符合以下結果
+ */
 export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'], Parameters<typeof lazyMatchNot>['2']?][] = [
 
 	[
@@ -521,8 +548,32 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'迪亚困倦地揉着眼睛走了过来。',
+		[
+			['着眼',],
+		],
+	],
+
+	[
+		'「啊，那可糟了。圖書室根本不通融。即使遲到一秒，別人就會佔掉座位了。」',
+		[
+			['不通',],
+		],
+	],
+
+	[
+		'在那個領域裡，魔族的核實體化了，肉體的分解·再構成變得不能。」',
+		[
+			['核實',],
+		],
+	],
+
 ];
 
+/**
+ * 分析後應該要符合以下結果
+ */
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
 
 	[
@@ -588,6 +639,9 @@ export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Pa
 
 ];
 
+/**
+ * 分析轉換後應該要具有以下字詞
+ */
 export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>['1'], Parameters<typeof lazyMatchSynonym001>['2']?][] = [
 
 	[
@@ -2585,6 +2639,34 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'依依墟里烟',
 		[
 			'里',
+		],
+	],
+
+	[
+		'與平時不同的我，塔爾特顯出若干的膽怯。',
+		[
+			'干',
+		],
+	],
+
+	[
+		'如果迪亚能发动的话，可以专注于攻击。',
+		[
+			'於',
+		],
+	],
+
+	[
+		'我会专注于保护和培育。」',
+		[
+			'於',
+		],
+	],
+
+	[
+		'你好像在干很過分的事情啊',
+		[
+			'幹',
 		],
 	],
 
