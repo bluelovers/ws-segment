@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/喰|飠|⻞|飧|蝕|蚀|食/u).test(w)
+				&& zhRegExp.create(/傢|家/u).test(w)
 			)
 			{
 				bool = true;

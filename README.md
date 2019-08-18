@@ -120,5 +120,6 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [ACG/Vocaloid同人粵語中文歌詞wiki](http://canto.acgvlyric.org/doku.php/w:%E7%94%A8%E5%AD%97%E6%A8%99%E6%BA%96?redirect=1)
 * [如何分辨動詞、名詞、形容詞、副詞？](https://tw.answers.yahoo.com/question/index?qid=20130404000010KK03888)
 * [簡正轉換別字表](http://founder.acgvlyric.org/iu/doku.php/w:%E7%B0%A1%E6%AD%A3%E8%BD%89%E6%8F%9B%E5%88%A5%E5%AD%97%E8%A1%A8?fbclid=IwAR2SOQvnvierjEc6goeHLGuOUz-awHlxTbOSN7IeYeI_vOmk3HBDXrLdT2U)
+* http://www.kmuh.org.tw/www/drgga/book3/K10/K102.htm
 * 
 
