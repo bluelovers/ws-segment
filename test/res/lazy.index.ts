@@ -569,10 +569,17 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'一邊看著熟睡在沙发上的夏緹亞',
+		[
+			['发上','發上']
+		],
+	],
+
 ];
 
 /**
- * 分析後應該要符合以下結果
+ * 分析後應該要符合以下其中一個結果
  */
 export const tests_lazy_array: [string, Parameters<typeof lazyMatch002>['1'], Parameters<typeof lazyMatch002>['2']?][] = [
 
@@ -2667,6 +2674,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'你好像在干很過分的事情啊',
 		[
 			'幹',
+		],
+	],
+
+	[
+		'一邊看著熟睡在沙发上的夏緹亞',
+		[
+			'發',
+		],
+	],
+
+	[
+		'的體格要塞進終極伊亞里面有點不太現實',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'「双方准备好了吗？一那么，决赛开始〜！」',
+		[
+			'準',
 		],
 	],
 
