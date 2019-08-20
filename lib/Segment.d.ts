@@ -14,6 +14,7 @@ import { EnumDictDatabase } from './const';
 import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './segment/types';
 import SegmentCore from './segment/core';
 import { ITSOverwrite } from 'ts-type';
+import { IUseDefaultOptions } from './defaults/index';
 /**
  * 创建分词器接口
  */
@@ -93,13 +94,11 @@ export declare class Segment extends SegmentCore {
      *
      * @return {Segment}
      */
-    useDefault(...argv: any[]): this;
+    useDefault(options?: IUseDefaultOptions, ...argv: any[]): any;
     /**
      * 此函數只需執行一次，並且一般狀況下不需要手動呼叫
      */
-    autoInit(options?: {
-        all_mod?: boolean;
-    }): this;
+    autoInit(options?: IUseDefaultOptions): this;
     addBlacklist(word: string, remove?: boolean): this;
     /**
      * remove key in TABLE by BLACKLIST

@@ -1,2 +1,2 @@
-import { IUseDefaultOptions } from './index';
-export declare function useDefaultMods(segment: any, options?: IUseDefaultOptions): any;
+import { IUseDefaultOptionsMods } from './index';
+export declare function useDefaultMods(segment: any, options?: IUseDefaultOptionsMods): any;

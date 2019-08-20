@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.3.5",
+  "version": "2.3.6",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -95,7 +95,7 @@
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
     "deepmerge-plus": "^2.1.3",
-    "fast-glob": "^3.0.4",
+    "@bluelovers/fast-glob": "^3.0.4",
     "fs-extra": "^8.1.0",
     "hex-lib": "^1.0.2",
     "lodash.clonedeep": "^4.5.0",

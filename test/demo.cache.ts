@@ -25,7 +25,9 @@ let DEBUG_EACH: boolean;
 
 console.log(Segment.versions);
 
-const segment = createSegment();
+const segment = createSegment(true, {
+	nodeNovelMode: true,
+});
 
 let db_dict = getDictMain(segment);
 
@@ -67,7 +69,7 @@ db_dict
 //	.add(['重要',0x001000, 2000])
 //	.add(['长剑',0x100000,2100])
 //	.add(['仿製品',0x100000,11000])
-	.add(['伊亞',0x0080,0])
+//	.add(['回復道',0x1000,500])
 
 ;
 
@@ -79,7 +81,7 @@ console.time(`doSegment`);
 
 let text = `
 
-「咕⋯⋯！果然在這之上不是夜想曲就不行嗎⋯⋯！」
+「這把年紀還蕩秋千，你是小孩子嗎？」
 
 `;
 

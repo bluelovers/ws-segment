@@ -44,7 +44,7 @@ import SegmentCore from './segment/core';
 import { _isIgnoreModules } from './segment/methods/useModules';
 import { ITSOverwrite } from 'ts-type';
 import { defaultOptionsDoSegment } from './segment/defaults';
-import { useDefault } from './defaults/index';
+import { IUseDefaultOptions, useDefault } from './defaults/index';
 import { useModules } from './segment/methods/useModules2';
 
 /**
@@ -422,6 +422,7 @@ export class Segment extends SegmentCore
 	 *
 	 * @return {Segment}
 	 */
+	useDefault(options?: IUseDefaultOptions, ...argv)
 	useDefault(...argv)
 	{
 		useDefault(this, ...argv);
@@ -434,9 +435,7 @@ export class Segment extends SegmentCore
 	/**
 	 * 此函數只需執行一次，並且一般狀況下不需要手動呼叫
 	 */
-	autoInit(options?: {
-		all_mod?: boolean,
-	})
+	autoInit(options?: IUseDefaultOptions)
 	{
 		if (!this.inited)
 		{

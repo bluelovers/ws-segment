@@ -1,68 +1,104 @@
 import { Segment } from '../Segment';
-import { IUseDefaultOptions } from './index';
+import { IUseDefaultOptions, IUseDefaultOptionsDicts } from './index';
 import getDefaultModList from '../mod/index';
 import SegmentCore from '../segment/core';
 
-export function useDefaultDicts(segment: Segment, options: IUseDefaultOptions = {})
+export function useDefaultDicts(segment: Segment, options: IUseDefaultOptionsDicts = {})
 {
-	// 字典文件
-	!options.nodict && segment
-	//.loadDict('jieba') <=== bad file
+	if (!options.nodict)
+	{
+		// 字典文件
+		segment
+		//.loadDict('jieba') <=== bad file
 
-		.loadDict('char')
+			.loadDict('char')
 
-		// 盘古词典
-		.loadDict('pangu/phrases')
-		.loadDict('pangu/phrases2')
-		.loadDict('phrases/001')
+			// 盘古词典
+			.loadDict('pangu/phrases')
+			.loadDict('pangu/phrases2')
+			.loadDict('phrases/001')
 
-		.loadDict('dict')
-		.loadDict('dict2')
-		.loadDict('dict3')
-		.loadDict('dict4')
-		.loadDict('pangu/dict005')
-		.loadDict('pangu/dict006')
+			.loadDict('dict')
+			.loadDict('dict2')
+			.loadDict('dict3')
+			.loadDict('dict4')
+			.loadDict('pangu/dict005')
+			.loadDict('pangu/dict006')
 
-		//.loadDict('synonym/后')
-		//.loadDict('synonym/參')
-		//.loadDict('synonym/发')
-		.loadDict('dict_synonym/*')
+			//.loadDict('synonym/后')
+			//.loadDict('synonym/參')
+			//.loadDict('synonym/发')
+			.loadDict('dict_synonym/*')
 
-		//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
+			//.loadDict('pangu/wildcard', 'WILDCARD', true)   // 通配符
+
+			.loadStopwordDict('stopword') // 停止符
+
+			.loadDict('lazy/dict_synonym')
+
+			/*
+			.loadDict('names/area')
+			.loadDict('names/job')
+			.loadDict('names/food')
+
+			.loadDict('names/other')
+			.loadDict('names/jp')
+			.loadDict('names/zh')
+			.loadDict('names/en')
+			.loadDict('names/name')
+			 */
+
+			.loadDict('names/*')
+
+			.loadDict('lazy/index')
+
+			.loadDict('pangu/num')
+
+			.loadDict('lazy/badword')
+
+			.loadDict('pangu/wildcard', 'WILDCARD', true)
+		;
+
+		useDefaultSynonymDict(segment, options);
+		useDefaultBlacklistDict(segment, options);
+
+		segment.doBlacklist();
+	}
+
+	return segment
+}
+
+export function useDefaultSynonymDict(segment: Segment, options: IUseDefaultOptionsDicts = {})
+{
+	if (!options.nodict)
+	{
+		segment
 		.loadSynonymDict('synonym')   // 同义词
 		.loadSynonymDict('zht.synonym', false)
-		.loadStopwordDict('stopword') // 停止符
+		;
 
-		.loadDict('lazy/dict_synonym')
+		if (options.nodeNovelMode)
+		{
+			segment
+				.loadSynonymDict('badword.synonym', false)
+				.loadSynonymDict('zht.common.synonym', false)
+		}
 
-		/*
-		.loadDict('names/area')
-		.loadDict('names/job')
-		.loadDict('names/food')
+	}
 
-		.loadDict('names/other')
-		.loadDict('names/jp')
-		.loadDict('names/zh')
-		.loadDict('names/en')
-		.loadDict('names/name')
-		 */
+	return segment
+}
 
-		.loadDict('names/*')
-
-		.loadDict('lazy/index')
-
-		.loadDict('pangu/num')
-
-		.loadDict('lazy/badword')
-
-		.loadDict('pangu/wildcard', 'WILDCARD', true)
-
-		.loadBlacklistDict('blacklist')
-		.loadBlacklistOptimizerDict('blacklist.name')
-		.loadBlacklistSynonymDict('blacklist.synonym')
-
-		.doBlacklist()
-	;
+export function useDefaultBlacklistDict(segment: Segment, options: IUseDefaultOptionsDicts = {})
+{
+	if (!options.nodict)
+	{
+		segment
+			.loadBlacklistDict('blacklist')
+			.loadBlacklistOptimizerDict('blacklist.name')
+			.loadBlacklistSynonymDict('blacklist.synonym')
+		;
+	}
 
 	return segment
 }

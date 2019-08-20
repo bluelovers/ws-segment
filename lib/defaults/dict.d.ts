@@ -1,3 +1,5 @@
 import { Segment } from '../Segment';
-import { IUseDefaultOptions } from './index';
-export declare function useDefaultDicts(segment: Segment, options?: IUseDefaultOptions): Segment;
+import { IUseDefaultOptionsDicts } from './index';
+export declare function useDefaultDicts(segment: Segment, options?: IUseDefaultOptionsDicts): Segment;
+export declare function useDefaultSynonymDict(segment: Segment, options?: IUseDefaultOptionsDicts): Segment;
+export declare function useDefaultBlacklistDict(segment: Segment, options?: IUseDefaultOptionsDicts): Segment;

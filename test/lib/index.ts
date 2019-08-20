@@ -13,6 +13,7 @@ import { debug_token } from '../../lib/util';
 import ProjectConfig from '../../project.config';
 import TableDict from '../../lib/table/dict';
 import * as util from 'util';
+import { useDefaultBlacklistDict, useDefaultSynonymDict } from '../../lib/defaults/dict';
 
 util.inspect.defaultOptions.colors = true;
 
@@ -32,9 +33,17 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 		...optionsSegment,
 	});
 
-	let cache_file = path.join(ProjectConfig.temp_root, 'cache.db');
+	let cache_file_base = 'cache.db';
+
+	if (optionsSegment.nodeNovelMode)
+	{
+		cache_file_base = 'cache.common.synonym.db';
+	}
+
+	let cache_file = path.join(ProjectConfig.temp_root, cache_file_base);
 
 	let options = {
+		...optionsSegment,
 		/**
 		 * 開啟 all_mod 才會在自動載入時包含 ZhtSynonymOptimizer
 		 */
@@ -48,7 +57,7 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 	 */
 	if (useCache && fs.existsSync(cache_file))
 	{
-		console.log(`發現 cache.db`);
+		console.log(`發現 ${cache_file_base}`);
 
 		let st = fs.statSync(cache_file);
 
@@ -87,14 +96,9 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 	}
 	else
 	{
-		segment
-			.loadSynonymDict('synonym')
-			.loadSynonymDict('zht.synonym', false)
+		useDefaultBlacklistDict(segment, optionsSegment);
 
-			.loadBlacklistDict('blacklist')
-			.loadBlacklistOptimizerDict('blacklist.name')
-			.loadBlacklistSynonymDict('blacklist.synonym')
-		;
+		useDefaultSynonymDict(segment, optionsSegment);
 
 		segment.doBlacklist();
 	}
@@ -143,7 +147,7 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 			size_segment_diff: size_segment - (_info.last.size_segment || 0),
 		};
 
-		console.log(`緩存字典於 cache.db`);
+		console.log(`緩存字典於 ${cache_file_base}`);
 
 		console.dir(_info);
 
@@ -167,5 +171,4 @@ export function getDictMain(segment: Segment)
 	return segment.getDictDatabase('TABLE');
 }
 
-import * as self from './index';
-export default self;
+export default exports as typeof import('./index');

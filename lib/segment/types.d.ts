@@ -4,6 +4,7 @@
 import { IOptions as IOptionsTableDict } from '../table/core';
 import { TableDict } from '../table/dict';
 import { ENUM_SUBMODS_NAME } from '../mod/index';
+import { IUseDefaultOptions } from '../defaults/index';
 export declare type ISPLIT = RegExp | string | {
     [Symbol.split](input: string, limit?: number): string[];
 };
@@ -16,14 +17,13 @@ export interface IDICT<T = any> {
 export interface IDICT2<T = any> {
     [key: number]: IDICT<T>;
 }
-export declare type IOptionsSegment = IOptionsTableDict & {
+export interface IOptionsSegment extends IOptionsTableDict, IUseDefaultOptions {
     db?: TableDict[];
     optionsDoSegment?: IOptionsDoSegment;
-    all_mod?: boolean;
     maxChunkCount?: number;
     minChunkCount?: number;
     disableModules?: (ENUM_SUBMODS_NAME | unknown)[];
-};
+}
 export declare type IDICT_SYNONYM = IDICT<string>;
 export declare type IDICT_STOPWORD = IDICT<boolean>;
 export declare type IDICT_BLACKLIST = IDICT<boolean>;
