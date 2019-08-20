@@ -1,8 +1,9 @@
 /// <reference types="node" />
 import { stringify } from 'novel-segment';
-import bluebird = require('bluebird');
+import Bluebird = require('bluebird');
 import { Cacache } from './lib/cache';
 import { enableDebug } from './lib/util';
+import { IOptionsSegment } from 'novel-segment/lib/segment/types';
 export { enableDebug, stringify };
 export interface ISegmentCLIOptions {
     /**
@@ -14,18 +15,21 @@ export interface ISegmentCLIOptions {
     disableWarn?: boolean;
     ttl?: number;
     convertToZhTw?: boolean;
+    optionsSegment?: IOptionsSegment;
+    USER_DB_KEY?: string;
+    USER_DB_KEY_INFO?: string;
 }
-export declare function textSegment(text: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").IWord[]>;
-export declare function fileSegment(file: string, options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib/Segment").IWord[]>;
-export declare function processText(text: string, options?: ISegmentCLIOptions): bluebird<string>;
-export declare function processFile(file: string, options?: ISegmentCLIOptions): bluebird<string>;
+export declare function textSegment(text: string, options?: ISegmentCLIOptions): Bluebird<import("novel-segment/lib/Segment").IWord[]>;
+export declare function fileSegment(file: string, options?: ISegmentCLIOptions): Bluebird<import("novel-segment/lib/Segment").IWord[]>;
+export declare function processText(text: string, options?: ISegmentCLIOptions): Bluebird<string>;
+export declare function processFile(file: string, options?: ISegmentCLIOptions): Bluebird<string>;
 export declare class SegmentCliError extends Error {
 }
-export declare function readFile(file: string, options?: ISegmentCLIOptions): bluebird<Buffer>;
-export declare function fixOptions(options?: ISegmentCLIOptions): ISegmentCLIOptions;
-export declare function getCacache(options?: ISegmentCLIOptions): bluebird<Cacache>;
+export declare function readFile(file: string, options?: ISegmentCLIOptions): Bluebird<Buffer>;
+export declare function fixOptions<T extends ISegmentCLIOptions>(options?: T): T & ISegmentCLIOptions;
+export declare function getCacache(options?: ISegmentCLIOptions): Bluebird<Cacache>;
 export declare function resetSegment(): void;
-export declare function getSegment(options?: ISegmentCLIOptions): bluebird<import("novel-segment/lib").Segment>;
+export declare function getSegment(options?: ISegmentCLIOptions): Bluebird<import("novel-segment/lib").Segment>;
 export interface IDataCacheInfo {
     size_db_dict?: number;
     size_segment?: number;
@@ -42,7 +46,7 @@ export interface IDataCache {
     current?: IDataCacheInfo;
     DICT?: any;
 }
-export declare function loadCacheInfo(options?: ISegmentCLIOptions): bluebird<IDataCache>;
-export declare function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>;
-export declare function removeCache(options?: ISegmentCLIOptions): bluebird<Cacache>;
+export declare function loadCacheInfo(options?: ISegmentCLIOptions): Bluebird<IDataCache>;
+export declare function loadCacheDb(options?: ISegmentCLIOptions): Bluebird<IDataCache>;
+export declare function removeCache(options?: ISegmentCLIOptions): Bluebird<void[]>;
 export declare function resetCache(): void;

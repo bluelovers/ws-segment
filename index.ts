@@ -1,7 +1,7 @@
 import cacache = require('cacache');
 import crlf from 'crlf-normalize';
 import Segment, { stringify } from 'novel-segment';
-import bluebird = require('bluebird');
+import Bluebird = require('bluebird');
 import * as fs from 'fs-iconv';
 import { useDefault } from 'novel-segment/lib';
 import { Cacache } from './lib/cache';
@@ -10,12 +10,22 @@ import PACKAGE_JSON = require('./package.json');
 import { debug_token } from 'novel-segment/lib/util'
 import * as iconv from 'iconv-jschardet';
 import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
+import { IUseDefaultOptions } from 'novel-segment/lib/defaults/index';
+import { IOptionsSegment } from 'novel-segment/lib/segment/types';
+import { useDefaultBlacklistDict, useDefaultSynonymDict } from 'novel-segment/lib/defaults/dict';
+
+import { merge, cloneDeep } from 'lodash';
+import { array_unique } from 'array-hyper-unique';
 
 let CACHED_SEGMENT: import("novel-segment/lib/Segment").Segment;
 let CACHED_CACACHE: Cacache;
 
 const DB_KEY = 'cache.db';
 const DB_KEY_INFO = 'cache.info';
+
+const DB_KEY2 = 'cache.common.synonym.db';
+const DB_KEY2_INFO = 'cache.common.synonym.info';
+
 const DB_TTL = 3600 * 1000;
 
 export { enableDebug, stringify }
@@ -35,6 +45,11 @@ export interface ISegmentCLIOptions
 	ttl?: number,
 
 	convertToZhTw?: boolean,
+
+	optionsSegment?: IOptionsSegment,
+
+	USER_DB_KEY?: string,
+	USER_DB_KEY_INFO?: string,
 }
 
 export function textSegment(text: string, options?: ISegmentCLIOptions)
@@ -53,7 +68,7 @@ export function textSegment(text: string, options?: ISegmentCLIOptions)
 
 export function fileSegment(file: string, options?: ISegmentCLIOptions)
 {
-	return bluebird.resolve(readFile(file))
+	return Bluebird.resolve(readFile(file))
 		.then(function (buf)
 		{
 			return textSegment(buf.toString(), options);
@@ -65,7 +80,7 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 {
 	if (!text.length || !text.replace(/\s+/g, '').length)
 	{
-		return bluebird.resolve('');
+		return Bluebird.resolve('');
 	}
 
 	return textSegment(text, options)
@@ -101,7 +116,7 @@ export function processText(text: string, options?: ISegmentCLIOptions)
 
 export function processFile(file: string, options?: ISegmentCLIOptions)
 {
-	return bluebird.resolve(readFile(file, options))
+	return Bluebird.resolve(readFile(file, options))
 		.then(function (buf)
 		{
 			return processText(buf.toString(), options);
@@ -114,14 +129,14 @@ export class SegmentCliError extends Error
 
 }
 
-export function readFile(file: string, options?: ISegmentCLIOptions): bluebird<Buffer>
+export function readFile(file: string, options?: ISegmentCLIOptions): Bluebird<Buffer>
 {
-	return bluebird.resolve().then(() =>
+	return Bluebird.resolve().then(() =>
 		{
 			if (!fs.existsSync(file))
 			{
 				let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
-				return bluebird.reject(e)
+				return Bluebird.reject(e)
 			}
 
 			return fs.loadFile(file, {
@@ -154,13 +169,26 @@ export function readFile(file: string, options?: ISegmentCLIOptions): bluebird<B
 		;
 }
 
-export function fixOptions(options?: ISegmentCLIOptions): ISegmentCLIOptions
+export function fixOptions<T extends ISegmentCLIOptions>(options?: T): T & ISegmentCLIOptions
 {
-	options = options || {};
+	options = options || {} as T;
 
 	if (typeof options.ttl !== 'number' || options.ttl < 1)
 	{
 		delete options.ttl;
+	}
+
+	options.optionsSegment = options.optionsSegment || {};
+
+	if (options.optionsSegment.nodeNovelMode)
+	{
+		options.USER_DB_KEY = options.USER_DB_KEY || DB_KEY2;
+		options.USER_DB_KEY_INFO = options.USER_DB_KEY_INFO || DB_KEY2_INFO;
+	}
+	else
+	{
+		options.USER_DB_KEY = options.USER_DB_KEY || DB_KEY;
+		options.USER_DB_KEY_INFO = options.USER_DB_KEY_INFO || DB_KEY_INFO;
 	}
 
 	return options;
@@ -168,7 +196,7 @@ export function fixOptions(options?: ISegmentCLIOptions): ISegmentCLIOptions
 
 export function getCacache(options?: ISegmentCLIOptions)
 {
-	return new bluebird<Cacache>(function (resolve, reject)
+	return new Bluebird<Cacache>(function (resolve, reject)
 	{
 		if (!CACHED_CACACHE)
 		{
@@ -199,32 +227,29 @@ export function getSegment(options?: ISegmentCLIOptions)
 	options = fixOptions(options);
 	let { disableCache } = options;
 
-	return bluebird
+	return Bluebird
 		.resolve()
 		.then(async function ()
 		{
 			await getCacache(options);
 
+			const optionsSegment: IOptionsSegment = {
+				autoCjk: true,
+
+				optionsDoSegment: {
+
+					convertSynonym: true,
+
+				},
+
+				all_mod: true,
+
+				...options.optionsSegment,
+			};
+
 			if (!CACHED_SEGMENT)
 			{
-				CACHED_SEGMENT = new Segment({
-					autoCjk: true,
-
-					optionsDoSegment: {
-
-						convertSynonym: true,
-
-					},
-
-					all_mod: true,
-				});
-
-				let _options = {
-					/**
-					 * 開啟 all_mod 才會在自動載入時包含 ZhtSynonymOptimizer
-					 */
-					all_mod: true,
-				};
+				CACHED_SEGMENT = new Segment(optionsSegment);
 
 				let _info = await loadCacheInfo(options);
 
@@ -272,7 +297,7 @@ export function getSegment(options?: ISegmentCLIOptions)
 						debugConsole.debug(`載入緩存字典`);
 
 						useDefault(CACHED_SEGMENT, {
-							...options,
+							...optionsSegment,
 							nodict: true,
 							all_mod: true,
 						});
@@ -291,20 +316,15 @@ export function getSegment(options?: ISegmentCLIOptions)
 				{
 					debugConsole.debug(`重新載入分析字典`);
 
-					CACHED_SEGMENT.autoInit(_options);
+					CACHED_SEGMENT.autoInit(optionsSegment);
 
 					_do_init = true;
 				}
 				else
 				{
-					CACHED_SEGMENT
-						.loadSynonymDict('synonym')
-						.loadSynonymDict('zht.synonym', false)
+					useDefaultBlacklistDict(CACHED_SEGMENT, optionsSegment);
 
-						.loadBlacklistDict('blacklist')
-						.loadBlacklistOptimizerDict('blacklist.name')
-						.loadBlacklistSynonymDict('blacklist.synonym')
-					;
+					useDefaultSynonymDict(CACHED_SEGMENT, optionsSegment);
 
 					CACHED_SEGMENT.doBlacklist();
 				}
@@ -343,14 +363,14 @@ export function getSegment(options?: ISegmentCLIOptions)
 					&& (_do_init || !cache_db || !cache_db.DICT)
 				)
 				{
-					await CACHED_CACACHE.writeJSON(DB_KEY, {
+					await CACHED_CACACHE.writeJSON(options.USER_DB_KEY, {
 
 						..._info,
 
 						DICT: CACHED_SEGMENT.DICT,
 					} as IDataCache);
 
-					debugConsole.debug(`緩存字典於 ${DB_KEY}`, CACHED_CACACHE.cachePath);
+					debugConsole.debug(`緩存字典於 ${options.USER_DB_KEY}`, CACHED_CACACHE.cachePath);
 				}
 
 				freeGC();
@@ -384,20 +404,20 @@ export interface IDataCache
 
 export function loadCacheInfo(options?: ISegmentCLIOptions)
 {
-	return bluebird
+	return Bluebird
 		.resolve()
 		.then(async function ()
 		{
 			await getCacache(options);
 
-			let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY_INFO);
+			let has_cache_db = await CACHED_CACACHE.hasData(options.USER_DB_KEY_INFO);
 
 			let data: IDataCache;
 
 			if (has_cache_db)
 			{
 				data = await CACHED_CACACHE
-					.readJSON<IDataCache>(DB_KEY_INFO)
+					.readJSON<IDataCache>(options.USER_DB_KEY_INFO)
 					.then(function (ret)
 					{
 						return ret.json;
@@ -417,34 +437,34 @@ export function loadCacheInfo(options?: ISegmentCLIOptions)
 		;
 }
 
-export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
+export function loadCacheDb(options?: ISegmentCLIOptions): Bluebird<IDataCache>
 {
 	options = fixOptions(options);
 	let { disableCache } = options;
 
 	if (disableCache)
 	{
-		return bluebird
+		return Bluebird
 			.resolve(null)
 			;
 	}
 
-	return bluebird
+	return Bluebird
 		.resolve()
 		.then(async function ()
 		{
 			await getCacache(options);
 
-			let has_cache_db = await CACHED_CACACHE.hasData(DB_KEY, {
+			let has_cache_db = await CACHED_CACACHE.hasData(options.USER_DB_KEY, {
 				ttl: options.ttl > 0 ? options.ttl : DB_TTL,
 			});
 
 			if (has_cache_db)
 			{
-				debugConsole.debug(`發現緩存 ${DB_KEY}`, has_cache_db.path);
+				debugConsole.debug(`發現緩存 ${options.USER_DB_KEY}`, has_cache_db.path);
 
 				return CACHED_CACACHE
-					.readJSON<IDataCache>(DB_KEY)
+					.readJSON<IDataCache>(options.USER_DB_KEY)
 					.then(function (ret)
 					{
 						return ret.json;
@@ -459,13 +479,28 @@ export function loadCacheDb(options?: ISegmentCLIOptions): bluebird<IDataCache>
 
 export function removeCache(options?: ISegmentCLIOptions)
 {
-	return getCacache(fixOptions(options))
-		.tap(async function (cache)
-		{
+	let opts = fixOptions(options);
+
+	return Bluebird.all(array_unique([
+		opts,
+		merge({}, opts, <ISegmentCLIOptions>{
+			optionsSegment: {
+				nodeNovelMode: true,
+			}
+		}),
+		merge({}, opts, <ISegmentCLIOptions>{
+			optionsSegment: {
+				nodeNovelMode: false,
+			}
+		}),
+	]))
+		.map(async (o) => {
+			const cache = await getCacache(o);
+
 			await cache.clearMemoized();
 			await cache.removeAll();
 		})
-		;
+	;
 }
 
 export function resetCache()

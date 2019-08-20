@@ -2,7 +2,7 @@
 
 import yargs = require('yargs');
 import { processFile, processText, SegmentCliError } from '../index';
-import { checkUpdateSelf, checkUpdate } from '../lib/ncu';
+import { checkUpdateSelf, checkUpdate, notNpxMaybe } from '../lib/ncu';
 import { console, getCacheDirPath, freeGC } from '../lib/util';
 import bluebird = require('bluebird');
 import path = require('upath2');
@@ -90,7 +90,7 @@ let err: Error | SegmentCliError;
 bluebird.resolve()
 	.tap(function ()
 	{
-		if (!cli_argv.text)
+		if (!cli_argv.text && notNpxMaybe(path.join(__dirname, '..')))
 		{
 			let k = [
 					checkUpdateSelf(),
@@ -99,7 +99,14 @@ bluebird.resolve()
 				]
 				.forEach(function (data)
 				{
-					data.notify();
+					try
+					{
+						//data.notify();
+					}
+					catch (e)
+					{
+
+					}
 				})
 			;
 		}

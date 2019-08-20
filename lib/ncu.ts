@@ -4,23 +4,18 @@ import path = require('path');
 import updateNotifier = require('update-notifier');
 import pkgUp = require('pkg-up');
 import * as fs from "fs-extra";
+import { updateNotifier as updateNotifier2, notNpxMaybe, IUpdateNotifierObject } from '@yarn-tool/update-notifier';
 
-export function checkUpdateSelf()
+export { notNpxMaybe }
+
+export function checkUpdateSelf(): IUpdateNotifierObject
 {
-	let data = updateNotifier({
-		pkg: PACKAGE_JSON,
-	});
-
-	return data;
+	return updateNotifier2(path.join(__dirname, '..'));
 }
 
-export function checkUpdate(name: string)
+export function checkUpdate(name: string): IUpdateNotifierObject
 {
-	let data = updateNotifier({
-		pkg: readPackageJson(name),
-	});
-
-	return data;
+	return updateNotifier2(findPackagePath(name));
 }
 
 export function findPackagePath(name: string): string
