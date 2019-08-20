@@ -2775,6 +2775,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'露比和亞澤麗雅瞧准時機跳上去。',
+		[
+			'準',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
