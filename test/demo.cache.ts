@@ -81,7 +81,7 @@ console.time(`doSegment`);
 
 let text = `
 
-完全不要求領土的割讓和礦山的開采權。
+卡拉面帶平靜的笑容說著。
 
 `;
 

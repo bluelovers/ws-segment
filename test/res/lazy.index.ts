@@ -2782,6 +2782,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'「再次見面，我是王立格蘭菲爾特特級魔法學院院長，特蕾西亞．蒙佩里耶。',
+		[
+			'里',
+		],
+	],
+
+	[
+		'卡拉面帶平靜的笑容說著。',
+		[
+			'面',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);

@@ -758,6 +758,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'一整天做出发的準備、隔天早上、一行人從迷宮都市出發了。',
+		[
+			'發',
+		],
+	],
+
 ];
 
 sortTests(tests_fixme_base);
