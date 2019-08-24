@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/哏|梗/u).test(w)
+				&& zhRegExp.create(/呎|咫|尺/u).test(w)
 			)
 			{
 				bool = true;
