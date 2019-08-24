@@ -2824,6 +2824,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'「現，現在是，哪年哪月幾點几分⋯⋯！？」',
+		[
+			'幾分',
+		],
+	],
+
+	[
+		'我向度過了十几億年的場所道別。',
+		[
+			'幾',
+		],
+	],
+
+	[
+		'「喂。咋了，你這反抗的眼神？想和我干一架嗎？」',
+		[
+			'幹',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
