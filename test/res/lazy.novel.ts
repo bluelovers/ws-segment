@@ -69,6 +69,15 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'「沒有借口啊」',
+		[
+			'藉',
+		],
+	],
+
+
+
 ];
 
 sortTests(tests_lazy_novel_base);

@@ -765,6 +765,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		],
 	],
 
+	[
+		'但莉莉好象也一樣。',
+		[
+			'好像',
+		],
+	],
+
+	[
+		'我再也不會干這事了',
+		[
+			'幹',
+		],
+	],
+
 ];
 
 sortTests(tests_fixme_base);
