@@ -89,6 +89,9 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+
+
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [
@@ -777,6 +780,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		[
 			'幹',
 		],
+	],
+
+	[
+		'“所以，別拿我當借口。”',
+		[
+			'藉',
+		]
+	],
+
+	[
+		'“是借口吧。因為，無論何時我詢問你，你都在辯解吧。”',
+		[
+			'藉',
+		]
 	],
 
 ];

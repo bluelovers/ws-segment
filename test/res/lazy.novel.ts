@@ -76,7 +76,12 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
-
+	[
+		'「⋯⋯你啊。说了吧。会把我卷进你的漩涡里，让我无处可逃。」',
+		[
+			'捲',
+		],
+	],
 
 ];
 
