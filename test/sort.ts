@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/岭|岺|嶺|阾|領|领/u).test(w)
+				&& zhRegExp.create(/肢|胑/u).test(w)
 			)
 			{
 				bool = true;
