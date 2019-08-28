@@ -90,6 +90,20 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'廣瀨的下一個對象是我嗎？很遺憾，對男人沒有興趣。',
+		[
+			'象',
+		],
+	],
+
+	[
+		'　墮入絕望的深淵的她，最後抓住的對象是――',
+		[
+			'象',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_novel_base);
