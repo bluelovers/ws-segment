@@ -27,6 +27,7 @@ let CACHE_LIST = {
 globDict(CWD, [
 	'synonym.txt',
 	'zht.synonym.txt',
+	'*.synonym.txt',
 ])
 	.tap(function (ls: string[])
 	{
