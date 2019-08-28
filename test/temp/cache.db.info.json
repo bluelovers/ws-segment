@@ -1,14 +1,14 @@
 {
   "last": {
-    "size_db_dict": 407865,
-    "size_segment": 4850,
-    "size_db_dict_diff": -98,
-    "size_segment_diff": 8
+    "size_db_dict": 407619,
+    "size_segment": 4880,
+    "size_db_dict_diff": -128,
+    "size_segment_diff": 2
   },
   "current": {
-    "size_db_dict": 407747,
-    "size_segment": 4878,
-    "size_db_dict_diff": -118,
-    "size_segment_diff": 28
+    "size_db_dict": 407643,
+    "size_segment": 4888,
+    "size_db_dict_diff": 24,
+    "size_segment_diff": 8
   }
 }

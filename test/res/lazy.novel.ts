@@ -83,6 +83,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'「⋯⋯好困啊。都快要做像黃金絲綢般美好的夢了。」',
+		[
+			'睏',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_novel_base);
