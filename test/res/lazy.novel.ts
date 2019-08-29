@@ -104,6 +104,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'基本上的印象是伊撒古向勞拉絕對服從',
+		[
+			'象',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_novel_base);

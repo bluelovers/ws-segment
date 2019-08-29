@@ -303,6 +303,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'大小遠超標准馬車',
+		[
+			['超標准','超標準'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -800,6 +807,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'“是借口吧。因為，無論何時我詢問你，你都在辯解吧。”',
 		[
 			'藉',
+		]
+	],
+
+	[
+		'肉烤焦的味道和打雷后特有的刺激性怪味在周圍瀰漫開來',
+		[
+			'後',
 		]
 	],
 

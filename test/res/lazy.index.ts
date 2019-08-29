@@ -3253,6 +3253,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'多給了店主一筆小費后，我們離開了酒館',
+		[
+			'後',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
