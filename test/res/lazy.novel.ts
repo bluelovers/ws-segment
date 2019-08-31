@@ -111,6 +111,20 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'企圖甩掉貨物的八腳獨眼象用它的巨大身軀衝撞正在拆解中的鷹架',
+		[
+			'象',
+		],
+	],
+
+	[
+		'「艾莉卡！卡露米雅，你們把大象抓起來！」',
+		[
+			'象',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_novel_base);
