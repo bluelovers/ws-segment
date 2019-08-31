@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/呪|咒|詋/u).test(w)
+				&& zhRegExp.create(/嶽|岳|𡶦/u).test(w)
 			)
 			{
 				bool = true;
