@@ -615,13 +615,6 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 	],
 
 	[
-		'我們也該做出发的準備了嗎？',
-		[
-			'發',
-		],
-	],
-
-	[
 		'何必干這種愚蠢的行為',
 		[
 			'幹',
@@ -776,13 +769,6 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 	],
 
 	[
-		'一整天做出发的準備、隔天早上、一行人從迷宮都市出發了。',
-		[
-			'發',
-		],
-	],
-
-	[
 		'但莉莉好象也一樣。',
 		[
 			'好像',
@@ -822,34 +808,6 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		[
 			'發',
 		]
-	],
-
-	[
-		'「今天导师时间发的学年行事历档案里头不就有写吗',
-		[
-			'發',
-		]
-	],
-
-	[
-		'則在接到春雪发的郵件後給出了這樣的回答——「我在屋頂」',
-		[
-			'發',
-		]
-	],
-
-	[
-		'拓武一接到隊友发的界外球',
-		[
-			'發',
-		]
-	],
-
-	[
-		'既然不是老師发的',
-		[
-			'發',
-		],
 	],
 
 ];
