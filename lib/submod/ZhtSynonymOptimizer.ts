@@ -247,6 +247,14 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							bool = true;
 						}
 					}
+
+					if (!bool && w2 && w1.w == '发' && w2.w === '的')
+					{
+						w1.ow = w1.w;
+						w1.w = '發';
+
+						bool = true;
+					}
 				}
 				else if (w1.w == '于')
 				{
