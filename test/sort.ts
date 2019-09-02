@@ -305,7 +305,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/之|的|得|の/u).test(w)
+				&& zhRegExp.create(/綫|線|线|缐|腺/u).test(w)
 			)
 			{
 				bool = true;
