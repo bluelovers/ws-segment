@@ -96,9 +96,14 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 	}
 	else
 	{
-		useDefaultBlacklistDict(segment, optionsSegment);
+		let _optionsSegment = {
+			...optionsSegment,
+			nodict: false,
+		};
 
-		useDefaultSynonymDict(segment, optionsSegment);
+		useDefaultBlacklistDict(segment, _optionsSegment);
+
+		useDefaultSynonymDict(segment, _optionsSegment);
 
 		segment.doBlacklist();
 	}

@@ -125,6 +125,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'還有因為最近在就業活動中占有優勢的等等。',
+		[
+			'佔',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_novel_base);
