@@ -314,23 +314,46 @@ export class DictOptimizer extends SubSModuleOptimizer
 				// 带小数点的数字 ，如 “3 . 14”，或者 “十五点三”
 				// 数词 + "分之" + 数词，如“五十分之一”
 				let w3 = words[i + 2];
-				if (w3 && (w3.p & POSTAG.A_M)
-					&& (w2.w == '.'
+				if (w3 && (w3.p & POSTAG.A_M))
+				{
+					if (w2.w == '.'
 						|| w2.w == '点'
 						|| w2.w == '點'
 						|| w2.w == '分之'
 					)
-				)
-				{
-					this.sliceToken(words, i, 3, {
-						w: w1.w + w2.w + w3.w,
-						p: POSTAG.A_M,
-						m: [w1, w2, w3],
-					}, undefined, {
-						[this.name]: 5,
-					});
-					ie -= 2;
-					continue;
+					{
+						this.sliceToken(words, i, 3, {
+							w: w1.w + w2.w + w3.w,
+							p: POSTAG.A_M,
+							m: [w1, w2, w3],
+						}, undefined, {
+							[this.name]: 5,
+						});
+						ie -= 2;
+						continue;
+					}
+
+					/**
+					 * 支援 `最多容納59,000個人,或5.9萬人,再多就不行了.這是環評的結論.`
+					 */
+					if (w2.w == ',')
+					{
+						let _r1 = /^[\d０-９]+$/;
+						let _r2 = /^(?:(?:[\d０-９]+)?(?:\.[\d０-９]+)|(?:[\d０-９]+))$/;
+
+						if (_r1.test(w1.w) && _r2.test(w3.w))
+						{
+							this.sliceToken(words, i, 3, {
+								w: w1.w + w2.w + w3.w,
+								p: POSTAG.A_M,
+								m: [w1, w2, w3],
+							}, undefined, {
+								[this.name]: 6,
+							});
+							ie -= 2;
+							continue;
+						}
+					}
 				}
 			}
 
