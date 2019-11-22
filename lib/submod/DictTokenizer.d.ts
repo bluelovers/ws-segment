@@ -1,5 +1,5 @@
 import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import { IDICT, IWord, IDICT2 } from '../Segment';
+import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 export declare const DEFAULT_MAX_CHUNK_COUNT = 40;
 export declare const DEFAULT_MAX_CHUNK_COUNT_MIN = 30;
 /**
@@ -42,7 +42,7 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
      * @param {object} preword 上一个单词
      * @return {array}  返回格式   {w: '单词', c: 开始位置}
      */
-    protected matchWord(text: string, cur: number, preword: IWord): IWord[];
+    protected matchWord(text: string, cur: number, preword: IWord): Segment.IWord[];
     /**
      * 选择最有可能匹配的单词
      *
@@ -51,7 +51,7 @@ export declare class DictTokenizer extends SubSModuleTokenizer {
      * @param {string} text 本节要分词的文本
      * @return {array}
      */
-    protected filterWord(words: IWord[], preword: IWord, text: string): IWord[];
+    protected filterWord(words: IWord[], preword: IWord, text: string): Segment.IWord[];
     /**
      * 评价排名
      *

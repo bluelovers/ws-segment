@@ -132,6 +132,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'将系成蝴蝶结的一头拉动的话',
+		[
+			'繫',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_novel_base);

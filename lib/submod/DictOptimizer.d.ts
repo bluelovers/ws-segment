@@ -1,5 +1,5 @@
 import { SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
-import { IWord, IDICT } from '../Segment';
+import { Segment, IWord, IDICT } from '../Segment';
 import IPOSTAG from '../POSTAG';
 /**
  * 词典优化模块
@@ -20,7 +20,7 @@ export declare class DictOptimizer extends SubSModuleOptimizer {
     }): boolean;
     _getWordCache(nw: string, nw_cache: IWord, nw_cache_exists: boolean): {
         nw: string;
-        nw_cache: IWord;
+        nw_cache: Segment.IWord;
         nw_cache_exists: boolean;
     };
     /**

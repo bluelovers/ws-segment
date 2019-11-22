@@ -20,4 +20,4 @@ export declare function init(_segment: any): void;
  * @param {bool} is_not_first 是否为管理器调用的
  * @return {array}
  */
-export declare function doOptimize(words: IWord[], is_not_first?: boolean): IWord[];
+export declare function doOptimize(words: IWord[], is_not_first?: boolean): Segment.IWord[];
