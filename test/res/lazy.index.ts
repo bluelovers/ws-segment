@@ -3863,6 +3863,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'麻里子腦海中浮現出的正是之前聯想到的牛肉干的製作方法',
+		[
+			'乾',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
