@@ -81,7 +81,17 @@ export function zhDictCompareNew(options?: IFnCompare | {
 
 	if (failback == null)
 	{
-		failback = naturalCompare.caseInsensitive
+		if (typeof naturalCompare.caseInsensitive === 'function')
+		{
+			failback = naturalCompare.caseInsensitive
+		}
+		else
+		{
+			failback = (a, b) => naturalCompare(a, b, {
+				caseInsensitive: true
+			});
+		}
+
 	}
 
 	return function zhDictCompare(a: string, b: string): number

@@ -1,24 +1,24 @@
 {
   "name": "@novel-segment/util",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "private": false,
   "description": "",
   "license": "ISC",
   "author": "",
   "main": "index.js",
   "scripts": {
-    "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json",
+    "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json && yarn run test",
     "postpublish": "git commit -a -m \"postpublish new version\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "ts-node test/temp"
   },
   "dependencies": {},
   "devDependencies": {},
   "peerDependencies": {
     "array-hyper-unique": "^1.1.0",
-    "cjk-conv": "^1.1.87",
+    "cjk-conv": "^1.2.26",
     "str-util": "^2.3.21",
     "uni-string": "^1.1.2",
-    "string-natural-compare": "^2.0.3"
+    "string-natural-compare": "^3.0.0"
   },
   "publishConfig": {
     "access": "public"
