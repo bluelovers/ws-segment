@@ -13,8 +13,8 @@ export declare type IDict = IDictRow[];
 */
 export declare function parseLine(input: string): IDictRow;
 export declare function load(file: string): Promise<IDict>;
-export declare function loadSync(file: string): [string, number, string][];
+export declare function loadSync(file: string): IDict;
 export declare function _createStream<IDict>(fnStream: typeof createLoadStream, file: string, callback?: ICallback<IDict>): IStreamLineWithValue<IDict>;
-export declare function loadStream(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<[string, number, string][]>;
-export declare function loadStreamSync(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<[string, number, string][]>;
+export declare function loadStream(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<IDict>;
+export declare function loadStreamSync(file: string, callback?: ICallback<IDict>): IStreamLineWithValue<IDict>;
 export default load;
