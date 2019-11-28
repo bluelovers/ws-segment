@@ -3870,6 +3870,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'要凃掉。',
+		[
+			'塗',
+		],
+	],
+
+	[
+		'每天往返于傑克所在的監獄之間。',
+		[
+			'於',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
