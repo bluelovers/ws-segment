@@ -69,13 +69,13 @@
     "test": "test"
   },
   "scripts": {
+    "build:sort:stringify:cache": "node ./script/sort-stringify-cache.js",
     "coverage": "npx nyc npm run test",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
     "ncu": "npx npm-check-updates -u",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
-    "build:sort:stringify:cache": "node ./script/sort-stringify-cache.js",
     "postpublish2": "yarn run build:sort:stringify:cache && node ./script/publish-after2",
     "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json && yarn run sort-package-json && yarn run test",
     "publish": "echo publish",
@@ -88,18 +88,18 @@
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
-    "@novel-segment/util": "^1.0.8",
+    "@bluelovers/fast-glob": "^3.0.4",
+    "@novel-segment/util": "^1.0.9",
     "array-hyper-unique": "^1.1.0",
-    "bluebird": "^3.5.5",
+    "bluebird": "^3.7.2",
     "cjk-conv": "^1.2.26",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
     "deepmerge-plus": "^2.1.3",
-    "@bluelovers/fast-glob": "^3.0.4",
     "fs-extra": "^8.1.0",
     "lodash.clonedeep": "^4.5.0",
     "regexp-cjk": "^3.3.8",
-    "segment-dict": "^2.3.16",
+    "segment-dict": "^2.3.21",
     "sort-object-keys2": "^1.1.0",
     "str-util": "^2.3.21",
     "ts-enum-util": "4.0.1",
@@ -107,13 +107,13 @@
     "uni-string": "^1.1.2"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.12",
+    "@bluelovers/tsconfig": "^1.0.13",
     "@git-lazy/diff-staged": "^1.0.3",
     "@git-lazy/util": "^1.0.5",
     "@types/bluebird": "^3",
     "@types/fs-extra": "^8",
     "@types/node": "^12",
-    "@types/transliteration": "^1.6.1",
+    "@types/transliteration": "^1.6.6",
     "chai": "^4.2.0",
     "chai-asserttype-extra": "^1.2.0",
     "chai-string": "^1.5.0",
@@ -123,7 +123,7 @@
     "git-root2": "^1.0.7",
     "n-readlines": "^1.0.0",
     "prettyuse": "^0.0.0",
-    "transliteration": "^2.1.5"
+    "transliteration": "^2.1.7"
   },
   "optionalDependencies": {}
 }
