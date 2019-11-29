@@ -265,6 +265,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						|| w2.p & POSTAG.D_D
 						|| w2.p & POSTAG.D_T
 						|| w2.p & POSTAG.A_NR
+						|| w2.p & POSTAG.D_S
 					)))
 					{
 						/**

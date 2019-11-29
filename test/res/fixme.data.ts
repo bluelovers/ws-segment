@@ -321,6 +321,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
 
+	[
+		'漸漸變大的光源占滿整個視野……',
+		[
+			['視野'],
+		],
+	],
+
 ];
 
 export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] = [
