@@ -83,8 +83,7 @@ console.time(`doSegment`);
 
 let text = `
 
-阿一並沒有回答
-並沒有
+喝了一點裝在陶制高腳杯中的淡蟻蜜酒來潤喉
 
 `;
 

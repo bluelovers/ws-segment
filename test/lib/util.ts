@@ -92,6 +92,7 @@ export function lazyMatch(a: string[], b: string[] | (string | string[])[], opti
 		bool = false;
 	}
 
+	// @ts-ignore
 	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have include ordered members ${chai.util.inspect(b)}`);
 
 	return bool;
@@ -120,10 +121,11 @@ export function lazyMatch002(a: string[], b_arr: Parameters<typeof lazyMatch>['1
 		}
 	}
 
+	// @ts-ignore
 	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have include one of ordered members in ${chai.util.inspect(b_arr)}`);
 }
 
-export function lazyMatchSynonym001(a: string, b_arr: string[], options: {
+export function lazyMatchSynonym001(a: string, b_arr: (string | string[])[], options: {
 	firstOne?: boolean,
 } = {})
 {
@@ -139,7 +141,27 @@ export function lazyMatchSynonym001(a: string, b_arr: string[], options: {
 			i = -1;
 		}
 
-		let j = a.indexOf(bb, ii);
+		let j: number = -1;
+
+		if (Array.isArray(bb))
+		{
+			bb.some(v => {
+
+				let jj = a.indexOf(v, ii);
+
+				if (jj > -1)
+				{
+					j = jj;
+					bb = v;
+
+					return true;
+				}
+			})
+		}
+		else
+		{
+			j = a.indexOf(bb, ii);
+		}
 
 		if ((j > -1) && (j > i))
 		{
@@ -149,6 +171,7 @@ export function lazyMatchSynonym001(a: string, b_arr: string[], options: {
 		}
 		else if (i > -1)
 		{
+			// @ts-ignore
 			assert.fail(`expected ${chai.util.inspect(a)} to have have ${chai.util.inspect(bb)} on index > ${i}, but got ${j}`);
 		}
 	});
@@ -158,7 +181,60 @@ export function lazyMatchSynonym001(a: string, b_arr: string[], options: {
 		bool = false;
 	}
 
+	// @ts-ignore
 	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have index of ordered members in ${chai.util.inspect(b_arr)}`);
+}
+
+export function lazyMatchSynonym001Not(a: string, b_arr: (string | string[])[], options: {
+	firstOne?: boolean,
+} = {})
+{
+	let bool: boolean;
+	let i: number = undefined;
+
+	bool = b_arr.every(function (bb)
+	{
+		let ii = i;
+
+		if (i == null)
+		{
+			i = -1;
+		}
+
+		let j: number = -1;
+
+		if (Array.isArray(bb))
+		{
+			bb.some(v => {
+
+				let jj = a.indexOf(v, ii);
+
+				if (jj > -1)
+				{
+					j = jj;
+					bb = v;
+
+					return true;
+				}
+			})
+		}
+		else
+		{
+			j = a.indexOf(bb, ii);
+		}
+
+		if ((j > -1) && (j > i))
+		{
+			// @ts-ignore
+			assert.fail(`expected ${chai.util.inspect(a)} to not have have ${chai.util.inspect(bb)} on index > ${i}, but got ${j}`);
+
+			return true;
+		}
+		else
+		{
+			i++;
+		}
+	});
 }
 
 export function lazyMatchNot(a: string[], b: string[] | (string | string[])[], options: {
@@ -235,6 +311,7 @@ export function lazyMatchNot(a: string[], b: string[] | (string | string[])[], o
 		bool = true;
 	}
 
+	// @ts-ignore
 	!bool && assert.fail(`expected ${chai.util.inspect(a)} should not include ordered members ${chai.util.inspect(b)}`);
 
 	return bool;

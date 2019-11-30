@@ -6,7 +6,7 @@
  */
 
 import tests_lazy_index from './lazy.index';
-import { sortTests } from '../lib/util';
+import { sortTests, lazyMatchSynonym001Not } from '../lib/util';
 
 export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 
@@ -824,11 +824,56 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'外表看起來20几歲或這上下',
+		[
+			'幾',
+		]
+	],
+
+	[
+		'接敵后，兩秒。被彈開了劍，連同盾被斬崩了。',
+		[
+			'後',
+		]
+	],
+
+	[
+		'不僅有發戰爭財的人和專門干見不得光的行當的人',
+		[
+			'幹',
+		]
+	],
+
+	[
+		'加上她對我們人類非常善意。只要不用力量威脅或者干失禮的事',
+		[
+			'幹',
+		]
+	],
+
+	[
+		'『啊，雖然無所謂，但請趕快干呢』',
+		[
+			'幹',
+		]
+	],
+
+];
+
+/**
+ * 分析轉換後不應該具有以下字詞
+ */
+export const tests_fixme_indexof_not: [string, Parameters<typeof lazyMatchSynonym001Not>['1'], Parameters<typeof lazyMatchSynonym001Not>['2']?][] = [
+
+
+
 ];
 
 sortTests(tests_fixme_base);
 sortTests(tests_fixme_base_not);
 sortTests(tests_fixme_array);
 sortTests(tests_fixme_indexof);
+sortTests(tests_fixme_indexof_not);
 
 export default exports as typeof import('./fixme.data');

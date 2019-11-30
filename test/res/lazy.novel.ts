@@ -4,7 +4,14 @@
  * 此檔案內的測試只有在開啟 nodeNovelMode 後才會符合預期
  */
 
-import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, sortTests } from '../lib/util';
+import {
+	lazyMatch,
+	lazyMatch002,
+	lazyMatchNot,
+	lazyMatchSynonym001,
+	sortTests,
+	lazyMatchSynonym001Not,
+} from '../lib/util';
 
 /**
  * 分析後應該要符合以下結果
@@ -141,9 +148,19 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 
 ];
 
+/**
+ * 分析轉換後不應該具有以下字詞
+ */
+export const tests_lazy_novel_indexof_not: [string, Parameters<typeof lazyMatchSynonym001Not>['1'], Parameters<typeof lazyMatchSynonym001Not>['2']?][] = [
+
+
+
+];
+
 sortTests(tests_lazy_novel_base);
 sortTests(tests_lazy_novel_base_not);
 sortTests(tests_lazy_novel_array);
 sortTests(tests_lazy_novel_indexof);
+sortTests(tests_lazy_novel_indexof_not);
 
 export default exports as typeof import('./lazy.novel');

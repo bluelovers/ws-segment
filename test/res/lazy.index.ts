@@ -4,7 +4,14 @@
  * 測試段落 每次發布版本時 會保證以下分析轉換是符合預期
  */
 
-import { lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, sortTests } from '../lib/util';
+import {
+	lazyMatch,
+	lazyMatch002,
+	lazyMatchNot,
+	lazyMatchSynonym001,
+	sortTests,
+	lazyMatchSynonym001Not,
+} from '../lib/util';
 
 /**
  * 分析後應該要符合以下結果
@@ -3982,11 +3989,117 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'身體的線條非常富于起伏',
+		[
+			'於',
+		],
+	],
+
+	[
+		'但是和外表的虛幻相反的這個叫做高雅什么的超越次元的傲慢',
+		[
+			'麼',
+		],
+	],
+
+	[
+		'「夏烏菈！ 趁余不注意又找男人碴兒啊！？你這個蠢貨！ 真不害臊！」',
+		[
+			'余',
+		],
+	],
+
+	[
+		'「欸誒給余分開，你這個痴女！！」',
+		[
+			'余',
+		],
+	],
+
+	[
+		'「但是，請看在余的面子上原諒她」',
+		[
+			'余',
+		],
+	],
+
+	[
+		'「咳……余的部下太失禮了。」',
+		[
+			'余',
+		],
+	],
+
+	[
+		'「呋姆，是嗎？ 余不覺得這是在余玩弄夏烏菈的時候愉快地眺望著的男人會說的話」',
+		[
+			'余',
+		],
+	],
+
+	[
+		'我一邊耽于感慨',
+		[
+			'於',
+		],
+	],
+
+	[
+		'即使坐在王座上也無事可干。',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'儘管如此還是不放棄地斬上各部分后',
+		[
+			'後',
+		],
+	],
+
+	[
+		'還不失年輕的那張臉近于無表情',
+		[
+			'於',
+		],
+	],
+
+	[
+		'那是Ａ級同時也持有二名的冒険者，冰帝克麗絲塔・尼潔・布蘭里赫特的隊伍。',
+		[
+			'里',
+		],
+	],
+
+	[
+		'那樣发聲道。',
+		[
+			'發',
+		],
+	],
+
+];
+
+/**
+ * 分析轉換後不應該具有以下字詞
+ */
+export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym001Not>['1'], Parameters<typeof lazyMatchSynonym001Not>['2']?][] = [
+
+	[
+		'那是里靈魂的世界。',
+		[
+			'裡',
+		],
+	],
+
 ];
 
 sortTests(tests_lazy_base);
 sortTests(tests_lazy_base_not);
 sortTests(tests_lazy_array);
 sortTests(tests_lazy_indexof);
+sortTests(tests_lazy_indexof_not);
 
 export default exports as typeof import('./lazy.index');

@@ -12,7 +12,13 @@ import { chai, relative, expect, path, assert, util, mochaAsync } from './_local
 // @ts-ignore
 import { ITest } from 'mocha';
 
-import { tests_fixme_array, tests_fixme_base, tests_fixme_base_not, tests_fixme_indexof } from './res/fixme.data';
+import {
+	tests_fixme_array,
+	tests_fixme_base,
+	tests_fixme_base_not,
+	tests_fixme_indexof,
+	tests_fixme_indexof_not,
+} from './res/fixme.data';
 import { Segment } from '../lib/Segment';
 import { createSegment } from './lib';
 import { IOptionsDoSegment } from '../lib/Segment';
@@ -118,6 +124,25 @@ describe(relative(__filename), () =>
 	describe(`tests_fixme_indexof`, () =>
 	{
 		tests_fixme_indexof.forEach(function (args)
+		{
+			it(args[0], function ()
+			{
+				let actual = Segment.stringify(doSegment(args[0]));
+
+				let expected = args[1];
+
+//				console.debug(actual);
+
+				lazyMatchSynonym001(actual, expected, args[2]);
+			});
+		});
+
+	});
+
+	// @ts-ignore
+	describe(`tests_fixme_indexof_not`, () =>
+	{
+		tests_fixme_indexof_not.forEach(function (args)
 		{
 			it(args[0], function ()
 			{
