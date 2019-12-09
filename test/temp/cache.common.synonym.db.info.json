@@ -3,12 +3,12 @@
     "size_db_dict": 407559,
     "size_segment": 5042,
     "size_db_dict_diff": 0,
-    "size_segment_diff": 1
+    "size_segment_diff": 0
   },
   "current": {
-    "size_db_dict": 407559,
-    "size_segment": 5042,
-    "size_db_dict_diff": 0,
-    "size_segment_diff": 0
+    "size_db_dict": 407571,
+    "size_segment": 5044,
+    "size_db_dict_diff": 12,
+    "size_segment_diff": 2
   }
 }
