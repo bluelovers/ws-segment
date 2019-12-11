@@ -719,6 +719,27 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'簡單一句話',
+		[
+			['單一', '單一句話'],
+		],
+	],
+
+	[
+		'簡單一句話',
+		[
+			['句話'],
+		],
+	],
+
+	[
+		'消滅旋殻大海龜后',
+		[
+			['大海'],
+		],
+	],
+
 ];
 
 /**
@@ -4101,6 +4122,34 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'簡單一句話，就是供過于求了。',
+		[
+			'於',
+		],
+	],
+
+	[
+		'反正我和她之間的關係也就僅只于偶爾會在酒館見面',
+		[
+			'於',
+		],
+	],
+
+	[
+		'緊接著，單手錘穩穩打中后防空虛的羅刹鬼背部──',
+		[
+			'後',
+		],
+	],
+
+	[
+		'就能讓被封印在這寶玉里的莎丘芭絲',
+		[
+			'裡',
+		],
+	],
+
 ];
 
 /**
@@ -4112,6 +4161,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		'那是里靈魂的世界。',
 		[
 			'裡',
+		],
+	],
+
+	[
+		'原因還是在於教會對于究極療癒所抱持的想法吧',
+		[
+			'于',
 		],
 	],
 
