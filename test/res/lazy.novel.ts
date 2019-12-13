@@ -146,6 +146,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'由於發生了恐怖分子佔領事件，因此換了一輛列車。',
+		[
+			'份',
+		],
+	],
+
 ];
 
 /**

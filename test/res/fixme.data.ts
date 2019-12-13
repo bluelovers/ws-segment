@@ -859,6 +859,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'「你們老是干些無聊的事情呢。」',
+		[
+			'幹',
+		]
+	],
+
+	[
+		'「哼⋯⋯還真是干了不得了的事情呢。」',
+		[
+			'幹',
+		]
+	],
+
 ];
 
 /**
