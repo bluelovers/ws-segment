@@ -873,6 +873,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'據說青眼龍死后身體會溶解',
+		[
+			'後',
+		]
+	],
+
 ];
 
 /**
