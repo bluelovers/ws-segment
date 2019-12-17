@@ -880,6 +880,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'现在已经放下来变成长发了。',
+		[
+			'髮',
+		]
+	],
+
 ];
 
 /**

@@ -83,7 +83,7 @@ console.time(`doSegment`);
 
 let text = `
 
-「就算他人用邪佞的眼光打量自己
+星眸熠熠，擺出可愛的姿勢。
 
 `;
 
