@@ -409,6 +409,15 @@ export class DictTokenizer extends SubSModuleTokenizer
 								}
 							}
 
+							/**
+							 * 在感動的重逢中有余在的話就太過閃耀
+							 */
+							if (_temp_ok && (w.p & POSTAG.D_R) && (nextw.p & POSTAG.D_P))
+							{
+								assess[i].d += 1;
+								_temp_ok = false;
+							}
+
 							if (_temp_ok && nextw.p && (w.p & POSTAG.D_P))
 							{
 								if (nextw.p & POSTAG.A_NR && (

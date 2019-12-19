@@ -887,6 +887,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'百合連綳帶都扎不好',
+		[
+			'紮',
+		]
+	],
+
 ];
 
 /**
