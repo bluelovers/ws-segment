@@ -754,6 +754,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'記得之前教科書移除了几篇魯迅的文章，現在大概沒有了。）',
+		[
+			['除了'],
+		],
+	],
+
+	[
+		'「哼，敵臨于前卻連戰意都保持不了⋯⋯⋯所以說你們都是雜魚啊」',
+		[
+			['連戰'],
+		],
+	],
+
 ];
 
 /**
@@ -4273,6 +4287,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'在感動的重逢中有余在的話就太過閃耀',
 		[
 			'余',
+		],
+	],
+
+	[
+		'有著並不輸于艾麗婭大小的豐滿胸脯。',
+		[
+			'於',
 		],
 	],
 
