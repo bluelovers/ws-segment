@@ -33,3 +33,5 @@ package-lock.json
 !/test/sort.ts
 /.eslintrc.json.tpl
 /.browserslistrc
+/package.d.ts
+/tsconfig.tsbuildinfo

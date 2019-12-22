@@ -71,3 +71,5 @@ __tests__/*.d.ts
 /dict/segment/**/*.md
 /dict/segment/infrequent/README.md
 *.tgz
+/package.d.ts
+/tsconfig.tsbuildinfo
