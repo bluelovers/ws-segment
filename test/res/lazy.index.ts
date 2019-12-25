@@ -4325,6 +4325,27 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'拜他所賜，議事廳里安靜了點。',
+		[
+			'裡',
+		],
+	],
+
+	[
+		'送搜索隊出動後，便無事可干。',
+		[
+			'幹',
+		],
+	],
+
+	[
+		'“暗地裡的斗爭相當激烈',
+		[
+			'鬥',
+		],
+	],
+
 ];
 
 /**
