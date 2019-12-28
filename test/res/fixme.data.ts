@@ -894,6 +894,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'對於變得完全沉迷于千草的梨梨花，不得不露出苦笑。',
+		[
+			'於',
+		]
+	],
+
+	[
+		'當門關上的余聲停止時，臉上失去了力量，自然的閉上了眼睛。',
+		[
+			'餘',
+		]
+	],
+
 ];
 
 /**
