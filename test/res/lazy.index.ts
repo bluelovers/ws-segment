@@ -4374,6 +4374,20 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'回信到達魔王城，是在那以后又過了３天的事情。',
+		[
+			'後',
+		],
+	],
+
+	[
+		'几億人，把所有的生命從這個世界上驅逐掉了。',
+		[
+			'幾',
+		],
+	],
+
 ];
 
 /**
