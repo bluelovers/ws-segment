@@ -4388,6 +4388,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+	[
+		'這一群人綽有余裕的假面具馬上就被扒下來了。',
+		[
+			'餘',
+		],
+	],
+
 ];
 
 /**

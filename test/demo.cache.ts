@@ -85,8 +85,7 @@ console.time(`doSegment`);
 
 let text = `
 
-向前 進发
-一步又一步，兩人慎重地向前進发。
+聽說桐原拓斗即將突破LV200。
 
 `;
 
