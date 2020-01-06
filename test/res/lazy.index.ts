@@ -4402,13 +4402,15 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		],
 	],
 
+
+
+
 	[
-		'亞馬密爾神官向站在後方的年輕藥師使了個眼神，那藥師便交出了漂亮的裝訂皮本。亞馬密爾收下了它，並拿到希拉面前。',
+		'看來安娜公主一行是在收拾完魔王軍的殘余勢力後，',
 		[
-			'面',
+			'餘',
 		],
 	],
-
 ];
 
 /**
