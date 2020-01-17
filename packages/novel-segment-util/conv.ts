@@ -12,4 +12,4 @@ export function getCjkName(w: string, USE_CJK_MODE?: number)
 	return StrUtil.toHalfWidth(cjk_id).toLocaleLowerCase();
 }
 
-export default exports as typeof import('./conv');
+export default getCjkName;

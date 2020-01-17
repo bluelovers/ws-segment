@@ -29,3 +29,8 @@ test
 yarn.lock
 /packages/novel-segment/demo/
 *.tgz
+/packages/novel-segment-util/.browserslistrc
+/packages/novel-segment-util/.eslintignore
+/packages/novel-segment-util/tsconfig.esm.json.tpl
+/packages/novel-segment-util/.nvmrc
+/packages/novel-segment-util/.eslintrc.json.tpl

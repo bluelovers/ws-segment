@@ -51,3 +51,8 @@ yarn-error.log
 
 /*.log
 .git
+/.nvmrc
+/.eslintrc.json.tpl
+/.eslintignore
+/.browserslistrc
+/tsconfig.esm.json.tpl

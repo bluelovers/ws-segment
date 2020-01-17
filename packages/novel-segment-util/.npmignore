@@ -30,3 +30,8 @@ __tests__
 
 yarn-error.log
 .git
+/.eslintignore
+/tsconfig.esm.json.tpl
+/.eslintrc.json.tpl
+/.browserslistrc
+/.nvmrc
