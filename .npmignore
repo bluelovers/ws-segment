@@ -79,3 +79,4 @@ gen
 /.browserslistrc
 /.nvmrc
 *.tgz
+/package.d.ts

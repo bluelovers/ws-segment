@@ -1,5 +1,5 @@
 
-import { textSegment, stringify, fileSegment, processText, processFile, ISegmentOptions, enableDebug } from '../index';
+import { textSegment, stringify, fileSegment, processText, processFile, enableDebug } from '../index';
 import { console } from '../lib/util';
 import jsdiff = require('diff');
 
