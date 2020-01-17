@@ -908,6 +908,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'应该是头部上的几只复眼看向了这边。',
+		[
+			'複',
+		]
+	],
+
 ];
 
 /**

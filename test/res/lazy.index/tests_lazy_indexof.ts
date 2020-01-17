@@ -4,10 +4,12 @@
 
 import { lazyMatchSynonym001 } from '../../lib/util';
 
+type IP = Parameters<typeof lazyMatchSynonym001>;
+
 /**
  * 分析轉換後應該要具有以下字詞
  */
-export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>['1'], Parameters<typeof lazyMatchSynonym001>['2']?][] = [
+export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 
 	[
 		'大家干的好',
@@ -3628,6 +3630,13 @@ export const tests_lazy_indexof: [string, Parameters<typeof lazyMatchSynonym001>
 		'你死了的話就什麼都干不成了！」',
 		[
 			'幹',
+		],
+	],
+
+	[
+		'對不起，大家現在都沒有余力了',
+		[
+			'餘',
 		],
 	],
 

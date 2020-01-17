@@ -153,6 +153,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'「哦⋯⋯『業火灼熱拉面』，這怎麼看都是很危險的東西。」',
+		[
+			'麵',
+		],
+	],
+
 ];
 
 /**
@@ -160,7 +167,12 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
  */
 export const tests_lazy_novel_indexof_not: [string, Parameters<typeof lazyMatchSynonym001Not>['1'], Parameters<typeof lazyMatchSynonym001Not>['2']?][] = [
 
-
+	[
+		'還有一碗名叫『麻辣力湯面』的拉面類料理。',
+		[
+			'面',
+		],
+	],
 
 ];
 

@@ -40,3 +40,4 @@ package-lock.json
 /test/temp/c1.json
 /test/temp/c1.txt
 /test/temp/cache.common.synonym.db
+/package.d.ts
