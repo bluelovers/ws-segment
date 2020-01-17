@@ -297,6 +297,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 								POSTAG.D_S,
 								POSTAG.A_NX,
 								POSTAG.D_F,
+								POSTAG.D_W,
 							))
 							||
 							(hexAndAny(w0.p,
@@ -314,6 +315,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 								POSTAG.A_NR,
 								POSTAG.D_R,
 								POSTAG.D_S,
+								POSTAG.D_W,
 							))
 							||
 							(hexAndAny(w0.p,
