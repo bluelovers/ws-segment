@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.3.47",
+  "version": "2.3.48",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -67,7 +67,7 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "docs": "npx typedoc --options ./typedoc.config.js",
-    "ncu": "npx npm-check-updates -u",
+    "ncu": "npx yarn-tool ncu -u",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
     "postpublish2": "npx lerna run --scope novel-segment postpublish2 && npx lerna run --scope @novel-segment/api-server now-deploy",
@@ -89,7 +89,6 @@
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
-    "fast-glob": "^3.1.1",
     "fs-extra": "^8.1.0",
     "split2": "^3.1.1",
     "stream-pipe": "^1.0.1",
@@ -98,7 +97,7 @@
     "upath2": "^2.1.3"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.13",
+    "@bluelovers/tsconfig": "^1.0.15",
     "@types/bluebird": "^3",
     "@types/diff": "^4.0.2",
     "@types/node": "^13",
