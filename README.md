@@ -1,3 +1,5 @@
+[![jetbrains.svg](jetbrains.svg)](https://www.jetbrains.com/?from=novel-segment)
+
 # 中文分词模块
 
     Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本
@@ -389,4 +391,3 @@ OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ```
 
-[![jetbrains.svg](jetbrains.svg)](https://www.jetbrains.com/?from=novel-segment)
