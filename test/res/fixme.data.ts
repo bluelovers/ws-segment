@@ -915,6 +915,8 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+
+
 ];
 
 /**
@@ -922,7 +924,12 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
  */
 export const tests_fixme_indexof_not: [string, Parameters<typeof lazyMatchSynonym001Not>['1'], Parameters<typeof lazyMatchSynonym001Not>['2']?][] = [
 
-
+	[
+		'「你想想看，他可是讓阿諾斯大人把手插進肚子里耶。我也想被插啊！」',
+		[
+			'里',
+		]
+	],
 
 ];
 
