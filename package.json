@@ -97,7 +97,7 @@
     "upath2": "^2.1.3"
   },
   "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.15",
+    "@bluelovers/tsconfig": "^1.0.17",
     "@types/bluebird": "^3",
     "@types/diff": "^4.0.2",
     "@types/node": "^13",
