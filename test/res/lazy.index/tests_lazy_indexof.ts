@@ -3661,6 +3661,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'「我们已经一周给他们冲一次水了，抱歉让您感到不愉快。」',
+		[
+			'沖',
+		],
+	],
+
+	[
+		'「愚笨」的艾蕾卡•维拉•戴特拉聊完天后生还才行。',
+		[
+			'後',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof
