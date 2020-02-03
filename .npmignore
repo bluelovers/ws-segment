@@ -35,3 +35,4 @@ test
 bin/*.ts
 bin/*.d.ts
 /jetbrains.svg
+tsconfig.tsbuildinfo

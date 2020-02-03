@@ -317,6 +317,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'「这就是所谓的天才吗……趁现在赶紧吐几口口水吧。」',
+		[
+			['水吧'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [

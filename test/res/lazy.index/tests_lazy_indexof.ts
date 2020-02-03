@@ -3675,6 +3675,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'我都会发在贴吧',
+		[
+			'發',
+		],
+	],
+
+	[
+		'「这就是所谓的天才吗……趁现在赶紧吐几口口水吧。」',
+		[
+			'幾',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof

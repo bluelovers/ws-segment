@@ -77,7 +77,7 @@
     "prepack": "echo prepack",
     "postpack": "echo postpack",
     "postpublish2": "yarn run build:sort:stringify:cache && node ./script/publish-after2",
-    "prepublishOnly": "npx npm-check-updates -u --packageFile ./package.json && yarn run sort-package-json && yarn run test",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "publish": "echo publish",
     "postpublish": "echo postpublish && node ./script/publish-after && yarn run postpublish2",
     "sort-package-json": "npx yarn-tool sort",
