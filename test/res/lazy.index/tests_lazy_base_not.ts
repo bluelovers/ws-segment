@@ -341,6 +341,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'“……竟然还有幸存的吸血鬼吗？”',
+		[
+			['有幸'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
