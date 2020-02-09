@@ -23,6 +23,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'遥遥领先于帝位争夺的皇太子战死于战场都是太过奇怪的事了',
+		[
+			'于',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not

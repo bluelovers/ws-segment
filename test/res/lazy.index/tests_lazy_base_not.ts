@@ -348,6 +348,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'但真正的意图果然应该是想要为处理掉雷欧制造出借口',
+		[
+			['出借'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
