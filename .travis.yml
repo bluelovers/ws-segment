@@ -31,7 +31,7 @@ before_script:
   - echo before_script
 script:
 #  npm run travis
-  npm run test
+  yarn run test
 
 env:
   global:
