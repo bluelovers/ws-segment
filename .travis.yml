@@ -22,11 +22,12 @@ before_install:
   - npm install -g typescript@next ts-node mocha chai
 
 install:
-  - npm install
-  - npm install --no-save typedoc typedoc-themes-color typedoc-plugin-nojekyll fs-extra chai-string @types/mocha   typescript@next ts-node mocha chai chai-asserttype-extra
+#  - yarn install
+  - yarn add fs-extra chai-string @types/mocha   typescript@next ts-node mocha chai chai-asserttype-extra
 
 
 before_script:
+  - yarn list segment-dict
   - echo before_script
 script:
 #  npm run travis
