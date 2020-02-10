@@ -82,7 +82,7 @@
     "postpublish": "echo postpublish && node ./script/publish-after && yarn run postpublish2",
     "sort-package-json": "npx yarn-tool sort",
     "test": "yarn run local-delete-cache-db && yarn run test-ts && yarn run test-fixme",
-    "test-fixme": "ts-node ./test/chk-fixme",
+    "test-fixme": "ts-node ./test/chk-fixme & echo test-fixme",
     "test-js": "npx mocha \"!(node_modules)/**/*.+(test|spec).js\"",
     "test-ts": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "travis": "typedoc --options ./typedoc.config.js"

@@ -25,3 +25,13 @@ mocha.run(function(failures) {
 	process.exitCode = 0;
 });
 
+try
+{
+	mocha.allowUncaught()
+}
+catch (e)
+{
+
+}
+
+process.exitCode = 0;
