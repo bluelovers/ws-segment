@@ -12,6 +12,8 @@ import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
 import libTable from 'cjk-conv/lib/zh/table';
 import naturalCompare = require('string-natural-compare');
 
+naturalCompare.caseInsensitive = naturalCompare.caseInsensitive || ((a, b, opt) => naturalCompare(a, b, {...opt, caseInsensitive: true}));
+
 import UString from "uni-string";
 import FastGlob from "@bluelovers/fast-glob";
 import * as path from "path";
@@ -305,7 +307,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/掠|略|畧/u).test(w)
+				&& zhRegExp.create(/㳽|弥|彌|瀰/u).test(w)
 			)
 			{
 				bool = true;
