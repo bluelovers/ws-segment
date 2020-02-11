@@ -922,7 +922,12 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
-
+	[
+		'液体，却被笼罩著绿光的圣剑余热蒸发。',
+		[
+			'餘',
+		]
+	],
 
 ];
 
@@ -937,6 +942,31 @@ export const tests_fixme_indexof_not: [string, Parameters<typeof lazyMatchSynony
 			'里',
 		]
 	],
+
+	[
+		'脖子里长有一颗肿瘤',
+		[
+			'里',
+		]
+	],
+
+	[
+		'庭院里长有一种草',
+		[
+			'里',
+		]
+	],
+
+	[
+		'角落里长着',
+		[
+			'里',
+		],
+	],
+
+
+
+
 
 ];
 

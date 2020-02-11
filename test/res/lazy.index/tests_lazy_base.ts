@@ -420,6 +420,27 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'埔里米粉',
+		[
+			['米粉'],
+		],
+	],
+
+	[
+		'里长住在这里',
+		[
+			['里长'],
+		],
+	],
+
+	[
+		'生活里长期充满了无奈',
+		[
+			['长期'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
