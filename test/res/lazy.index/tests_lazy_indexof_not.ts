@@ -65,6 +65,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'我在这本第一卷里见到的雷普凌辱鬼畜等词汇比我这一整年在其他地方看到的都多',
+		[
+			'里',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not

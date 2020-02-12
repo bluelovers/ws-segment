@@ -355,6 +355,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'打磨骨头是雷欧尼斯的一大业余爱好。',
+		[
+			['大业'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
