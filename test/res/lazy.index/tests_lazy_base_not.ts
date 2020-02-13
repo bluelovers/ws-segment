@@ -362,6 +362,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'「我对『素子』的生活方式抱持过数次疑问',
+		[
+			['过数'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
