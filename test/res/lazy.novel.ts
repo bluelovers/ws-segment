@@ -160,6 +160,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'伊甸人非常喜爱地上的牲畜及谷类。',
+		[
+			'穀',
+		],
+	],
+
 ];
 
 /**

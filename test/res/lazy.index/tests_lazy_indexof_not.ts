@@ -72,6 +72,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'「好耶！来去冲冲水！！」',
+		[
+			'衝',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not
