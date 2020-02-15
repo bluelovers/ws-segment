@@ -397,6 +397,21 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							}
 						}
 					}
+
+					if (!bool && w2 && w2.p && (w2.p & POSTAG.D_T))
+					{
+						/**
+						 * 迫使法妮雅得于日后和杰弥尼成婚……
+						 */
+
+						w1.ow = w1.w;
+						w1.w = '於';
+
+						new_p = POSTAG.D_P;
+						w1.p = new_p;
+
+						bool = true;
+					}
 				}
 				else if (w1.w == '么')
 				{
