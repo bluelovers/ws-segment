@@ -307,7 +307,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/悚|聳|耸/u).test(w)
+				&& zhRegExp.create(/洛|落/u).test(w)
 			)
 			{
 				bool = true;
