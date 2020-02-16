@@ -369,6 +369,21 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'新闻网站所播的VTR似乎经过后制',
+		[
+			['过后', '过後'],
+		],
+	],
+
+	[
+		'透过后制隐瞒当事人的真实身分之后',
+		[
+			['过后', '过後'],
+		],
+	],
+
+
 ];
 
 export default tests_lazy_base_not

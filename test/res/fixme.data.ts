@@ -89,8 +89,19 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'她就只是忠于自己',
+		[
+			'自己',
+		]
+	],
 
-
+	[
+		'尽力抗衡自己身为王族的一切而已',
+		[
+			'自己',
+		]
+	],
 
 ];
 

@@ -292,6 +292,7 @@ export class SegmentCore
 			{
 				ret = ret.concat({ w: section });
 
+				// @ts-ignore
 				section = [];
 			}
 
