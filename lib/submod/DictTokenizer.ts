@@ -70,7 +70,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 	{
 		//debug(words);
 		const TABLE = this._TABLE;
-		const POSTAG = this._POSTAG;
+		//const POSTAG = this._POSTAG;
 
 		const self = this;
 
@@ -255,7 +255,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 					w.p = TABLE[w.w].p;
 					assess[i].a += w.f;   // 总词频
 
-					if (j == 0 && !preword && (w.p & POSTAG.D_V))
+					if (j === 0 && !preword && (w.p & POSTAG.D_V))
 					{
 						/**
 						 * 將第一個字也計算進去是否包含動詞
@@ -271,7 +271,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 							(prew.p & POSTAG.A_M)
 							&&
 							(
-								((w.p & POSTAG.A_Q))
+								(w.p & POSTAG.A_Q)
 								|| w.w in DATETIME
 							)
 						)
@@ -280,7 +280,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 						}
 
 						// 如果当前词是动词
-						if ((w.p & POSTAG.D_V))
+						if (w.p & POSTAG.D_V)
 						{
 							has_D_V = true;
 							// 如果是连续的两个动词，则减分
@@ -372,7 +372,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 							 * 如果当前是“的”+ 名词，则加分
 							 */
 							if (
-								(w.w == '的' || w.w == '之')
+								(w.w === '的' || w.w === '之')
 								&& nextw.p && (
 									(nextw.p & POSTAG.D_N)
 									|| (nextw.p & POSTAG.D_V)
@@ -426,7 +426,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 								{
 									assess[i].d++;
 
-									if (prew.w == '的')
+									if (prew.w === '的')
 									{
 										/**
 										 * 的 + 介詞 + 人名
@@ -458,7 +458,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 							}
 
 							// @FIXME 暴力解決 三天后 的問題
-							if (nextw.w == '后' && w.p & POSTAG.D_T && hexAndAny(prew.p,
+							if (nextw.w === '后' && w.p & POSTAG.D_T && hexAndAny(prew.p,
 								POSTAG.D_MQ,
 								POSTAG.A_M,
 							))
@@ -468,8 +468,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 							// @FIXME 到湖中間后手終於能休息了
 							else if (
 								(
-									nextw.w == '后'
-									|| nextw.w == '後'
+									nextw.w === '后'
+									|| nextw.w === '後'
 								)
 								&& hexAndAny(w.p,
 								POSTAG.D_F,
@@ -481,8 +481,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 							if (
 								(
-									w.w == '后'
-									|| w.w == '後'
+									w.w === '后'
+									|| w.w === '後'
 								)
 								&& hexAndAny(prew.p,
 								POSTAG.D_F,
@@ -635,7 +635,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 				curri = i as any as number;
 				maxs = s;
 			}
-			else if (s == maxs)
+			else if (s === maxs)
 			{
 				/**
 				 * 如果分数相同，则根据词长度、未识别词个数和平均频率来选择
@@ -735,7 +735,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		 *
 		 * 追加新模式使 MAX_CHUNK_COUNT 遞減來防止無分段長段落的總處理次數過高 由 DEFAULT_MAX_CHUNK_COUNT_MIN 來限制最小值
 		 */
-		if (total_count == 0)
+		if (total_count === 0)
 		{
 			MAX_CHUNK_COUNT = this.MAX_CHUNK_COUNT;
 
@@ -761,7 +761,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		 *
 		 * 例如: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
 		 */
-		let m;
+		let m: RegExpMatchArray;
 		if (m = text.match(/^((.+)\2{5,})/))
 		{
 			let s1 = text.slice(0, m[1].length);
@@ -773,20 +773,20 @@ export class DictTokenizer extends SubSModuleTokenizer
 				f: 0,
 			} as IWord;
 
-			let ret: IWord[][] = [];
+			let _ret: IWord[][] = [];
 
 			if (s2 !== '')
 			{
 				let chunks = this.getChunks(wordpos, pos + s1.length, s2, total_count, MAX_CHUNK_COUNT);
 
-				for (let j = 0; j < chunks.length; j++)
+				for (let ws of chunks)
 				{
-					ret.push([word].concat(chunks[j]));
+					_ret.push([word].concat(ws));
 				}
 			}
 			else
 			{
-				ret.push([word]);
+				_ret.push([word]);
 			}
 
 //			console.dir(wordpos);
@@ -795,7 +795,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 //
 //			console.dir([pos, text, total_count]);
 
-			return ret;
+			return _ret;
 		}
 
 		total_count++;
@@ -816,9 +816,8 @@ export class DictTokenizer extends SubSModuleTokenizer
 		//throw new Error();
 
 		let ret: IWord[][] = [];
-		for (let i = 0; i < words.length; i++)
+		for (let word of words)
 		{
-			let word = words[i];
 			//debug(word);
 			let nextcur = word.c + word.w.length;
 			/**
@@ -861,9 +860,9 @@ export class DictTokenizer extends SubSModuleTokenizer
 				let t = text.slice(word.w.length);
 
 				let chunks = this.getChunks(wordpos, nextcur, t, total_count, MAX_CHUNK_COUNT );
-				for (let j = 0; j < chunks.length; j++)
+				for (let ws of chunks)
 				{
-					ret.push([word].concat(chunks[j]));
+					ret.push([word].concat(ws));
 				}
 
 				chunks = null;
