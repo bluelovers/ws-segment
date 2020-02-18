@@ -16,7 +16,7 @@ export function useDefaultDicts(segment: Segment, options: IUseDefaultOptionsDic
 			// 盘古词典
 			.loadDict('pangu/phrases')
 			.loadDict('pangu/phrases2')
-			.loadDict('phrases/001')
+			.loadDict('phrases/*')
 
 			.loadDict('dict')
 			.loadDict('dict2')

@@ -383,6 +383,21 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'三成人情人節想收口罩酒精液',
+		[
+			['成人'],
+			['收口'],
+			['精液'],
+		],
+	],
+
+	[
+		'，我是唯一拥有“安全区”的人，',
+		[
+			['全区'],
+		],
+	],
 
 ];
 
