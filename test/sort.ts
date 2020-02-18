@@ -307,7 +307,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/洛|落/u).test(w)
+				&& zhRegExp.create(/[标標鏢鑣镖镳]/u).test(w)
 			)
 			{
 				bool = true;
