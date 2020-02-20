@@ -12,7 +12,14 @@ import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
 import libTable from 'cjk-conv/lib/zh/table';
 import naturalCompare = require('string-natural-compare');
 
-naturalCompare.caseInsensitive = naturalCompare.caseInsensitive || ((a, b, opt) => naturalCompare(a, b, {...opt, caseInsensitive: true}));
+naturalCompare.caseInsensitive = naturalCompare.caseInsensitive || ((a, b, opt) => {
+	if (typeof a === 'number' && typeof b === 'number')
+	{
+		return a - b
+	}
+
+	return naturalCompare(String(a), String(b), {...opt, caseInsensitive: true})
+});
 
 import UString from "uni-string";
 import FastGlob from "@bluelovers/fast-glob";
@@ -307,7 +314,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/[标標鏢鑣镖镳]/u).test(w)
+				&& zhRegExp.create(/䖏|処|处|處/u).test(w)
 			)
 			{
 				bool = true;
