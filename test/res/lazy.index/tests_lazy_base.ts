@@ -441,6 +441,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'便能感知到来者的气息',
+		[
+			['来者'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
