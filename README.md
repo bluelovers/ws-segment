@@ -124,5 +124,6 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [文字上你可能常犯的錯](https://www.facebook.com/wordscooker/)
 * [繁化姬 - 字典測試](https://gist.github.com/n6333373/f06a3aa27fcde0ba31c5955cfc33ca85)
 * [CNS11643 中文全字庫](https://www.cns11643.gov.tw/index.jsp)
+* [漢字辞典 - Jigen.net](https://jigen.net/)
 * 
 
