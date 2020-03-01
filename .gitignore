@@ -69,3 +69,5 @@ coverage
 .git
 
 /.browserslistrc
+
+.now
