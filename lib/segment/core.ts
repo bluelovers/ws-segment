@@ -61,7 +61,7 @@ export class SegmentCore
 	 *
 	 * @type {Segment.ISPLIT}
 	 */
-	SPLIT: ISPLIT = /([\r\n]+|^[　\s+]+|[　\s]+$|[　\s]{2,})/gm as ISPLIT;
+	SPLIT: ISPLIT = /([\r\n]+|^[　\s]+|[　\s]+$|[　\s]{2,})/gm as ISPLIT;
 
 	/**
 	 * 分段之後 如果符合以下條件 則直接忽略分析
