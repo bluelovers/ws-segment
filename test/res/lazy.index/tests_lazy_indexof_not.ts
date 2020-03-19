@@ -79,6 +79,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'那是她連在血斗場都未曾見識過的速度。',
+		[
+			'斗',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not

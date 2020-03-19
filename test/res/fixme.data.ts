@@ -103,6 +103,20 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'我覺得算是把啪啪啪和跑劇情平衡得最好的一章了',
+		[
+			'覺得',
+		]
+	],
+
+	[
+		'新的勇者後宮',
+		[
+			'後宮',
+		]
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [

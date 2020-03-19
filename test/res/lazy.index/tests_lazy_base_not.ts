@@ -427,6 +427,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'只有當負責人判斷是應該傳達的情報時',
+		[
+			['報時'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

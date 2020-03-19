@@ -4,7 +4,7 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 declare var debug: {
-    (message?: any, ...optionalParams: any[]): void;
+    (...data: any[]): void;
     (message?: any, ...optionalParams: any[]): void;
 };
 declare var PROTOTAL: string[];

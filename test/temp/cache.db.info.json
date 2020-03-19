@@ -6,9 +6,9 @@
     "size_segment_diff": 0
   },
   "current": {
-    "size_db_dict": 408192,
-    "size_segment": 5324,
-    "size_db_dict_diff": 0,
-    "size_segment_diff": 0
+    "size_db_dict": 408604,
+    "size_segment": 5330,
+    "size_db_dict_diff": 412,
+    "size_segment_diff": 6
   }
 }
