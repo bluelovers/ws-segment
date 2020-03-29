@@ -363,6 +363,20 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'为什么自己会在这种地方打仗啊？',
+		[
+			['种地'],
+		],
+	],
+
+	[
+		'并特别针对需行使战斗的事态以及其方式进行详细规范',
+		[
+			['及其'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
