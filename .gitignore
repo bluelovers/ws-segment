@@ -42,3 +42,4 @@ package-lock.json
 /test/temp/cache.common.synonym.db
 /package.d.ts
 tsconfig.tsbuildinfo
+*.map
