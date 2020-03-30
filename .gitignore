@@ -35,3 +35,4 @@ package-lock.json
 /.browserslistrc
 /package.d.ts
 /tsconfig.tsbuildinfo
+*.map

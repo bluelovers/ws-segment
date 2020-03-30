@@ -314,7 +314,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/型|形/u).test(w)
+				&& zhRegExp.create(/白|鉑|铂/u).test(w)
 			)
 			{
 				bool = true;
