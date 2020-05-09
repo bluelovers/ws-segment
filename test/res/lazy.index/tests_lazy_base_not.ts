@@ -434,6 +434,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'梅梅知道原因後,怒吼著「媽媽是大笨蛋」是好幾天后的事情了。',
+		[
+			'天后',
+		],
+	],
+	
 ];
 
 export default tests_lazy_base_not

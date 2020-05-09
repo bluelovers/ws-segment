@@ -253,9 +253,9 @@ export declare namespace POSTAG {
         URL = "uri",
         UNK = "un"
     }
-    const enName: (p: string | number) => string;
-    const chsName: (p: string | number) => string;
-    const zhName: (p: string | number) => string;
-    function getPOSTagTranslator(POSTagDict: typeof POSTAG, I18NDict: any): (p: string | number) => string;
+    const enName: (p: number | string) => string;
+    const chsName: (p: number | string) => string;
+    const zhName: (p: number | string) => string;
+    function getPOSTagTranslator(POSTagDict: typeof POSTAG, I18NDict: any): (p: number | string) => string;
 }
 export default POSTAG;

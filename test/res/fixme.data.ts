@@ -982,6 +982,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'在去河的途中采山芋吧。水在河裡打就行。',
+		[
+			'採',
+		]
+	],
+
 ];
 
 /**
