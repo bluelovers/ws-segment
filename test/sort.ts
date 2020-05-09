@@ -314,7 +314,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/白|鉑|铂/u).test(w)
+				&& zhRegExp.create(/牛肝菌/u).test(w)
 			)
 			{
 				bool = true;
