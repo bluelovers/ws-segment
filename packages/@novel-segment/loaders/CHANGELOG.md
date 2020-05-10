@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.1...@novel-segment/loaders@1.0.3) (2020-05-10)
+
+
+### Bug Fixes
+
+* Error: Cannot find module '@novel-segment/loader-line' ([baa77d1](https://github.com/bluelovers/ws-segment/commit/baa77d16862a0f3463a854dc82a8d1c8b8761517))
+
+
+
+
+
 ## 1.0.1 (2020-05-10)
 
 
