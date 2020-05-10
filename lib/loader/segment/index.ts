@@ -2,10 +2,10 @@
  * Created by user on 2018/3/14/014.
  */
 
-import { wrapStreamToPromise, IStreamLineWithValue } from '../../fs/line';
+import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import Promise = require('bluebird');
-import createLoadStream, { ICallback } from '../../fs/stream';
-import createLoadStreamSync from '../../fs/sync';
+import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
+import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
 import LoaderClass from '../_class';
 
 export type IDictRow<T = string> = {
@@ -79,6 +79,7 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 
 			// @ts-ignore
 			a[1] = '0x' + a[1]
+				// @ts-ignore
 				.toString(16)
 				.padStart(4, '0')
 				.toUpperCase()

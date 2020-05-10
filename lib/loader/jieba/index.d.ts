@@ -1,9 +1,9 @@
 /**
  * Created by user on 2018/3/14/014.
  */
-import { IStreamLineWithValue } from '../../fs/line';
+import { IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import Promise = require('bluebird');
-import createLoadStream, { ICallback } from '../../fs/stream';
+import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
 export declare type IDictRow = [string, number, string];
 export declare type IDict = IDictRow[];
 /**

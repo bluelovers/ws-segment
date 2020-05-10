@@ -2,8 +2,8 @@
  * Created by user on 2018/4/13/013.
  */
 import Promise = require('bluebird');
-import { IStreamLineWithValue } from '../fs/line';
-import createLoadStream, { ICallback } from '../fs/stream';
+import { IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
+import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
 export declare type IOptions<T, R> = {
     parseLine?(input: string, oldFn?: (input: string) => R): R;
     mapper?(line: any): any;
