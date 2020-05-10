@@ -20,16 +20,16 @@
   "scripts": {
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
+    "test": "ts-node test/temp",
+    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "npm:publish": "npm publish",
-    "postpublish_": "git commit -m \"publish new version\" .",
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "npx yarn-tool ncu -u && npx yarn-tool sort && yarn run test",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish": "git commit -a -m \"postpublish new version\"",
+    "postpublish_": "git commit -m \"publish new version\" .",
+    "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
-    "test": "ts-node test/temp",
-    "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
@@ -37,9 +37,9 @@
   "devDependencies": {},
   "peerDependencies": {
     "array-hyper-unique": "^1.1.0",
-    "cjk-conv": "^1.2.28",
+    "cjk-conv": "^1.2.43",
     "str-util": "^2.3.21",
-    "string-natural-compare": "^3.0.0",
+    "string-natural-compare": "^3.0.1",
     "uni-string": "^1.1.2"
   },
   "publishConfig": {

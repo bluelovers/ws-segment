@@ -251,7 +251,7 @@ function getSegment()
 		return CACHED_SEGMENT;
 	}
 
-	const DICT = require('./cache.json');
+	const DICT = require('./cache/cache.json');
 
 	CACHED_SEGMENT = createSegment();
 

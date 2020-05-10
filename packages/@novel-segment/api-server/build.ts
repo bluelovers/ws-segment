@@ -19,7 +19,7 @@ function buildCache()
 
 	CACHED_SEGMENT.doSegment('');
 
-	return outputJSON(join(__root, 'cache.json'), CACHED_SEGMENT.DICT)
+	return outputJSON(join(__root, 'cache', 'cache.json'), CACHED_SEGMENT.DICT)
 		.then(() => {
 			console.log('[buildCache] done')
 		})

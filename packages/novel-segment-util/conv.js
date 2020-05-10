@@ -3,6 +3,7 @@
  * Created by user on 2019/3/20.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.getCjkName = void 0;
 const StrUtil = require("str-util");
 const list_1 = require("cjk-conv/lib/zh/table/list");
 function getCjkName(w, USE_CJK_MODE) {
@@ -11,4 +12,4 @@ function getCjkName(w, USE_CJK_MODE) {
 }
 exports.getCjkName = getCjkName;
 exports.default = getCjkName;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY29udi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImNvbnYudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBOztHQUVHOztBQUVILG9DQUFxQztBQUNyQyxxREFBK0Q7QUFFL0QsU0FBZ0IsVUFBVSxDQUFDLENBQVMsRUFBRSxZQUFxQjtJQUUxRCxJQUFJLE1BQU0sR0FBRyxjQUFPLENBQUMsQ0FBQyxFQUFFLElBQUksQ0FBQyxDQUFDO0lBRTlCLE9BQU8sT0FBTyxDQUFDLFdBQVcsQ0FBQyxNQUFNLENBQUMsQ0FBQyxpQkFBaUIsRUFBRSxDQUFDO0FBQ3hELENBQUM7QUFMRCxnQ0FLQztBQUVELGtCQUFlLFVBQVUsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogQ3JlYXRlZCBieSB1c2VyIG9uIDIwMTkvMy8yMC5cbiAqL1xuXG5pbXBvcnQgU3RyVXRpbCA9IHJlcXVpcmUoJ3N0ci11dGlsJyk7XG5pbXBvcnQgeyB0ZXh0TGlzdCwgc2x1Z2lmeSB9IGZyb20gJ2Nqay1jb252L2xpYi96aC90YWJsZS9saXN0JztcblxuZXhwb3J0IGZ1bmN0aW9uIGdldENqa05hbWUodzogc3RyaW5nLCBVU0VfQ0pLX01PREU/OiBudW1iZXIpXG57XG5cdGxldCBjamtfaWQgPSBzbHVnaWZ5KHcsIHRydWUpO1xuXG5cdHJldHVybiBTdHJVdGlsLnRvSGFsZldpZHRoKGNqa19pZCkudG9Mb2NhbGVMb3dlckNhc2UoKTtcbn1cblxuZXhwb3J0IGRlZmF1bHQgZ2V0Q2prTmFtZTtcbiJdfQ==
+//# sourceMappingURL=conv.js.map

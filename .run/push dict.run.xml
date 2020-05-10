@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="push dict" type="js.build_tools.npm">
+    <package-json value="$PROJECT_DIR$/packages/segment-dict/package.json" />
+    <command value="publish" />
+    <node-interpreter value="project" />
+    <package-manager value="npm" />
+    <envs />
+    <method v="2" />
+  </configuration>
+</component>

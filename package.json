@@ -5,7 +5,6 @@
   "description": "",
   "license": "ISC",
   "author": "",
-  "main": "index.js",
   "directories": {
     "test": "test"
   },
@@ -14,33 +13,38 @@
     "packages/*"
   ],
   "scripts": {
-    "sort-package-json": "oao run-script \"sort-package-json2\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "aca": "^0.1.12",
-    "aho-corasick": "^0.1.3",
-    "nlcst-parse-japanese": "^1.2.0",
-    "yargs2": "^1.0.4"
-  },
-  "devDependencies": {
-    "@bluelovers/fast-glob": "^3.0.3",
-    "@bluelovers/tsconfig": "^1.0.3",
-    "@types/benchmark": "^1.0.31",
-    "@types/chai": "^4.1.7",
-    "@types/cross-spawn": "^6.0.0",
-    "@types/mocha": "^5.2.6",
-    "@types/yargs": "^13.0.0",
-    "cheerio": "^1.0.0-rc.3",
-    "cross-spawn": "^6.0.5",
-    "git-root2": "^1.0.5",
-    "jsdom-extra": "^1.3.4"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lerna:publish": "npx lerna publish",
+    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
+    "postpublish": "yarn run postpublish:git:subtree",
+    "postpublish:git:subtree": "git subtree push novel-segment-cli master --prefix packages/novel-segment-cli && git subtree push node-segment master --prefix packages/novel-segment && git subtree push node-segment-dict master --prefix packages/segment-dict",
+    "ncu": "yarn run ncu:root && yarn run ncu:ws",
+    "ncu:root": "npx yarn-tool ncu -u",
+    "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
+    "sort-package-json:root": "npx yarn-tool sort",
+    "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
   },
   "resolutions": {
+    "@types/node": "*",
     "string-natural-compare": "*",
     "string-width": "*",
     "strip-ansi": "*",
-    "supports-color": "*",
-    "@types/node": "*"
+    "supports-color": "*"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@bluelovers/fast-glob": "^3.0.4",
+    "@bluelovers/tsconfig": "^1.0.19",
+    "@types/benchmark": "^1.0.31",
+    "@types/chai": "^4.2.11",
+    "@types/cross-spawn": "^6.0.1",
+    "@types/jest": "^25.2.1",
+    "@types/mocha": "^7.0.2",
+    "@types/yargs": "^15.0.4",
+    "git-root2": "^1.0.7",
+    "jest": "^26.0.1",
+    "ts-jest": "^25.5.1"
   }
 }

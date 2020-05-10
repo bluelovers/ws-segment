@@ -29,16 +29,16 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "split2": "^3.1.1",
+    "stream-pipe": "^1.0.1"
+  },
   "devDependencies": {
     "@types/bluebird": "^3.5.30",
     "@types/split2": "^2.1.6"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "bluebird": "^3.7.2",
-    "split2": "^3.1.1",
-    "stream-pipe": "^1.0.1"
   }
 }

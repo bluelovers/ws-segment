@@ -19,7 +19,7 @@ function createSegment()
 
 export function getSegment()
 {
-	const DICT = require('./cache.json');
+	const DICT = require('./cache/cache.json');
 
 	CACHED_SEGMENT = createSegment();
 

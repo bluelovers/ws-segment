@@ -35,9 +35,10 @@ yarn.lock
 
 yarn-error.log
 
-/packages/*
 !/packages/novel-segment-util/
 !/packages/novel-segment-util/*
 !/packages/@novel-segment
 !/packages/@novel-segment/*
 
+/tsconfig.tsbuildinfo
+/node_modules/

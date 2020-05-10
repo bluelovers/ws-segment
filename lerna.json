@@ -1,7 +1,34 @@
 {
   "packages": [
+    "packages/@novel-segment/*",
     "packages/*"
   ],
+  "command": {
+    "publish": {
+      "ignoreChanges": [
+        "**/node_modules/**",
+        "**/__snapshots__/**",
+        "**/__fixtures__/**",
+        "**/test/**",
+        "**/__tests__/**",
+        "*.map",
+        "*.spec.*",
+        "*.test.*",
+        "**/api-server/cache/**",
+        ".gitrepo"
+      ],
+      "message": "chore(release): publish",
+      "bump": "patch",
+      "conventionalCommits": true,
+      "conventionalGraduate": false
+    },
+    "run": {
+      "stream": true
+    },
+    "exec": {
+      "stream": true
+    }
+  },
   "npmClient": "yarn",
   "useWorkspaces": true,
   "version": "independent"
