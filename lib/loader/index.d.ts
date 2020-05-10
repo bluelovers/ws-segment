@@ -2,7 +2,7 @@ import Promise = require('bluebird');
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
 import * as OPENCC from './opencc';
-import LoaderClass from './_class';
+import LoaderClass from '@novel-segment/dict-loader-core';
 export declare function requireDefault<T = any>(id: any, subtype: string): (file: string) => Promise<T>;
 export declare function requireDefault(id: 'jieba'): typeof JIEBA.load;
 export declare function requireDefault(id: 'segment'): typeof SEGMENT.Loader.load;
