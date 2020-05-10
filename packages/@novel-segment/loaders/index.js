@@ -4,11 +4,11 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getDictPath = void 0;
-const index_1 = require("../index");
+const segment_dict_1 = require("segment-dict");
 const path = require("path");
 function getDictPath(id, file, ...argv) {
-    return path.join(index_1.DICT_ROOT, ...[id, file].concat(argv));
+    return path.join(segment_dict_1.DICT_ROOT, ...[id, file].concat(argv));
 }
 exports.getDictPath = getDictPath;
 exports.default = getDictPath;
-//# sourceMappingURL=dict.js.map
+//# sourceMappingURL=index.js.map

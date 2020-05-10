@@ -19,4 +19,4 @@ exports.stringifyLine = libLoader.stringifyLine;
 exports.serialize = libLoader.serialize;
 exports.Loader = libLoader;
 exports.default = libLoader.load;
-//# sourceMappingURL=line.js.map
+//# sourceMappingURL=index.js.map

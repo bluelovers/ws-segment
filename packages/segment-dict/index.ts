@@ -13,7 +13,7 @@ import _pkg = require('./package.json');
 import requireLoader, { requireModule as requireLoaderModule } from './lib/loader';
 export { requireLoader, requireLoaderModule }
 
-import getDictPath from './lib/dict';
+import getDictPath from '@novel-segment/loaders';
 export { getDictPath }
 
 export const ROOT = projectConfig.project_root;

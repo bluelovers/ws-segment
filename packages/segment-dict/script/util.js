@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.all_extra_dict = exports.all_default_load_dict = exports.baseSortList = exports.chkLineType = exports.EnumLineType = exports.loadDictFile = exports.globDict = exports.DEFAULT_IGNORE = exports.getCjkName = exports.zhDictCompare = void 0;
 const fast_glob_1 = require("@bluelovers/fast-glob");
 const BluebirdPromise = require("bluebird");
-const line_1 = require("../lib/loader/line");
+const loader_line_1 = require("@novel-segment/loader-line");
 const index_1 = require("../lib/loader/segment/index");
 const naturalCompare = require("string-natural-compare");
 const util_1 = require("@novel-segment/util");
@@ -30,7 +30,7 @@ exports.globDict = globDict;
 function loadDictFile(file, fn, options) {
     options = options || {};
     const parseFn = options.parseFn = options.parseFn || index_1.parseLine;
-    return line_1.default(file)
+    return loader_line_1.default(file)
         .then(function (b) {
         if (!b) {
             return [];

@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const debug_color2_1 = require("debug-color2");
 const fs = require("fs-extra");
 const path = require("upath2");
-const line_1 = require("../lib/loader/line");
+const loader_line_1 = require("@novel-segment/loader-line");
 const project_config_1 = require("../project.config");
 const util_1 = require("./util");
 const array_hyper_unique_1 = require("array-hyper-unique");
@@ -53,7 +53,7 @@ util_1.globDict(CWD, [
     if (0) {
         out_file = path.join(project_config_1.default.temp_root, path.basename(_basepath));
     }
-    let out_data = line_1.serialize(out_list) + "\n\n";
+    let out_data = loader_line_1.serialize(out_list) + "\n\n";
     await fs.outputFile(out_file, out_data);
     debug_color2_1.console.timeEnd(_basepath);
 })
@@ -62,7 +62,7 @@ util_1.globDict(CWD, [
         let list = SortList(CACHE_LIST.skip);
         let out_list = list.map(v => v.line);
         let out_file = path.join(project_config_1.default.temp_root, 'skip2.txt');
-        await fs.appendFile(out_file, "\n\n" + line_1.serialize(out_list) + "\n\n");
+        await fs.appendFile(out_file, "\n\n" + loader_line_1.serialize(out_list) + "\n\n");
     }
 });
 function SortList(ls) {

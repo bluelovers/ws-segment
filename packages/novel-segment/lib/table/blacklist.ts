@@ -1,5 +1,5 @@
 import { IDICT_SYNONYM, IWord } from '../Segment';
-import { IDictRow, stringifyLine } from 'segment-dict/lib/loader/line';
+import { IDictRow, stringifyLine } from '@novel-segment/loader-line';
 import CjkConv from 'cjk-conv';
 import { cloneDeep } from '../util';
 import { text_list } from '../util/cjk';

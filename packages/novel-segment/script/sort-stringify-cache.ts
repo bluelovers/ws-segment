@@ -21,7 +21,7 @@ import StrUtil = require('str-util');
 import { sync as FastGlobSync } from 'fast-glob';
 import { chkLineType, EnumLineType, ILoadDictFileRow2 } from 'segment-dict/script/util';
 import { array_unique } from 'array-hyper-unique';
-import { serialize } from 'segment-dict/lib/loader/line';
+import { serialize } from '@novel-segment/loader-line';
 import { console, chalkByConsole } from 'debug-color2';
 import { greedyTableReplace } from 'cjk-conv/lib/zh/table/greedy';
 import libTable from 'cjk-conv/lib/zh/table';

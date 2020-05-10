@@ -3,7 +3,7 @@
  */
 import requireLoader, { requireModule as requireLoaderModule } from './lib/loader';
 export { requireLoader, requireLoaderModule };
-import getDictPath from './lib/dict';
+import getDictPath from '@novel-segment/loaders';
 export { getDictPath };
 export declare const ROOT: string;
 export declare const DICT_ROOT: string;
