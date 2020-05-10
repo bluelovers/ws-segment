@@ -1,8 +1,8 @@
 {
-  "name": "@novel-segment/loaders",
+  "name": "@novel-segment/loader-stopword",
   "version": "1.0.0",
   "description": "",
-  "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loaders#readme",
+  "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loader-stopword#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-segment/issues"
   },

@@ -21,4 +21,4 @@ exports.parseLine = libLoader.parseLine;
 exports.stringifyLine = libLoader.stringifyLine;
 exports.Loader = libLoader;
 exports.default = libLoader.load;
-//# sourceMappingURL=stopword.js.map
+//# sourceMappingURL=index.js.map

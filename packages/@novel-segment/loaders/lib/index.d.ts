@@ -1,0 +1,17 @@
+import { IRequireModule } from './types';
+export declare function requireDefault(id: 'line'): typeof import('../line').default;
+export declare function requireDefault(id: 'stopword'): typeof import('../stopword').default;
+export declare function requireDefault(id: 'jieba'): typeof import('../jieba').default;
+export declare function requireDefault(id: 'opencc'): typeof import('../opencc').default;
+export declare function requireDefault(id: 'opencc', subtype: 'scheme'): typeof import('../opencc/scheme').default;
+export declare function requireDefault(id: 'segment'): typeof import('../segment').default;
+export declare function requireDefault(id: 'segment', subtype: 'synonym'): typeof import('../segment/synonym').default;
+export declare function requireDefault<T = any>(id: any, subtype?: string): (file: string) => Promise<T>;
+export declare function requireModule(id: 'line'): typeof import('../line');
+export declare function requireModule(id: 'stopword'): typeof import('../stopword');
+export declare function requireModule(id: 'jieba'): typeof import('../jieba');
+export declare function requireModule(id: 'opencc'): typeof import('../opencc');
+export declare function requireModule(id: 'opencc', subtype: 'scheme'): typeof import('../opencc/scheme');
+export declare function requireModule(id: 'segment'): typeof import('../segment');
+export declare function requireModule(id: 'segment', subtype: 'synonym'): typeof import('../segment/synonym');
+export declare function requireModule<T = any>(id: string, subtype?: string): IRequireModule<T>;

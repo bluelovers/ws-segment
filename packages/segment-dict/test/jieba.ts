@@ -3,8 +3,8 @@
  */
 
 import { LF } from 'crlf-normalize';
-import jiebaLoader from '../lib/loader/jieba';
-import { parseLine } from '../lib/loader/jieba/index';
+import jiebaLoader from '@novel-segment/loaders/jieba';
+import { parseLine } from '@novel-segment/loaders/jieba/index';
 import ReadlineStream from './fs/stream';
 import * as fs from 'fs';
 

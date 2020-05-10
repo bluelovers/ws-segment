@@ -1,14 +1,8 @@
 "use strict";
-/**
- * Created by user on 2018/4/12/012.
- */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDictPath = void 0;
-const segment_dict_1 = require("segment-dict");
-const path = require("path");
-function getDictPath(id, file, ...argv) {
-    return path.join(segment_dict_1.DICT_ROOT, ...[id, file].concat(argv));
-}
-exports.getDictPath = getDictPath;
-exports.default = getDictPath;
+exports.requireModule = exports.requireDefault = void 0;
+const lib_1 = require("./lib");
+Object.defineProperty(exports, "requireDefault", { enumerable: true, get: function () { return lib_1.requireDefault; } });
+Object.defineProperty(exports, "requireModule", { enumerable: true, get: function () { return lib_1.requireModule; } });
+exports.default = lib_1.requireDefault;
 //# sourceMappingURL=index.js.map

@@ -4,7 +4,7 @@ exports.all_extra_dict = exports.all_default_load_dict = exports.baseSortList = 
 const fast_glob_1 = require("@bluelovers/fast-glob");
 const BluebirdPromise = require("bluebird");
 const loader_line_1 = require("@novel-segment/loader-line");
-const index_1 = require("../lib/loader/segment/index");
+const index_1 = require("@novel-segment/loaders/segment/index");
 const naturalCompare = require("string-natural-compare");
 const util_1 = require("@novel-segment/util");
 Object.defineProperty(exports, "zhDictCompare", { enumerable: true, get: function () { return util_1.zhDictCompare; } });
