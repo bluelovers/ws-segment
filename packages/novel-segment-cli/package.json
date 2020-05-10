@@ -1,0 +1,64 @@
+{
+  "name": "novel-segment-cli",
+  "version": "1.1.1",
+  "description": "cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞",
+  "homepage": "https://github.com/bluelovers/novel-segment-cli#readme",
+  "bugs": {
+    "url": "https://github.com/bluelovers/novel-segment-cli/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluelovers/novel-segment-cli.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "main": "index.js",
+  "bin": {
+    "novel-segment-cli": "./bin/novel-segment-cli.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "coverage": "npx nyc yarn run test",
+    "lint": "npx eslint **/*.ts",
+    "ncu": "npx yarn-tool ncu -u",
+    "npm:publish": "npm publish",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
+    "postpublish": "git commit -m \"publish new version\" .",
+    "sort-package-json": "npx yarn-tool sort",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc:default": "tsc -p tsconfig.json",
+    "tsc:esm": "tsc -p tsconfig.esm.json"
+  },
+  "dependencies": {
+    "@bluelovers/fast-glob": "^3.0.4",
+    "@types/bluebird": "^3",
+    "@yarn-tool/update-notifier": "^1.0.4",
+    "array-hyper-unique": "^1.1.0",
+    "bluebird": "^3.7.2",
+    "cache-path": "^1.0.4",
+    "crlf-normalize": "^1.0.3",
+    "debug-color2": "^1.1.6",
+    "diff": "^4.0.2",
+    "fast-glob": "^3.1.1",
+    "fs-extra": "^8",
+    "fs-iconv": "^2.0.10",
+    "iconv-jschardet": "^1.1.3",
+    "lazy-cacache": "^1.0.9",
+    "lodash": "^4.17.15",
+    "node-alias": "^1.0.4",
+    "novel-segment": "^2",
+    "pkg-up": "^3.1.0",
+    "prettyuse": "^0.0.0",
+    "upath2": "^2.1.3",
+    "update-notifier": "^4.0.0",
+    "yargs": "^15"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.149",
+    "@types/update-notifier": "^2",
+    "find-cache-dir": "^3.2.0"
+  }
+}
