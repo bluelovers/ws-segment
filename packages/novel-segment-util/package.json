@@ -27,7 +27,6 @@
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "npx yarn-tool ncu -u && npx yarn-tool sort && yarn run test",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
-    "postpublish": "git commit -a -m \"postpublish new version\"",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
