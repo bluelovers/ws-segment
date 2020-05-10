@@ -3,7 +3,7 @@ import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 import FastGlob from '@bluelovers/fast-glob';
 import BluebirdPromise = require('bluebird');
 import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
-import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment/index';
+import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment/index';
 import { ICUR_WORD } from '../test/sort';
 import naturalCompare = require('string-natural-compare');
 import { array_unique } from 'array-hyper-unique';

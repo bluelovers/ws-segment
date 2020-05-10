@@ -10,10 +10,10 @@ import * as path from 'path';
 // @ts-ignore
 import _pkg = require('./package.json');
 
-import requireLoader, { requireModule as requireLoaderModule } from './lib/loader';
+import requireLoader, { requireModule as requireLoaderModule } from '@novel-segment/loaders/index';
 export { requireLoader, requireLoaderModule }
 
-import getDictPath from '@novel-segment/loaders';
+import getDictPath from './lib/dict';
 export { getDictPath }
 
 export const ROOT = projectConfig.project_root;

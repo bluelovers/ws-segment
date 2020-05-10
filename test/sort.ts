@@ -7,7 +7,7 @@ import * as fs from "fs-extra";
 import POSTAG from 'novel-segment/lib/POSTAG';
 import zhRegExp from 'regexp-cjk';
 import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
-import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '../lib/loader/segment';
+import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment';
 import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
 import libTable from 'cjk-conv/lib/zh/table';
 import naturalCompare = require('string-natural-compare');

@@ -7,11 +7,11 @@ exports.version = exports.DICT_ROOT = exports.ROOT = exports.getDictPath = expor
 const project_config_1 = require("./project.config");
 // @ts-ignore
 const _pkg = require("./package.json");
-const loader_1 = require("./lib/loader");
-exports.requireLoader = loader_1.default;
-Object.defineProperty(exports, "requireLoaderModule", { enumerable: true, get: function () { return loader_1.requireModule; } });
-const loaders_1 = require("@novel-segment/loaders");
-exports.getDictPath = loaders_1.default;
+const index_1 = require("@novel-segment/loaders/index");
+exports.requireLoader = index_1.default;
+Object.defineProperty(exports, "requireLoaderModule", { enumerable: true, get: function () { return index_1.requireModule; } });
+const dict_1 = require("./lib/dict");
+exports.getDictPath = dict_1.default;
 exports.ROOT = project_config_1.default.project_root;
 exports.DICT_ROOT = project_config_1.default.dict_root;
 exports.version = _pkg.version;
