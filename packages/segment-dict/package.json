@@ -115,5 +115,6 @@
     "novel-segment": "^2.5.12",
     "str-util": "^2.3.21",
     "string-natural-compare": "^3"
-  }
+  },
+  "gitHead": "c88b9152b814b77a8c9664afbf44d9ded1f6d9e1"
 }

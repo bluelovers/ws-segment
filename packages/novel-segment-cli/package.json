@@ -60,5 +60,6 @@
     "@types/lodash": "^4.14.150",
     "@types/update-notifier": "^4",
     "find-cache-dir": "^3.3.1"
-  }
+  },
+  "gitHead": "c88b9152b814b77a8c9664afbf44d9ded1f6d9e1"
 }
