@@ -17,14 +17,14 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
-    "ncu": "npx yarn-tool ncu -u",
-    "now-build": "node ./build.js",
-    "now-deploy": "yarn run now-build && now deploy",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "npm:publish": "npm publish",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
     "postpublish": "git commit -m \"publish new version\" .",
+    "ncu": "npx yarn-tool ncu -u",
+    "now-build": "node ./build.js",
+    "now-deploy": "yarn run now-build && now deploy",
     "sort-package-json": "npx sort-package-json package.json",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
@@ -32,12 +32,12 @@
     "cors": "^2.8.5",
     "crlf": "^1.1.1",
     "express": "^4.17.1",
-    "fs-extra": "^8.1.0",
-    "novel-segment": "^2.5.7"
+    "fs-extra": "^9.0.0",
+    "novel-segment": "^2.5.10"
   },
   "devDependencies": {
-    "@types/express": "^4.17.2",
-    "now": "^17.0.4"
+    "@types/express": "^4.17.6",
+    "now": "^19.0.0"
   },
   "engines": {
     "node": ">=10"
