@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loader-stopword",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loader-stopword#readme",
   "bugs": {
@@ -30,9 +30,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@novel-segment/dict-loader-core": "^1.0.0"
+    "@novel-segment/dict-loader-core": "^1.0.1"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   }
