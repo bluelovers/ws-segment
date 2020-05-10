@@ -19,6 +19,7 @@
     "prepublish:lockfile": "npx sync-lockfile .",
     "postpublish": "yarn run postpublish:git:subtree",
     "postpublish:git:subtree": "git subtree push novel-segment-cli master --prefix packages/novel-segment-cli && git subtree push node-segment master --prefix packages/novel-segment && git subtree push node-segment-dict master --prefix packages/segment-dict",
+    "postpublish:now-deploy": "npx lerna run --stream --scope @novel-segment/api-server now-deploy",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "npx yarn-tool ncu -u",
     "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
