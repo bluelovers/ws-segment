@@ -10,7 +10,7 @@ import {
 import lineByLine = require('n-readlines');
 import ProjectConfig from '../project.config';
 import * as path from "upath2";
-import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from 'segment-dict/lib/loader/segment/index';
+import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment/index';
 import UString from 'uni-string';
 import { getCjkName, zhDictCompare } from '@novel-segment/util';
 import { transliterate as tr, slugify as slugifyTr } from 'transliteration';

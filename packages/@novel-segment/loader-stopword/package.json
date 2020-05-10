@@ -29,6 +29,9 @@
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "@novel-segment/dict-loader-core": "^1.0.0"
+  },
   "devDependencies": {
 
   },

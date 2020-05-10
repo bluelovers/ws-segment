@@ -8,7 +8,7 @@ const segment_dict_1 = require("segment-dict");
 exports.SegmentDict = segment_dict_1.default;
 const SegmentDictLoader = require("segment-dict/lib/loader/segment");
 exports.SegmentDictLoader = SegmentDictLoader;
-const SegmentSynonymLoader = require("segment-dict/lib/loader/segment/synonym");
+const SegmentSynonymLoader = require("@novel-segment/loaders/segment/synonym");
 exports.SegmentSynonymLoader = SegmentSynonymLoader;
 exports.default = {
     SegmentDict: segment_dict_1.default,
