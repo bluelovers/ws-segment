@@ -2,7 +2,7 @@ import { array_unique } from 'array-hyper-unique';
 import { console } from "debug-color2";
 import * as fs from "fs-extra";
 import * as path from "upath2";
-import { serialize } from '../lib/loader/line';
+import { serialize } from '@novel-segment/loader-line';
 import ProjectConfig from "../project.config";
 
 import {
