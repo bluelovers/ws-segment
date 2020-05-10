@@ -1,0 +1,6 @@
+# Created by .ignore support plugin (hsz.mobi)
+!/cache/**/*
+!/cache
+!/cache.db.info.json
+!/stringify.sorted.txt
+/stringify.txt

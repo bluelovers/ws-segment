@@ -1,0 +1,40 @@
+language: node_js
+node_js:
+    - "node"
+
+#deploy:
+#  provider: pages
+#  skip-cleanup: true
+#  github-token: $GITHUB_TOKEN
+#  keep-history: true
+#  on:
+#    branch: master
+#  local-dir: docs
+
+
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+
+before_install:
+  #- npm install -g typedoc typedoc-themes-color typedoc-plugin-nojekyll
+  - npm install -g typescript@next ts-node mocha chai
+
+install:
+#  - yarn install
+  - yarn add fs-extra chai-string @types/mocha   typescript@next ts-node mocha chai chai-asserttype-extra
+
+
+before_script:
+  - yarn list segment-dict
+  - echo before_script
+script:
+#  npm run travis
+  yarn run test
+
+env:
+  global:
+    - TS_NODE_TRANSPILE_ONLY=true
+    - color=1
+    - FORCE_COLOR=1

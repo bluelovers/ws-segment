@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const repl = require('repl');
+
+const r = repl.start('> ');
+const c = r.context;
+
+c._load = function ()
+{
+	c.Segment = require('./');
+	const segment = new c.Segment();
+	segment.useDefault();
+	c.segment = segment;
+	c.s = function ()
+	{
+		return c.segment.doSegment.apply(c.segment, arguments);
+	};
+	c.ss = function ()
+	{
+		const list = c.s.apply(null, arguments);
+		return list.map(function (v) { return v.w; }).join('/');
+	};
+};
+
+c.reload = function ()
+{
+	const t = Date.now();
+	const dir = path.resolve(__dirname) + path.sep;
+	for (let i in require.cache)
+	{
+		if (i.indexOf(dir) === 0)
+		{
+			delete require.cache[i];
+			// console.log('delete %s', i);
+		}
+	}
+	c._load();
+	console.log('OK. (spent %sms)', Date.now() - t);
+}
+
+c._load();
