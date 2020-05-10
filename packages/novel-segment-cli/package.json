@@ -61,5 +61,5 @@
     "@types/update-notifier": "^4",
     "find-cache-dir": "^3.3.1"
   },
-  "gitHead": "c34262d7eccb9a5ab62b6111db2e446f79b8c4f0"
+  "gitHead": "71f1932ee2fdf4d390710cdad31805e1323ed82c"
 }
