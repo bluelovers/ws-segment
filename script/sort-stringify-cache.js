@@ -13,7 +13,7 @@ const cjk_conv_1 = require("cjk-conv");
 const fast_glob_1 = require("fast-glob");
 const util_2 = require("segment-dict/script/util");
 const array_hyper_unique_1 = require("array-hyper-unique");
-const line_1 = require("segment-dict/lib/loader/line");
+const loader_line_1 = require("@novel-segment/loader-line");
 const debug_color2_1 = require("debug-color2");
 const greedy_1 = require("cjk-conv/lib/zh/table/greedy");
 const table_1 = require("cjk-conv/lib/zh/table");
@@ -133,7 +133,7 @@ if (worker_threads_1.isMainThread) {
                 list = SortList(list);
                 let out_list = list.map(v => v.line);
                 out_list = array_hyper_unique_1.array_unique(out_list);
-                let out_data = line_1.serialize(out_list);
+                let out_data = loader_line_1.serialize(out_list);
                 fs.outputFileSync(file, out_data + "\n\n");
                 fs.appendFileSync(file2, out_data + "\n");
                 log('[done]', path.relative(CWD_SAVETO, file));
