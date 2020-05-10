@@ -22,6 +22,7 @@ export function createLoadStreamSync<T>(file: string, options: {
 {
 	options.onready = options.onready || function (src, ...argv)
 	{
+		// @ts-ignore
 		this.value = this.value || [];
 	};
 
@@ -32,7 +33,9 @@ export function createLoadStreamSync<T>(file: string, options: {
 
 	options.ondata = options.ondata || function (data)
 	{
+		// @ts-ignore
 		this.value = this.value || [];
+		// @ts-ignore
 		this.value.push(data);
 	};
 

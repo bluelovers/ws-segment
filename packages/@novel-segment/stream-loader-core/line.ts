@@ -32,12 +32,15 @@ export function byLine(fn?, options: IOptions = {})
 
 	fn = fn || options.mapper;
 
+	// @ts-ignore
 	let wts = split2(fn) as IStreamLine;
 
 	wts.on('pipe', function (src)
 	{
+		// @ts-ignore
 		const self = this;
 
+		// @ts-ignore
 		this.pipeFrom = src;
 		let pipeStat = null as fs.Stats;
 
@@ -69,6 +72,7 @@ export function byLine(fn?, options: IOptions = {})
 			self.bytesSize = null;
 		}
 
+		// @ts-ignore
 		this.pipeStat = pipeStat;
 
 		src
@@ -125,11 +129,13 @@ export function wrapStreamToPromise<T extends NodeJS.WritableStream>(stream: T):
 	stream
 		.on('close', function (...argv)
 		{
+			// @ts-ignore
 			resolve(this);
 			//console.log('d.close', ...argv);
 		})
 		.on('finish', function (...argv)
 		{
+			// @ts-ignore
 			resolve(this);
 			//console.log('d.close', ...argv);
 		})

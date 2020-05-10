@@ -10,13 +10,16 @@ const path = require("path");
 const line_1 = require("./line");
 function createLoadStreamSync(file, options = {}) {
     options.onready = options.onready || function (src, ...argv) {
+        // @ts-ignore
         this.value = this.value || [];
     };
     options.mapper = options.mapper || function (data) {
         return data;
     };
     options.ondata = options.ondata || function (data) {
+        // @ts-ignore
         this.value = this.value || [];
+        // @ts-ignore
         this.value.push(data);
     };
     let stream = createStreamLineSync(file, options.mapper, {

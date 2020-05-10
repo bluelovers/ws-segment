@@ -4,9 +4,9 @@
 
 import Promise = require('bluebird');
 import { LF } from 'crlf-normalize';
-import { wrapStreamToPromise, IStreamLineWithValue } from '../fs/line';
-import createLoadStream, { ICallback } from '../fs/stream';
-import createLoadStreamSync from '../fs/sync';
+import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
+import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
+import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
 import { autobind } from 'core-decorators';
 
 export type IOptions<T, R> = {

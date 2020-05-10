@@ -4,13 +4,16 @@ exports.createLoadStream = void 0;
 const line_1 = require("./line");
 function createLoadStream(file, options = {}) {
     options.onready = options.onready || function (src, ...argv) {
+        // @ts-ignore
         this.value = this.value || [];
     };
     options.mapper = options.mapper || function (data) {
         return data;
     };
     options.ondata = options.ondata || function (data) {
+        // @ts-ignore
         this.value = this.value || [];
+        // @ts-ignore
         this.value.push(data);
     };
     let stream = line_1.createStreamLine(file, options.mapper, {

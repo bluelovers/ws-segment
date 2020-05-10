@@ -14,9 +14,12 @@ function byLine(fn, options = {}) {
         [options, fn] = [fn, undefined];
     }
     fn = fn || options.mapper;
+    // @ts-ignore
     let wts = split2(fn);
     wts.on('pipe', function (src) {
+        // @ts-ignore
         const self = this;
+        // @ts-ignore
         this.pipeFrom = src;
         let pipeStat = null;
         if (typeof src.bytesTotal == 'number') {
@@ -37,6 +40,7 @@ function byLine(fn, options = {}) {
         else {
             self.bytesSize = null;
         }
+        // @ts-ignore
         this.pipeStat = pipeStat;
         src
             .on('close', function (...argv) {
@@ -72,10 +76,12 @@ function wrapStreamToPromise(stream) {
     });
     stream
         .on('close', function (...argv) {
+        // @ts-ignore
         resolve(this);
         //console.log('d.close', ...argv);
     })
         .on('finish', function (...argv) {
+        // @ts-ignore
         resolve(this);
         //console.log('d.close', ...argv);
     })

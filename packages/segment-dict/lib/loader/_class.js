@@ -14,9 +14,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoaderClass = void 0;
 const crlf_normalize_1 = require("crlf-normalize");
-const line_1 = require("../fs/line");
-const stream_1 = require("../fs/stream");
-const sync_1 = require("../fs/sync");
+const line_1 = require("@novel-segment/stream-loader-core/line");
+const stream_1 = require("@novel-segment/stream-loader-core/stream");
+const sync_1 = require("@novel-segment/stream-loader-core/sync");
 const core_decorators_1 = require("core-decorators");
 let LoaderClass = /** @class */ (() => {
     let LoaderClass = class LoaderClass {

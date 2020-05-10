@@ -46,6 +46,7 @@ const libLoader = new _class_1.default({
             }
             // @ts-ignore
             a[1] = '0x' + a[1]
+                // @ts-ignore
                 .toString(16)
                 .padStart(4, '0')
                 .toUpperCase();

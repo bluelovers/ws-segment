@@ -2,7 +2,7 @@ import Promise = require('bluebird');
 // @ts-ignore
 import path = require('path');
 import { ROOT } from '../../index';
-import { IStreamLineWithValue } from '../fs/line';
+import { IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
 import * as OPENCC from './opencc';
