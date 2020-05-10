@@ -105,4 +105,4 @@ let LoaderClass = /** @class */ (() => {
 })();
 exports.LoaderClass = LoaderClass;
 exports.default = LoaderClass;
-//# sourceMappingURL=_class.js.map
+//# sourceMappingURL=index.js.map

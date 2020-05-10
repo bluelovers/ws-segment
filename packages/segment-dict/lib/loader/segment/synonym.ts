@@ -6,7 +6,7 @@ import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream
 import Promise = require('bluebird');
 import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
 import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
-import { LoaderClass } from '../_class';
+import { LoaderClass } from '@novel-segment/dict-loader-core';
 
 export type IDictRow = string[];
 export type IDict = IDictRow[];

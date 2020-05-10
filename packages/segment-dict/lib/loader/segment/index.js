@@ -4,8 +4,8 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Loader = exports.serialize = exports.stringifyLine = exports.parseLine = exports.loadStreamSync = exports.loadStream = exports.loadSync = exports.load = void 0;
-const _class_1 = require("../_class");
-const libLoader = new _class_1.default({
+const dict_loader_core_1 = require("@novel-segment/dict-loader-core");
+const libLoader = new dict_loader_core_1.default({
     parseLine(input) {
         let [str, n, s, ...plus] = input
             .replace(/^\s+|\s+$/, '')

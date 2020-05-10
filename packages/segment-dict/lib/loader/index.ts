@@ -6,7 +6,7 @@ import { IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import * as JIEBA from './jieba';
 import * as SEGMENT from './segment';
 import * as OPENCC from './opencc';
-import LoaderClass from './_class';
+import LoaderClass from '@novel-segment/dict-loader-core';
 
 export function requireDefault<T = any>(id, subtype: string): (file: string) => Promise<T>
 export function requireDefault(id: 'jieba'): typeof JIEBA.load
