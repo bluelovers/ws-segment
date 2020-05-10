@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.3.72",
+  "version": "2.3.73",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -91,7 +91,7 @@
     "@novel-segment/loader-stopword": "^1.0.1",
     "@novel-segment/loaders": "^1.0.1",
     "@novel-segment/stream-loader-core": "^1.0.1",
-    "@novel-segment/util": "^1.0.11",
+    "@novel-segment/util": "^1.0.12",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3",
@@ -112,7 +112,7 @@
     "cross-spawn-extra": "^2.0.0",
     "debug-color2": "^1.1.7",
     "git-root2": "^1.0.7",
-    "novel-segment": "^2.5.11",
+    "novel-segment": "^2.5.12",
     "str-util": "^2.3.21",
     "string-natural-compare": "^3"
   }
