@@ -33,7 +33,7 @@
     "crlf": "^1.1.1",
     "express": "^4.17.1",
     "fs-extra": "^9.0.0",
-    "novel-segment": "^2.5.12"
+    "novel-segment": "^2.5.10"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
