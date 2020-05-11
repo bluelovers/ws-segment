@@ -15,7 +15,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch --ignore @novel-segment/api-server --no-private",
+    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch --ignore @novel-segment/api-server",
     "prepublish:lockfile": "npx sync-lockfile .",
     "postpublish": "yarn run postpublish:segment & yarn run postpublish:git:subtree & git push & yarn run postpublish:now-deploy",
     "postpublish:git:subtree": "git subtree push novel-segment-cli master --prefix packages/novel-segment-cli && git subtree push node-segment master --prefix packages/novel-segment && git subtree push node-segment-dict master --prefix packages/segment-dict",
