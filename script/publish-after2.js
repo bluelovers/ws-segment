@@ -7,6 +7,7 @@ const path = require("path");
 const project_config_1 = require("../project.config");
 /// <reference types="cross-spawn" />
 const index = require("../index");
+const path_1 = require("path");
 (async () => {
     let crossSpawn;
     // @ts-ignore
@@ -20,8 +21,9 @@ const index = require("../index");
         console.warn(`no git exists`);
         return;
     }
+    let cwd = path_1.join(project_config_1.default.project_root, 'test');
     let options = {
-        cwd: path.join(project_config_1.default.project_root, 'test'),
+        cwd,
         stdio: 'inherit',
     };
     let msg = `novel-segment@${index.versions['novel-segment']}, segment-dict@${index.versions['segment-dict']}, cjk-conv@${index.versions['cjk-conv']}, regexp-cjk@${index.versions['regexp-cjk']}`;
