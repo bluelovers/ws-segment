@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
-    "now": "^19.0.0"
+    "now": "^19.0.1"
   },
   "engines": {
     "node": ">=10"
