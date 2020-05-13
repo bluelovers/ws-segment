@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.77](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.76...segment-dict@2.3.77) (2020-05-13)
+
+
+### Bug Fixes
+
+* 我喜欢的男孩，其实也是女孩 簡介 ([e648a2e](https://github.com/bluelovers/node-segment-dict/commit/e648a2ecc2b6dc6eebbe743bf249d7e94e581dbf))
+
+
+
+
+
 ## [2.3.76](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.75...segment-dict@2.3.76) (2020-05-10)
 
 **Note:** Version bump only for package segment-dict
