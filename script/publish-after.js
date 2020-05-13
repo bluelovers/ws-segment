@@ -33,15 +33,20 @@ const path_1 = require("path");
         '-m',
         msg,
     ], options);
-    await new Promise(function (done) {
+    /*
+    await new Promise(function (done)
+    {
         setTimeout(done, 500);
     });
+
     await crossSpawn('git', [
         'tag',
         '-a',
         PackageJson.version,
         '-m',
         msg,
+        // @ts-ignore
     ], options);
+     */
 })().catch(e => console.error(e));
 //# sourceMappingURL=publish-after.js.map
