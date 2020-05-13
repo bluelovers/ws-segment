@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/api-server",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "private": true,
   "description": "simple segment api server",
   "homepage": "https://github.com/bluelovers/ws-segment#readme",
@@ -34,7 +34,7 @@
     "crlf": "^1.1.1",
     "express": "^4.17.1",
     "fs-extra": "^9.0.0",
-    "novel-segment": "^2.5.15"
+    "novel-segment": "^2.5.16"
   },
   "devDependencies": {
     "@types/express": "^4.17.6",
