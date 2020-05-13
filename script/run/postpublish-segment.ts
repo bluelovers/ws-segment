@@ -10,6 +10,7 @@ import crossSpawn from 'cross-spawn-extra'
 import { del } from '../util/add-to-postpublish-task';
 import Bluebird = require('bluebird')
 import console from 'debug-color2/logger'
+import { gitSubtreePush } from '../util/git-subtree-push';
 
 FastGlob
 	.async([
@@ -27,7 +28,7 @@ FastGlob
 			.mapSeries([
 				'segment-dict',
 				'novel-segment',
-			], async (module_name) =>
+			] as const, async (module_name) =>
 			{
 				let bool = ls.includes(module_name);
 
@@ -47,6 +48,8 @@ FastGlob
 					})
 
 					await del(module_name)
+
+					await gitSubtreePush(module_name)
 				}
 
 				return bool
