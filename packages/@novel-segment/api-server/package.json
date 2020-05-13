@@ -20,11 +20,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "npm:publish": "npm publish",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
-    "postpublish:done": "yarn run now-deploy && yarn run postpublish:commit",
     "postpublish:commit": "ts-node ./script/publish-after2.ts",
+    "postpublish:done": "yarn run now-deploy && yarn run postpublish:commit",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
-    "now-build": "node ./build.js",
+    "now-build": "yarn add novel-segment && yarn run now-build:run",
+    "now-build:run": "node ./build.js",
     "now-deploy": "yarn run now-build && now deploy",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
@@ -32,14 +33,18 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "crlf": "^1.1.1",
+    "crlf-normalize": "^1.0.3",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.0",
-    "novel-segment": "^2.5.16"
+    "fs-extra": "^9.0.0"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
+    "@types/fs-extra": "^8.1.0",
     "now": "^19.0.1"
+  },
+  "peerDependencies": {
+    "novel-segment": "^2"
   },
   "engines": {
     "node": ">=10"
