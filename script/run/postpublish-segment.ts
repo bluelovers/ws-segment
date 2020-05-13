@@ -5,12 +5,13 @@
 import FastGlob from '@bluelovers/fast-glob/bluebird';
 import { join } from "path";
 import __root_ws from '../../__root_ws';
-import { readFile } from 'fs-extra';
+import { readFile, outputFileSync } from 'fs-extra';
 import crossSpawn from 'cross-spawn-extra'
-import { del } from '../util/add-to-postpublish-task';
+import { del, name } from '../util/add-to-postpublish-task';
 import Bluebird = require('bluebird')
 import console from 'debug-color2/logger'
 import { gitSubtreePush } from '../util/git-subtree-push';
+import createCacheName from '../util/create-cache-name';
 
 FastGlob
 	.async([
@@ -49,7 +50,8 @@ FastGlob
 
 					await del(module_name)
 
-					await gitSubtreePush(module_name)
+					console.debug(`[postpublish:script]`, `add`, module_name);
+					outputFileSync(createCacheName('subtree', module_name), module_name);
 				}
 
 				return bool

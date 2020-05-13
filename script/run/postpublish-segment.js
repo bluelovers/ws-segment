@@ -11,7 +11,7 @@ const cross_spawn_extra_1 = require("cross-spawn-extra");
 const add_to_postpublish_task_1 = require("../util/add-to-postpublish-task");
 const Bluebird = require("bluebird");
 const logger_1 = require("debug-color2/logger");
-const git_subtree_push_1 = require("../util/git-subtree-push");
+const create_cache_name_1 = require("../util/create-cache-name");
 bluebird_1.default
     .async([
     '**/*',
@@ -41,7 +41,8 @@ bluebird_1.default
                 stdio: 'inherit',
             });
             await add_to_postpublish_task_1.del(module_name);
-            await git_subtree_push_1.gitSubtreePush(module_name);
+            logger_1.default.debug(`[postpublish:script]`, `add`, module_name);
+            fs_extra_1.outputFileSync(create_cache_name_1.default('subtree', module_name), module_name);
         }
         return bool;
     });

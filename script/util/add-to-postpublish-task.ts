@@ -5,14 +5,11 @@ import __root_ws from '../../__root_ws';
 import { join } from 'path';
 import { outputFileSync, ensureFileSync, unlinkSync } from 'fs-extra';
 import console from 'debug-color2';
+import createCacheName from './create-cache-name';
 
 export function name(name: string)
 {
-	name = name
-		.replace(/[^\-_\w\d]/g, '__')
-	;
-
-	return join(__root_ws, 'temp', 'postpublish', `${name}`)
+	return createCacheName('postpublish', `${name}`)
 }
 
 export function add(module_name: string)
