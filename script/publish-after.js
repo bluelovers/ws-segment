@@ -18,8 +18,15 @@ const path_1 = require("path");
     // @ts-ignore
     gitroot = gitroot(__dirname);
     if (!gitroot || path.relative(gitroot, project_config_1.default.project_root)) {
-        console.warn(`no git exists`);
-        return;
+        let __root_ws = await Promise.resolve().then(() => require('../../../__root_ws')).then(m => m.__root_ws)
+            .catch(e => null);
+        if (!__root_ws || path.relative(gitroot, __root_ws)) {
+            console.warn(`no git exists`);
+            console.warn(`__root_ws`, __root_ws);
+            console.warn(`gitroot`, gitroot);
+            console.warn(`path.relative`, path.relative(gitroot, project_config_1.default.project_root));
+            return;
+        }
     }
     let cwd = path_1.join(project_config_1.default.project_root, 'dict');
     let options = {
@@ -29,9 +36,10 @@ const path_1 = require("path");
     let msg = `npm publish ${PackageJson.version}`;
     await crossSpawn('git', [
         'commit',
-        '-a',
+        //'-a',
         '-m',
         msg,
+        '.',
     ], options);
     /*
     await new Promise(function (done)
