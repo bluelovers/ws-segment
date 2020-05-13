@@ -45,6 +45,7 @@ import { join } from 'path';
 		// @ts-ignore
 	], options);
 
+	/*
 	await new Promise(function (done)
 	{
 		setTimeout(done, 500);
@@ -58,5 +59,6 @@ import { join } from 'path';
 		msg,
 		// @ts-ignore
 	], options);
+	 */
 
 })().catch(e => console.error(e));
