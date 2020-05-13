@@ -6,6 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const path = require("path");
 const project_config_1 = require("../project.config");
 const PackageJson = require("../package.json");
+const path_1 = require("path");
 /// <reference types="cross-spawn" />
 (async () => {
     let crossSpawn;
@@ -20,8 +21,9 @@ const PackageJson = require("../package.json");
         console.warn(`no git exists`);
         return;
     }
+    let cwd = path_1.join(project_config_1.default.project_root, 'dict');
     let options = {
-        cwd: project_config_1.default.project_root,
+        cwd,
         stdio: 'inherit',
     };
     let msg = `npm publish ${PackageJson.version}`;

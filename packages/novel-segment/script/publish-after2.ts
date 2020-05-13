@@ -10,6 +10,7 @@ import CrossSpawn = require('cross-spawn-extra');
 /// <reference types="cross-spawn" />
 
 import index = require('../index');
+import { join } from "path";
 
 (async () =>
 {
@@ -30,8 +31,10 @@ import index = require('../index');
 		return;
 	}
 
+	let cwd = join(ProjectConfig.project_root, 'test');
+
 	let options = {
-		cwd: path.join(ProjectConfig.project_root, 'test'),
+		cwd,
 		stdio: 'inherit',
 	};
 

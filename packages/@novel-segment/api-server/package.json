@@ -20,6 +20,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "npm:publish": "npm publish",
     "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "postpublish:done": "yarn run now-deploy",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
     "now-build": "node ./build.js",

@@ -6,6 +6,7 @@ import * as path from 'path';
 import ProjectConfig from '../project.config';
 import * as PackageJson from '../package.json';
 import CrossSpawn = require('cross-spawn-extra');
+import { join } from 'path';
 /// <reference types="cross-spawn" />
 
 (async () =>
@@ -27,8 +28,10 @@ import CrossSpawn = require('cross-spawn-extra');
 		return;
 	}
 
+	let cwd = join(ProjectConfig.project_root, 'dict');
+
 	let options = {
-		cwd: ProjectConfig.project_root,
+		cwd,
 		stdio: 'inherit',
 	};
 
