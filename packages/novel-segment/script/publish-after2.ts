@@ -27,8 +27,19 @@ import { join } from "path";
 
 	if (!gitroot || path.relative(gitroot, ProjectConfig.project_root))
 	{
-		console.warn(`no git exists`);
-		return;
+		let __root_ws = await import('../../../__root_ws')
+			.then(m => m.__root_ws)
+			.catch(e => null)
+		;
+
+		if (!__root_ws || path.relative(gitroot, __root_ws))
+		{
+			console.warn(`no git exists`);
+			console.warn(`__root_ws`, __root_ws);
+			console.warn(`gitroot`, gitroot);
+			console.warn(`path.relative`, path.relative(gitroot, ProjectConfig.project_root));
+			return;
+		}
 	}
 
 	let cwd = join(ProjectConfig.project_root, 'test');
@@ -42,9 +53,10 @@ import { join } from "path";
 
 	await crossSpawn('git', [
 		'commit',
-		'-a',
+		//'-a',
 		'-m',
 		msg,
+		'.',
 	], options);
 
 })().catch(e => console.error(e));
