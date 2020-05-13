@@ -21,10 +21,10 @@
     "postpublish:git:subtree": "git subtree push novel-segment-cli master --prefix packages/novel-segment-cli && git subtree push node-segment master --prefix packages/novel-segment && git subtree push node-segment-dict master --prefix packages/segment-dict",
     "postpublish:now-deploy": "ts-node ./script/run/postpublish-now-deploy.ts",
     "postpublish:segment": "ts-node ./script/run/postpublish-segment.ts",
-    "postpublishOnly:add": "ts-node ./script/run/postpublish-add.ts",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
     "ncu:root": "npx yarn-tool ncu -u",
     "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "postpublishOnly:add": "ts-node ./script/run/postpublish-add.ts",
     "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
     "sort-package-json:root": "npx yarn-tool sort",
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
