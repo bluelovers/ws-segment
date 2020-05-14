@@ -40,7 +40,7 @@ async function gitSubtreePush(module_name) {
     }
     let file = create_cache_name_1.default('subtree', module_name);
     if (fs_extra_1.pathExistsSync(file)) {
-        logger_1.default.debug(`[postpublish:script]`, `del`, module_name);
+        logger_1.default.debug(`[subtree:script]`, `del`, module_name);
         fs_extra_1.unlinkSync(file);
     }
 }

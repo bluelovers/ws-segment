@@ -46,7 +46,7 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 	let file = createCacheName('subtree', module_name);
 	if (pathExistsSync(file))
 	{
-		console.debug(`[postpublish:script]`, `del`, module_name);
+		console.debug(`[subtree:script]`, `del`, module_name);
 		unlinkSync(file);
 	}
 }
