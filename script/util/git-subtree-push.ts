@@ -40,6 +40,7 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 			prefix,
 		], {
 			cwd: __root_ws,
+			stdio: 'inherit',
 		});
 	}
 

@@ -36,6 +36,7 @@ async function gitSubtreePush(module_name) {
             prefix,
         ], {
             cwd: __root_ws_1.default,
+            stdio: 'inherit',
         });
     }
     let file = create_cache_name_1.default('subtree', module_name);
