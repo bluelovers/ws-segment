@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.17](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.16...novel-segment@2.5.17) (2020-05-14)
+
+
+### Bug Fixes
+
+* support check git in ws ([93d9046](https://github.com/bluelovers/node-segment/commit/93d904629b42fd63db20f174391bb0ce618055aa))
+
+
+
+
+
 ## [2.5.16](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.15...novel-segment@2.5.16) (2020-05-13)
 
 
