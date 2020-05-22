@@ -11,7 +11,7 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 }));
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
-}
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.hexOr = exports.hexAnd = exports.hexAndAny = exports.debug_options = exports.debug = exports.debug_inspect = exports.token_add_info = exports.toHex = exports.debug_token = void 0;
 const util = require("util");
