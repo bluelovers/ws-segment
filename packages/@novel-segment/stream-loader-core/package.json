@@ -35,7 +35,7 @@
     "stream-pipe": "^1.0.1"
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.30",
+    "@types/bluebird": "^3.5.32",
     "@types/split2": "^2.1.6"
   },
   "publishConfig": {
