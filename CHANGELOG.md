@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.79](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.78...segment-dict@2.3.79) (2020-05-23)
+
+
+### Bug Fixes
+
+* 戒 ([bb8dc70](https://github.com/bluelovers/node-segment-dict/commit/bb8dc70750d2946280ad80abe8296f12ff3a1f68))
+
+
+
+
+
 ## [2.3.78](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.77...segment-dict@2.3.78) (2020-05-14)
 
 
