@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.15...@novel-segment/util@1.0.16) (2020-05-23)
+
+**Note:** Version bump only for package @novel-segment/util
+
+
+
+
+
 ## [1.0.15](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.14...@novel-segment/util@1.0.15) (2020-05-10)
 
 
