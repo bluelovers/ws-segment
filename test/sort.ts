@@ -314,7 +314,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/錄|入|录|錄|録|陆|陸|込/u).test(w)
+				&& zhRegExp.create(/侯|候|𠊱|𠋫/u).test(w)
 			)
 			{
 				bool = true;
