@@ -440,7 +440,28 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 			'天后',
 		],
 	],
-	
+
+	[
+		'因為一天的登入時間是現實時間合計8小時',
+		[
+			'入時',
+		],
+	],
+
+	[
+		'像帶鋼筋的混凝土塊這樣的重量物放進去的話,',
+		[
+			'帶鋼',
+		],
+	],
+
+	[
+		'否则就跟不上这边的水准了',
+		[
+			'否',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

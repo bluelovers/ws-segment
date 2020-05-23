@@ -448,6 +448,20 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'鑑定的放大鏡',
+		[
+			['放大鏡'],
+		],
+	],
+	[
+		'那样操作对机体的负荷太大了吧！？',
+		[
+			['操作'],
+		],
+	],
+
+
 ];
 
 export default tests_lazy_base

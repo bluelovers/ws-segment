@@ -989,6 +989,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'冈萨斯却完全没有自己占了优势的感觉。',
+		[
+			'佔',
+		]
+	],
+
 ];
 
 /**
