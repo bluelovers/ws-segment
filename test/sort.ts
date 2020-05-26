@@ -314,7 +314,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/姆|母/u).test(w)
+				&& zhRegExp.create(/咨|諮|谘/u).test(w)
 			)
 			{
 				bool = true;
