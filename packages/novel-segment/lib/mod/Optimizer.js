@@ -14,33 +14,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.Optimizer = exports.SubSModuleOptimizer = void 0;
 const core_decorators_1 = require("core-decorators");
 const mod_1 = require("./mod");
-let SubSModuleOptimizer = /** @class */ (() => {
-    let SubSModuleOptimizer = 
-    // @ts-ignore
-    class SubSModuleOptimizer extends mod_1.SubSModule {
-        constructor() {
-            super(...arguments);
-            this.type = 'optimizer';
-        }
-        doOptimize(words, ...argv) {
-            throw new Error();
-        }
-        init(segment, ...argv) {
-            super.init(segment, ...argv);
-            return this;
-        }
-        static init(segment, ...argv) {
-            // @ts-ignore
-            return super.init(segment, ...argv);
-        }
-    };
-    SubSModuleOptimizer.type = 'optimizer';
-    SubSModuleOptimizer = __decorate([
-        core_decorators_1.autobind
+let SubSModuleOptimizer = 
+// @ts-ignore
+class SubSModuleOptimizer extends mod_1.SubSModule {
+    constructor() {
+        super(...arguments);
+        this.type = 'optimizer';
+    }
+    doOptimize(words, ...argv) {
+        throw new Error();
+    }
+    init(segment, ...argv) {
+        super.init(segment, ...argv);
+        return this;
+    }
+    static init(segment, ...argv) {
         // @ts-ignore
-    ], SubSModuleOptimizer);
-    return SubSModuleOptimizer;
-})();
+        return super.init(segment, ...argv);
+    }
+};
+SubSModuleOptimizer.type = 'optimizer';
+SubSModuleOptimizer = __decorate([
+    core_decorators_1.autobind
+    // @ts-ignore
+], SubSModuleOptimizer);
 exports.SubSModuleOptimizer = SubSModuleOptimizer;
 /**
  * 分词模块管理器
