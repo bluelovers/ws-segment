@@ -454,10 +454,18 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 			['放大鏡'],
 		],
 	],
+
 	[
 		'那样操作对机体的负荷太大了吧！？',
 		[
 			['操作'],
+		],
+	],
+
+	[
+		'今天津大學',
+		[
+			['天津'],
 		],
 	],
 
