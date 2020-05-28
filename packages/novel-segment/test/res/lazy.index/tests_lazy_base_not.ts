@@ -462,6 +462,21 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'是有权能向国王提出谏言',
+		[
+			'权能',
+		],
+	],
+
+	[
+		'但我无法准许你阅读王城内禁书库的资料',
+		[
+			['城内'],
+			['书库'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
