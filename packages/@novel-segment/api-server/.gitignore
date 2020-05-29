@@ -71,3 +71,4 @@ coverage
 /.browserslistrc
 
 .now
+/cache/cache.json

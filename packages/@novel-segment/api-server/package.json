@@ -19,7 +19,7 @@
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "npm:publish": "npm publish",
-    "prepublishOnly": "npm run ncu && npm run sort-package-json",
+    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
     "postpublish:commit": "ts-node ./script/publish-after2.ts",
     "postpublish:done": "yarn run now-deploy && yarn run postpublish:commit",
     "postpublish_": "git commit -m \"publish new version\" .",
