@@ -469,6 +469,12 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'比起主角是ts,伪娘的',
+		[
+			['伪娘'],
+		],
+	],
 
 ];
 

@@ -44,8 +44,8 @@
     "diff": "^4.0.2",
     "fast-glob": "^3.2.2",
     "fs-extra": "^9",
-    "fs-iconv": "^3.0.4",
-    "iconv-jschardet": "^2.0.5",
+    "fs-iconv": "^3.0.5",
+    "iconv-jschardet": "^2.0.6",
     "lazy-cacache": "^1.0.9",
     "lodash": "^4.17.15",
     "node-alias": "^1.0.4",
@@ -57,7 +57,7 @@
     "yargs": "^15"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.153",
+    "@types/lodash": "^4.14.154",
     "@types/update-notifier": "^4",
     "find-cache-dir": "^3.3.1"
   },
