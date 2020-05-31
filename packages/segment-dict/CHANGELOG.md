@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.82](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.81...segment-dict@2.3.82) (2020-05-31)
+
+
+### Bug Fixes
+
+* 透过后制隐瞒当事人的真实身分之后 ([bba3294](https://github.com/bluelovers/node-segment-dict/commit/bba329422fdc8cade395d47e6a630018e6943c0a))
+
+
+
+
+
 ## [2.3.81](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.80...segment-dict@2.3.81) (2020-05-31)
 
 **Note:** Version bump only for package segment-dict

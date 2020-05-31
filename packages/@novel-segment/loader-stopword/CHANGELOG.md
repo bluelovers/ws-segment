@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.4](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.3...@novel-segment/loader-stopword@1.0.4) (2020-05-31)
+
+
+### Bug Fixes
+
+* 透过后制隐瞒当事人的真实身分之后 ([bba3294](https://github.com/bluelovers/ws-segment/commit/bba329422fdc8cade395d47e6a630018e6943c0a))
+
+
+
+
+
 ## [1.0.3](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.2...@novel-segment/loader-stopword@1.0.3) (2020-05-31)
 
 **Note:** Version bump only for package @novel-segment/loader-stopword

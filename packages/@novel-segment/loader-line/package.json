@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loader-line",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loader-line#readme",
   "bugs": {
@@ -30,7 +30,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@novel-segment/dict-loader-core": "^1.0.3"
+    "@novel-segment/dict-loader-core": "^1.0.4"
   },
   "publishConfig": {
     "access": "public"

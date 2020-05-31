@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.7...@novel-segment/loaders@1.0.8) (2020-05-31)
+
+
+### Bug Fixes
+
+* 透过后制隐瞒当事人的真实身分之后 ([bba3294](https://github.com/bluelovers/ws-segment/commit/bba329422fdc8cade395d47e6a630018e6943c0a))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.6...@novel-segment/loaders@1.0.7) (2020-05-31)
 
 **Note:** Version bump only for package @novel-segment/loaders

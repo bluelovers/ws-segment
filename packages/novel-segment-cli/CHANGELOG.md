@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.14](https://github.com/bluelovers/novel-segment-cli/compare/novel-segment-cli@1.1.13...novel-segment-cli@1.1.14) (2020-05-31)
+
+
+### Bug Fixes
+
+* 透过后制隐瞒当事人的真实身分之后 ([bba3294](https://github.com/bluelovers/novel-segment-cli/commit/bba329422fdc8cade395d47e6a630018e6943c0a))
+
+
+
+
+
 ## [1.1.13](https://github.com/bluelovers/novel-segment-cli/compare/novel-segment-cli@1.1.12...novel-segment-cli@1.1.13) (2020-05-31)
 
 **Note:** Version bump only for package novel-segment-cli
