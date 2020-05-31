@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.20](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.19...novel-segment@2.5.20) (2020-05-31)
+
+**Note:** Version bump only for package novel-segment
+
+
+
+
+
 ## [2.5.19](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.18...novel-segment@2.5.19) (2020-05-28)
 
 **Note:** Version bump only for package novel-segment
