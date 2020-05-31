@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.21](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.20...novel-segment@2.5.21) (2020-05-31)
+
+
+### Bug Fixes
+
+* 透过后制隐瞒当事人的真实身分之后 ([bba3294](https://github.com/bluelovers/node-segment/commit/bba329422fdc8cade395d47e6a630018e6943c0a))
+
+
+
+
+
 ## [2.5.20](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.19...novel-segment@2.5.20) (2020-05-31)
 
 **Note:** Version bump only for package novel-segment
