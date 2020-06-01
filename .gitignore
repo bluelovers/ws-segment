@@ -47,3 +47,4 @@ yarn-error.log
 /temp/*.json
 /temp/postpublish/
 /temp/subtree/
+**/node_modules/**
