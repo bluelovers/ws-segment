@@ -39,9 +39,4 @@ declare const __Segment: typeof Segment & {
     default: typeof _Segment;
 };
 export = __Segment;
-export declare const versions: {
-    'novel-segment': string;
-    'segment-dict': string;
-    'regexp-cjk': string;
-    'cjk-conv': string;
-};
+export * from './version';
