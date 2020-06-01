@@ -314,7 +314,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/傍|彷|徬|旁/u).test(w)
+				&& zhRegExp.create(/戆|戇|灨|贑|贛|赣|𥫔|𧹄|𧹉|𫎬/u).test(w)
 			)
 			{
 				bool = true;
