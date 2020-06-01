@@ -68,7 +68,8 @@
   },
   "scripts": {
     "coverage": "npx nyc yarn run test",
-    "test": "npx lerna run --stream --scope novel-segment test",
+    "test": "yarn run test:jest && npx lerna run --stream --scope novel-segment test",
+    "test:jest": "jest",
     "prepublishOnly": "echo prepublishOnly & yarn run ncu & npm run sort:all && yarn run test",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
@@ -85,6 +86,8 @@
     "sort:dict:synonym": "ts-node ./script/sort.dict_synonym.ts",
     "sort:line": "ts-node ./script/sort-line.ts",
     "sort:list:synonym": "ts-node ./script/sort_list_synonym.ts",
+    "task:do-split:commit": "git commit -m \"chore: save dict\" ./dict & echo \"save dict\"",
+    "task:do-split": "yarn run task:do-split:commit && ts-node ./test/sort.ts",
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
@@ -110,7 +113,7 @@
     "@types/diff": "^4.0.2",
     "@types/node": "^14",
     "array-hyper-unique": "^1.1.0",
-    "cjk-conv": "^1.2.66",
+    "cjk-conv": "^1.2.68",
     "cross-spawn-extra": "^2.0.0",
     "debug-color2": "^1.1.7",
     "git-root2": "^1.0.7",
