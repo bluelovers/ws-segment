@@ -43,3 +43,4 @@ package-lock.json
 /package.d.ts
 tsconfig.tsbuildinfo
 *.map
+/coverage/

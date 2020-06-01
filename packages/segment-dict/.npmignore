@@ -73,3 +73,4 @@ __tests__/*.d.ts
 *.tgz
 /package.d.ts
 /tsconfig.tsbuildinfo
+/coverage/

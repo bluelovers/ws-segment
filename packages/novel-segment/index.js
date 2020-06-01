@@ -4,24 +4,37 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 'use strict';
-exports.versions = void 0;
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
+};
 const Segment_1 = require("./lib/Segment");
 const POSTAG_1 = require("./lib/POSTAG");
 const _Segment = Segment_1.Segment;
 const __Segment = _Segment;
-const _segment_dict = require("segment-dict");
-const _cjk_conv = require("cjk-conv");
-const _regexp_cjk = require("regexp-cjk");
-const _package_json = require("./package.json");
-__Segment.version = _package_json.version;
-__Segment.version_dict = _segment_dict.version;
-exports.versions = __Segment.versions = Object.assign(__Segment.versions || {}, {
-    'novel-segment': _package_json.version,
-    'segment-dict': _segment_dict.version,
-    // @ts-ignore
-    'regexp-cjk': _regexp_cjk.version,
-    'cjk-conv': _cjk_conv.version,
+Object.defineProperty(__Segment, "version", {
+    get() {
+        return require('./version').version;
+    }
 });
+Object.defineProperty(__Segment, "version_dict", {
+    get() {
+        return require('./version').version_dict;
+    }
+});
+Object.defineProperty(__Segment, "versions", {
+    get() {
+        return require('./version').versions;
+    }
+});
+// @ts-ignore
+__exportStar(require("./version"), exports);
 __Segment.POSTAG = POSTAG_1.POSTAG;
 __Segment.Segment = Segment_1.Segment;
 __Segment.default = __Segment;

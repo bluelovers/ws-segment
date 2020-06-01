@@ -33,26 +33,32 @@ const __Segment = _Segment as typeof _Segment & {
 	default: typeof _Segment,
 };
 
+Object.defineProperty(__Segment, "version", {
+	get()
+	{
+		return require('./version').version
+	}
+});
+
+Object.defineProperty(__Segment, "version_dict", {
+	get()
+	{
+		return require('./version').version_dict
+	}
+});
+
+Object.defineProperty(__Segment, "versions", {
+	get()
+	{
+		return require('./version').versions
+	}
+});
+
 // @ts-ignore
 export = __Segment;
 
-import _segment_dict = require('segment-dict');
-import _cjk_conv = require('cjk-conv');
-import _regexp_cjk = require('regexp-cjk');
-import _package_json = require('./package.json');
-
-__Segment.version = _package_json.version;
-__Segment.version_dict = _segment_dict.version;
-
-export const versions =
-
-__Segment.versions = Object.assign(__Segment.versions || {}, {
-	'novel-segment': _package_json.version,
-	'segment-dict': _segment_dict.version,
-	// @ts-ignore
-	'regexp-cjk': _regexp_cjk.version as string,
-	'cjk-conv': _cjk_conv.version,
-});
+// @ts-ignore
+export * from './version';
 
 __Segment.POSTAG = POSTAG;
 __Segment.Segment = Segment;
