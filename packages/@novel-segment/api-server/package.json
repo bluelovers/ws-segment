@@ -35,8 +35,7 @@
     "cors": "^2.8.5",
     "crlf-normalize": "^1.0.3",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.0",
-    "novel-segment": "^2.6.1"
+    "fs-extra": "^9.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
