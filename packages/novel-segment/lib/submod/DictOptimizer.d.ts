@@ -31,6 +31,10 @@ export declare class DictOptimizer extends SubSModuleOptimizer {
      * @return {array}
      */
     doOptimize(words: IWord[], is_not_first: boolean): IWord[];
+    /**
+     * 數詞 + 量詞
+     */
+    _mergeWordHowManyProp(p: number, p2: number, p3?: number): number;
 }
 export declare const init: ISubOptimizerCreate<DictOptimizer, SubSModuleOptimizer>;
 export default DictOptimizer;

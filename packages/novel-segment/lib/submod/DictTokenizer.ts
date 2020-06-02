@@ -437,24 +437,27 @@ export class DictTokenizer extends SubSModuleTokenizer
 								}
 							}
 
-							if (_temp_ok && (w.p & POSTAG.D_P) && hexAndAny(prew.p,
-								POSTAG.D_N,
-							) && hexAndAny(nextw.p,
-								POSTAG.D_N,
-								POSTAG.D_V,
-							))
+							if (_temp_ok && w.p & POSTAG.D_P)
 							{
-								assess[i].d++;
-								_temp_ok = false;
-							}
-							else if (_temp_ok && (w.p & POSTAG.D_P) && hexAndAny(prew.p,
-								POSTAG.D_R,
-							) && hexAndAny(nextw.p,
-								POSTAG.D_R,
-							))
-							{
-								assess[i].d += 0.5;
-								_temp_ok = false;
+								if (hexAndAny(prew.p,
+									POSTAG.D_N,
+								) && hexAndAny(nextw.p,
+									POSTAG.D_N,
+									POSTAG.D_V,
+								))
+								{
+									assess[i].d++;
+									_temp_ok = false;
+								}
+								else if (hexAndAny(prew.p,
+									POSTAG.D_R,
+								) && hexAndAny(nextw.p,
+									POSTAG.D_R,
+								))
+								{
+									assess[i].d += 0.5;
+									_temp_ok = false;
+								}
 							}
 
 							// @FIXME 暴力解決 三天后 的問題

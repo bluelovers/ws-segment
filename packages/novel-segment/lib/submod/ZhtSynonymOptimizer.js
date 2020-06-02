@@ -49,6 +49,7 @@ class ZhtSynonymOptimizer extends mod_1.SubSModuleOptimizer {
         return nw;
     }
     doOptimize(words) {
+        var _a;
         const self = this;
         const POSTAG = this._POSTAG;
         const TABLE = this._TABLE;
@@ -294,7 +295,22 @@ class ZhtSynonymOptimizer extends mod_1.SubSModuleOptimizer {
                     bool = true;
                 }
                 // 如果項目為 量词
-                else if (index_1.hexAndAny(w1.p, POSTAG.A_Q, POSTAG.D_MQ)) {
+                else if (index_1.hexAndAny(w1.p, 
+                //POSTAG.A_Q,
+                POSTAG.D_MQ)) {
+                    if (/^几/.test(w1.w) && ((_a = w1.m) === null || _a === void 0 ? void 0 : _a.length) > 1) {
+                        /*
+                        let m = w1.m as IWord[];
+                        if (m[0].p & POSTAG.D_MQ)
+                        {
+
+                        }
+                         */
+                        let nw = w1.w.replace(/^几/, '幾');
+                        w1.ow = w1.w;
+                        w1.w = nw;
+                        bool = true;
+                    }
                 }
                 else if (w1.p & POSTAG.D_V && /^干(.)$/.test(w1.w)) {
                     /**
