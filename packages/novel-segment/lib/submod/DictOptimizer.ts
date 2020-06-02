@@ -281,6 +281,9 @@ export class DictOptimizer extends SubSModuleOptimizer
 						nw_cache_exists,
 					} = self._getWordCache(nw, nw_cache, nw_cache_exists));
 
+					p = this._mergeWordHowManyProp(p, w2.p, nw_cache?.p);
+
+					/*
 					if (nw_cache)
 					{
 						p = nw_cache.p | POSTAG.D_MQ;
@@ -300,6 +303,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 							p = p | POSTAG.D_V;
 						}
 					}
+					 */
 
 					this.sliceToken(words, i, 2, {
 						w: nw,
@@ -354,6 +358,70 @@ export class DictOptimizer extends SubSModuleOptimizer
 							continue;
 						}
 					}
+				}
+			}
+
+			if (/^[數数幾几][百千萬十億兆万亿]$/.test(w1.w) && w2.p & POSTAG.A_Q)
+			{
+				let ow: string = w1.w + w2.w;
+				let nw: string = w1.w + w2.w;
+
+				if (0 && /^几/.test(nw))
+				{
+					nw = nw.replace(/^几/, '幾')
+				}
+
+				({
+					nw_cache,
+					nw_cache_exists,
+				} = self._getWordCache(nw, nw_cache, nw_cache_exists));
+
+				let p = this._mergeWordHowManyProp(POSTAG.D_MQ, w2.p, nw_cache?.p);
+
+				this.sliceToken(words, i, 2, {
+					w: nw,
+					p,
+					m: [w1, w2],
+				}, undefined, {
+					[this.name]: 9,
+				});
+				ie--;
+				continue;
+			}
+
+			if (/^[數数幾几]$/.test(w1.w) && w2.p & POSTAG.A_M && words[i + 2]?.p & POSTAG.A_Q)
+			{
+				let w3 = words[i + 2];
+
+				let nw: string;
+
+				if (0 && w1.w === '几')
+				{
+					nw = '幾' + w2.w + w3.w;
+				}
+				else
+				{
+					nw = w1.w + w2.w + w3.w;
+				}
+
+				let nw_cache: IWord = this._TABLE[nw];
+
+				/**
+				 * 已經看過數百遍的動畫。
+				 */
+				if (!nw_cache?.p)
+				{
+					let p = this._mergeWordHowManyProp(POSTAG.D_MQ, w3.p, nw_cache?.p);
+
+					this.sliceToken(words, i, 3, {
+						w: nw,
+						p,
+						m: [w1, w2, w3],
+					}, undefined, {
+						[this.name]: 9,
+					});
+					ie -= 2;
+					continue;
 				}
 			}
 
@@ -423,6 +491,34 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 		// 针对组合数字后无法识别新组合的数字问题，需要重新扫描一次
 		return is_not_first === true ? words : this.doOptimize(words, true);
+	}
+
+	/**
+	 * 數詞 + 量詞
+	 */
+	_mergeWordHowManyProp(p: number, p2: number, p3?: number)
+	{
+		if (p3)
+		{
+			p = p3 | this._POSTAG.D_MQ;
+		}
+		else
+		{
+			if (p2 & this._POSTAG.D_T)
+			{
+				p = p | this._POSTAG.D_T;
+			}
+			if (p2 & this._POSTAG.D_N)
+			{
+				p = p | this._POSTAG.D_N;
+			}
+			if (p2 & this._POSTAG.D_V)
+			{
+				p = p | this._POSTAG.D_V;
+			}
+		}
+
+		return p
 	}
 
 }
