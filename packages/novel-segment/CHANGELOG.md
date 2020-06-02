@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.6.1](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.23...novel-segment@2.6.1) (2020-06-02)
+
+
+### Bug Fixes
+
+* 多給了店主一筆小費后，我們離開了酒館 ([9673082](https://github.com/bluelovers/node-segment/commit/9673082652ae2624f9381b743f84b5d0a24b31ed))
+* 多給了店主一筆小費后，我們離開了酒館 ([17a3c03](https://github.com/bluelovers/node-segment/commit/17a3c03bee37468d20248dc5f93ce44be283177c))
+
+
+### BREAKING CHANGES
+
+* 只有新詞屬於人名或未知詞時才會合併
+* 只有新詞屬於人名或未知詞時才會合併
+
+
+
+
+
 ## [2.5.23](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.22...novel-segment@2.5.23) (2020-06-02)
 
 **Note:** Version bump only for package novel-segment
