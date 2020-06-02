@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "array-hyper-unique": "^1.1.0",
-    "cjk-conv": "^1.2.68",
+    "cjk-conv": "^1.2.69",
     "str-util": "^2.3.21",
     "string-natural-compare": "^3.0.1",
     "uni-string": "^1.1.2"

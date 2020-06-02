@@ -476,6 +476,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'目的是将因肉食兽迸溅的血而变得全是血污的脸上的血渍从头往下洗掉',
+		[
+			['目的'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
