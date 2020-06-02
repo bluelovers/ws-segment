@@ -5,7 +5,7 @@
  * @version 0.1
  */
 import { SubSModuleOptimizer } from '../mod';
-import { IDICT, IWord } from '../Segment';
+import Segment, { IDICT, IWord } from '../Segment';
 /**
  * @todo 支援 XX氏
  */
@@ -15,6 +15,10 @@ export declare class ChsNameOptimizer extends SubSModuleOptimizer {
     _cache(): void;
     isMergeable2(...words: string[]): boolean;
     isMergeable(word: IWord, nextword: IWord): boolean;
+    /**
+     * 只有新詞屬於人名或未知詞時才會合併
+     */
+    validUnknownNewWord<W extends string | string[]>(ws: W, cb?: (nw: string, ew: IWord, ws: W) => IWord | boolean | void): true | Segment.IWord;
     /**
      * 对可能是人名的单词进行优化
      *

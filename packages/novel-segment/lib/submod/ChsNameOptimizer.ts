@@ -71,6 +71,25 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 	}
 
 	/**
+	 * 只有新詞屬於人名或未知詞時才會合併
+	 */
+	validUnknownNewWord<W extends string | string[]>(ws: W, cb?: (nw: string, ew: IWord, ws: W) => IWord | boolean | void)
+	{
+		let nw = typeof ws === 'string' ? ws : (ws as string[]).join('');
+		let ew = this._TABLE[nw];
+
+		if (!ew?.p || ew.p & this._POSTAG.A_NR)
+		{
+			let ret = cb?.(nw, ew, ws) ?? true
+
+			if (ret)
+			{
+				return typeof ret === 'object' ? ret : (ew ?? true)
+			}
+		}
+	}
+
+	/**
 	 * 对可能是人名的单词进行优化
 	 *
 	 * @param {array} words 单词数组
@@ -88,8 +107,10 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 			let word = words[i];
 			let nextword = words[i + 1];
 
-			if (this.isMergeable(word, nextword))
+			if (this.isMergeable(word, nextword) && this.validUnknownNewWord(word.w + nextword.w))
 			{
+				let nw = word.w + nextword.w;
+
 				//debug(nextword);
 				// 如果为  "小|老" + 姓
 				if (nextword && (word.w == '小' || word.w == '老') &&
@@ -104,7 +125,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 					*/
 
 					this.sliceToken(words, i, 2, {
-						w: word.w + nextword.w,
+						w: nw,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					}, undefined, {
@@ -128,7 +149,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 					*/
 
 					this.sliceToken(words, i, 2, {
-						w: word.w + nextword.w,
+						w: nw,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					}, undefined, {
@@ -154,7 +175,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 						*/
 
 						this.sliceToken(words, i, 2, {
-							w: word.w + nextword.w,
+							w: nw,
 							p: POSTAG.A_NR,
 							m: [word, nextword],
 						}, undefined, {
@@ -168,6 +189,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 							&& this.isMergeable2(preword.w, word.w,  nextword.w)
 						)
 						{
+							let nw = preword.w + word.w + nextword.w;
 
 							/*
 							words.splice(i - 1, 2, {
@@ -178,7 +200,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 							*/
 
 							this.sliceToken(words, i - 1, 2, {
-								w: preword.w + word.w + nextword.w,
+								w: nw,
 								p: POSTAG.A_NR,
 								m: [preword, word, nextword],
 							}, undefined, {
@@ -215,7 +237,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 					*/
 
 					this.sliceToken(words, i, 2, {
-						w: word.w + nextword.w,
+						w: nw,
 						p: POSTAG.A_NR,
 						m: [word, nextword],
 					}, undefined, {
