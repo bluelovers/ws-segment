@@ -26,8 +26,10 @@ describe(relative(__filename), () =>
 
 	let segment: Segment = null;
 
+	// @ts-ignore
 	before(function ()
 	{
+		// @ts-ignore
 		this.timeout(60000);
 
 		segment = createSegment(true, {
@@ -37,8 +39,10 @@ describe(relative(__filename), () =>
 		});
 	});
 
+	// @ts-ignore
 	beforeEach(function ()
 	{
+		// @ts-ignore
 		currentTest = this.currentTest;
 
 		//console.log('it:before', currentTest.title);

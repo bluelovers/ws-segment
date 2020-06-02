@@ -22,10 +22,12 @@ console.setOptions({
 // @ts-ignore
 describe(relative(__filename), () =>
 {
+	// @ts-ignore
 	let currentTest: Mocha.Test;
 
 	let segment: Segment = null;
 
+	// @ts-ignore
 	before(function ()
 	{
 		this.timeout(60000);
@@ -37,8 +39,10 @@ describe(relative(__filename), () =>
 		});
 	});
 
+	// @ts-ignore
 	beforeEach(function ()
 	{
+		// @ts-ignore
 		currentTest = this.currentTest;
 
 		//console.log('it:before', currentTest.title);
@@ -54,6 +58,7 @@ describe(relative(__filename), () =>
 			// @ts-ignore
 			it(text, function ()
 			{
+				// @ts-ignore
 				this.timeout(60000);
 
 				let actual = toStringArray(doSegment(text));
