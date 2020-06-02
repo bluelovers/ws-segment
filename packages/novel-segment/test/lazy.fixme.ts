@@ -38,6 +38,7 @@ console.setOptions({
 // @ts-ignore
 describe(relative(__filename), () =>
 {
+	// @ts-ignore
 	let currentTest: ITest;
 
 	let segment: Segment = null;
@@ -65,8 +66,10 @@ describe(relative(__filename), () =>
 
 	});
 
+	// @ts-ignore
 	beforeEach(function ()
 	{
+		// @ts-ignore
 		currentTest = this.currentTest as ITest;
 
 		//console.log('it:before', currentTest.title);
