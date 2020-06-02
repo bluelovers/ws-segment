@@ -477,6 +477,28 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'已經看過數百遍的動畫。',
+		[
+			['過數'],
+		],
+	],
+
+	[
+		'真想將這記錄上傳到網路上呢',
+		[
+			['傳到'],
+			['路上'],
+		],
+	],
+
+	[
+		'两个中国人名之间的成分',
+		[
+			['个中', '中国人'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
