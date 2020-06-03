@@ -44,3 +44,10 @@ package-lock.json
 tsconfig.tsbuildinfo
 *.map
 /coverage/
+/tsconfig.esm.json.tpl
+/now.json.tpl
+/lerna.json.tpl
+/.nycrc
+/.nowignore
+/.mocharc.yml
+/.eslintignore
