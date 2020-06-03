@@ -135,5 +135,6 @@
     "n-readlines": "^1.0.0",
     "prettyuse": "^0.0.0",
     "transliteration": "^2.1.11"
-  }
+  },
+  "gitHead": "cdbf77d384c67c3e8a724f49f47b206478ef4f7b"
 }
