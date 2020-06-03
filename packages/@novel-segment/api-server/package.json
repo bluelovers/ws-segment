@@ -24,9 +24,10 @@
     "postpublish:done": "yarn run now-deploy && yarn run postpublish:commit",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
-    "now-build": "yarn add novel-segment && yarn run now-build:run",
+    "now-build": "yarn run now-build:install && yarn run now-build:run",
+    "now-build:install": "yarn add novel-segment",
     "now-build:run": "node ./build.js",
-    "now-deploy": "yarn run now-build && now deploy",
+    "now-deploy": "yarn run now-build:run && now deploy",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
@@ -35,8 +36,7 @@
     "cors": "^2.8.5",
     "crlf-normalize": "^1.0.3",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.0",
-    "novel-segment": "^2.7.1"
+    "fs-extra": "^9.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.6",
