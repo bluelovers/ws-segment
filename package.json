@@ -51,16 +51,16 @@
     "盘古分词",
     "盤古分詞"
   ],
-  "homepage": "https://github.com/bluelovers/node-segment-dict#readme",
+  "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/segment-dict#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/node-segment-dict/issues"
+    "url": "https://github.com/bluelovers/ws-segment/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/node-segment-dict.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git"
   },
   "license": "ISC",
-  "author": "",
+  "author": "bluelovers",
   "main": "index.js",
   "directories": {
     "lib": "lib",
@@ -70,7 +70,11 @@
     "coverage": "npx nyc yarn run test",
     "test": "yarn run test:jest && npx lerna run --stream --scope novel-segment test",
     "test:jest": "jest",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "echo prepublishOnly & yarn run ncu & npm run sort:all && yarn run test",
+    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
     "publish": "echo publish",
@@ -78,6 +82,7 @@
     "postpublish2": "npx lerna run --stream --scope novel-segment postpublish2 && npx lerna run --scope @novel-segment/api-server now-deploy",
     "postpublish:after": "node ./script/publish-after",
     "postpublish:done": "yarn run postpublish:after",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "ncu": "npx yarn-tool ncu -u",
     "postpublishOnly:add": "npx yarn-tool root run postpublishOnly:add segment-dict novel-segment @novel-segment/api-server",
@@ -86,8 +91,8 @@
     "sort:dict:synonym": "ts-node ./script/sort.dict_synonym.ts",
     "sort:line": "ts-node ./script/sort-line.ts",
     "sort:list:synonym": "ts-node ./script/sort_list_synonym.ts",
-    "task:do-split:commit": "git commit -m \"chore: save dict\" ./dict & echo \"save dict\"",
     "task:do-split": "yarn run task:do-split:commit && ts-node ./test/sort.ts",
+    "task:do-split:commit": "git commit -m \"chore: save dict\" ./dict & echo \"save dict\"",
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
@@ -120,6 +125,5 @@
     "novel-segment": "^2.7.1",
     "str-util": "^2.3.21",
     "string-natural-compare": "^3"
-  },
-  "gitHead": "8c61906476364b51e6cdde4093fef40a1684b3f7"
+  }
 }
