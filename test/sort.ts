@@ -317,7 +317,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/凋|彫|琱|雕|鵰/u).test(w)
+				&& zhRegExp.create(/蔑|衊/u).test(w)
 			)
 			{
 				bool = true;
