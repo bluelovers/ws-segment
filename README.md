@@ -16,7 +16,7 @@ https://segment-api.bluelovers.now.sh/?input=从时间上来说是过了数秒�
 
 ## dict
 
-* [dict](https://github.com/bluelovers/node-segment-dict/tree/master/dict)
+* [dict](https://github.com/bluelovers/ws-segment/tree/master/packages/segment-dict/dict)
 
 ### Breaking Changes
 
@@ -47,7 +47,7 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 
 ## links
 
-* [novel-segment](https://github.com/bluelovers/node-segment)
+* [novel-segment](https://github.com/bluelovers/ws-segment/tree/master/packages/novel-segment)
 
 * [線上測試 by RunKit](https://npm.runkit.com/novel-segment)
 
