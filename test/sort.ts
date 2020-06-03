@@ -317,7 +317,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/壧|岩|嵒|巖|巗|碞|礹|𡾏/u).test(w)
+				&& zhRegExp.create(/噪|譟/u).test(w)
 			)
 			{
 				bool = true;
