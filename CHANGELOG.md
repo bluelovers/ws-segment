@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.86](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.85...segment-dict@2.3.86) (2020-06-03)
+
+**Note:** Version bump only for package segment-dict
+
+
+
+
+
 ## [2.3.85](https://github.com/bluelovers/node-segment-dict/compare/segment-dict@2.3.84...segment-dict@2.3.85) (2020-06-02)
 
 **Note:** Version bump only for package segment-dict
