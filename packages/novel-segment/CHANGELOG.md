@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.1](https://github.com/bluelovers/node-segment/compare/novel-segment@2.6.1...novel-segment@2.7.1) (2020-06-03)
+
+
+### Features
+
+* 優化 修正 几百遍 => 幾百遍 ([bf4aa7c](https://github.com/bluelovers/node-segment/commit/bf4aa7cdbc24b513889175312c6218783b392029))
+* 優化 數百遍 几百遍 這類詞的合併 ([b644483](https://github.com/bluelovers/node-segment/commit/b6444831c1b2bd5c1f063f773fa1968185937296))
+
+
+
+
+
 ## [2.6.1](https://github.com/bluelovers/node-segment/compare/novel-segment@2.5.23...novel-segment@2.6.1) (2020-06-02)
 
 
