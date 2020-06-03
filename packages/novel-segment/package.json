@@ -52,13 +52,13 @@
     "盤古分詞",
     "簡繁"
   ],
-  "homepage": "https://github.com/bluelovers/node-segment#readme",
+  "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/novel-segment#readme",
   "bugs": {
-    "url": "https://github.com/bluelovers/node-segment/issues"
+    "url": "https://github.com/bluelovers/ws-segment/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/node-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git"
   },
   "license": "ISC",
   "author": "Zongmin Lei <leizongmin@gmail.com>",
@@ -78,6 +78,9 @@
     "test-ts": "npx mocha --require ts-node/register \"!(node_modules)/**/*.test.{ts,tsx}\"",
     "test:jest": "jest --coverage",
     "build:sort:stringify:cache": "node ./script/sort-stringify-cache.js",
+    "npm:publish": "npm publish",
+    "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
+    "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
@@ -85,6 +88,7 @@
     "postpublish": "yarn run postpublishOnly:add",
     "postpublish2": "yarn run build:sort:stringify:cache && node ./script/publish-after2",
     "postpublish:done": "yarn run postpublish2",
+    "postpublish_": "git commit -m \"chore(release): publish\" .",
     "docs": "npx typedoc --options ./typedoc.config.js",
     "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
     "ncu": "npx yarn-tool ncu -u",
@@ -131,6 +135,5 @@
     "n-readlines": "^1.0.0",
     "prettyuse": "^0.0.0",
     "transliteration": "^2.1.11"
-  },
-  "gitHead": "8c61906476364b51e6cdde4093fef40a1684b3f7"
+  }
 }
