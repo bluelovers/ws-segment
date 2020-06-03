@@ -317,7 +317,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/蔑|衊/u).test(w)
+				&& zhRegExp.create(/汙|汚|污|誣|诬/u).test(w)
 			)
 			{
 				bool = true;
