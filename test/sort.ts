@@ -70,9 +70,7 @@ Promise
 
 		'pangu/*.txt',
 
-		'lazy/badword.txt',
-		'lazy/dict_synonym.txt',
-		'lazy/index.txt',
+		'lazy/*.txt',
 
 
 
@@ -317,7 +315,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/哄|閧|鬨/u).test(w)
+				&& zhRegExp.create(/㳽|弥|弭|彌|瀰|米/u).test(w)
 			)
 			{
 				bool = true;
