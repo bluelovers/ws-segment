@@ -499,6 +499,23 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'故事由牢墙内反抗命运的人',
+		[
+			['事由'],
+		],
+	],
+
+	[
+		'男主角六歲時就因為被發現有驚人的魔法天賦而送往前線參戰',
+		[
+			['因'],
+			['為'],
+			['現有'],
+			['往前'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

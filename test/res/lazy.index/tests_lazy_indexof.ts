@@ -4139,6 +4139,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'我是里谢尔・冯・艾尔尼阿契',
+		[
+			'里',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
