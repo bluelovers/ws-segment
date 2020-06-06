@@ -1,8 +1,3 @@
-import findCacheDir = require('find-cache-dir');
-import path = require('path');
-import * as fs from 'fs-extra';
-import * as os from 'os';
-import { exec, execSync } from 'child_process';
 import { getCachePath, findNpmCachePath, getOSTempPath, findPkgModulePath } from 'cache-path';
 
 import { Console } from 'debug-color2';

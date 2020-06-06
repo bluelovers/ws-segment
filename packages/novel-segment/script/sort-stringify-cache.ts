@@ -18,7 +18,7 @@ import fs = require('fs-extra');
 import Bluebird = require('bluebird');
 import { cjk2zhs, cjk2zht } from 'cjk-conv';
 import StrUtil = require('str-util');
-import { sync as FastGlobSync } from 'fast-glob';
+import { sync as FastGlobSync } from '@bluelovers/fast-glob';
 import { chkLineType, EnumLineType, ILoadDictFileRow2 } from 'segment-dict/script/util';
 import { array_unique } from 'array-hyper-unique';
 import { serialize } from '@novel-segment/loader-line';

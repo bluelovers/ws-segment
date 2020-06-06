@@ -3,7 +3,7 @@
  */
 
 import { crlf } from 'crlf-normalize';
-import * as FastGlob from 'fast-glob';
+import * as FastGlob from '@bluelovers/fast-glob';
 import * as path from 'path';
 import * as fs from 'fs-extra';
 import Promise = require('bluebird');
@@ -156,7 +156,7 @@ Promise
 
 					await fs.outputFile(path.join(cwd_out, file) + '.patch', JsDiff.createPatch(path.basename(file), text, text_new, {
 						newlineIsToken: true
-					}));
+					} as any));
 				}
 			}
 

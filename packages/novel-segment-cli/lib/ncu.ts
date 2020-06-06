@@ -1,7 +1,6 @@
 
 import PACKAGE_JSON = require('../package.json');
 import path = require('path');
-import updateNotifier = require('update-notifier');
 import pkgUp = require('pkg-up');
 import * as fs from "fs-extra";
 import { updateNotifier as updateNotifier2, notNpxMaybe, IUpdateNotifierObject } from '@yarn-tool/update-notifier';

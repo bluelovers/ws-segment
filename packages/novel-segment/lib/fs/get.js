@@ -4,7 +4,7 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getOptions = exports.existsSync = exports.searchFirstSync = exports._searchGlobSync = exports.searchGlobSync = void 0;
-const FastGlob = require("fast-glob");
+const FastGlob = require("@bluelovers/fast-glob");
 const path = require("path");
 const fs = require("fs");
 // @ts-ignore
