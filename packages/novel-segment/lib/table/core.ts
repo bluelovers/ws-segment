@@ -4,9 +4,6 @@
 
 import { IWord } from '../segment/types';
 import { IDictRow } from 'segment-dict/lib/loader/segment';
-import CjkConv from 'cjk-conv';
-import { text_list } from '../util/cjk';
-import { ITableDictRow } from './dict';
 
 export type IOptions = {
 	autoCjk?: boolean,
