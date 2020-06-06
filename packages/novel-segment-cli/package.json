@@ -1,6 +1,6 @@
 {
   "name": "novel-segment-cli",
-  "version": "1.1.20",
+  "version": "1.1.21",
   "description": "cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞",
   "homepage": "https://github.com/bluelovers/novel-segment-cli#readme",
   "bugs": {
@@ -49,7 +49,7 @@
     "lazy-cacache": "^1.0.9",
     "lodash": "^4.17.15",
     "node-alias": "^1.0.4",
-    "novel-segment": "^2.7.3",
+    "novel-segment": "^2.7.4",
     "pkg-up": "^3.1.0",
     "prettyuse": "^0.0.0",
     "upath2": "^2.1.3",
