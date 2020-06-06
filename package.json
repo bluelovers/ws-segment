@@ -81,7 +81,7 @@
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "prepublishOnly": "yarn run test",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
     "publish": "echo publish",
@@ -98,7 +98,7 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@novel-segment/util": "^1.0.25",
+    "@lazy-cjk/zh-table-list": "^1.0.18",
     "array-hyper-unique": "^1.1.2",
     "bluebird": "^3.7.2",
     "cjk-conv": "^1.2.78",
@@ -114,6 +114,8 @@
     "ts-type": "^1.2.17",
     "uni-string": "^1.1.7"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@novel-segment/util": "^1.0.25"
+  },
   "gitHead": "cdbf77d384c67c3e8a724f49f47b206478ef4f7b"
 }
