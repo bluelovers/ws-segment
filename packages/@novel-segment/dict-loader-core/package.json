@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/dict-loader-core",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/dict-loader-core#readme",
   "bugs": {
@@ -34,7 +34,6 @@
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3"
   },
-  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },

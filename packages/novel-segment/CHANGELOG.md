@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.5](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.4...novel-segment@2.7.5) (2020-06-06)
+
+
+### Features
+
+* use @lazy-cjk/zh-table-list ([d8b0efa](https://github.com/bluelovers/ws-segment/commit/d8b0efac26d3c00b5f4372d0aa82c59cc3599974))
+
+
+
+
+
 ## [2.7.4](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.3...novel-segment@2.7.4) (2020-06-06)
 
 **Note:** Version bump only for package novel-segment
