@@ -2,7 +2,7 @@
  * Created by user on 2018/4/13/013.
  */
 
-import * as FastGlob from 'fast-glob';
+import * as FastGlob from '@bluelovers/fast-glob';
 import * as path from 'path';
 import * as fs from 'fs';
 

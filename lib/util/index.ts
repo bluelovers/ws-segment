@@ -7,6 +7,9 @@ import { POSTAG } from '../POSTAG';
 import { IWord } from '../Segment';
 import * as util from 'util';
 export * from './core';
+import cloneDeep from 'lodash/clonedeep';
+
+export { cloneDeep }
 
 import { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info } from './debug';
 export { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info }
@@ -89,11 +92,6 @@ export function hexOr(n: number, ...argv: number[])
 
 	return n;
 }
-
-export declare function cloneDeep<T extends object | Array<any>>(data: T): T
-
-// @ts-ignore
-exports.cloneDeep = require('lodash.clonedeep');
 
 //let p = hexAnd(0x6000 | 0x8000, 0x2000, 0x4000)
 //debug(p, toHex(p));
