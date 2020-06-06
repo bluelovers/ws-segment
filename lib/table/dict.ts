@@ -3,7 +3,6 @@
  */
 import { IWord } from '../segment/types';
 import { IDictRow, serialize, stringifyLine } from 'segment-dict/lib/loader/segment';
-import CjkConv from 'cjk-conv';
 import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 import { cloneDeep } from '../util';

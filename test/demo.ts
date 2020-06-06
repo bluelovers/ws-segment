@@ -5,7 +5,6 @@
 import { crlf, CRLF } from 'crlf-normalize';
 import * as fs from "fs";
 import { isRegExp, zhRegExp } from 'regexp-cjk';
-import CjkConv from 'cjk-conv';
 import Segment, { POSTAG } from '../index';
 import { IWord } from '../lib/Segment';
 

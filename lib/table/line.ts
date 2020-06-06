@@ -1,8 +1,6 @@
 import { IDICT_SYNONYM, IWord } from '../Segment';
 import { IDictRow, stringifyLine } from '@novel-segment/loader-line';
-import CjkConv from 'cjk-conv';
 import { cloneDeep } from '../util';
-import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 
 /**
