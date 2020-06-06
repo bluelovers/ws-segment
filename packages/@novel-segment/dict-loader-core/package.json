@@ -34,9 +34,7 @@
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.3"
   },
-  "devDependencies": {
-    "@types/bluebird": "^3.5.32"
-  },
+  "devDependencies": {},
   "publishConfig": {
     "access": "public"
   },
