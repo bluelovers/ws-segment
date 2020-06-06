@@ -104,27 +104,11 @@
     "@novel-segment/util": "^1.0.25",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.3",
-    "fs-extra": "^9.0.1",
-    "split2": "^3.1.1",
-    "stream-pipe": "^1.0.1",
-    "through2": "^3.0.1",
-    "uni-string": "^1.1.7",
-    "upath2": "^2.1.3"
+    "crlf-normalize": "^1.0.3"
   },
-  "devDependencies": {
-    "@bluelovers/tsconfig": "^1.0.19",
-    "@types/bluebird": "^3",
-    "@types/diff": "^4.0.2",
-    "@types/node": "^14",
-    "array-hyper-unique": "^1.1.2",
-    "cjk-conv": "^1.2.78",
-    "cross-spawn-extra": "^2.0.0",
-    "debug-color2": "^1.1.7",
-    "git-root2": "^1.0.11",
-    "novel-segment": "^2.7.4",
-    "str-util": "^2.3.21",
-    "string-natural-compare": "^3"
+  "devDependencies": {},
+  "peerDependencies": {
+    "novel-segment": "^2"
   },
   "gitHead": "cdbf77d384c67c3e8a724f49f47b206478ef4f7b"
 }
