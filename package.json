@@ -18,7 +18,6 @@
     "lerna:publish:yes": "npx lerna publish --yes --cd-version patch --ignore @novel-segment/api-server",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepare": "yarn run prepublish:fix-links",
     "postpublish": "yarn run postpublish:segment & git push && yarn run postpublish:now-deploy && yarn run postpublish:subtree",
     "postpublish:git:subtree": "git subtree push novel-segment-cli master --prefix packages/novel-segment-cli && git subtree push node-segment master --prefix packages/novel-segment && git subtree push node-segment-dict master --prefix packages/segment-dict",
     "postpublish:now-deploy": "ts-node ./script/run/postpublish-now-deploy.ts",
