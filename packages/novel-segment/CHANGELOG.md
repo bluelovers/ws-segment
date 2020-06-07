@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.6](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.5...novel-segment@2.7.6) (2020-06-07)
+
+
+### Features
+
+* import { cloneDeep } from 'lodash'; ([00e1bd8](https://github.com/bluelovers/ws-segment/commit/00e1bd8ea63f1369fa9a0e44bfc3f6093988931f))
+
+
+
+
+
 ## [2.7.5](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.4...novel-segment@2.7.5) (2020-06-06)
 
 
