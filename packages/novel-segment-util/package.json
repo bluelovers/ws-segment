@@ -35,10 +35,10 @@
   },
   "peerDependencies": {
     "array-hyper-unique": "^1.1.2",
-    "cjk-conv": "^1.2.80",
-    "str-util": "^2.3.21",
+    "cjk-conv": "*",
+    "str-util": "*",
     "string-natural-compare": "^3.0.1",
-    "uni-string": "^1.1.7"
+    "uni-string": "*"
   },
   "publishConfig": {
     "access": "public"
