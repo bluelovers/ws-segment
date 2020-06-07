@@ -5,9 +5,7 @@ import { IWord } from '../segment/types';
 import { IDictRow, serialize, stringifyLine } from 'segment-dict/lib/loader/segment';
 import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
-import { cloneDeep } from '../util';
-
-declare function _cloneDeep<T>(data: T): T
+import { cloneDeep } from 'lodash';
 
 export type ITableDictRow = {
 	p: number,

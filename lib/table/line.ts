@@ -1,6 +1,6 @@
 import { IDICT_SYNONYM, IWord } from '../Segment';
 import { IDictRow, stringifyLine } from '@novel-segment/loader-line';
-import { cloneDeep } from '../util';
+import { cloneDeep } from 'lodash';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 
 /**
