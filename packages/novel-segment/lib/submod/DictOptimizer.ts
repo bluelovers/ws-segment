@@ -389,7 +389,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				continue;
 			}
 
-			if (/^[數数幾几]$/.test(w1.w) && w2.p & POSTAG.A_M && words[i + 2]?.p & POSTAG.A_Q)
+			if (/^[數数幾几第]$/.test(w1.w) && w2.p & POSTAG.A_M && words[i + 2]?.p & POSTAG.A_Q)
 			{
 				let w3 = words[i + 2];
 
