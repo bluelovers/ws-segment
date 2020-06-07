@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDictLine = void 0;
 const loader_line_1 = require("@novel-segment/loader-line");
-const util_1 = require("../util");
+const lodash_1 = require("lodash");
 const core_1 = require("./core");
 /**
  * 原版 node-segment 的格式
@@ -38,7 +38,7 @@ class TableDictLine extends core_1.default {
         delete this.TABLE[word];
     }
     json() {
-        return util_1.cloneDeep(this.TABLE);
+        return lodash_1.cloneDeep(this.TABLE);
     }
     stringify(LF = "\n") {
         let self = this;

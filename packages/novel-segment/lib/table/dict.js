@@ -4,7 +4,7 @@ exports.TableDict = void 0;
 const segment_1 = require("segment-dict/lib/loader/segment");
 const cjk_1 = require("../util/cjk");
 const core_1 = require("./core");
-const util_1 = require("../util");
+const lodash_1 = require("lodash");
 /**
  * @todo 掛接其他 dict
  */
@@ -132,7 +132,7 @@ class TableDict extends core_1.default {
         return this;
     }
     json() {
-        return util_1.cloneDeep(this.TABLE);
+        return lodash_1.cloneDeep(this.TABLE);
     }
     /**
      * 將目前的 表格 匯出

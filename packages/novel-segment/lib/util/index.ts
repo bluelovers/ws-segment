@@ -5,16 +5,16 @@
 import { $enum, EnumWrapper, } from "ts-enum-util";
 import { POSTAG } from '../POSTAG';
 import { IWord } from '../Segment';
-import * as util from 'util';
 export * from './core';
-import cloneDeep from 'lodash/clonedeep';
+import { cloneDeep } from 'lodash';
 
 export { cloneDeep }
 
 import { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info } from './debug';
+import { inspect, InspectOptions } from 'util';
 export { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info }
 
-export function debug_inspect(argv: any[], options: util.InspectOptions = {})
+export function debug_inspect(argv: any[], options: InspectOptions = {})
 {
 	options = Object.assign({
 		colors: true,
@@ -22,7 +22,7 @@ export function debug_inspect(argv: any[], options: util.InspectOptions = {})
 
 	return argv.map(function (b)
 	{
-		return util.inspect(b, options);
+		return inspect(b, options);
 	}, []);
 }
 
@@ -31,7 +31,7 @@ export function debug(...argv)
 	return console.log(...debug_inspect(argv));
 }
 
-export function debug_options(argv: any[], options?: util.InspectOptions)
+export function debug_options(argv: any[], options?: InspectOptions)
 {
 	return console.log(...debug_inspect(argv, options));
 }
