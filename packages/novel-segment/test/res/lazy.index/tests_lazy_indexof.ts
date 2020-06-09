@@ -4146,6 +4146,14 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'成为象征恶之根源的最强魔王君临于世',
+		[
+			'徵',
+			'於',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof

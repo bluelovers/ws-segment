@@ -516,6 +516,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'提出正确主张的人也反倒会遭遇不幸。',
+		[
+			['倒会'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
