@@ -16,6 +16,9 @@
         "*.test.*",
         "**/script/**",
         "**/api-server/cache/**",
+        "packages/novel-segment/test/**",
+        "**/novel-segment/test/**",
+        "**/test/temp/**",
         ".gitrepo"
       ],
       "message": "chore(release): publish",
