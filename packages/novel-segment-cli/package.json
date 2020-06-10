@@ -40,7 +40,7 @@
     "novel-segment": "^2.7.10",
     "pkg-up": "^3.1.0",
     "prettyuse": "^0.0.0",
-    "upath2": "^3.0.2",
+    "upath2": "^3.0.5",
     "yargs": "^15"
   },
   "gitHead": "7b441c025f589dbe17e63a9a91eaa88d1a761250"

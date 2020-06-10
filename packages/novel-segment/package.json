@@ -109,10 +109,10 @@
     "regexp-cjk": "^3.3.49",
     "segment-dict": "^2.3.95",
     "sort-object-keys2": "^2.0.3",
-    "str-util": "^2.3.22",
+    "str-util": "^2.3.23",
     "ts-enum-util": "4.0.2",
     "ts-type": "^1.2.17",
-    "uni-string": "^1.1.8"
+    "uni-string": "^1.1.9"
   },
   "devDependencies": {
     "@novel-segment/util": "^1.0.29"
