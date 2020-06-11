@@ -523,6 +523,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'★故事发生在兵藤一诚转生成恶魔的数年之前的前传登场！',
+		[
+			['事发'],
+		],
+	],
+
+	[
+		'在前世好像曾经被魔王的左右手威胁过『要是转生成圣女便杀了你』。',
+		[
+			['生成'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
