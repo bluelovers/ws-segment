@@ -42,7 +42,7 @@
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.6",
     "@types/fs-extra": "*",
-    "now": "^19.0.1"
+    "now": "^19.1.0"
   },
   "peerDependencies": {
     "novel-segment": "^2"
