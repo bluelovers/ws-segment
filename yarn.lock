@@ -293,25 +293,25 @@
     debug "^4.1.1"
     debug-color2 "^1.1.7"
 
-"@git-lazy/diff-staged@^1.0.19":
-  version "1.0.19"
-  resolved "https://registry.npmjs.org/@git-lazy/diff-staged/-/diff-staged-1.0.19.tgz#a1ca20206ef20be47184de572cd96a207a1c185c"
-  integrity sha512-OcFrx+5nkjL0FVaWE3oeJqVk3okmULig4XQad/NxIBCNtMs8OERquVK+jdZwAgnOe5DPZfcIbUi7mwM2JMdlWw==
+"@git-lazy/diff-staged@^1.0.21":
+  version "1.0.21"
+  resolved "https://registry.npmjs.org/@git-lazy/diff-staged/-/diff-staged-1.0.21.tgz#8b82ee7b730513154aef8b741fbad1701ff7ad54"
+  integrity sha512-OeqyP4OTiZMEYeHEagL7GSoR9dnJ738SkaFmK8WT0ZrptXT/ZJWurRkipSeOQE2WSEeoBJm3hOkZSG9etT7teA==
   dependencies:
-    "@git-lazy/root" "^1.0.14"
-    "@git-lazy/spawn" "^1.0.13"
+    "@git-lazy/root" "^1.0.16"
+    "@git-lazy/spawn" "^1.0.20"
 
-"@git-lazy/root@^1.0.14":
-  version "1.0.14"
-  resolved "https://registry.npmjs.org/@git-lazy/root/-/root-1.0.14.tgz#e5683c205b6bbf450066cdf3afdc1566aed0629f"
-  integrity sha512-srPFl3fZhV330ifi9spk3wg3+4uKsnXHF0rx5ZjQDcmrhpywcKfaKifujDUuug0bfN3FAorDJ5WzEoBdOS20pQ==
+"@git-lazy/root@^1.0.16":
+  version "1.0.16"
+  resolved "https://registry.npmjs.org/@git-lazy/root/-/root-1.0.16.tgz#1ad90ab863307780a0407c9de6af7240600198cb"
+  integrity sha512-m0QN2gLskHn+i2MVC4yVujJW86tLqzk5QEmHtG2ukjFQA8BSpdja/7G3W2fi9bbSL3RIUq44zV90C6yi0st4LA==
   dependencies:
-    git-root2 "^1.0.16"
+    git-root2 "^1.0.18"
 
-"@git-lazy/spawn@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.npmjs.org/@git-lazy/spawn/-/spawn-1.0.13.tgz#1db62d6cade660f41b0e1cbb94725a9b9d1cb633"
-  integrity sha512-LL73IHVte/aqHrV1NU7QElHLpWKNjMgPUBdyrcDOsUXkWSS9KjdkUn4kpSivHknMWLL44YnTw3w4BTRxbUEO6g==
+"@git-lazy/spawn@^1.0.20":
+  version "1.0.20"
+  resolved "https://registry.npmjs.org/@git-lazy/spawn/-/spawn-1.0.20.tgz#b53891442bb1cdd07988158f76db140e86af75d8"
+  integrity sha512-6N3qyzqP7s/JCMq3PkdJ5Q1HrX+pm1a0BgriZcVHuI2DWg9YBe5iRkdy7Dn6qeK5+eVKAL8BEYROy2tJpG7/6w==
   dependencies:
     "@git-lazy/debug" "^1.0.4"
     array-hyper-unique "^1.1.2"
@@ -321,13 +321,13 @@
     debug-color2 "^1.1.7"
     node-novel-globby "^2.0.18"
 
-"@git-lazy/util@^1.0.20":
-  version "1.0.20"
-  resolved "https://registry.npmjs.org/@git-lazy/util/-/util-1.0.20.tgz#065507b57e8c2c2a79bb166eb4210fbc40de6090"
-  integrity sha512-NuYYR3GbzqSoBALLLqW3VpLZ1kgr3NmrLYSiGfHeDP3O8QoAtsa/D+OYiZouiFRLHb7uUb9GdE/tgWOnDb1MaA==
+"@git-lazy/util@^1.0.21":
+  version "1.0.21"
+  resolved "https://registry.npmjs.org/@git-lazy/util/-/util-1.0.21.tgz#16f10e6194c1aefc8d262ad3c2fedca1cd9612dd"
+  integrity sha512-DupVUPSgIf2CQHjEZhi6fH2rJFreVtT6R7wMc9Vz50dEQT4gBwyxJ/iqPbsHpHmQenig3ru8bDNytIAkXNMr1A==
   dependencies:
     "@git-lazy/debug" "^1.0.4"
-    "@git-lazy/spawn" "^1.0.13"
+    "@git-lazy/spawn" "^1.0.20"
     micromatch "^4.0.2"
 
 "@istanbuljs/load-nyc-config@^1.0.0":
@@ -979,6 +979,45 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@vercel/build-utils@2.4.0":
+  version "2.4.0"
+  resolved "https://registry.npmjs.org/@vercel/build-utils/-/build-utils-2.4.0.tgz#c756a3804f072cc693ebe0bbcc1adcce61b9f15c"
+  integrity sha512-VRXMLBPDcpFUHQMgHdgYHBl9SRwqNFb43tgkMdTYaNml2HgqlLNvNuINKlqwB2/Q/tARIWcm4jmPKR0gu1CaEQ==
+
+"@vercel/go@1.1.2":
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/@vercel/go/-/go-1.1.2.tgz#0b0067a56616e4c56eeac8a8b33a9bb64a79be71"
+  integrity sha512-1k7w6gY2Uj4DVqvvqm5VXZZeCqmzV5Fw3T3hjfgt13WVXPVwYfXf50ya4VvwpF9/IEvXpAhXLRcHD7ZTCMoXKA==
+
+"@vercel/next@2.6.6":
+  version "2.6.6"
+  resolved "https://registry.npmjs.org/@vercel/next/-/next-2.6.6.tgz#ec8a4fd8b8b058940010e491de2c41bb25fe1159"
+  integrity sha512-1Zx3PqDznaoCtFLd3DfDQ5nBkyr/8UbyUtrDR5aj7TXCi1BQ9jBzO9NGzpRmxZRNkVX4BFQTX2ESEBz8rKbLHw==
+
+"@vercel/node@1.7.0":
+  version "1.7.0"
+  resolved "https://registry.npmjs.org/@vercel/node/-/node-1.7.0.tgz#f90412a05463edc29d34ab6a56abd02867181d66"
+  integrity sha512-UaG86cstaCEaNd8N1BAelysofzxi6Grhpg4Tq6UmYJuz7CqmRwsVhsqkK0u0dXFvH1uHjRUGSEwjndpKiAFfFg==
+  dependencies:
+    "@types/node" "*"
+    ts-node "8.9.1"
+    typescript "3.9.3"
+
+"@vercel/python@1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@vercel/python/-/python-1.2.2.tgz#52e8e2a0d3a65153b8bd25a63db36b704aafde72"
+  integrity sha512-+rHfbjJaySdac59Oa11a7/nZzpXC98Kqw5tPh8DT1I5OG8YTfgJnwgfBoytZOAZZQBcggoJspnjAd+wGVCoVXw==
+
+"@vercel/ruby@1.2.2":
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/@vercel/ruby/-/ruby-1.2.2.tgz#0a6ef704d9eec7a88d3bf12f462cd52046b75361"
+  integrity sha512-5kKFNS84EvjHRI/umZqL31KdyvoWO05qbIeR3YHHJBCPSBIUlGimM0Wx7OsdAK+TMDzpWszBF/6bgk//KpmYbg==
+
+"@vercel/static-build@0.17.2":
+  version "0.17.2"
+  resolved "https://registry.npmjs.org/@vercel/static-build/-/static-build-0.17.2.tgz#fa9963e951cada1059918837e7ca223bd31f58d8"
+  integrity sha512-jK7WUvZIaYqJJffQ1z7Q2wSbAWJhAv8SluMyLfGMox5hBIso/QOPd2Tnh5xnMGbib6U/4noEG3ekHr81l3Yo3w==
+
 "@yarn-tool/is-npx@^1.0.4":
   version "1.0.4"
   resolved "https://registry.npmjs.org/@yarn-tool/is-npx/-/is-npx-1.0.4.tgz#600677d250d62fd7df9557c2a89e9ce035efef07"
@@ -1108,6 +1147,11 @@ arabic-roman-convert.js@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/arabic-roman-convert.js/-/arabic-roman-convert.js-1.2.1.tgz#e0cb6b5403089b0c179f10967245f7fcda71aece"
   integrity sha1-4MtrVAMImwwXnxCWckX3/Npxrs4=
+
+arg@^4.1.0:
+  version "4.1.3"
+  resolved "https://registry.npmjs.org/arg/-/arg-4.1.3.tgz#269fc7ad5b8e42cb63c896d5666017261c144089"
+  integrity sha512-58S9QDqG0Xx27YwPSt9fJxivjYl432YCwfDMfZ+71RAqUrZef7LrKQZ3LHLOwCS4FLNBplP533Zx895SeOCHvA==
 
 argparse@^1.0.7:
   version "1.0.10"
@@ -1813,10 +1857,10 @@ data-urls@^2.0.0:
     whatwg-mimetype "^2.3.0"
     whatwg-url "^8.0.0"
 
-debug-color2@^1, debug-color2@^1.1.7, debug-color2@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/debug-color2/-/debug-color2-1.2.2.tgz#61c0f8cc33fe19bb21d6154d1c1907194b8b4f5c"
-  integrity sha512-wntAbabOMCDwb4BssXvT3XCQ2dlgzsof4Zykai+WyEiydV31Qaf9clr+kNyhBxTRoJx7Xyn1EvPyd1DfpoSWng==
+debug-color2@^1, debug-color2@^1.1.7, debug-color2@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.npmjs.org/debug-color2/-/debug-color2-1.2.3.tgz#bfe05adcd57e042a37c3eccc36de840f78a1f263"
+  integrity sha512-38TpLia2bzmW0TQl5+rOTuv3LQI3COX+Nbv5HKEMaoUzNrl8uHRfnzHtAt4gjEBJd4Oa8iP31VANeqRJ6MzUNw==
   dependencies:
     "@types/luxon" "*"
     chalk "< 3 && >= 2"
@@ -1967,7 +2011,7 @@ diff-sequences@^26.0.0:
   resolved "https://registry.npmjs.org/diff-sequences/-/diff-sequences-26.0.0.tgz#0760059a5c287637b842bd7085311db7060e88a6"
   integrity sha512-JC/eHYEC3aSS0vZGjuoc4vHA0yAQTzhQQldXMeMF+JlxLGJlCO38Gma82NV9gk1jGFz8mDzUMeaKXvjRRdJ2dg==
 
-diff@^4.0.2:
+diff@^4.0.1, diff@^4.0.2:
   version "4.0.2"
   resolved "https://registry.npmjs.org/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
@@ -2468,12 +2512,12 @@ getpass@^0.1.1:
   dependencies:
     assert-plus "^1.0.0"
 
-git-root2@^1.0.16:
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/git-root2/-/git-root2-1.0.16.tgz#9a8d7364c72486ddde365ca2b76ceb1b5c8d0970"
-  integrity sha512-/YbFS9hort6MJmUqdTkeScjT+xdscLZZidimDkww+WGZ43ZTZ8Ud7/RuJhCsJKOUbLDhmAORB9Uedty+dzihUA==
+git-root2@^1.0.18:
+  version "1.0.18"
+  resolved "https://registry.npmjs.org/git-root2/-/git-root2-1.0.18.tgz#c714b78ccd379c68381900ae8360204de597fa3f"
+  integrity sha512-zN79uDUnndY0bK/G4s9mhsH0mo2bPJNtIt2uNQlh6Cr7/WVWqNc+n7vklL6okqou87UW52K9QusGqk7Y5E+3GA==
   dependencies:
-    "@git-lazy/spawn" "^1.0.13"
+    "@git-lazy/spawn" "^1.0.20"
     upath2 "^3.0.5"
 
 glob-parent@^5.1.0:
@@ -3659,7 +3703,7 @@ make-dir@^3.0.0:
   dependencies:
     semver "^6.0.0"
 
-make-error@1.x:
+make-error@1.x, make-error@^1.1.1:
   version "1.3.6"
   resolved "https://registry.npmjs.org/make-error/-/make-error-1.3.6.tgz#2eb2e37ea9b67c4891f684a1394799af484cf7a2"
   integrity sha512-s8UhlNe7vPKomQhC1qFelMokr/Sc3AgNbso3n74mVPA5LTZwkB9NlXf4XPamLxJE8h0gh73rM94xvwRT2CVInw==
@@ -3949,10 +3993,18 @@ normalize-url@^4.1.0:
   resolved "https://registry.npmjs.org/normalize-url/-/normalize-url-4.5.0.tgz#453354087e6ca96957bd8f5baf753f5982142129"
   integrity sha512-2s47yzUxdexf1OhyRi4Em83iQk0aPvwTddtFz4hnSSw9dCEsLEGf6SwIO8ss/19S9iBb5sJaOuTvTGDeZI00BQ==
 
-now@^19.0.1:
-  version "19.0.1"
-  resolved "https://registry.npmjs.org/now/-/now-19.0.1.tgz#a4575adfed17ea049d9207c145f3ce7f60c818cf"
-  integrity sha512-Q/dUlRBPzoy6lHw9P9qnzGmXw3aBU5ypQ1JjrKwoQJoEVhU5hCa9dJCEtIiSIG5cModcirU0xJPemg54dvWPnA==
+now@^19.1.0:
+  version "19.1.0"
+  resolved "https://registry.npmjs.org/now/-/now-19.1.0.tgz#c9b5873f8798a9860e7f8c9b16a50e9691130ad1"
+  integrity sha512-enmljdmd4IEefSCUdKZo/himDQ+sCgIdtbCuGq/xv17eMIfvSV/JAHqX6WPXp+7Ld57RKLZXqJPU80xbjwo0tg==
+  dependencies:
+    "@vercel/build-utils" "2.4.0"
+    "@vercel/go" "1.1.2"
+    "@vercel/next" "2.6.6"
+    "@vercel/node" "1.7.0"
+    "@vercel/python" "1.2.2"
+    "@vercel/ruby" "1.2.2"
+    "@vercel/static-build" "0.17.2"
 
 npm-run-path@^2.0.0:
   version "2.0.2"
@@ -4813,7 +4865,7 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
-source-map-support@^0.5.6:
+source-map-support@^0.5.17, source-map-support@^0.5.6:
   version "0.5.19"
   resolved "https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.19.tgz#a98b62f86dcaf4f67399648c085291ab9e8fed61"
   integrity sha512-Wonm7zOCIJzBGQdB+thsPar0kYuCIzYvxZwlBa87yi/Mdjv7Tip2cyVbLj5o0cFPN4EVkuTwb3GDDyUx2DGnGw==
@@ -5200,6 +5252,17 @@ ts-jest@^26.1.0:
     semver "7.x"
     yargs-parser "18.x"
 
+ts-node@8.9.1:
+  version "8.9.1"
+  resolved "https://registry.npmjs.org/ts-node/-/ts-node-8.9.1.tgz#2f857f46c47e91dcd28a14e052482eb14cfd65a5"
+  integrity sha512-yrq6ODsxEFTLz0R3BX2myf0WBCSQh9A+py8PBo1dCzWIOcvisbyH6akNKqDHMgXePF2kir5mm5JXJTH3OUJYOQ==
+  dependencies:
+    arg "^4.1.0"
+    diff "^4.0.1"
+    make-error "^1.1.1"
+    source-map-support "^0.5.17"
+    yn "3.1.1"
+
 ts-toolbelt@^6.9.4:
   version "6.9.4"
   resolved "https://registry.npmjs.org/ts-toolbelt/-/ts-toolbelt-6.9.4.tgz#cc3a070d99c557c552b4f69e36f13d430c47a760"
@@ -5271,6 +5334,11 @@ typedarray-to-buffer@^3.1.5:
   integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
   dependencies:
     is-typedarray "^1.0.0"
+
+typescript@3.9.3:
+  version "3.9.3"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-3.9.3.tgz#d3ac8883a97c26139e42df5e93eeece33d610b8a"
+  integrity sha512-D/wqnB2xzNFIcoBG9FG8cXRDjiqSTbG2wd8DMZeQyJlP1vfTkIxH4GKveWaEBYySKIg+USu+E+EDIR47SqnaMQ==
 
 uni-string@^1.1.9:
   version "1.1.9"
@@ -5604,3 +5672,8 @@ yargs@^15, yargs@^15.3.1:
     which-module "^2.0.0"
     y18n "^4.0.0"
     yargs-parser "^18.1.1"
+
+yn@3.1.1:
+  version "3.1.1"
+  resolved "https://registry.npmjs.org/yn/-/yn-3.1.1.tgz#1e87401a09d767c1d5eab26a6e4c185182d2eb50"
+  integrity sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==

@@ -31,7 +31,7 @@
     "bluebird": "^3.7.2",
     "cache-path": "^1.0.4",
     "crlf-normalize": "^1.0.3",
-    "debug-color2": "^1.2.2",
+    "debug-color2": "^1.2.3",
     "fs-extra": "^9",
     "fs-iconv": "^3.0.7",
     "iconv-jschardet": "^2.0.8",
