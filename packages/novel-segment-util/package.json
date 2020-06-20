@@ -34,7 +34,7 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "peerDependencies": {
-    "array-hyper-unique": "^1.1.2",
+    "array-hyper-unique": "^1.1.8",
     "cjk-conv": "*",
     "str-util": "*",
     "string-natural-compare": "^3.0.1",
