@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.97](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.96...segment-dict@2.3.97) (2020-06-20)
+
+
+### 📦　Code Refactoring
+
+* **dict:** 性|姓 ([e04ee07](https://github.com/bluelovers/ws-segment/commit/e04ee07719792846b217006d24d057eb1ee664af))
+* 坂|板|版|闆|阪 ([54f5ca7](https://github.com/bluelovers/ws-segment/commit/54f5ca7484d6a5831546a1c4daabcbed0d035ddd))
+
+
+### ♻️　Chores
+
+* save dict ([4b0d2f1](https://github.com/bluelovers/ws-segment/commit/4b0d2f14b0a6aa4dc6084e9f83c87494247a7fbd))
+* save dict ([feca9d9](https://github.com/bluelovers/ws-segment/commit/feca9d97a8727176528d7f6fc5a63b27279907db))
+
+
+### 🔖　Miscellaneous
+
+* npm publish 2.3.96 ([8614126](https://github.com/bluelovers/ws-segment/commit/8614126a3aca053fb3c7b9d2c213c0d6f5deb80a))
+
+
+
+
+
 ## [2.3.96](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.95...segment-dict@2.3.96) (2020-06-11)
 
 **Note:** Version bump only for package segment-dict
