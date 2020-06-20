@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.29...@novel-segment/util@1.0.30) (2020-06-20)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([e675bcb](https://github.com/bluelovers/ws-segment/commit/e675bcb6f84ec27caabc22b2b12e7f2cb4fb3096))
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.28...@novel-segment/util@1.0.29) (2020-06-07)
 
 **Note:** Version bump only for package @novel-segment/util
