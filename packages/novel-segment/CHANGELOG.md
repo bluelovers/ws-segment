@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.14](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.13...novel-segment@2.7.14) (2020-06-24)
+
+
+### 🐛　Bug Fixes
+
+* **dict:** 扎营 ([271d57b](https://github.com/bluelovers/ws-segment/commit/271d57b60847a79fe8a055596bfca4681b86d1c4))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([3a5e2c1](https://github.com/bluelovers/ws-segment/commit/3a5e2c195a7db0e6c99eee6790c71b6f48975947))
+* **dict:** save dict ([63600c8](https://github.com/bluelovers/ws-segment/commit/63600c85f576c3c86f21181e14066778634a9645))
+
+
+### 🔖　Miscellaneous
+
+* novel-segment@2.7.13, segment-dict@2.3.97, cjk-conv@1.2.87, regexp-cjk@3.3.53 ([e803199](https://github.com/bluelovers/ws-segment/commit/e803199bc50584e5d778ebfbfb78d0aacdb5a6dc))
+
+
+
+
+
 ## [2.7.13](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.12...novel-segment@2.7.13) (2020-06-20)
 
 
