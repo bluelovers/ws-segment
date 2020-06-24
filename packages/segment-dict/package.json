@@ -104,7 +104,7 @@
     "@novel-segment/util": "^1.0.30",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.3"
+    "crlf-normalize": "^1.0.5"
   },
   "peerDependencies": {
     "novel-segment": "^2"
