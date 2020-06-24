@@ -4154,6 +4154,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'「是騎士里甘‧諾托斯」',
+		[
+			'里',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
