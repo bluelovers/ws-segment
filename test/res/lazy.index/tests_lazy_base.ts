@@ -490,6 +490,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'純真又積極穿著競速泳衣的褐色肌青梅竹馬♥',
+		[
+			['純真'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
