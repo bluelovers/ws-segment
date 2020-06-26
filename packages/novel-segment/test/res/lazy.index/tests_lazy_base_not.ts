@@ -537,6 +537,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'與其他方式造成的痛苦(就是M)',
+		[
+			['他方'],
+		],
+	],
+
+	[
+		'魔法禁书目录',
+		[
+			['书目'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

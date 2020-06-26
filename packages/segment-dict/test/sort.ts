@@ -315,7 +315,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/性|姓/u).test(w)
+				&& zhRegExp.create(/召|招/u).test(w)
 			)
 			{
 				bool = true;
