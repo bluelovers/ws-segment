@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.99](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.98...segment-dict@2.3.99) (2020-06-26)
+
+
+### 📦　Code Refactoring
+
+* **dict:** 召|招 ([ca48089](https://github.com/bluelovers/ws-segment/commit/ca480890eb6ef4d4c88f01b882311fb439c55c74))
+* **dict:** 中|仲 ([43ed77b](https://github.com/bluelovers/ws-segment/commit/43ed77b63187be083f70461804dd01badf6d33c9))
+* **dict:** 娇|嬌|驕|骄 ([17983e1](https://github.com/bluelovers/ws-segment/commit/17983e1238c9ff2942de46d8d72b59ff31cd2d28))
+* **dict:** 湿|溼|濕 ([0f8a860](https://github.com/bluelovers/ws-segment/commit/0f8a860c578eae787250494abad7d1c22019802d))
+
+
+### ♻️　Chores
+
+* **dict:** save dict ([b65f880](https://github.com/bluelovers/ws-segment/commit/b65f8808c84fd0e5315d1b0fd146393a429bc568))
+* save dict ([01172b9](https://github.com/bluelovers/ws-segment/commit/01172b976ad33ba3d65ade97ceec7d91579c3782))
+* save dict ([4393a16](https://github.com/bluelovers/ws-segment/commit/4393a16f58092f1dbdb72932dad6bfd0947f232c))
+* save dict ([99df0f5](https://github.com/bluelovers/ws-segment/commit/99df0f59006050a270b3c9d2da343d49336d5ea6))
+
+
+### 🔖　Miscellaneous
+
+* . ([a9f13b5](https://github.com/bluelovers/ws-segment/commit/a9f13b5c61c2b7e832977beae352fe07de6f1239))
+* npm publish 2.3.98 ([6cc56e4](https://github.com/bluelovers/ws-segment/commit/6cc56e41c37b45cf1ba04b329c84476ffc4d6f2e))
+
+
+
+
+
 ## [2.3.98](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.97...segment-dict@2.3.98) (2020-06-24)
 
 
