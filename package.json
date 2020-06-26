@@ -92,7 +92,7 @@
     "sort:line": "ts-node ./script/sort-line.ts",
     "sort:list:synonym": "ts-node ./script/sort_list_synonym.ts",
     "task:do-split": "yarn run task:do-split:commit && ts-node ./test/sort.ts",
-    "task:do-split:commit": "git commit -m \"chore: save dict\" ./dict & echo \"save dict\"",
+    "task:do-split:commit": "git commit -m \"chore(dict): save dict\" ./dict & echo \"save dict\"",
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
