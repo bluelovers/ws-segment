@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.100](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.99...segment-dict@2.3.100) (2020-06-27)
+
+
+### 🐛　Bug Fixes
+
+* **dict:** 游刃有餘 , 遊刃有餘 ([51f4591](https://github.com/bluelovers/ws-segment/commit/51f4591fb97597249b3fc4a8a378ffedde8b4584))
+
+
+### 🔖　Miscellaneous
+
+* npm publish 2.3.99 ([7878259](https://github.com/bluelovers/ws-segment/commit/7878259725bf04ec225611691c282eff32959118))
+
+
+
+
+
 ## [2.3.99](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.98...segment-dict@2.3.99) (2020-06-26)
 
 
