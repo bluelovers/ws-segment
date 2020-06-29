@@ -551,6 +551,27 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'主要是德不配位',
+		[
+			['要是'],
+		],
+	],
+
+	[
+		'當時政治思想百花齊放',
+		[
+			['時政'],
+		],
+	],
+
+	[
+		'監察院早就被證明不適用於當代政治',
+		[
+			['用於'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
