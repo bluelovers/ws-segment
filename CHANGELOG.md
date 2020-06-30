@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.18](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.17...novel-segment@2.7.18) (2020-06-30)
+
+
+### ✨　Features
+
+* load `lazy/*` ([f5eaf21](https://github.com/bluelovers/ws-segment/commit/f5eaf217d5d7b00a46b30dcf51cd70b68c77ff15))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([0c38ca8](https://github.com/bluelovers/ws-segment/commit/0c38ca89a2998a25a46c675caa9cb2e668dc361b))
+
+
+
+
+
 ## [2.7.17](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.16...novel-segment@2.7.17) (2020-06-29)
 
 
