@@ -3,6 +3,40 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.102](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.101...segment-dict@2.3.102) (2020-06-30)
+
+
+### ✨　Features
+
+* load `lazy/*` ([f5eaf21](https://github.com/bluelovers/ws-segment/commit/f5eaf217d5d7b00a46b30dcf51cd70b68c77ff15))
+
+
+### 📦　Code Refactoring
+
+* **dict:** 担|擔|檐|簷 ([af1727e](https://github.com/bluelovers/ws-segment/commit/af1727ec3ee60a9037a757222271e346e36dee69))
+* **dict:** 恬|忝 ([82005f3](https://github.com/bluelovers/ws-segment/commit/82005f3610093dbf066e0254033e4be5143adeb6))
+* **dict:** 振|震 ([d77b292](https://github.com/bluelovers/ws-segment/commit/d77b29278dbf9e4b3fc0f3d6839d8a2a123abd84))
+* **dict:** 启|啓|啔|啟 ([a0eba14](https://github.com/bluelovers/ws-segment/commit/a0eba14f7ace1239b2d7c8b4938124feca91b6d3))
+* **dict:** 奥|奧|澳|袄|襖 ([9b40257](https://github.com/bluelovers/ws-segment/commit/9b40257461c3813f80f443b5ee43f440e66b4032))
+
+
+### ♻️　Chores
+
+* **dict:** save dict ([57d2e07](https://github.com/bluelovers/ws-segment/commit/57d2e07943309669ef72513649aff070e818cbfc))
+* **dict:** save dict ([304e5ff](https://github.com/bluelovers/ws-segment/commit/304e5ff28f644eb05d3c1ab660f81117ae0fb26b))
+* **dict:** save dict ([8677717](https://github.com/bluelovers/ws-segment/commit/86777173cd651f6bdb4756a82f05342070e24ac1))
+* **dict:** save dict ([7beb319](https://github.com/bluelovers/ws-segment/commit/7beb319f2124f94359ea8fe4f7dcd720e2cbcb3b))
+* **dict:** save dict ([df9fbbe](https://github.com/bluelovers/ws-segment/commit/df9fbbe489e53af84f5a21c8b049eccaf28fe37b))
+
+
+### 🔖　Miscellaneous
+
+* npm publish 2.3.101 ([27cf2a3](https://github.com/bluelovers/ws-segment/commit/27cf2a32fbab0164459ba51cb9d9c70597c58b11))
+
+
+
+
+
 ## [2.3.101](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.100...segment-dict@2.3.101) (2020-06-29)
 
 
