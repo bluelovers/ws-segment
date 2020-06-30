@@ -54,7 +54,7 @@
     "chai": "^4.2.0",
     "chai-asserttype-extra": "^1.2.0",
     "chai-string": "^1.5.0",
-    "cjk-conv": "^1.2.91",
+    "cjk-conv": "^1.2.92",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.3",
     "diff": "^4.0.2",
