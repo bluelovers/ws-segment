@@ -572,6 +572,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'從胸膛到頭部',
+		[
+			['到頭'],
+		],
+	],
+
+	[
+		'不停將它拉至深處',
+		[
+			['至深'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

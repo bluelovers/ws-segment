@@ -50,7 +50,7 @@ export function useDefaultDicts(segment: Segment, options: IUseDefaultOptionsDic
 
 			.loadDict('names/*')
 
-			.loadDict('lazy/index')
+			.loadDict('lazy/*')
 
 			.loadDict('pangu/num')
 
