@@ -3,7 +3,7 @@ import { getCachePath, findNpmCachePath, getOSTempPath, findPkgModulePath } from
 import { Console } from 'debug-color2';
 export const console = new Console();
 
-import PACKAGE_JSON = require('../package.json');
+import PACKAGE_JSON from '../package.json';
 
 console.inspectOptions = {
 	colors: console.enabledColor

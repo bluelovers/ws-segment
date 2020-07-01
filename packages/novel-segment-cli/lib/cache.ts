@@ -1,3 +1,6 @@
 
-import _ = require('lazy-cacache');
-export = _;
+import _ from 'lazy-cacache';
+// @ts-ignore
+export * from 'lazy-cacache';
+
+export default _;

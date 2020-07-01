@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.zhDictCompare = exports.getCjkName = void 0;
 /**
  * Created by user on 2019/3/20.
  */

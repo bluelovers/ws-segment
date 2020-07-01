@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = void 0;
-const naturalCompare = require("string-natural-compare");
+const string_natural_compare_1 = __importDefault(require("@bluelovers/string-natural-compare"));
 const array_hyper_unique_1 = require("array-hyper-unique");
-const UString = require("uni-string");
+const uni_string_1 = __importDefault(require("uni-string"));
 /**
  * @private
  */
@@ -54,18 +57,18 @@ function zhDictCompareNew(options) {
     }
     let failback = (options = options || {}).failback;
     if (failback == null) {
-        if (typeof naturalCompare.caseInsensitive === 'function') {
-            failback = naturalCompare.caseInsensitive;
+        if (typeof string_natural_compare_1.default.caseInsensitive === 'function') {
+            failback = string_natural_compare_1.default.caseInsensitive;
         }
         else {
-            failback = (a, b) => naturalCompare(a, b, {
+            failback = (a, b) => string_natural_compare_1.default(a, b, {
                 caseInsensitive: true
             });
         }
     }
     return function zhDictCompare(a, b) {
-        let len01 = UString.size(a);
-        let len02 = UString.size(b);
+        let len01 = uni_string_1.default.size(a);
+        let len02 = uni_string_1.default.size(b);
         /**
          * 優先排序單一字元
          */

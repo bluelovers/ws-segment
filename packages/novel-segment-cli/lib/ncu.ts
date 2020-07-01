@@ -1,8 +1,8 @@
 
-import PACKAGE_JSON = require('../package.json');
-import path = require('path');
-import pkgUp = require('pkg-up');
-import * as fs from "fs-extra";
+import PACKAGE_JSON from '../package.json';
+import path from 'path';
+import pkgUp from 'pkg-up';
+import fs from "fs-extra";
 import { updateNotifier as updateNotifier2, notNpxMaybe, IUpdateNotifierObject } from '@yarn-tool/update-notifier';
 
 export { notNpxMaybe }

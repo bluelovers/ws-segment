@@ -2,7 +2,7 @@
  * Created by user on 2019/3/20.
  */
 
-import StrUtil = require('str-util');
+import StrUtil from 'str-util';
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 
 export function getCjkName(w: string, USE_CJK_MODE?: number)

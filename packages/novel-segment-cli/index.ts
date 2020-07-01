@@ -1,14 +1,15 @@
 import cacache = require('cacache');
 import crlf from 'crlf-normalize';
 import Segment, { stringify } from 'novel-segment';
-import Bluebird = require('bluebird');
-import * as fs from 'fs-iconv';
+import Bluebird from 'bluebird';
+import fs from 'fs-iconv';
 import { useDefault } from 'novel-segment/lib';
+// @ts-ignore
 import { Cacache } from './lib/cache';
 import { console, debugConsole, getCacheDirPath, enableDebug, freeGC } from './lib/util';
-import PACKAGE_JSON = require('./package.json');
+import PACKAGE_JSON from './package.json';
 import { debug_token } from 'novel-segment/lib/util'
-import * as iconv from 'iconv-jschardet';
+import iconv from 'iconv-jschardet';
 import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
 import { IUseDefaultOptions } from 'novel-segment/lib/defaults/index';
 import { IOptionsSegment } from 'novel-segment/lib/segment/types';

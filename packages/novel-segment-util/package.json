@@ -25,19 +25,20 @@
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "npx yarn-tool ncu -u && npx yarn-tool sort && yarn run test",
-    "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
+    "prepublishOnly": "yarn run test",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
+  "dependencies": {
+    "@bluelovers/string-natural-compare": "^1.1.2"
+  },
   "peerDependencies": {
-    "array-hyper-unique": "^1.1.8",
+    "array-hyper-unique": "^1.1.9",
     "cjk-conv": "*",
     "str-util": "*",
-    "string-natural-compare": "^3.0.1",
     "uni-string": "*"
   },
   "publishConfig": {

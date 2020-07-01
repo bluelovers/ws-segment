@@ -1,10 +1,13 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.freeGC = exports.getCacheDirPath = exports.enableDebug = exports.debugConsole = exports.console = void 0;
 const cache_path_1 = require("cache-path");
 const debug_color2_1 = require("debug-color2");
 exports.console = new debug_color2_1.Console();
-const PACKAGE_JSON = require("../package.json");
+const package_json_1 = __importDefault(require("../package.json"));
 exports.console.inspectOptions = {
     colors: exports.console.enabledColor
 };
@@ -28,7 +31,7 @@ function enableDebug(bool) {
 exports.enableDebug = enableDebug;
 function getCacheDirPath(useGlobal) {
     return cache_path_1.getCachePath({
-        name: PACKAGE_JSON.name,
+        name: package_json_1.default.name,
         create: true,
         fnOrder: useGlobal ? [
             cache_path_1.findNpmCachePath,

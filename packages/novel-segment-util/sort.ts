@@ -1,9 +1,9 @@
-import naturalCompare = require('string-natural-compare');
+import naturalCompare from '@bluelovers/string-natural-compare';
 import { array_unique } from 'array-hyper-unique';
 import StrUtil = require('str-util');
 import libTable from 'cjk-conv/lib/zh/table';
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
-import UString = require('uni-string');
+import UString from 'uni-string';
 
 /**
  * @private

@@ -1,7 +1,6 @@
 /// <reference types="node" />
 import { stringify } from 'novel-segment';
-import Bluebird = require('bluebird');
-import { Cacache } from './lib/cache';
+import Bluebird from 'bluebird';
 import { enableDebug } from './lib/util';
 import { IOptionsSegment } from 'novel-segment/lib/segment/types';
 export { enableDebug, stringify };
@@ -27,7 +26,7 @@ export declare class SegmentCliError extends Error {
 }
 export declare function readFile(file: string, options?: ISegmentCLIOptions): Bluebird<Buffer>;
 export declare function fixOptions<T extends ISegmentCLIOptions>(options?: T): T & ISegmentCLIOptions;
-export declare function getCacache(options?: ISegmentCLIOptions): Bluebird<Cacache>;
+export declare function getCacache(options?: ISegmentCLIOptions): Bluebird<any>;
 export declare function resetSegment(): void;
 export declare function getSegment(options?: ISegmentCLIOptions): Bluebird<import("novel-segment/lib").Segment>;
 export interface IDataCacheInfo {

@@ -1,18 +1,41 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processText = exports.fileSegment = exports.textSegment = exports.stringify = exports.enableDebug = void 0;
-const crlf_normalize_1 = require("crlf-normalize");
-const novel_segment_1 = require("novel-segment");
+const crlf_normalize_1 = __importDefault(require("crlf-normalize"));
+const novel_segment_1 = __importStar(require("novel-segment"));
 Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return novel_segment_1.stringify; } });
-const Bluebird = require("bluebird");
-const fs = require("fs-iconv");
+const bluebird_1 = __importDefault(require("bluebird"));
+const fs_iconv_1 = __importDefault(require("fs-iconv"));
 const lib_1 = require("novel-segment/lib");
+// @ts-ignore
 const cache_1 = require("./lib/cache");
 const util_1 = require("./lib/util");
 Object.defineProperty(exports, "enableDebug", { enumerable: true, get: function () { return util_1.enableDebug; } });
-const PACKAGE_JSON = require("./package.json");
+const package_json_1 = __importDefault(require("./package.json"));
 const util_2 = require("novel-segment/lib/util");
-const iconv = require("iconv-jschardet");
+const iconv_jschardet_1 = __importDefault(require("iconv-jschardet"));
 const min_1 = require("cjk-conv/lib/zh/convert/min");
 const dict_1 = require("novel-segment/lib/defaults/dict");
 const lodash_1 = require("lodash");
@@ -35,7 +58,7 @@ function textSegment(text, options) {
 }
 exports.textSegment = textSegment;
 function fileSegment(file, options) {
-    return Bluebird.resolve(readFile(file))
+    return bluebird_1.default.resolve(readFile(file))
         .then(function (buf) {
         return textSegment(buf.toString(), options);
     });
@@ -43,7 +66,7 @@ function fileSegment(file, options) {
 exports.fileSegment = fileSegment;
 function processText(text, options) {
     if (!text.length || !text.replace(/\s+/g, '').length) {
-        return Bluebird.resolve('');
+        return bluebird_1.default.resolve('');
     }
     return textSegment(text, options)
         .then(function (data) {
@@ -67,7 +90,7 @@ function processText(text, options) {
 }
 exports.processText = processText;
 function processFile(file, options) {
-    return Bluebird.resolve(readFile(file, options))
+    return bluebird_1.default.resolve(readFile(file, options))
         .then(function (buf) {
         return processText(buf.toString(), options);
     });
@@ -77,12 +100,12 @@ class SegmentCliError extends Error {
 }
 exports.SegmentCliError = SegmentCliError;
 function readFile(file, options) {
-    return Bluebird.resolve().then(() => {
-        if (!fs.existsSync(file)) {
+    return bluebird_1.default.resolve().then(() => {
+        if (!fs_iconv_1.default.existsSync(file)) {
             let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
-            return Bluebird.reject(e);
+            return bluebird_1.default.reject(e);
         }
-        return fs.loadFile(file, {
+        return fs_iconv_1.default.loadFile(file, {
             autoDecode: true,
         })
             .then(v => Buffer.from(v));
@@ -95,7 +118,7 @@ function readFile(file, options) {
             util_1.console.warn(`此檔案無內容`, file);
         }
         else {
-            let chk = iconv.detect(buf);
+            let chk = iconv_jschardet_1.default.detect(buf);
             if (chk.encoding != 'UTF-8' && chk.encoding != 'ascii') {
                 util_1.console.warn('此檔案可能不是 UTF8 請檢查編碼或利用 MadEdit 等工具轉換', chk, file);
             }
@@ -121,16 +144,16 @@ function fixOptions(options) {
 }
 exports.fixOptions = fixOptions;
 function getCacache(options) {
-    return new Bluebird(function (resolve, reject) {
+    return new bluebird_1.default(function (resolve, reject) {
         if (!CACHED_CACACHE) {
             if (options && options.useGlobalCache) {
                 CACHED_CACACHE = new cache_1.Cacache({
-                    name: PACKAGE_JSON.name,
+                    name: package_json_1.default.name,
                     useGlobalCache: options.useGlobalCache,
                 });
             }
             else {
-                CACHED_CACACHE = new cache_1.Cacache(PACKAGE_JSON.name);
+                CACHED_CACACHE = new cache_1.Cacache(package_json_1.default.name);
             }
         }
         resolve(CACHED_CACACHE);
@@ -144,7 +167,7 @@ exports.resetSegment = resetSegment;
 function getSegment(options) {
     options = fixOptions(options);
     let { disableCache } = options;
-    return Bluebird
+    return bluebird_1.default
         .resolve()
         .then(async function () {
         await getCacache(options);
@@ -160,9 +183,9 @@ function getSegment(options) {
             CACHED_SEGMENT = new novel_segment_1.default(optionsSegment);
             let _info = await loadCacheInfo(options);
             let version = {
-                [PACKAGE_JSON.name]: PACKAGE_JSON.version,
+                [package_json_1.default.name]: package_json_1.default.version,
                 ...novel_segment_1.default.versions,
-                [PACKAGE_JSON.name]: PACKAGE_JSON.version,
+                [package_json_1.default.name]: package_json_1.default.version,
             };
             let cache_db = await loadCacheDb(options);
             let _do_init;
@@ -172,7 +195,7 @@ function getSegment(options) {
             if (typeof _do_init == 'undefined'
                 && _info
                 && _info.current
-                && _info.current[PACKAGE_JSON.name]) {
+                && _info.current[package_json_1.default.name]) {
                 Object.keys(version)
                     .some(key => {
                     let bool = _info[key] != version[key];
@@ -241,7 +264,7 @@ function getSegment(options) {
 }
 exports.getSegment = getSegment;
 function loadCacheInfo(options) {
-    return Bluebird
+    return bluebird_1.default
         .resolve()
         .then(async function () {
         await getCacache(options);
@@ -267,10 +290,10 @@ function loadCacheDb(options) {
     options = fixOptions(options);
     let { disableCache } = options;
     if (disableCache) {
-        return Bluebird
+        return bluebird_1.default
             .resolve(null);
     }
-    return Bluebird
+    return bluebird_1.default
         .resolve()
         .then(async function () {
         await getCacache(options);
@@ -291,7 +314,7 @@ function loadCacheDb(options) {
 exports.loadCacheDb = loadCacheDb;
 function removeCache(options) {
     let opts = fixOptions(options);
-    return Bluebird.all(array_hyper_unique_1.array_unique([
+    return bluebird_1.default.all(array_hyper_unique_1.array_unique([
         opts,
         lodash_1.merge({}, opts, {
             optionsSegment: {

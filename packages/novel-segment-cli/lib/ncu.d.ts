@@ -1,4 +1,4 @@
-import PACKAGE_JSON = require('../package.json');
+import PACKAGE_JSON from '../package.json';
 import { notNpxMaybe, IUpdateNotifierObject } from '@yarn-tool/update-notifier';
 export { notNpxMaybe };
 export declare function checkUpdateSelf(): IUpdateNotifierObject;

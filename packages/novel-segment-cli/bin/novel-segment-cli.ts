@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 
-import yargs = require('yargs');
+import yargs from 'yargs';
 import { processFile, processText, SegmentCliError } from '../index';
 import { checkUpdateSelf, checkUpdate, notNpxMaybe } from '../lib/ncu';
 import { console, getCacheDirPath, freeGC } from '../lib/util';
-import bluebird = require('bluebird');
-import path = require('upath2');
-import * as fs from 'fs-iconv';
-import FastGlob = require('@bluelovers/fast-glob');
+import bluebird from 'bluebird';
+import path from 'upath2';
+import fs from 'fs-iconv';
+import FastGlob from '@bluelovers/fast-glob';
 import { array_unique } from 'array-hyper-unique';
 
 let cli_argv: yargs.Arguments & {
