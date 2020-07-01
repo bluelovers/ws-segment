@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.20...@novel-segment/api-server@1.0.21) (2020-07-01)
+
+
+### 📦　Code Refactoring
+
+* update source to esm ([bfc98c8](https://github.com/bluelovers/ws-segment/commit/bfc98c849ce0f3c2e305d66fef655dba5ec85942))
+
+
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.19...@novel-segment/api-server@1.0.20) (2020-06-24)
 
 
