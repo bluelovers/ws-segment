@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.37](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.36...novel-segment-cli@1.1.37) (2020-07-01)
+
+
+### 🔖　Miscellaneous
+
+* . ([b0820f0](https://github.com/bluelovers/ws-segment/commit/b0820f0dc253a0857354bb8774eda397fa959e0e))
+
+
+
+
+
 ## [1.1.36](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.35...novel-segment-cli@1.1.36) (2020-07-01)
 
 

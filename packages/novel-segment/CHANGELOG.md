@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.20](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.19...novel-segment@2.7.20) (2020-07-01)
+
+
+### 🔖　Miscellaneous
+
+* . ([b0820f0](https://github.com/bluelovers/ws-segment/commit/b0820f0dc253a0857354bb8774eda397fa959e0e))
+
+
+
+
+
 ## [2.7.19](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.18...novel-segment@2.7.19) (2020-07-01)
 
 

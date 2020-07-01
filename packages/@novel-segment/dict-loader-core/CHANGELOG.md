@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/dict-loader-core@1.0.7...@novel-segment/dict-loader-core@1.0.8) (2020-07-01)
+
+
+### 🔖　Miscellaneous
+
+* . ([b0820f0](https://github.com/bluelovers/ws-segment/commit/b0820f0dc253a0857354bb8774eda397fa959e0e))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-segment/compare/@novel-segment/dict-loader-core@1.0.6...@novel-segment/dict-loader-core@1.0.7) (2020-07-01)
 
 
