@@ -39,8 +39,8 @@ export class EmailOptimizer extends SubSModuleOptimizer
 		while (i < ie)
 		{
 			let word = words[i];
-			let is_ascii = ((word.p == POSTAG.A_NX) ||
-				(word.p == POSTAG.A_M && word.w.charCodeAt(0) < 128))
+			let is_ascii = ((word.p === POSTAG.A_NX) ||
+				(word.p === POSTAG.A_M && word.w.charCodeAt(0) < 128))
 				? true : false;
 
 			// 如果是外文字符或者数字，符合电子邮件地址开头的条件
@@ -54,14 +54,14 @@ export class EmailOptimizer extends SubSModuleOptimizer
 			else
 			{
 				// 如果遇到@符号，符合第二个条件
-				if (has_at === false && word.w == '@')
+				if (has_at === false && word.w === '@')
 				{
 					has_at = true;
 					i++;
 					continue;
 				}
 				// 如果已经遇到过@符号，且出现了其他字符，则截取邮箱地址
-				if (has_at !== false && words[i - 1].w != '@' && is_ascii === false && !(word.w in EMAILCHAR))
+				if (has_at !== false && words[i - 1].w !== '@' && is_ascii === false && !(word.w in EMAILCHAR))
 				{
 					let mailws = words.slice(addr_start, i);
 					//debug(toEmailAddress(mailws));
@@ -93,8 +93,8 @@ export class EmailOptimizer extends SubSModuleOptimizer
 		if (addr_start && has_at && words[ie])
 		{
 			let word = words[ie];
-			let is_ascii = ((word.p == POSTAG.A_NX) ||
-				(word.p == POSTAG.A_M && word.w in EMAILCHAR))
+			let is_ascii = ((word.p === POSTAG.A_NX) ||
+				(word.p === POSTAG.A_M && word.w in EMAILCHAR))
 				? true : false;
 			if (is_ascii)
 			{

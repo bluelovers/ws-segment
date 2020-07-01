@@ -49,12 +49,12 @@ export class DictTokenizer extends SubSModuleTokenizer
 		this._TABLE2 = this.segment.getDict('TABLE2');
 		this._POSTAG = this.segment.POSTAG;
 
-		if (typeof this.segment.options.maxChunkCount == 'number' && this.segment.options.maxChunkCount > DEFAULT_MAX_CHUNK_COUNT_MIN)
+		if (typeof this.segment.options.maxChunkCount === 'number' && this.segment.options.maxChunkCount > DEFAULT_MAX_CHUNK_COUNT_MIN)
 		{
 			this.MAX_CHUNK_COUNT = this.segment.options.maxChunkCount;
 		}
 
-		if (typeof this.segment.options.minChunkCount == 'number' && this.segment.options.minChunkCount > DEFAULT_MAX_CHUNK_COUNT_MIN)
+		if (typeof this.segment.options.minChunkCount === 'number' && this.segment.options.minChunkCount > DEFAULT_MAX_CHUNK_COUNT_MIN)
 		{
 			this.DEFAULT_MAX_CHUNK_COUNT_MIN = this.segment.options.minChunkCount;
 		}
@@ -255,7 +255,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 					w.p = TABLE[w.w].p;
 					assess[i].a += w.f;   // 总词频
 
-					if (j === 0 && !preword && (w.p & POSTAG.D_V))
+					if (j === 0 && isUnset(preword) && (w.p & POSTAG.D_V))
 					{
 						/**
 						 * 將第一個字也計算進去是否包含動詞
@@ -698,14 +698,13 @@ export class DictTokenizer extends SubSModuleTokenizer
 		[index: number]: IWord[];
 	}
 	{
-		let wordpos = {};
+		let wordpos: {
+			[index: number]: IWord[];
+		} = {};
 		// 将单词按位置分组
-		for (let i = 0, word; word = words[i]; i++)
+		for (let word of words)
 		{
-			if (!wordpos[word.c])
-			{
-				wordpos[word.c] = [];
-			}
+			wordpos[word.c] = wordpos[word.c] ?? [];
 			wordpos[word.c].push(word);
 		}
 		// 按单字分割文本，填补空缺的位置
@@ -765,7 +764,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 		 * 例如: 啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
 		 */
 		let m: RegExpMatchArray;
-		if (m = text.match(/^((.+)\2{5,})/))
+		if (!isUnset(m = text.match(/^((.+)\2{5,})/)))
 		{
 			let s1 = text.slice(0, m[1].length);
 			let s2 = text.slice(m[1].length);
@@ -803,7 +802,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 
 		total_count++;
 
-		let words = wordpos[pos] || [];
+		let words = wordpos[pos] ?? [];
 
 		//debug(total_count, MAX_CHUNK_COUNT);
 
@@ -844,7 +843,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 				{
 					let w2 = wordpos[j][0];
 
-					if (w2)
+					if (!isUnset(w2))
 					{
 						w1.push(w2);
 

@@ -51,7 +51,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 		/**
 		 * 原始判斷模式
 		 */
-		if (w1.p == w2.p)
+		if (w1.p === w2.p)
 		{
 			bool = true;
 		}
@@ -68,7 +68,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 		/**
 		 * 允許例如 幾 + ％
 		 */
-		else if (w1.p && typeof w2.p == 'undefined')
+		else if (w1.p && typeof w2.p === 'undefined')
 		{
 			bool = true;
 		}
@@ -118,7 +118,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 	doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 	{
 		//debug(words);
-		if (typeof is_not_first == 'undefined')
+		if (typeof is_not_first === 'undefined')
 		{
 			is_not_first = false;
 		}
@@ -144,7 +144,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 			/**
 			 * 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
 			 */
-			if (w1.w != '了'
+			if (w1.w !== '了'
 				&& (w1.p & POSTAG.D_A)
 				&& (w2.p & POSTAG.D_U)
 			)
@@ -161,7 +161,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 				if (!mw || (mw.p & POSTAG.D_A))
 				{
-					if (mw && (mw.p & POSTAG.D_A))
+					if ((mw?.p & POSTAG.D_A))
 					{
 						p = mw.p;
 						f = mw.f;
@@ -257,7 +257,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				if ((
 					w2.p & POSTAG.A_M
 					&& !/^第/.test(w2.w)
-				) || w2.w == '%' || w2.w == '％')
+				) || w2.w === '%' || w2.w === '％')
 				{
 					this.sliceToken(words, i, 2, {
 						w: w1.w + w2.w,
@@ -318,12 +318,12 @@ export class DictOptimizer extends SubSModuleOptimizer
 				// 带小数点的数字 ，如 “3 . 14”，或者 “十五点三”
 				// 数词 + "分之" + 数词，如“五十分之一”
 				let w3 = words[i + 2];
-				if (w3 && (w3.p & POSTAG.A_M))
+				if ((w3?.p & POSTAG.A_M))
 				{
-					if (w2.w == '.'
-						|| w2.w == '点'
-						|| w2.w == '點'
-						|| w2.w == '分之'
+					if (w2.w === '.'
+						|| w2.w === '点'
+						|| w2.w === '點'
+						|| w2.w === '分之'
 					)
 					{
 						this.sliceToken(words, i, 3, {
@@ -340,7 +340,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 					/**
 					 * 支援 `最多容納59,000個人,或5.9萬人,再多就不行了.這是環評的結論.`
 					 */
-					if (w2.w == ',')
+					if (w2.w === ',')
 					{
 						let _r1 = /^[\d０-９]+$/;
 						let _r2 = /^(?:(?:[\d０-９]+)?(?:\.[\d０-９]+)|(?:[\d０-９]+))$/;

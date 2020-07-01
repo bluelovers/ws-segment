@@ -48,9 +48,9 @@ export class JpSimpleTokenizer extends SubSModuleTokenizer
 		let b1 = /[ぁ-ん]/.test(text);
 		let b2 = /[ァ-ヴーｱ-ﾝﾞｰ]/.test(text);
 
-		if (!b1 || !b2)
+		if (b1 === false || b2 === false)
 		{
-			if (b1 && /^[ぁ-ん]+$/.test(text) || b2 && /^[ァ-ヴーｱ-ﾝﾞｰ]+$/.test(text))
+			if (b1 === true && /^[ぁ-ん]+$/.test(text) || b2 === true && /^[ァ-ヴーｱ-ﾝﾞｰ]+$/.test(text))
 			{
 				return [self.createJpSimpleToken({
 					w: text,

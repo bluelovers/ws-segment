@@ -100,14 +100,14 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 			let new_p: number;
 
-			if (w1_len == 1)
+			if (w1_len === 1)
 			{
 				//console.log(w1);
 
-				if (w1.w == '里')
+				if (w1.w === '里')
 				{
 					if (w0 && (
-						w0.w.slice(-1) == '的'
+						w0.w.slice(-1) === '的'
 						|| w0.w === '和'
 					))
 					{
@@ -143,7 +143,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-				else if (w1.w == '后')
+				else if (w1.w === '后')
 				{
 
 					if (w0 && (
@@ -167,7 +167,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 					// 如果前一個項目為
-					else if (w0 && (w0.p && hexAndAny(w0.p,
+					else if ((w0?.p && hexAndAny(w0.p,
 
 						// 动词 離開
 						POSTAG.D_V,
@@ -195,7 +195,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						bool = true;
 					}
-					else if (w2 && (w2.p && hexAndAny(w2.p,
+					else if ((w2?.p && hexAndAny(w2.p,
 						POSTAG.D_V,
 					)))
 					{
@@ -204,7 +204,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						bool = true;
 					}
-					else if (w2 && ((w0 && !w0.p) && (w2.p && hexAndAny(w2.p,
+					else if (w2 && ((isSet(w0) && !w0.p) && (w2.p && hexAndAny(w2.p,
 						// 副词
 						POSTAG.D_D,
 					))))
@@ -214,7 +214,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						bool = true;
 					}
-					else if (w2 && ((!w0 || !w0.p) && SEP_P.includes(w2.w)))
+					else if (w2 && ((!w0?.p) && SEP_P.includes(w2.w)))
 					{
 						w1.ow = w1.w;
 						w1.w = '後';
@@ -222,7 +222,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-				else if (w1.w == '发' || w1.w == '發')
+				else if (w1.w === '发' || w1.w === '發')
 				{
 					let c: string;
 
@@ -237,7 +237,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						nw = this._getSynonym(w1.w, nw);
 
-						if (nw != w1.w)
+						if (nw !== w1.w)
 						{
 							w1.ow = w1.w;
 							w1.w = nw;
@@ -248,7 +248,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						}
 					}
 
-					if (!bool && w2 && w1.w == '发' && w2.w === '的')
+					if (!bool && w1.w === '发' && w2?.w === '的')
 					{
 						w1.ow = w1.w;
 						w1.w = '發';
@@ -256,9 +256,9 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-				else if (w1.w == '于')
+				else if (w1.w === '于')
 				{
-					if ((w0 == null || w0.p & POSTAG.D_W) && (w2 && w2.p && (
+					if ((isUnset(w0) || w0.p & POSTAG.D_W) && (w2?.p && (
 						w2.p & POSTAG.D_N
 						|| w2.p & POSTAG.D_V
 						|| w2.p & POSTAG.D_R
@@ -385,7 +385,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 							bool = true;
 						}
-						else if (w3 = words[i + 2])
+						else if (!isUnset(w3 = words[i + 2]))
 						{
 							if (
 								w0.p & POSTAG.D_V
@@ -404,7 +404,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						}
 					}
 
-					if (!bool && w2 && w2.p && (w2.p & POSTAG.D_T))
+					if (!bool && (w2?.p & POSTAG.D_T))
 					{
 						/**
 						 * 迫使法妮雅得于日后和杰弥尼成婚……
@@ -419,9 +419,9 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-				else if (w1.w == '么')
+				else if (w1.w === '么')
 				{
-					if (!w2 || w2.p & POSTAG.D_W)
+					if (isUnset(w2) || w2.p & POSTAG.D_W)
 					{
 						w1.ow = w1.w;
 						w1.w = '麼';
@@ -442,7 +442,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						nw = this._getSynonym(w1.w, nw);
 
-						if (nw != w1.w)
+						if (nw !== w1.w)
 						{
 							w1.ow = w1.w;
 							w1.w = nw;
@@ -468,12 +468,10 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						// 不修正繁體的 發
 						w1.w === (c + '发')
 						&& (
-							!w0
+							isUnset(w0)
 							|| (
-								w0 && (
 									w0.p === POSTAG.D_W
 									//|| COLOR_HAIR[w0.w]
-								)
 							)
 						)
 					)
@@ -482,7 +480,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						let ow: IWord = TABLE[nw];
 
-						if (ow && ow.s)
+						if (ow?.s)
 						{
 							w1.ow = w1.w;
 							w1.w = nw;
@@ -568,7 +566,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					//console.log(w1, nw);
 
-					if (nw != w1.w)
+					if (nw !== w1.w)
 					{
 						w1.ow = w1.w;
 						w1.w = nw;
@@ -586,7 +584,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					nw = this._getSynonym(w1.w, nw);
 
-					if (nw != w1.w)
+					if (nw !== w1.w)
 					{
 						w1.ow = w1.w;
 						w1.w = nw;
@@ -603,7 +601,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					nw = this._getSynonym(w1.w, nw);
 
-					if (nw != w1.w)
+					if (nw !== w1.w)
 					{
 						w1.ow = w1.w;
 						w1.w = nw;
@@ -620,7 +618,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 					nw = this._getSynonym(w1.w, nw);
 
-					if (nw != w1.w)
+					if (nw !== w1.w)
 					{
 						w1.op = w1.op || w1.p;
 						w1.ow = w1.w;
@@ -632,7 +630,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 			}
 
-			if (bool && w1.ow && w1.ow != w1.w)
+			if (bool && w1.ow && w1.ow !== w1.w)
 			{
 				if (w1.w in TABLE)
 				{
@@ -643,7 +641,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						w1.op = w1.op || ow.p;
 						w1.p = new_p;
 					}
-					else if (ow.p != w1.p)
+					else if (ow.p !== w1.p)
 					{
 						w1.op = w1.op || w1.p;
 						w1.p = ow.p;
