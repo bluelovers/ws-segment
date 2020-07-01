@@ -12,16 +12,7 @@ import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment 
 // @ts-ignore
 import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
 import libTable from 'cjk-conv/lib/zh/table';
-import naturalCompare = require('string-natural-compare');
-
-naturalCompare.caseInsensitive = naturalCompare.caseInsensitive || ((a, b, opt) => {
-	if (typeof a === 'number' && typeof b === 'number')
-	{
-		return a - b
-	}
-
-	return naturalCompare(String(a), String(b), {...opt, caseInsensitive: true})
-});
+import naturalCompare from '@bluelovers/string-natural-compare';
 
 import UString from "uni-string";
 import FastGlob from "@bluelovers/fast-glob";

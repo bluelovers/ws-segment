@@ -5,7 +5,7 @@ import BluebirdPromise = require('bluebird');
 import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment/index';
 import { ICUR_WORD } from '../test/sort';
-import naturalCompare = require('string-natural-compare');
+import naturalCompare from '@bluelovers/string-natural-compare';
 import { array_unique } from 'array-hyper-unique';
 import StrUtil = require('str-util');
 

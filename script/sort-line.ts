@@ -14,7 +14,6 @@ import {
 	loadDictFile,
 	zhDictCompare,
 } from './util';
-import naturalCompare = require('string-natural-compare');
 
 let CWD = path.join(ProjectConfig.dict_root, 'blacklist');
 
