@@ -586,6 +586,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'耳機電力連續播放六小時不間斷',
+		[
+			['機電'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
