@@ -6,6 +6,7 @@ import { IDictRow, serialize, stringifyLine } from 'segment-dict/lib/loader/segm
 import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 import { cloneDeep } from 'lodash';
+import { notNum } from '../util/isNum';
 
 export type ITableDictRow = {
 	p: number,
@@ -31,7 +32,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	{
 		let w, p, f;
 
-		if (typeof data == 'string')
+		if (typeof data === 'string')
 		{
 			w = data;
 		}
@@ -52,7 +53,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		let w: string, p: number, f: number;
 		let plus: Array<string | number>;
 
-		if (typeof data == 'string')
+		if (typeof data === 'string')
 		{
 			w = data;
 		}
@@ -70,8 +71,8 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			throw new TypeError(JSON.stringify(data));
 		}
 
-		p = (typeof p != 'number' || Number.isNaN(p)) ? 0 : p;
-		f = (typeof f != 'number' || Number.isNaN(f)) ? 0 : f;
+		p = notNum(p) ? 0 : p;
+		f = notNum(f) ? 0 : f;
 
 		return {
 			data: {
@@ -98,7 +99,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			return this;
 		}
 
-		if (plus && plus.length)
+		if (plus?.length)
 		{
 			// @todo do something
 		}
@@ -117,7 +118,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 
 			wa.forEach(function (w2)
 			{
-				if (w2 != w && !self.exists(w2))
+				if (w2 !== w && !self.exists(w2))
 				{
 					self._add({ w: w2, p, f });
 				}

@@ -7,7 +7,7 @@ import { enumList, enumIsNaN } from './util/core';
  */
 export enum POSTAG
 {
-	
+
 	/**
 	 * 錯字
 	 */
@@ -313,7 +313,7 @@ export namespace POSTAG
 				return I18NDict[p] || I18NDict.UNK;
 			}
 
-			if (typeof p == 'string')
+			if (typeof p === 'string')
 			{
 				p = Number(p);
 			}

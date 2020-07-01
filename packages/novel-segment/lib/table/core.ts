@@ -59,7 +59,7 @@ export abstract class AbstractTableDictCore<T>
 	{
 		let w, p, f;
 
-		if (typeof data == 'string')
+		if (typeof data === 'string')
 		{
 			w = data;
 		}

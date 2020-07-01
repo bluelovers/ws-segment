@@ -22,6 +22,7 @@ var NS_STOPWORD;
     ].join('');
     _a = parseStopWord(NS_STOPWORD._TABLE), NS_STOPWORD._STOPWORD = _a._STOPWORD, NS_STOPWORD.STOPWORD = _a.STOPWORD, NS_STOPWORD.STOPWORD2 = _a.STOPWORD2;
     function parseStopWord(_STOPWORD) {
+        var _a;
         if (typeof _STOPWORD === 'string') {
             _STOPWORD = _STOPWORD.split('');
             //_STOPWORD = UString.split(_STOPWORD, '');
@@ -32,14 +33,13 @@ var NS_STOPWORD;
         _STOPWORD = array_hyper_unique_1.array_unique(_STOPWORD);
         let STOPWORD = {};
         let STOPWORD2 = {};
-        for (let i in _STOPWORD) {
-            if (_STOPWORD[i] == '')
+        for (const _STOPWORDItem of _STOPWORD) {
+            if (_STOPWORDItem === '')
                 continue;
-            let len = _STOPWORD[i].length;
-            STOPWORD[_STOPWORD[i]] = len;
-            if (!STOPWORD2[len])
-                STOPWORD2[len] = {};
-            STOPWORD2[len][_STOPWORD[i]] = len;
+            let len = _STOPWORDItem.length;
+            STOPWORD[_STOPWORDItem] = len;
+            STOPWORD2[len] = (_a = STOPWORD2[len]) !== null && _a !== void 0 ? _a : {};
+            STOPWORD2[len][_STOPWORDItem] = len;
         }
         return {
             _STOPWORD,

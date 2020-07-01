@@ -18,18 +18,19 @@ export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 
 	add(data: [string, string] & string[], skipExists?: boolean)
 	{
-		if (!Array.isArray(data) || data.length != 2)
+		if (!Array.isArray(data) || data.length !== 2)
 		{
 			throw new TypeError(JSON.stringify(data));
 		}
 
 		data[0] = this._trim(data[0]);
-		data[1] = this._trim(data[1]);
 
-		if (!data[0])
+		if (!data[0]?.length)
 		{
 			throw new TypeError(JSON.stringify(data));
 		}
+
+		data[1] = this._trim(data[1]);
 
 		if (skipExists && this.exists(data[0]))
 		{

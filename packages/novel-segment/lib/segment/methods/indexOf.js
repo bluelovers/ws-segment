@@ -13,7 +13,7 @@ function indexOf(words, s, cur, ...argv) {
     cur = isNaN(cur) ? 0 : cur;
     let f = typeof s === 'string' ? 'w' : 'p';
     while (cur < words.length) {
-        if (words[cur][f] == s)
+        if (words[cur][f] === s)
             return cur;
         cur++;
     }

@@ -13,14 +13,15 @@ class TableDictSynonymPanGu extends core_1.default {
         super(type, options, ...argv);
     }
     add(data, skipExists) {
-        if (!Array.isArray(data) || data.length != 2) {
+        var _a;
+        if (!Array.isArray(data) || data.length !== 2) {
             throw new TypeError(JSON.stringify(data));
         }
         data[0] = this._trim(data[0]);
-        data[1] = this._trim(data[1]);
-        if (!data[0]) {
+        if (!((_a = data[0]) === null || _a === void 0 ? void 0 : _a.length)) {
             throw new TypeError(JSON.stringify(data));
         }
+        data[1] = this._trim(data[1]);
         if (skipExists && this.exists(data[0])) {
             return this;
         }

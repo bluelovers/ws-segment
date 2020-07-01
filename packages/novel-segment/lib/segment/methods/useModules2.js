@@ -9,7 +9,7 @@ function useModules(me, mod, ...argv) {
         });
     }
     else {
-        if (!useModules_1._isIgnoreModules(me, mod, ...argv) && typeof mod == 'string') {
+        if (typeof mod === 'string' && !useModules_1._isIgnoreModules(me, mod, ...argv)) {
             //mod = require(path.join(__dirname, '../..', 'submod', mod));
             mod = require(`../../submod/${mod}`);
         }

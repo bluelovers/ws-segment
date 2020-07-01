@@ -17,7 +17,7 @@ function clearTokemDebug(data, returnClone) {
         };
     }
     for (let k in data) {
-        if (k != 'w' && k != 'p' && k != 'f') {
+        if (k !== 'w' && k !== 'p' && k !== 'f') {
             delete data[k];
         }
     }
@@ -74,7 +74,7 @@ function token_add_info(v) {
         }
         if (v.m) {
             v.m.map(function (v) {
-                if (typeof v == 'string') {
+                if (typeof v === 'string') {
                     return v;
                 }
                 return token_add_info(v);

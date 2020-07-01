@@ -25,13 +25,13 @@ const useModules2_1 = require("./segment/methods/useModules2");
 class Segment extends core_1.default {
     getDictDatabase(type, autocreate, libTableDict) {
         if ((autocreate || this.inited) && !this.db[type]) {
-            if (type == synonym_1.default.type) {
+            if (type === synonym_1.default.type) {
                 libTableDict = libTableDict || synonym_1.default;
             }
-            else if (type == stopword_1.TableDictStopword.type) {
+            else if (type === stopword_1.TableDictStopword.type) {
                 libTableDict = libTableDict || stopword_1.TableDictStopword;
             }
-            else if (type == blacklist_1.default.type || type == "BLACKLIST_FOR_OPTIMIZER" /* BLACKLIST_FOR_OPTIMIZER */ || type == "BLACKLIST_FOR_SYNONYM" /* BLACKLIST_FOR_SYNONYM */) {
+            else if (type === blacklist_1.default.type || type === "BLACKLIST_FOR_OPTIMIZER" /* BLACKLIST_FOR_OPTIMIZER */ || type === "BLACKLIST_FOR_SYNONYM" /* BLACKLIST_FOR_SYNONYM */) {
                 libTableDict = libTableDict || blacklist_1.default;
             }
             else {
@@ -64,15 +64,15 @@ class Segment extends core_1.default {
             ],
             onlyFile: true,
         };
-        if (name.indexOf('*') != -1) {
+        if (name.indexOf('*') !== -1) {
             let ls = get_1.searchGlobSync(name, options);
-            if (!ls || !ls.length) {
+            if (!(ls === null || ls === void 0 ? void 0 : ls.length)) {
                 throw Error(`Cannot find dict glob file "${name}".`);
             }
             return ls;
         }
         let filename = get_1.searchFirstSync(name, options);
-        if (!filename) {
+        if (!(filename === null || filename === void 0 ? void 0 : filename.length)) {
             //console.log(name, pathPlus, extPlus);
             throw Error(`Cannot find dict file "${name}".`);
         }

@@ -13,7 +13,7 @@ export function _get_text(text: string | Buffer): string
 	{}
 	finally
 	{
-		if (typeof text != 'string')
+		if (typeof text !== 'string')
 		{
 			throw new TypeError(`text must is string or Buffer`)
 		}

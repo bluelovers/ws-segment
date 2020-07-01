@@ -5,7 +5,7 @@ import { ISubTokenizer } from '../../mod/Tokenizer';
 
 export function _isIgnoreModules<T extends SegmentCore>(me: T, mod: ISubOptimizer | ISubTokenizer | any, ...argv)
 {
-	return (me.options && me.options.disableModules && me.options.disableModules.includes(mod))
+	return (me.options?.disableModules?.includes(mod))
 }
 
 export function _warnIgnoreModules(mod)
@@ -27,6 +27,11 @@ export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any, .
 		if (typeof c !== 'undefined')
 		{
 			mod = c;
+		}
+
+		if (!['tokenizer', 'optimizer'].includes(mod.type))
+		{
+			throw new TypeError(`not a valid module, ${mod}`)
 		}
 
 		// @ts-ignore

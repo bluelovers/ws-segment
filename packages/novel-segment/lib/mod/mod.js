@@ -15,7 +15,7 @@ class SModule {
     _doMethod(fn, target, mods, ...argv) {
         mods.forEach(function (mod) {
             // @ts-ignore
-            if (typeof mod._cache == 'function') {
+            if (typeof mod._cache === 'function') {
                 // @ts-ignore
                 mod._cache();
             }
@@ -67,13 +67,14 @@ class SubSModule {
      * 回傳最簡版的 IWord { w, p, f, s }
      */
     createRawToken(data, ow, attr) {
+        var _a, _b, _c, _d;
         // @ts-ignore
         ow = ow || {};
         let nw = {
-            w: typeof data.w == 'undefined' ? ow.w : data.w,
-            p: typeof data.p == 'undefined' ? ow.p : data.p,
-            f: typeof data.f == 'undefined' ? ow.f : data.f,
-            s: typeof data.s == 'undefined' ? ow.s : data.s,
+            w: (_a = data.w) !== null && _a !== void 0 ? _a : ow.w,
+            p: (_b = data.p) !== null && _b !== void 0 ? _b : ow.p,
+            f: (_c = data.f) !== null && _c !== void 0 ? _c : ow.f,
+            s: (_d = data.s) !== null && _d !== void 0 ? _d : ow.s,
         };
         if (attr) {
             this.debugToken(nw, attr);

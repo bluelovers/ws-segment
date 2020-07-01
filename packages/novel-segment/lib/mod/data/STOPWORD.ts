@@ -42,13 +42,13 @@ export namespace NS_STOPWORD
 			[key: number]: typeof STOPWORD,
 		};
 
-		for (let i in _STOPWORD)
+		for (const _STOPWORDItem of _STOPWORD)
 		{
-			if (_STOPWORD[i] == '') continue;
-			let len = _STOPWORD[i].length;
-			STOPWORD[_STOPWORD[i]] = len;
-			if (!STOPWORD2[len]) STOPWORD2[len] = {};
-			STOPWORD2[len][_STOPWORD[i]] = len;
+			if (_STOPWORDItem === '') continue;
+			let len = _STOPWORDItem.length;
+			STOPWORD[_STOPWORDItem] = len;
+			STOPWORD2[len] = STOPWORD2[len] ?? {};
+			STOPWORD2[len][_STOPWORDItem] = len;
 		}
 
 		return {

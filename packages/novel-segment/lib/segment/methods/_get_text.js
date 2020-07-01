@@ -10,7 +10,7 @@ function _get_text(text) {
     }
     catch (e) { }
     finally {
-        if (typeof text != 'string') {
+        if (typeof text !== 'string') {
             throw new TypeError(`text must is string or Buffer`);
         }
         text = crlf_normalize_1.crlf(text);

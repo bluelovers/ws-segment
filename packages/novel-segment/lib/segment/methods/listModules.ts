@@ -16,7 +16,7 @@ export function listModules(modules: Segment["modules"], options: IOptionsDoSegm
 		},
 	};
 
-	if (options && options.disableModules)
+	if (options?.disableModules)
 	{
 		modules.tokenizer
 			.forEach(function (mod)

@@ -5,6 +5,7 @@ const segment_1 = require("segment-dict/lib/loader/segment");
 const cjk_1 = require("../util/cjk");
 const core_1 = require("./core");
 const lodash_1 = require("lodash");
+const isNum_1 = require("../util/isNum");
 /**
  * @todo 掛接其他 dict
  */
@@ -16,7 +17,7 @@ class TableDict extends core_1.default {
     }
     exists(data) {
         let w, p, f;
-        if (typeof data == 'string') {
+        if (typeof data === 'string') {
             w = data;
         }
         else if (Array.isArray(data)) {
@@ -30,7 +31,7 @@ class TableDict extends core_1.default {
     __handleInput(data) {
         let w, p, f;
         let plus;
-        if (typeof data == 'string') {
+        if (typeof data === 'string') {
             w = data;
         }
         else if (Array.isArray(data)) {
@@ -42,8 +43,8 @@ class TableDict extends core_1.default {
         if (typeof w !== 'string' || w === '') {
             throw new TypeError(JSON.stringify(data));
         }
-        p = (typeof p != 'number' || Number.isNaN(p)) ? 0 : p;
-        f = (typeof f != 'number' || Number.isNaN(f)) ? 0 : f;
+        p = isNum_1.notNum(p) ? 0 : p;
+        f = isNum_1.notNum(f) ? 0 : f;
         return {
             data: {
                 w, p, f,
@@ -62,7 +63,7 @@ class TableDict extends core_1.default {
         if (skipExists && this.exists(w)) {
             return this;
         }
-        if (plus && plus.length) {
+        if (plus === null || plus === void 0 ? void 0 : plus.length) {
             // @todo do something
         }
         this._add({ w, p, f, s: true });
@@ -74,7 +75,7 @@ class TableDict extends core_1.default {
         if (1 && this.options.autoCjk) {
             let wa = cjk_1.text_list(w);
             wa.forEach(function (w2) {
-                if (w2 != w && !self.exists(w2)) {
+                if (w2 !== w && !self.exists(w2)) {
                     self._add({ w: w2, p, f });
                 }
             });

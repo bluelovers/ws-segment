@@ -63,7 +63,7 @@ export function convertSynonym(ret: IWordDebug[], options: IOptions)
 			{
 				nw = item.m.reduce(function (a: string[], b)
 				{
-					if (typeof b == 'string')
+					if (typeof b === 'string')
 					{
 						a.push(b);
 					}

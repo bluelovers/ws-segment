@@ -14,7 +14,7 @@ function split(words, s, ...argv) {
     let i = 0;
     let f = typeof s === 'string' ? 'w' : 'p';
     while (i < words.length) {
-        if (words[i][f] == s) {
+        if (words[i][f] === s) {
             if (lasti < i)
                 ret.push(words.slice(lasti, i));
             ret.push(words.slice(i, i + 1));
