@@ -593,6 +593,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'且受限於小屋布景樣式，',
+		[
+			['限於'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
