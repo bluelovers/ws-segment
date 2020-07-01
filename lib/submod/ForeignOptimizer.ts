@@ -77,4 +77,6 @@ export class ForeignOptimizer extends SubSModuleOptimizer
 
 export const init = ForeignOptimizer.init.bind(ForeignOptimizer) as typeof ForeignOptimizer.init;
 
+export const type = ForeignOptimizer.type;
+
 export default ForeignOptimizer;

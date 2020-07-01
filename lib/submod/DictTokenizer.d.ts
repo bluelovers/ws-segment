@@ -127,4 +127,5 @@ export declare namespace DictTokenizer {
 }
 export import IAssessRow = DictTokenizer.IAssessRow;
 export declare const init: ISubTokenizerCreate<DictTokenizer, SubSModuleTokenizer>;
+export declare const type = "tokenizer";
 export default DictTokenizer;

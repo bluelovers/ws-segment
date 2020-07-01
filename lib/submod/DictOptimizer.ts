@@ -525,4 +525,6 @@ export class DictOptimizer extends SubSModuleOptimizer
 
 export const init = DictOptimizer.init.bind(DictOptimizer) as ISubOptimizerCreate<DictOptimizer>;
 
+export const type = DictOptimizer.type;
+
 export default DictOptimizer;

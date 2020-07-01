@@ -41,4 +41,5 @@ export declare class ForeignTokenizer extends SubSModuleTokenizer {
     createForeignToken(word: IWord, lasttype?: number, attr?: IWordDebugInfo): Segment.IWord;
 }
 export declare const init: ISubTokenizerCreate<ForeignTokenizer, SubSModuleTokenizer>;
+export declare const type = "tokenizer";
 export default ForeignTokenizer;

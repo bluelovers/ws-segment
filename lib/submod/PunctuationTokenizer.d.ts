@@ -33,4 +33,5 @@ export declare class PunctuationTokenizer extends SubSModuleTokenizer {
     matchStopword(text: string, cur?: number): IWord[];
 }
 export declare const init: typeof SubSModuleTokenizer.init;
+export declare const type = "tokenizer";
 export default PunctuationTokenizer;

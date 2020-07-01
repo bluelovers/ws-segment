@@ -9,4 +9,5 @@ export declare class AdjectiveOptimizer extends SubSModuleOptimizer {
     isNominal(pos: number | number[]): boolean;
 }
 export declare const init: typeof SubSModuleOptimizer.init;
+export declare const type = "optimizer";
 export default AdjectiveOptimizer;

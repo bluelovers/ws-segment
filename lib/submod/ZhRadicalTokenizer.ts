@@ -73,4 +73,6 @@ export class ZhRadicalTokenizer extends SubSModuleTokenizer
 
 export const init = ZhRadicalTokenizer.init.bind(ZhRadicalTokenizer) as ISubTokenizerCreate<ZhRadicalTokenizer>;
 
+export const type = ZhRadicalTokenizer.type;
+
 export default ZhRadicalTokenizer;

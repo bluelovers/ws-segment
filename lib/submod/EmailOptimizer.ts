@@ -130,4 +130,6 @@ export class EmailOptimizer extends SubSModuleOptimizer
 
 export const init = EmailOptimizer.init.bind(EmailOptimizer) as ISubOptimizerCreate<EmailOptimizer>;
 
+export const type = EmailOptimizer.type;
+
 export default EmailOptimizer;

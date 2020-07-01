@@ -24,4 +24,5 @@ export declare class SingleTokenizer extends SubSModuleTokenizer {
     splitSingle(text: any, cur?: number): IWord[];
 }
 export declare const init: typeof SubSModuleTokenizer.init;
+export declare const type = "tokenizer";
 export default SingleTokenizer;

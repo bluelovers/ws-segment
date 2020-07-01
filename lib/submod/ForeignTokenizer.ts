@@ -351,6 +351,8 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 
 export const init = ForeignTokenizer.init.bind(ForeignTokenizer) as ISubTokenizerCreate<ForeignTokenizer>;
 
+export const type = ForeignTokenizer.type;
+
 export default ForeignTokenizer;
 
 //debug(splitForeign('ad222经济核算123非'));

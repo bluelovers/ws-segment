@@ -76,4 +76,6 @@ export class SingleTokenizer extends SubSModuleTokenizer
 
 export const init = SingleTokenizer.init.bind(SingleTokenizer) as typeof SingleTokenizer.init;
 
+export const type = SingleTokenizer.type;
+
 export default SingleTokenizer;

@@ -14,4 +14,5 @@ export declare class ZhRadicalTokenizer extends SubSModuleTokenizer {
     splitZhRadical(text: string, cur?: number): IWord[];
 }
 export declare const init: ISubTokenizerCreate<ZhRadicalTokenizer, SubSModuleTokenizer>;
+export declare const type = "tokenizer";
 export default ZhRadicalTokenizer;

@@ -154,4 +154,6 @@ export class ChsNameTokenizer extends SubSModuleTokenizer
 
 export const init = ChsNameTokenizer.init.bind(ChsNameTokenizer) as typeof ChsNameTokenizer.init;
 
+export const type = ChsNameTokenizer.type;
+
 export default ChsNameTokenizer;
