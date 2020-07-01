@@ -9,6 +9,7 @@
 import { autobind } from 'core-decorators';
 import { Segment, IWord } from '../Segment';
 import { IModuleStatic, ISubSModule, SModule, SubSModule, ISubSModuleCreate } from './mod';
+import isUnset from '../util/isUnset';
 
 export type ISubTokenizer = ISubSModule & {
 	type: 'tokenizer',
@@ -55,7 +56,7 @@ export abstract class SubSModuleTokenizer extends SubSModule implements ISubToke
 		let ret = [];
 		for (let i = 0, word; word = words[i]; i++)
 		{
-			if (typeof word.p == 'number')
+			if (typeof word.p === 'number')
 			{
 				ret.push(word);
 			}
@@ -63,7 +64,7 @@ export abstract class SubSModuleTokenizer extends SubSModule implements ISubToke
 			{
 				let words_new = fn(word.w);
 
-				if (words_new == null)
+				if (isUnset(words_new))
 				{
 					ret.push(word);
 				}
@@ -99,7 +100,7 @@ export abstract class SubSModuleTokenizer extends SubSModule implements ISubToke
 				//let words_new = fn.call(this, word.w);
 				let words_new = fn(word.w);
 
-				if (typeof words_new == 'undefined' || words_new === null)
+				if (isUnset(words_new))
 				{
 					ret.push(word);
 				}

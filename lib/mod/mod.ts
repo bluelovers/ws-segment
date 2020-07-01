@@ -28,7 +28,7 @@ export class SModule implements ISModule
 		mods.forEach(function (mod)
 		{
 			// @ts-ignore
-			if (typeof mod._cache == 'function')
+			if (typeof mod._cache === 'function')
 			{
 				// @ts-ignore
 				mod._cache();
@@ -126,10 +126,10 @@ export class SubSModule implements ISubSModule
 		ow = ow || {};
 
 		let nw = {
-			w: typeof data.w == 'undefined' ? ow.w : data.w,
-			p: typeof data.p == 'undefined' ? ow.p : data.p,
-			f: typeof data.f == 'undefined' ? ow.f : data.f,
-			s: typeof data.s == 'undefined' ? ow.s : data.s,
+			w: data.w ?? ow.w,
+			p: data.p ?? ow.p,
+			f: data.f ?? ow.f,
+			s: data.s ?? ow.s,
 		} as T;
 
 		if (attr)

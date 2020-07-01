@@ -15,7 +15,7 @@ export function indexOf(words: IWord[], s: string | number, cur?: number, ...arg
 
 	while (cur < words.length)
 	{
-		if (words[cur][f] == s) return cur;
+		if (words[cur][f] === s) return cur;
 		cur++;
 	}
 

@@ -40,27 +40,24 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 
 		let w = this._trim(data.shift());
 
-		if (!w)
+		if (!w.length)
 		{
 			throw new TypeError(JSON.stringify(data));
 		}
 
 		let self = this;
 
-		self.TABLE2[w] = self.TABLE2[w] || [];
+		self.TABLE2[w] = self.TABLE2[w] ?? [];
 
-		if (skipExists == null)
-		{
-			skipExists = true;
-		}
+		skipExists = skipExists ?? true;
 
 		data.forEach(function (bw, index)
 		{
 			bw = self._trim(bw);
 
-			if (!bw)
+			if (!bw.length)
 			{
-				if (index == 0)
+				if (index === 0)
 				{
 					throw new TypeError();
 				}

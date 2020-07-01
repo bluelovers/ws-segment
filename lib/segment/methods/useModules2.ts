@@ -1,7 +1,7 @@
 import { _isIgnoreModules, useModules as _useModules } from './useModules';
 import { ISubOptimizer } from '../../mod/Optimizer';
 import { ISubTokenizer } from '../../mod/Tokenizer';
-import * as path from "path";
+import path from "path";
 
 export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any | string | (ISubTokenizer | ISubOptimizer | string)[], ...argv)
 {
@@ -14,7 +14,7 @@ export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any | 
 	}
 	else
 	{
-		if (!_isIgnoreModules(me as any, mod, ...argv) && typeof mod == 'string')
+		if (typeof mod === 'string' && !_isIgnoreModules(me as any, mod, ...argv))
 		{
 			//mod = require(path.join(__dirname, '../..', 'submod', mod));
 			mod = require(`../../submod/${mod}`);

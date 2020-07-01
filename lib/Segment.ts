@@ -87,15 +87,15 @@ export class Segment extends SegmentCore
 	{
 		if ((autocreate || this.inited) && !this.db[type])
 		{
-			if (type == TableDictSynonym.type)
+			if (type === TableDictSynonym.type)
 			{
 				libTableDict = libTableDict || TableDictSynonym;
 			}
-			else if (type == TableDictStopword.type)
+			else if (type === TableDictStopword.type)
 			{
 				libTableDict = libTableDict || TableDictStopword;
 			}
-			else if (type == TableDictBlacklist.type || type == EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER || type == EnumDictDatabase.BLACKLIST_FOR_SYNONYM)
+			else if (type === TableDictBlacklist.type || type === EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER || type === EnumDictDatabase.BLACKLIST_FOR_SYNONYM)
 			{
 				libTableDict = libTableDict || TableDictBlacklist;
 			}
@@ -152,11 +152,11 @@ export class Segment extends SegmentCore
 			onlyFile: true,
 		};
 
-		if (name.indexOf('*') != -1)
+		if (name.indexOf('*') !== -1)
 		{
 			let ls = searchGlobSync(name, options);
 
-			if (!ls || !ls.length)
+			if (!ls?.length)
 			{
 				throw Error(`Cannot find dict glob file "${name}".`);
 			}
@@ -166,7 +166,7 @@ export class Segment extends SegmentCore
 
 		let filename = searchFirstSync(name, options);
 
-		if (!filename)
+		if (!filename?.length)
 		{
 			//console.log(name, pathPlus, extPlus);
 

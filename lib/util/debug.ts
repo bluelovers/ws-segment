@@ -56,7 +56,7 @@ export function clearTokemDebug(data: IWordDebugInfo, returnClone?: boolean): IW
 
 	for (let k in data)
 	{
-		if (k != 'w' && k != 'p' && k != 'f')
+		if (k !== 'w' && k !== 'p' && k !== 'f')
 		{
 			delete data[k];
 		}
@@ -150,7 +150,7 @@ export function token_add_info<T extends IWordDebug>(v: T)
 		{
 			v.m.map(function (v)
 			{
-				if (typeof v == 'string')
+				if (typeof v === 'string')
 				{
 					return v;
 				}
