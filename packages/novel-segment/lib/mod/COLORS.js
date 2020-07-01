@@ -1,9 +1,12 @@
 "use strict";
 // @flow
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.COLOR_ALL = exports.COLOR_HAIR = exports._COLORS = void 0;
 const cjk_1 = require("../util/cjk");
-const uni_string_1 = require("uni-string");
+const uni_string_1 = __importDefault(require("uni-string"));
 var _COLORS;
 (function (_COLORS) {
     _COLORS.ZH = '色';

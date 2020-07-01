@@ -2,10 +2,13 @@
 /**
  * Created by user on 2018/4/19/019.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toHex = exports.token_add_info = exports.debug_token = exports.debugToken = exports.clearTokemDebug = exports.SYMBOL_DEBUG_KEY = void 0;
 const POSTAG_1 = require("../POSTAG");
-const sort_object_keys2_1 = require("sort-object-keys2");
+const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');
 exports.SYMBOL_DEBUG_KEY = '_debug';
 function clearTokemDebug(data, returnClone) {

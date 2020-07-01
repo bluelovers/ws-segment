@@ -1,11 +1,14 @@
 'use strict';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.type = exports.init = exports.DictTokenizer = exports.DEFAULT_MAX_CHUNK_COUNT_MIN = exports.DEFAULT_MAX_CHUNK_COUNT = void 0;
 const mod_1 = require("../mod");
 const index_1 = require("../util/index");
 const CHS_NAMES_1 = require("../mod/CHS_NAMES");
 const const_1 = require("../mod/const");
-const isUnset_1 = require("../util/isUnset");
+const isUnset_1 = __importDefault(require("../util/isUnset"));
 exports.DEFAULT_MAX_CHUNK_COUNT = 40;
 exports.DEFAULT_MAX_CHUNK_COUNT_MIN = 30;
 /**

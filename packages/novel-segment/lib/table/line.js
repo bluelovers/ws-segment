@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDictLine = void 0;
 const loader_line_1 = require("@novel-segment/loader-line");
 const lodash_1 = require("lodash");
-const core_1 = require("./core");
+const core_1 = __importDefault(require("./core"));
 /**
  * 原版 node-segment 的格式
  */
