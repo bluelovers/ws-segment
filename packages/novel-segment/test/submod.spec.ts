@@ -6,6 +6,7 @@ import { dirname } from 'path';
 import { array_unique, array_unique_overwrite } from 'array-hyper-unique';
 import SegmentCore from '../lib/segment/core';
 import isUnset, { isSet } from '../lib/util/isUnset';
+import * as SubmodList from '../lib/submod';
 
 const segment = new SegmentCore;
 
@@ -114,6 +115,21 @@ function _check(mod: ISubOptimizer | ISubTokenizer, name: string)
 		expect(name).toMatch(/(?:Tokenizer|Optimizer)$/)
 	}
 }
+
+describe(`submod index`, () =>
+{
+
+	Object.entries(SubmodList)
+		.forEach(([name, mod]) => {
+
+			test(name, () => {
+				_check(mod as any, name);
+			})
+
+		})
+	;
+
+})
 
 function _checkApi(mod: ISubOptimizer | ISubTokenizer, name: string)
 {
