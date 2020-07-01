@@ -4,12 +4,10 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProjectConfig = exports.temp_root = exports.dict_root = exports.project_root = void 0;
-const path = require("path");
-exports.project_root = path.join(__dirname);
-exports.dict_root = path.join(exports.project_root, 'dict');
-//export const dist_root = path.join(project_root, 'dist');
-exports.temp_root = path.join(exports.project_root, 'test/temp');
-const ProjectConfig = require("./project.config");
-exports.ProjectConfig = ProjectConfig;
-exports.default = ProjectConfig;
+const path_1 = require("path");
+exports.project_root = path_1.join(__dirname);
+exports.dict_root = path_1.join(exports.project_root, 'dict');
+exports.temp_root = path_1.join(exports.project_root, 'test/temp');
+exports.ProjectConfig = exports;
+exports.default = exports.ProjectConfig;
 //# sourceMappingURL=project.config.js.map

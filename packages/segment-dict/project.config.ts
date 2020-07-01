@@ -2,15 +2,14 @@
  * Created by user on 2017/8/13/013.
  */
 
-import * as path from 'path';
+import { join } from 'path';
 
-export const project_root = path.join(__dirname);
+export const project_root = join(__dirname);
 
-export const dict_root = path.join(project_root, 'dict');
+export const dict_root = join(project_root, 'dict');
 
-//export const dist_root = path.join(project_root, 'dist');
-export const temp_root = path.join(project_root, 'test/temp');
+export const temp_root = join(project_root, 'test/temp');
 
-import * as ProjectConfig from './project.config';
-export { ProjectConfig }
+export const ProjectConfig = exports as typeof import('./project.config')
+
 export default ProjectConfig;

@@ -14,9 +14,7 @@ import {
 	loadDictFile,
 	zhDictCompare,
 } from './util';
-import naturalCompare = require('string-natural-compare');
 import { array_unique } from 'array-hyper-unique';
-import { toHex } from 'novel-segment/lib/util';
 
 let CWD = path.join(ProjectConfig.dict_root, 'segment');
 

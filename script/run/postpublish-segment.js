@@ -2,16 +2,19 @@
 /**
  * Created by user on 2020/5/11.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const bluebird_1 = require("@bluelovers/fast-glob/bluebird");
+const bluebird_1 = __importDefault(require("@bluelovers/fast-glob/bluebird"));
 const path_1 = require("path");
-const __root_ws_1 = require("../../__root_ws");
+const __root_ws_1 = __importDefault(require("../../__root_ws"));
 const fs_extra_1 = require("fs-extra");
-const cross_spawn_extra_1 = require("cross-spawn-extra");
+const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
 const add_to_postpublish_task_1 = require("../util/add-to-postpublish-task");
 const Bluebird = require("bluebird");
-const logger_1 = require("debug-color2/logger");
-const create_cache_name_1 = require("../util/create-cache-name");
+const logger_1 = __importDefault(require("debug-color2/logger"));
+const create_cache_name_1 = __importDefault(require("../util/create-cache-name"));
 bluebird_1.default
     .async([
     '**/*',

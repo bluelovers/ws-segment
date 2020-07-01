@@ -1,14 +1,17 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.gitSubtreePush = void 0;
 /**
  * Created by user on 2020/5/13.
  */
-const cross_spawn_extra_1 = require("cross-spawn-extra");
-const logger_1 = require("debug-color2/logger");
-const __root_ws_1 = require("../../__root_ws");
+const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const logger_1 = __importDefault(require("debug-color2/logger"));
+const __root_ws_1 = __importDefault(require("../../__root_ws"));
 const fs_extra_1 = require("fs-extra");
-const create_cache_name_1 = require("./create-cache-name");
+const create_cache_name_1 = __importDefault(require("./create-cache-name"));
 async function gitSubtreePush(module_name) {
     let remote;
     let prefix;

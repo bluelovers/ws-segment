@@ -4,6 +4,5 @@
 export declare const project_root: string;
 export declare const dict_root: string;
 export declare const temp_root: string;
-import * as ProjectConfig from './project.config';
-export { ProjectConfig };
+export declare const ProjectConfig: typeof import("./project.config");
 export default ProjectConfig;

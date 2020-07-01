@@ -9,8 +9,11 @@ var __createBinding = (this && this.__createBinding) || (Object.create ? (functi
 var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !exports.hasOwnProperty(p)) __createBinding(exports, m, p);
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("@novel-segment/loaders/segment"), exports);
-const segment_1 = require("@novel-segment/loaders/segment");
+const segment_1 = __importDefault(require("@novel-segment/loaders/segment"));
 exports.default = segment_1.default;
 //# sourceMappingURL=index.js.map

@@ -1,11 +1,14 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.all_extra_dict = exports.all_default_load_dict = exports.baseSortList = exports.chkLineType = exports.EnumLineType = exports.loadDictFile = exports.globDict = exports.DEFAULT_IGNORE = exports.getCjkName = exports.zhDictCompare = void 0;
-const fast_glob_1 = require("@bluelovers/fast-glob");
+const fast_glob_1 = __importDefault(require("@bluelovers/fast-glob"));
 const BluebirdPromise = require("bluebird");
-const loader_line_1 = require("@novel-segment/loader-line");
+const loader_line_1 = __importDefault(require("@novel-segment/loader-line"));
 const index_1 = require("@novel-segment/loaders/segment/index");
-const naturalCompare = require("string-natural-compare");
+const string_natural_compare_1 = __importDefault(require("@bluelovers/string-natural-compare"));
 const util_1 = require("@novel-segment/util");
 Object.defineProperty(exports, "zhDictCompare", { enumerable: true, get: function () { return util_1.zhDictCompare; } });
 Object.defineProperty(exports, "getCjkName", { enumerable: true, get: function () { return util_1.getCjkName; } });
@@ -78,13 +81,13 @@ exports.chkLineType = chkLineType;
 function baseSortList(ls, bool) {
     return ls.sort(function (a, b) {
         // @ts-ignore
-        return naturalCompare.caseInsensitive(a.cjk_id, b.cjk_id)
+        return string_natural_compare_1.default.caseInsensitive(a.cjk_id, b.cjk_id)
             // @ts-ignore
-            || naturalCompare.caseInsensitive(a.data[1], b.data[1])
+            || string_natural_compare_1.default.caseInsensitive(a.data[1], b.data[1])
             // @ts-ignore
-            || naturalCompare.caseInsensitive(a.data[0], b.data[0])
+            || string_natural_compare_1.default.caseInsensitive(a.data[0], b.data[0])
             // @ts-ignore
-            || naturalCompare.caseInsensitive(a.data[2], b.data[2]);
+            || string_natural_compare_1.default.caseInsensitive(a.data[2], b.data[2]);
     });
 }
 exports.baseSortList = baseSortList;

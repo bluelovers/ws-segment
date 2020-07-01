@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.del = exports.add = exports.name = void 0;
 const fs_extra_1 = require("fs-extra");
-const debug_color2_1 = require("debug-color2");
-const create_cache_name_1 = require("./create-cache-name");
+const debug_color2_1 = __importDefault(require("debug-color2"));
+const create_cache_name_1 = __importDefault(require("./create-cache-name"));
 function name(name) {
     return create_cache_name_1.default('postpublish', `${name}`);
 }
