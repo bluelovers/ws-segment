@@ -8,7 +8,7 @@
 
 // @ts-ignore
 // @ts-ignore
-import path = require('path');
+import path from 'path';
 import POSTAG from '../POSTAG';
 import TableDictBlacklist from '../table/blacklist';
 import AbstractTableDictCore from '../table/core';
