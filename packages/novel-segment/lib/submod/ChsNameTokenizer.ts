@@ -114,7 +114,7 @@ export class ChsNameTokenizer extends SubSModuleTokenizer
 				}
 				else if (n1 in SINGLE_NAME)
 				{
-					name = f2 + n1 + (n1 == n2 ? n2 : '');
+					name = f2 + n1 + (n1 === n2 ? n2 : '');
 				}
 			}
 			// 单姓
@@ -129,7 +129,7 @@ export class ChsNameTokenizer extends SubSModuleTokenizer
 				}
 				else if (n1 in SINGLE_NAME)
 				{
-					name = f1 + n1 + (n1 == n2 ? n2 : '');
+					name = f1 + n1 + (n1 === n2 ? n2 : '');
 				}
 			}
 			// 检查是否匹配成功

@@ -34,7 +34,7 @@ export function init(_segment)
  */
 export function doOptimize(words: IWord[], is_not_first?: boolean)
 {
-	if (typeof is_not_first == 'undefined')
+	if (typeof is_not_first === 'undefined')
 	{
 		is_not_first = false;
 	}

@@ -26,7 +26,7 @@ export class SingleTokenizer extends SubSModuleTokenizer
 		let ret = [];
 		for (let i = 0, word; word = words[i]; i++)
 		{
-			if (typeof word.p == 'undefined' || word.p)
+			if (typeof word.p === 'undefined' || word.p)
 			{
 				ret.push(word);
 			}

@@ -113,7 +113,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 
 				//debug(nextword);
 				// 如果为  "小|老" + 姓
-				if (nextword && (word.w == '小' || word.w == '老') &&
+				if (nextword?.w?.length && (word.w === '小' || word.w === '老') &&
 					(nextword.w in CHS_NAMES.FAMILY_NAME_1 || nextword.w in CHS_NAMES.FAMILY_NAME_2))
 				{
 					/*
@@ -163,7 +163,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 				// 如果相邻两个均为单字且至少有一个字是未识别的，则尝试判断其是否为人名
 				if (!word.p || !nextword.p)
 				{
-					if ((word.w in CHS_NAMES.SINGLE_NAME && word.w == nextword.w) ||
+					if ((word.w in CHS_NAMES.SINGLE_NAME && word.w === nextword.w) ||
 						(word.w in CHS_NAMES.DOUBLE_NAME_1 && nextword.w in CHS_NAMES.DOUBLE_NAME_2))
 					{
 						/*
@@ -184,7 +184,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 
 						// 如果上一个单词可能是一个姓，则合并
 						let preword = words[i - 1];
-						if (preword
+						if (preword?.w?.length
 							&& (preword.w in CHS_NAMES.FAMILY_NAME_1 || preword.w in CHS_NAMES.FAMILY_NAME_2)
 							&& this.isMergeable2(preword.w, word.w,  nextword.w)
 						)
@@ -279,7 +279,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 					/**
 					 * 更改為只有新詞屬於人名或未知詞時才會合併
 					 */
-					if (!ew || !ew.p || ew.p & POSTAG.A_NR)
+					if (!ew?.p || ew.p & POSTAG.A_NR)
 					{
 						this.sliceToken(words, i, 2, {
 							w: nw,
