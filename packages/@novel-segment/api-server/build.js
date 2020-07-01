@@ -2,11 +2,14 @@
 /**
  * Created by user on 2019/6/28.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 /**
  * Created by user on 2019/6/26.
  */
-const lib_1 = require("novel-segment/lib");
+const lib_1 = __importDefault(require("novel-segment/lib"));
 const fs_extra_1 = require("fs-extra");
 //import { resolve } from 'bluebird';
 const path_1 = require("path");

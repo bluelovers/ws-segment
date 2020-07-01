@@ -2,11 +2,14 @@
 /**
  * Created by user on 2018/4/13/013.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ReadableSync = exports.createReadStreamSync = exports.createStreamLineSync = exports.createLoadStreamSync = void 0;
-const stream = require("stream");
-const fs = require("fs");
-const path = require("path");
+const stream_1 = __importDefault(require("stream"));
+const fs_1 = __importDefault(require("fs"));
+const path_1 = __importDefault(require("path"));
 const line_1 = require("./line");
 function createLoadStreamSync(file, options = {}) {
     options.onready = options.onready || function (src, ...argv) {
@@ -45,7 +48,7 @@ function createReadStreamSync(file) {
     return new ReadableSync(file);
 }
 exports.createReadStreamSync = createReadStreamSync;
-class ReadableSync extends stream.Readable {
+class ReadableSync extends stream_1.default.Readable {
     constructor(file) {
         super();
         this.fd = null;
@@ -60,9 +63,9 @@ class ReadableSync extends stream.Readable {
         }
         else {
             if (typeof file == 'string') {
-                this.path = path.resolve(file);
+                this.path = path_1.default.resolve(file);
             }
-            this.fd = fs.openSync(this.path, this.flags);
+            this.fd = fs_1.default.openSync(this.path, this.flags);
         }
         this.pause();
     }
@@ -83,7 +86,7 @@ class ReadableSync extends stream.Readable {
     __read(size) {
         //let readBuffer = new Buffer(this.options.readChunk);
         let readBuffer = Buffer.alloc(this.options.readChunk);
-        let bytesRead = fs.readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
+        let bytesRead = fs_1.default.readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
         if (bytesRead === 0) {
             this.fdEnd = true;
             return null;

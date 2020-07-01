@@ -2,7 +2,7 @@
  * Created by user on 2018/4/13/013.
  */
 
-import Promise = require('bluebird');
+import Bluebird from 'bluebird';
 import { LF } from 'crlf-normalize';
 import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
@@ -80,7 +80,7 @@ export class LoaderClass<T, R>
 		return input
 	}
 
-	load(file: string, options: IOptions<T, R> = {}): Promise<T>
+	load(file: string, options: IOptions<T, R> = {}): Bluebird<T>
 	{
 		return wrapStreamToPromise(this.loadStream(file, options))
 			.then(function (stream: IStreamLineWithValue<T>)

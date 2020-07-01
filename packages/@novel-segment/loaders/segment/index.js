@@ -2,9 +2,12 @@
 /**
  * Created by user on 2018/3/14/014.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Loader = exports.serialize = exports.stringifyLine = exports.parseLine = exports.loadStreamSync = exports.loadStream = exports.loadSync = exports.load = void 0;
-const dict_loader_core_1 = require("@novel-segment/dict-loader-core");
+const dict_loader_core_1 = __importDefault(require("@novel-segment/dict-loader-core"));
 const libLoader = new dict_loader_core_1.default({
     parseLine(input) {
         let [str, n, s, ...plus] = input

@@ -2,10 +2,10 @@
  * Created by user on 2018/4/13/013.
  */
 
-import stream = require('stream');
-import fs = require('fs');
-import path = require('path');
-import EventEmitter = require('events');
+import stream from 'stream';
+import fs from 'fs';
+import path from 'path';
+import EventEmitter from 'events';
 import { byLine, IOptions, IStreamLine, IStreamLineWithValue } from './line';
 import { ICallback } from './stream';
 

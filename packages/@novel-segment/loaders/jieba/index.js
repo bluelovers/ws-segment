@@ -2,11 +2,14 @@
 /**
  * Created by user on 2018/3/14/014.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadStreamSync = exports.loadStream = exports._createStream = exports.loadSync = exports.load = exports.parseLine = void 0;
 const line_1 = require("@novel-segment/stream-loader-core/line");
-const stream_1 = require("@novel-segment/stream-loader-core/stream");
-const sync_1 = require("@novel-segment/stream-loader-core/sync");
+const stream_1 = __importDefault(require("@novel-segment/stream-loader-core/stream"));
+const sync_1 = __importDefault(require("@novel-segment/stream-loader-core/sync"));
 /**
  * 云计算
  * 蓝翔 nz

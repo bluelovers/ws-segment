@@ -1,17 +1,20 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express = require("express");
-const cors = require("cors");
-const core_1 = require("novel-segment/lib/segment/core");
+const express_1 = __importDefault(require("express"));
+const cors_1 = __importDefault(require("cors"));
+const core_1 = __importDefault(require("novel-segment/lib/segment/core"));
 const useModules2_1 = require("novel-segment/lib/segment/methods/useModules2");
-const mod_1 = require("novel-segment/lib/mod");
+const mod_1 = __importDefault(require("novel-segment/lib/mod"));
 const url_1 = require("url");
 const min_1 = require("cjk-conv/lib/zh/convert/min");
-const app = express();
+const app = express_1.default();
 let CACHED_SEGMENT;
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(express_1.default.json());
+app.use(express_1.default.urlencoded({ extended: true }));
+app.use(cors_1.default());
 all_method(app, '/conv', app_conv);
 all_method(app, '*', app_segment);
 exports.default = app;

@@ -1,5 +1,5 @@
-import express = require('express');
-import cors = require('cors');
+import express from 'express';
+import cors from 'cors';
 import {
 	default as core,
 	NextFunction,

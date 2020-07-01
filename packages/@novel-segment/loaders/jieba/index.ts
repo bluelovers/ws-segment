@@ -3,7 +3,7 @@
  */
 
 import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
-import Promise = require('bluebird');
+import Bluebird from 'bluebird';
 import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
 import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
 
@@ -53,7 +53,7 @@ export function parseLine(input: string): IDictRow
 	return [str, n as any as number, s];
 }
 
-export function load(file: string): Promise<IDict>
+export function load(file: string): Bluebird<IDict>
 {
 	return wrapStreamToPromise(loadStream(file))
 		.then(function (stream: IStreamLineWithValue<IDict>)

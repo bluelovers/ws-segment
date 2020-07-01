@@ -2,12 +2,15 @@
 /**
  * Created by user on 2018/4/11/011.
  */
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapStreamToPromise = exports.readFileLine = exports.createStreamLine = exports.byLine = void 0;
-const fs = require("fs");
-const split2 = require("split2");
-const path = require("path");
-const Promise = require("bluebird");
+const fs_1 = __importDefault(require("fs"));
+const split2_1 = __importDefault(require("split2"));
+const path_1 = __importDefault(require("path"));
+const bluebird_1 = __importDefault(require("bluebird"));
 const stream_pipe_1 = require("stream-pipe");
 function byLine(fn, options = {}) {
     if (typeof fn == 'object') {
@@ -15,7 +18,7 @@ function byLine(fn, options = {}) {
     }
     fn = fn || options.mapper;
     // @ts-ignore
-    let wts = split2(fn);
+    let wts = split2_1.default(fn);
     wts.on('pipe', function (src) {
         // @ts-ignore
         const self = this;
@@ -26,15 +29,15 @@ function byLine(fn, options = {}) {
             self.bytesSize = src.bytesTotal;
         }
         else if (src.fd) {
-            pipeStat = fs.fstatSync(src.fd);
+            pipeStat = fs_1.default.fstatSync(src.fd);
             self.bytesSize = pipeStat.size;
         }
         else if (src.path) {
             let p = src.path;
-            if (src.cwd && !path.isAbsolute(src.path)) {
-                p = path.resolve(src.cwd, src.path);
+            if (src.cwd && !path_1.default.isAbsolute(src.path)) {
+                p = path_1.default.resolve(src.cwd, src.path);
             }
-            pipeStat = fs.statSync(p);
+            pipeStat = fs_1.default.statSync(p);
             self.bytesSize = pipeStat.size;
         }
         else {
@@ -70,7 +73,7 @@ function readFileLine(file, fn, options) {
 exports.readFileLine = readFileLine;
 function wrapStreamToPromise(stream) {
     let resolve, reject;
-    let promise = new Promise(function () {
+    let promise = new bluebird_1.default(function () {
         resolve = arguments[0];
         reject = arguments[1];
     });

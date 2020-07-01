@@ -2,11 +2,11 @@
  * Created by user on 2018/4/11/011.
  */
 
-import fs = require('fs');
-import split2 = require('split2');
-import path = require('path');
-import Promise = require('bluebird');
-import stream = require('stream');
+import fs from 'fs';
+import split2 from 'split2';
+import path from 'path';
+import Bluebird from 'bluebird';
+import stream from 'stream';
 
 import { createReadStream, IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';
@@ -120,7 +120,7 @@ export function wrapStreamToPromise<T extends NodeJS.WritableStream>(stream: T):
 {
 	let resolve, reject;
 
-	let promise = new Promise(function ()
+	let promise = new Bluebird(function ()
 	{
 		resolve = arguments[0];
 		reject = arguments[1];
@@ -159,7 +159,7 @@ export type IStreamLineWithValue<T> = IStreamLine & {
 	value?: T,
 };
 
-export type IPromiseStream<T> = Promise<T> & {
+export type IPromiseStream<T> = Bluebird<T> & {
 	stream: T,
 };
 
