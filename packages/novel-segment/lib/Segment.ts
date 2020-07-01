@@ -6,7 +6,7 @@
 
 'use strict';
 
-import * as path from 'path';
+import path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
 import POSTAG from './POSTAG';
 import TableDictBlacklist from './table/blacklist';
