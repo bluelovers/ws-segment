@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = exports.DictOptimizer = void 0;
+exports.type = exports.init = exports.DictOptimizer = void 0;
 const mod_1 = require("../mod");
 const DIRECTIONS_REGEXP = /^[東西南北东]+$/;
 /**
@@ -24,7 +24,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
         /**
          * 原始判斷模式
          */
-        if (w1.p == w2.p) {
+        if (w1.p === w2.p) {
             bool = true;
         }
         /**
@@ -38,7 +38,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
         /**
          * 允許例如 幾 + ％
          */
-        else if (w1.p && typeof w2.p == 'undefined') {
+        else if (w1.p && typeof w2.p === 'undefined') {
             bool = true;
         }
         else if (w1.p & POSTAG.D_D && w2.p & POSTAG.D_V) {
@@ -76,7 +76,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
     doOptimize(words, is_not_first) {
         var _a;
         //debug(words);
-        if (typeof is_not_first == 'undefined') {
+        if (typeof is_not_first === 'undefined') {
             is_not_first = false;
         }
         // 合并相邻的能组成一个单词的两个词
@@ -96,7 +96,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
             /**
              * 形容词 + 助词 = 形容词，如： 不同 + 的 = 不同的
              */
-            if (w1.w != '了'
+            if (w1.w !== '了'
                 && (w1.p & POSTAG.D_A)
                 && (w2.p & POSTAG.D_U)) {
                 let p = POSTAG.D_A;
@@ -107,7 +107,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
                 } = self._getWordCache(nw, nw_cache, nw_cache_exists));
                 let mw = nw_cache;
                 if (!mw || (mw.p & POSTAG.D_A)) {
-                    if (mw && (mw.p & POSTAG.D_A)) {
+                    if (((mw === null || mw === void 0 ? void 0 : mw.p) & POSTAG.D_A)) {
                         p = mw.p;
                         f = mw.f;
                     }
@@ -185,7 +185,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
                 //debug(w2.w + ' ' + (w2.p & POSTAG.A_M));
                 // 百分比数字 如 10%，或者下一个词也是数词，则合并
                 if ((w2.p & POSTAG.A_M
-                    && !/^第/.test(w2.w)) || w2.w == '%' || w2.w == '％') {
+                    && !/^第/.test(w2.w)) || w2.w === '%' || w2.w === '％') {
                     this.sliceToken(words, i, 2, {
                         w: w1.w + w2.w,
                         p: POSTAG.A_M,
@@ -240,11 +240,11 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
                 // 带小数点的数字 ，如 “3 . 14”，或者 “十五点三”
                 // 数词 + "分之" + 数词，如“五十分之一”
                 let w3 = words[i + 2];
-                if (w3 && (w3.p & POSTAG.A_M)) {
-                    if (w2.w == '.'
-                        || w2.w == '点'
-                        || w2.w == '點'
-                        || w2.w == '分之') {
+                if (((w3 === null || w3 === void 0 ? void 0 : w3.p) & POSTAG.A_M)) {
+                    if (w2.w === '.'
+                        || w2.w === '点'
+                        || w2.w === '點'
+                        || w2.w === '分之') {
                         this.sliceToken(words, i, 3, {
                             w: w1.w + w2.w + w3.w,
                             p: POSTAG.A_M,
@@ -258,7 +258,7 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
                     /**
                      * 支援 `最多容納59,000個人,或5.9萬人,再多就不行了.這是環評的結論.`
                      */
-                    if (w2.w == ',') {
+                    if (w2.w === ',') {
                         let _r1 = /^[\d０-９]+$/;
                         let _r2 = /^(?:(?:[\d０-９]+)?(?:\.[\d０-９]+)|(?:[\d０-９]+))$/;
                         if (_r1.test(w1.w) && _r2.test(w3.w)) {
@@ -399,5 +399,6 @@ class DictOptimizer extends mod_1.SubSModuleOptimizer {
 }
 exports.DictOptimizer = DictOptimizer;
 exports.init = DictOptimizer.init.bind(DictOptimizer);
+exports.type = DictOptimizer.type;
 exports.default = DictOptimizer;
 //# sourceMappingURL=DictOptimizer.js.map

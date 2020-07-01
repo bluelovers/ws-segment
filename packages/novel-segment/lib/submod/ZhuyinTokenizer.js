@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = exports.ZhuyinTokenizer = void 0;
+exports.type = exports.init = exports.ZhuyinTokenizer = void 0;
 const mod_1 = require("../mod");
 /**
  * 注音
@@ -46,5 +46,6 @@ class ZhuyinTokenizer extends mod_1.SubSModuleTokenizer {
 }
 exports.ZhuyinTokenizer = ZhuyinTokenizer;
 exports.init = ZhuyinTokenizer.init.bind(ZhuyinTokenizer);
+exports.type = ZhuyinTokenizer.type;
 exports.default = ZhuyinTokenizer;
 //# sourceMappingURL=ZhuyinTokenizer.js.map

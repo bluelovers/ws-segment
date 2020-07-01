@@ -21,7 +21,7 @@ exports.init = init;
  * @return {array}
  */
 function doOptimize(words, is_not_first) {
-    if (typeof is_not_first == 'undefined') {
+    if (typeof is_not_first === 'undefined') {
         is_not_first = false;
     }
     // 合并相邻的能组成一个单词的两个词

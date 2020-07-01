@@ -306,5 +306,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 
 export const init = ChsNameOptimizer.init.bind(ChsNameOptimizer) as typeof ChsNameOptimizer.init;
 
+export const type = ChsNameOptimizer.type;
+
 export default ChsNameOptimizer;
 

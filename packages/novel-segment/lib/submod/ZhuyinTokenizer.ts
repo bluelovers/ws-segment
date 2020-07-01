@@ -72,4 +72,6 @@ export class ZhuyinTokenizer extends SubSModuleTokenizer
 
 export const init = ZhuyinTokenizer.init.bind(ZhuyinTokenizer) as ISubTokenizerCreate<ZhuyinTokenizer>;
 
+export const type = ZhuyinTokenizer.type;
+
 export default ZhuyinTokenizer;

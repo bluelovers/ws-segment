@@ -11,4 +11,5 @@ export declare class ForeignOptimizer extends SubSModuleOptimizer {
     doOptimize<T extends IWordDebug>(words: T[]): T[];
 }
 export declare const init: typeof SubSModuleOptimizer.init;
+export declare const type = "optimizer";
 export default ForeignOptimizer;

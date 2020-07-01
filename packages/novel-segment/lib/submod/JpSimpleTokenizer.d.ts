@@ -24,4 +24,5 @@ export declare class JpSimpleTokenizer extends SubSModuleTokenizer {
     protected _splitText(text: string): IWord[];
 }
 export declare const init: typeof SubSModuleTokenizer.init;
+export declare const type = "tokenizer";
 export default JpSimpleTokenizer;

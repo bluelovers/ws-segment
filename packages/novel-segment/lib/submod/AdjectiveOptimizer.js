@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = exports.AdjectiveOptimizer = void 0;
+exports.type = exports.init = exports.AdjectiveOptimizer = void 0;
 const mod_1 = require("../mod");
 const COLORS_1 = require("../mod/COLORS");
 /**
@@ -60,5 +60,6 @@ class AdjectiveOptimizer extends mod_1.SubSModuleOptimizer {
 }
 exports.AdjectiveOptimizer = AdjectiveOptimizer;
 exports.init = AdjectiveOptimizer.init.bind(AdjectiveOptimizer);
+exports.type = AdjectiveOptimizer.type;
 exports.default = AdjectiveOptimizer;
 //# sourceMappingURL=AdjectiveOptimizer.js.map

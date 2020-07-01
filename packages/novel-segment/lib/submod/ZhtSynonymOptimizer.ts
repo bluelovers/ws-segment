@@ -11,6 +11,7 @@ import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
 import UString from 'uni-string';
 import { EnumDictDatabase } from '../const';
+import isUnset, { isSet } from '../util/isUnset';
 
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
@@ -669,5 +670,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 }
 
 export const init = ZhtSynonymOptimizer.init.bind(ZhtSynonymOptimizer) as typeof ZhtSynonymOptimizer.init;
+
+export const type = ZhtSynonymOptimizer.type;
 
 export default ZhtSynonymOptimizer;

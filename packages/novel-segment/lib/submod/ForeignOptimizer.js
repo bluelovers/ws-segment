@@ -3,7 +3,7 @@
  * Created by user on 2018/8/18/018.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = exports.ForeignOptimizer = void 0;
+exports.type = exports.init = exports.ForeignOptimizer = void 0;
 const mod_1 = require("../mod");
 class ForeignOptimizer extends mod_1.SubSModuleOptimizer {
     constructor() {
@@ -52,5 +52,6 @@ class ForeignOptimizer extends mod_1.SubSModuleOptimizer {
 }
 exports.ForeignOptimizer = ForeignOptimizer;
 exports.init = ForeignOptimizer.init.bind(ForeignOptimizer);
+exports.type = ForeignOptimizer.type;
 exports.default = ForeignOptimizer;
 //# sourceMappingURL=ForeignOptimizer.js.map

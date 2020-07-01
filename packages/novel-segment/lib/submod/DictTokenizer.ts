@@ -10,6 +10,7 @@ import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 import { debug } from '../util';
 import { DATETIME } from '../mod/const';
 import IPOSTAG from '../POSTAG';
+import isUnset from '../util/isUnset';
 
 export const DEFAULT_MAX_CHUNK_COUNT = 40;
 export const DEFAULT_MAX_CHUNK_COUNT_MIN = 30;
@@ -927,6 +928,9 @@ export namespace DictTokenizer
 
 export import IAssessRow = DictTokenizer.IAssessRow;
 
+
 export const init = DictTokenizer.init.bind(DictTokenizer) as ISubTokenizerCreate<DictTokenizer>;
+
+export const type = DictTokenizer.type;
 
 export default DictTokenizer;

@@ -86,5 +86,7 @@ export class JpSimpleTokenizer extends SubSModuleTokenizer
 
 export const init = JpSimpleTokenizer.init.bind(JpSimpleTokenizer) as typeof JpSimpleTokenizer.init;
 
+export const type = JpSimpleTokenizer.type;
+
 export default JpSimpleTokenizer;
 

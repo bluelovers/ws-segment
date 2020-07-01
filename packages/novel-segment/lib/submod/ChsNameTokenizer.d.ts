@@ -21,4 +21,5 @@ export declare class ChsNameTokenizer extends SubSModuleTokenizer {
     matchName(text: string, cur?: number): IWord[];
 }
 export declare const init: typeof SubSModuleTokenizer.init;
+export declare const type = "tokenizer";
 export default ChsNameTokenizer;

@@ -37,4 +37,5 @@ export declare class DictOptimizer extends SubSModuleOptimizer {
     _mergeWordHowManyProp(p: number, p2: number, p3?: number): number;
 }
 export declare const init: ISubOptimizerCreate<DictOptimizer, SubSModuleOptimizer>;
+export declare const type = "optimizer";
 export default DictOptimizer;

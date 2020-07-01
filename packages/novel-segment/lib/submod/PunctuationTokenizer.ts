@@ -116,4 +116,6 @@ export class PunctuationTokenizer extends SubSModuleTokenizer
 
 export const init = PunctuationTokenizer.init.bind(PunctuationTokenizer) as typeof PunctuationTokenizer.init;
 
+export const type = PunctuationTokenizer.type;
+
 export default PunctuationTokenizer;

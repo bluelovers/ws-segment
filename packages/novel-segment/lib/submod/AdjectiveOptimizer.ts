@@ -74,4 +74,6 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 
 export const init = AdjectiveOptimizer.init.bind(AdjectiveOptimizer) as typeof AdjectiveOptimizer.init;
 
+export const type = AdjectiveOptimizer.type;
+
 export default AdjectiveOptimizer

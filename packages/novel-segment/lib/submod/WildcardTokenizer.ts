@@ -142,4 +142,6 @@ export class WildcardTokenizer extends SubSModuleTokenizer
 
 export const init = WildcardTokenizer.init.bind(WildcardTokenizer) as ISubTokenizerCreate<WildcardTokenizer>;
 
+export const type = WildcardTokenizer.type;
+
 export default WildcardTokenizer;

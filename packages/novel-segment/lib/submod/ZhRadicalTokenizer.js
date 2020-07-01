@@ -1,6 +1,6 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.init = exports.ZhRadicalTokenizer = void 0;
+exports.type = exports.init = exports.ZhRadicalTokenizer = void 0;
 const mod_1 = require("../mod");
 /**
  * 此模組目前無任何用處與效果
@@ -48,5 +48,6 @@ class ZhRadicalTokenizer extends mod_1.SubSModuleTokenizer {
 }
 exports.ZhRadicalTokenizer = ZhRadicalTokenizer;
 exports.init = ZhRadicalTokenizer.init.bind(ZhRadicalTokenizer);
+exports.type = ZhRadicalTokenizer.type;
 exports.default = ZhRadicalTokenizer;
 //# sourceMappingURL=ZhRadicalTokenizer.js.map
