@@ -3,10 +3,10 @@
  */
 /// <reference types="cross-spawn" />
 
-import path = require('path');
+import path from 'path';
 // @ts-ignore
-import PackageJson = require('../package.json');
-import CrossSpawn = require('cross-spawn-extra');
+import PackageJson from '../package.json';
+import CrossSpawn from 'cross-spawn-extra';
 import { join } from "path";
 
 (async () =>
