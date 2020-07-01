@@ -3,6 +3,37 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.19](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.18...novel-segment@2.7.19) (2020-07-01)
+
+
+### ✨　Features
+
+* build submod index ([be6bf36](https://github.com/bluelovers/ws-segment/commit/be6bf36f2ee2ffcbaf89343c3d4dd2187e46f6eb))
+
+
+### 📦　Code Refactoring
+
+* update source to esm ([97e3195](https://github.com/bluelovers/ws-segment/commit/97e319511795ba1dbf10adc9cab3705d793c05df))
+* update source to esm ([e5fe85a](https://github.com/bluelovers/ws-segment/commit/e5fe85a92bf00ce744aec79e6cdac7a78e0a06b1))
+* 模組規範化 ([ea1cfad](https://github.com/bluelovers/ws-segment/commit/ea1cfad529cf0f0a3beb7efd3f2af3cd48bd93fd))
+* update URLTokenizer ([32b601d](https://github.com/bluelovers/ws-segment/commit/32b601d9cfa5a767d329f304dccf136ae751b98a))
+* use strict check ([293bc13](https://github.com/bluelovers/ws-segment/commit/293bc1364e84ff26f45abb877618474c0d449a04))
+* use strict check ([32628f7](https://github.com/bluelovers/ws-segment/commit/32628f73ade348ec4315654e6796554358f88818))
+
+
+### ♻️　Chores
+
+* add __root ([2b44b88](https://github.com/bluelovers/ws-segment/commit/2b44b882b0149ad23b7ac9a534da126a4d0e6218))
+
+
+### 🔖　Miscellaneous
+
+* . ([f37cd99](https://github.com/bluelovers/ws-segment/commit/f37cd9947186292566304918e9bc3f95b97bbea3))
+
+
+
+
+
 ## [2.7.18](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.17...novel-segment@2.7.18) (2020-06-30)
 
 

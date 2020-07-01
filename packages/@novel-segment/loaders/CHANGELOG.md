@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.10...@novel-segment/loaders@1.0.11) (2020-07-01)
+
+
+### 📦　Code Refactoring
+
+* update source to esm ([bfc98c8](https://github.com/bluelovers/ws-segment/commit/bfc98c849ce0f3c2e305d66fef655dba5ec85942))
+
+
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.9...@novel-segment/loaders@1.0.10) (2020-06-24)
 
 **Note:** Version bump only for package @novel-segment/loaders

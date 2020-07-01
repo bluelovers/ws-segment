@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.30...@novel-segment/util@1.0.31) (2020-07-01)
+
+
+### 📦　Code Refactoring
+
+* update source to esm ([3d0baf6](https://github.com/bluelovers/ws-segment/commit/3d0baf613181096aa41768a40b20712ce3048b94))
+
+
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.29...@novel-segment/util@1.0.30) (2020-06-20)
 
 

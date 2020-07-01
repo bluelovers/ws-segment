@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.103](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.102...segment-dict@2.3.103) (2020-07-01)
+
+
+### 📦　Code Refactoring
+
+* update source to esm ([024652d](https://github.com/bluelovers/ws-segment/commit/024652d0ffbf78936dc25f4906db54f09d07aed1))
+
+
+### 🔖　Miscellaneous
+
+* . ([f37cd99](https://github.com/bluelovers/ws-segment/commit/f37cd9947186292566304918e9bc3f95b97bbea3))
+* npm publish 2.3.102 ([c5d4201](https://github.com/bluelovers/ws-segment/commit/c5d4201ea6e85efd08fe918e2d7957931bef984b))
+
+
+
+
+
 ## [2.3.102](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.101...segment-dict@2.3.102) (2020-06-30)
 
 
