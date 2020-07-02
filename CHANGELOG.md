@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.23](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.22...novel-segment@2.7.23) (2020-07-02)
+
+
+### ✨　Features
+
+* 毎 + 量詞 ([98375e4](https://github.com/bluelovers/ws-segment/commit/98375e4085a54631cb6ca77d57867922742d578b))
+
+
+### 📦　Code Refactoring
+
+* **dict:** 冥|瞑 ([a47684f](https://github.com/bluelovers/ws-segment/commit/a47684f3571367be3615867dd6e83ba1f13f9c61))
+
+
+
+
+
 ## [2.7.22](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.21...novel-segment@2.7.22) (2020-07-01)
 
 **Note:** Version bump only for package novel-segment
