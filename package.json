@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.3.107",
+  "version": "2.3.106",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -68,12 +68,12 @@
   },
   "scripts": {
     "coverage": "npx nyc yarn run test",
-    "test": "yarn run test:jest && npx lerna run --stream --scope novel-segment test",
+    "test": "yarn run test:jest && lerna run --stream --scope novel-segment test",
     "test:jest": "jest",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
     "prepublish:lockfile": "npx sync-lockfile .",
-    "prepublishOnly": "echo prepublishOnly & yarn run ncu & npm run sort:all && yarn run test",
+    "prepublishOnly": "yarn run test && yarn run sort:all",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "prepack": "echo prepack",
     "postpack": "echo postpack",
