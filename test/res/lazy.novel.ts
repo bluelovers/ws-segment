@@ -167,6 +167,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'一邊喂我喝了些甚麼。',
+		[
+			'餵',
+		],
+	],
+
 ];
 
 /**
