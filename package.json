@@ -13,9 +13,9 @@
     "packages/*"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "lerna run --stream --scope novel-segment test-ts",
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "npx lerna publish --yes --cd-version patch --ignore @novel-segment/api-server",
+    "lerna:publish:yes": "yarn run test && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
     "prepublish:lockfile": "npx sync-lockfile .",
     "postpublish": "yarn run postpublish:segment & git push && yarn run postpublish:now-deploy && yarn run postpublish:subtree",

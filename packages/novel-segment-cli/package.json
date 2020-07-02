@@ -17,7 +17,6 @@
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "npm:publish": "npm publish",
-    "prepublishOnly": "yarn run ncu && yarn run sort-package-json",
     "postpublish_": "git commit -m \"publish new version\" .",
     "ncu": "npx yarn-tool ncu -u",
     "sort-package-json": "npx yarn-tool sort",
@@ -43,5 +42,5 @@
     "upath2": "^3.1.4",
     "yargs": "^15"
   },
-  "gitHead": "b53ee34cb7a1abaf060f872ed0030effdc50e1ec"
+  "gitHead": "36b3420066533710322716157492f3c6980f7b99"
 }
