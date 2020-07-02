@@ -361,7 +361,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 				}
 			}
 
-			if (/^[數数幾几][百千萬十億兆万亿]$/.test(w1.w) && w2.p & POSTAG.A_Q)
+			if (/^(?:[數数幾几][百千萬十億兆万亿]|毎)$/.test(w1.w) && w2.p & POSTAG.A_Q)
 			{
 				let ow: string = w1.w + w2.w;
 				let nw: string = w1.w + w2.w;
