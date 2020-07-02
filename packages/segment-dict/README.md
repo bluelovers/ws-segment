@@ -125,5 +125,6 @@ requireLoaderModule('segment').load(getDictPath('segment', 'dict.txt'))
 * [繁化姬 - 字典測試](https://gist.github.com/n6333373/f06a3aa27fcde0ba31c5955cfc33ca85)
 * [CNS11643 中文全字庫](https://www.cns11643.gov.tw/index.jsp)
 * [漢字辞典 - Jigen.net](https://jigen.net/)
+* [教育部異體字字典](https://dict.variants.moe.edu.tw/variants/rbt/home.do)
 * 
 

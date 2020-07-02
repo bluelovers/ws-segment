@@ -305,8 +305,13 @@ Promise
 				bool = true;
 			}
 
+			if (0 && !bool && p & POSTAG.D_O)
+			{
+				bool = true;
+			}
+
 			if (1 && !bool
-				&& zhRegExp.create(/召|招/u).test(w)
+				&& zhRegExp.create(/冥|瞑/u).test(w)
 			)
 			{
 				bool = true;

@@ -600,6 +600,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'生於平成日本的事',
+		[
+			['於平'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

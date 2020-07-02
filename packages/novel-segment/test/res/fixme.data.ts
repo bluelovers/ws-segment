@@ -391,6 +391,20 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'只有限定的人才准許內進的上級娛樂室',
+		[
+			['人才'],
+		],
+	],
+
+	[
+		'因其鼎腹內壁著有銘文',
+		[
+			['腹內'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -1007,6 +1021,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'冈萨斯却完全没有自己占了优势的感觉。',
 		[
 			'佔',
+		]
+	],
+
+	[
+		'我讓一位騎士胡亂卷上包帶',
+		[
+			'捲',
+		]
+	],
+
+	[
+		'是喂受了傷的魔物喝回復藥',
+		[
+			'餵',
 		]
 	],
 
