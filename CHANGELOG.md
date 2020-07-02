@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.107](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.106...segment-dict@2.3.107) (2020-07-02)
+
+
+### 📦　Code Refactoring
+
+* **dict:** 冥|瞑 ([a47684f](https://github.com/bluelovers/ws-segment/commit/a47684f3571367be3615867dd6e83ba1f13f9c61))
+* **dict:** 拟声词 ([8797bd3](https://github.com/bluelovers/ws-segment/commit/8797bd310d5b1c92db07f281d908ebb4a49e19ca))
+* **dict:** 冥|瞑 ([c72f311](https://github.com/bluelovers/ws-segment/commit/c72f31175fdf45c9db99452503e5671026c968ee))
+* **dict:** 椭|楕|橢 ([9c5a554](https://github.com/bluelovers/ws-segment/commit/9c5a554f4f249b1355dc2d1945caf947ca5de040))
+
+
+### ♻️　Chores
+
+* **dict:** save dict ([78683da](https://github.com/bluelovers/ws-segment/commit/78683da63a8965e9087ec71c08d0417d2e676f01))
+* **dict:** save dict ([ace482b](https://github.com/bluelovers/ws-segment/commit/ace482ba6814ca8bb7bdc1a649affd96cdc0062e))
+* **dict:** save dict ([8d49a4d](https://github.com/bluelovers/ws-segment/commit/8d49a4d36859cd36d411f7a7fa31a74cad7fdcdc))
+
+
+
+
+
 ## [2.3.106](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.105...segment-dict@2.3.106) (2020-07-01)
 
 
