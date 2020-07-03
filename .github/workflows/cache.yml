@@ -61,3 +61,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           directory: packages/novel-segment/test/temp
           branch: cache
+          force: true
+          
