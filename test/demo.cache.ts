@@ -140,14 +140,14 @@ if (changed)
 	console.red(`changed: ${changed}`);
 }
 
-fs.writeFileSync('./temp/c1.json', JSON.stringify({
+fs.outputFileSync('./temp/c1.json', JSON.stringify({
 
 	changed,
 
 	ret,
 }, null, "\t"));
 
-fs.writeFileSync('./temp/c1.txt', output_text);
+fs.outputFileSync('./temp/c1.txt', output_text);
 
 console.gray("------------------");
 
