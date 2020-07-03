@@ -7,7 +7,7 @@ import __root_ws from '../../__root_ws';
 	await CrossSpawn.async('git', [
 		'add',
 		'-f',
-		'./packages/novel-segment/test/temp/cache.common.synonym.db.info.json',
+		'*.info.json',
 	], {
 		cwd: __root_ws,
 		stdio: 'inherit',
@@ -16,7 +16,7 @@ import __root_ws from '../../__root_ws';
 	await CrossSpawn.async('git', [
 		'add',
 		'-f',
-		'./packages/novel-segment/test/temp/cache.db.info.json',
+		'*.db',
 	], {
 		cwd: __root_ws,
 		stdio: 'inherit',

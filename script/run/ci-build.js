@@ -9,7 +9,7 @@ const __root_ws_1 = __importDefault(require("../../__root_ws"));
     await cross_spawn_extra_1.default.async('git', [
         'add',
         '-f',
-        './packages/novel-segment/test/temp/cache.common.synonym.db.info.json',
+        '*.info.json',
     ], {
         cwd: __root_ws_1.default,
         stdio: 'inherit',
@@ -17,7 +17,7 @@ const __root_ws_1 = __importDefault(require("../../__root_ws"));
     await cross_spawn_extra_1.default.async('git', [
         'add',
         '-f',
-        './packages/novel-segment/test/temp/cache.db.info.json',
+        '*.db',
     ], {
         cwd: __root_ws_1.default,
         stdio: 'inherit',
