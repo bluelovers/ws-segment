@@ -17,7 +17,7 @@
     "ci:install": "yarn add -W lerna yarn-tool cjk-conv ts-node typescript ynpx",
     "ci:build": "yarn run ci:build:script && yarn run ci:build:commit",
     "ci:build:script": "ts-node ./packages/novel-segment/test/demo.cache.ts",
-    "ci:build:commit": "git add -f packages/novel-segment/test/temp/cache.common.synonym.db.info.json & git add -f packages/novel-segment/test/temp/cache.db.info.json & git commit -m \"build(cache): build segment cache\" packages/novel-segment/test/temp/",
+    "ci:build:commit": "ts-node ./script/run/ci-build.ts",
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run test && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly && yarn run postpublishOnly",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
