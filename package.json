@@ -14,6 +14,8 @@
   ],
   "scripts": {
     "test": "lerna run --stream --scope novel-segment test-ts",
+    "ci:install": "yarn add lerna yarn-tool cjk-conv ts-node typescript ynpx",
+    "ci:build": "ts-node ./packages/novel-segment/test/demo.cache.ts",
     "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run test && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
