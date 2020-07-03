@@ -26,6 +26,7 @@ import __root_ws from '../../__root_ws';
 		'commit',
 		'-m',
 		'build(cache): build segment cache',
+		'./packages/novel-segment/test/temp/',
 	], {
 		cwd: __root_ws,
 		stdio: 'inherit',
