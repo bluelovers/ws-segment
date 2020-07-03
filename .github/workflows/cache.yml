@@ -52,7 +52,7 @@ jobs:
         run: yarn run ci:install
       - name: run script
         if: success()
-        env:
+#        env:
         run: yarn run ci:build
       - name: Push changes
         if: success()
