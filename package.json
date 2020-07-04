@@ -72,7 +72,7 @@
     "test:jest": "jest",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
-    "preversion": "git commit -m \"chore(dict): save dict before new version\" ./dict & echo preversion",
+    "preversion": "git commit -m \"chore(dict): save dict before new version\" ./dict ./test/sort.ts & echo preversion",
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly": "yarn run test && yarn run sort:all && yarn run preversion",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
