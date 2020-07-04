@@ -48,3 +48,4 @@ yarn-error.log
 /temp/postpublish/
 /temp/subtree/
 **/node_modules/**
+/lerna-debug.log

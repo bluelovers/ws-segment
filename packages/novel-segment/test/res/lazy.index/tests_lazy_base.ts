@@ -497,6 +497,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'享用著主菜──松阪牛排。',
+		[
+			['牛排'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
