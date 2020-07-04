@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.110](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.109...segment-dict@2.3.110) (2020-07-04)
+
+
+### 🐛　Bug Fixes
+
+* ENOENT: no such file or directory, open './temp/c1.json' ([b52caee](https://github.com/bluelovers/ws-segment/commit/b52caee2bfdf3ab13db6d79202df27fe3c29a1d1))
+
+
+### 📦　Code Refactoring
+
+* **dict:** 捡|撿|检|検|檢 ([a538316](https://github.com/bluelovers/ws-segment/commit/a538316768997907b8f9a6ee9e22f8a126880479))
+* **dict:** 帚|箒|菷|掃|扫 ([be59be3](https://github.com/bluelovers/ws-segment/commit/be59be34fe6f5a2b94fbba3736f6e6525920edac))
+
+
+### ♻️　Chores
+
+* **dict:** save dict ([954b56b](https://github.com/bluelovers/ws-segment/commit/954b56b494b7bc303c7596a1b0d3638c2f644088))
+* **dict:** save dict ([9cad9fe](https://github.com/bluelovers/ws-segment/commit/9cad9feb6fdad50bb698e50593041a1ab0026a52))
+* **dict:** save dict ([39e993a](https://github.com/bluelovers/ws-segment/commit/39e993ac50ef8e415c6ea467f5347c4cf5783981))
+
+
+
+
+
 ## [2.3.109](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.107...segment-dict@2.3.109) (2020-07-03)
 
 
