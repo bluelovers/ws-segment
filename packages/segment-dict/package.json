@@ -93,7 +93,7 @@
     "sort:list:synonym": "ts-node ./script/sort_list_synonym.ts",
     "sort-package-json": "npx yarn-tool sort",
     "task:do-split": "yarn run task:do-split:commit && ts-node ./test/sort.ts",
-    "task:do-split:commit": "git commit -m \"chore(dict): save dict\" ./dict & echo \"save dict\"",
+    "task:do-split:commit": "git commit -m \"chore(dict): save dict before split\" ./dict & echo \"save dict\"",
     "travis": "typedoc --options ./typedoc.config.js"
   },
   "dependencies": {
