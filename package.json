@@ -18,8 +18,9 @@
     "ci:build": "yarn run ci:build:script && yarn run ci:build:commit",
     "ci:build:script": "ts-node ./packages/novel-segment/test/demo.cache.ts",
     "ci:build:commit": "ts-node ./script/run/ci-build.ts",
+    "preversion": "yarn run test && ts-node ./script/run/ws-prepublish.ts",
     "lerna:publish": "npx lerna publish",
-    "lerna:publish:yes": "yarn run test && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly && yarn run postpublishOnly",
+    "lerna:publish:yes": "yarn run preversion && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly && yarn run postpublishOnly",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
     "prepublish:lockfile": "npx sync-lockfile .",
     "postpublishOnly": "yarn run postpublish:segment & git push && yarn run postpublish:now-deploy && yarn run postpublish:subtree",
@@ -36,7 +37,12 @@
     "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
   },
   "resolutions": {},
-  "dependencies": {},
+  "dependencies": {
+    "@yarn-tool/find-deps": "^1.0.10",
+    "@yarn-tool/ws-changed": "^1.0.18",
+    "bluebird": "^3.7.2",
+    "ws-pkg-list": "^1.0.33"
+  },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@bluelovers/tsconfig": "^1.0.19",
