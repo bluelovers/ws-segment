@@ -607,6 +607,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'如果只能和現在那只雜魚菜雞勇者一起比較的話還得了！」',
+		[
+			['在那'],
+		],
+	],
+
+	[
+		'本來蕾菲爾特姐還想給她下套套她口風的',
+		[
+			['套套'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

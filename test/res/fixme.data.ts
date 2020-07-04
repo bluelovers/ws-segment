@@ -1045,6 +1045,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'「呼呼，被拉澤爾喂了呢」',
+		[
+			'餵',
+		]
+	],
+
+	[
+		'往腰上系上劍，進入了戰鬥狀態。',
+		[
+			'繫',
+		]
+	],
+
 ];
 
 /**

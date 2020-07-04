@@ -4449,6 +4449,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'但其占地面積是旅店所無法相比的。',
+		[
+			'佔',
+		]
+	],
+
+	[
+		'明明被對方占了上風，',
+		[
+			'佔',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof

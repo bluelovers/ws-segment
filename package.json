@@ -73,6 +73,8 @@
   "scripts": {
     "coverage": "npx nyc npm run test",
     "test": "yarn run local-delete-cache-db && yarn run test-ts && yarn run test-fixme && yarn run test:jest",
+    "posttest": "yarn run preversion",
+    "preversion": "git commit -m \"chore: save repo before new version\" ./test/res/ ./test/demo.cache.ts & echo preversion",
     "test-fixme": "ts-node ./test/chk-fixme",
     "test:jest": "jest",
     "test-js": "npx mocha \"!(node_modules)/**/*.test.js\"",
