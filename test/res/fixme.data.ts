@@ -1038,6 +1038,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'我緊緊閉上眼睛，做了次深呼吸，后又睜開。',
+		[
+			'後',
+		]
+	],
+
 ];
 
 /**

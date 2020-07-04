@@ -174,6 +174,20 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'艾倫諾拉征得龍龍同意後',
+		[
+			'徵',
+		],
+	],
+
+	[
+		'讓婚約者的心系在自己身上也是尤菲莉亞的任務',
+		[
+			'繫',
+		],
+	],
+
 ];
 
 /**
