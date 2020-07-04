@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.27](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.26...novel-segment@2.7.27) (2020-07-04)
+
+
+### 🐛　Bug Fixes
+
+* ENOENT: no such file or directory, open './temp/c1.json' ([b52caee](https://github.com/bluelovers/ws-segment/commit/b52caee2bfdf3ab13db6d79202df27fe3c29a1d1))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([9de9994](https://github.com/bluelovers/ws-segment/commit/9de9994dc96f9aae857cba00c5a4859e04935d80))
+* **dict:** save dict ([954b56b](https://github.com/bluelovers/ws-segment/commit/954b56b494b7bc303c7596a1b0d3638c2f644088))
+
+
+
+
+
 ## [2.7.26](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.24...novel-segment@2.7.26) (2020-07-03)
 
 
