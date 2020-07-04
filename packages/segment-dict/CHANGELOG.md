@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.112](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.111...segment-dict@2.3.112) (2020-07-04)
+
+
+### 📦　Code Refactoring
+
+* **dict:** 帘|濂|簾 ([2376e22](https://github.com/bluelovers/ws-segment/commit/2376e221fb803a6832fcb456d3273b95b69b0ebe))
+
+
+### 🛠　Build System
+
+* update prepublish script ([59771b0](https://github.com/bluelovers/ws-segment/commit/59771b07b3440069b5e874dd31dde1e81de7291a))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([96a3a10](https://github.com/bluelovers/ws-segment/commit/96a3a10699ce3a5ec2877698f5281288056ece71))
+* **dict:** save dict before sort:all ([0b3b20e](https://github.com/bluelovers/ws-segment/commit/0b3b20e6658171164005b473c3efd0186d7cdf69))
+* save repo before new version ([5fd7f03](https://github.com/bluelovers/ws-segment/commit/5fd7f03ad9e26a12764fb600f1df88998073552a))
+* **dict:** save dict before split ([fd57920](https://github.com/bluelovers/ws-segment/commit/fd57920059059d834b0d30137caac9849dedf4ed))
+
+
+
+
+
 ## [2.3.111](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.110...segment-dict@2.3.111) (2020-07-04)
 
 
