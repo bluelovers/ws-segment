@@ -311,7 +311,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/冥|瞑/u).test(w)
+				&& zhRegExp.create(/法|珐|琺/u).test(w)
 			)
 			{
 				bool = true;
