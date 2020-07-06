@@ -405,6 +405,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'酒館內人雖然算不上亞肩疊背',
+		[
+			['內人'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -1056,6 +1063,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'往腰上系上劍，進入了戰鬥狀態。',
 		[
 			'繫',
+		]
+	],
+
+	[
+		'她余光瞟到的城牆外的世界',
+		[
+			'餘',
+		]
+	],
+
+	[
+		'有個美少女喂你食物',
+		[
+			'餵',
 		]
 	],
 
