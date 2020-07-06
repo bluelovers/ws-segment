@@ -621,6 +621,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'但是他卻不知道因為什麼不能大幅度動彈',
+		[
+			['為什麼'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
