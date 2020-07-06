@@ -32,14 +32,14 @@
     "crlf-normalize": "^1.0.5",
     "debug-color2": "^1.2.3",
     "fs-extra": "^9",
-    "fs-iconv": "^3.0.9",
-    "iconv-jschardet": "^2.0.9",
+    "fs-iconv": "^3.0.10",
+    "iconv-jschardet": "^2.0.10",
     "lazy-cacache": "^2.0.0",
     "lodash": "^4.17.15",
     "novel-segment": "^2.7.29",
     "pkg-up": "^3.1.0",
     "prettyuse": "^0.0.0",
-    "upath2": "^3.1.4",
+    "upath2": "^3.1.5",
     "yargs": "^15"
   },
   "gitHead": "36b3420066533710322716157492f3c6980f7b99"

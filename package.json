@@ -38,10 +38,10 @@
   },
   "resolutions": {},
   "dependencies": {
-    "@yarn-tool/find-deps": "^1.0.10",
-    "@yarn-tool/ws-changed": "^1.0.18",
+    "@yarn-tool/find-deps": "^1.0.11",
+    "@yarn-tool/ws-changed": "^1.0.19",
     "bluebird": "^3.7.2",
-    "ws-pkg-list": "^1.0.33"
+    "ws-pkg-list": "^1.0.34"
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
@@ -64,7 +64,7 @@
     "chai": "^4.2.0",
     "chai-asserttype-extra": "^1.2.0",
     "chai-string": "^1.5.0",
-    "cjk-conv": "^1.2.97",
+    "cjk-conv": "^1.2.101",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.3",
     "diff": "^4.0.2",
@@ -78,6 +78,6 @@
     "transliteration": "^2.1.11",
     "ts-jest": "^26.1.1",
     "uni-string": "^1.1.10",
-    "upath2": "^3.1.4"
+    "upath2": "^3.1.5"
   }
 }
