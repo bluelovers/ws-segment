@@ -628,6 +628,21 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+
+	[
+		'人類最原始的衝動此刻已經無法克制住了',
+		[
+			['制住'],
+		],
+	],
+
+	[
+		'大概率不存在未發現的王國勢力',
+		[
+			['大概'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
