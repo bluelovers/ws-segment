@@ -7,6 +7,7 @@ exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDi
 const string_natural_compare_1 = __importDefault(require("@bluelovers/string-natural-compare"));
 const array_hyper_unique_1 = require("array-hyper-unique");
 const uni_string_1 = __importDefault(require("uni-string"));
+const cjk_conv_1 = require("regexp-helper/lib/cjk-conv");
 /**
  * @private
  */
@@ -50,7 +51,8 @@ exports._zhDictCompareTable = ((a, b) => {
     ['劣', '优'],
 ]);
 exports._zhDictCompareTable_chars = array_hyper_unique_1.array_unique(exports._zhDictCompareTable.flat());
-exports.RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
+//export const RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
+exports.RE_ZH = cjk_conv_1._re_cjk_conv('u', 'のと㊥㊦㊤');
 function zhDictCompareNew(options) {
     if (typeof options === 'function') {
         options = { failback: options };

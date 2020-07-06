@@ -33,7 +33,8 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^1.1.2"
+    "@bluelovers/string-natural-compare": "^1.1.2",
+    "regexp-helper": "^1.0.15"
   },
   "peerDependencies": {
     "array-hyper-unique": "^1.1.9",

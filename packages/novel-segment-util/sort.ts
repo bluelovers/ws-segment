@@ -4,6 +4,7 @@ import StrUtil = require('str-util');
 import libTable from 'cjk-conv/lib/zh/table';
 import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 import UString from 'uni-string';
+import { _re_cjk_conv } from 'regexp-helper/lib/cjk-conv';
 
 /**
  * @private
@@ -54,7 +55,8 @@ export let _zhDictCompareTable = ((a: string[][], b: string[][]) =>
 
 export let _zhDictCompareTable_chars = array_unique(_zhDictCompareTable.flat());
 
-export const RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
+//export const RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
+export const RE_ZH = _re_cjk_conv('u', 'のと㊥㊦㊤');
 
 export interface IFnCompare
 {

@@ -49,11 +49,11 @@ globDict(CWD, [
 
 		console.time(_basepath);
 
-		let list = await loadDictFile<ILoadDictFileRow2<string[]>>(file, function (list, cur)
+		let list = await loadDictFile<ILoadDictFileRow2<string>>(file, function (list, cur)
 		{
 			cur.file = file;
 
-			let [w] = cur.data;
+			let w = cur.data;
 
 			cur.line_type = chkLineType(cur.line);
 
@@ -69,7 +69,7 @@ globDict(CWD, [
 				return false;
 			}
 
-			let cjk_id = getCjkName(cur.line, USE_CJK_MODE);
+			let cjk_id = getCjkName(w, USE_CJK_MODE);
 
 			cur.cjk_id = cjk_id;
 
