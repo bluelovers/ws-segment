@@ -504,6 +504,20 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'至今日韓等地區仍稱中藥為漢藥或漢方藥。',
+		[
+			['至今'],
+		],
+	],
+
+	[
+		'所以在學院暗自里搞了不少陰險的勾當！」',
+		[
+			['暗自'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
