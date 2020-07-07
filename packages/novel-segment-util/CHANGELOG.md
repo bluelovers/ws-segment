@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.35](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.34...@novel-segment/util@1.0.35) (2020-07-07)
+
+
+### 🐛　Bug Fixes
+
+* **sort:** 試圖修正排序結果不穩定的問題 ([06d3e62](https://github.com/bluelovers/ws-segment/commit/06d3e62284e1c1f105fa702407a4784d542b1204))
+
+
+
+
+
 ## [1.0.34](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.32...@novel-segment/util@1.0.34) (2020-07-03)
 
 
