@@ -1080,6 +1080,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'置驚呆地張嘴的利歐于一旁',
+		[
+			'於',
+		]
+	],
+
 ];
 
 /**
