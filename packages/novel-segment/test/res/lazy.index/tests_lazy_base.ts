@@ -518,6 +518,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'警吏和普通居民都記不得不良的面孔。',
+		[
+			['不良'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
