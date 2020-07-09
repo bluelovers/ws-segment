@@ -4633,6 +4633,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'「你還記得你吃過多少片面包嗎？」',
+		[
+			'麵',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof

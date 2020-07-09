@@ -678,6 +678,14 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'「你還記得你吃過多少片面包嗎？」',
+		[
+			['過多'],
+			['片面'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
