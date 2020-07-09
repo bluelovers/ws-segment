@@ -1087,6 +1087,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'早早到達教室的兩人占到了最前面的座位',
+		[
+			'佔',
+		]
+	],
+
 ];
 
 /**

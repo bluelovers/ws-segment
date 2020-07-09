@@ -4626,6 +4626,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'「是不是有点过分干预原作了？」',
+		[
+			'干',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
