@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.35](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.34...novel-segment@2.7.35) (2020-07-11)
+
+
+### ✨　Features
+
+* 姓氏 增加 `朴` ([1c05e12](https://github.com/bluelovers/ws-segment/commit/1c05e1287eabe45c4adae982993c9f23101ee9f8))
+
+
+### ♻️　Chores
+
+* save repo before new version ([d1e96f7](https://github.com/bluelovers/ws-segment/commit/d1e96f7306a0e89343b02ee859817ca47932dbac))
+
+
+
+
+
 ## [2.7.34](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.33...novel-segment@2.7.34) (2020-07-09)
 
 
