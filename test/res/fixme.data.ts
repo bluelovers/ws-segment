@@ -1094,6 +1094,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'人才發掘部內以它們為使魔的職員占到了八成。',
+		[
+			'佔',
+		]
+	],
+
 ];
 
 /**
