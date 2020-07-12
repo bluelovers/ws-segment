@@ -686,6 +686,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'紅色氣球被穿過樹縫灑落的陽光照得斑爛',
+		[
+			['光照'],
+		],
+	],
+
+	[
+		'但僅限定于生物',
+		[
+			['定于', '定於'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
