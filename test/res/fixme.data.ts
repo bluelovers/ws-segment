@@ -412,6 +412,20 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'大概對自己以后的生活會更加輕鬆吧',
+		[
+			['生活會'],
+		],
+	],
+
+	[
+		'手是擦干净了',
+		[
+			['擦干', '擦乾'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -1098,6 +1112,27 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'人才發掘部內以它們為使魔的職員占到了八成。',
 		[
 			'佔',
+		]
+	],
+
+	[
+		'用力划了一下，',
+		[
+			'劃',
+		]
+	],
+
+	[
+		'學院占地非常廣闊，除了',
+		[
+			'佔',
+		]
+	],
+
+	[
+		'然後您困了所以回來睡了一會兒',
+		[
+			'睏',
 		]
 	],
 

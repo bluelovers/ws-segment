@@ -700,6 +700,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'和以前冷冷清清地點綴著几碟料理的氛圍完全不一樣',
+		[
+			['地點'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
