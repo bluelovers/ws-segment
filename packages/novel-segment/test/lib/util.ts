@@ -145,7 +145,8 @@ export function lazyMatchSynonym001(a: string, b_arr: (string | string[])[], opt
 
 		if (Array.isArray(bb))
 		{
-			bb.some(v => {
+			bb.some(v =>
+			{
 
 				let jj = a.indexOf(v, ii);
 
@@ -163,9 +164,9 @@ export function lazyMatchSynonym001(a: string, b_arr: (string | string[])[], opt
 			j = a.indexOf(bb, ii);
 		}
 
-		if ((j > -1) && (j > i))
+		if ((j > -1) && (j >= i))
 		{
-			i = j;
+			i = j + bb.length;
 
 			return true;
 		}
@@ -205,7 +206,8 @@ export function lazyMatchSynonym001Not(a: string, b_arr: (string | string[])[], 
 
 		if (Array.isArray(bb))
 		{
-			bb.some(v => {
+			bb.some(v =>
+			{
 
 				let jj = a.indexOf(v, ii);
 
