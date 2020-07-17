@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.37](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.36...novel-segment@2.7.37) (2020-07-17)
+
+
+### 🐛　Bug Fixes
+
+* **test:** lazyMatchSynonym001 ([92b9570](https://github.com/bluelovers/ws-segment/commit/92b95709de4057ef4b4142edc3261673541f9226))
+
+
+### 🛠　Build System
+
+* update typescript build ([91fb859](https://github.com/bluelovers/ws-segment/commit/91fb859e55140ce665ad2fde14724259b9414250))
+
+
+### ♻️　Chores
+
+* save repo before new version ([7979498](https://github.com/bluelovers/ws-segment/commit/79794989297c2d2db9ca328af0a744152f426ee8))
+
+
+
+
+
 ## [2.7.36](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.35...novel-segment@2.7.36) (2020-07-12)
 
 
