@@ -86,6 +86,14 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'先不说那个擦过了她手和嘴的脏手帕干不干净，',
+		[
+			'干',
+			'幹',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not
