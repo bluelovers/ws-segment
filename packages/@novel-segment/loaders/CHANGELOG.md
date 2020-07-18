@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.12...@novel-segment/loaders@1.0.13) (2020-07-18)
+
+
+### 📦　Code Refactoring
+
+* @novel-segment/postag ([f9a0838](https://github.com/bluelovers/ws-segment/commit/f9a0838f7d2eef33180331ec600184029c44fccf))
+
+
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.11...@novel-segment/loaders@1.0.12) (2020-07-01)
 
 
