@@ -2,9 +2,9 @@
  * Created by user on 2018/4/19/019.
  */
 
-import { POSTAG } from '../POSTAG';
 import { IWord } from '../segment/types';
 import sortObjectKeys from 'sort-object-keys2';
+import { zhName, enName } from '@novel-segment/postag/lib/i18n';
 
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');
 export const SYMBOL_DEBUG_KEY = '_debug';
@@ -131,18 +131,18 @@ export function token_add_info<T extends IWordDebug>(v: T)
 {
 	if (v.p)
 	{
-		v.ps = POSTAG.zhName(v.p);
+		v.ps = zhName(v.p);
 		//v.ps_en = POSTAG.enName(v.p);
 
 		let debug = debugToken(v, {
-			ps_en: POSTAG.enName(v.p),
+			ps_en: enName(v.p),
 		});
 
 		v.pp = toHex(v.p);
 
 		if (v.op)
 		{
-			v.ops = POSTAG.zhName(v.op);
+			v.ops = zhName(v.op);
 			v.opp = toHex(v.op);
 		}
 

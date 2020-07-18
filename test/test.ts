@@ -5,6 +5,7 @@
 // @ts-ignore
 import * as fs from 'fs';
 import Segment, { POSTAG } from '../index';
+import { zhName } from '@novel-segment/postag/lib/i18n';
 
 var NUM = 1;
 var text = '\
@@ -140,7 +141,7 @@ var line = '';
 for (let i in ret)
 {
 	line += ret[i].w + '/';
-	ret[i].ps = POSTAG.zhName(ret[i].p);
+	ret[i].ps = zhName(ret[i].p);
 }
 console.log(ret);
 console.log(line);

@@ -1,5 +1,5 @@
 import { IWordDebug } from '../../util/debug';
-import POSTAG from '../../POSTAG';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 export declare function _doSegmentStripPOSTAG(ret: IWordDebug[], postag: POSTAG): IWordDebug[];
 /**
  * 去除停止符

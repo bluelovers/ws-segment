@@ -9,7 +9,6 @@ import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DO
 import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
 import { debug } from '../util';
 import { DATETIME } from '../mod/const';
-import IPOSTAG from '../POSTAG';
 import isUnset from '../util/isUnset';
 
 export const DEFAULT_MAX_CHUNK_COUNT = 40;
@@ -927,6 +926,7 @@ export namespace DictTokenizer
 }
 
 export import IAssessRow = DictTokenizer.IAssessRow;
+import POSTAG from '@novel-segment/postag/lib/postag/ids';
 
 
 export const init = DictTokenizer.init.bind(DictTokenizer) as ISubTokenizerCreate<DictTokenizer>;

@@ -2,7 +2,6 @@
  * Created by user on 2018/4/17/017.
  */
 /// <reference types="node" />
-export * from './core';
 import { cloneDeep } from 'lodash';
 export { cloneDeep };
 import { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info } from './debug';

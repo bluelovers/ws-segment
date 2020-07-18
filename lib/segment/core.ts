@@ -9,7 +9,6 @@
 // @ts-ignore
 // @ts-ignore
 import path from 'path';
-import POSTAG from '../POSTAG';
 import TableDictBlacklist from '../table/blacklist';
 import AbstractTableDictCore from '../table/core';
 import { IOptions as IOptionsTableDict, TableDict } from '../table/dict';
@@ -43,6 +42,7 @@ import {
 	_doSegmentStripStopword,
 } from './methods/doSegment';
 import { ITSOverwrite } from 'ts-type';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 
 
 /**
