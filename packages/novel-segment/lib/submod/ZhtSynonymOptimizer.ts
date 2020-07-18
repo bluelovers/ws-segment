@@ -3,7 +3,6 @@
  */
 
 import { SubSModule, SubSModuleOptimizer } from '../mod';
-import POSTAG from '../POSTAG';
 import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';

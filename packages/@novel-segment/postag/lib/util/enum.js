@@ -1,7 +1,4 @@
 "use strict";
-/**
- * Created by user on 2018/4/17/017.
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.enumList = exports.enumIsNaN = void 0;
 function enumIsNaN(v) {
@@ -18,4 +15,4 @@ function enumList(varEnum, byValue) {
     }
 }
 exports.enumList = enumList;
-//# sourceMappingURL=core.js.map
+//# sourceMappingURL=enum.js.map

@@ -7,6 +7,7 @@ import * as fs from "fs";
 import { isRegExp, zhRegExp } from 'regexp-cjk';
 import Segment, { POSTAG } from '../index';
 import { IWord } from '../lib/Segment';
+import { zhName, enName } from '@novel-segment/postag/lib/i18n';
 
 /**
  * 需要使用緩存來加速讀取字典的話 參考 demo.cache.ts 內的範例
@@ -160,8 +161,8 @@ function add_info(v)
 {
 	if (v.p)
 	{
-		v.ps = POSTAG.zhName(v.p);
-		v.ps_en = POSTAG.enName(v.p);
+		v.ps = zhName(v.p);
+		v.ps_en = enName(v.p);
 
 		// @ts-ignore
 		v.pp = '0x' + v.p.toString(16).padStart(4, '0').toUpperCase();

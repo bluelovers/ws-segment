@@ -7,8 +7,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.toHex = exports.token_add_info = exports.debug_token = exports.debugToken = exports.clearTokemDebug = exports.SYMBOL_DEBUG_KEY = void 0;
-const POSTAG_1 = require("../POSTAG");
 const sort_object_keys2_1 = __importDefault(require("sort-object-keys2"));
+const i18n_1 = require("@novel-segment/postag/lib/i18n");
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');
 exports.SYMBOL_DEBUG_KEY = '_debug';
 function clearTokemDebug(data, returnClone) {
@@ -65,14 +65,14 @@ function debug_token(ks, returnSource) {
 exports.debug_token = debug_token;
 function token_add_info(v) {
     if (v.p) {
-        v.ps = POSTAG_1.POSTAG.zhName(v.p);
+        v.ps = i18n_1.zhName(v.p);
         //v.ps_en = POSTAG.enName(v.p);
         let debug = debugToken(v, {
-            ps_en: POSTAG_1.POSTAG.enName(v.p),
+            ps_en: i18n_1.enName(v.p),
         });
         v.pp = toHex(v.p);
         if (v.op) {
-            v.ops = POSTAG_1.POSTAG.zhName(v.op);
+            v.ops = i18n_1.zhName(v.op);
             v.opp = toHex(v.op);
         }
         if (v.m) {

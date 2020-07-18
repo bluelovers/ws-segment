@@ -4,12 +4,8 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 'use strict';
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SegmentCore = void 0;
-const POSTAG_1 = __importDefault(require("../POSTAG"));
 const index_1 = require("../mod/index");
 const stringify_1 = require("./methods/stringify");
 const split_1 = require("./methods/split");
@@ -20,6 +16,7 @@ const _get_text_1 = require("./methods/_get_text");
 const getOptionsDoSegment_1 = require("./methods/getOptionsDoSegment");
 const useModules_1 = require("./methods/useModules");
 const doSegment_1 = require("./methods/doSegment");
+const ids_1 = require("@novel-segment/postag/lib/postag/ids");
 /**
  * 创建分词器接口
  */
@@ -47,7 +44,7 @@ class SegmentCore {
          * 词性
          * @type {POSTAG}
          */
-        this.POSTAG = POSTAG_1.default;
+        this.POSTAG = ids_1.POSTAG;
         /**
          * 词典表
          * @type {{}}
@@ -156,7 +153,7 @@ class SegmentCore {
         }, []);
         // 去除标点符号
         if (options.stripPunctuation) {
-            ret = doSegment_1._doSegmentStripPOSTAG(ret, POSTAG_1.default.D_W);
+            ret = doSegment_1._doSegmentStripPOSTAG(ret, ids_1.POSTAG.D_W);
         }
         if (options.convertSynonym) {
             ret = this.convertSynonym(ret);

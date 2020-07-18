@@ -4,8 +4,7 @@
 
 import Promise = require('bluebird');
 import * as fs from "fs-extra";
-// @ts-ignore
-import POSTAG from 'novel-segment/lib/POSTAG';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 import zhRegExp from 'regexp-cjk';
 import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment';

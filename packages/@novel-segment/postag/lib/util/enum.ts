@@ -1,13 +1,11 @@
-/**
- * Created by user on 2018/4/17/017.
- */
+import { IEnumLike } from '../types';
 
 export function enumIsNaN(v)
 {
 	return isNaN(Number(v));
 }
 
-export function enumList(varEnum, byValue?: boolean)
+export function enumList<T extends IEnumLike<any>>(varEnum: T, byValue?: boolean)
 {
 	let keys = Object.keys(varEnum);
 
@@ -20,5 +18,3 @@ export function enumList(varEnum, byValue?: boolean)
 		return keys.filter(key => !isNaN(Number(varEnum[key])));
 	}
 }
-
-

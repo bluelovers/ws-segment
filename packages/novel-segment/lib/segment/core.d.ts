@@ -4,7 +4,6 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 /// <reference types="node" />
-import POSTAG from '../POSTAG';
 import TableDictBlacklist from '../table/blacklist';
 import AbstractTableDictCore from '../table/core';
 import { TableDict } from '../table/dict';
@@ -15,6 +14,7 @@ import { IWordDebug } from '../util/index';
 import { EnumDictDatabase } from '../const';
 import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './types';
 import { ITSOverwrite } from 'ts-type';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 /**
  * 创建分词器接口
  */

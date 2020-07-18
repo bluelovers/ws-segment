@@ -1,5 +1,5 @@
 import { Segment } from './lib/Segment';
-import { POSTAG } from './lib/POSTAG';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 declare const _Segment: typeof Segment & {
     version: string;
     version_dict: string;

@@ -1,6 +1,6 @@
 import { SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
 import { Segment, IWord, IDICT } from '../Segment';
-import IPOSTAG from '../POSTAG';
+import { POSTAG as IPOSTAG } from '@novel-segment/postag/lib/postag/ids';
 /**
  * 词典优化模块
  *

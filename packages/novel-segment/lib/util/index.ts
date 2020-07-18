@@ -3,15 +3,15 @@
  */
 
 import { $enum, EnumWrapper, } from "ts-enum-util";
-import { POSTAG } from '../POSTAG';
 import { IWord } from '../Segment';
-export * from './core';
+
 import { cloneDeep } from 'lodash';
 
 export { cloneDeep }
 
 import { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info } from './debug';
 import { inspect, InspectOptions } from 'util';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 export { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info }
 
 export function debug_inspect(argv: any[], options: InspectOptions = {})
@@ -95,5 +95,3 @@ export function hexOr(n: number, ...argv: number[])
 
 //let p = hexAnd(0x6000 | 0x8000, 0x2000, 0x4000)
 //debug(p, toHex(p));
-
-

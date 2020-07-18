@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`chsName 0x00000008 | 0x00000010 1`] = `"外文字符,其他专名"`;

@@ -1,7 +1,7 @@
 import { IWordDebug } from '../../util/debug';
 import { IDICT, IDICT_SYNONYM, IWord } from '../types';
-import POSTAG from '../../POSTAG';
 import { ITSOverwrite } from 'ts-type';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 interface IOptions {
     /**
      * for debug

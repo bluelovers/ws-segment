@@ -4823,6 +4823,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'也找不出借口去責備他們。',
+		[
+			'藉',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof

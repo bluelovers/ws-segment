@@ -90,7 +90,7 @@ console.time(`doSegment`);
 
 let text = `
 
-她的周圍盡是清一色紅色的人骨
+也找不出借口去責備他們。
 
 `;
 

@@ -8,7 +8,6 @@
 
 import path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
-import POSTAG from './POSTAG';
 import TableDictBlacklist from './table/blacklist';
 import AbstractTableDictCore from './table/core';
 import { IOptions as IOptionsTableDict, TableDict } from './table/dict';
@@ -46,6 +45,7 @@ import { ITSOverwrite } from 'ts-type';
 import { defaultOptionsDoSegment } from './segment/defaults';
 import { IUseDefaultOptions, useDefault } from './defaults/index';
 import { useModules } from './segment/methods/useModules2';
+import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 
 /**
  * 创建分词器接口
