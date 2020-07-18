@@ -10,13 +10,13 @@ POSTAG_KEYS.forEach(function (key)
 	let lc = key.toLowerCase();
 
 	// @ts-ignore
-	POSTAG[lc] = POSTAG[key];
+	POSTAG[lc] ??= POSTAG[key];
 	// @ts-ignore
-	CHSNAME[lc] = CHSNAME[key];
+	CHSNAME[lc] ??= CHSNAME[key];
 	// @ts-ignore
-	ZHNAME[lc] = ZHNAME[key];
+	ZHNAME[lc] ??= ZHNAME[key];
 	// @ts-ignore
-	ENNAME[lc] = ENNAME[key];
+	ENNAME[lc] ??= ENNAME[key];
 });
 
 export const enName = getPOSTagTranslator(POSTAG, ENNAME);
