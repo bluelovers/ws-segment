@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.26](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.25...@novel-segment/api-server@1.0.26) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* avoid ``@vercel/node` block use global typescript version ([a298a83](https://github.com/bluelovers/ws-segment/commit/a298a8330c6380a38fb23b63d3d45c1be09f8b46))
+
+
+
+
+
 ## [1.0.25](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.24...@novel-segment/api-server@1.0.25) (2020-07-18)
 
 
