@@ -604,13 +604,13 @@
     regexp-helper "^1.0.17"
     uni-string "^1.1.10"
 
-"@lazy-cjk/zh-slugify@^1.0.30", "@lazy-cjk/zh-slugify@^1.0.47":
-  version "1.0.47"
-  resolved "https://registry.npmjs.org/@lazy-cjk/zh-slugify/-/zh-slugify-1.0.47.tgz#77b3bcc09d8982d6f4ec16acf55f67e70e1e5710"
-  integrity sha512-Utr5AUpSQdiCd4oa3YDbpjGG9oQxk3ur9s3hMF7I3Gzyv1XPrzULPGjl5AEqy7pywdK1sB3xl2OVaYMCUNFK5g==
+"@lazy-cjk/zh-slugify@^1.0.30", "@lazy-cjk/zh-slugify@^1.0.48":
+  version "1.0.48"
+  resolved "https://registry.npmjs.org/@lazy-cjk/zh-slugify/-/zh-slugify-1.0.48.tgz#e7c8cf3dc5034180bc8bf9e0be0b35a18523692e"
+  integrity sha512-qef+fEGRZyGTVGD6grUYxXfy2EKfAhz7ycsDeP03yxgdPj9ym0NaKVuu3FeK5RUACRxYwLbuwfk4YLKZFqLIJg==
   dependencies:
-    "@lazy-cjk/zh-table-greedy" "^1.0.45"
-    "@lazy-cjk/zh-table-list" "^1.0.44"
+    "@lazy-cjk/zh-table-greedy" "^1.0.46"
+    "@lazy-cjk/zh-table-list" "^1.0.45"
 
 "@lazy-cjk/zh-table-alias@^1.0.35":
   version "1.0.35"
@@ -623,23 +623,23 @@
     deepmerge-plus "^2.1.3"
     ts-type "^1.2.25"
 
-"@lazy-cjk/zh-table-greedy@^1.0.45":
-  version "1.0.45"
-  resolved "https://registry.npmjs.org/@lazy-cjk/zh-table-greedy/-/zh-table-greedy-1.0.45.tgz#ad8cde8a20a3b905347e46350a8bdedb4827a11e"
-  integrity sha512-+osKin8JubcnrY73jQkCMJcEosAnFbUrMwyOcCBFAMdoyApjlXP7UnpVynWyeIJgQU1qZ9Vie6ohgL90ejj1xQ==
+"@lazy-cjk/zh-table-greedy@^1.0.46":
+  version "1.0.46"
+  resolved "https://registry.npmjs.org/@lazy-cjk/zh-table-greedy/-/zh-table-greedy-1.0.46.tgz#04d9fe2dcdd88d921d418e3d6b2d1129f1f1340e"
+  integrity sha512-DLXsVt4K5YutQfPiRCue07ec0cH+mu6XeDkfweUKsedXg0OswS7Db860j0ftEOua3xKQ6LKihKgCQPLi0L0jUw==
   dependencies:
     array-hyper-unique "^1.1.9"
     uni-string "^1.1.10"
 
-"@lazy-cjk/zh-table-list@^1.0.44":
-  version "1.0.44"
-  resolved "https://registry.npmjs.org/@lazy-cjk/zh-table-list/-/zh-table-list-1.0.44.tgz#c567b8923ca7445537be07995f0b2d256bac94f6"
-  integrity sha512-sX1H1+9s6D+GvfhdpjEkFOksAV9UNXvN4rDHAcs/GC+jJTX4hdfVheEt/ZjH+aJc1Vrwt5s40Jk6XFFlg2rBXw==
+"@lazy-cjk/zh-table-list@^1.0.45":
+  version "1.0.45"
+  resolved "https://registry.npmjs.org/@lazy-cjk/zh-table-list/-/zh-table-list-1.0.45.tgz#4887f5812c99291d561f29065616049c351a939e"
+  integrity sha512-VYRLGUUt32vlBi72UYLkKo1dLhKO9AAee4wrmHzX6jOd9PG8U9Cp8OrsuSv0zl34MvhKE6Gm6AD2viQCk7Rfog==
   dependencies:
     "@lazy-cjk/jp-table-convert" "^1.0.24"
     "@lazy-cjk/zh-convert" "^1.0.28"
     "@lazy-cjk/zh-table-alias" "^1.0.35"
-    "@lazy-cjk/zh-table-greedy" "^1.0.45"
+    "@lazy-cjk/zh-table-greedy" "^1.0.46"
     uni-string "^1.1.10"
 
 "@lazy-glob/sort-entries@^1.0.4":
@@ -1652,10 +1652,10 @@ ci-info@^2.0.0:
   resolved "https://registry.npmjs.org/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-cjk-conv@^1.2.105, cjk-conv@^1.2.88:
-  version "1.2.105"
-  resolved "https://registry.npmjs.org/cjk-conv/-/cjk-conv-1.2.105.tgz#b5a5d685b7fc407856a96638ed1cb447b9262755"
-  integrity sha512-Tkba82ZyP/8lowXaB9qOvQNhhdZed9y8A2+6EulEhxUH60gLpP0B2tE/Y9tsIJ51W5o9zfaq7D57a4V/z79BGw==
+cjk-conv@^1.2.106, cjk-conv@^1.2.88:
+  version "1.2.106"
+  resolved "https://registry.npmjs.org/cjk-conv/-/cjk-conv-1.2.106.tgz#f7e0c107bbf557162f16305d654576d90c98a4a1"
+  integrity sha512-5epGCzS3t+PJUCeKPlvmnkjMAcH/snRTPRKhc+8BBkYd7uASqgR4+DzZdTBVxfjYQHtsGX/sKdW9wxJX9JPn4g==
   dependencies:
     "@lazy-cjk/jp-table-alias" "^1.0.23"
     "@lazy-cjk/jp-table-comparison" "^1.0.12"
@@ -1665,10 +1665,10 @@ cjk-conv@^1.2.105, cjk-conv@^1.2.88:
     "@lazy-cjk/util" "^1.0.7"
     "@lazy-cjk/zh-convert" "^1.0.28"
     "@lazy-cjk/zh-convert-table" "^1.0.13"
-    "@lazy-cjk/zh-slugify" "^1.0.47"
+    "@lazy-cjk/zh-slugify" "^1.0.48"
     "@lazy-cjk/zh-table-alias" "^1.0.35"
-    "@lazy-cjk/zh-table-greedy" "^1.0.45"
-    "@lazy-cjk/zh-table-list" "^1.0.44"
+    "@lazy-cjk/zh-table-greedy" "^1.0.46"
+    "@lazy-cjk/zh-table-list" "^1.0.45"
     uni-string "^1.1.10"
 
 class-proxy@^1.1.2:
@@ -4513,12 +4513,12 @@ regex-not@^1.0.0, regex-not@^1.0.2:
     extend-shallow "^3.0.2"
     safe-regex "^1.1.0"
 
-regexp-cjk@^3.3.71:
-  version "3.3.71"
-  resolved "https://registry.npmjs.org/regexp-cjk/-/regexp-cjk-3.3.71.tgz#4cb4c189cfc1bb68b9c16dcf71c66c9d3bd29a82"
-  integrity sha512-9RfDL9HdCn0TU6qPHLDZT5MPkBNgH2DvFIawW5aageiyqn9qkXm+NmhSl0IwG7gmZCnTOOqjqNBu3vUw7GCBmQ==
+regexp-cjk@^3.3.72:
+  version "3.3.72"
+  resolved "https://registry.npmjs.org/regexp-cjk/-/regexp-cjk-3.3.72.tgz#abedb2668567c18749628dae2653e69f7dd1f41c"
+  integrity sha512-OI0sAZUyeePaZLkWJaf4gb6GHXKdnTUfPyTH0JhUsCXWVcHl5VrP27mjwhlucJEbO3+LwGWNUpbqNK3Iqt0eEw==
   dependencies:
-    "@lazy-cjk/zh-table-list" "^1.0.44"
+    "@lazy-cjk/zh-table-list" "^1.0.45"
     array-hyper-unique "^1.1.9"
     lodash "^4.17.19"
     regexp-helper "^1.0.17"
