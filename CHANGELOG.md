@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.27](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.26...@novel-segment/api-server@1.0.27) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* npx can't start now by `npx now deploy` ([dcaf902](https://github.com/bluelovers/ws-segment/commit/dcaf9021cbd6f6330878ba3683d848fddb62377f))
+
+
+
+
+
 ## [1.0.26](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.25...@novel-segment/api-server@1.0.26) (2020-07-19)
 
 
