@@ -188,6 +188,13 @@ export const tests_lazy_novel_indexof: [string, Parameters<typeof lazyMatchSynon
 		],
 	],
 
+	[
+		'是以蕎麥湯面',
+		[
+			'麵',
+		],
+	],
+
 ];
 
 /**

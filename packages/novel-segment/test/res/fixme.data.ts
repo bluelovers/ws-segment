@@ -426,6 +426,13 @@ export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'
 		],
 	],
 
+	[
+		'只有她已經獲得成為會合用道具的樂器「春霞之橫笛」',
+		[
+			['合用'],
+		],
+	],
+
 ];
 
 export const tests_fixme_array: typeof tests_lazy_index['tests_lazy_array'] = [
@@ -1133,6 +1140,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'然後您困了所以回來睡了一會兒',
 		[
 			'睏',
+		]
+	],
+
+	[
+		'「因為我的第六感本來就做不得准了。',
+		[
+			'準',
 		]
 	],
 
