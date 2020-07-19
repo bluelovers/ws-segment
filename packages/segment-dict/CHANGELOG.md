@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.123](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.122...segment-dict@2.3.123) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* 所以其王位繼承人也被稱為世子 ([eac4f21](https://github.com/bluelovers/ws-segment/commit/eac4f21fd69711dfdcc16c64c018d4156302aff4))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([08c7a5d](https://github.com/bluelovers/ws-segment/commit/08c7a5d9e9cacb53c68f7b9723caf281a8622d15))
+* **dict:** save dict before sort:all ([fd5d050](https://github.com/bluelovers/ws-segment/commit/fd5d050fb4353ecfebe6ea728c6c3a47f1401db0))
+
+
+
+
+
 ## [2.3.122](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.121...segment-dict@2.3.122) (2020-07-19)
 
 
