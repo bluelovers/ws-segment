@@ -89,10 +89,10 @@
   },
   "resolutions": {},
   "dependencies": {
-    "@yarn-tool/find-deps": "^1.0.14",
-    "@yarn-tool/ws-changed": "^1.0.23",
+    "@yarn-tool/find-deps": "^1.0.18",
+    "@yarn-tool/ws-changed": "^1.0.27",
     "bluebird": "^3.7.2",
-    "ws-pkg-list": "^1.0.37"
+    "ws-pkg-list": "^1.0.41"
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
@@ -124,7 +124,7 @@
     "jest": "^26.1.0",
     "n-readlines": "^1.0.0",
     "prettyuse": "^0.0.0",
-    "str-util": "^2.3.25",
+    "str-util": "^2.3.26",
     "string-natural-compare": "^3.0.1",
     "transliteration": "^2.1.11",
     "ts-jest": "^26.1.3",

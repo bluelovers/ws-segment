@@ -529,7 +529,7 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@lazy-cjk/japanese@^1.2.6", "@lazy-cjk/japanese@^1.2.8":
+"@lazy-cjk/japanese@^1.2.8":
   version "1.2.8"
   resolved "https://registry.npmjs.org/@lazy-cjk/japanese/-/japanese-1.2.8.tgz#505b8488871f93b8d988f61ca3f1fd8b05a11d90"
   integrity sha512-DcwTvFsc2jwbzcvu8p4d5ZM7USX/ntn7pmAcbAdpfgIPwY3KSUKrJoOJ/kErbLQpUZ86G8TcawmK9DpUslIwNg==
@@ -1001,14 +1001,14 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@yarn-tool/find-deps@^1.0.14":
-  version "1.0.14"
-  resolved "https://registry.npmjs.org/@yarn-tool/find-deps/-/find-deps-1.0.14.tgz#b5989afeaeb0a8c7cdbeb19aa409c024c65e57bd"
-  integrity sha512-vDb9SRIHzMwQQoRQXNHH0YVyuXPwlyq4Mbvrhba/LBrzwsDen7S4WKOD87IFk2Fi0HgJf9Bobr90N4hTkNYt0g==
+"@yarn-tool/find-deps@^1.0.18":
+  version "1.0.18"
+  resolved "https://registry.npmjs.org/@yarn-tool/find-deps/-/find-deps-1.0.18.tgz#6bd97bd0545994ae45466077211eacfe5e429f4e"
+  integrity sha512-0+2S7am3HU62o5yA38aBBy5/L0A2SkCyrbEYTQI8MvjXig14QlvN48JVBNCIktjk5TxKFX0m460O2lux5mfUMQ==
   dependencies:
     "@ts-type/package-dts" "^1.0.33"
     array-hyper-unique "^1.1.9"
-    ws-pkg-list "^1.0.37"
+    ws-pkg-list "^1.0.41"
 
 "@yarn-tool/find-root@^1.0.29":
   version "1.0.29"
@@ -1036,10 +1036,10 @@
     "@yarn-tool/is-npx" "^1.0.4"
     update-notifier "^4.1.0"
 
-"@yarn-tool/ws-changed@^1.0.23":
-  version "1.0.23"
-  resolved "https://registry.npmjs.org/@yarn-tool/ws-changed/-/ws-changed-1.0.23.tgz#d9004e05c71a67e983123da76e342279e678f47c"
-  integrity sha512-7DQqUjtuDAyQkydEgHqg0iVuQikXZy6MprET6W6vcS6HSNdK+g13JsjMxWQ47GI32yQs6i9HgPBKF7++BRDr9A==
+"@yarn-tool/ws-changed@^1.0.27":
+  version "1.0.27"
+  resolved "https://registry.npmjs.org/@yarn-tool/ws-changed/-/ws-changed-1.0.27.tgz#b94d15539f6ccd1e7e64799010c24f6ec525f53b"
+  integrity sha512-784DmR9DOg8byYdWVIdEYqr/boRjzHznO1QLgpxfqZCjJId540bM3B6lEfD3pIdbcqfuzs3LbAchHGlue4GfBA==
   dependencies:
     "@git-lazy/diff-staged" "^1.0.24"
     "@yarn-tool/find-root" "^1.0.29"
@@ -1048,8 +1048,8 @@
     git-root2 "^1.0.20"
     glob-regex "^0.3.2"
     micromatch "^4.0.2"
-    workspaces-config "^1.0.18"
-    ws-pkg-list "^1.0.37"
+    workspaces-config "^1.0.22"
+    ws-pkg-list "^1.0.41"
 
 abab@^2.0.3:
   version "2.0.3"
@@ -1593,10 +1593,10 @@ check-error@^1.0.2:
   resolved "https://registry.npmjs.org/check-error/-/check-error-1.0.2.tgz#574d312edd88bb5dd8912e9286dd6c0aed4aac82"
   integrity sha1-V00xLt2Iu13YkS6Sht1sCu1KrII=
 
-chinese-parseint2@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/chinese-parseint2/-/chinese-parseint2-1.1.2.tgz#02221cf4ccde2df901f0805637701ca69ca14dcf"
-  integrity sha512-etJGmDIxA5SJIrhHOlISPQQmXP9JSMTF0r2PUJtGiBxArZMTt5k/jN3rV5T3bzy25CZc+zB6U8YDlIcAT38HBA==
+chinese-parseint2@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.npmjs.org/chinese-parseint2/-/chinese-parseint2-1.1.3.tgz#4915e5d6286e323fec2090affdee4f3c194ede93"
+  integrity sha512-MDdlrZw2gW+GKR3m8WmvyqTAhLMbEPFmkqeO1d14sSHPx2GghJYHlCuUnhwXMvNBywyAcVClEuHj3102Kr1kIA==
 
 chownr@^2.0.0:
   version "2.0.0"
@@ -1608,7 +1608,7 @@ ci-info@^2.0.0:
   resolved "https://registry.npmjs.org/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-cjk-conv@^1.2.106, cjk-conv@^1.2.88:
+cjk-conv@^1.2.106:
   version "1.2.106"
   resolved "https://registry.npmjs.org/cjk-conv/-/cjk-conv-1.2.106.tgz#f7e0c107bbf557162f16305d654576d90c98a4a1"
   integrity sha512-5epGCzS3t+PJUCeKPlvmnkjMAcH/snRTPRKhc+8BBkYd7uASqgR4+DzZdTBVxfjYQHtsGX/sKdW9wxJX9JPn4g==
@@ -5007,18 +5007,18 @@ stealthy-require@^1.1.1:
   resolved "https://registry.npmjs.org/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
   integrity sha1-NbCYdbT/SfJqd35QmzCQoyJr8ks=
 
-str-util@^2.3.23, str-util@^2.3.25:
-  version "2.3.25"
-  resolved "https://registry.npmjs.org/str-util/-/str-util-2.3.25.tgz#1f8195495ce4888af9fafc8f74c303ecad31a5c8"
-  integrity sha512-vVcRwtT4YE/pYPBBt6ENwjN9MxMo+PH/2cE7+2sPtJIVQGzf4VrbM3/lb39w5dON5npGJV9sSF6OFa2wHm92WA==
+str-util@^2.3.23, str-util@^2.3.26:
+  version "2.3.26"
+  resolved "https://registry.npmjs.org/str-util/-/str-util-2.3.26.tgz#6b650c7847021b70dae5da44bfd4a2b957f88726"
+  integrity sha512-HrRz1AYqhAlxLX3VdDp8VEx7IaV9kMMzpJTAEjykulgDwMUjDwJnuQaOxQsdSfYONryBfBrEkrF9WLuFkq12fQ==
   dependencies:
-    "@lazy-cjk/japanese" "^1.2.6"
-    chinese-parseint2 "^1.1.2"
-    cjk-conv "^1.2.88"
+    "@lazy-cjk/japanese" "^1.2.8"
+    chinese-parseint2 "^1.1.3"
+    cjk-conv "^1.2.106"
     deepmerge "^4.2.2"
     is-fullwidth-code-point "^3.0.0"
     strip-ansi "^6.0.0"
-    ts-type "^1.2.23"
+    ts-type "^1.2.25"
     uni-string "^1.1.10"
 
 stream-pipe@^1.0.1:
@@ -5600,10 +5600,10 @@ word-wrap@~1.2.3:
   resolved "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.3.tgz#610636f6b1f703891bd34771ccb17fb93b47079c"
   integrity sha512-Hz/mrNwitNRh/HUAtM/VT/5VH+ygD6DV7mYKZAtHOrbs8U7lvPS6xf7EJKMF0uW1KJCl0H701g3ZGus+muE5vQ==
 
-workspaces-config@^1.0.18:
-  version "1.0.18"
-  resolved "https://registry.npmjs.org/workspaces-config/-/workspaces-config-1.0.18.tgz#5646cc34300fbe938d4cde52b220fabc04d05f79"
-  integrity sha512-7NM2GLcpKmw0kcRVuMP6L8e8lmkNgLNA1x0nw58HqUHDl0pjzImuDqmRgTx7FH6S7vbCrYaESNSUsfm1VvyUEA==
+workspaces-config@^1.0.22:
+  version "1.0.22"
+  resolved "https://registry.npmjs.org/workspaces-config/-/workspaces-config-1.0.22.tgz#6214233a5f183d25187c041ac71fb4243baf2a07"
+  integrity sha512-GbpQCj3FfmFRPT/TDCpkEbvtXgmqVw5gPdjaUpi92ar3CD69SzcufEzqAe0C3RcH7E2OLF+5BUybN2njeCe71g==
   dependencies:
     find-pkg-ws "^1.0.19"
     fs-extra "^9.0.1"
@@ -5632,10 +5632,10 @@ write-file-atomic@^3.0.0:
     signal-exit "^3.0.2"
     typedarray-to-buffer "^3.1.5"
 
-ws-pkg-list@^1.0.37:
-  version "1.0.37"
-  resolved "https://registry.npmjs.org/ws-pkg-list/-/ws-pkg-list-1.0.37.tgz#a30ec3b42cc36c704829d609034bcb7f731c137a"
-  integrity sha512-NwOUkWMKgNzzRlx888BIWOprOW2jgsvDQ709EYUwHlmhQf7P6Q07NeQkY1tjdCcegY2Lq+FyGdglqN5Fo5y1lA==
+ws-pkg-list@^1.0.41:
+  version "1.0.41"
+  resolved "https://registry.npmjs.org/ws-pkg-list/-/ws-pkg-list-1.0.41.tgz#a258a6fe4eef21cb4b8369f3e9e626e54e3fec18"
+  integrity sha512-fwLKyT/bnGRAxScjNd5wMPCFa433Ncl9svsyPb65B/fJDEMGAa9WxYqQKTE7wRq6vat3zu7msww/8sDKwxQ9DA==
   dependencies:
     "@bluelovers/fast-glob" "^3.0.4"
     "@ts-type/package-dts" "^1.0.33"
@@ -5645,7 +5645,7 @@ ws-pkg-list@^1.0.37:
     fs-extra "^9.0.1"
     micromatch "^4.0.2"
     upath2 "^3.1.5"
-    workspaces-config "^1.0.18"
+    workspaces-config "^1.0.22"
 
 ws@^7.2.3:
   version "7.3.0"
