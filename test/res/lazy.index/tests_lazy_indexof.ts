@@ -4872,6 +4872,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'踏腳石上加裝了樹脂制防滑片以及視障人士用的黃色板子。',
+		[
+			'製',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof
