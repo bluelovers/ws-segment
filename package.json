@@ -113,7 +113,7 @@
     "regexp-cjk": "^3.3.72",
     "segment-dict": "^2.3.122",
     "sort-object-keys2": "^2.0.3",
-    "str-util": "^2.3.25",
+    "str-util": "^2.3.26",
     "ts-enum-util": "4.0.2",
     "ts-type": "^1.2.25",
     "uni-string": "^1.1.10"
