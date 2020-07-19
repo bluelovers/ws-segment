@@ -3,6 +3,36 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.122](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.121...segment-dict@2.3.122) (2020-07-19)
+
+
+### 📦　Code Refactoring
+
+* **dict:** 坐|座 ([41eb1e0](https://github.com/bluelovers/ws-segment/commit/41eb1e01df6a102109f55dc56c760f327fd65c04))
+* **dict:** 仓|倉|怆|愴|沧|滄|舱|艙|苍|蒼 ([3b7db9c](https://github.com/bluelovers/ws-segment/commit/3b7db9c255859d068f729e5a8e6997f9fd522f6d))
+* **dict:** 篱|籬|筣 ([63b65c9](https://github.com/bluelovers/ws-segment/commit/63b65c906c44f49b38f1f86594167cfa4172136c))
+* **dict:** 笓|箆|篦 ([39927ad](https://github.com/bluelovers/ws-segment/commit/39927ad7c8b91d186f536b0a80f86c04ee255acd))
+* **dict:** 勘|堪 ([6f9a997](https://github.com/bluelovers/ws-segment/commit/6f9a997e571ec0bdbecccb76f6f35c1f5658d170))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([259095d](https://github.com/bluelovers/ws-segment/commit/259095dd65cf08509dcfd1ce4177de02c7d6e65d))
+* **dict:** save dict before sort:all ([71d4a2b](https://github.com/bluelovers/ws-segment/commit/71d4a2b6935bb390e89704f69b90aa8b35e2dd14))
+* **dict:** save dict before split ([2f7c0f8](https://github.com/bluelovers/ws-segment/commit/2f7c0f8ae2227b6fc1f491cacb35ceebdf43be5c))
+* **dict:** save dict before split ([0bf4b5f](https://github.com/bluelovers/ws-segment/commit/0bf4b5f8e223534a52048f8c67fe71dc7a0fbacf))
+* **dict:** save dict before split ([cb41ed6](https://github.com/bluelovers/ws-segment/commit/cb41ed67dfe8d4a60add0b9a4ebeb9c957b9675a))
+* **dict:** save dict before split ([1092e49](https://github.com/bluelovers/ws-segment/commit/1092e491c2cf2dfc09f4396c27e277e85a484568))
+* **dict:** save dict before split ([ad68995](https://github.com/bluelovers/ws-segment/commit/ad68995dbbbfccf2fa35e5eeca3f3a429d5dfe42))
+* **dict:** save dict before split ([791c94d](https://github.com/bluelovers/ws-segment/commit/791c94dd7e1380d79facbad523d136818af8a4a9))
+* **dict:** save dict before split ([fe16fb6](https://github.com/bluelovers/ws-segment/commit/fe16fb6d4dcbf7ce2aa3ff901767ccb436a9967f))
+* **dict:** save dict before split ([8309c9f](https://github.com/bluelovers/ws-segment/commit/8309c9f246d86f1fb249e94588040352e4316558))
+* **dict:** save dict before split ([e86f5b9](https://github.com/bluelovers/ws-segment/commit/e86f5b9128cb91a048eb9075100b5174be3e761f))
+
+
+
+
+
 ## [2.3.121](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.120...segment-dict@2.3.121) (2020-07-18)
 
 
