@@ -24,9 +24,9 @@
     "postpublish:done": "yarn run now-deploy",
     "ncu": "npx yarn-tool ncu -u",
     "now-build": "yarn run now-build:install && yarn run now-build:run",
-    "now-build:install": "yarn add novel-segment",
+    "now-build:install": "yarn add novel-segment now",
     "now-build:run": "node ./build.js",
-    "now-deploy": "yarn run now-build:run && now deploy",
+    "now-deploy": "yarn run now-build:run && npx now deploy",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
@@ -40,11 +40,11 @@
   "devDependencies": {
     "@types/cors": "^2.8.6",
     "@types/express": "^4.17.7",
-    "@types/fs-extra": "*",
-    "now": "^19.1.2"
+    "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2"
+    "novel-segment": "^2",
+    "now": "^19"
   },
   "engines": {
     "node": ">=10"
