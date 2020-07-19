@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.40](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.39...novel-segment@2.7.40) (2020-07-19)
+
+
+### 🐛　Bug Fixes
+
+* 所以其王位繼承人也被稱為世子 ([eac4f21](https://github.com/bluelovers/ws-segment/commit/eac4f21fd69711dfdcc16c64c018d4156302aff4))
+
+
+### ♻️　Chores
+
+* save repo before new version ([7a8e541](https://github.com/bluelovers/ws-segment/commit/7a8e541ddfcd9764d52df1145df25cd7199331ec))
+
+
+### 🔖　Miscellaneous
+
+* . ([f386ef6](https://github.com/bluelovers/ws-segment/commit/f386ef6a6cc23838fe7c67f5e5e9871206e1ea9c))
+
+
+
+
+
 ## [2.7.39](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.38...novel-segment@2.7.39) (2020-07-19)
 
 
