@@ -525,6 +525,20 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'然後從櫃台旁邊一個貓嘴模樣的可疑取出口裡拿出包裹著華箬竹葉子的牡丹餅。',
+		[
+			['取出口'],
+		],
+	],
+
+	[
+		'、拉麵、',
+		[
+			['拉麵'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
