@@ -756,6 +756,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'所以其王位繼承人也被稱為世子',
+		[
+			'以其',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
