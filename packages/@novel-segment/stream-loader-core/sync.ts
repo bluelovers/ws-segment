@@ -2,9 +2,9 @@
  * Created by user on 2018/4/13/013.
  */
 
-import stream from 'stream';
-import fs from 'fs';
-import path from 'path';
+import { Readable } from 'stream';
+import { openSync, readSync } from 'fs';
+import { resolve } from 'path';
 import EventEmitter from 'events';
 import { byLine, IOptions, IStreamLine, IStreamLineWithValue } from './line';
 import { ICallback } from './stream';
@@ -73,7 +73,7 @@ export function createReadStreamSync(file: string)
 	return new ReadableSync(file);
 }
 
-export class ReadableSync extends stream.Readable
+export class ReadableSync extends Readable
 {
 	protected fd: number = null;
 	protected flags: string | number = 'r';
@@ -100,10 +100,10 @@ export class ReadableSync extends stream.Readable
 		{
 			if (typeof file == 'string')
 			{
-				this.path = path.resolve(file);
+				this.path = resolve(file);
 			}
 
-			this.fd = fs.openSync(this.path, this.flags);
+			this.fd = openSync(this.path, this.flags);
 		}
 
 		this.pause();
@@ -138,7 +138,7 @@ export class ReadableSync extends stream.Readable
 		//let readBuffer = new Buffer(this.options.readChunk);
 		let readBuffer = Buffer.alloc(this.options.readChunk);
 
-		let bytesRead = fs.readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
+		let bytesRead = readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
 
 		if (bytesRead === 0)
 		{

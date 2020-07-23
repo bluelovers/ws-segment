@@ -2,12 +2,11 @@
  * Created by user on 2018/4/11/011.
  */
 
-import fs from 'fs';
+import { fstatSync, statSync, Stats } from 'fs';
 import split2 from 'split2';
-import path from 'path';
+import { isAbsolute, resolve } from 'path';
 import Bluebird from 'bluebird';
 import stream from 'stream';
-
 import { createReadStream, IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';
 
@@ -42,7 +41,7 @@ export function byLine(fn?, options: IOptions = {})
 
 		// @ts-ignore
 		this.pipeFrom = src;
-		let pipeStat = null as fs.Stats;
+		let pipeStat = null as Stats;
 
 		if (typeof src.bytesTotal == 'number')
 		{
@@ -50,7 +49,7 @@ export function byLine(fn?, options: IOptions = {})
 		}
 		else if (src.fd)
 		{
-			pipeStat = fs.fstatSync(src.fd);
+			pipeStat = fstatSync(src.fd);
 
 			self.bytesSize = pipeStat.size;
 		}
@@ -58,12 +57,12 @@ export function byLine(fn?, options: IOptions = {})
 		{
 			let p: string = src.path;
 
-			if (src.cwd && !path.isAbsolute(src.path))
+			if (src.cwd && !isAbsolute(src.path))
 			{
-				p = path.resolve(src.cwd, src.path);
+				p = resolve(src.cwd, src.path);
 			}
 
-			pipeStat = fs.statSync(p);
+			pipeStat = statSync(p);
 
 			self.bytesSize = pipeStat.size;
 		}

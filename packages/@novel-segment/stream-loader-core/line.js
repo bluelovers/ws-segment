@@ -7,9 +7,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapStreamToPromise = exports.readFileLine = exports.createStreamLine = exports.byLine = void 0;
-const fs_1 = __importDefault(require("fs"));
+const fs_1 = require("fs");
 const split2_1 = __importDefault(require("split2"));
-const path_1 = __importDefault(require("path"));
+const path_1 = require("path");
 const bluebird_1 = __importDefault(require("bluebird"));
 const stream_pipe_1 = require("stream-pipe");
 function byLine(fn, options = {}) {
@@ -29,15 +29,15 @@ function byLine(fn, options = {}) {
             self.bytesSize = src.bytesTotal;
         }
         else if (src.fd) {
-            pipeStat = fs_1.default.fstatSync(src.fd);
+            pipeStat = fs_1.fstatSync(src.fd);
             self.bytesSize = pipeStat.size;
         }
         else if (src.path) {
             let p = src.path;
-            if (src.cwd && !path_1.default.isAbsolute(src.path)) {
-                p = path_1.default.resolve(src.cwd, src.path);
+            if (src.cwd && !path_1.isAbsolute(src.path)) {
+                p = path_1.resolve(src.cwd, src.path);
             }
-            pipeStat = fs_1.default.statSync(p);
+            pipeStat = fs_1.statSync(p);
             self.bytesSize = pipeStat.size;
         }
         else {
