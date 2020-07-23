@@ -89,6 +89,32 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		}
 	}
 
+	isFamilyName(w: string)
+	{
+		return w in FAMILY_NAME_1 || w in FAMILY_NAME_2
+	}
+
+	isDoubleName(w1: string, w2: string)
+	{
+		return w1 in DOUBLE_NAME_1 && w2 in DOUBLE_NAME_2
+	}
+
+	isSingleNameRepeat(w1: string, w2: string)
+	{
+		return this.isSingleName(w1) && w2 === w1
+	}
+
+	isSingleName(w1: string)
+	{
+		return w1 in SINGLE_NAME
+	}
+
+	isFirstName(w1: string, w2: string)
+	{
+		return this.isSingleNameRepeat(w1, w2)
+			|| this.isDoubleName(w1, w2)
+	}
+
 	/**
 	 * 对可能是人名的单词进行优化
 	 *
@@ -111,10 +137,29 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 			{
 				let nw = word.w + nextword.w;
 
+				let nextword2 = words[i + 2];
+
+				if (nextword2?.w?.length <= 2 && this.isFamilyName(word.w) && this.isFirstName(nextword.w, nextword2.w))
+				{
+
+					this.sliceToken(words, i, 3, {
+						w: nw + nextword2.w,
+						p: POSTAG.A_NR,
+						m: [word, nextword, nextword2],
+					}, undefined, {
+						[this.name]: 7,
+					});
+
+					i += 2;
+					continue;
+				}
+
 				//debug(nextword);
 				// 如果为  "小|老" + 姓
-				if (nextword?.w?.length && (word.w === '小' || word.w === '老') &&
-					(nextword.w in CHS_NAMES.FAMILY_NAME_1 || nextword.w in CHS_NAMES.FAMILY_NAME_2))
+				if (
+					(word.w === '小' || word.w === '老')
+					&& this.isFamilyName(nextword.w)
+				)
 				{
 					/*
 					words.splice(i, 2, {
@@ -137,8 +182,8 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 				}
 
 				// 如果是 姓 + 名（2字以内）
-				if ((word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2) &&
-					((nextword.p & POSTAG.A_NR) > 0 && nextword.w.length <= 2))
+				if (this.isFamilyName(word.w)
+					&& ((nextword.p & POSTAG.A_NR) > 0 && nextword.w.length <= 2))
 				{
 					/*
 					words.splice(i, 2, {
@@ -163,8 +208,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 				// 如果相邻两个均为单字且至少有一个字是未识别的，则尝试判断其是否为人名
 				if (!word.p || !nextword.p)
 				{
-					if ((word.w in CHS_NAMES.SINGLE_NAME && word.w === nextword.w) ||
-						(word.w in CHS_NAMES.DOUBLE_NAME_1 && nextword.w in CHS_NAMES.DOUBLE_NAME_2))
+					if (this.isFirstName(word.w, nextword.w))
 					{
 						/*
 						words.splice(i, 2, {
@@ -185,8 +229,8 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 						// 如果上一个单词可能是一个姓，则合并
 						let preword = words[i - 1];
 						if (preword?.w?.length
-							&& (preword.w in CHS_NAMES.FAMILY_NAME_1 || preword.w in CHS_NAMES.FAMILY_NAME_2)
-							&& this.isMergeable2(preword.w, word.w,  nextword.w)
+							&& this.isFamilyName(preword.w)
+							&& this.isMergeable2(preword.w, word.w, nextword.w)
 						)
 						{
 							let nw = preword.w + word.w + nextword.w;
@@ -217,8 +261,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 				}
 
 				// 如果为 无歧义的姓 + 名（2字以内） 且其中一个未未识别词
-				if (
-					(word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2)
+				if (this.isFamilyName(word.w)
 					&& (!word.p || !nextword.p)
 
 					/**
@@ -259,11 +302,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 			if (this.isMergeable(word, nextword))
 			{
 				// 如果为 姓 + 单字名
-				if (
-					(word.w in CHS_NAMES.FAMILY_NAME_1 || word.w in CHS_NAMES.FAMILY_NAME_2)
-					&&
-					nextword.w in CHS_NAMES.SINGLE_NAME
-				)
+				if (this.isFamilyName(word.w) && this.isSingleName(nextword.w))
 				{
 					/*
 					words.splice(i, 2, {

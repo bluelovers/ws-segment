@@ -112,7 +112,9 @@ export namespace _CHS_NAMES
 		'敖',
 	];
 
-
+	export const SHARE_NAME = [
+		'濟',
+	];
 
 	export function p(a: string[], n: number): IDICT<number>
 	{
@@ -135,8 +137,9 @@ export const FAMILY_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_1, 1);
 delete FAMILY_NAME_1['於'];
 
 export const FAMILY_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_2, 2);
-export const DOUBLE_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_1, 1);
-export const DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2, 2);
-export const SINGLE_NAME = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME, 1);
+
+export const DOUBLE_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_1.concat(_CHS_NAMES.SHARE_NAME), 1);
+export const DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2.concat(_CHS_NAMES.SHARE_NAME), 2);
+export const SINGLE_NAME = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME.concat(_CHS_NAMES.SHARE_NAME), 1);
 
 export default exports as typeof import('./CHS_NAMES');
