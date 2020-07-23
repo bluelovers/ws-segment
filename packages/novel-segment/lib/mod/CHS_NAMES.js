@@ -3,7 +3,7 @@
  */
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SINGLE_NAME = exports.DOUBLE_NAME_2 = exports.DOUBLE_NAME_1 = exports.FAMILY_NAME_2 = exports.FAMILY_NAME_1 = exports._CHS_NAMES = void 0;
+exports.SINGLE_NAME_NO_REPEAT = exports.SINGLE_NAME = exports.DOUBLE_NAME_2 = exports.DOUBLE_NAME_1 = exports.FAMILY_NAME_2 = exports.FAMILY_NAME_1 = exports._CHS_NAMES = void 0;
 const cjk_1 = require("../util/cjk");
 var _CHS_NAMES;
 (function (_CHS_NAMES) {
@@ -78,7 +78,7 @@ var _CHS_NAMES;
         '栋', '凯', '颖', '鸣', '丰', '瑞', '奎', '立', '堂', '威', '雪', '鸿', '晶', '桂',
         '凡', '娣', '先', '洲', '毅', '雅', '月', '旭', '田', '晖', '方', '恒', '亚', '泽',
         '风', '银', '高', '贞', '九', '薇',
-        '瑜', '瑛',
+        '瑜', '瑛', '碩', '佑',
     ];
     // 单字姓名
     _CHS_NAMES.SINGLE_NAME = [
@@ -100,6 +100,9 @@ var _CHS_NAMES;
         '八', '九', '十',
         '敖',
     ];
+    _CHS_NAMES.SINGLE_NAME_NO_REPEAT = [
+        '懃',
+    ];
     _CHS_NAMES.SHARE_NAME = [
         '濟',
     ];
@@ -113,11 +116,30 @@ var _CHS_NAMES;
     }
     _CHS_NAMES.p = p;
 })(_CHS_NAMES = exports._CHS_NAMES || (exports._CHS_NAMES = {}));
+/**
+ * 单姓
+ */
 exports.FAMILY_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_1, 1);
 delete exports.FAMILY_NAME_1['於'];
+/**
+ * 复姓
+ */
 exports.FAMILY_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_2, 2);
+/**
+ * 双字姓名第一个字
+ */
 exports.DOUBLE_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_1.concat(_CHS_NAMES.SHARE_NAME), 1);
+/**
+ * 双字姓名第二个字
+ */
 exports.DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2.concat(_CHS_NAMES.SHARE_NAME), 2);
+/**
+ * 单字姓名
+ */
 exports.SINGLE_NAME = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME.concat(_CHS_NAMES.SHARE_NAME), 1);
+/**
+ * 单字姓名 不重覆
+ */
+exports.SINGLE_NAME_NO_REPEAT = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME_NO_REPEAT, 1);
 exports.default = exports;
 //# sourceMappingURL=CHS_NAMES.js.map
