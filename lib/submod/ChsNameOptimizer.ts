@@ -8,7 +8,14 @@
 'use strict';
 
 import { SubSModule, SubSModuleOptimizer, ISubOptimizer, SubSModuleTokenizer } from '../mod';
-import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
+import CHS_NAMES, {
+	FAMILY_NAME_1,
+	FAMILY_NAME_2,
+	SINGLE_NAME,
+	DOUBLE_NAME_1,
+	DOUBLE_NAME_2,
+	_CHS_NAMES, SINGLE_NAME_NO_REPEAT,
+} from '../mod/CHS_NAMES';
 import Segment, { IDICT, IWord } from '../Segment';
 import { debug } from '../util';
 import { EnumDictDatabase } from '../const';
@@ -89,11 +96,17 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		}
 	}
 
+	/**
+	 * 姓
+	 */
 	isFamilyName(w: string)
 	{
 		return w in FAMILY_NAME_1 || w in FAMILY_NAME_2
 	}
 
+	/**
+	 * 双字姓名
+	 */
 	isDoubleName(w1: string, w2: string)
 	{
 		return w1 in DOUBLE_NAME_1 && w2 in DOUBLE_NAME_2
@@ -101,12 +114,23 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 
 	isSingleNameRepeat(w1: string, w2: string)
 	{
-		return this.isSingleName(w1) && w2 === w1
+		return this.isSingleNameNoRepeat(w1) && this.isSingleName(w1) && w2 === w1
 	}
 
+	/**
+	 * 单字姓名
+	 */
 	isSingleName(w1: string)
 	{
 		return w1 in SINGLE_NAME
+	}
+
+	/**
+	 * 单字姓名 不重覆
+	 */
+	isSingleNameNoRepeat(w1: string)
+	{
+		return w1 in SINGLE_NAME_NO_REPEAT
 	}
 
 	isFirstName(w1: string, w2: string)

@@ -19,10 +19,23 @@ export declare class ChsNameOptimizer extends SubSModuleOptimizer {
      * 只有新詞屬於人名或未知詞時才會合併
      */
     validUnknownNewWord<W extends string | string[]>(ws: W, cb?: (nw: string, ew: IWord, ws: W) => IWord | boolean | void): true | Segment.IWord;
+    /**
+     * 姓
+     */
     isFamilyName(w: string): boolean;
+    /**
+     * 双字姓名
+     */
     isDoubleName(w1: string, w2: string): boolean;
     isSingleNameRepeat(w1: string, w2: string): boolean;
+    /**
+     * 单字姓名
+     */
     isSingleName(w1: string): boolean;
+    /**
+     * 单字姓名 不重覆
+     */
+    isSingleNameNoRepeat(w1: string): boolean;
     isFirstName(w1: string, w2: string): boolean;
     /**
      * 对可能是人名的单词进行优化

@@ -87,7 +87,7 @@ export namespace _CHS_NAMES
 		'凡', '娣', '先', '洲', '毅', '雅', '月', '旭', '田', '晖', '方', '恒', '亚', '泽',
 		'风', '银', '高', '贞', '九', '薇',
 
-		'瑜', '瑛',
+		'瑜', '瑛', '碩', '佑',
 	];
 
 	// 单字姓名
@@ -112,6 +112,10 @@ export namespace _CHS_NAMES
 		'敖',
 	];
 
+	export const SINGLE_NAME_NO_REPEAT = [
+		'懃',
+	];
+
 	export const SHARE_NAME = [
 		'濟',
 	];
@@ -132,14 +136,36 @@ export namespace _CHS_NAMES
 
 }
 
+/**
+ * 单姓
+ */
 export const FAMILY_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_1, 1);
 
 delete FAMILY_NAME_1['於'];
 
+/**
+ * 复姓
+ */
 export const FAMILY_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_2, 2);
 
+/**
+ * 双字姓名第一个字
+ */
 export const DOUBLE_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_1.concat(_CHS_NAMES.SHARE_NAME), 1);
+
+/**
+ * 双字姓名第二个字
+ */
 export const DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2.concat(_CHS_NAMES.SHARE_NAME), 2);
+
+/**
+ * 单字姓名
+ */
 export const SINGLE_NAME = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME.concat(_CHS_NAMES.SHARE_NAME), 1);
+
+/**
+ * 单字姓名 不重覆
+ */
+export const SINGLE_NAME_NO_REPEAT = _CHS_NAMES.p(_CHS_NAMES.SINGLE_NAME_NO_REPEAT, 1);
 
 export default exports as typeof import('./CHS_NAMES');
