@@ -4879,6 +4879,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'朝鮮國王李成桂久病不愈',
+		[
+			'癒',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof
