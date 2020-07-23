@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.41](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.40...novel-segment@2.7.41) (2020-07-23)
+
+
+### 🐛　Bug Fixes
+
+* 王五和张三丰、李强是谁 ([113181c](https://github.com/bluelovers/ws-segment/commit/113181c488888773da2931b6b7af102353559101))
+* 不允許 部分單字姓名 被判定為 可重覆姓名 ([190e425](https://github.com/bluelovers/ws-segment/commit/190e425e7d25c7356c35ffbfff31f7602ee33ea7))
+* 姓氏列表去除 `於` ([a04f143](https://github.com/bluelovers/ws-segment/commit/a04f143ee3bcaa7e1516f9dd93120c2da5d591ec))
+
+
+### ✨　Features
+
+* 支援在名字具有可識別詞時 進行姓名合併 例如 李成桂 ([35c0a91](https://github.com/bluelovers/ws-segment/commit/35c0a914433016c995cc50187be87f2bf20307ac))
+
+
+### 🚨　Tests
+
+* move test ([a2368e0](https://github.com/bluelovers/ws-segment/commit/a2368e06f32d3ce64cb3e22ae1d7f2fd686aa3dc))
+* move test ([40972c1](https://github.com/bluelovers/ws-segment/commit/40972c129e3c7d7eadfb59a3ae9c4ca5ac86c4e9))
+
+
+
+
+
 ## [2.7.40](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.39...novel-segment@2.7.40) (2020-07-19)
 
 
