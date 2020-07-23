@@ -111,6 +111,7 @@ var _CHS_NAMES;
     _CHS_NAMES.p = p;
 })(_CHS_NAMES = exports._CHS_NAMES || (exports._CHS_NAMES = {}));
 exports.FAMILY_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_1, 1);
+delete exports.FAMILY_NAME_1['於'];
 exports.FAMILY_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.FAMILY_NAME_2, 2);
 exports.DOUBLE_NAME_1 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_1, 1);
 exports.DOUBLE_NAME_2 = _CHS_NAMES.p(_CHS_NAMES.DOUBLE_NAME_2, 2);
