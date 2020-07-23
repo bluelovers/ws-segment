@@ -539,6 +539,22 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'朝鮮國王李成桂久病不愈',
+		[
+			'李成桂',
+		],
+	],
+
+	[
+		'王五和张三丰、李强是谁',
+		[
+			'王五',
+			'张三丰',
+			'李强',
+		],
+	],
+
 ];
 
 export default tests_lazy_base
