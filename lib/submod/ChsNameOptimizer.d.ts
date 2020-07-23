@@ -13,6 +13,7 @@ export declare class ChsNameOptimizer extends SubSModuleOptimizer {
     protected _TABLE: IDICT<IWord>;
     name: string;
     _cache(): void;
+    isBlackList(nw: string): boolean;
     isMergeable2(...words: string[]): boolean;
     isMergeable(word: IWord, nextword: IWord): boolean;
     /**
