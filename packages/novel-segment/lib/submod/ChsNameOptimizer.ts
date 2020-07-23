@@ -38,11 +38,16 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 		this._BLACKLIST = this.segment.getDict(EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER) || {};
 	}
 
+	isBlackList(nw: string)
+	{
+		return nw in this._BLACKLIST
+	}
+
 	isMergeable2(...words: string[])
 	{
 		let nw = words.join('');
 
-		if (!this._BLACKLIST[nw])
+		if (!this.isBlackList(nw))
 		{
 			return true;
 		}
@@ -59,7 +64,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 			/**
 			 * 不合併存在於 BLACKLIST 內的字詞
 			 */
-			if (!this._BLACKLIST[nw])
+			if (!this.isBlackList(nw))
 			{
 				return true;
 
@@ -163,7 +168,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 
 				let nextword2 = words[i + 2];
 
-				if (nextword2?.w?.length <= 2 && this.isFamilyName(word.w) && this.isFirstName(nextword.w, nextword2.w))
+				if (nextword2?.w?.length <= 2 && word.w !== '于' && !(nextword2.p & this._POSTAG.D_P) && this.isFamilyName(word.w) && this.isFirstName(nextword.w, nextword2.w) && !this.isBlackList(nw + nextword2.w))
 				{
 
 					this.sliceToken(words, i, 3, {
