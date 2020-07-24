@@ -763,6 +763,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'經過好幾次重複確認般地撫摸完全身上下',
+		[
+			'完全',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
