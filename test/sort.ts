@@ -310,7 +310,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/折|摺/u).test(w)
+				&& zhRegExp.create(/榭|謝|谢/u).test(w)
 			)
 			{
 				bool = true;
