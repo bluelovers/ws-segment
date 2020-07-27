@@ -555,6 +555,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'，總覺得挺煽情的。',
+		[
+			['總覺得', '覺得'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
