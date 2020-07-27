@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.36...@novel-segment/util@1.0.37) (2020-07-27)
+
+
+### 🚨　Tests
+
+* add jest.config.js ([7c3a80b](https://github.com/bluelovers/ws-segment/commit/7c3a80b5ff5e8cbb292364da7c6154b97e2bf3df))
+
+
+### ♻️　Chores
+
+* update deps ([2938176](https://github.com/bluelovers/ws-segment/commit/293817670b666da29b13d80291d0e33ca2f36bf8))
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.35...@novel-segment/util@1.0.36) (2020-07-19)
 
 

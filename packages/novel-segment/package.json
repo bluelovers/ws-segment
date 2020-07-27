@@ -1,6 +1,6 @@
 {
   "name": "novel-segment",
-  "version": "2.7.43",
+  "version": "2.7.44",
   "description": "Chinese word segmentation 簡繁中文分词模块 以網路小說為樣本",
   "keywords": [
     "NLP",
@@ -102,7 +102,7 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@lazy-cjk/zh-table-list": "^1.0.48",
-    "@novel-segment/postag": "^1.0.1",
+    "@novel-segment/postag": "^1.0.2",
     "array-hyper-unique": "^1.1.9",
     "bluebird": "^3.7.2",
     "cjk-conv": "^1.2.109",
@@ -111,7 +111,7 @@
     "deepmerge-plus": "^2.1.3",
     "lodash": "^4.17.19",
     "regexp-cjk": "^3.3.75",
-    "segment-dict": "^2.3.126",
+    "segment-dict": "^2.3.127",
     "sort-object-keys2": "^2.0.3",
     "str-util": "^2.3.26",
     "ts-enum-util": "4.0.2",
@@ -119,7 +119,7 @@
     "uni-string": "^1.1.10"
   },
   "devDependencies": {
-    "@novel-segment/util": "^1.0.36"
+    "@novel-segment/util": "^1.0.37"
   },
   "gitHead": "36b3420066533710322716157492f3c6980f7b99"
 }
