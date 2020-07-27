@@ -4991,6 +4991,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'，我從小就拚命地以干雜務獲得的金錢購買材料，',
+		[
+			'幹',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
