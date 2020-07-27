@@ -375,6 +375,13 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 							) && hexAndAny(w2.p,
 								POSTAG.D_V,
 							))
+							||
+							// 原先于北方大地偷偷撰寫網絡小說的平鳥，
+							(hexAndAny(w0.p,
+								POSTAG.D_D,
+							) && hexAndAny(w2.p,
+								POSTAG.D_F,
+							))
 						)
 						{
 							w1.ow = w1.w;
