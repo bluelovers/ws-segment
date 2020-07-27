@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.44](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.43...novel-segment@2.7.44) (2020-07-27)
+
+
+### 🐛　Bug Fixes
+
+* **ZhtSynonymOptimizer:** 原先于北方大地偷偷撰寫網絡小說的平鳥， ([9bb6339](https://github.com/bluelovers/ws-segment/commit/9bb6339d9b19d974b50c0ef9ea982bd053580cd0))
+
+
+### ♻️　Chores
+
+* save repo before new version ([8809fc7](https://github.com/bluelovers/ws-segment/commit/8809fc7f57ca3aea82a38c2eab1667e634196d5d))
+* update deps ([2938176](https://github.com/bluelovers/ws-segment/commit/293817670b666da29b13d80291d0e33ca2f36bf8))
+
+
+
+
+
 ## [2.7.43](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.42...novel-segment@2.7.43) (2020-07-24)
 
 
