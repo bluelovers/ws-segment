@@ -236,7 +236,10 @@ class ZhtSynonymOptimizer extends mod_1.SubSModuleOptimizer {
                             ||
                                 (index_1.hexAndAny(w0.p, POSTAG.D_V) && index_1.hexAndAny(w2.p, POSTAG.D_D))
                             ||
-                                (index_1.hexAndAny(w0.p, POSTAG.D_N) && index_1.hexAndAny(w2.p, POSTAG.D_V))) {
+                                (index_1.hexAndAny(w0.p, POSTAG.D_N) && index_1.hexAndAny(w2.p, POSTAG.D_V))
+                            ||
+                                // 原先于北方大地偷偷撰寫網絡小說的平鳥，
+                                (index_1.hexAndAny(w0.p, POSTAG.D_D) && index_1.hexAndAny(w2.p, POSTAG.D_F))) {
                             w1.ow = w1.w;
                             w1.w = '於';
                             new_p = POSTAG.D_P;
