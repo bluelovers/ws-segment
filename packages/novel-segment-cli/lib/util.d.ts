@@ -4,5 +4,5 @@ export declare const debugConsole: Console;
 export declare function enableDebug(bool?: boolean): boolean;
 export declare function getCacheDirPath(useGlobal?: boolean): string;
 export declare function freeGC(): boolean;
-declare const _default: typeof import("./util");
+declare const _default: typeof import("novel-segment-cli/lib/util");
 export default _default;
