@@ -72,3 +72,5 @@ coverage
 
 .now
 /cache/cache.json
+
+.vercel
