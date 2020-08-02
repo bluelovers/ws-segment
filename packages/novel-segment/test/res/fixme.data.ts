@@ -1150,6 +1150,20 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'校正過後僅剩的137HP于唐納爾多而言實在是太少了。',
+		[
+			'於',
+		]
+	],
+
+	[
+		'。在眾多礦工所呆的採掘場裡面，',
+		[
+			'待',
+		]
+	],
+
 ];
 
 /**

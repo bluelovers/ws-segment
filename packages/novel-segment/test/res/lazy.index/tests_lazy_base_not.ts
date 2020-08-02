@@ -777,6 +777,34 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'使得我沒有機會再次拜讀他的作品',
+		[
+			'有機',
+		],
+	],
+
+	[
+		'所以這條路基本已經爛熟於心',
+		[
+			'路基',
+		],
+	],
+
+	[
+		'会报出警告？',
+		[
+			'会报',
+		],
+	],
+
+	[
+		'這是你犯下不敬愛神的罪所應得的結果」',
+		[
+			'不敬',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
