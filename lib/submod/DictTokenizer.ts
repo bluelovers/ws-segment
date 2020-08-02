@@ -266,6 +266,15 @@ export class DictTokenizer extends SubSModuleTokenizer
 					// ================ 检查语法结构 ===================
 					if (prew)
 					{
+						if (prew.w === '年' && (
+							w.w === '历史'
+							|| w.w === '歷史'
+							|| w.w === '歴史'
+						))
+						{
+							assess[i].d += 0.5;
+						}
+
 						// 如果上一个词是数词且当前词是量词（单位），则加分
 						if (
 							(prew.p & POSTAG.A_M)
@@ -481,8 +490,7 @@ export class DictTokenizer extends SubSModuleTokenizer
 							{
 								assess[i].d++;
 							}
-
-							if (
+							else if (
 								(
 									w.w === '后'
 									|| w.w === '後'
