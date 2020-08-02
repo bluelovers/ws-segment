@@ -562,6 +562,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'年历史',
+		[
+			['歷史', '年歷史'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
