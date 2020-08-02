@@ -33,6 +33,11 @@ async function gitSubtreePush(module_name) {
             prefix,
             cwd: __root_ws_1.default
         })
+            .then(cp => {
+            if (cp.exitCode) {
+                error = true;
+            }
+        })
             .catch(e => error = e);
         /*
         await crossSpawn.async('git', [
@@ -49,7 +54,9 @@ async function gitSubtreePush(module_name) {
          */
     }
     if (error) {
-        logger_1.default.error(error);
+        if (error !== true) {
+            logger_1.default.error(error);
+        }
     }
     else {
         let file = create_cache_name_1.default('subtree', module_name);

@@ -39,6 +39,12 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 			prefix,
 			cwd: __root_ws
 		})
+			.then(cp => {
+				if (cp.exitCode)
+				{
+					error = true
+				}
+			})
 			.catch(e => error = e)
 		;
 
@@ -59,7 +65,10 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 
 	if (error)
 	{
-		console.error(error)
+		if (error !== true)
+		{
+			console.error(error)
+		}
 	}
 	else
 	{
