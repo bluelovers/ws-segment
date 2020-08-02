@@ -89,6 +89,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@git-lazy/subtree": "^1.0.15",
     "@yarn-tool/find-deps": "^1.0.23",
     "@yarn-tool/ws-changed": "^1.0.32",
     "bluebird": "^3.7.2",

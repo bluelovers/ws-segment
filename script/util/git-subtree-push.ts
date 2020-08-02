@@ -7,6 +7,7 @@ import __root_ws from '../../__root_ws';
 import { unlinkSync, pathExistsSync } from 'fs-extra';
 import { name } from './add-to-postpublish-task';
 import createCacheName from './create-cache-name';
+import { subtreePush } from '@git-lazy/subtree/index';
 
 export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 'segment-dict' | 'novel-segment' | 'novel-segment-cli' | string)
 {
@@ -29,8 +30,19 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 			break;
 	}
 
+	let error;
+
 	if (remote && prefix)
 	{
+		await subtreePush({
+			remote,
+			prefix,
+			cwd: __root_ws
+		})
+			.catch(e => error = e)
+		;
+
+		/*
 		await crossSpawn.async('git', [
 			'subtree',
 			'push',
@@ -42,12 +54,20 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 			cwd: __root_ws,
 			stdio: 'inherit',
 		});
+		 */
 	}
 
-	let file = createCacheName('subtree', module_name);
-	if (pathExistsSync(file))
+	if (error)
 	{
-		console.debug(`[subtree:script]`, `del`, module_name);
-		unlinkSync(file);
+		console.error(error)
+	}
+	else
+	{
+		let file = createCacheName('subtree', module_name);
+		if (pathExistsSync(file))
+		{
+			console.debug(`[subtree:script]`, `del`, module_name);
+			unlinkSync(file);
+		}
 	}
 }
