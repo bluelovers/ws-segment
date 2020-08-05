@@ -5138,6 +5138,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'、肺脏，颜色栩栩如生',
+		[
+			'臟',
+		]
+	],
+
+	[
+		'那你平常干麻不這樣講話！」',
+		[
+			'幹',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
