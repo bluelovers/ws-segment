@@ -90,10 +90,10 @@
   "resolutions": {},
   "dependencies": {
     "@git-lazy/subtree": "^1.0.15",
-    "@yarn-tool/find-deps": "^1.0.23",
-    "@yarn-tool/ws-changed": "^1.0.32",
+    "@yarn-tool/find-deps": "^1.0.24",
+    "@yarn-tool/ws-changed": "^1.0.33",
     "bluebird": "^3.7.2",
-    "ws-pkg-list": "^1.0.46"
+    "ws-pkg-list": "^1.0.47"
   },
   "devDependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
@@ -106,8 +106,8 @@
     "@types/cross-spawn": "^6.0.2",
     "@types/diff": "^4.0.2",
     "@types/fs-extra": "^9",
-    "@types/jest": "^26.0.8",
-    "@types/lodash": "^4.14.158",
+    "@types/jest": "^26.0.9",
+    "@types/lodash": "^4.14.159",
     "@types/mocha": "^8.0.1",
     "@types/node": "^14.0.27",
     "@types/transliteration": "^1.6.6",
@@ -130,6 +130,6 @@
     "transliteration": "^2.1.11",
     "ts-jest": "^26.1.4",
     "uni-string": "^1.1.10",
-    "upath2": "^3.1.5"
+    "upath2": "^3.1.6"
   }
 }
