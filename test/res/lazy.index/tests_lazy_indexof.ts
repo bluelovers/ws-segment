@@ -5152,6 +5152,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'旅行前所準備的乾貨已經只剩几餐份了。',
+		[
+			'幾',
+		]
+	],
+
+	[
+		'那麼，再來就剩煉制工作了。',
+		[
+			'製',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof

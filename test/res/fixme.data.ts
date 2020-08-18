@@ -1192,6 +1192,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'亞里阿德涅唰地拔出系在腰際的短刀。',
+		[
+			'繫',
+		]
+	],
+
 ];
 
 /**
