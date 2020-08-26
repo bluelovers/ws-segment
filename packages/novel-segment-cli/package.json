@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@yarn-tool/update-notifier": "^1.0.14",
+    "@yarn-tool/update-notifier": "^1.0.15",
     "array-hyper-unique": "^1.1.9",
     "bluebird": "^3.7.2",
     "cache-path": "^2.0.4",
@@ -35,7 +35,7 @@
     "fs-iconv": "^3.0.11",
     "iconv-jschardet": "^2.0.11",
     "lazy-cacache": "^2.0.4",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.20",
     "novel-segment": "^2.7.52",
     "pkg-up": "^3.1.0",
     "prettyuse": "^0.0.0",

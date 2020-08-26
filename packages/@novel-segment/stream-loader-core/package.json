@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "bluebird": "^3.7.2",
-    "split2": "^3.1.1",
+    "split2": "^3.2.2",
     "stream-pipe": "^1.0.1"
   },
   "devDependencies": {
