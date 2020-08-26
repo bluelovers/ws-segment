@@ -44,7 +44,7 @@
   },
   "peerDependencies": {
     "novel-segment": "^2",
-    "now": "^19"
+    "now": "^20"
   },
   "engines": {
     "node": ">=10"
