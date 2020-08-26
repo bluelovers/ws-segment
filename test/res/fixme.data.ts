@@ -1199,6 +1199,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'即使我們還擁有余下的數十萬利珀虫。',
+		[
+			'餘',
+		]
+	],
+
 ];
 
 /**
