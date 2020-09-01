@@ -94,6 +94,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'而是于公于私的看法都相同，',
+		[
+			'于',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof_not

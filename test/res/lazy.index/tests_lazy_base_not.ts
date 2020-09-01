@@ -805,6 +805,27 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'重生父母',
+		[
+			['生父母', '生父'],
+		],
+	],
+
+	[
+		'「肌骨肉終究只是零件，破壞掉便再無可能運作！」',
+		[
+			'骨肉',
+		],
+	],
+
+	[
+		'（Party）組成圓陣漫無目的地移動，',
+		[
+			'目的地',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
