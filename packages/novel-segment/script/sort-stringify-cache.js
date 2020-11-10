@@ -59,6 +59,8 @@ if (worker_threads_1.isMainThread) {
     let workerOptions = {
         workerData: {
             time: new Date,
+            //count: 0,
+            //re: /   /ig,
         },
     };
     let w1 = new worker_threads_1.Worker(__filename, workerOptions);

@@ -62,6 +62,7 @@ const path_1 = require("path");
         '-m',
         msg,
         '.',
+        // @ts-ignore
     ], options);
     /*
     await new Promise(function (done)
