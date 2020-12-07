@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/api-server",
-  "version": "1.0.30",
+  "version": "1.0.31",
   "private": true,
   "description": "simple segment api server",
   "homepage": "https://github.com/bluelovers/ws-segment#readme",

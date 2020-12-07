@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.30...@novel-segment/api-server@1.0.31) (2020-12-07)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([3b0039f](https://github.com/bluelovers/ws-segment/commit/3b0039f204b4b2e212501d6de439bb46bae97418))
+
+
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.29...@novel-segment/api-server@1.0.30) (2020-11-10)
 
 
