@@ -1,6 +1,6 @@
 {
   "name": "novel-segment-cli",
-  "version": "1.1.73",
+  "version": "1.1.74",
   "description": "cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞",
   "license": "ISC",
   "author": "",
@@ -36,7 +36,7 @@
     "iconv-jschardet": "^2.0.11",
     "lazy-cacache": "^2.0.4",
     "lodash": "^4.17.20",
-    "novel-segment": "^2.7.55",
+    "novel-segment": "^2.7.56",
     "pkg-up": "^3.1.0",
     "prettyuse": "^0.0.0",
     "upath2": "^3.1.6",
