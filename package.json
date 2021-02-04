@@ -35,11 +35,11 @@
     "cors": "^2.8.5",
     "crlf-normalize": "^1.0.5",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.1"
+    "fs-extra": "^9.1.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.8",
-    "@types/express": "^4.17.9",
+    "@types/cors": "^2.8.9",
+    "@types/express": "^4.17.11",
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
