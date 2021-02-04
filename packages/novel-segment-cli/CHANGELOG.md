@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.75](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.74...novel-segment-cli@1.1.75) (2021-02-04)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([0bfd505](https://github.com/bluelovers/ws-segment/commit/0bfd50598e513ae11c2648da971fbfa7a1cc19ae))
+
+
+
+
+
 ## [1.1.74](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.73...novel-segment-cli@1.1.74) (2020-12-07)
 
 **Note:** Version bump only for package novel-segment-cli
