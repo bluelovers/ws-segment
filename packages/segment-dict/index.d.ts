@@ -6,5 +6,5 @@ export * from './version';
 import requireLoader, { requireModule as requireLoaderModule } from '@novel-segment/loaders/index';
 export { requireLoader, requireLoaderModule };
 export { getDictPath } from './lib/dict';
-declare const _default: typeof import(".");
+declare const _default: typeof import("./index");
 export default _default;

@@ -13,7 +13,7 @@ export declare type IOptions = {
     onready?(...argv: any[]): any;
     ondata?(...argv: any[]): any;
 };
-export declare function byLine(fn?: any, options?: IOptions): IPipe<ReadStream, NodeJS.WritableStream>;
+export declare function byLine(fn?: any, options?: IOptions): IStreamLine;
 export declare function createStreamLine(file: string, options: IOptions): IStreamLine;
 export declare function createStreamLine(file: string, fn?: (data: string) => any, options?: IOptions): IStreamLine;
 export declare function readFileLine(file: string, options: IOptions): IPromiseStream<IStreamLine>;

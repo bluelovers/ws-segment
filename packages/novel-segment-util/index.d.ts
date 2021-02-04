@@ -3,5 +3,5 @@
  */
 export { getCjkName } from './conv';
 export { zhDictCompare } from './sort';
-declare const _default: typeof import(".");
+declare const _default: typeof import("./index");
 export default _default;
