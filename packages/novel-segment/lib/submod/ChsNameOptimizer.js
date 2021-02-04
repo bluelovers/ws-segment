@@ -186,7 +186,8 @@ class ChsNameOptimizer extends mod_1.SubSModuleOptimizer {
                         });
                         // 如果上一个单词可能是一个姓，则合并
                         let preword = words[i - 1];
-                        if (((_b = preword === null || preword === void 0 ? void 0 : preword.w) === null || _b === void 0 ? void 0 : _b.length) && this.isFamilyName(preword.w)
+                        if (((_b = preword === null || preword === void 0 ? void 0 : preword.w) === null || _b === void 0 ? void 0 : _b.length)
+                            && this.isFamilyName(preword.w)
                             && this.isMergeable2(preword.w, word.w, nextword.w)) {
                             let nw = preword.w + word.w + nextword.w;
                             /*
