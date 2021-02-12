@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.140](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.139...segment-dict@2.3.140) (2021-02-12)
+
+
+### 🐛　Bug Fixes
+
+* **dict:** 可以在任何支持ECMAScript5的引擎上执行 ([a4baf07](https://github.com/bluelovers/ws-segment/commit/a4baf074b50545e77d143c0c6b7e6aee8068d1c0))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([702ec51](https://github.com/bluelovers/ws-segment/commit/702ec51f8247eb82dccbc6099aae4af1d86edd32))
+
+
+
+
+
 ## [2.3.139](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.138...segment-dict@2.3.139) (2021-02-04)
 
 
