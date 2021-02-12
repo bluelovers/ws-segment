@@ -826,6 +826,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'可以在任何支持ECMAScript5的引擎上执行',
+		[
+			'在任',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
