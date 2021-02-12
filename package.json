@@ -24,7 +24,7 @@
     "postpublish:done": "yarn run now-deploy",
     "ncu": "npx yarn-tool ncu -u",
     "now-build": "yarn run now-build:install && yarn run now-build:run",
-    "now-build:install": "yarn add novel-segment now vercel",
+    "now-build:install": "yarn add novel-segment vercel",
     "now-build:run": "node ./build.js",
     "now-deploy": "yarn run now-build:run && npx vercel deploy",
     "sort-package-json": "npx yarn-tool sort",
@@ -44,7 +44,6 @@
   },
   "peerDependencies": {
     "novel-segment": "^2",
-    "now": "^20",
     "vercel": "^21.2.3"
   },
   "engines": {
