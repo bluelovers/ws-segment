@@ -7,20 +7,12 @@ import path from 'path';
 // @ts-ignore
 import PackageJson from '../package.json';
 import CrossSpawn from 'cross-spawn-extra';
+import gitRoot from 'git-root2';
 import { join } from "path";
 
 (async () =>
 {
-	let crossSpawn: typeof CrossSpawn;
-	// @ts-ignore
-	crossSpawn = await import('cross-spawn-extra');
-
-	let gitroot: string;
-
-	// @ts-ignore
-	gitroot = await import('git-root2');
-	// @ts-ignore
-	gitroot = gitroot(__dirname);
+	let gitroot = gitRoot(__dirname);
 
 	let project_root = join(__dirname, '..');
 
@@ -50,7 +42,7 @@ import { join } from "path";
 
 	let msg = `chore: update api-server\n\n[skip ci]`;
 
-	await crossSpawn('git', [
+	await CrossSpawn('git', [
 		'commit',
 		//'-a',
 		'-m',

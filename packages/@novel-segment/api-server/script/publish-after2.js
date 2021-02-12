@@ -27,16 +27,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const path_1 = __importDefault(require("path"));
+const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const git_root2_1 = __importDefault(require("git-root2"));
 const path_2 = require("path");
 (async () => {
-    let crossSpawn;
-    // @ts-ignore
-    crossSpawn = await Promise.resolve().then(() => __importStar(require('cross-spawn-extra')));
-    let gitroot;
-    // @ts-ignore
-    gitroot = await Promise.resolve().then(() => __importStar(require('git-root2')));
-    // @ts-ignore
-    gitroot = gitroot(__dirname);
+    let gitroot = git_root2_1.default(__dirname);
     let project_root = path_2.join(__dirname, '..');
     if (!gitroot || path_1.default.relative(gitroot, project_root)) {
         let __root_ws = await Promise.resolve().then(() => __importStar(require('../../../../__root_ws'))).then(m => m.__root_ws)
@@ -55,7 +50,7 @@ const path_2 = require("path");
         stdio: 'inherit',
     };
     let msg = `chore: update api-server\n\n[skip ci]`;
-    await crossSpawn('git', [
+    await cross_spawn_extra_1.default('git', [
         'commit',
         //'-a',
         '-m',
