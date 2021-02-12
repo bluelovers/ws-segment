@@ -91,9 +91,11 @@ console.time(`doSegment`);
 
 let text = `
 
-，想着这个就只能干着急
+可以 在 任何 支持
 
-就只能 只能 干着急
+纯JavaScript编写，可以在任何支持ECMAScript5的引擎上执行（需要稍微修改部分代码）
+基于词性进行联想识别
+可使用JavaScript编写自定义的分词模块
 
 `;
 
