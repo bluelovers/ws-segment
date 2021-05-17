@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.141](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.140...segment-dict@2.3.141) (2021-05-17)
+
+**Note:** Version bump only for package segment-dict
+
+
+
+
+
 ## [2.3.140](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.139...segment-dict@2.3.140) (2021-02-12)
 
 
