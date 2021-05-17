@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-segment/compare/@novel-segment/stream-loader-core@1.0.8...@novel-segment/stream-loader-core@1.0.9) (2021-05-17)
+
+
+### ♻️　Chores
+
+* update deps ([affd25e](https://github.com/bluelovers/ws-segment/commit/affd25eba81eddfc8f5405da7facba2be5ef4fdf))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/stream-loader-core@1.0.7...@novel-segment/stream-loader-core@1.0.8) (2021-02-04)
 
 

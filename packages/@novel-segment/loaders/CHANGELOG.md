@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.17](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.16...@novel-segment/loaders@1.0.17) (2021-05-17)
+
+**Note:** Version bump only for package @novel-segment/loaders
+
+
+
+
+
 ## [1.0.16](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.15...@novel-segment/loaders@1.0.16) (2021-02-04)
 
 **Note:** Version bump only for package @novel-segment/loaders
