@@ -35,7 +35,7 @@
     "stream-pipe": "^1.0.1"
   },
   "devDependencies": {
-    "@types/split2": "^2.1.6"
+    "@types/split2": "^3.2.0"
   },
   "publishConfig": {
     "access": "public"
