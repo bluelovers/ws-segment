@@ -25,19 +25,19 @@ export type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSMod
 // @ts-ignore
 export abstract class SubSModuleTokenizer extends SubSModule implements ISubTokenizer
 {
-	public static readonly type = 'tokenizer';
-	public readonly type = 'tokenizer';
+	public static override readonly type = 'tokenizer';
+	public override readonly type = 'tokenizer';
 
 	public abstract split(words: IWord[], ...argv): IWord[]
 
-	public init(segment: Segment, ...argv)
+	public override init(segment: Segment, ...argv)
 	{
 		super.init(segment, ...argv);
 
 		return this;
 	}
 
-	public static init<T extends SubSModuleTokenizer = SubSModuleTokenizer>(segment: Segment, ...argv): T
+	public static override init<T extends SubSModuleTokenizer = SubSModuleTokenizer>(segment: Segment, ...argv): T
 	{
 		// @ts-ignore
 		return super.init<T>(segment, ...argv);
@@ -121,7 +121,7 @@ export abstract class SubSModuleTokenizer extends SubSModule implements ISubToke
  */
 export class Tokenizer extends SModule
 {
-	type = 'tokenizer';
+	override type = 'tokenizer';
 
 	/**
 	 * 对一段文本进行分词
