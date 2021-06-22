@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "ts-enum-util": "^4.0.2",
-    "ts-type": "^1.2.34"
+    "ts-type": "^1.2.35",
+    "tslib": "^2.3.0"
   },
   "publishConfig": {
     "access": "public"

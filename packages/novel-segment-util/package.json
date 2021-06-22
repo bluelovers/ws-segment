@@ -34,7 +34,8 @@
   },
   "dependencies": {
     "@bluelovers/string-natural-compare": "^1.1.2",
-    "regexp-helper": "^1.0.21"
+    "regexp-helper": "^1.0.23",
+    "tslib": "^2.3.0"
   },
   "peerDependencies": {
     "array-hyper-unique": "^1.1.9",

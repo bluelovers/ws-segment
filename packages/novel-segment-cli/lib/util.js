@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.freeGC = exports.getCacheDirPath = exports.enableDebug = exports.debugConsole = exports.console = void 0;
+const tslib_1 = require("tslib");
 const cache_path_1 = require("cache-path");
 const debug_color2_1 = require("debug-color2");
 exports.console = new debug_color2_1.Console();
-const package_json_1 = __importDefault(require("../package.json"));
+const package_json_1 = tslib_1.__importDefault(require("../package.json"));
 exports.console.inspectOptions = {
     colors: exports.console.enabledColor
 };

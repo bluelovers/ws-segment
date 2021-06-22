@@ -1,41 +1,20 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processText = exports.fileSegment = exports.textSegment = exports.stringify = exports.enableDebug = void 0;
-const crlf_normalize_1 = __importDefault(require("crlf-normalize"));
-const novel_segment_1 = __importStar(require("novel-segment"));
+const tslib_1 = require("tslib");
+const crlf_normalize_1 = tslib_1.__importDefault(require("crlf-normalize"));
+const novel_segment_1 = tslib_1.__importStar(require("novel-segment"));
 Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return novel_segment_1.stringify; } });
-const bluebird_1 = __importDefault(require("bluebird"));
-const fs_iconv_1 = __importDefault(require("fs-iconv"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const fs_iconv_1 = tslib_1.__importDefault(require("fs-iconv"));
 const lib_1 = require("novel-segment/lib");
 // @ts-ignore
 const cache_1 = require("./lib/cache");
 const util_1 = require("./lib/util");
 Object.defineProperty(exports, "enableDebug", { enumerable: true, get: function () { return util_1.enableDebug; } });
-const package_json_1 = __importDefault(require("./package.json"));
+const package_json_1 = tslib_1.__importDefault(require("./package.json"));
 const util_2 = require("novel-segment/lib/util");
-const iconv_jschardet_1 = __importDefault(require("iconv-jschardet"));
+const iconv_jschardet_1 = tslib_1.__importDefault(require("iconv-jschardet"));
 const min_1 = require("cjk-conv/lib/zh/convert/min");
 const dict_1 = require("novel-segment/lib/defaults/dict");
 const lodash_1 = require("lodash");

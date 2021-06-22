@@ -1,15 +1,13 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zhName = exports.chsName = exports.enName = void 0;
-const keys_1 = __importDefault(require("../keys"));
-const ids_1 = __importDefault(require("../postag/ids"));
-const chs_1 = __importDefault(require("../postag/chs"));
-const cht_1 = __importDefault(require("../postag/cht"));
-const en_1 = __importDefault(require("../postag/en"));
-const getPOSTagTranslator_1 = __importDefault(require("../util/getPOSTagTranslator"));
+const tslib_1 = require("tslib");
+const keys_1 = tslib_1.__importDefault(require("../keys"));
+const ids_1 = tslib_1.__importDefault(require("../postag/ids"));
+const chs_1 = tslib_1.__importDefault(require("../postag/chs"));
+const cht_1 = tslib_1.__importDefault(require("../postag/cht"));
+const en_1 = tslib_1.__importDefault(require("../postag/en"));
+const getPOSTagTranslator_1 = tslib_1.__importDefault(require("../util/getPOSTagTranslator"));
 keys_1.default.forEach(function (key) {
     var _a, _b, _c, _d;
     let lc = key.toLowerCase();

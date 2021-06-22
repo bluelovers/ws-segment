@@ -2,13 +2,11 @@
 /**
  * Created by user on 2020/5/11.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const bluebird_1 = __importDefault(require("@bluelovers/fast-glob/bluebird"));
+const tslib_1 = require("tslib");
+const bluebird_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob/bluebird"));
 const path_1 = require("path");
-const __root_ws_1 = __importDefault(require("../../__root_ws"));
+const __root_ws_1 = tslib_1.__importDefault(require("../../__root_ws"));
 const fs_extra_1 = require("fs-extra");
 const git_subtree_push_1 = require("../util/git-subtree-push");
 bluebird_1.default

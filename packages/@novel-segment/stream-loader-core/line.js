@@ -2,15 +2,13 @@
 /**
  * Created by user on 2018/4/11/011.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapStreamToPromise = exports.readFileLine = exports.createStreamLine = exports.byLine = void 0;
+const tslib_1 = require("tslib");
 const fs_1 = require("fs");
-const split2_1 = __importDefault(require("split2"));
+const split2_1 = tslib_1.__importDefault(require("split2"));
 const path_1 = require("path");
-const bluebird_1 = __importDefault(require("bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const stream_pipe_1 = require("stream-pipe");
 function byLine(fn, options = {}) {
     if (typeof fn == 'object') {

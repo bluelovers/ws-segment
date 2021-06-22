@@ -1,13 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const cors_1 = __importDefault(require("cors"));
-const core_1 = __importDefault(require("novel-segment/lib/segment/core"));
+const tslib_1 = require("tslib");
+const express_1 = tslib_1.__importDefault(require("express"));
+const cors_1 = tslib_1.__importDefault(require("cors"));
+const core_1 = tslib_1.__importDefault(require("novel-segment/lib/segment/core"));
 const useModules2_1 = require("novel-segment/lib/segment/methods/useModules2");
-const mod_1 = __importDefault(require("novel-segment/lib/mod"));
+const mod_1 = tslib_1.__importDefault(require("novel-segment/lib/mod"));
 const url_1 = require("url");
 const min_1 = require("cjk-conv/lib/zh/convert/min");
 const app = express_1.default();

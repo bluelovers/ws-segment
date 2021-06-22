@@ -2,14 +2,12 @@
 /**
  * Created by user on 2020/6/27.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
 const ws_pkg_list_1 = require("ws-pkg-list");
-const ws_changed_1 = __importDefault(require("@yarn-tool/ws-changed"));
+const ws_changed_1 = tslib_1.__importDefault(require("@yarn-tool/ws-changed"));
 const find_deps_1 = require("@yarn-tool/find-deps");
-const cross_spawn_extra_1 = __importDefault(require("cross-spawn-extra"));
+const cross_spawn_extra_1 = tslib_1.__importDefault(require("cross-spawn-extra"));
 const array_hyper_unique_1 = require("array-hyper-unique");
 exports.default = (async () => {
     let record = ws_pkg_list_1.wsPkgDepsListableRecord();

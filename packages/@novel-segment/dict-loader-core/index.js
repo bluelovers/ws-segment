@@ -2,24 +2,13 @@
 /**
  * Created by user on 2018/4/13/013.
  */
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.LoaderClass = void 0;
+const tslib_1 = require("tslib");
 const crlf_normalize_1 = require("crlf-normalize");
 const line_1 = require("@novel-segment/stream-loader-core/line");
-const stream_1 = __importDefault(require("@novel-segment/stream-loader-core/stream"));
-const sync_1 = __importDefault(require("@novel-segment/stream-loader-core/sync"));
+const stream_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/stream"));
+const sync_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/sync"));
 const core_decorators_1 = require("core-decorators");
 let LoaderClass = class LoaderClass {
     constructor(options = {}, ...argv) {
@@ -99,9 +88,9 @@ let LoaderClass = class LoaderClass {
         return stream;
     }
 };
-LoaderClass = __decorate([
+LoaderClass = tslib_1.__decorate([
     core_decorators_1.autobind,
-    __metadata("design:paramtypes", [Object, Object])
+    tslib_1.__metadata("design:paramtypes", [Object, Object])
 ], LoaderClass);
 exports.LoaderClass = LoaderClass;
 exports.default = LoaderClass;
