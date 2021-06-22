@@ -47,22 +47,18 @@ describe(`check all files`, () =>
 
 		describe(name, () => {
 
-			test(`import`, async (done) =>
+			test(`import`, async () =>
 			{
 				const mod = await import(row);
 
 				_check(mod, name);
-
-				done();
 			});
 
-			test(`require`, async (done) =>
+			test(`require`, async () =>
 			{
 				const mod = require(row);
 
 				_check(mod, name);
-
-				done();
 			});
 
 		})
