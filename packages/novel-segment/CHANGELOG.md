@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.60](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.59...novel-segment@2.7.60) (2021-06-22)
+
+
+### 🐛　Bug Fixes
+
+* **typescript:** override ([c42b59a](https://github.com/bluelovers/ws-segment/commit/c42b59a69cf43198b0e1d8818ee6d7f6a252f857))
+* **typescript:** This member must have an 'override' modifier because it overrides a member in the base class 'SModule'. ([abffe8c](https://github.com/bluelovers/ws-segment/commit/abffe8c7217272bf65182736d45fa89fccf1e51f))
+
+
+### 📦　Code Refactoring
+
+* use tslib ([343d4b2](https://github.com/bluelovers/ws-segment/commit/343d4b23a23e222b6a4aba1b8e2a196fc7c70073))
+
+
+### 🚨　Tests
+
+* Test functions cannot both take a 'done' callback and return something. Either use a 'done' callback, or return a promise. ([350d7c7](https://github.com/bluelovers/ws-segment/commit/350d7c7d8d60086eb4c5f3173749018d2f7b9705))
+
+
+### 🛠　Build System
+
+* tslib ([a557a67](https://github.com/bluelovers/ws-segment/commit/a557a6772ce4f083e30a4ec9286d87bba1c21672))
+
+
+
+
+
 ## [2.7.59](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.58...novel-segment@2.7.59) (2021-05-17)
 
 

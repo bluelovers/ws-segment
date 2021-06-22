@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.78](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.77...novel-segment-cli@1.1.78) (2021-06-22)
+
+
+### 📦　Code Refactoring
+
+* use tslib ([343d4b2](https://github.com/bluelovers/ws-segment/commit/343d4b23a23e222b6a4aba1b8e2a196fc7c70073))
+
+
+
+
+
 ## [1.1.77](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.76...novel-segment-cli@1.1.77) (2021-05-17)
 
 
