@@ -2,12 +2,10 @@
 /**
  * Created by user on 2018/4/19/019.
  */
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDictSynonymPanGu = void 0;
-const core_1 = __importDefault(require("./core"));
+const tslib_1 = require("tslib");
+const core_1 = tslib_1.__importDefault(require("./core"));
 /**
  * 原版 node-segment 的格式
  */
