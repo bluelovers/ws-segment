@@ -22,22 +22,22 @@ export type ISubOptimizerCreate<T extends SubSModuleOptimizer, R extends SubSMod
 // @ts-ignore
 export class SubSModuleOptimizer extends SubSModule implements ISubOptimizer
 {
-	public static readonly type = 'optimizer';
-	public readonly type = 'optimizer';
+	public static override readonly type = 'optimizer';
+	public override readonly type = 'optimizer';
 
 	public doOptimize(words: IWord[], ...argv): IWord[]
 	{
 		throw new Error();
 	}
 
-	public init(segment: Segment, ...argv)
+	public override init(segment: Segment, ...argv)
 	{
 		super.init(segment, ...argv);
 
 		return this;
 	}
 
-	public static init<T extends SubSModuleOptimizer = SubSModuleOptimizer>(segment: Segment, ...argv): T
+	public static override init<T extends SubSModuleOptimizer = SubSModuleOptimizer>(segment: Segment, ...argv): T
 	{
 		// @ts-ignore
 		return super.init<T>(segment, ...argv);
@@ -49,7 +49,7 @@ export class SubSModuleOptimizer extends SubSModule implements ISubOptimizer
  */
 export class Optimizer extends SModule
 {
-	type = 'optimizer';
+	override type = 'optimizer';
 
 	/**
 	 * 对一段文本进行分词
