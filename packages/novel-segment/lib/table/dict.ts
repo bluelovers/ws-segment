@@ -21,14 +21,14 @@ export { IDICT, IDICT2, IOptions }
  */
 export class TableDict extends AbstractTableDictCore<ITableDictRow>
 {
-	public type: string;
+	public override type: string;
 
-	TABLE: IDICT<ITableDictRow> = {};
-	TABLE2: IDICT2<ITableDictRow> = {};
+	override TABLE: IDICT<ITableDictRow> = {};
+	override TABLE2: IDICT2<ITableDictRow> = {};
 
-	options: IOptions;
+	override options: IOptions;
 
-	exists(data: IWord | IDictRow | string): ITableDictRow
+	override exists(data: IWord | IDictRow | string): ITableDictRow
 	{
 		let w, p, f;
 
@@ -175,7 +175,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		this.TABLE2[len][w] = this.TABLE[w];
 	}
 
-	remove(target: IWord | IDictRow | string)
+	override remove(target: IWord | IDictRow | string)
 	{
 		let { data, plus } = this.__handleInput(target);
 
@@ -184,7 +184,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		return this
 	}
 
-	protected _remove({ w, p, f, s }: IWord)
+	protected override _remove({ w, p, f, s }: IWord)
 	{
 		let len = w.length;
 
@@ -197,7 +197,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		return this
 	}
 
-	json(): IDICT<ITableDictRow>
+	override json(): IDICT<ITableDictRow>
 	{
 		return cloneDeep(this.TABLE)
 	}
@@ -205,7 +205,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	/**
 	 * 將目前的 表格 匯出
 	 */
-	stringify(LF = "\n")
+	override stringify(LF = "\n")
 	{
 		let self = this;
 

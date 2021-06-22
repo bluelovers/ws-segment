@@ -39,10 +39,10 @@ export class DictTokenizer extends SubSModuleTokenizer
 	 */
 	DEFAULT_MAX_CHUNK_COUNT_MIN = DEFAULT_MAX_CHUNK_COUNT_MIN;
 
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 	protected _TABLE2: IDICT2<IWord>;
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 		this._TABLE = this.segment.getDict('TABLE');

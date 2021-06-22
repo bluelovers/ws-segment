@@ -25,12 +25,12 @@ import isUnset, { isSet } from '../util/isUnset';
  */
 export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 {
-	name = 'ZhtSynonymOptimizer';
+	override name = 'ZhtSynonymOptimizer';
 
 	protected _SYNONYM?: IDICT_SYNONYM;
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 
@@ -70,7 +70,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 		return nw;
 	}
 
-	doOptimize<T extends IWordDebug>(words: T[]): T[]
+	override doOptimize<T extends IWordDebug>(words: T[]): T[]
 	{
 		const self = this;
 		const POSTAG = this._POSTAG;

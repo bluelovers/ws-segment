@@ -15,12 +15,12 @@ import { IWordDebugInfo } from '../util/index';
 export class WildcardTokenizer extends SubSModuleTokenizer
 {
 
-	name = 'WildcardTokenizer';
+	override name = 'WildcardTokenizer';
 
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 	protected _TABLE2: IDICT2<IWord>;
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 		this._TABLE = this.segment.getDict('WILDCARD');

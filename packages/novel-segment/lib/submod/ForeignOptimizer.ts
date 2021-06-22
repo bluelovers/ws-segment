@@ -8,11 +8,11 @@ import { IWordDebug } from '../util';
 
 export class ForeignOptimizer extends SubSModuleOptimizer
 {
-	name = 'ForeignOptimizer';
+	override name = 'ForeignOptimizer';
 
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 
@@ -20,7 +20,7 @@ export class ForeignOptimizer extends SubSModuleOptimizer
 		this._POSTAG = this.segment.POSTAG;
 	}
 
-	doOptimize<T extends IWordDebug>(words: T[]): T[]
+	override doOptimize<T extends IWordDebug>(words: T[]): T[]
 	{
 		const self = this;
 		const POSTAG = this._POSTAG;

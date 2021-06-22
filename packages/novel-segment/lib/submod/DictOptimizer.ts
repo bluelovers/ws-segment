@@ -18,11 +18,11 @@ const DIRECTIONS_REGEXP = /^[東西南北东]+$/;
 export class DictOptimizer extends SubSModuleOptimizer
 {
 
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 
-	name = 'DictOptimizer';
+	override name = 'DictOptimizer';
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 		this._TABLE = this.segment.getDict('TABLE');
@@ -115,7 +115,7 @@ export class DictOptimizer extends SubSModuleOptimizer
 	 * @param {bool} is_not_first 是否为管理器调用的
 	 * @return {array}
 	 */
-	doOptimize(words: IWord[], is_not_first: boolean): IWord[]
+	override doOptimize(words: IWord[], is_not_first: boolean): IWord[]
 	{
 		//debug(words);
 		if (typeof is_not_first === 'undefined')

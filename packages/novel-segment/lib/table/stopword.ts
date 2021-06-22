@@ -6,7 +6,7 @@ import TableDictLine from './line';
  */
 export class TableDictStopword extends TableDictLine
 {
-	static readonly type = 'STOPWORD';
+	static override readonly type = 'STOPWORD';
 
 	constructor(type: string = TableDictStopword.type, options: IOptions = {}, ...argv)
 	{

@@ -9,9 +9,9 @@ import { IWordDebug } from '../util';
  */
 export class AdjectiveOptimizer extends SubSModuleOptimizer
 {
-	name = 'AdjectiveOptimizer';
+	override name = 'AdjectiveOptimizer';
 
-	doOptimize(words: IWordDebug[]): IWordDebug[]
+	override doOptimize(words: IWordDebug[]): IWordDebug[]
 	{
 		const POSTAG = this._POSTAG;
 		let index = 0;

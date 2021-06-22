@@ -26,7 +26,7 @@ export class EmailOptimizer extends SubSModuleOptimizer
 	 * @param {array} words 单词数组
 	 * @return {array}
 	 */
-	doOptimize(words)
+	override doOptimize(words)
 	{
 		const POSTAG = this.segment.POSTAG;
 		//debug(words);

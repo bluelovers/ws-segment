@@ -29,9 +29,9 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 	/**
 	 * 緩存主KEY
 	 */
-	public TABLE2: IDICT<string[]> = {};
+	public override TABLE2: IDICT<string[]> = {};
 
-	add(data: ArrayTwoOrMore<string>, skipExists?: boolean)
+	override add(data: ArrayTwoOrMore<string>, skipExists?: boolean)
 	{
 		if (!Array.isArray(data) || data.length < 2)
 		{

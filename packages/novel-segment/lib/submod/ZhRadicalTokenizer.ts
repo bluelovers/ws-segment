@@ -15,12 +15,12 @@ import { IWordDebugInfo } from '../util/index';
 export class ZhRadicalTokenizer extends SubSModuleTokenizer
 {
 
-	name = 'ZhRadicalTokenizer';
+	override name = 'ZhRadicalTokenizer';
 
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 	protected _TABLE2: IDICT2<IWord>;
 
-	protected _cache(...argv)
+	protected override _cache(...argv)
 	{
 		super._cache(...argv);
 	}

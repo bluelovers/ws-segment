@@ -16,11 +16,11 @@ import { UString } from 'uni-string';
 export class ChsNameTokenizer extends SubSModuleTokenizer
 {
 
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 
-	name = 'ChsNameTokenizer';
+	override name = 'ChsNameTokenizer';
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 

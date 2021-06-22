@@ -15,7 +15,7 @@ import { IWordDebugInfo } from '../util/index';
 export class ForeignTokenizer extends SubSModuleTokenizer
 {
 
-	name = 'ForeignTokenizer';
+	override name = 'ForeignTokenizer';
 
 	/**
 	 * 分詞用(包含中文)
@@ -26,7 +26,7 @@ export class ForeignTokenizer extends SubSModuleTokenizer
 	 */
 	_REGEXP_SPLIT_2: RegExp;
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 		this._TABLE = this.segment.getDict('TABLE');

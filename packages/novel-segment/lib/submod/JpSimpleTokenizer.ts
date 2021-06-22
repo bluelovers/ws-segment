@@ -23,9 +23,9 @@ export const enum EnumJpSimpleTokenizerType
 
 export class JpSimpleTokenizer extends SubSModuleTokenizer
 {
-	static NAME = 'JpSimpleTokenizer' as const;
+	static override NAME = 'JpSimpleTokenizer' as const;
 
-	name = 'JpSimpleTokenizer' as const;
+	override name = 'JpSimpleTokenizer' as const;
 
 	split(words: IWord[], ...argv): IWord[]
 	{

@@ -9,7 +9,7 @@ import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
  */
 export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 {
-	static readonly type = 'SYNONYM';
+	static override readonly type = 'SYNONYM';
 
 	constructor(type: string = TableDictSynonymPanGu.type, options: IOptions = {}, ...argv)
 	{
