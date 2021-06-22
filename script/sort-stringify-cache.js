@@ -1,33 +1,12 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
 const worker_threads_1 = require("worker_threads");
 const lineByLine = require("n-readlines");
-const project_config_1 = __importDefault(require("../project.config"));
-const path = __importStar(require("upath2"));
+const project_config_1 = tslib_1.__importDefault(require("../project.config"));
+const path = tslib_1.__importStar(require("upath2"));
 const index_1 = require("@novel-segment/loaders/segment/index");
-const uni_string_1 = __importDefault(require("uni-string"));
+const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
 const util_1 = require("@novel-segment/util");
 const transliteration_1 = require("transliteration");
 const fs = require("fs-extra");
@@ -38,7 +17,7 @@ const array_hyper_unique_1 = require("array-hyper-unique");
 const loader_line_1 = require("@novel-segment/loader-line");
 const debug_color2_1 = require("debug-color2");
 const greedy_1 = require("cjk-conv/lib/zh/table/greedy");
-const table_1 = __importDefault(require("cjk-conv/lib/zh/table"));
+const table_1 = tslib_1.__importDefault(require("cjk-conv/lib/zh/table"));
 const diff_staged_1 = require("@git-lazy/diff-staged");
 const match_1 = require("@git-lazy/util/util/match");
 let CWD = path.join(project_config_1.default.temp_root);
