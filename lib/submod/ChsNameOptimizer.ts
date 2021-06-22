@@ -25,11 +25,11 @@ import { EnumDictDatabase } from '../const';
  */
 export class ChsNameOptimizer extends SubSModuleOptimizer
 {
-	protected _TABLE: IDICT<IWord>;
+	protected override _TABLE: IDICT<IWord>;
 
-	name = 'ChsNameOptimizer';
+	override name = 'ChsNameOptimizer';
 
-	_cache()
+	override _cache()
 	{
 		super._cache();
 
@@ -150,7 +150,7 @@ export class ChsNameOptimizer extends SubSModuleOptimizer
 	 * @param {array} words 单词数组
 	 * @return {array}
 	 */
-	doOptimize(words: IWord[]): IWord[]
+	override doOptimize(words: IWord[]): IWord[]
 	{
 		//debug(words);
 		const POSTAG = this._POSTAG;

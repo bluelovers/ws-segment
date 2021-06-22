@@ -14,7 +14,7 @@ import { _STOPWORD, STOPWORD, STOPWORD2 } from '../mod/data/STOPWORD';
 
 export class PunctuationTokenizer extends SubSModuleTokenizer
 {
-	name = 'PunctuationTokenizer';
+	override name = 'PunctuationTokenizer';
 
 	public _STOPWORD = _STOPWORD;
 	public STOPWORD = STOPWORD;

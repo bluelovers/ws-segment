@@ -5,7 +5,7 @@ import { EnumDictDatabase } from '../const';
 
 export class TableDictBlacklist extends TableDictLine
 {
-	static readonly type = EnumDictDatabase.BLACKLIST;
+	static override readonly type = EnumDictDatabase.BLACKLIST;
 
 	constructor(type: string = TableDictBlacklist.type, options: IOptions = {}, ...argv)
 	{

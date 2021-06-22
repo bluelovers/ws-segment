@@ -8,7 +8,7 @@ import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
  */
 export abstract class TableDictLine extends AbstractTableDictCore<boolean>
 {
-	public exists(data, ...argv)
+	public override exists(data, ...argv)
 	{
 		let w = this._exists(data);
 
@@ -43,7 +43,7 @@ export abstract class TableDictLine extends AbstractTableDictCore<boolean>
 		}
 	}
 
-	remove(word: string)
+	override remove(word: string)
 	{
 		let self = this;
 		self._remove(word);
@@ -51,17 +51,17 @@ export abstract class TableDictLine extends AbstractTableDictCore<boolean>
 		return this;
 	}
 
-	_remove(word: string)
+	override _remove(word: string)
 	{
 		delete this.TABLE[word]
 	}
 
-	json()
+	override json()
 	{
 		return cloneDeep(this.TABLE)
 	}
 
-	stringify(LF = "\n")
+	override stringify(LF = "\n")
 	{
 		let self = this;
 
