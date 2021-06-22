@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.142](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.141...segment-dict@2.3.142) (2021-06-22)
+
+
+### 📦　Code Refactoring
+
+* use tslib ([343d4b2](https://github.com/bluelovers/ws-segment/commit/343d4b23a23e222b6a4aba1b8e2a196fc7c70073))
+* **dict:** 洽|恰 ([9b0d95b](https://github.com/bluelovers/ws-segment/commit/9b0d95bc62ea54d0294478893b82b397b83ad61f))
+* **dict:** 拙絀绌黜 ([4a39ed4](https://github.com/bluelovers/ws-segment/commit/4a39ed42eae4fdf36f7e44202c80b539c174f275))
+* **dict:** 踏|塌 ([d20f0f3](https://github.com/bluelovers/ws-segment/commit/d20f0f3071192dd51c182a4d9fcc1f473e9b5650))
+
+
+### 🛠　Build System
+
+* tslib ([a557a67](https://github.com/bluelovers/ws-segment/commit/a557a6772ce4f083e30a4ec9286d87bba1c21672))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([81eaa6a](https://github.com/bluelovers/ws-segment/commit/81eaa6a905c70314ca4757f5294de8743a16a464))
+* **dict:** save dict before split ([5124055](https://github.com/bluelovers/ws-segment/commit/5124055693cfb4090e28445c1ff6d7ac17ed03c0))
+* **dict:** save dict before split ([be4a84c](https://github.com/bluelovers/ws-segment/commit/be4a84cd416a51168271e59ffc108c6984f4a2c7))
+
+
+
+
+
 ## [2.3.141](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.140...segment-dict@2.3.141) (2021-05-17)
 
 **Note:** Version bump only for package segment-dict
