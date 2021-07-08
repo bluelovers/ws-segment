@@ -833,6 +833,21 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'墾丁當地有不少社區要求墾管處在墾丁海域再多設保護區',
+		[
+			'丁當',
+			'處在',
+		],
+	],
+
+	[
+		'墾丁當地',
+		[
+			'丁當',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

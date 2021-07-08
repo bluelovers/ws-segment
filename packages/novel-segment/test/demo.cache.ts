@@ -91,11 +91,7 @@ console.time(`doSegment`);
 
 let text = `
 
-可以 在 任何 支持
-
-纯JavaScript编写，可以在任何支持ECMAScript5的引擎上执行（需要稍微修改部分代码）
-基于词性进行联想识别
-可使用JavaScript编写自定义的分词模块
+商店里卖着各种新奇东西，把肉窜起来烧烤，烤肉， 削肉，还有肉拌面，油炸肉
 
 `;
 

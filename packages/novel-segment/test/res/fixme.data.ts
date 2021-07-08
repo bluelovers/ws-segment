@@ -1241,6 +1241,13 @@ export const tests_fixme_indexof_not: [string, Parameters<typeof lazyMatchSynony
 		],
 	],
 
+	[
+		'以前发高难度任务没人做所以干脆不发了，',
+		[
+			'发',
+		]
+	],
+
 ];
 
 sortTests(tests_fixme_base);
