@@ -1,18 +1,18 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const express_1 = tslib_1.__importDefault(require("express"));
-const cors_1 = tslib_1.__importDefault(require("cors"));
-const core_1 = tslib_1.__importDefault(require("novel-segment/lib/segment/core"));
+const express_1 = (0, tslib_1.__importDefault)(require("express"));
+const cors_1 = (0, tslib_1.__importDefault)(require("cors"));
+const core_1 = (0, tslib_1.__importDefault)(require("novel-segment/lib/segment/core"));
 const useModules2_1 = require("novel-segment/lib/segment/methods/useModules2");
-const mod_1 = tslib_1.__importDefault(require("novel-segment/lib/mod"));
+const mod_1 = (0, tslib_1.__importDefault)(require("novel-segment/lib/mod"));
 const url_1 = require("url");
 const min_1 = require("cjk-conv/lib/zh/convert/min");
-const app = express_1.default();
+const app = (0, express_1.default)();
 let CACHED_SEGMENT;
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
-app.use(cors_1.default());
+app.use((0, cors_1.default)());
 all_method(app, '/conv', app_conv);
 all_method(app, '*', app_segment);
 exports.default = app;
@@ -57,7 +57,7 @@ async function app_segment(req, res, next) {
                         body: req.body,
                         baseUrl: req.baseUrl,
                         url: req.url,
-                        query2: url_1.parse(req.url, true).query,
+                        query2: (0, url_1.parse)(req.url, true).query,
                     };
                 }
                 res.status(200).json(json);
@@ -103,7 +103,7 @@ async function app_conv(req, res, next) {
             let text = doSegment(input, {
                 simple: true,
             }).join('');
-            return tw2cn ? min_1.tw2cn_min(text) : min_1.cn2tw_min(text);
+            return tw2cn ? (0, min_1.tw2cn_min)(text) : (0, min_1.cn2tw_min)(text);
         });
         if (!rq.nocache && !rq.debug) {
             res.set({
@@ -168,7 +168,7 @@ function getSegment() {
     }
     const DICT = require('./cache/cache.json');
     CACHED_SEGMENT = createSegment();
-    useModules2_1.useModules(CACHED_SEGMENT, mod_1.default(CACHED_SEGMENT.options.all_mod));
+    (0, useModules2_1.useModules)(CACHED_SEGMENT, (0, mod_1.default)(CACHED_SEGMENT.options.all_mod));
     CACHED_SEGMENT.DICT = DICT;
     CACHED_SEGMENT.inited = true;
     return CACHED_SEGMENT;
@@ -182,6 +182,6 @@ function all_method(app, routerPath, ...cb) {
     return app;
 }
 function get_query(req, init = {}) {
-    return Object.assign(init, url_1.parse(req.url, true).query, req.body);
+    return Object.assign(init, (0, url_1.parse)(req.url, true).query, req.body);
 }
 //# sourceMappingURL=index.js.map

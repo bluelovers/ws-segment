@@ -1,8 +1,10 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.convertSynonym = void 0;
-const tslib_1 = require("tslib");
-const core_1 = tslib_1.__importDefault(require("deepmerge-plus/core"));
+const core_1 = __importDefault(require("deepmerge-plus/core"));
 const debug_1 = require("../../util/debug");
 function convertSynonym(ret, options) {
     const { showcount, POSTAG, DICT_SYNONYM, DICT_TABLE } = options;
@@ -15,7 +17,7 @@ function convertSynonym(ret, options) {
             let bool;
             let w = item.w;
             let nw;
-            let debug = debug_1.debugToken(item);
+            let debug = (0, debug_1.debugToken)(item);
             if (w in DICT_SYNONYM) {
                 bool = true;
                 nw = DICT_SYNONYM[w];
@@ -46,7 +48,7 @@ function convertSynonym(ret, options) {
                 if (p & POSTAG.BAD) {
                     p = p ^ POSTAG.BAD;
                 }
-                let item_new = debug_1.debugToken({
+                let item_new = (0, debug_1.debugToken)({
                     ...item,
                     w: nw,
                     ow: w,
@@ -61,7 +63,7 @@ function convertSynonym(ret, options) {
                      * JSON.stringify
                      * avoid TypeError: Converting circular structure to JSON
                      */
-                    _source: core_1.default({}, item),
+                    _source: (0, core_1.default)({}, item),
                 }, true);
                 a.push(item_new);
             }

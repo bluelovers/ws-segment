@@ -1,9 +1,11 @@
 'use strict';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.type = exports.init = exports.SingleTokenizer = void 0;
-const tslib_1 = require("tslib");
 const mod_1 = require("../mod");
-const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
+const uni_string_1 = __importDefault(require("uni-string"));
 /**
  * 单字切分模块
  * 此模組不包含模組列表內 需要手動指定

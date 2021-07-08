@@ -1,12 +1,33 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const tslib_1 = require("tslib");
 const worker_threads_1 = require("worker_threads");
 const lineByLine = require("n-readlines");
-const project_config_1 = tslib_1.__importDefault(require("../project.config"));
-const path = tslib_1.__importStar(require("upath2"));
+const project_config_1 = __importDefault(require("../project.config"));
+const path = __importStar(require("upath2"));
 const index_1 = require("@novel-segment/loaders/segment/index");
-const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
+const uni_string_1 = __importDefault(require("uni-string"));
 const util_1 = require("@novel-segment/util");
 const transliteration_1 = require("transliteration");
 const fs = require("fs-extra");
@@ -17,7 +38,7 @@ const array_hyper_unique_1 = require("array-hyper-unique");
 const loader_line_1 = require("@novel-segment/loader-line");
 const debug_color2_1 = require("debug-color2");
 const greedy_1 = require("cjk-conv/lib/zh/table/greedy");
-const table_1 = tslib_1.__importDefault(require("cjk-conv/lib/zh/table"));
+const table_1 = __importDefault(require("cjk-conv/lib/zh/table"));
 const diff_staged_1 = require("@git-lazy/diff-staged");
 const match_1 = require("@git-lazy/util/util/match");
 let CWD = path.join(project_config_1.default.temp_root);
@@ -28,7 +49,7 @@ var EnumC1;
     EnumC1["eng"] = "eng";
 })(EnumC1 || (EnumC1 = {}));
 const CWD_SAVETO = path.join(CWD, 'cache');
-if (0 && (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')) || !match_1.matchGlob(diff_staged_1.gitDiffStagedFile(CWD), [
+if (0 && (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')) || !(0, match_1.matchGlob)((0, diff_staged_1.gitDiffStagedFile)(CWD), [
     'cache.db.info.json'
 ]).length)) {
     process.exit();
@@ -102,7 +123,7 @@ if (worker_threads_1.isMainThread) {
             bool = false;
         }
         if (bool) {
-            let ls = fast_glob_1.sync([
+            let ls = (0, fast_glob_1.sync)([
                 '**/*.txt'
             ], {
                 cwd: CWD_SAVETO,
@@ -119,7 +140,7 @@ if (worker_threads_1.isMainThread) {
                 let list = [];
                 while (line = liner.next()) {
                     let s = line.toString();
-                    let data = index_1.parseLine(s);
+                    let data = (0, index_1.parseLine)(s);
                     let [w, p, f] = data;
                     let cur = {
                         // @ts-ignore
@@ -127,16 +148,16 @@ if (worker_threads_1.isMainThread) {
                         line: s,
                         index: index++,
                         c1: "other" /* other */,
-                        line_type: util_2.chkLineType(s),
-                        cjk_id: util_1.getCjkName(w),
+                        line_type: (0, util_2.chkLineType)(s),
+                        cjk_id: (0, util_1.getCjkName)(w),
                     };
                     list.push(cur);
                     a++;
                 }
                 list = SortList(list);
                 let out_list = list.map(v => v.line);
-                out_list = array_hyper_unique_1.array_unique(out_list);
-                let out_data = loader_line_1.serialize(out_list);
+                out_list = (0, array_hyper_unique_1.array_unique)(out_list);
+                let out_data = (0, loader_line_1.serialize)(out_list);
                 fs.outputFileSync(file, out_data + "\n\n");
                 fs.appendFileSync(file2, out_data + "\n");
                 log('[done]', path.relative(CWD_SAVETO, file));
@@ -174,7 +195,7 @@ else {
     while (line = liner.next()) {
         //console.log('Line ' + lineNumber + ': ' + line.toString('ascii'));
         let index = lineNumber++;
-        let data = index_1.parseLine(line.toString());
+        let data = (0, index_1.parseLine)(line.toString());
         let cur = {
             data,
             line,
@@ -226,10 +247,10 @@ function getCid(w) {
     if (/^[a-z0-9]$/i.test(w)) {
         return "eng" /* eng */;
     }
-    let s = util_1.getCjkName(w);
-    let r = transliteration_1.slugify(s);
+    let s = (0, util_1.getCjkName)(w);
+    let r = (0, transliteration_1.slugify)(s);
     if (!r) {
-        r = transliteration_1.slugify(greedy_1.greedyTableReplace(s));
+        r = (0, transliteration_1.slugify)((0, greedy_1.greedyTableReplace)(s));
     }
     if (!r) {
         let arr = table_1.default.auto(s, {
@@ -237,7 +258,7 @@ function getCid(w) {
             greedyTable: 2,
         });
         if (arr.length) {
-            r = transliteration_1.slugify(arr[1] || arr[0]);
+            r = (0, transliteration_1.slugify)(arr[1] || arr[0]);
         }
     }
     if (!r) {
@@ -246,23 +267,23 @@ function getCid(w) {
             greedyTable: 2,
         });
         if (arr.length) {
-            r = transliteration_1.slugify(arr[1] || arr[0]);
+            r = (0, transliteration_1.slugify)(arr[1] || arr[0]);
         }
     }
     if (!r) {
-        r = transliteration_1.slugify(cjk_conv_1.cjk2zhs(s));
+        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zhs)(s));
     }
     if (!r) {
-        r = transliteration_1.slugify(cjk_conv_1.cjk2zht(s));
+        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zht)(s));
     }
     if (!r) {
-        r = transliteration_1.slugify(cjk_conv_1.cjk2zhs(w));
+        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zhs)(w));
     }
     if (!r) {
-        r = transliteration_1.slugify(cjk_conv_1.cjk2zht(w));
+        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zht)(w));
     }
     if (!r) {
-        r = transliteration_1.slugify(w);
+        r = (0, transliteration_1.slugify)(w);
     }
     if (!r) {
         r = w;
@@ -284,7 +305,7 @@ function SortList(ls) {
             || b.line_type == util_2.EnumLineType.COMMENT) {
             return (a.index - b.index);
         }
-        let ret = util_1.zhDictCompare(a.cjk_id, b.cjk_id)
+        let ret = (0, util_1.zhDictCompare)(a.cjk_id, b.cjk_id)
             || (a.index - b.index)
             || 0;
         return ret;

@@ -7,8 +7,8 @@ exports.LoaderClass = void 0;
 const tslib_1 = require("tslib");
 const crlf_normalize_1 = require("crlf-normalize");
 const line_1 = require("@novel-segment/stream-loader-core/line");
-const stream_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/stream"));
-const sync_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/sync"));
+const stream_1 = (0, tslib_1.__importDefault)(require("@novel-segment/stream-loader-core/stream"));
+const sync_1 = (0, tslib_1.__importDefault)(require("@novel-segment/stream-loader-core/sync"));
 const core_decorators_1 = require("core-decorators");
 let LoaderClass = class LoaderClass {
     constructor(options = {}, ...argv) {
@@ -45,7 +45,7 @@ let LoaderClass = class LoaderClass {
         return input;
     }
     load(file, options = {}) {
-        return line_1.wrapStreamToPromise(this.loadStream(file, options))
+        return (0, line_1.wrapStreamToPromise)(this.loadStream(file, options))
             .then(function (stream) {
             return stream.value;
         });
@@ -88,9 +88,9 @@ let LoaderClass = class LoaderClass {
         return stream;
     }
 };
-LoaderClass = tslib_1.__decorate([
+LoaderClass = (0, tslib_1.__decorate)([
     core_decorators_1.autobind,
-    tslib_1.__metadata("design:paramtypes", [Object, Object])
+    (0, tslib_1.__metadata)("design:paramtypes", [Object, Object])
 ], LoaderClass);
 exports.LoaderClass = LoaderClass;
 exports.default = LoaderClass;

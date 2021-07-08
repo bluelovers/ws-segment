@@ -2,19 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processText = exports.fileSegment = exports.textSegment = exports.stringify = exports.enableDebug = void 0;
 const tslib_1 = require("tslib");
-const crlf_normalize_1 = tslib_1.__importDefault(require("crlf-normalize"));
-const novel_segment_1 = tslib_1.__importStar(require("novel-segment"));
+const crlf_normalize_1 = (0, tslib_1.__importDefault)(require("crlf-normalize"));
+const novel_segment_1 = (0, tslib_1.__importStar)(require("novel-segment"));
 Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return novel_segment_1.stringify; } });
-const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
-const fs_iconv_1 = tslib_1.__importDefault(require("fs-iconv"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
+const fs_iconv_1 = (0, tslib_1.__importDefault)(require("fs-iconv"));
 const lib_1 = require("novel-segment/lib");
 // @ts-ignore
 const cache_1 = require("./lib/cache");
 const util_1 = require("./lib/util");
 Object.defineProperty(exports, "enableDebug", { enumerable: true, get: function () { return util_1.enableDebug; } });
-const package_json_1 = tslib_1.__importDefault(require("./package.json"));
+const package_json_1 = (0, tslib_1.__importDefault)(require("./package.json"));
 const util_2 = require("novel-segment/lib/util");
-const iconv_jschardet_1 = tslib_1.__importDefault(require("iconv-jschardet"));
+const iconv_jschardet_1 = (0, tslib_1.__importDefault)(require("iconv-jschardet"));
 const min_1 = require("cjk-conv/lib/zh/convert/min");
 const dict_1 = require("novel-segment/lib/defaults/dict");
 const lodash_1 = require("lodash");
@@ -32,7 +32,7 @@ function textSegment(text, options) {
         return segment.doSegment(text);
     })
         .tap(function (data) {
-        return util_2.debug_token(data);
+        return (0, util_2.debug_token)(data);
     });
 }
 exports.textSegment = textSegment;
@@ -49,21 +49,21 @@ function processText(text, options) {
     }
     return textSegment(text, options)
         .then(function (data) {
-        let text = novel_segment_1.stringify(data);
+        let text = (0, novel_segment_1.stringify)(data);
         if (options) {
             if (options.crlf) {
                 if (typeof options.crlf === 'string') {
-                    text = crlf_normalize_1.default(text, options.crlf);
+                    text = (0, crlf_normalize_1.default)(text, options.crlf);
                 }
                 else {
-                    text = crlf_normalize_1.default(text);
+                    text = (0, crlf_normalize_1.default)(text);
                 }
             }
             if (options.convertToZhTw) {
-                text = min_1.cn2tw_min(text);
+                text = (0, min_1.cn2tw_min)(text);
             }
         }
-        util_1.freeGC();
+        (0, util_1.freeGC)();
         return text;
     });
 }
@@ -188,7 +188,7 @@ function getSegment(options) {
             if (typeof _do_init == 'undefined' && cache_db) {
                 if (cache_db.DICT) {
                     util_1.debugConsole.debug(`載入緩存字典`);
-                    lib_1.useDefault(CACHED_SEGMENT, {
+                    (0, lib_1.useDefault)(CACHED_SEGMENT, {
                         ...optionsSegment,
                         nodict: true,
                         all_mod: true,
@@ -205,8 +205,8 @@ function getSegment(options) {
                 _do_init = true;
             }
             else {
-                dict_1.useDefaultBlacklistDict(CACHED_SEGMENT, optionsSegment);
-                dict_1.useDefaultSynonymDict(CACHED_SEGMENT, optionsSegment);
+                (0, dict_1.useDefaultBlacklistDict)(CACHED_SEGMENT, optionsSegment);
+                (0, dict_1.useDefaultSynonymDict)(CACHED_SEGMENT, optionsSegment);
                 CACHED_SEGMENT.doBlacklist();
             }
             let db_dict = CACHED_SEGMENT.getDictDatabase('TABLE', true);
@@ -236,7 +236,7 @@ function getSegment(options) {
                 });
                 util_1.debugConsole.debug(`緩存字典於 ${options.USER_DB_KEY}`, CACHED_CACACHE.cachePath);
             }
-            util_1.freeGC();
+            (0, util_1.freeGC)();
         }
         return CACHED_SEGMENT;
     });
@@ -293,14 +293,14 @@ function loadCacheDb(options) {
 exports.loadCacheDb = loadCacheDb;
 function removeCache(options) {
     let opts = fixOptions(options);
-    return bluebird_1.default.all(array_hyper_unique_1.array_unique([
+    return bluebird_1.default.all((0, array_hyper_unique_1.array_unique)([
         opts,
-        lodash_1.merge({}, opts, {
+        (0, lodash_1.merge)({}, opts, {
             optionsSegment: {
                 nodeNovelMode: true,
             }
         }),
-        lodash_1.merge({}, opts, {
+        (0, lodash_1.merge)({}, opts, {
             optionsSegment: {
                 nodeNovelMode: false,
             }

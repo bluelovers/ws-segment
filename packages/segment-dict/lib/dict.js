@@ -7,7 +7,7 @@ exports.getDictPath = void 0;
 const __1 = require("../");
 const path_1 = require("path");
 function getDictPath(id, file, ...argv) {
-    return path_1.join(__1.DICT_ROOT, ...[id, file].concat(argv));
+    return (0, path_1.join)(__1.DICT_ROOT, ...[id, file].concat(argv));
 }
 exports.getDictPath = getDictPath;
 exports.default = getDictPath;

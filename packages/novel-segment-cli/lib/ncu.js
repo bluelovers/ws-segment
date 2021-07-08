@@ -2,17 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readPackageJson = exports.findPackagePath = exports.checkUpdate = exports.checkUpdateSelf = exports.notNpxMaybe = void 0;
 const tslib_1 = require("tslib");
-const path_1 = tslib_1.__importDefault(require("path"));
-const pkg_up_1 = tslib_1.__importDefault(require("pkg-up"));
-const fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
+const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const pkg_up_1 = (0, tslib_1.__importDefault)(require("pkg-up"));
+const fs_extra_1 = (0, tslib_1.__importDefault)(require("fs-extra"));
 const update_notifier_1 = require("@yarn-tool/update-notifier");
 Object.defineProperty(exports, "notNpxMaybe", { enumerable: true, get: function () { return update_notifier_1.notNpxMaybe; } });
 function checkUpdateSelf() {
-    return update_notifier_1.updateNotifier(path_1.default.join(__dirname, '..'));
+    return (0, update_notifier_1.updateNotifier)(path_1.default.join(__dirname, '..'));
 }
 exports.checkUpdateSelf = checkUpdateSelf;
 function checkUpdate(name) {
-    return update_notifier_1.updateNotifier(findPackagePath(name));
+    return (0, update_notifier_1.updateNotifier)(findPackagePath(name));
 }
 exports.checkUpdate = checkUpdate;
 function findPackagePath(name) {

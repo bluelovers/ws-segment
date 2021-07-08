@@ -16,7 +16,7 @@ function createLoadStream(file, options = {}) {
         // @ts-ignore
         this.value.push(data);
     };
-    let stream = line_1.createStreamLine(file, options.mapper, {
+    let stream = (0, line_1.createStreamLine)(file, options.mapper, {
         onready: options.onready,
         ondata: options.ondata,
         onclose() {

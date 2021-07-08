@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPOSTagTranslator = void 0;
 const tslib_1 = require("tslib");
-const ids_1 = tslib_1.__importDefault(require("../postag/ids"));
-const keys_1 = tslib_1.__importDefault(require("../keys"));
+const ids_1 = (0, tslib_1.__importDefault)(require("../postag/ids"));
+const keys_1 = (0, tslib_1.__importDefault)(require("../keys"));
 const enum_1 = require("./enum");
 function getPOSTagTranslator(POSTagDict, I18NDict) {
     return (p) => {
-        if (enum_1.enumIsNaN(p)) {
+        if ((0, enum_1.enumIsNaN)(p)) {
             return I18NDict[p] || I18NDict.UNK;
         }
         if (typeof p === 'string') {

@@ -4,19 +4,21 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 'use strict';
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Segment = void 0;
-const tslib_1 = require("tslib");
-const path_1 = tslib_1.__importDefault(require("path"));
+const path_1 = __importDefault(require("path"));
 const get_1 = require("./fs/get");
-const blacklist_1 = tslib_1.__importDefault(require("./table/blacklist"));
+const blacklist_1 = __importDefault(require("./table/blacklist"));
 const dict_1 = require("./table/dict");
-const loader_1 = tslib_1.__importDefault(require("./loader"));
+const loader_1 = __importDefault(require("./loader"));
 const stopword_1 = require("./table/stopword");
-const synonym_1 = tslib_1.__importDefault(require("./table/synonym"));
-const segment_dict_1 = tslib_1.__importDefault(require("segment-dict"));
-const project_config_1 = tslib_1.__importDefault(require("../project.config"));
-const core_1 = tslib_1.__importDefault(require("./segment/core"));
+const synonym_1 = __importDefault(require("./table/synonym"));
+const segment_dict_1 = __importDefault(require("segment-dict"));
+const project_config_1 = __importDefault(require("../project.config"));
+const core_1 = __importDefault(require("./segment/core"));
 const defaults_1 = require("./segment/defaults");
 const index_1 = require("./defaults/index");
 const useModules2_1 = require("./segment/methods/useModules2");
@@ -45,7 +47,7 @@ class Segment extends core_1.default {
         return this.db[type];
     }
     use(mod, ...argv) {
-        useModules2_1.useModules(this, mod, ...argv);
+        (0, useModules2_1.useModules)(this, mod, ...argv);
         this.inited = true;
         return this;
     }
@@ -66,13 +68,13 @@ class Segment extends core_1.default {
             onlyFile: true,
         };
         if (name.indexOf('*') !== -1) {
-            let ls = get_1.searchGlobSync(name, options);
+            let ls = (0, get_1.searchGlobSync)(name, options);
             if (!(ls === null || ls === void 0 ? void 0 : ls.length)) {
                 throw Error(`Cannot find dict glob file "${name}".`);
             }
             return ls;
         }
-        let filename = get_1.searchFirstSync(name, options);
+        let filename = (0, get_1.searchFirstSync)(name, options);
         if (!(filename === null || filename === void 0 ? void 0 : filename.length)) {
             //console.log(name, pathPlus, extPlus);
             throw Error(`Cannot find dict file "${name}".`);
@@ -246,7 +248,7 @@ class Segment extends core_1.default {
         return this;
     }
     useDefault(...argv) {
-        index_1.useDefault(this, ...argv);
+        (0, index_1.useDefault)(this, ...argv);
         this.inited = true;
         return this;
     }

@@ -38,7 +38,7 @@ function createLoadStreamSync(file, options = {}) {
 exports.createLoadStreamSync = createLoadStreamSync;
 function createStreamLineSync(file, fn, options) {
     return createReadStreamSync(file)
-        .pipe(line_1.byLine(fn, options));
+        .pipe((0, line_1.byLine)(fn, options));
 }
 exports.createStreamLineSync = createStreamLineSync;
 function createReadStreamSync(file) {
@@ -60,9 +60,9 @@ class ReadableSync extends stream_1.Readable {
         }
         else {
             if (typeof file == 'string') {
-                this.path = path_1.resolve(file);
+                this.path = (0, path_1.resolve)(file);
             }
-            this.fd = fs_1.openSync(this.path, this.flags);
+            this.fd = (0, fs_1.openSync)(this.path, this.flags);
         }
         this.pause();
     }
@@ -83,7 +83,7 @@ class ReadableSync extends stream_1.Readable {
     __read(size) {
         //let readBuffer = new Buffer(this.options.readChunk);
         let readBuffer = Buffer.alloc(this.options.readChunk);
-        let bytesRead = fs_1.readSync(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
+        let bytesRead = (0, fs_1.readSync)(this.fd, readBuffer, 0, this.options.readChunk, this.bytesRead);
         if (bytesRead === 0) {
             this.fdEnd = true;
             return null;

@@ -94,8 +94,8 @@ var ENUM_SUBMODS_OTHER;
 exports.LIST_SUBMODS_NOT_DEF = [
     ENUM_SUBMODS.ZhtSynonymOptimizer,
 ];
-exports.SUBMODS_LIST = ts_enum_util_1.$enum(ENUM_SUBMODS);
-exports.SUBMODS_OTHER_LIST = ts_enum_util_1.$enum(ENUM_SUBMODS_OTHER);
+exports.SUBMODS_LIST = (0, ts_enum_util_1.$enum)(ENUM_SUBMODS);
+exports.SUBMODS_OTHER_LIST = (0, ts_enum_util_1.$enum)(ENUM_SUBMODS_OTHER);
 /**
  * 取得列表並且保持 ENUM 順序
  * @param {boolean} all

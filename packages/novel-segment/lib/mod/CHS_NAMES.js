@@ -107,7 +107,7 @@ var _CHS_NAMES;
         '濟',
     ];
     function p(a, n) {
-        let data = cjk_1.arr_cjk(a)
+        let data = (0, cjk_1.arr_cjk)(a)
             .reduce(function (data, v) {
             data[v] = n;
             return data;

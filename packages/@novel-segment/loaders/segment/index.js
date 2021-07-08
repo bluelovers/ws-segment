@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Loader = exports.serialize = exports.stringifyLine = exports.parseLine = exports.loadStreamSync = exports.loadStream = exports.loadSync = exports.load = void 0;
 const tslib_1 = require("tslib");
-const dict_loader_core_1 = tslib_1.__importDefault(require("@novel-segment/dict-loader-core"));
+const dict_loader_core_1 = (0, tslib_1.__importDefault)(require("@novel-segment/dict-loader-core"));
 const libLoader = new dict_loader_core_1.default({
     parseLine(input) {
         let [str, n, s, ...plus] = input

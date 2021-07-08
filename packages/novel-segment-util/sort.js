@@ -2,16 +2,16 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = void 0;
 const tslib_1 = require("tslib");
-const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
+const string_natural_compare_1 = (0, tslib_1.__importDefault)(require("@bluelovers/string-natural-compare"));
 const array_hyper_unique_1 = require("array-hyper-unique");
-const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
+const uni_string_1 = (0, tslib_1.__importDefault)(require("uni-string"));
 const cjk_conv_1 = require("regexp-helper/lib/cjk-conv");
 /**
  * @private
  */
 exports._zhDictCompareTable = ((a, b) => {
-    return array_hyper_unique_1.array_unique(a.map((value, index, array) => {
-        return array_hyper_unique_1.array_unique(value.reduce(function (c, d, currentIndex) {
+    return (0, array_hyper_unique_1.array_unique)(a.map((value, index, array) => {
+        return (0, array_hyper_unique_1.array_unique)(value.reduce(function (c, d, currentIndex) {
             c.push(d);
             c.push(b[index][currentIndex]);
             return c;
@@ -48,9 +48,9 @@ exports._zhDictCompareTable = ((a, b) => {
     ['壹', '贰', '参', '肆', '伍', '陆', '柒', '捌', '玖', '拾', '什'],
     ['劣', '优'],
 ]);
-exports._zhDictCompareTable_chars = array_hyper_unique_1.array_unique(exports._zhDictCompareTable.flat());
+exports._zhDictCompareTable_chars = (0, array_hyper_unique_1.array_unique)(exports._zhDictCompareTable.flat());
 //export const RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
-exports.RE_ZH = cjk_conv_1._re_cjk_conv('u', 'のと㊥㊦㊤');
+exports.RE_ZH = (0, cjk_conv_1._re_cjk_conv)('u', 'のと㊥㊦㊤');
 function zhDictCompareNew(options) {
     if (typeof options === 'function') {
         options = { failback: options };
@@ -61,7 +61,7 @@ function zhDictCompareNew(options) {
             failback = string_natural_compare_1.default.caseInsensitive;
         }
         else {
-            failback = (a, b) => string_natural_compare_1.default(a, b, {
+            failback = (a, b) => (0, string_natural_compare_1.default)(a, b, {
                 caseInsensitive: true
             });
         }

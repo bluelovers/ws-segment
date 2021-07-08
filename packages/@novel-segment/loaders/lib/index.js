@@ -7,17 +7,17 @@ function requireDefault(id, subtype) {
 }
 exports.requireDefault = requireDefault;
 function requireModule(id, subtype) {
-    if (id === 'line' && types_1.isUndefined(subtype))
+    if (id === 'line' && (0, types_1.isUndefined)(subtype))
         return require('../line');
-    if (id === 'stopword' && types_1.isUndefined(subtype))
+    if (id === 'stopword' && (0, types_1.isUndefined)(subtype))
         return require('../stopword');
-    if (id === 'jieba' && types_1.isUndefined(subtype))
+    if (id === 'jieba' && (0, types_1.isUndefined)(subtype))
         return require('../jieba');
-    if (id === 'opencc' && types_1.isUndefined(subtype))
+    if (id === 'opencc' && (0, types_1.isUndefined)(subtype))
         return require('../opencc');
     if (id === 'opencc' && subtype === 'scheme')
         return require('../opencc/scheme');
-    if (id === 'segment' && types_1.isUndefined(subtype))
+    if (id === 'segment' && (0, types_1.isUndefined)(subtype))
         return require('../segment');
     if (id === 'segment' && subtype === 'synonym')
         return require('../segment/synonym');

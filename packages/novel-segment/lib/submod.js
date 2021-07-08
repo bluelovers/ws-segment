@@ -1,39 +1,57 @@
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ZhuyinTokenizer = exports.ZhtSynonymOptimizer = exports.ZhRadicalTokenizer = exports.WildcardTokenizer = exports.URLTokenizer = exports.SingleTokenizer = exports.PunctuationTokenizer = exports.JpSimpleTokenizer = exports.ForeignTokenizer = exports.ForeignOptimizer = exports.EmailOptimizer = exports.DictTokenizer = exports.DictOptimizer = exports.DatetimeOptimizer = exports.ChsNameTokenizer = exports.ChsNameOptimizer = exports.AdjectiveOptimizer = void 0;
-const tslib_1 = require("tslib");
-const AdjectiveOptimizer = tslib_1.__importStar(require("./submod/AdjectiveOptimizer"));
+const AdjectiveOptimizer = __importStar(require("./submod/AdjectiveOptimizer"));
 exports.AdjectiveOptimizer = AdjectiveOptimizer;
-const ChsNameOptimizer = tslib_1.__importStar(require("./submod/ChsNameOptimizer"));
+const ChsNameOptimizer = __importStar(require("./submod/ChsNameOptimizer"));
 exports.ChsNameOptimizer = ChsNameOptimizer;
-const ChsNameTokenizer = tslib_1.__importStar(require("./submod/ChsNameTokenizer"));
+const ChsNameTokenizer = __importStar(require("./submod/ChsNameTokenizer"));
 exports.ChsNameTokenizer = ChsNameTokenizer;
-const DatetimeOptimizer = tslib_1.__importStar(require("./submod/DatetimeOptimizer"));
+const DatetimeOptimizer = __importStar(require("./submod/DatetimeOptimizer"));
 exports.DatetimeOptimizer = DatetimeOptimizer;
-const DictOptimizer = tslib_1.__importStar(require("./submod/DictOptimizer"));
+const DictOptimizer = __importStar(require("./submod/DictOptimizer"));
 exports.DictOptimizer = DictOptimizer;
-const DictTokenizer = tslib_1.__importStar(require("./submod/DictTokenizer"));
+const DictTokenizer = __importStar(require("./submod/DictTokenizer"));
 exports.DictTokenizer = DictTokenizer;
-const EmailOptimizer = tslib_1.__importStar(require("./submod/EmailOptimizer"));
+const EmailOptimizer = __importStar(require("./submod/EmailOptimizer"));
 exports.EmailOptimizer = EmailOptimizer;
-const ForeignOptimizer = tslib_1.__importStar(require("./submod/ForeignOptimizer"));
+const ForeignOptimizer = __importStar(require("./submod/ForeignOptimizer"));
 exports.ForeignOptimizer = ForeignOptimizer;
-const ForeignTokenizer = tslib_1.__importStar(require("./submod/ForeignTokenizer"));
+const ForeignTokenizer = __importStar(require("./submod/ForeignTokenizer"));
 exports.ForeignTokenizer = ForeignTokenizer;
-const JpSimpleTokenizer = tslib_1.__importStar(require("./submod/JpSimpleTokenizer"));
+const JpSimpleTokenizer = __importStar(require("./submod/JpSimpleTokenizer"));
 exports.JpSimpleTokenizer = JpSimpleTokenizer;
-const PunctuationTokenizer = tslib_1.__importStar(require("./submod/PunctuationTokenizer"));
+const PunctuationTokenizer = __importStar(require("./submod/PunctuationTokenizer"));
 exports.PunctuationTokenizer = PunctuationTokenizer;
-const SingleTokenizer = tslib_1.__importStar(require("./submod/SingleTokenizer"));
+const SingleTokenizer = __importStar(require("./submod/SingleTokenizer"));
 exports.SingleTokenizer = SingleTokenizer;
-const URLTokenizer = tslib_1.__importStar(require("./submod/URLTokenizer"));
+const URLTokenizer = __importStar(require("./submod/URLTokenizer"));
 exports.URLTokenizer = URLTokenizer;
-const WildcardTokenizer = tslib_1.__importStar(require("./submod/WildcardTokenizer"));
+const WildcardTokenizer = __importStar(require("./submod/WildcardTokenizer"));
 exports.WildcardTokenizer = WildcardTokenizer;
-const ZhRadicalTokenizer = tslib_1.__importStar(require("./submod/ZhRadicalTokenizer"));
+const ZhRadicalTokenizer = __importStar(require("./submod/ZhRadicalTokenizer"));
 exports.ZhRadicalTokenizer = ZhRadicalTokenizer;
-const ZhtSynonymOptimizer = tslib_1.__importStar(require("./submod/ZhtSynonymOptimizer"));
+const ZhtSynonymOptimizer = __importStar(require("./submod/ZhtSynonymOptimizer"));
 exports.ZhtSynonymOptimizer = ZhtSynonymOptimizer;
-const ZhuyinTokenizer = tslib_1.__importStar(require("./submod/ZhuyinTokenizer"));
+const ZhuyinTokenizer = __importStar(require("./submod/ZhuyinTokenizer"));
 exports.ZhuyinTokenizer = ZhuyinTokenizer;
 //# sourceMappingURL=submod.js.map

@@ -6,9 +6,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.wrapStreamToPromise = exports.readFileLine = exports.createStreamLine = exports.byLine = void 0;
 const tslib_1 = require("tslib");
 const fs_1 = require("fs");
-const split2_1 = tslib_1.__importDefault(require("split2"));
+const split2_1 = (0, tslib_1.__importDefault)(require("split2"));
 const path_1 = require("path");
-const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
+const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
 const stream_pipe_1 = require("stream-pipe");
 function byLine(fn, options = {}) {
     if (typeof fn == 'object') {
@@ -16,7 +16,7 @@ function byLine(fn, options = {}) {
     }
     fn = fn || options.mapper;
     // @ts-ignore
-    let wts = split2_1.default(fn);
+    let wts = (0, split2_1.default)(fn);
     wts.on('pipe', function (src) {
         // @ts-ignore
         const self = this;
@@ -27,15 +27,15 @@ function byLine(fn, options = {}) {
             self.bytesSize = src.bytesTotal;
         }
         else if (src.fd) {
-            pipeStat = fs_1.fstatSync(src.fd);
+            pipeStat = (0, fs_1.fstatSync)(src.fd);
             self.bytesSize = pipeStat.size;
         }
         else if (src.path) {
             let p = src.path;
-            if (src.cwd && !path_1.isAbsolute(src.path)) {
-                p = path_1.resolve(src.cwd, src.path);
+            if (src.cwd && !(0, path_1.isAbsolute)(src.path)) {
+                p = (0, path_1.resolve)(src.cwd, src.path);
             }
-            pipeStat = fs_1.statSync(p);
+            pipeStat = (0, fs_1.statSync)(p);
             self.bytesSize = pipeStat.size;
         }
         else {
@@ -61,7 +61,7 @@ function byLine(fn, options = {}) {
 }
 exports.byLine = byLine;
 function createStreamLine(file, fn, options) {
-    return stream_pipe_1.createReadStream(file)
+    return (0, stream_pipe_1.createReadStream)(file)
         .pipe(byLine(fn, options));
 }
 exports.createStreamLine = createStreamLine;

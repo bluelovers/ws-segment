@@ -248,7 +248,7 @@ class ForeignTokenizer extends mod_1.SubSModuleTokenizer {
         let nw = this.createToken(word, true, attr);
         let ow = this._TABLE[nw.w];
         if (ow) {
-            debug_1.debugToken(nw, {
+            (0, debug_1.debugToken)(nw, {
                 _source: ow,
             });
             nw.p = nw.p | ow.p;

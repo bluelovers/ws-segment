@@ -5,7 +5,7 @@ const tslib_1 = require("tslib");
 const cache_path_1 = require("cache-path");
 const debug_color2_1 = require("debug-color2");
 exports.console = new debug_color2_1.Console();
-const package_json_1 = tslib_1.__importDefault(require("../package.json"));
+const package_json_1 = (0, tslib_1.__importDefault)(require("../package.json"));
 exports.console.inspectOptions = {
     colors: exports.console.enabledColor
 };
@@ -28,7 +28,7 @@ function enableDebug(bool) {
 }
 exports.enableDebug = enableDebug;
 function getCacheDirPath(useGlobal) {
-    return cache_path_1.getCachePath({
+    return (0, cache_path_1.getCachePath)({
         name: package_json_1.default.name,
         create: true,
         fnOrder: useGlobal ? [
