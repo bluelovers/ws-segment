@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.144](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.143...segment-dict@2.3.144) (2021-07-09)
+
+
+### 📦　Code Refactoring
+
+* **dict:** 魚|漁 ([1d1615d](https://github.com/bluelovers/ws-segment/commit/1d1615d9f67c5589a63cce90f0b4e495c1afc2c1))
+
+
+### 🛠　Build System
+
+* update .js ([91e3576](https://github.com/bluelovers/ws-segment/commit/91e35766208e6ebfefb8c866bd3ebc32c2230b3b))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([fa653c1](https://github.com/bluelovers/ws-segment/commit/fa653c1c9e2c31852cf3c19b79ff3f8e38e9c8b1))
+* **dict:** save dict before new version ([03a55de](https://github.com/bluelovers/ws-segment/commit/03a55de41b05970ee0662ddaea11fd682b096431))
+* **dict:** save dict before sort:all ([7ca6b82](https://github.com/bluelovers/ws-segment/commit/7ca6b829da703536ad986842c37b4c726e5fc188))
+* **dict:** save dict before split ([23a9473](https://github.com/bluelovers/ws-segment/commit/23a947314b762d2e4c0c1db85c1e0034dc0853a0))
+
+
+
+
+
 ## [2.3.143](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.142...segment-dict@2.3.143) (2021-07-08)
 
 
