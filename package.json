@@ -93,7 +93,7 @@
     "@lazy-cjk/zh-table-list": "^1.0.67",
     "@yarn-tool/find-deps": "^1.0.31",
     "@yarn-tool/ws-changed": "^1.0.40",
-    "array-hyper-unique": "^1.1.9",
+    "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
     "chai": "^4.3.4",
     "chai-asserttype-extra": "^1.2.3",

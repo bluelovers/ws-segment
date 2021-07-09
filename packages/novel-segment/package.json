@@ -103,7 +103,7 @@
     "@bluelovers/fast-glob": "^3.0.4",
     "@lazy-cjk/zh-table-list": "^1.0.67",
     "@novel-segment/postag": "^1.0.6",
-    "array-hyper-unique": "^1.1.9",
+    "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
     "cjk-conv": "^1.2.128",
     "core-decorators": "^0.20.0",

@@ -26,7 +26,7 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@yarn-tool/update-notifier": "^1.0.18",
-    "array-hyper-unique": "^1.1.9",
+    "array-hyper-unique": "^1.1.10",
     "bluebird": "^3.7.2",
     "cache-path": "^2.0.11",
     "crlf-normalize": "^1.0.6",
