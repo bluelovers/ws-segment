@@ -1206,6 +1206,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		]
 	],
 
+	[
+		'确认周围没有人影后，',
+		[
+			'後',
+		]
+	],
+
 ];
 
 /**

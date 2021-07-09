@@ -5271,6 +5271,27 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'，我从嘴巴屄里抽出阴茎，',
+		[
+			'裡',
+		]
+	],
+
+	[
+		'。有好几个家伙想干同样的事，',
+		[
+			'幹',
+		]
+	],
+
+	[
+		'，我正在开发小茜茜的屁股。',
+		[
+			'發',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
