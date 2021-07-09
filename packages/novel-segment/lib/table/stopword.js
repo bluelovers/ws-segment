@@ -1,10 +1,8 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDictStopword = void 0;
-const line_1 = __importDefault(require("./line"));
+const tslib_1 = require("tslib");
+const line_1 = (0, tslib_1.__importDefault)(require("./line"));
 /**
  * 原版 node-segment 的格式
  */
