@@ -5320,6 +5320,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'由同樣是〈統率百鬼之人〉的名叫基里古古的鱷魚獸人接下了。',
+		[
+			'里',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
