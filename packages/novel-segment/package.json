@@ -115,7 +115,7 @@
     "sort-object-keys2": "^2.0.3",
     "str-util": "^2.3.27",
     "ts-enum-util": "4.0.2",
-    "ts-type": "^1.2.35",
+    "ts-type": "^1.2.39",
     "tslib": "^2.3.0",
     "uni-string": "^1.1.11"
   },
