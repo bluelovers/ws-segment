@@ -124,6 +124,13 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		]
 	],
 
+	[
+		'「——另外在接受安乐死的时候有几项注意事项首先如果客人是外籍人士的话就需要成为我国居民这是为了防止在设籍在外国的人士接受安乐死的情况下被当作是杀人而起诉我国的安乐死终究只适用于我国居民所以若是不同意入籍的话就不能对其执行安乐死还有安乐死需要经过几个程序——」',
+		[
+			['杀人'],
+		],
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [

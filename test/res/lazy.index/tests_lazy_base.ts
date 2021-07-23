@@ -569,6 +569,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'接受安乐死的情况下被当作是杀人而起诉',
+		[
+			['杀人'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
