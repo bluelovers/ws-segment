@@ -848,6 +848,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'所以作为无痛苦中止生命的方法安乐死这一手段开始被不为人知地使用',
+		[
+			'一手',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
