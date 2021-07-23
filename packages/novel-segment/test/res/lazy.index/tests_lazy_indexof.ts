@@ -5327,6 +5327,27 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'「那么就平分吧，干食你需要吗」',
+		[
+			'乾',
+		]
+	],
+
+	[
+		'给她来发净化看看，好像醒了。',
+		[
+			'發',
+		]
+	],
+
+	[
+		'那个女孩的黑色长发散发着光泽，',
+		[
+			'髮',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof

@@ -855,6 +855,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'「虽然不吃，但拿去出售看看有没有人需要」',
+		[
+			'有',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
