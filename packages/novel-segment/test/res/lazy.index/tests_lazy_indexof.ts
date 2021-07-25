@@ -5348,6 +5348,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		'，爆炸余波的冲击似乎相当强烈，',
+		[
+			'餘',
+		]
+	],
+
+	[
+		'，大爆炸的余波，',
+		[
+			'餘',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
