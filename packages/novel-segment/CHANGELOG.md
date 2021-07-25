@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.68](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.67...novel-segment@2.7.68) (2021-07-25)
+
+
+### ♻️　Chores
+
+* save repo before new version ([e067e55](https://github.com/bluelovers/ws-segment/commit/e067e55522876511656ba161dd892ccf7a36eb5c))
+
+
+
+
+
 ## [2.7.67](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.66...novel-segment@2.7.67) (2021-07-25)
 
 
