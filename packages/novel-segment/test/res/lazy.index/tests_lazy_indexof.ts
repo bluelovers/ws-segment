@@ -5362,6 +5362,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		]
 	],
 
+	[
+		' 「我这绝不是掉发！我这是剃掉的！」',
+		[
+			'髮',
+		]
+	],
+
+	[
+		'，却仍有余力。',
+		[
+			'餘',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof
