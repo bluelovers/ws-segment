@@ -255,6 +255,16 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 
 						bool = true;
 					}
+
+					if (!bool && w1.w === '发' && w0?.p & POSTAG.D_R && w2?.p & POSTAG.D_R)
+					{
+						// ,進來之前有人发這個給我們,
+						w1.ow = w1.w;
+						w1.w = '發';
+
+						bool = true;
+					}
+
 				}
 				else if (w1.w === '于')
 				{

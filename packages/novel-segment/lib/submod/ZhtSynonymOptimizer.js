@@ -168,6 +168,12 @@ class ZhtSynonymOptimizer extends mod_1.SubSModuleOptimizer {
                         w1.w = '發';
                         bool = true;
                     }
+                    if (!bool && w1.w === '发' && (w0 === null || w0 === void 0 ? void 0 : w0.p) & POSTAG.D_R && (w2 === null || w2 === void 0 ? void 0 : w2.p) & POSTAG.D_R) {
+                        // ,進來之前有人发這個給我們,
+                        w1.ow = w1.w;
+                        w1.w = '發';
+                        bool = true;
+                    }
                 }
                 else if (w1.w === '于') {
                     if (((0, isUnset_1.default)(w0) || w0.p & POSTAG.D_W) && ((w2 === null || w2 === void 0 ? void 0 : w2.p) && (w2.p & POSTAG.D_N
