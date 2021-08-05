@@ -265,6 +265,15 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 
+					if (!bool && w1.w === '发' && (w2?.w === '那麼' || w2?.w === '那么'))
+					{
+						// 啊啦,发那麼大火,
+						w1.ow = w1.w;
+						w1.w = '發';
+
+						bool = true;
+					}
+
 				}
 				else if (w1.w === '于')
 				{
