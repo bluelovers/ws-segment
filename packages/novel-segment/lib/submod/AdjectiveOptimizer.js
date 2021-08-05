@@ -35,6 +35,13 @@ class AdjectiveOptimizer extends mod_1.SubSModuleOptimizer {
                         [this.name]: true,
                     });
                 }
+                if ((word.w === '純' || word.w === '纯') && COLORS_1.COLOR_HAIR[nextword.w]) {
+                    word.op = word.op || word.p;
+                    word.p |= POSTAG.D_A;
+                    this.debugToken(word, {
+                        [this.name]: true,
+                    });
+                }
             }
             // 移到下一个单词
             index += 1;
