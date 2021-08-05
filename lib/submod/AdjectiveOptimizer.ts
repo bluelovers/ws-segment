@@ -1,7 +1,7 @@
 import { SubSModule, SubSModuleOptimizer } from '../mod';
 import Segment, { IWord } from '../Segment';
 
-import { COLOR_ALL } from '../mod/COLORS';
+import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 import { IWordDebug } from '../util';
 
 /**
@@ -38,6 +38,16 @@ export class AdjectiveOptimizer extends SubSModuleOptimizer
 					word.op = word.op || word.p;
 					word.p |= POSTAG.D_A;
 					word.p |= POSTAG.D_N;
+
+					this.debugToken(word, {
+						[this.name]: true,
+					});
+				}
+
+				if ((word.w === '純' || word.w === '纯') && COLOR_HAIR[nextword.w])
+				{
+					word.op = word.op || word.p;
+					word.p |= POSTAG.D_A;
 
 					this.debugToken(word, {
 						[this.name]: true,
