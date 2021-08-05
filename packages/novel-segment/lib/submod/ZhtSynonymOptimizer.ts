@@ -436,6 +436,27 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
+				else if (w1.w === '余')
+				{
+					if (w2.w === '力' && words[i + 2]?.p & POSTAG.D_W)
+					{
+						let nw = w1.w + w2.w;
+						let ow = this._TABLE[nw];
+
+						this.sliceToken<any, any>(words, i, 2, {
+							w: nw,
+							p: ow.p ?? 0x101000,
+							f: ow.f,
+							m: [w1, w2],
+						}, undefined, {
+							[this.name]: true,
+						});
+
+						bool = true;
+
+						continue;
+					}
+				}
 			}
 			else if (w1_len > 1)
 			{
