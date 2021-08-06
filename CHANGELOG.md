@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.151](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.150...segment-dict@2.3.151) (2021-08-06)
+
+
+### 🚨　Tests
+
+* **jest:** update jest.config.js ([5bf1892](https://github.com/bluelovers/ws-segment/commit/5bf18924f0434d1c12e3e095c67ba7b935e094e5))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([2c0c98c](https://github.com/bluelovers/ws-segment/commit/2c0c98c69bc18c8298b9bac8e43bbcf42ed9d772))
+* **dict:** save dict before sort:all ([1ed234f](https://github.com/bluelovers/ws-segment/commit/1ed234f614fe7cb69e5b26c9fb6c1c10da2ebed7))
+
+
+
+
+
 ## [2.3.150](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.149...segment-dict@2.3.150) (2021-07-25)
 
 
