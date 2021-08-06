@@ -3,6 +3,35 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.69](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.68...novel-segment@2.7.69) (2021-08-06)
+
+
+### 🐛　Bug Fixes
+
+* 啊啦,发那麼大火, ([993109d](https://github.com/bluelovers/ws-segment/commit/993109d3ab0c4d05de68c3d518a8461751daa77b))
+* ,進來之前有人发這個給我們, ([ffa066d](https://github.com/bluelovers/ws-segment/commit/ffa066d5513cdc8851d4275bd80e146a2d30c043))
+* 純 + 色 ([cad17e9](https://github.com/bluelovers/ws-segment/commit/cad17e9aab629d1159efc22a002f9e588f1a9a48))
+* 余 + 力 + 標點符號 ([174bf19](https://github.com/bluelovers/ws-segment/commit/174bf19ea8a5525e93f7eaff49791b2588475529))
+
+
+### 🚨　Tests
+
+* **jest:** update jest.config.js ([5bf1892](https://github.com/bluelovers/ws-segment/commit/5bf18924f0434d1c12e3e095c67ba7b935e094e5))
+
+
+### ♻️　Chores
+
+* save repo before new version ([8450394](https://github.com/bluelovers/ws-segment/commit/8450394ec2e25fb3aa4ff3c3c271658e3bbdc2df))
+
+
+### 🔖　Miscellaneous
+
+* . ([d06e8de](https://github.com/bluelovers/ws-segment/commit/d06e8de08bea3f1432591e3fd516518b87389210))
+
+
+
+
+
 ## [2.7.68](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.67...novel-segment@2.7.68) (2021-07-25)
 
 

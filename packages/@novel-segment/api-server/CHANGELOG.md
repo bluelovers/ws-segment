@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.38](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.36...@novel-segment/api-server@1.0.38) (2021-08-06)
+
+
+### 🔖　Miscellaneous
+
+* . ([60e8960](https://github.com/bluelovers/ws-segment/commit/60e89601d9594158b1786622e91da686616c2a63))
+* . ([d06e8de](https://github.com/bluelovers/ws-segment/commit/d06e8de08bea3f1432591e3fd516518b87389210))
+
+
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.35...@novel-segment/api-server@1.0.36) (2021-07-09)
 
 
