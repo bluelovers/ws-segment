@@ -109,7 +109,7 @@ export class ReadableSync extends Readable
 		this.pause();
 	}
 
-	_read(size: number): Buffer
+	override _read(size: number): Buffer
 	{
 		let buffers: Buffer[] = [];
 		let bytesRead: Buffer;
