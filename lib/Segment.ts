@@ -55,35 +55,35 @@ export class Segment extends SegmentCore
 
 	static defaultOptionsDoSegment: IOptionsDoSegment = defaultOptionsDoSegment;
 
-	getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM,
+	override getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDict>(type: EnumDictDatabase.TABLE,
+	override getDictDatabase<R extends TableDict>(type: EnumDictDatabase.TABLE,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDictStopword>(type: EnumDictDatabase.STOPWORD,
+	override getDictDatabase<R extends TableDictStopword>(type: EnumDictDatabase.STOPWORD,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST,
+	override getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER,
+	override getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_SYNONYM,
+	override getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_SYNONYM,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase,
+	override getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	getDictDatabase(type: string, autocreate?: boolean, libTableDict?)
+	override getDictDatabase(type: string, autocreate?: boolean, libTableDict?)
 	{
 		if ((autocreate || this.inited) && !this.db[type])
 		{
@@ -118,12 +118,12 @@ export class Segment extends SegmentCore
 	 * @param {String|Array|Object} module 模块名称(数组)或模块对象
 	 * @return {Segment}
 	 */
-	use(mod: ISubOptimizer, ...argv)
-	use(mod: ISubTokenizer, ...argv)
-	use(mod: Array<ISubTokenizer | ISubOptimizer | string>, ...argv)
-	use(mod: string, ...argv)
-	use(mod, ...argv)
-	use(mod, ...argv)
+	override use(mod: ISubOptimizer, ...argv)
+	override use(mod: ISubTokenizer, ...argv)
+	override use(mod: Array<ISubTokenizer | ISubOptimizer | string>, ...argv)
+	override use(mod: string, ...argv)
+	override use(mod, ...argv)
+	override use(mod, ...argv)
 	{
 		useModules(this, mod, ...argv);
 
@@ -450,7 +450,7 @@ export class Segment extends SegmentCore
 		return this;
 	}
 
-	addBlacklist(word: string, remove?: boolean)
+	override addBlacklist(word: string, remove?: boolean)
 	{
 		let me = this;
 
@@ -477,7 +477,7 @@ export class Segment extends SegmentCore
 	/**
 	 * remove key in TABLE by BLACKLIST
 	 */
-	doBlacklist()
+	override doBlacklist()
 	{
 		let me = this;
 
@@ -507,11 +507,11 @@ export class Segment extends SegmentCore
 	 *   - {Boolean} stripStopword 去除停止符
 	 * @return {Array}
 	 */
-	doSegment(text: string | Buffer, options: ITSOverwrite<IOptionsDoSegment, {
+	override doSegment(text: string | Buffer, options: ITSOverwrite<IOptionsDoSegment, {
 		simple: true,
 	}>): string[]
-	doSegment(text: string | Buffer, options?: IOptionsDoSegment): IWord[]
-	doSegment(text, options: IOptionsDoSegment = {})
+	override doSegment(text: string | Buffer, options?: IOptionsDoSegment): IWord[]
+	override doSegment(text, options: IOptionsDoSegment = {})
 	{
 		this.autoInit(this.options);
 

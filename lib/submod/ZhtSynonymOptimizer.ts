@@ -457,7 +457,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 				}
 				else if (w1.w === '余')
 				{
-					if (w2.w === '力' && words[i + 2]?.p & POSTAG.D_W)
+					if (w2?.w === '力' && words[i + 2]?.p & POSTAG.D_W)
 					{
 						let nw = w1.w + w2.w;
 						let ow = this._TABLE[nw];
