@@ -101,6 +101,20 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		]
 	],
 
+	[
+		'「維爾德拉流斗殺法」',
+		[
+			'斗',
+		]
+	],
+
+	[
+		'。面對一隻做困獸之斗的老虎,',
+		[
+			'斗',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof_not
