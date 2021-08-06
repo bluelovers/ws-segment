@@ -45,7 +45,7 @@
   },
   "peerDependencies": {
     "novel-segment": "^2",
-    "vercel": "^23.0.1"
+    "vercel": "^23.1.0"
   },
   "engines": {
     "node": ">=10"

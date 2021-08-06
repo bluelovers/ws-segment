@@ -268,7 +268,7 @@ class ZhtSynonymOptimizer extends mod_1.SubSModuleOptimizer {
                     }
                 }
                 else if (w1.w === '余') {
-                    if (w2.w === '力' && ((_a = words[i + 2]) === null || _a === void 0 ? void 0 : _a.p) & POSTAG.D_W) {
+                    if ((w2 === null || w2 === void 0 ? void 0 : w2.w) === '力' && ((_a = words[i + 2]) === null || _a === void 0 ? void 0 : _a.p) & POSTAG.D_W) {
                         let nw = w1.w + w2.w;
                         let ow = this._TABLE[nw];
                         this.sliceToken(words, i, 2, {
