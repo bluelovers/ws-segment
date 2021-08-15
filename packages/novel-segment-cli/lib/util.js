@@ -33,7 +33,7 @@ function getCacheDirPath(useGlobal) {
         create: true,
         fnOrder: useGlobal ? [
             cache_path_1.findNpmCachePath,
-            cache_path_1.getOSTempPath,
+            cache_path_1.findOSTempPath,
             cache_path_1.findPkgModulePath,
         ] : null,
     });

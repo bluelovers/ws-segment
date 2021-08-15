@@ -1,4 +1,4 @@
-import { getCachePath, findNpmCachePath, getOSTempPath, findPkgModulePath } from 'cache-path';
+import { getCachePath, findNpmCachePath, findPkgModulePath, findOSTempPath } from 'cache-path';
 
 import { Console } from 'debug-color2';
 export const console = new Console();
@@ -41,7 +41,7 @@ export function getCacheDirPath(useGlobal?: boolean): string
 		create: true,
 		fnOrder: useGlobal ? [
 			findNpmCachePath,
-			getOSTempPath,
+			findOSTempPath,
 			findPkgModulePath,
 		]: null,
 	});

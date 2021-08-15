@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.readPackageJson = exports.findPackagePath = exports.checkUpdate = exports.checkUpdateSelf = exports.notNpxMaybe = void 0;
 const tslib_1 = require("tslib");
-const path_1 = (0, tslib_1.__importDefault)(require("path"));
+const path_1 = require("path");
 const pkg_up_1 = (0, tslib_1.__importDefault)(require("pkg-up"));
-const fs_extra_1 = (0, tslib_1.__importDefault)(require("fs-extra"));
+const fs_extra_1 = require("fs-extra");
 const update_notifier_1 = require("@yarn-tool/update-notifier");
 Object.defineProperty(exports, "notNpxMaybe", { enumerable: true, get: function () { return update_notifier_1.notNpxMaybe; } });
 function checkUpdateSelf() {
-    return (0, update_notifier_1.updateNotifier)(path_1.default.join(__dirname, '..'));
+    return (0, update_notifier_1.updateNotifier)((0, path_1.join)(__dirname, '..'));
 }
 exports.checkUpdateSelf = checkUpdateSelf;
 function checkUpdate(name) {
@@ -22,7 +22,7 @@ function findPackagePath(name) {
 }
 exports.findPackagePath = findPackagePath;
 function readPackageJson(name) {
-    let pkg = fs_extra_1.default.readJSONSync(findPackagePath(name));
+    let pkg = (0, fs_extra_1.readJSONSync)(findPackagePath(name));
     if (pkg.name != name) {
         throw new Error(`package name not match, '${pkg.name}' != '${name}'`);
     }

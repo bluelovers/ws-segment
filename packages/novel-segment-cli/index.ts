@@ -1,11 +1,10 @@
 import cacache = require('cacache');
 import crlf from 'crlf-normalize';
-import Segment, { stringify } from 'novel-segment';
+import Segment from 'novel-segment';
 import Bluebird from 'bluebird';
-import fs from 'fs-iconv';
+import { loadFile, existsSync } from 'fs-iconv';
 import { useDefault } from 'novel-segment/lib';
-// @ts-ignore
-import { Cacache } from './lib/cache';
+import Cacache from './lib/cache';
 import { console, debugConsole, getCacheDirPath, enableDebug, freeGC } from './lib/util';
 import PACKAGE_JSON from './package.json';
 import { debug_token } from 'novel-segment/lib/util'
@@ -28,6 +27,8 @@ const DB_KEY2 = 'cache.common.synonym.db';
 const DB_KEY2_INFO = 'cache.common.synonym.info';
 
 const DB_TTL = 3600 * 1000;
+
+const stringify = Segment.stringify;
 
 export { enableDebug, stringify }
 
@@ -134,15 +135,15 @@ export function readFile(file: string, options?: ISegmentCLIOptions): Bluebird<B
 {
 	return Bluebird.resolve().then(() =>
 		{
-			if (!fs.existsSync(file))
+			if (!existsSync(file))
 			{
 				let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
 				return Bluebird.reject(e)
 			}
 
-			return fs.loadFile(file, {
-					autoDecode: true,
-				})
+			return loadFile(file, {
+				autoDecode: true,
+			})
 				.then(v => Buffer.from(v))
 				;
 		})
@@ -206,11 +207,15 @@ export function getCacache(options?: ISegmentCLIOptions)
 				CACHED_CACACHE = new Cacache({
 					name: PACKAGE_JSON.name,
 					useGlobalCache: options.useGlobalCache,
+					autoCreateDir: true,
 				});
 			}
 			else
 			{
-				CACHED_CACACHE = new Cacache(PACKAGE_JSON.name);
+				CACHED_CACACHE = new Cacache({
+					name: PACKAGE_JSON.name,
+					autoCreateDir: true,
+				});
 			}
 		}
 
@@ -483,25 +488,26 @@ export function removeCache(options?: ISegmentCLIOptions)
 	let opts = fixOptions(options);
 
 	return Bluebird.all(array_unique([
-		opts,
-		merge({}, opts, <ISegmentCLIOptions>{
-			optionsSegment: {
-				nodeNovelMode: true,
-			}
-		}),
-		merge({}, opts, <ISegmentCLIOptions>{
-			optionsSegment: {
-				nodeNovelMode: false,
-			}
-		}),
-	]))
-		.map(async (o) => {
+			opts,
+			merge({}, opts, <ISegmentCLIOptions>{
+				optionsSegment: {
+					nodeNovelMode: true,
+				},
+			}),
+			merge({}, opts, <ISegmentCLIOptions>{
+				optionsSegment: {
+					nodeNovelMode: false,
+				},
+			}),
+		]))
+		.map(async (o) =>
+		{
 			const cache = await getCacache(o);
 
 			await cache.clearMemoized();
 			await cache.removeAll();
 		})
-	;
+		;
 }
 
 export function resetCache()

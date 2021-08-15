@@ -3,13 +3,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processText = exports.fileSegment = exports.textSegment = exports.stringify = exports.enableDebug = void 0;
 const tslib_1 = require("tslib");
 const crlf_normalize_1 = (0, tslib_1.__importDefault)(require("crlf-normalize"));
-const novel_segment_1 = (0, tslib_1.__importStar)(require("novel-segment"));
-Object.defineProperty(exports, "stringify", { enumerable: true, get: function () { return novel_segment_1.stringify; } });
+const novel_segment_1 = (0, tslib_1.__importDefault)(require("novel-segment"));
 const bluebird_1 = (0, tslib_1.__importDefault)(require("bluebird"));
-const fs_iconv_1 = (0, tslib_1.__importDefault)(require("fs-iconv"));
+const fs_iconv_1 = require("fs-iconv");
 const lib_1 = require("novel-segment/lib");
-// @ts-ignore
-const cache_1 = require("./lib/cache");
+const cache_1 = (0, tslib_1.__importDefault)(require("./lib/cache"));
 const util_1 = require("./lib/util");
 Object.defineProperty(exports, "enableDebug", { enumerable: true, get: function () { return util_1.enableDebug; } });
 const package_json_1 = (0, tslib_1.__importDefault)(require("./package.json"));
@@ -26,6 +24,8 @@ const DB_KEY_INFO = 'cache.info';
 const DB_KEY2 = 'cache.common.synonym.db';
 const DB_KEY2_INFO = 'cache.common.synonym.info';
 const DB_TTL = 3600 * 1000;
+const stringify = novel_segment_1.default.stringify;
+exports.stringify = stringify;
 function textSegment(text, options) {
     return getSegment(options)
         .then(function (segment) {
@@ -49,7 +49,7 @@ function processText(text, options) {
     }
     return textSegment(text, options)
         .then(function (data) {
-        let text = (0, novel_segment_1.stringify)(data);
+        let text = stringify(data);
         if (options) {
             if (options.crlf) {
                 if (typeof options.crlf === 'string') {
@@ -80,11 +80,11 @@ class SegmentCliError extends Error {
 exports.SegmentCliError = SegmentCliError;
 function readFile(file, options) {
     return bluebird_1.default.resolve().then(() => {
-        if (!fs_iconv_1.default.existsSync(file)) {
+        if (!(0, fs_iconv_1.existsSync)(file)) {
             let e = new SegmentCliError(`ENOENT: no such file or directory, open '${file}'`);
             return bluebird_1.default.reject(e);
         }
-        return fs_iconv_1.default.loadFile(file, {
+        return (0, fs_iconv_1.loadFile)(file, {
             autoDecode: true,
         })
             .then(v => Buffer.from(v));
@@ -126,13 +126,17 @@ function getCacache(options) {
     return new bluebird_1.default(function (resolve, reject) {
         if (!CACHED_CACACHE) {
             if (options && options.useGlobalCache) {
-                CACHED_CACACHE = new cache_1.Cacache({
+                CACHED_CACACHE = new cache_1.default({
                     name: package_json_1.default.name,
                     useGlobalCache: options.useGlobalCache,
+                    autoCreateDir: true,
                 });
             }
             else {
-                CACHED_CACACHE = new cache_1.Cacache(package_json_1.default.name);
+                CACHED_CACACHE = new cache_1.default({
+                    name: package_json_1.default.name,
+                    autoCreateDir: true,
+                });
             }
         }
         resolve(CACHED_CACACHE);
@@ -298,12 +302,12 @@ function removeCache(options) {
         (0, lodash_1.merge)({}, opts, {
             optionsSegment: {
                 nodeNovelMode: true,
-            }
+            },
         }),
         (0, lodash_1.merge)({}, opts, {
             optionsSegment: {
                 nodeNovelMode: false,
-            }
+            },
         }),
     ]))
         .map(async (o) => {
