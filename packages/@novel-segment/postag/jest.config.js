@@ -1,9 +1,40 @@
+function _requireResolve(name)
+{
+	let result;
+
+	try
+	{
+		const { requireResolveExtra, requireResolveCore } = require('@yarn-tool/require-resolve');
+
+		const paths = [
+			requireResolveExtra('@bluelovers/tsdx').result,
+			requireResolveExtra('tsdx').result,
+		].filter(Boolean);
+
+		result = requireResolveCore(name, {
+			includeGlobal: true,
+			includeCurrentDirectory: true,
+			paths,
+		})
+	}
+	catch (e)
+	{
+
+	}
+
+	return result || require.resolve(name)
+}
+
+/**
+ * @type { import('@jest/types').Config.InitialOptions }
+ */
 module.exports = {
 	clearMocks: true,
-	moduleFileExtensions: ['ts', 'js'],
+	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
 	testEnvironment: 'node',
 	//testMatch: ['**/*.test.ts', '**/*.spec.ts'],
-	testRegex: ['\\.(tests?|spec)\\.(ts|tsx)$'],
+	testMatch: void 0,
+	testRegex: ['\\.spec\\.(ts|tsx)$'],
 	//testRunner: 'jest-circus/runner',
 	setupFilesAfterEnv: [
 		//"jest-chain",
@@ -12,7 +43,7 @@ module.exports = {
 		//"jest-num-close-with",
 	],
 	transform: {
-		'^.+\\.ts$': 'ts-jest',
+		'.(ts|tsx)$': _requireResolve('ts-jest'),
 	},
 	verbose: true,
 	/**
@@ -21,4 +52,8 @@ module.exports = {
 	 */
 	coverageProvider: 'v8',
 	collectCoverage: false,
+	/**
+	 * https://github.com/facebook/jest/issues/9771#issuecomment-872764344
+	 */
+	//resolver: 'jest-node-exports-resolver',
 }
