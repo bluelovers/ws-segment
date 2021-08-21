@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.89](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.88...novel-segment-cli@1.1.89) (2021-08-21)
+
+
+### 🐛　Bug Fixes
+
+* not support new typescript ([eb016d8](https://github.com/bluelovers/ws-segment/commit/eb016d8e71fcf7dd89fd9c2e60e203307a9730e8))
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([0f5ae81](https://github.com/bluelovers/ws-segment/commit/0f5ae8193fd26493a8fa3c6d6327c0c7ea0e08c5))
+
+
+
+
+
 ## [1.1.88](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.87...novel-segment-cli@1.1.88) (2021-08-10)
 
 **Note:** Version bump only for package novel-segment-cli
