@@ -91,7 +91,7 @@ console.time(`doSegment`);
 
 let text = `
 
-向着那害怕地查看周围的女性，长发不死者如此告知。
+班尼特是女仆裝，
 
 `;
 
