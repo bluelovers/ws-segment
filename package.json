@@ -68,7 +68,6 @@
     "ci:build": "yarn run ci:build:script && yarn run ci:build:commit",
     "ci:build:commit": "ts-node ./script/run/ci-build.ts",
     "ci:build:script": "ts-node ./packages/novel-segment/test/demo.cache.ts",
-    "lerna:publish": "npx lerna publish",
     "lerna:publish:yes": "yarn run prepublishOnly:check-bin && yarn run preversion && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly && yarn run postpublishOnly",
     "preversion": "yarn run test && ts-node ./script/run/ws-prepublish.ts",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
@@ -81,11 +80,11 @@
     "postpublishOnly": "yarn run postpublish:segment & git push && yarn run postpublish:now-deploy && yarn run postpublish:subtree",
     "postpublishOnly:add": "ts-node ./script/run/postpublish-add.ts",
     "ncu": "yarn run ncu:root && yarn run ncu:ws",
-    "ncu:root": "npx yarn-tool ncu -u",
-    "ncu:ws": "npx yarn-tool ws exec yarn-tool ncu -- -u",
+    "ncu:root": "yarn-tool ncu -u",
+    "ncu:ws": "yarn-tool ws exec yarn-tool ncu -- -u",
     "sort-package-json": "yarn run sort-package-json:root && yarn run sort-package-json:ws",
-    "sort-package-json:root": "npx yarn-tool sort",
-    "sort-package-json:ws": "npx yarn-tool ws exec yarn-tool sort"
+    "sort-package-json:root": "yarn-tool sort",
+    "sort-package-json:ws": "yarn-tool ws sort"
   },
   "resolutions": {},
   "dependencies": {
