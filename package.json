@@ -89,7 +89,7 @@
   "resolutions": {},
   "dependencies": {
     "@git-lazy/subtree": "^1.0.20",
-    "@lazy-cjk/zh-table-list": "^1.0.70",
+    "@lazy-cjk/zh-table-list": "^1.0.71",
     "@yarn-tool/find-deps": "^1.0.43",
     "@yarn-tool/ws-changed": "^1.0.52",
     "array-hyper-unique": "^1.1.10",
@@ -97,7 +97,7 @@
     "chai": "^4.3.4",
     "chai-asserttype-extra": "^1.2.3",
     "chai-string": "^1.5.0",
-    "cjk-conv": "^1.2.131",
+    "cjk-conv": "^1.2.132",
     "cross-spawn-extra": "^2.1.0",
     "debug-color2": "^1.2.7",
     "diff": "^5.0.0",
@@ -106,7 +106,7 @@
     "jest": "^27.3.1",
     "n-readlines": "^1.0.3",
     "prettyuse": "^0.0.0",
-    "regexp-cjk": "^3.3.97",
+    "regexp-cjk": "^3.3.98",
     "str-util": "^2.3.27",
     "string-natural-compare": "^3.0.1",
     "transliteration": "^2.2.0",
@@ -130,6 +130,6 @@
     "@types/mocha": "^9.0.0",
     "@types/node": "^16.11.6",
     "@types/transliteration": "^1.6.6",
-    "@types/yargs": "^17.0.4"
+    "@types/yargs": "^17.0.5"
   }
 }
