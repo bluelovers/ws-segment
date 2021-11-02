@@ -2,13 +2,13 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const debug_color2_1 = require("debug-color2");
-const fs = (0, tslib_1.__importStar)(require("fs-extra"));
-const path = (0, tslib_1.__importStar)(require("upath2"));
+const fs_extra_1 = require("fs-extra");
+const upath2_1 = (0, tslib_1.__importDefault)(require("upath2"));
 const loader_line_1 = require("@novel-segment/loader-line");
 const project_config_1 = (0, tslib_1.__importDefault)(require("../project.config"));
 const util_1 = require("./util");
 const array_hyper_unique_1 = require("array-hyper-unique");
-let CWD = path.join(project_config_1.default.dict_root, 'segment');
+let CWD = upath2_1.default.join(project_config_1.default.dict_root, 'segment');
 let USE_CJK_MODE = 2;
 let CACHE_LIST = {
     skip: [],
@@ -19,7 +19,7 @@ let CACHE_LIST = {
 ], [])
     .tap(function (ls) {
     let a = ls.reduce(function (a, v) {
-        let p = path.relative(CWD, v);
+        let p = upath2_1.default.relative(CWD, v);
         a.push(p);
         //			console.dir(p);
         return a;
@@ -28,7 +28,7 @@ let CACHE_LIST = {
     //		process.exit();
 })
     .mapSeries(async function (file) {
-    let _basepath = path.relative(CWD, file);
+    let _basepath = upath2_1.default.relative(CWD, file);
     debug_color2_1.console.debug(`[START]`, _basepath);
     debug_color2_1.console.time(_basepath);
     let list = await (0, util_1.loadDictFile)(file, function (list, cur) {
@@ -52,18 +52,18 @@ let CACHE_LIST = {
     //console.log(list);
     let out_file = file;
     if (0) {
-        out_file = path.join(project_config_1.default.temp_root, path.basename(_basepath));
+        out_file = upath2_1.default.join(project_config_1.default.temp_root, upath2_1.default.basename(_basepath));
     }
     let out_data = (0, loader_line_1.serialize)(out_list) + "\n\n";
-    await fs.outputFile(out_file, out_data);
+    await (0, fs_extra_1.outputFile)(out_file, out_data);
     debug_color2_1.console.timeEnd(_basepath);
 })
     .tap(async function () {
     if (CACHE_LIST.skip.length) {
         let list = SortList(CACHE_LIST.skip);
         let out_list = list.map(v => v.line);
-        let out_file = path.join(project_config_1.default.temp_root, 'skip2.txt');
-        await fs.appendFile(out_file, "\n\n" + (0, loader_line_1.serialize)(out_list) + "\n\n");
+        let out_file = upath2_1.default.join(project_config_1.default.temp_root, 'skip2.txt');
+        await (0, fs_extra_1.appendFile)(out_file, "\n\n" + (0, loader_line_1.serialize)(out_list) + "\n\n");
     }
 });
 function SortList(ls) {

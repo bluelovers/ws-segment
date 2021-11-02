@@ -2,7 +2,7 @@
  * Created by user on 2018/7/24/024.
  */
 
-import * as path from 'path';
+import path from 'path';
 import ProjectConfig from '../project.config';
 import * as PackageJson from '../package.json';
 import CrossSpawn = require('cross-spawn-extra');

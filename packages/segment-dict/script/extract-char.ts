@@ -1,6 +1,6 @@
 import { console } from "debug-color2";
-import * as fs from "fs-extra";
-import * as path from "upath2";
+import { appendFile, outputFile } from "fs-extra";
+import path from "upath2";
 import { serialize } from '@novel-segment/loader-line';
 import ProjectConfig from "../project.config";
 
@@ -82,7 +82,7 @@ globDict(CWD, [
 		let out_file = file;
 		let out_data = serialize(out_list) + "\n\n";
 
-		await fs.outputFile(out_file, out_data);
+		await outputFile(out_file, out_data);
 	})
 	.tap(async function ()
 	{
@@ -93,7 +93,7 @@ globDict(CWD, [
 
 			let out_file = path.join(CWD, 'char.txt');
 
-			await fs.appendFile(out_file, "\n\n" + serialize(out_list) + "\n\n");
+			await appendFile(out_file, "\n\n" + serialize(out_list) + "\n\n");
 		}
 	})
 ;
