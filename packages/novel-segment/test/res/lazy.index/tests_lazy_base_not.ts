@@ -862,6 +862,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'從你牌庫中搜尋一張基本地牌',
+		[
+			'本地',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

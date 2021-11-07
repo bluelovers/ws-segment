@@ -576,6 +576,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'血滴衍生物',
+		[
+			['衍生物'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
