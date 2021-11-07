@@ -78,6 +78,7 @@
     "test-ts": "npx mocha --require ts-node/register \"!(node_modules)/**/*.test.{ts,tsx}\"",
     "build:sort:stringify:cache": "node ./script/sort-stringify-cache.js",
     "preversion": "git commit -m \"chore: save repo before new version\" ./test/res/ ./test/demo.cache.ts & yarn run test",
+    "version": "echo version",
     "prepublishOnly": "echo prepublishOnly",
     "postpublish": "yarn run postpublishOnly:add",
     "postpublish2": "yarn run build:sort:stringify:cache && node ./script/publish-after2",
