@@ -9,7 +9,7 @@ test(`export version check`, () =>
 
 });
 
-test(`export versions check`, () =>
+test(`export versions check 2`, () =>
 {
 
 	expect(versions).toMatchObject({
