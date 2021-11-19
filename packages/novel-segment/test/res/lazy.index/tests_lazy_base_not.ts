@@ -869,6 +869,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'，强打起精神后便开始著手解决事态。',
+		[
+			'神后',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
