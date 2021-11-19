@@ -3,5 +3,15 @@
   <component name="GitToolBoxProjectSettings">
     <option name="autoFetch" value="false" />
     <option name="commitDialogCompletion" value="false" />
+    <option name="commitMessageIssueKeyValidationOverride">
+      <BoolValueOverride>
+        <option name="enabled" value="true" />
+      </BoolValueOverride>
+    </option>
+    <option name="commitMessageValidationConfigOverride">
+      <CommitMessageValidationOverride>
+        <option name="enabled" value="true" />
+      </CommitMessageValidationOverride>
+    </option>
   </component>
 </project>
