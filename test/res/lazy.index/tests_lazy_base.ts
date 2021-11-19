@@ -583,6 +583,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'，完全跟不上状况的格拉西诺一时不知该如何反应。',
+		[
+			['如何'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
