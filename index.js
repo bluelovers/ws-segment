@@ -25,7 +25,7 @@ Object.defineProperty(__Segment, "versions", {
     }
 });
 // @ts-ignore
-(0, tslib_1.__exportStar)(require("./version"), exports);
+tslib_1.__exportStar(require("./version"), exports);
 __Segment.POSTAG = ids_1.POSTAG;
 __Segment.Segment = Segment_1.Segment;
 __Segment.default = __Segment;
