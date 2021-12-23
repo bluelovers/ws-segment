@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zhName = exports.chsName = exports.enName = void 0;
 const tslib_1 = require("tslib");
-const keys_1 = (0, tslib_1.__importDefault)(require("../keys"));
-const ids_1 = (0, tslib_1.__importDefault)(require("../postag/ids"));
-const chs_1 = (0, tslib_1.__importDefault)(require("../postag/chs"));
-const cht_1 = (0, tslib_1.__importDefault)(require("../postag/cht"));
-const en_1 = (0, tslib_1.__importDefault)(require("../postag/en"));
-const getPOSTagTranslator_1 = (0, tslib_1.__importDefault)(require("../util/getPOSTagTranslator"));
+const keys_1 = tslib_1.__importDefault(require("../keys"));
+const ids_1 = tslib_1.__importDefault(require("../postag/ids"));
+const chs_1 = tslib_1.__importDefault(require("../postag/chs"));
+const cht_1 = tslib_1.__importDefault(require("../postag/cht"));
+const en_1 = tslib_1.__importDefault(require("../postag/en"));
+const getPOSTagTranslator_1 = tslib_1.__importDefault(require("../util/getPOSTagTranslator"));
 keys_1.default.forEach(function (key) {
     var _a, _b, _c, _d;
     let lc = key.toLowerCase();

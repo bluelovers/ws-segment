@@ -8,8 +8,8 @@ const tslib_1 = require("tslib");
 const mod_1 = require("../mod");
 const index_1 = require("../util/index");
 const COLORS_1 = require("../mod/COLORS");
-const uni_string_1 = (0, tslib_1.__importDefault)(require("uni-string"));
-const isUnset_1 = (0, tslib_1.__importStar)(require("../util/isUnset"));
+const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
+const isUnset_1 = tslib_1.__importStar(require("../util/isUnset"));
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt
  * 適用於比較容易需要人工處理的轉換

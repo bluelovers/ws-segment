@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.useModules = void 0;
 const tslib_1 = require("tslib");
 const useModules_1 = require("./useModules");
-const BuildInSubMod = (0, tslib_1.__importStar)(require("../../submod"));
+const BuildInSubMod = tslib_1.__importStar(require("../../submod"));
 function useModules(me, mod, ...argv) {
     if (Array.isArray(mod)) {
         mod.forEach(function (m) {

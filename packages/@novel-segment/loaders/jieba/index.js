@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.loadStreamSync = exports.loadStream = exports._createStream = exports.loadSync = exports.load = exports.parseLine = void 0;
 const tslib_1 = require("tslib");
 const line_1 = require("@novel-segment/stream-loader-core/line");
-const stream_1 = (0, tslib_1.__importDefault)(require("@novel-segment/stream-loader-core/stream"));
-const sync_1 = (0, tslib_1.__importDefault)(require("@novel-segment/stream-loader-core/sync"));
+const stream_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/stream"));
+const sync_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/sync"));
 /**
  * 云计算
  * 蓝翔 nz

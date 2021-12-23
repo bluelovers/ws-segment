@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getPOSTagTranslator = void 0;
 const tslib_1 = require("tslib");
-const ids_1 = (0, tslib_1.__importDefault)(require("../postag/ids"));
-const keys_1 = (0, tslib_1.__importDefault)(require("../keys"));
+const ids_1 = tslib_1.__importDefault(require("../postag/ids"));
+const keys_1 = tslib_1.__importDefault(require("../keys"));
 const enum_1 = require("./enum");
 function getPOSTagTranslator(POSTagDict, I18NDict) {
     return (p) => {

@@ -4,14 +4,14 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
-const bluebird_1 = (0, tslib_1.__importDefault)(require("@bluelovers/fast-glob/bluebird"));
+const bluebird_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob/bluebird"));
 const path_1 = require("path");
-const __root_ws_1 = (0, tslib_1.__importDefault)(require("../../__root_ws"));
+const __root_ws_1 = tslib_1.__importDefault(require("../../__root_ws"));
 const fs_extra_1 = require("fs-extra");
-const cross_spawn_extra_1 = (0, tslib_1.__importDefault)(require("cross-spawn-extra"));
+const cross_spawn_extra_1 = tslib_1.__importDefault(require("cross-spawn-extra"));
 const add_to_postpublish_task_1 = require("../util/add-to-postpublish-task");
 const Bluebird = require("bluebird");
-const logger_1 = (0, tslib_1.__importDefault)(require("debug-color2/logger"));
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const git_subtree_push_1 = require("../util/git-subtree-push");
 bluebird_1.default
     .async([

@@ -5,7 +5,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDictSynonymPanGu = void 0;
 const tslib_1 = require("tslib");
-const core_1 = (0, tslib_1.__importDefault)(require("./core"));
+const core_1 = tslib_1.__importDefault(require("./core"));
 /**
  * 原版 node-segment 的格式
  */

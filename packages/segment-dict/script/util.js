@@ -2,11 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.all_extra_dict = exports.all_default_load_dict = exports.baseSortList = exports.chkLineType = exports.EnumLineType = exports.loadDictFile = exports.globDict = exports.DEFAULT_IGNORE = exports.getCjkName = exports.zhDictCompare = void 0;
 const tslib_1 = require("tslib");
-const fast_glob_1 = (0, tslib_1.__importDefault)(require("@bluelovers/fast-glob"));
+const fast_glob_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob"));
 const BluebirdPromise = require("bluebird");
-const loader_line_1 = (0, tslib_1.__importDefault)(require("@novel-segment/loader-line"));
+const loader_line_1 = tslib_1.__importDefault(require("@novel-segment/loader-line"));
 const index_1 = require("@novel-segment/loaders/segment/index");
-const string_natural_compare_1 = (0, tslib_1.__importDefault)(require("@bluelovers/string-natural-compare"));
+const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
 const util_1 = require("@novel-segment/util");
 Object.defineProperty(exports, "zhDictCompare", { enumerable: true, get: function () { return util_1.zhDictCompare; } });
 Object.defineProperty(exports, "getCjkName", { enumerable: true, get: function () { return util_1.getCjkName; } });

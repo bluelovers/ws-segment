@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDictStopword = void 0;
 const tslib_1 = require("tslib");
-const line_1 = (0, tslib_1.__importDefault)(require("./line"));
+const line_1 = tslib_1.__importDefault(require("./line"));
 /**
  * 原版 node-segment 的格式
  */

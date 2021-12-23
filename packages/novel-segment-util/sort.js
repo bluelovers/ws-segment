@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = void 0;
 const tslib_1 = require("tslib");
-const string_natural_compare_1 = (0, tslib_1.__importDefault)(require("@bluelovers/string-natural-compare"));
+const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
 const array_hyper_unique_1 = require("array-hyper-unique");
-const uni_string_1 = (0, tslib_1.__importDefault)(require("uni-string"));
+const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
 const cjk_conv_1 = require("regexp-helper/lib/cjk-conv");
 /**
  * @private

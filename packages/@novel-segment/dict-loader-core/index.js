@@ -7,8 +7,8 @@ exports.LoaderClass = void 0;
 const tslib_1 = require("tslib");
 const crlf_normalize_1 = require("crlf-normalize");
 const line_1 = require("@novel-segment/stream-loader-core/line");
-const stream_1 = (0, tslib_1.__importDefault)(require("@novel-segment/stream-loader-core/stream"));
-const sync_1 = (0, tslib_1.__importDefault)(require("@novel-segment/stream-loader-core/sync"));
+const stream_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/stream"));
+const sync_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/sync"));
 const core_decorators_1 = require("core-decorators");
 let LoaderClass = class LoaderClass {
     constructor(options = {}, ...argv) {
@@ -88,9 +88,9 @@ let LoaderClass = class LoaderClass {
         return stream;
     }
 };
-LoaderClass = (0, tslib_1.__decorate)([
+LoaderClass = tslib_1.__decorate([
     core_decorators_1.autobind,
-    (0, tslib_1.__metadata)("design:paramtypes", [Object, Object])
+    tslib_1.__metadata("design:paramtypes", [Object, Object])
 ], LoaderClass);
 exports.LoaderClass = LoaderClass;
 exports.default = LoaderClass;
