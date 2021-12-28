@@ -5723,6 +5723,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'那是约五天前发生过的事。',
+		[
+			'發',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof

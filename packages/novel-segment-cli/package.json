@@ -28,7 +28,7 @@
     "@yarn-tool/update-notifier": "^1.0.23",
     "array-hyper-unique": "^2.0.6",
     "bluebird": "^3.7.2",
-    "cache-path": "^2.0.26",
+    "cache-path": "^2.0.27",
     "crlf-normalize": "^1.0.6",
     "debug-color2": "^1.2.7",
     "fs-extra": "^10",
