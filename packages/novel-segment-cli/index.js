@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processText = exports.fileSegment = exports.textSegment = exports.stringify = exports.enableDebug = void 0;
+exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processTextCore = exports.processText = exports.fileSegment = exports.fileSegmentCore = exports.textSegment = exports.textSegmentCore = exports.stringify = exports.enableDebug = void 0;
 const tslib_1 = require("tslib");
 const crlf_normalize_1 = tslib_1.__importDefault(require("crlf-normalize"));
 const novel_segment_1 = tslib_1.__importDefault(require("novel-segment"));
+const lib_1 = require("novel-segment/lib");
 const bluebird_1 = tslib_1.__importDefault(require("bluebird"));
 const fs_iconv_1 = require("fs-iconv");
-const lib_1 = require("novel-segment/lib");
 const cache_1 = tslib_1.__importDefault(require("./lib/cache"));
 const util_1 = require("./lib/util");
 Object.defineProperty(exports, "enableDebug", { enumerable: true, get: function () { return util_1.enableDebug; } });
@@ -26,8 +26,8 @@ const DB_KEY2_INFO = 'cache.common.synonym.info';
 const DB_TTL = 3600 * 1000;
 const stringify = novel_segment_1.default.stringify;
 exports.stringify = stringify;
-function textSegment(text, options) {
-    return getSegment(options)
+function textSegmentCore(segment, text, options) {
+    return bluebird_1.default.resolve(segment)
         .then(function (segment) {
         return segment.doSegment(text);
     })
@@ -35,19 +35,34 @@ function textSegment(text, options) {
         return (0, util_2.debug_token)(data);
     });
 }
+exports.textSegmentCore = textSegmentCore;
+function textSegment(text, options) {
+    return textSegmentCore(getSegment(options), text, options);
+}
 exports.textSegment = textSegment;
-function fileSegment(file, options) {
+function fileSegmentCore(segment, file, options) {
     return bluebird_1.default.resolve(readFile(file))
         .then(function (buf) {
-        return textSegment(buf.toString(), options);
+        return textSegmentCore(segment, buf.toString(), options);
+    });
+}
+exports.fileSegmentCore = fileSegmentCore;
+function fileSegment(file, options) {
+    return getSegment(options)
+        .then((segment) => {
+        return fileSegmentCore(segment, file, options);
     });
 }
 exports.fileSegment = fileSegment;
 function processText(text, options) {
+    return processTextCore(getSegment(options), text, options);
+}
+exports.processText = processText;
+function processTextCore(segment, text, options) {
     if (!text.length || !text.replace(/\s+/g, '').length) {
         return bluebird_1.default.resolve('');
     }
-    return textSegment(text, options)
+    return textSegmentCore(segment, text, options)
         .then(function (data) {
         let text = stringify(data);
         if (options) {
@@ -67,7 +82,7 @@ function processText(text, options) {
         return text;
     });
 }
-exports.processText = processText;
+exports.processTextCore = processTextCore;
 function processFile(file, options) {
     return bluebird_1.default.resolve(readFile(file, options))
         .then(function (buf) {

@@ -1,21 +1,21 @@
-import cacache = require('cacache');
 import crlf from 'crlf-normalize';
 import Segment from 'novel-segment';
-import Bluebird from 'bluebird';
-import { loadFile, existsSync } from 'fs-iconv';
+import type Segment2 from 'novel-segment/lib';
 import { useDefault } from 'novel-segment/lib';
+import Bluebird from 'bluebird';
+import { existsSync, loadFile } from 'fs-iconv';
 import Cacache from './lib/cache';
-import { console, debugConsole, getCacheDirPath, enableDebug, freeGC } from './lib/util';
+import { console, debugConsole, enableDebug, freeGC } from './lib/util';
 import PACKAGE_JSON from './package.json';
 import { debug_token } from 'novel-segment/lib/util'
 import iconv from 'iconv-jschardet';
-import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
-import { IUseDefaultOptions } from 'novel-segment/lib/defaults/index';
+import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
 import { IOptionsSegment } from 'novel-segment/lib/segment/types';
 import { useDefaultBlacklistDict, useDefaultSynonymDict } from 'novel-segment/lib/defaults/dict';
 
-import { merge, cloneDeep } from 'lodash';
+import { merge } from 'lodash';
 import { array_unique } from 'array-hyper-unique';
+import { ITSResolvable } from 'ts-type';
 
 let CACHED_SEGMENT: import("novel-segment/lib/Segment").Segment;
 let CACHED_CACACHE: Cacache;
@@ -54,9 +54,9 @@ export interface ISegmentCLIOptions
 	USER_DB_KEY_INFO?: string,
 }
 
-export function textSegment(text: string, options?: ISegmentCLIOptions)
+export function textSegmentCore(segment: ITSResolvable<Segment2>, text: string, options?: ISegmentCLIOptions)
 {
-	return getSegment(options)
+	return Bluebird.resolve(segment)
 		.then(function (segment)
 		{
 			return segment.doSegment(text);
@@ -68,24 +68,44 @@ export function textSegment(text: string, options?: ISegmentCLIOptions)
 		;
 }
 
-export function fileSegment(file: string, options?: ISegmentCLIOptions)
+export function textSegment(text: string, options?: ISegmentCLIOptions)
+{
+	return textSegmentCore(getSegment(options), text, options)
+}
+
+export function fileSegmentCore(segment: ITSResolvable<Segment2>, file: string, options?: ISegmentCLIOptions)
 {
 	return Bluebird.resolve(readFile(file))
 		.then(function (buf)
 		{
-			return textSegment(buf.toString(), options);
+			return textSegmentCore(segment, buf.toString(), options);
+		})
+		;
+}
+
+export function fileSegment(file: string, options?: ISegmentCLIOptions)
+{
+	return getSegment(options)
+		.then((segment) =>
+		{
+			return fileSegmentCore(segment, file, options);
 		})
 		;
 }
 
 export function processText(text: string, options?: ISegmentCLIOptions)
 {
+	return processTextCore(getSegment(options), text, options)
+}
+
+export function processTextCore(segment: ITSResolvable<Segment2>, text: string, options?: ISegmentCLIOptions)
+{
 	if (!text.length || !text.replace(/\s+/g, '').length)
 	{
 		return Bluebird.resolve('');
 	}
 
-	return textSegment(text, options)
+	return textSegmentCore(segment, text, options)
 		.then(function (data)
 		{
 			let text = stringify(data);

@@ -8,23 +8,23 @@
 
 import path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
-import TableDictBlacklist from './table/blacklist';
-import AbstractTableDictCore from './table/core';
+import { TableDictBlacklist } from './table/blacklist';
+import { AbstractTableDictCore } from './table/core';
 import { IOptions as IOptionsTableDict, TableDict } from './table/dict';
 
 import Loader from './loader';
 import { crlf } from 'crlf-normalize';
 import { TableDictStopword } from './table/stopword';
-import TableDictSynonym from './table/synonym';
+import { TableDictSynonym } from './table/synonym';
 import SegmentDict from 'segment-dict';
 import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from './mod';
 import { debugToken } from './util/debug';
 import { IWordDebug } from './util/index';
+import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 
 import ProjectConfig from '../project.config';
 
 import deepmerge from 'deepmerge-plus/core';
-import { EnumDictDatabase } from './const';
 import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from './mod/index';
 
 import {
@@ -46,6 +46,7 @@ import { defaultOptionsDoSegment } from './segment/defaults';
 import { IUseDefaultOptions, useDefault } from './defaults/index';
 import { useModules } from './segment/methods/useModules2';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
+import { ArrayTwoOrMore, EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * 创建分词器接口
@@ -55,31 +56,31 @@ export class Segment extends SegmentCore
 
 	static defaultOptionsDoSegment: IOptionsDoSegment = defaultOptionsDoSegment;
 
-	override getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM,
+	override getDictDatabase<R extends TableDictSynonym>(type: ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	override getDictDatabase<R extends TableDict>(type: EnumDictDatabase.TABLE,
+	override getDictDatabase<R extends TableDict>(type: ITSTypeAndStringLiteral<EnumDictDatabase.TABLE>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	override getDictDatabase<R extends TableDictStopword>(type: EnumDictDatabase.STOPWORD,
+	override getDictDatabase<R extends TableDictStopword>(type: ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	override getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST,
+	override getDictDatabase<R extends TableDictBlacklist>(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	override getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER,
+	override getDictDatabase<R extends TableDictBlacklist>(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	override getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_SYNONYM,
+	override getDictDatabase<R extends TableDictBlacklist>(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST_FOR_SYNONYM>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
-	override getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase,
+	override getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | ITSTypeAndStringLiteral<EnumDictDatabase>,
 		autocreate?: boolean,
 		libTableDict?: { new(...argv): R },
 	): R
@@ -184,7 +185,7 @@ export class Segment extends SegmentCore
 	 * @param {Boolean} convert_to_lower 是否全部转换为小写
 	 * @return {Segment}
 	 */
-	loadDict(name: string, type?: string, convert_to_lower?: boolean, skipExists?: boolean)
+	loadDict(name: string, type?: string | ITSTypeAndStringLiteral<EnumDictDatabase>, convert_to_lower?: boolean, skipExists?: boolean)
 	{
 		let filename = this._resolveDictFilename(name);
 
@@ -199,7 +200,7 @@ export class Segment extends SegmentCore
 			return this;
 		}
 
-		if (!type) type = 'TABLE';     // 默认为TABLE
+		if (!type) type = EnumDictDatabase.TABLE;     // 默认为TABLE
 
 		const db = this.getDictDatabase(type, true);
 
@@ -268,7 +269,7 @@ export class Segment extends SegmentCore
 			return this;
 		}
 
-		let type = 'SYNONYM';
+		const type: EnumDictDatabase.SYNONYM = EnumDictDatabase.SYNONYM;
 
 		const db = this.getDictDatabase(type, true);
 
@@ -284,7 +285,7 @@ export class Segment extends SegmentCore
 
 		let data = Loader.SegmentSynonymLoader.loadSync(filename);
 
-		data.forEach(function (blocks: string[])
+		data.forEach(function (blocks: ArrayTwoOrMore<string>)
 		{
 			db.add(blocks, skipExists);
 

@@ -18,7 +18,7 @@ import CHS_NAMES, {
 } from '../mod/CHS_NAMES';
 import Segment, { IDICT, IWord } from '../Segment';
 import { debug } from '../util';
-import { EnumDictDatabase } from '../const';
+import { EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * @todo 支援 XX氏

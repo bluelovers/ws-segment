@@ -1,7 +1,7 @@
 
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 import TableDictLine from './line';
-import { EnumDictDatabase } from '../const';
+import { EnumDictDatabase } from '@novel-segment/types';
 
 export class TableDictBlacklist extends TableDictLine
 {

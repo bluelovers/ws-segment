@@ -23,7 +23,6 @@ import { debugToken } from '../util/debug';
 import { IWordDebug } from '../util/index';
 
 import deepmerge from 'deepmerge-plus/core';
-import { EnumDictDatabase } from '../const';
 import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from '../mod/index';
 import { defaultOptionsDoSegment } from './defaults';
 import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './types';
@@ -41,9 +40,10 @@ import {
 	_doSegmentStripSpace,
 	_doSegmentStripStopword,
 } from './methods/doSegment';
-import { ITSOverwrite } from 'ts-type';
+import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
+import { ITSOverwrite, ITSPartialRecord } from 'ts-type/lib/type/record';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
-
+import { EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * 创建分词器接口
@@ -85,7 +85,7 @@ export class SegmentCore
 		SYNONYM?: IDICT_SYNONYM,
 
 		[key: string]: IDICT,
-	} = {};
+	} & ITSPartialRecord<ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM>, IDICT_SYNONYM> & ITSPartialRecord<ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD>, IDICT_STOPWORD> = {};
 	modules = {
 		/**
 		 * 分词模块
@@ -180,14 +180,14 @@ export class SegmentCore
 	 * @param {String} type 类型
 	 * @return {object}
 	 */
-	getDict(type: EnumDictDatabase.STOPWORD): IDICT_STOPWORD
-	getDict(type: EnumDictDatabase.SYNONYM): IDICT_SYNONYM
-	getDict(type: EnumDictDatabase.TABLE): IDICT<IWord>
-	getDict(type: EnumDictDatabase.BLACKLIST): IDICT_BLACKLIST
-	getDict(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER): IDICT_BLACKLIST
+	getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD>): IDICT_STOPWORD
+	getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM>): IDICT_SYNONYM
+	getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.TABLE>): IDICT<IWord>
+	getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST>): IDICT_BLACKLIST
+	getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER>): IDICT_BLACKLIST
 	getDict(type: 'TABLE2'): IDICT2<IWord>
-	getDict(type: EnumDictDatabase): IDICT
-	getDict(type): IDICT
+	getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase>): IDICT
+	getDict(type: unknown): IDICT
 	getDict(type)
 	{
 		return this.DICT[type];
@@ -361,8 +361,8 @@ export class SegmentCore
 	{
 		return convertSynonym(ret, {
 			showcount,
-			DICT_SYNONYM: this.getDict('SYNONYM'),
-			DICT_TABLE: this.getDict('TABLE'),
+			DICT_SYNONYM: this.getDict(EnumDictDatabase.SYNONYM),
+			DICT_TABLE: this.getDict(EnumDictDatabase.TABLE),
 			POSTAG: this.POSTAG,
 		}) as IWordDebug[] | IConvertSynonymWithShowcount;
 	}

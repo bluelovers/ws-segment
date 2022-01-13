@@ -1,12 +1,14 @@
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 import TableDictLine from './line';
+import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
+import { EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * 原版 node-segment 的格式
  */
 export class TableDictStopword extends TableDictLine
 {
-	static override readonly type = 'STOPWORD';
+	static override readonly type: ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD> = EnumDictDatabase.STOPWORD;
 
 	constructor(type: string = TableDictStopword.type, options: IOptions = {}, ...argv)
 	{

@@ -11,10 +11,11 @@ import { TableDictStopword } from '../table/stopword';
 import TableDictSynonym from '../table/synonym';
 import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from '../mod/index';
 import { IWordDebug } from '../util/index';
-import { EnumDictDatabase } from '../const';
 import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './types';
-import { ITSOverwrite } from 'ts-type';
+import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
+import { ITSOverwrite, ITSPartialRecord } from 'ts-type/lib/type/record';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
+import { EnumDictDatabase } from '@novel-segment/types';
 /**
  * 创建分词器接口
  */
@@ -50,7 +51,7 @@ export declare class SegmentCore {
         STOPWORD?: IDICT_STOPWORD;
         SYNONYM?: IDICT_SYNONYM;
         [key: string]: IDICT;
-    };
+    } & ITSPartialRecord<ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM>, IDICT_SYNONYM> & ITSPartialRecord<ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD>, IDICT_STOPWORD>;
     modules: {
         tokenizer: ISubTokenizer[];
         optimizer: ISubOptimizer[];
@@ -96,14 +97,14 @@ export declare class SegmentCore {
      * @param {String} type 类型
      * @return {object}
      */
-    getDict(type: EnumDictDatabase.STOPWORD): IDICT_STOPWORD;
-    getDict(type: EnumDictDatabase.SYNONYM): IDICT_SYNONYM;
-    getDict(type: EnumDictDatabase.TABLE): IDICT<IWord>;
-    getDict(type: EnumDictDatabase.BLACKLIST): IDICT_BLACKLIST;
-    getDict(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER): IDICT_BLACKLIST;
+    getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD>): IDICT_STOPWORD;
+    getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM>): IDICT_SYNONYM;
+    getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.TABLE>): IDICT<IWord>;
+    getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST>): IDICT_BLACKLIST;
+    getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER>): IDICT_BLACKLIST;
     getDict(type: 'TABLE2'): IDICT2<IWord>;
-    getDict(type: EnumDictDatabase): IDICT;
-    getDict(type: any): IDICT;
+    getDict(type: ITSTypeAndStringLiteral<EnumDictDatabase>): IDICT;
+    getDict(type: unknown): IDICT;
     getOptionsDoSegment<T extends IOptionsDoSegment>(options?: T): T;
     protected _get_text(text: string | Buffer): string;
     addBlacklist(word: string, remove?: boolean): this;

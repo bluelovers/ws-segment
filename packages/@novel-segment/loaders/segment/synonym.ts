@@ -7,8 +7,9 @@ import Promise = require('bluebird');
 import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
 import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
 import { LoaderClass } from '@novel-segment/dict-loader-core';
+import { ArrayTwoOrMore } from '@novel-segment/types';
 
-export type IDictRow = string[];
+export type IDictRow = ArrayTwoOrMore<string>;
 export type IDict = IDictRow[];
 
 const libLoader = new LoaderClass<IDict, IDictRow>({
@@ -37,7 +38,7 @@ const libLoader = new LoaderClass<IDict, IDictRow>({
 			}
 
 			return s;
-		});
+		}) as any;
 	},
 
 	filter(line: string)
