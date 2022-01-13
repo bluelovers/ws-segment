@@ -4,17 +4,17 @@
 
 import { crlf } from 'crlf-normalize';
 import Segment, { POSTAG } from '../index';
-import { useDefault, getDefaultModList } from '../lib';
-import fs = require("fs-extra");
 import { IWordDebug } from '../lib/util/debug';
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
-import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
-import prettyuse = require('prettyuse');
-import { console, chalkByConsole } from 'debug-color2';
-import jsdiff = require('diff');
+import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
+import { chalkByConsole, console } from 'debug-color2';
 import { IStylesColorNames } from 'debug-color2/lib/styles';
+import { EnumDictDatabase } from '@novel-segment/types';
+import fs = require("fs-extra");
+import prettyuse = require('prettyuse');
+import jsdiff = require('diff');
 
 let file: string;
 let DEBUG_EACH: boolean;
@@ -35,52 +35,57 @@ let db_dict = getDictMain(segment);
  * 最後一個參數的數字是代表權重 數字越高 越優先
  */
 db_dict
-//.add(['在這裡', POSTAG.D_F, 0])
-//.add(['人名', POSTAG.A_NR, 0])
-//.add(['地名', POSTAG.A_NS, 0])
-//.add(['机构团体', POSTAG.A_NT, 0])
-//.add(['名词', POSTAG.D_N, 0])
-//.add(['錯字', POSTAG.BAD, 0])
+	//.add(['在這裡', POSTAG.D_F, 0])
+	//.add(['人名', POSTAG.A_NR, 0])
+	//.add(['地名', POSTAG.A_NS, 0])
+	//.add(['机构团体', POSTAG.A_NT, 0])
+	//.add(['名词', POSTAG.D_N, 0])
+	//.add(['錯字', POSTAG.BAD, 0])
 	//.add(['l10n', POSTAG.A_NX, 0])
 	//.add(['i18n', POSTAG.A_NX, 0])
-//.add(['像', 0x141000, 20000])
-//.add(['建筑', 0x000000, 0])
-//.add(['發现', 0x1000, 10000])
+	//.add(['像', 0x141000, 20000])
+	//.add(['建筑', 0x000000, 0])
+	//.add(['發现', 0x1000, 10000])
 
 	//.add(['身影', 0x100000, 10000])
 
-//.add(['黑發', 0x100000, 1000])
-//	.add(['超',0x08001000,1760])
-//	.add(['公主抱',0x1000,0])
-//	.add(['是以',0x8000000,0])
-//	.add(['壓制',0x1000,1000])
-//	.add(['在干的',0x18801000,500])
-//	.add(['面包',0x100000, 800])
-//	.add(['之间',0x2100000, 1000])
-//	.add(['干吗',0x802000, 0])
-//	.add(['聖域',0x108000, 2000])
-//	.add(['全',0x48101000, 159])
-//	.add(['全體表示',0x001000, 10000])
-//	.add(['范',0x40100080, 5000])
-//	.add(['七人',0x100000, 500])
-//	.add(['意外',0x101000, 3000])
-//	.add(['民兵團',0x0100000, 2000])
-//	.add(['團團',0x8000000, 0])
-//	.add(['重要',0x001000, 2000])
-//	.add(['长剑',0x100000,2100])
-//	.add(['仿製品',0x100000,11000])
-//	.add(['中长发',0x100000,2000])
-//	.add(['內臟',0x100000,500])
-//	.add(['進发',0x1000,1000])
-//	.add(['发直',0x1000,4000])
+	//.add(['黑發', 0x100000, 1000])
+	//	.add(['超',0x08001000,1760])
+	//	.add(['公主抱',0x1000,0])
+	//	.add(['是以',0x8000000,0])
+	//	.add(['壓制',0x1000,1000])
+	//	.add(['在干的',0x18801000,500])
+	//	.add(['面包',0x100000, 800])
+	//	.add(['之间',0x2100000, 1000])
+	//	.add(['干吗',0x802000, 0])
+	//	.add(['聖域',0x108000, 2000])
+	//	.add(['全',0x48101000, 159])
+	//	.add(['全體表示',0x001000, 10000])
+	//	.add(['范',0x40100080, 5000])
+	//	.add(['七人',0x100000, 500])
+	//	.add(['意外',0x101000, 3000])
+	//	.add(['民兵團',0x0100000, 2000])
+	//	.add(['團團',0x8000000, 0])
+	//	.add(['重要',0x001000, 2000])
+	//	.add(['长剑',0x100000,2100])
+	//	.add(['仿製品',0x100000,11000])
+	//	.add(['中长发',0x100000,2000])
+	//	.add(['內臟',0x100000,500])
+	//	.add(['進发',0x1000,1000])
+	//	.add(['发直',0x1000,4000])
 	//.add(['否',0x101000,1000])
-//	.add(['目的',0x108000,2000])
-//	.add(['刻划',0x1000,4500])
-//	.add(['故事',0x100000,1000])
-//	.add(['刻划',0x1000,9500])
-//	.add(['將死之時',0x104000,8000])
-//	.add(['干着急',0x801000,100])
+	//	.add(['目的',0x108000,2000])
+	//	.add(['刻划',0x1000,4500])
+	//	.add(['故事',0x100000,1000])
+	//	.add(['刻划',0x1000,9500])
+	//	.add(['將死之時',0x104000,8000])
+	//	.add(['干着急',0x801000,100])
+;
 
+let db_synonym = segment.getDictDatabase(EnumDictDatabase.SYNONYM);
+
+db_synonym
+//	.add(['頁籤', '選項卡', '標籤頁', '標簽頁'])
 ;
 
 segment
@@ -91,10 +96,9 @@ console.time(`doSegment`);
 
 let text = `
 
-班尼特是女仆裝，
+to.create.new.file.tooltip=要創建新文件，請在項目工具視窗中按 {0}。或者，右擊任何文件夾，選擇"新建"，然後選擇文件類型。
 
 `;
-
 
 text = text.replace(/^\s+|\s+$/g, '');
 
