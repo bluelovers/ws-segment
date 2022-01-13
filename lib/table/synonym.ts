@@ -2,15 +2,9 @@
  * Created by user on 2018/4/19/019.
  */
 
-import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
+import { IDICT, IOptions } from './core';
 import { TableDictSynonymPanGu } from './synonym.pangu';
-
-export type ArrayTwoOrMore<T> = {
-	0: T,
-	1: T,
-	[n: number]: T,
-	length: number,
-}
+import { ArrayTwoOrMore } from '@novel-segment/types';
 
 /**
  * 請注意 這與原版 node-segment 的格式不同

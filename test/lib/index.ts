@@ -14,6 +14,7 @@ import ProjectConfig from '../../project.config';
 import TableDict from '../../lib/table/dict';
 import * as util from 'util';
 import { useDefaultBlacklistDict, useDefaultSynonymDict } from '../../lib/defaults/dict';
+import { EnumDictDatabase } from '@novel-segment/types';
 
 util.inspect.defaultOptions.colors = true;
 
@@ -173,7 +174,7 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 
 export function getDictMain(segment: Segment)
 {
-	return segment.getDictDatabase('TABLE');
+	return segment.getDictDatabase(EnumDictDatabase.TABLE);
 }
 
 export default exports as typeof import('./index');

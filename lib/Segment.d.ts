@@ -4,41 +4,42 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 /// <reference types="node" />
-import TableDictBlacklist from './table/blacklist';
-import AbstractTableDictCore from './table/core';
+import { TableDictBlacklist } from './table/blacklist';
+import { AbstractTableDictCore } from './table/core';
 import { TableDict } from './table/dict';
 import { TableDictStopword } from './table/stopword';
-import TableDictSynonym from './table/synonym';
+import { TableDictSynonym } from './table/synonym';
 import { ISubOptimizer, ISubTokenizer } from './mod';
-import { EnumDictDatabase } from './const';
+import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './segment/types';
 import SegmentCore from './segment/core';
 import { ITSOverwrite } from 'ts-type';
 import { IUseDefaultOptions } from './defaults/index';
+import { EnumDictDatabase } from '@novel-segment/types';
 /**
  * 创建分词器接口
  */
 export declare class Segment extends SegmentCore {
     static defaultOptionsDoSegment: IOptionsDoSegment;
-    getDictDatabase<R extends TableDictSynonym>(type: EnumDictDatabase.SYNONYM, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictSynonym>(type: ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDict>(type: EnumDictDatabase.TABLE, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDict>(type: ITSTypeAndStringLiteral<EnumDictDatabase.TABLE>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDictStopword>(type: EnumDictDatabase.STOPWORD, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictStopword>(type: ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictBlacklist>(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictBlacklist>(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends TableDictBlacklist>(type: EnumDictDatabase.BLACKLIST_FOR_SYNONYM, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends TableDictBlacklist>(type: ITSTypeAndStringLiteral<EnumDictDatabase.BLACKLIST_FOR_SYNONYM>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
-    getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | EnumDictDatabase, autocreate?: boolean, libTableDict?: {
+    getDictDatabase<R extends AbstractTableDictCore<any>>(type: string | ITSTypeAndStringLiteral<EnumDictDatabase>, autocreate?: boolean, libTableDict?: {
         new (...argv: any[]): R;
     }): R;
     /**
@@ -61,7 +62,7 @@ export declare class Segment extends SegmentCore {
      * @param {Boolean} convert_to_lower 是否全部转换为小写
      * @return {Segment}
      */
-    loadDict(name: string, type?: string, convert_to_lower?: boolean, skipExists?: boolean): this;
+    loadDict(name: string, type?: string | ITSTypeAndStringLiteral<EnumDictDatabase>, convert_to_lower?: boolean, skipExists?: boolean): this;
     /**
      * 载入同义词词典
      *

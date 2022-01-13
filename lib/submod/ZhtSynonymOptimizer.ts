@@ -9,8 +9,8 @@ import { hexAndAny } from '../util/index';
 import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 
 import UString from 'uni-string';
-import { EnumDictDatabase } from '../const';
-import isUnset, { isSet } from '../util/isUnset';
+import { isUnset, isSet } from '../util/isUnset';
+import { EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * 以詞意來自動轉換 而不需要手動加入字典於 synonym.txt

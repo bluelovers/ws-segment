@@ -3,12 +3,7 @@
  */
 import { IDICT, IOptions } from './core';
 import { TableDictSynonymPanGu } from './synonym.pangu';
-export declare type ArrayTwoOrMore<T> = {
-    0: T;
-    1: T;
-    [n: number]: T;
-    length: number;
-};
+import { ArrayTwoOrMore } from '@novel-segment/types';
 /**
  * 請注意 這與原版 node-segment 的格式不同
  *
