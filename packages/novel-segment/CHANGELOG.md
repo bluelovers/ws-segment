@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.84](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.83...novel-segment@2.7.84) (2022-01-14)
+
+
+### ✨　Features
+
+* allow force overwrite synonym ([82e13a0](https://github.com/bluelovers/ws-segment/commit/82e13a0607d33180af6313502eab9d61fe7644f1))
+
+
+
+
+
 ## [2.7.83](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.82...novel-segment@2.7.83) (2022-01-13)
 
 
