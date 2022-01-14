@@ -6,6 +6,12 @@ import { IDICT, IOptions } from './core';
 import { TableDictSynonymPanGu } from './synonym.pangu';
 import { ArrayTwoOrMore } from '@novel-segment/types';
 
+export interface IOptionsTableDictSynonym extends IOptions
+{
+	skipExists?: boolean
+	forceOverwrite?: boolean
+}
+
 /**
  * 請注意 這與原版 node-segment 的格式不同
  *
@@ -14,8 +20,9 @@ import { ArrayTwoOrMore } from '@novel-segment/types';
  */
 export class TableDictSynonym extends TableDictSynonymPanGu
 {
+	public override options: IOptionsTableDictSynonym;
 
-	constructor(type: string = TableDictSynonym.type, options: IOptions = {}, ...argv)
+	constructor(type: string = TableDictSynonym.type, options: IOptionsTableDictSynonym = {}, ...argv)
 	{
 		super(type, options, ...argv)
 	}
@@ -25,25 +32,26 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 	 */
 	public override TABLE2: IDICT<string[]> = {};
 
-	override add(data: ArrayTwoOrMore<string>, skipExists?: boolean)
+	override add(data: ArrayTwoOrMore<string>, skipExists?: boolean, forceOverwrite?: boolean)
 	{
 		if (!Array.isArray(data) || data.length < 2)
 		{
 			throw new TypeError(JSON.stringify(data));
 		}
 
-		let w = this._trim(data.shift());
+		const w = this._trim(data.shift());
 
 		if (!w.length)
 		{
 			throw new TypeError(JSON.stringify(data));
 		}
 
-		let self = this;
+		const self = this;
 
-		self.TABLE2[w] = self.TABLE2[w] ?? [];
+		self.TABLE2[w] ??= [];
 
-		skipExists = skipExists ?? true;
+		forceOverwrite ??= this.options.forceOverwrite;
+		skipExists ??= this.options.skipExists ?? true;
 
 		data.forEach(function (bw, index)
 		{
@@ -59,7 +67,7 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 				return;
 			}
 
-			if (skipExists && self.exists(bw) || bw in self.TABLE2)
+			if ((!forceOverwrite) && (skipExists && self.exists(bw) || bw in self.TABLE2))
 			{
 				return;
 			}
