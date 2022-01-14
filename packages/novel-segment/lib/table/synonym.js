@@ -19,18 +19,20 @@ class TableDictSynonym extends synonym_pangu_1.TableDictSynonymPanGu {
          */
         this.TABLE2 = {};
     }
-    add(data, skipExists) {
-        var _a;
+    add(data, skipExists, forceOverwrite) {
+        var _a, _b;
+        var _c;
         if (!Array.isArray(data) || data.length < 2) {
             throw new TypeError(JSON.stringify(data));
         }
-        let w = this._trim(data.shift());
+        const w = this._trim(data.shift());
         if (!w.length) {
             throw new TypeError(JSON.stringify(data));
         }
-        let self = this;
-        self.TABLE2[w] = (_a = self.TABLE2[w]) !== null && _a !== void 0 ? _a : [];
-        skipExists = skipExists !== null && skipExists !== void 0 ? skipExists : true;
+        const self = this;
+        (_a = (_c = self.TABLE2)[w]) !== null && _a !== void 0 ? _a : (_c[w] = []);
+        forceOverwrite !== null && forceOverwrite !== void 0 ? forceOverwrite : (forceOverwrite = this.options.forceOverwrite);
+        skipExists !== null && skipExists !== void 0 ? skipExists : (skipExists = (_b = this.options.skipExists) !== null && _b !== void 0 ? _b : true);
         data.forEach(function (bw, index) {
             bw = self._trim(bw);
             if (!bw.length) {
@@ -39,7 +41,7 @@ class TableDictSynonym extends synonym_pangu_1.TableDictSynonymPanGu {
                 }
                 return;
             }
-            if (skipExists && self.exists(bw) || bw in self.TABLE2) {
+            if ((!forceOverwrite) && (skipExists && self.exists(bw) || bw in self.TABLE2)) {
                 return;
             }
             self.TABLE2[w].push(bw);
