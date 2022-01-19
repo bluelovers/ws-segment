@@ -12,7 +12,6 @@ const transliteration_1 = require("transliteration");
 const fs = require("fs-extra");
 const cjk_conv_1 = require("cjk-conv");
 const fast_glob_1 = require("@bluelovers/fast-glob");
-const util_2 = require("segment-dict/script/util");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const loader_line_1 = require("@novel-segment/loader-line");
 const debug_color2_1 = require("debug-color2");
@@ -127,7 +126,7 @@ if (worker_threads_1.isMainThread) {
                         line: s,
                         index: index++,
                         c1: "other" /* other */,
-                        line_type: (0, util_2.chkLineType)(s),
+                        line_type: chkLineType(s),
                         cjk_id: (0, util_1.getCjkName)(w),
                     };
                     list.push(cur);
@@ -276,12 +275,12 @@ function getCid(w) {
 function SortList(ls) {
     // @ts-ignore
     return ls.sort(function (a, b) {
-        if (a.line_type == util_2.EnumLineType.COMMENT_TAG
-            || b.line_type == util_2.EnumLineType.COMMENT_TAG) {
+        if (a.line_type == 2 /* COMMENT_TAG */
+            || b.line_type == 2 /* COMMENT_TAG */) {
             return (a.index - b.index);
         }
-        else if (a.line_type == util_2.EnumLineType.COMMENT
-            || b.line_type == util_2.EnumLineType.COMMENT) {
+        else if (a.line_type == 1 /* COMMENT */
+            || b.line_type == 1 /* COMMENT */) {
             return (a.index - b.index);
         }
         let ret = (0, util_1.zhDictCompare)(a.cjk_id, b.cjk_id)

@@ -19,7 +19,6 @@ import Bluebird = require('bluebird');
 import { cjk2zhs, cjk2zht } from 'cjk-conv';
 import StrUtil = require('str-util');
 import { sync as FastGlobSync } from '@bluelovers/fast-glob';
-import { chkLineType, EnumLineType, ILoadDictFileRow2 } from 'segment-dict/script/util';
 import { array_unique } from 'array-hyper-unique';
 import { serialize } from '@novel-segment/loader-line';
 import { console, chalkByConsole } from 'debug-color2';
@@ -27,6 +26,7 @@ import { greedyTableReplace } from 'cjk-conv/lib/zh/table/greedy';
 import libTable from 'cjk-conv/lib/zh/table';
 import { gitDiffStagedFile } from '@git-lazy/diff-staged';
 import { matchGlob } from '@git-lazy/util/util/match';
+import { EnumLineType } from '@novel-segment/util-compare';
 
 let CWD = path.join(ProjectConfig.temp_root);
 
