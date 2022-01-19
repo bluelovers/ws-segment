@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/sort-synonym",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "NLP",
@@ -117,14 +117,12 @@
   },
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.14",
-    "@novel-segment/types": "^1.0.1",
+    "@novel-segment/types": "^1.0.2",
     "@novel-segment/util": "^1.0.56",
-    "@novel-segment/util-compare": "^1.0.0",
+    "@novel-segment/util-compare": "^1.0.1",
     "array-hyper-unique": "^2.0.6",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },

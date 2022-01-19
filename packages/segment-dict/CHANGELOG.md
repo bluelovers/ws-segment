@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.166](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.165...segment-dict@2.3.166) (2022-01-19)
+
+
+### 📦　Code Refactoring
+
+* 分離 排序字典相關函數 ([1e23895](https://github.com/bluelovers/ws-segment/commit/1e238959be1bc399189cf41183ef2e9f5132821d))
+
+
+### 🔖　Miscellaneous
+
+* . ([25d8bdc](https://github.com/bluelovers/ws-segment/commit/25d8bdc1e4f18a582ff5a125e31443b9242640ae))
+
+
+
+
+
 ## [2.3.165](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.164...segment-dict@2.3.165) (2022-01-13)
 
 
