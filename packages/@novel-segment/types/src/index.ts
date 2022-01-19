@@ -1,9 +1,7 @@
 
-export type ArrayTwoOrMore<T> = {
+export type ArrayTwoOrMore<T> = T[] & {
 	0: T,
 	1: T,
-	[n: number]: T,
-	length: number,
 }
 
 export const enum EnumDictDatabase

@@ -6,16 +6,13 @@ import ProjectConfig from "../project.config";
 
 import {
 	all_default_load_dict,
-	chkLineType,
-	EnumLineType,
 	getCjkName,
 	globDict,
-	ILoadDictFileRow2,
-	loadDictFile,
 	zhDictCompare,
 } from './util';
 import { array_unique } from 'array-hyper-unique';
 import UString from 'uni-string/src/core';
+import { chkLineType, EnumLineType, ILoadDictFileRow2, loadDictFile } from '@novel-segment/util-compare';
 
 let CWD = path.join(ProjectConfig.dict_root, 'segment');
 

@@ -7,7 +7,8 @@ const upath2_1 = tslib_1.__importDefault(require("upath2"));
 const loader_line_1 = require("@novel-segment/loader-line");
 const project_config_1 = tslib_1.__importDefault(require("../project.config"));
 const util_1 = require("./util");
-const array_hyper_unique_1 = require("array-hyper-unique");
+const util_compare_1 = require("@novel-segment/util-compare");
+const sort_dict_table_1 = require("@novel-segment/sort-dict-table");
 let CWD = upath2_1.default.join(project_config_1.default.dict_root, 'segment');
 let USE_CJK_MODE = 2;
 let CACHE_LIST = {
@@ -31,24 +32,12 @@ let CACHE_LIST = {
     let _basepath = upath2_1.default.relative(CWD, file);
     debug_color2_1.console.debug(`[START]`, _basepath);
     debug_color2_1.console.time(_basepath);
-    let list = await (0, util_1.loadDictFile)(file, function (list, cur) {
-        cur.file = file;
-        let [w, p, f] = cur.data;
-        let cjk_id = (0, util_1.getCjkName)(w, USE_CJK_MODE);
-        cur.cjk_id = cjk_id;
-        cur.line_type = (0, util_1.chkLineType)(cur.line);
-        if (cur.line_type == util_1.EnumLineType.COMMENT) {
+    let list = await (0, sort_dict_table_1.loadFile)(file, {
+        cbIgnore(cur) {
             CACHE_LIST.skip.push(cur);
-            return false;
-        }
-        if (f > 15000) {
-            //cur.line = [w, toHex(p), 0].join('|');
-        }
-        return true;
+        },
     });
-    list = SortList(list);
-    let out_list = list.map(v => v.line);
-    out_list = (0, array_hyper_unique_1.array_unique)(out_list);
+    let out_list = (0, util_compare_1.stringifyHandleDictLinesList)(list);
     //console.log(list);
     let out_file = file;
     if (0) {
@@ -60,27 +49,10 @@ let CACHE_LIST = {
 })
     .tap(async function () {
     if (CACHE_LIST.skip.length) {
-        let list = SortList(CACHE_LIST.skip);
+        let list = (0, sort_dict_table_1.SortList)(CACHE_LIST.skip);
         let out_list = list.map(v => v.line);
         let out_file = upath2_1.default.join(project_config_1.default.temp_root, 'skip2.txt');
         await (0, fs_extra_1.appendFile)(out_file, "\n\n" + (0, loader_line_1.serialize)(out_list) + "\n\n");
     }
 });
-function SortList(ls) {
-    // @ts-ignore
-    return ls.sort(function (a, b) {
-        if (a.line_type == util_1.EnumLineType.COMMENT_TAG
-            || b.line_type == util_1.EnumLineType.COMMENT_TAG) {
-            return (a.index - b.index);
-        }
-        else if (a.line_type == util_1.EnumLineType.COMMENT
-            || b.line_type == util_1.EnumLineType.COMMENT) {
-            return (a.index - b.index);
-        }
-        let ret = (0, util_1.zhDictCompare)(a.cjk_id, b.cjk_id)
-            || (a.index - b.index)
-            || 0;
-        return ret;
-    });
-}
 //# sourceMappingURL=sort.dict_synonym.js.map

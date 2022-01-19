@@ -5,16 +5,22 @@ import { serialize } from '@novel-segment/loader-line';
 import ProjectConfig from "../project.config";
 
 import {
-	all_default_load_dict, all_extra_dict,
-	chkLineType,
-	EnumLineType,
+	all_default_load_dict,
+	all_extra_dict,
 	getCjkName,
-	globDict,
-	ILoadDictFileRow2,
-	loadDictFile,
-	zhDictCompare,
+	globDict, zhDictCompare,
+
 } from './util';
 import { array_unique } from 'array-hyper-unique';
+
+import {
+	chkLineType,
+	EnumLineType,
+	ILoadDictFileRow2,
+	loadDictFile,
+	stringifyHandleDictLinesList,
+} from '@novel-segment/util-compare';
+import { loadFile, SortList } from '@novel-segment/sort-dict-table';
 
 let CWD = path.join(ProjectConfig.dict_root, 'segment');
 
@@ -53,37 +59,14 @@ globDict(CWD, [
 
 		console.time(_basepath);
 
-		let list = await loadDictFile<ILoadDictFileRow2>(file, function (list, cur)
-		{
-			cur.file = file;
-
-			let [w, p, f] = cur.data;
-
-			let cjk_id = getCjkName(w, USE_CJK_MODE);
-
-			cur.cjk_id = cjk_id;
-			cur.line_type = chkLineType(cur.line);
-
-			if (cur.line_type == EnumLineType.COMMENT)
+		let list = await loadFile(file, {
+			cbIgnore(cur)
 			{
 				CACHE_LIST.skip.push(cur);
-
-				return false;
-			}
-
-			if (f > 15000)
-			{
-				//cur.line = [w, toHex(p), 0].join('|');
-			}
-
-			return true;
+			},
 		});
 
-		list = SortList( list);
-
-		let out_list = list.map(v => v.line);
-
-		out_list = array_unique(out_list);
+		let out_list = stringifyHandleDictLinesList(list);
 
 		//console.log(list);
 
@@ -113,32 +96,3 @@ globDict(CWD, [
 		}
 	})
 ;
-
-function SortList<T = ILoadDictFileRow2>(ls: T[])
-{
-	// @ts-ignore
-	return ls.sort(function (a: ILoadDictFileRow2, b: ILoadDictFileRow2)
-	{
-		if (
-			a.line_type == EnumLineType.COMMENT_TAG
-			|| b.line_type == EnumLineType.COMMENT_TAG
-		)
-		{
-			return (a.index - b.index);
-		}
-		else if (
-			a.line_type == EnumLineType.COMMENT
-			|| b.line_type == EnumLineType.COMMENT
-		)
-		{
-			return (a.index - b.index);
-		}
-
-		let ret = zhDictCompare(a.cjk_id, b.cjk_id)
-			|| (a.index - b.index)
-			|| 0
-		;
-
-		return ret;
-	})
-}

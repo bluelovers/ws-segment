@@ -1,27 +1,9 @@
-import BluebirdPromise = require('bluebird');
-import { zhDictCompare, getCjkName } from '@novel-segment/util';
+import { getCjkName, zhDictCompare } from '@novel-segment/util';
+import BluebirdPromise from 'bluebird';
+import { ILoadDictFileRow2 } from '@novel-segment/util-compare';
 export { zhDictCompare, getCjkName };
-export declare type ILoadDictFileRow2<D extends any = [string, number, number, ...any[]]> = ILoadDictFileRow<D> & {
-    file: string;
-    cjk_id: string;
-    line_type: EnumLineType;
-};
 export declare const DEFAULT_IGNORE: string[];
 export declare function globDict(cwd: string, pattern?: string[], ignore?: string[]): BluebirdPromise<string[]>;
-export interface ILoadDictFileRow<D = [string, number, number, ...any[]]> {
-    data: D;
-    line: string;
-    index: number;
-}
-export declare function loadDictFile<T = ILoadDictFileRow>(file: string, fn?: (list: T[], cur: T) => boolean, options?: {
-    parseFn?: (line: string) => any;
-}): BluebirdPromise<T[]>;
-export declare enum EnumLineType {
-    BASE = 0,
-    COMMENT = 1,
-    COMMENT_TAG = 2
-}
-export declare function chkLineType(line: string): EnumLineType;
 export declare function baseSortList<T = ILoadDictFileRow2>(ls: T[], bool?: boolean): T[];
-export declare function all_default_load_dict(): string[];
-export declare function all_extra_dict(): string[];
+export declare function all_default_load_dict(): readonly ["dict_synonym/*.txt", "names/*.txt", "lazy/*.txt", "dict*.txt", "phrases/*.txt", "pangu/*.txt", "char.txt"];
+export declare function all_extra_dict(): readonly ["infrequent/**/*.txt"];

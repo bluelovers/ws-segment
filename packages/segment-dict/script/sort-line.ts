@@ -6,14 +6,11 @@ import { serialize } from '@novel-segment/loader-line';
 import ProjectConfig from "../project.config";
 
 import {
-	chkLineType,
-	EnumLineType,
 	getCjkName,
 	globDict,
-	ILoadDictFileRow2,
-	loadDictFile,
 	zhDictCompare,
 } from './util';
+import { chkLineType, EnumLineType, ILoadDictFileRow2, loadDictFile } from '@novel-segment/util-compare';
 
 let CWD = path.join(ProjectConfig.dict_root, 'blacklist');
 

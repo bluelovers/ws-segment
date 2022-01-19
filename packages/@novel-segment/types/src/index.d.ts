@@ -1,8 +1,6 @@
-export declare type ArrayTwoOrMore<T> = {
+export declare type ArrayTwoOrMore<T> = T[] & {
     0: T;
     1: T;
-    [n: number]: T;
-    length: number;
 };
 export declare const enum EnumDictDatabase {
     SYNONYM = "SYNONYM",

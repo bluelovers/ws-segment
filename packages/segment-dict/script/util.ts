@@ -1,24 +1,11 @@
-import libTable from 'cjk-conv/lib/zh/table';
-import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 import FastGlob from '@bluelovers/fast-glob';
-import BluebirdPromise = require('bluebird');
-import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
-import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment/index';
-import { ICUR_WORD } from '../test/sort';
 import naturalCompare from '@bluelovers/string-natural-compare';
-import { array_unique } from 'array-hyper-unique';
-import StrUtil = require('str-util');
 
-import { zhDictCompare, getCjkName } from '@novel-segment/util';
+import { getCjkName, zhDictCompare } from '@novel-segment/util';
+import BluebirdPromise from 'bluebird';
+import { ILoadDictFileRow2 } from '@novel-segment/util-compare';
 
 export { zhDictCompare, getCjkName }
-
-export type ILoadDictFileRow2<D extends any = [string, number, number, ...any[]]> = ILoadDictFileRow<D> & {
-	file: string,
-	cjk_id: string,
-
-	line_type: EnumLineType,
-}
 
 export const DEFAULT_IGNORE = [
 	//'char*',
@@ -39,88 +26,6 @@ export function globDict(cwd: string, pattern?: string[], ignore = DEFAULT_IGNOR
 			markDirectories: true,
 		}))
 		;
-}
-
-export interface ILoadDictFileRow<D = [string, number, number, ...any[]]>
-{
-	data: D,
-	line: string,
-	index: number,
-}
-
-export function loadDictFile<T = ILoadDictFileRow>(file: string,
-	fn?: (list: T[], cur: T) => boolean,
-	options?: {
-		parseFn?: (line: string) => any,
-	},
-): BluebirdPromise<T[]>
-{
-	options = options || {};
-	const parseFn = options.parseFn = options.parseFn || parseLineSegment;
-
-	return load(file)
-		.then(function (b)
-		{
-			if (!b)
-			{
-				return []
-			}
-
-			return b.reduce(function (a, line, index, arr)
-			{
-				let bool: boolean;
-
-				let data = parseFn(line);
-
-				let cur = {
-					data,
-					line,
-					index,
-				};
-
-				if (fn)
-				{
-					// @ts-ignore
-					bool = fn(a, cur)
-				}
-				else
-				{
-					bool = true;
-				}
-
-				if (bool)
-				{
-					a.push(cur);
-				}
-
-				return a;
-			}, []);
-		})
-		;
-}
-
-export enum EnumLineType
-{
-	BASE = 0,
-	COMMENT = 1,
-	COMMENT_TAG = 2,
-}
-
-export function chkLineType(line: string): EnumLineType
-{
-	let ret = EnumLineType.BASE;
-
-	if (line.indexOf('//') == 0)
-	{
-		ret = EnumLineType.COMMENT;
-
-		if (/ @todo/i.test(line))
-		{
-			ret = EnumLineType.COMMENT_TAG;
-		}
-	}
-
-	return ret;
 }
 
 export function baseSortList<T = ILoadDictFileRow2>(ls: T[], bool?: boolean)
@@ -149,14 +54,14 @@ export function all_default_load_dict()
 		'phrases/*.txt',
 		'pangu/*.txt',
 		'char.txt',
-	];
+	] as const;
 }
 
 export function all_extra_dict()
 {
 	return [
 		'infrequent/**/*.txt',
-	];
+	] as const;
 }
 
 /*
