@@ -7,7 +7,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SegmentCore = void 0;
 const index_1 = require("../mod/index");
-const stringify_1 = require("./methods/stringify");
 const split_1 = require("./methods/split");
 const indexOf_1 = require("./methods/indexOf");
 const convertSynonym_1 = require("./methods/convertSynonym");
@@ -17,6 +16,7 @@ const getOptionsDoSegment_1 = require("./methods/getOptionsDoSegment");
 const useModules_1 = require("./methods/useModules");
 const doSegment_1 = require("./methods/doSegment");
 const ids_1 = require("@novel-segment/postag/lib/postag/ids");
+const stringify_1 = require("@novel-segment/stringify");
 /**
  * 创建分词器接口
  */

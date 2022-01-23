@@ -2,6 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableDict = void 0;
 const tslib_1 = require("tslib");
+/**
+ * Created by user on 2018/4/15/015.
+ */
 const segment_1 = require("segment-dict/lib/loader/segment");
 const cjk_1 = require("../util/cjk");
 const core_1 = tslib_1.__importDefault(require("./core"));

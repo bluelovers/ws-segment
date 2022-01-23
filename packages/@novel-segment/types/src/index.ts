@@ -28,3 +28,38 @@ export const enum EnumDictDatabase
 	BLACKLIST_FOR_SYNONYM = 'BLACKLIST_FOR_SYNONYM',
 
 }
+
+export interface IWord
+{
+	w: string,
+	/**
+	 * 詞性
+	 */
+	p?: number,
+	/**
+	 * 詞性名稱
+	 */
+	ps?: string,
+	pp?: string,
+	/**
+	 * 權重
+	 */
+	f?: number,
+	/**
+	 * 开始位置
+	 */
+	c?: number,
+	/**
+	 * 合併項目
+	 */
+	m?: Array<IWord | string>,
+
+	//convertSynonym?: boolean,
+	//autoCreate?: boolean,
+
+	/**
+	 * 代表原生存在於字典內的項目
+	 */
+	s?: boolean,
+	os?: boolean,
+}

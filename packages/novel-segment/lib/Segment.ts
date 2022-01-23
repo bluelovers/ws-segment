@@ -37,8 +37,8 @@ import {
 	IOptionsSegment,
 	ISPLIT,
 	ISPLIT_FILTER,
-	IWord,
 } from './segment/types';
+import { IWord } from '@novel-segment/types';
 import SegmentCore from './segment/core';
 import { _isIgnoreModules } from './segment/methods/useModules';
 import { ITSOverwrite } from 'ts-type';

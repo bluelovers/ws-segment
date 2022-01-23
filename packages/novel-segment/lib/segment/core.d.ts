@@ -11,11 +11,12 @@ import { TableDictStopword } from '../table/stopword';
 import TableDictSynonym from '../table/synonym';
 import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from '../mod/index';
 import { IWordDebug } from '../util/index';
-import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './types';
+import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER } from './types';
 import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 import { ITSOverwrite, ITSPartialRecord } from 'ts-type/lib/type/record';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 import { EnumDictDatabase } from '@novel-segment/types';
+import { IWord } from '@novel-segment/types';
 /**
  * 创建分词器接口
  */

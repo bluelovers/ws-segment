@@ -2,19 +2,16 @@
  * Created by user on 2018/4/15/015.
  */
 
-import { crlf } from 'crlf-normalize';
 import Segment, { POSTAG } from '../index';
 import { IWordDebug } from '../lib/util/debug';
 import { createSegment } from './lib';
 import { debug_token } from '../lib/util'
 import { getDictMain } from './lib/index';
-import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
 import { chalkByConsole, console } from 'debug-color2';
-import { IStylesColorNames } from 'debug-color2/lib/styles';
 import { EnumDictDatabase } from '@novel-segment/types';
-import fs = require("fs-extra");
 import prettyuse = require('prettyuse');
-import jsdiff = require('diff');
+import { printPrettyDiff } from '@novel-segment/pretty-diff';
+import { outputFileSync, readFileSync } from 'fs-extra';
 
 let file: string;
 let DEBUG_EACH: boolean;
@@ -80,6 +77,8 @@ db_dict
 	//	.add(['刻划',0x1000,9500])
 	//	.add(['將死之時',0x104000,8000])
 	//	.add(['干着急',0x801000,100])
+//.add(['形參',0x100000,0])
+//.add(['反方',0x100000,0])
 ;
 
 let db_synonym = segment.getDictDatabase(EnumDictDatabase.SYNONYM);
@@ -96,7 +95,17 @@ console.time(`doSegment`);
 
 let text = `
 
-to.create.new.file.tooltip=要創建新文件，請在項目工具視窗中按 {0}。或者，右擊任何文件夾，選擇"新建"，然後選擇文件類型。
+您尚未受邀使用新插件
+插件
+
+plugins.advertiser.missing.feature.dependency=推薦的{0,choice,1#插件|2#插件}可用於依賴項 ''{1}''。
+plugins.advertiser.missing.features.dependency=推薦的{0,choice,1#插件|2#插件}可用於依賴項({1})。
+error.plugin.was.not.installed=插件“{0}”未安裝: {1}
+
+title.plugin.uninstall=解除安裝插件
+plugin.manager.dependencies.detected.title=安裝所需插件
+
+prompt.uninstall.several.plugins=確定要移除這 {0} 個插件嗎?
 
 `;
 
@@ -104,7 +113,7 @@ text = text.replace(/^\s+|\s+$/g, '');
 
 if (file)
 {
-	text = fs.readFileSync(file).toString()
+	text = readFileSync(file).toString()
 }
 
 let ret: IWordDebug[];
@@ -134,77 +143,26 @@ else
 
 debug_token(ret);
 
-let output_text = segment.stringify(ret);
-
-let changed = crlf(text.toString()) !== output_text;
+const {
+	text_new: output_text,
+	text_new2: output_text2,
+	changed,
+} = printPrettyDiff(text.toString(), segment.stringify(ret));
 
 if (changed)
 {
 	console.red(`changed: ${changed}`);
 }
 
-fs.outputFileSync('./temp/c1.json', JSON.stringify({
+outputFileSync('./temp/c1.json', JSON.stringify({
 
 	changed,
 
 	ret,
 }, null, "\t"));
 
-fs.outputFileSync('./temp/c1.txt', output_text);
-
-console.gray("------------------");
-
-if (changed)
-{
-	console.success(diff_log(text, output_text));
-}
-else
-{
-	console.log(output_text);
-}
-
-console.gray("------------------");
-
-let output_text2 = cn2tw_min(output_text);
-
-if (output_text === output_text2)
-{
-	//console.gray(output_text2);
-}
-else
-{
-	console.log(diff_log(output_text, output_text2));
-
-	//console.log(output_text2);
-
-	console.gray("------------------");
-}
+outputFileSync('./temp/c1.txt', output_text);
 
 console.timeEnd(`doSegment`);
 
 console.debug(prettyuse());
-
-function diff_log(src_text: string, new_text: string): string
-{
-	let diff = jsdiff.diffChars(src_text, new_text);
-
-	return chalkByConsole(function (chalk, _console)
-	{
-		let diff_arr: string[] = diff
-			.reduce(function (a: string[], part)
-			{
-				let color: IStylesColorNames = part.added ? 'green' :
-					part.removed ? 'red' : 'grey';
-
-				let t = chalk[color](part.value);
-
-				a.push(t);
-
-				return a;
-			}, [])
-		;
-
-		return diff_arr.join('');
-	});
-}
-

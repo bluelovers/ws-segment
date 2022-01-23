@@ -1,12 +1,12 @@
 /**
  * Created by user on 2018/4/15/015.
  */
-import { IWord } from '../segment/types';
 import { IDictRow, serialize, stringifyLine } from 'segment-dict/lib/loader/segment';
 import { text_list } from '../util/cjk';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
 import { cloneDeep } from 'lodash';
 import { notNum } from '../util/isNum';
+import { IWord } from '@novel-segment/types';
 
 export type ITableDictRow = {
 	p: number,

@@ -1,8 +1,8 @@
 /**
  * Created by user on 2018/4/19/019.
  */
-import { IWord } from '../segment/types';
 import { IDictRow } from 'segment-dict/lib/loader/segment';
+import { IWord } from '@novel-segment/types';
 export declare type IOptions = {
     autoCjk?: boolean;
 };

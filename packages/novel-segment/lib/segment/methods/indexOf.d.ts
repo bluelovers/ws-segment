@@ -1,4 +1,4 @@
-import { IWord } from '../types';
+import { IWord } from '@novel-segment/types';
 /**
  * 在单词数组中查找某一个单词或词性所在的位置
  *

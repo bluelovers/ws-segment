@@ -2,9 +2,9 @@
  * Created by user on 2018/4/19/019.
  */
 
-import { IWord } from '../segment/types';
 import sortObjectKeys from 'sort-object-keys2';
 import { zhName, enName } from '@novel-segment/postag/lib/i18n';
+import { IWord } from '@novel-segment/types';
 
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');
 export const SYMBOL_DEBUG_KEY = '_debug';
