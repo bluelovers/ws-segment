@@ -93,7 +93,7 @@
     "build": "yarn run build:tsdx && yarn run build:dts:tsc && yarn run build:dts:copy",
     "build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
     "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
-    "build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false",
+    "build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false & echo build:dts:tsc",
     "build:microbundle": "ynpx microbundle --target node",
     "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
     "ci:install": "echo ci:install",
