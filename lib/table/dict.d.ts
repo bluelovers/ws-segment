@@ -1,9 +1,9 @@
 /**
  * Created by user on 2018/4/15/015.
  */
-import { IWord } from '../segment/types';
 import { IDictRow } from 'segment-dict/lib/loader/segment';
 import AbstractTableDictCore, { IDICT, IDICT2, IOptions } from './core';
+import { IWord } from '@novel-segment/types';
 export declare type ITableDictRow = {
     p: number;
     f: number;

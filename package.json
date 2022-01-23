@@ -92,6 +92,7 @@
     "@bluelovers/fast-glob": "^3.0.4",
     "@lazy-cjk/zh-table-list": "^1.0.78",
     "@novel-segment/postag": "^1.0.14",
+    "@novel-segment/stringify": "^1.0.0",
     "@novel-segment/types": "^1.0.2",
     "array-hyper-unique": "^2.0.6",
     "bluebird": "^3.7.2",

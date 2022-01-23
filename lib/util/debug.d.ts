@@ -1,7 +1,7 @@
 /**
  * Created by user on 2018/4/19/019.
  */
-import { IWord } from '../segment/types';
+import { IWord } from '@novel-segment/types';
 export declare const SYMBOL_DEBUG_KEY = "_debug";
 export declare type IWordDebugInfo<T extends IWordDebug = IWordDebug> = {
     ZhtSynonymOptimizer?: boolean;

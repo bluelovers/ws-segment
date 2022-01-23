@@ -1,8 +1,9 @@
 import deepmerge from 'deepmerge-plus/core';
 import { debugToken, IWordDebug } from '../../util/debug';
-import { IDICT, IDICT_SYNONYM, IWord } from '../types';
+import { IDICT, IDICT_SYNONYM} from '../types';
 import { ITSOverwrite } from 'ts-type';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
+import { IWord } from '@novel-segment/types';
 
 interface IOptions
 {

@@ -1,4 +1,4 @@
-import { IWord } from '../types';
+import { IWord } from '@novel-segment/types';
 /**
  * 根据某个单词或词性来分割单词数组
  *

@@ -25,8 +25,7 @@ import { IWordDebug } from '../util/index';
 import deepmerge from 'deepmerge-plus/core';
 import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from '../mod/index';
 import { defaultOptionsDoSegment } from './defaults';
-import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER, IWord } from './types';
-import { stringify } from './methods/stringify';
+import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER } from './types';
 import { split } from './methods/split';
 import { indexOf } from './methods/indexOf';
 import { convertSynonym, IConvertSynonymWithShowcount } from './methods/convertSynonym';
@@ -44,6 +43,8 @@ import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 import { ITSOverwrite, ITSPartialRecord } from 'ts-type/lib/type/record';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 import { EnumDictDatabase } from '@novel-segment/types';
+import { IWord } from '@novel-segment/types';
+import { stringify } from '@novel-segment/stringify';
 
 /**
  * 创建分词器接口
