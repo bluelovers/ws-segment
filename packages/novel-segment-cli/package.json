@@ -30,7 +30,7 @@
     "array-hyper-unique": "^2.0.6",
     "bluebird": "^3.7.2",
     "cache-path": "^2.0.30",
-    "crlf-normalize": "^1.0.6",
+    "crlf-normalize": "^1.0.7",
     "debug-color2": "^1.2.7",
     "fs-extra": "^10",
     "fs-iconv": "^3.1.8",
