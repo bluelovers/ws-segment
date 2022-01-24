@@ -24,6 +24,7 @@ export const lazyMatch = _wrapFn(_.lazyMatch);
 export const lazyMatch002 = _wrapFn(_.lazyMatch002);
 export const lazyMatchNot = _wrapFn(_.lazyMatchNot);
 export const lazyMatchSynonym001 = _wrapFn(_.lazyMatchSynonym001);
+export const lazyMatchSynonym001Not = _wrapFn(_.lazyMatchSynonym001Not);
 
 export function mochaSetup(mocha: Mocha.Context)
 {
