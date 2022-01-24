@@ -3,13 +3,7 @@ import { ITSArrayListMaybeReadonly } from 'ts-type/lib/type/base';
 
 export type IStringifyWordInput = ITSArrayListMaybeReadonly<IWord | string>;
 
-/**
- * 将单词数组连接成字符串
- *
- * @param {Array} words 单词数组
- * @return {String}
- */
-export function stringify(words: IStringifyWordInput, ...argv: any[]): string
+export function stringifyList(words: IStringifyWordInput, ...argv: any[]): string[]
 {
 	return words.map(function (item)
 	{
@@ -25,7 +19,18 @@ export function stringify(words: IStringifyWordInput, ...argv: any[]): string
 		{
 			throw new TypeError(`not a valid segment result list`)
 		}
-	}).join('');
+	});
+}
+
+/**
+ * 将单词数组连接成字符串
+ *
+ * @param {Array} words 单词数组
+ * @return {String}
+ */
+export function stringify(words: IStringifyWordInput, ...argv: any[]): string
+{
+	return stringifyList(words, ...argv).join('');
 }
 
 export default stringify

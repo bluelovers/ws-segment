@@ -1,4 +1,4 @@
-function stringify(words, ...argv) {
+function stringifyList(words, ...argv) {
   return words.map(function (item) {
     if (typeof item === 'string') {
       return item;
@@ -7,8 +7,11 @@ function stringify(words, ...argv) {
     } else {
       throw new TypeError(`not a valid segment result list`);
     }
-  }).join('');
+  });
+}
+function stringify(words, ...argv) {
+  return stringifyList(words, ...argv).join('');
 }
 
-export { stringify as default, stringify };
+export { stringify as default, stringify, stringifyList };
 //# sourceMappingURL=index.esm.mjs.map

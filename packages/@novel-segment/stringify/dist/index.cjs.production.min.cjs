@@ -1,2 +1,2 @@
-"use strict";function e(e,...t){return e.map((function(e){if("string"==typeof e)return e;if("w"in e)return e.w;throw new TypeError("not a valid segment result list")})).join("")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e,exports.stringify=e;
+"use strict";function t(t,...e){return t.map((function(t){if("string"==typeof t)return t;if("w"in t)return t.w;throw new TypeError("not a valid segment result list")}))}function e(e,...r){return t(e,...r).join("")}Object.defineProperty(exports,"__esModule",{value:!0}),exports.default=e,exports.stringify=e,exports.stringifyList=t;
 //# sourceMappingURL=index.cjs.production.min.cjs.map
