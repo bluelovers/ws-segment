@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/pretty-diff",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "keywords": [
     "NLP",
@@ -117,16 +117,14 @@
   },
   "dependencies": {
     "@lazy-cjk/zh-convert": "^1.0.42",
-    "@novel-segment/stringify": "^1.0.0",
-    "@novel-segment/types": "^1.0.2",
+    "@novel-segment/stringify": "^1.0.1",
+    "@novel-segment/types": "^1.0.3",
     "crlf-normalize": "^1.0.7",
     "debug-color2": "^1.2.7",
     "diff": "^5.0.0",
     "ts-type": "^2.1.4",
     "tslib": "^2.3.1"
   },
-  "devDependencies": {},
-  "peerDependencies": {},
   "publishConfig": {
     "access": "public"
   },
