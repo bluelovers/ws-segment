@@ -5,12 +5,8 @@
  */
 
 import {
-	lazyMatch,
-	lazyMatch002,
-	lazyMatchNot,
-	lazyMatchSynonym001,
 	sortTests,
-	lazyMatchSynonym001Not,
+
 } from '../lib/util';
 
 import tests_lazy_base from './lazy.index/tests_lazy_base';
@@ -18,6 +14,13 @@ import tests_lazy_base_not from './lazy.index/tests_lazy_base_not';
 import tests_lazy_array from './lazy.index/tests_lazy_array';
 import tests_lazy_indexof from './lazy.index/tests_lazy_indexof';
 import tests_lazy_indexof_not from './lazy.index/tests_lazy_indexof_not';
+import {
+	lazyMatch,
+	lazyMatch002,
+	lazyMatchNot,
+	lazyMatchSynonym001,
+	lazyMatchSynonym001Not,
+} from '@novel-segment/assert';
 
 sortTests(tests_lazy_base);
 sortTests(tests_lazy_base_not);

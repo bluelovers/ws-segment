@@ -2,7 +2,7 @@
  * Created by user on 2020/1/17.
  */
 
-import { lazyMatchSynonym001Not } from '../../lib/util';
+import { lazyMatchSynonym001Not } from '@novel-segment/assert';
 
 /**
  * 分析轉換後不應該具有以下字詞

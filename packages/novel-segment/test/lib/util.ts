@@ -3,9 +3,27 @@
  */
 
 import { IWord } from '../../lib/Segment';
-import { assert, chai } from '../_local-dev';
 import tests_lazy_index from '../res/lazy.index';
 import { zhDictCompare } from '@novel-segment/util';
+import { assert, chai } from '../_local-dev';
+import * as  _ from '@novel-segment/assert';
+
+function _wrapFn<T extends typeof _.lazyMatch | typeof _.lazyMatch002 | typeof _.lazyMatchNot | typeof _.lazyMatchSynonym001>(fn: T): T
+{
+	return ((...argv: Parameters<T>) => {
+		argv[2] = {
+			...(argv[2] ?? {}),
+		};
+		argv[2].inspectFn ??= chai.util.inspect;
+		// @ts-ignore
+		return fn(...argv)
+	}) as T
+}
+
+export const lazyMatch = _wrapFn(_.lazyMatch);
+export const lazyMatch002 = _wrapFn(_.lazyMatch002);
+export const lazyMatchNot = _wrapFn(_.lazyMatchNot);
+export const lazyMatchSynonym001 = _wrapFn(_.lazyMatchSynonym001);
 
 export function mochaSetup(mocha: Mocha.Context)
 {
@@ -20,303 +38,6 @@ export function toStringArray<T extends IWord[]>(arr: T)
 	{
 		return w.w;
 	});
-}
-
-export function lazyMatch(a: string[], b: string[] | (string | string[])[], options: {
-	firstOne?: boolean,
-} = {})
-{
-	let i: number = null;
-
-	let bool = b.every(function (value, index, array)
-	{
-		let j: number = -1;
-		let ii = i;
-
-		if (i == null)
-		{
-			i = -1;
-		}
-
-		if (Array.isArray(value))
-		{
-			if (options.firstOne)
-			{
-				value.some(function (bb)
-				{
-					let jj = a.indexOf(bb, ii);
-
-					if ((jj > -1) && (jj > i))
-					{
-						j = jj;
-
-						return true
-					}
-				});
-			}
-			else
-			{
-				j = value.reduce(function (aa, bb)
-				{
-					let jj = a.indexOf(bb, ii);
-
-					if ((jj > -1) && (jj > i))
-					{
-						if (aa == -1)
-						{
-							return jj;
-						}
-
-						return Math.min(jj, aa)
-					}
-
-					return aa;
-				}, -1)
-			}
-		}
-		else
-		{
-			j = a.indexOf(value, ii);
-		}
-
-		if ((j > -1) && (j > i))
-		{
-			i = j;
-
-			return true;
-		}
-	});
-
-	if (i === -1)
-	{
-		bool = false;
-	}
-
-	// @ts-ignore
-	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have include ordered members ${chai.util.inspect(b)}`);
-
-	return bool;
-}
-
-export function lazyMatch002(a: string[], b_arr: Parameters<typeof lazyMatch>['1'][], options: {
-	firstOne?: boolean,
-} = {})
-{
-	let bool: boolean;
-
-	for (let b of b_arr)
-	{
-		try
-		{
-			bool = lazyMatch(a, b, options);
-
-			if (bool)
-			{
-				break;
-			}
-		}
-		catch (e)
-		{
-
-		}
-	}
-
-	// @ts-ignore
-	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have include one of ordered members in ${chai.util.inspect(b_arr)}`);
-}
-
-export function lazyMatchSynonym001(a: string, b_arr: (string | string[])[], options: {
-	firstOne?: boolean,
-} = {})
-{
-	let bool: boolean;
-	let i: number = undefined;
-
-	bool = b_arr.every(function (bb)
-	{
-		let ii = i;
-
-		if (i == null)
-		{
-			i = -1;
-		}
-
-		let j: number = -1;
-
-		if (Array.isArray(bb))
-		{
-			bb.some(v =>
-			{
-
-				let jj = a.indexOf(v, ii);
-
-				if (jj > -1)
-				{
-					j = jj;
-					bb = v;
-
-					return true;
-				}
-			})
-		}
-		else
-		{
-			j = a.indexOf(bb, ii);
-		}
-
-		if ((j > -1) && (j >= i))
-		{
-			i = j + bb.length;
-
-			return true;
-		}
-		else if (i > -1)
-		{
-			// @ts-ignore
-			assert.fail(`expected ${chai.util.inspect(a)} to have have ${chai.util.inspect(bb)} on index > ${i}, but got ${j}`);
-		}
-	});
-
-	if (i === -1)
-	{
-		bool = false;
-	}
-
-	// @ts-ignore
-	!bool && assert.fail(`expected ${chai.util.inspect(a)} to have index of ordered members in ${chai.util.inspect(b_arr)}`);
-}
-
-export function lazyMatchSynonym001Not(a: string, b_arr: (string | string[])[], options: {
-	firstOne?: boolean,
-} = {})
-{
-	let bool: boolean;
-	let i: number = undefined;
-
-	bool = b_arr.every(function (bb)
-	{
-		let ii = i;
-
-		if (i == null)
-		{
-			i = -1;
-		}
-
-		let j: number = -1;
-
-		if (Array.isArray(bb))
-		{
-			bb.some(v =>
-			{
-
-				let jj = a.indexOf(v, ii);
-
-				if (jj > -1)
-				{
-					j = jj;
-					bb = v;
-
-					return true;
-				}
-			})
-		}
-		else
-		{
-			j = a.indexOf(bb, ii);
-		}
-
-		if ((j > -1) && (j > i))
-		{
-			// @ts-ignore
-			assert.fail(`expected ${chai.util.inspect(a)} to not have have ${chai.util.inspect(bb)} on index > ${i}, but got ${j}`);
-
-			return true;
-		}
-		else
-		{
-			i++;
-		}
-	});
-}
-
-export function lazyMatchNot(a: string[], b: string[] | (string | string[])[], options: {
-	firstOne?: boolean,
-} = {})
-{
-	let i: number = null;
-
-	let bool = b.every(function (value, index, array)
-	{
-		let j: number = -1;
-		let ii = i;
-
-		if (i == null)
-		{
-			i = -1;
-		}
-
-		if (Array.isArray(value))
-		{
-			if (options.firstOne)
-			{
-				value.some(function (bb)
-				{
-					let jj = a.indexOf(bb, ii);
-
-					if ((jj > -1) && (jj > i))
-					{
-						j = jj;
-
-						return true
-					}
-				});
-			}
-			else
-			{
-				j = value.reduce(function (aa, bb)
-				{
-					let jj = a.indexOf(bb, ii);
-
-					if ((jj > -1) && (jj > i))
-					{
-						if (aa == -1)
-						{
-							return jj;
-						}
-
-						return Math.min(jj, aa)
-					}
-
-					return aa;
-				}, -1)
-			}
-		}
-		else
-		{
-			j = a.indexOf(value, ii);
-		}
-
-		if (j > -1)
-		{
-			i = j;
-
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	});
-
-	if (i === -1)
-	{
-		bool = true;
-	}
-
-	// @ts-ignore
-	!bool && assert.fail(`expected ${chai.util.inspect(a)} should not include ordered members ${chai.util.inspect(b)}`);
-
-	return bool;
 }
 
 export default exports as typeof import('./util');

@@ -2,7 +2,7 @@
  * Created by user on 2020/1/17.
  */
 
-import { lazyMatch002 } from '../../lib/util';
+import { lazyMatch002 } from '@novel-segment/assert';
 
 /**
  * 分析後應該要符合以下其中一個結果

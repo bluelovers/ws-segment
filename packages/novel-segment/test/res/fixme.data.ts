@@ -6,7 +6,8 @@
  */
 
 import tests_lazy_index from './lazy.index';
-import { sortTests, lazyMatchSynonym001Not } from '../lib/util';
+import { sortTests} from '../lib/util';
+import { lazyMatchSynonym001Not } from '@novel-segment/assert';
 
 export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 

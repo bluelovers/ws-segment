@@ -2,7 +2,7 @@
  * Created by user on 2020/1/17.
  */
 
-import { lazyMatchSynonym001 } from '../../lib/util';
+import { lazyMatchSynonym001 } from '@novel-segment/assert';
 
 type IP = Parameters<typeof lazyMatchSynonym001>;
 
