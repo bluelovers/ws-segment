@@ -5,13 +5,16 @@
  */
 
 import {
+	sortTests,
+
+} from '../lib/util';
+import {
 	lazyMatch,
 	lazyMatch002,
 	lazyMatchNot,
 	lazyMatchSynonym001,
-	sortTests,
 	lazyMatchSynonym001Not,
-} from '../lib/util';
+} from '@novel-segment/assert';
 
 /**
  * 分析後應該要符合以下結果
