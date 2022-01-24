@@ -69,7 +69,7 @@
     "ci:build:commit": "ts-node ./script/run/ci-build.ts",
     "ci:build:script": "ts-node ./packages/novel-segment/test/demo.cache.ts",
     "lerna:publish:yes": "yarn run prepublishOnly:check-bin && yarn run preversion && lerna publish --yes --bump patch --ignore @novel-segment/api-server --loglevel silly && yarn run postpublishOnly",
-    "preversion": "yarn run test && ts-node ./script/run/ws-prepublish.ts",
+    "preversion": "ts-node ./script/run/ws-prepublish.ts",
     "prepublish:fix-links": "ynpx @yarn-tool/fix-ws-links",
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly:check-bin": "ynpx --quiet @yarn-tool/check-pkg-bin",
