@@ -16,8 +16,13 @@ exports.default = (async () => {
     let list = listChanged.changed.concat(listChanged.staged).map(row => row.name);
     if (list.includes("segment-dict") || list.includes("novel-segment")) {
         list.push("segment-dict");
+        list.push("novel-segment");
         (0, array_hyper_unique_1.array_unique_overwrite)(list);
     }
+    list = list.filter(name => [
+        "novel-segment",
+        "segment-dict",
+    ].includes(name));
     let list2 = (0, find_deps_1.findUpDepsAllDeep)(list, record);
     let list3 = list2.reduce((a, b) => {
         a.push(b[0]);

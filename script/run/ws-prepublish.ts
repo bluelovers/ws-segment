@@ -22,9 +22,15 @@ export default (async () => {
 	if (list.includes("segment-dict") || list.includes("novel-segment"))
 	{
 		list.push("segment-dict")
+		list.push("novel-segment")
 
 		array_unique_overwrite(list)
 	}
+
+	list = list.filter(name => [
+		"novel-segment",
+		"segment-dict",
+	].includes(name));
 
 	let list2 = findUpDepsAllDeep(list, record);
 
