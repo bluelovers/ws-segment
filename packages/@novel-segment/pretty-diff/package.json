@@ -116,7 +116,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-cjk/zh-convert": "^1.0.42",
+    "@lazy-cjk/zh-convert": "^1.0.44",
     "@novel-segment/stringify": "^1.0.1",
     "@novel-segment/types": "^1.0.3",
     "crlf-normalize": "^1.0.7",
