@@ -115,6 +115,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		]
 	],
 
+	[
+		'，比我想象的还强──',
+		[
+			'象',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof_not

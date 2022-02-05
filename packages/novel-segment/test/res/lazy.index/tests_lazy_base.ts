@@ -590,6 +590,13 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'，而祂的臉部四周則圍繞著一組類似破碎瓷器的漆色尖角。',
+		[
+			['類似'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
