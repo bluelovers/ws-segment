@@ -876,6 +876,27 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'，接著溜下窗檯並進入庫房，',
+		[
+			'入庫',
+		],
+	],
+
+	[
+		'拉麵湯',
+		[
+			'麵湯',
+		],
+	],
+
+	[
+		'。而且在神河的任何一處都沒見過。',
+		[
+			'何一',
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
