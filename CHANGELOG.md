@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.89](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.88...novel-segment@2.7.89) (2022-02-19)
+
+**Note:** Version bump only for package novel-segment
+
+
+
+
+
 ## [2.7.88](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.87...novel-segment@2.7.88) (2022-02-19)
 
 
