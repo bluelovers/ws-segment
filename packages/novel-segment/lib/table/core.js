@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.AbstractTableDictCore = void 0;
 class AbstractTableDictCore {
     constructor(type, options = {}, existsTable, ...argv) {
-        this.TABLE = {};
-        this.TABLE2 = {};
+        this.TABLE = Object.create(null);
+        this.TABLE2 = Object.create(null);
         this.type = type;
         this.options = Object.assign({}, this.options, options);
         if (existsTable) {
@@ -18,6 +18,8 @@ class AbstractTableDictCore {
                 this.TABLE2 = existsTable.TABLE2;
             }
         }
+        Object.setPrototypeOf(this.TABLE, null);
+        Object.setPrototypeOf(this.TABLE2, null);
     }
     _exists(data, ...argv) {
         let w, p, f;

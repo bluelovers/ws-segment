@@ -280,6 +280,9 @@ function loadCacheInfo(options) {
         data.current = data.current || {};
         data.last.version = data.last.version || {};
         data.current.version = data.current.version || {};
+        if (data.DICT) {
+            Object.setPrototypeOf(data.DICT, null);
+        }
         return data;
     });
 }
@@ -303,6 +306,10 @@ function loadCacheDb(options) {
             return CACHED_CACACHE
                 .readJSON(options.USER_DB_KEY)
                 .then(function (ret) {
+                var _a;
+                if ((_a = ret.json) === null || _a === void 0 ? void 0 : _a.DICT) {
+                    Object.setPrototypeOf(ret.json.DICT, null);
+                }
                 return ret.json;
             });
         }
