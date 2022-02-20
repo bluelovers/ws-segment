@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.90](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.89...novel-segment@2.7.90) (2022-02-20)
+
+
+### 🐛　Bug Fixes
+
+* 防止 work 等於 `constructor` 時的 BUG ([5ae738f](https://github.com/bluelovers/ws-segment/commit/5ae738f4ca6aa1739b5d09395f2dc5e89d5e9ffb))
+
+
+
+
+
 ## [2.7.89](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.88...novel-segment@2.7.89) (2022-02-19)
 
 **Note:** Version bump only for package novel-segment
