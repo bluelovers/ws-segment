@@ -11,6 +11,11 @@ import { del } from '../util/add-to-postpublish-task';
 import Bluebird = require('bluebird')
 import console from 'debug-color2/logger'
 import { gitSubtreePush } from '../util/git-subtree-push';
+import { enableDebug } from '@git-lazy/debug';
+
+enableDebug();
+
+console.enabledColor = true;
 
 FastGlob
 	.async([

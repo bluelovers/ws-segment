@@ -8,7 +8,11 @@ const bluebird_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob/bluebi
 const path_1 = require("path");
 const __root_ws_1 = tslib_1.__importDefault(require("../../__root_ws"));
 const fs_extra_1 = require("fs-extra");
+const logger_1 = tslib_1.__importDefault(require("debug-color2/logger"));
 const git_subtree_push_1 = require("../util/git-subtree-push");
+const debug_1 = require("@git-lazy/debug");
+(0, debug_1.enableDebug)();
+logger_1.default.enabledColor = true;
 bluebird_1.default
     .async([
     '**/*',
