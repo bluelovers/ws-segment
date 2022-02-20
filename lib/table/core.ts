@@ -30,8 +30,8 @@ export abstract class AbstractTableDictCore<T>
 	public static type: string;
 	public type: string;
 
-	public TABLE: IDICT<T> = {};
-	public TABLE2: any | IDICT2<T> = {};
+	public TABLE: IDICT<T> = Object.create(null);
+	public TABLE2: any | IDICT2<T> = Object.create(null);
 
 	public options: IOptions;
 
@@ -53,6 +53,9 @@ export abstract class AbstractTableDictCore<T>
 				this.TABLE2 = existsTable.TABLE2;
 			}
 		}
+
+		Object.setPrototypeOf(this.TABLE, null);
+		Object.setPrototypeOf(this.TABLE2, null);
 	}
 
 	protected _exists<U extends IWord | IDictRow | string>(data: U, ...argv)
