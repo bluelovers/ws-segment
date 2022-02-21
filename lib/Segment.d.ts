@@ -4,19 +4,18 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 /// <reference types="node" />
-import { TableDictBlacklist } from './table/blacklist';
-import { AbstractTableDictCore } from './table/core';
-import { TableDict } from './table/dict';
-import { TableDictStopword } from './table/stopword';
-import { TableDictSynonym } from './table/synonym';
+import { TableDictBlacklist } from '@novel-segment/table-blacklist';
+import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
+import { TableDict } from '@novel-segment/table-dict';
+import { TableDictStopword } from '@novel-segment/table-stopword';
+import { TableDictSynonym } from '@novel-segment/table-synonym';
 import { ISubOptimizer, ISubTokenizer } from './mod';
 import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 import { IDICT, IDICT2, IDICT_BLACKLIST, IDICT_STOPWORD, IDICT_SYNONYM, IOptionsDoSegment, IOptionsSegment, ISPLIT, ISPLIT_FILTER } from './segment/types';
-import { IWord } from '@novel-segment/types';
-import SegmentCore from './segment/core';
+import { EnumDictDatabase, IWord } from '@novel-segment/types';
+import { SegmentCore } from './segment/core';
 import { ITSOverwrite } from 'ts-type';
 import { IUseDefaultOptions } from './defaults/index';
-import { EnumDictDatabase } from '@novel-segment/types';
 /**
  * 创建分词器接口
  */

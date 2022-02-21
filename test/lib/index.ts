@@ -11,7 +11,7 @@ import { IOptionsSegment, Segment } from '../../lib/Segment';
 import { useDefault, getDefaultModList } from '../../lib';
 import { debug_token } from '../../lib/util';
 import ProjectConfig from '../../project.config';
-import TableDict from '../../lib/table/dict';
+import { TableDict } from '@novel-segment/table-dict';
 import * as util from 'util';
 import { useDefaultBlacklistDict, useDefaultSynonymDict } from '../../lib/defaults/dict';
 import { EnumDictDatabase } from '@novel-segment/types';
