@@ -2,11 +2,6 @@
  * Created by user on 2018/4/13/013.
  */
 
-import Promise = require('bluebird');
-import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
-import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
-import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
-import { autobind } from 'core-decorators';
 import { LoaderClass } from '@novel-segment/dict-loader-core';
 
 export type IDictRow = string;
