@@ -2,7 +2,6 @@
  * Created by user on 2019/6/26.
  */
 import { Segment } from '../Segment';
-import getDefaultModList from '../mod/index';
 import { useDefaultMods } from './mods';
 import { useDefaultDicts } from './dict';
 

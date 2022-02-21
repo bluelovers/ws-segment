@@ -1,8 +1,7 @@
 'use strict';
 
-import { SubSModule, SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
-import { Segment, IWord, IDICT } from '../Segment';
-import UString from 'uni-string';
+import { ISubOptimizerCreate, SubSModuleOptimizer } from '../mod';
+import { IDICT, IWord } from '../Segment';
 
 /**
  * 邮箱地址中允许出现的字符

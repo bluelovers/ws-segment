@@ -1,5 +1,5 @@
-import { SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import { IWord, IDICT, IDICT2 } from '../Segment';
+import { ISubTokenizerCreate, SubSModuleTokenizer } from '../mod';
+import { IDICT, IDICT2, IWord } from '../Segment';
 /**
  * 此模組目前無任何用處與效果
  *

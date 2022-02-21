@@ -9,8 +9,8 @@ const Optimizer_1 = require("./Optimizer");
 Object.defineProperty(exports, "Optimizer", { enumerable: true, get: function () { return Optimizer_1.Optimizer; } });
 Object.defineProperty(exports, "SubSModuleOptimizer", { enumerable: true, get: function () { return Optimizer_1.SubSModuleOptimizer; } });
 const Tokenizer_1 = require("./Tokenizer");
-Object.defineProperty(exports, "Tokenizer", { enumerable: true, get: function () { return Tokenizer_1.Tokenizer; } });
 Object.defineProperty(exports, "SubSModuleTokenizer", { enumerable: true, get: function () { return Tokenizer_1.SubSModuleTokenizer; } });
+Object.defineProperty(exports, "Tokenizer", { enumerable: true, get: function () { return Tokenizer_1.Tokenizer; } });
 const mod_1 = require("./mod");
 Object.defineProperty(exports, "SubSModule", { enumerable: true, get: function () { return mod_1.SubSModule; } });
 /**

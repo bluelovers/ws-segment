@@ -1,6 +1,7 @@
 /**
  * Created by user on 2018/3/14/014.
  */
+/// <reference types="bluebird" />
 import { LoaderClass } from '@novel-segment/dict-loader-core';
 export declare type IDictRow<T = string> = {
     0: string;

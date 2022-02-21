@@ -7,8 +7,6 @@
  */
 
 import Segment, { IWord } from '../Segment';
-import { debug } from '../util';
-import { arr_cjk } from '../util/cjk';
 import { DATETIME } from '../mod/const';
 
 /** 模块类型 */

@@ -1,32 +1,22 @@
-import {
-	Worker,
-	isMainThread,
-	parentPort,
-	workerData,
-	threadId,
-	MessageChannel,
-	MessagePort,
-} from 'worker_threads';
-import lineByLine = require('n-readlines');
+import { isMainThread, parentPort, threadId, Worker, workerData } from 'worker_threads';
 import ProjectConfig from '../project.config';
-import * as path from "upath2";
-import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment/index';
+import path from "upath2";
+import { parseLine as parseLineSegment } from '@novel-segment/loaders/segment/index';
 import UString from 'uni-string';
 import { getCjkName, zhDictCompare } from '@novel-segment/util';
-import { transliterate as tr, slugify as slugifyTr } from 'transliteration';
-import fs = require('fs-extra');
-import Bluebird = require('bluebird');
+import { slugify as slugifyTr } from 'transliteration';
 import { cjk2zhs, cjk2zht } from 'cjk-conv';
-import StrUtil = require('str-util');
 import { sync as FastGlobSync } from '@bluelovers/fast-glob';
 import { array_unique } from 'array-hyper-unique';
 import { serialize } from '@novel-segment/loader-line';
-import { console, chalkByConsole } from 'debug-color2';
+import { console } from 'debug-color2';
 import { greedyTableReplace } from 'cjk-conv/lib/zh/table/greedy';
 import libTable from 'cjk-conv/lib/zh/table';
 import { gitDiffStagedFile } from '@git-lazy/diff-staged';
 import { matchGlob } from '@git-lazy/util/util/match';
-import { EnumLineType } from '@novel-segment/util-compare';
+import { chkLineType, EnumLineType, ILoadDictFileRow2 } from '@novel-segment/util-compare';
+import lineByLine from 'n-readlines';
+import fs from 'fs-extra';
 
 let CWD = path.join(ProjectConfig.temp_root);
 

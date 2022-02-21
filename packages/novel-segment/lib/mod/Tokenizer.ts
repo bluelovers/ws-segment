@@ -7,8 +7,8 @@
 'use strict';
 
 import { autobind } from 'core-decorators';
-import { Segment, IWord } from '../Segment';
-import { IModuleStatic, ISubSModule, SModule, SubSModule, ISubSModuleCreate } from './mod';
+import { IWord, Segment } from '../Segment';
+import { ISubSModule, SModule, SubSModule } from './mod';
 import isUnset from '../util/isUnset';
 
 export type ISubTokenizer = ISubSModule & {

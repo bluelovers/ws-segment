@@ -5,11 +5,8 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import { Segment, IWord, IDICT, IDICT2 } from '../Segment';
-import { debugToken } from '../util/debug';
-import UString from 'uni-string';
-import { debug } from '../util';
+import { ISubTokenizerCreate, SubSModuleTokenizer } from '../mod';
+import { IDICT, IDICT2, IWord } from '../Segment';
 import { IWordDebugInfo } from '../util/index';
 
 export class WildcardTokenizer extends SubSModuleTokenizer

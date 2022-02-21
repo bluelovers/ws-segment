@@ -2,14 +2,14 @@
  * Created by user on 2018/4/16/016.
  */
 
-import { SubSModule, SubSModuleOptimizer } from '../mod';
-import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
+import { SubSModuleOptimizer } from '../mod';
+import { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 import { hexAndAny } from '../util/index';
-import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
+import { COLOR_HAIR } from '../mod/COLORS';
 
 import UString from 'uni-string';
-import { isUnset, isSet } from '../util/isUnset';
+import { isSet, isUnset } from '../util/isUnset';
 import { EnumDictDatabase } from '@novel-segment/types';
 
 /**

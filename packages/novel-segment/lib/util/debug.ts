@@ -3,7 +3,7 @@
  */
 
 import sortObjectKeys from 'sort-object-keys2';
-import { zhName, enName } from '@novel-segment/postag/lib/i18n';
+import { enName, zhName } from '@novel-segment/postag/lib/i18n';
 import { IWord } from '@novel-segment/types';
 
 //export const SYMBOL_DEBUG_KEY = Symbol.for('_debug');

@@ -2,16 +2,9 @@
  * Created by user on 2018/4/17/017.
  */
 
-import { $enum, EnumWrapper, } from "ts-enum-util";
-import { IWord } from '../Segment';
-
-import { cloneDeep } from 'lodash';
-
-export { cloneDeep }
-
-import { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info } from './debug';
+import { debug_token, IWordDebug, IWordDebugInfo, toHex, token_add_info } from './debug';
 import { inspect, InspectOptions } from 'util';
-import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
+
 export { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info }
 
 export function debug_inspect(argv: any[], options: InspectOptions = {})

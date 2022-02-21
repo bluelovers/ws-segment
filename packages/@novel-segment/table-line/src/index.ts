@@ -1,5 +1,4 @@
 import { IDictRow, stringifyLine } from '@novel-segment/loader-line';
-import { cloneDeep } from 'lodash';
 import { AbstractTableDictCore, IDICT, IDICT2, IOptions } from '@novel-segment/table-core-abstract';
 
 /**

@@ -1,5 +1,5 @@
-import { SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
-import { IWord, IDICT } from '../Segment';
+import { ISubOptimizerCreate, SubSModuleOptimizer } from '../mod';
+import { IDICT, IWord } from '../Segment';
 /**
  * 邮箱地址中允许出现的字符
  * 参考：http://www.cs.tut.fi/~jkorpela/rfc/822addr.html

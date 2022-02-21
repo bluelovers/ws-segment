@@ -1,6 +1,4 @@
-import { debug } from '../util';
 import Segment, { IWord } from '../Segment';
-import SingleTokenizer from './SingleTokenizer';
 
 /**
  * URL识别模块

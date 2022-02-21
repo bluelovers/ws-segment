@@ -6,10 +6,9 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 
-import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
-import { debug } from '../util';
-import { SubSModule, SubSModuleTokenizer } from '../mod';
-import { Segment, IWord, IDICT, IDICT_SYNONYM } from '../Segment';
+import { DOUBLE_NAME_1, DOUBLE_NAME_2, FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME } from '../mod/CHS_NAMES';
+import { SubSModuleTokenizer } from '../mod';
+import { IDICT, IWord } from '../Segment';
 // @ts-ignore
 import { UString } from 'uni-string';
 

@@ -2,15 +2,10 @@
  * Created by user on 2018/4/16/016.
  */
 
-import { IWord, Segment } from '../Segment';
-
-import { $enum, EnumWrapper, } from "ts-enum-util";
-import ForeignOptimizer from '../submod/ForeignOptimizer';
-import JpSimpleTokenizer from '../submod/JpSimpleTokenizer';
-import SingleTokenizer from '../submod/SingleTokenizer';
-import { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate } from './Optimizer';
-import { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate } from './Tokenizer';
-import { SubSModule, ISubSModule, ISubSModuleCreate, ISubSModuleMethod } from './mod';
+import { $enum } from "ts-enum-util";
+import { ISubOptimizer, ISubOptimizerCreate, Optimizer, SubSModuleOptimizer } from './Optimizer';
+import { ISubTokenizer, ISubTokenizerCreate, SubSModuleTokenizer, Tokenizer } from './Tokenizer';
+import { ISubSModule, ISubSModuleCreate, ISubSModuleMethod, SubSModule } from './mod';
 
 export { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate }
 export { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate }

@@ -3,13 +3,12 @@
  */
 
 import path = require('path');
-import ProjectConfig from '../project.config';
 // @ts-ignore
 import PackageJson = require('../package.json');
 import CrossSpawn = require('cross-spawn-extra');
 /// <reference types="cross-spawn" />
-
 import index = require('../index');
+import ProjectConfig from '../project.config';
 import { join } from "path";
 
 (async () =>

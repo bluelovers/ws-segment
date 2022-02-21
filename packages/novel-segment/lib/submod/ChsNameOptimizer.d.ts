@@ -5,7 +5,7 @@
  * @version 0.1
  */
 import { SubSModuleOptimizer } from '../mod';
-import Segment, { IDICT, IWord } from '../Segment';
+import { IDICT, IWord } from '../Segment';
 /**
  * @todo 支援 XX氏
  */
@@ -19,7 +19,7 @@ export declare class ChsNameOptimizer extends SubSModuleOptimizer {
     /**
      * 只有新詞屬於人名或未知詞時才會合併
      */
-    validUnknownNewWord<W extends string | string[]>(ws: W, cb?: (nw: string, ew: IWord, ws: W) => IWord | boolean | void): true | Segment.IWord;
+    validUnknownNewWord<W extends string | string[]>(ws: W, cb?: (nw: string, ew: IWord, ws: W) => IWord | boolean | void): true | IWord;
     /**
      * 姓
      */

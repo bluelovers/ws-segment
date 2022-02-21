@@ -1,5 +1,4 @@
-import { SubSModule, SubSModuleOptimizer } from '../mod';
-import Segment, { IWord } from '../Segment';
+import { SubSModuleOptimizer } from '../mod';
 
 import { COLOR_ALL, COLOR_HAIR } from '../mod/COLORS';
 import { IWordDebug } from '../util';

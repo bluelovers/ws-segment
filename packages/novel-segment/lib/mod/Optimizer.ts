@@ -6,7 +6,7 @@
 'use strict';
 
 import { autobind } from 'core-decorators';
-import { Segment, IWord } from '../Segment';
+import { IWord, Segment } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 
 export type ISubOptimizer = ISubSModule & {

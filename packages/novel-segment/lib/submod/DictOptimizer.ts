@@ -1,11 +1,10 @@
 'use strict';
 
-import { SubSModule, SubSModuleOptimizer, ISubOptimizerCreate } from '../mod';
-import { Segment, IWord, IDICT } from '../Segment';
+import { ISubOptimizerCreate, SubSModuleOptimizer } from '../mod';
+import { IDICT, IWord } from '../Segment';
 // @ts-ignore
 import { UString } from 'uni-string';
-import { debug, IWordDebug } from '../util';
-import { zhRegExp } from 'regexp-cjk';
+import { IWordDebug } from '../util';
 import { POSTAG as IPOSTAG } from '@novel-segment/postag/lib/postag/ids';
 
 const DIRECTIONS_REGEXP = /^[東西南北东]+$/;

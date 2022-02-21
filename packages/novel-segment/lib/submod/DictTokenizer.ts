@@ -1,13 +1,11 @@
 'use strict';
 
-import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
+import { ISubTokenizerCreate, SubSModuleTokenizer } from '../mod';
 // @ts-ignore
 import { UString } from 'uni-string';
-import { ITableDictRow } from '@novel-segment/table-dict';
-import { hexAndAny, toHex } from '../util/index';
-import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
-import Segment, { IDICT, IWord, IDICT2 } from '../Segment';
-import { debug } from '../util';
+import { hexAndAny } from '../util/index';
+import { FAMILY_NAME_1, FAMILY_NAME_2 } from '../mod/CHS_NAMES';
+import { IDICT, IDICT2, IWord } from '../Segment';
 import { DATETIME } from '../mod/const';
 import isUnset from '../util/isUnset';
 
@@ -934,8 +932,6 @@ export namespace DictTokenizer
 }
 
 export import IAssessRow = DictTokenizer.IAssessRow;
-import POSTAG from '@novel-segment/postag/lib/postag/ids';
-
 
 export const init = DictTokenizer.init.bind(DictTokenizer) as ISubTokenizerCreate<DictTokenizer>;
 

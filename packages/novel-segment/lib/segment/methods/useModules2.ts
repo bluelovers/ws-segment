@@ -1,7 +1,6 @@
 import { _isIgnoreModules, useModules as _useModules } from './useModules';
 import { ISubOptimizer } from '../../mod/Optimizer';
 import { ISubTokenizer } from '../../mod/Tokenizer';
-import path from "path";
 import * as BuildInSubMod from '../../submod';
 
 export function useModules<T>(me: T, mod: ISubOptimizer | ISubTokenizer | any | string | (ISubTokenizer | ISubOptimizer | string)[], ...argv)
