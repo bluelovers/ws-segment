@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/sort-dict-table",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "NLP",
@@ -116,10 +116,10 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/loader-line": "^1.0.15",
-    "@novel-segment/loaders": "^1.0.28",
+    "@novel-segment/loader-line": "^1.0.16",
+    "@novel-segment/loaders": "^1.0.29",
     "@novel-segment/util": "^1.0.57",
-    "@novel-segment/util-compare": "^1.0.2",
+    "@novel-segment/util-compare": "^1.0.3",
     "tslib": "^2.3.1"
   },
   "publishConfig": {
