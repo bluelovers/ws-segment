@@ -5,7 +5,7 @@
 'use strict';
 
 import { IDICT } from '../Segment';
-import { arr_cjk } from '../util/cjk';
+import { arrCjk as arr_cjk } from '@lazy-cjk/zh-table-list/list';
 
 export namespace _CHS_NAMES
 {

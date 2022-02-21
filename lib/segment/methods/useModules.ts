@@ -1,4 +1,3 @@
-import { IOptionsSegment } from '../types';
 import SegmentCore from '../core';
 import { ISubOptimizer } from '../../mod/Optimizer';
 import { ISubTokenizer } from '../../mod/Tokenizer';

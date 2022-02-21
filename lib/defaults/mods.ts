@@ -1,4 +1,4 @@
-import { IUseDefaultOptions, IUseDefaultOptionsMods } from './index';
+import { IUseDefaultOptionsMods } from './index';
 import getDefaultModList from '../mod/index';
 
 export function useDefaultMods(segment, options: IUseDefaultOptionsMods = {})

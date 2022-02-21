@@ -2,8 +2,8 @@
  * Created by user on 2018/8/18/018.
  */
 
-import { SubSModule, SubSModuleOptimizer } from '../mod';
-import Segment, { IDICT, IDICT_SYNONYM, IWord } from '../Segment';
+import { SubSModuleOptimizer } from '../mod';
+import { IDICT, IWord } from '../Segment';
 import { IWordDebug } from '../util';
 
 export class ForeignOptimizer extends SubSModuleOptimizer

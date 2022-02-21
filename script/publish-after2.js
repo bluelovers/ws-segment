@@ -5,9 +5,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const path = require("path");
-const project_config_1 = tslib_1.__importDefault(require("../project.config"));
 /// <reference types="cross-spawn" />
 const index = require("../index");
+const project_config_1 = tslib_1.__importDefault(require("../project.config"));
 const path_1 = require("path");
 (async () => {
     let crossSpawn;

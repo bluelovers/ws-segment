@@ -1,10 +1,9 @@
 /**
  * Created by user on 2018/4/16/016.
  */
-import { EnumWrapper } from "ts-enum-util";
-import { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate } from './Optimizer';
-import { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate } from './Tokenizer';
-import { SubSModule, ISubSModule, ISubSModuleCreate, ISubSModuleMethod } from './mod';
+import { ISubOptimizer, ISubOptimizerCreate, Optimizer, SubSModuleOptimizer } from './Optimizer';
+import { ISubTokenizer, ISubTokenizerCreate, SubSModuleTokenizer, Tokenizer } from './Tokenizer';
+import { ISubSModule, ISubSModuleCreate, ISubSModuleMethod, SubSModule } from './mod';
 export { Optimizer, SubSModuleOptimizer, ISubOptimizer, ISubOptimizerCreate };
 export { Tokenizer, SubSModuleTokenizer, ISubTokenizer, ISubTokenizerCreate };
 export { SubSModule, ISubSModule, ISubSModuleCreate, ISubSModuleMethod };
@@ -83,8 +82,8 @@ export declare enum ENUM_SUBMODS_OTHER {
 }
 export declare type ENUM_SUBMODS_NAME = ENUM_SUBMODS | ENUM_SUBMODS_OTHER;
 export declare const LIST_SUBMODS_NOT_DEF: ENUM_SUBMODS[];
-export declare const SUBMODS_LIST: EnumWrapper<string, typeof ENUM_SUBMODS>;
-export declare const SUBMODS_OTHER_LIST: EnumWrapper<string, typeof ENUM_SUBMODS_OTHER>;
+export declare const SUBMODS_LIST: import("ts-enum-util").EnumWrapper<string, typeof ENUM_SUBMODS>;
+export declare const SUBMODS_OTHER_LIST: import("ts-enum-util").EnumWrapper<string, typeof ENUM_SUBMODS_OTHER>;
 /**
  * 取得列表並且保持 ENUM 順序
  * @param {boolean} all

@@ -1,4 +1,4 @@
-import { Segment, IWord } from '../Segment';
+import { IWord, Segment } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
 export declare type ISubOptimizer = ISubSModule & {
     type: 'optimizer';

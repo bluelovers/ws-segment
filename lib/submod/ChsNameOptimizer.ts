@@ -7,17 +7,16 @@
 
 'use strict';
 
-import { SubSModule, SubSModuleOptimizer, ISubOptimizer, SubSModuleTokenizer } from '../mod';
-import CHS_NAMES, {
+import { SubSModuleOptimizer } from '../mod';
+import {
+	DOUBLE_NAME_1,
+	DOUBLE_NAME_2,
 	FAMILY_NAME_1,
 	FAMILY_NAME_2,
 	SINGLE_NAME,
-	DOUBLE_NAME_1,
-	DOUBLE_NAME_2,
-	_CHS_NAMES, SINGLE_NAME_NO_REPEAT,
+	SINGLE_NAME_NO_REPEAT,
 } from '../mod/CHS_NAMES';
-import Segment, { IDICT, IWord } from '../Segment';
-import { debug } from '../util';
+import { IDICT, IWord } from '../Segment';
 import { EnumDictDatabase } from '@novel-segment/types';
 
 /**

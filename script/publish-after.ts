@@ -8,7 +8,6 @@ import ProjectConfig from '../project.config';
 import * as PackageJson from '../package.json';
 import CrossSpawn = require('cross-spawn-extra');
 /// <reference types="cross-spawn" />
-
 import index = require('../index');
 
 (async () =>

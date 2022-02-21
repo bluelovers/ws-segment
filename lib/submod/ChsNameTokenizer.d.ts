@@ -1,5 +1,5 @@
 import { SubSModuleTokenizer } from '../mod';
-import { IWord, IDICT } from '../Segment';
+import { IDICT, IWord } from '../Segment';
 export declare class ChsNameTokenizer extends SubSModuleTokenizer {
     protected _TABLE: IDICT<IWord>;
     name: string;

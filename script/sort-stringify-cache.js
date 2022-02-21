@@ -2,14 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const tslib_1 = require("tslib");
 const worker_threads_1 = require("worker_threads");
-const lineByLine = require("n-readlines");
 const project_config_1 = tslib_1.__importDefault(require("../project.config"));
-const path = tslib_1.__importStar(require("upath2"));
+const upath2_1 = tslib_1.__importDefault(require("upath2"));
 const index_1 = require("@novel-segment/loaders/segment/index");
 const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
 const util_1 = require("@novel-segment/util");
 const transliteration_1 = require("transliteration");
-const fs = require("fs-extra");
 const cjk_conv_1 = require("cjk-conv");
 const fast_glob_1 = require("@bluelovers/fast-glob");
 const array_hyper_unique_1 = require("array-hyper-unique");
@@ -19,15 +17,18 @@ const greedy_1 = require("cjk-conv/lib/zh/table/greedy");
 const table_1 = tslib_1.__importDefault(require("cjk-conv/lib/zh/table"));
 const diff_staged_1 = require("@git-lazy/diff-staged");
 const match_1 = require("@git-lazy/util/util/match");
-let CWD = path.join(project_config_1.default.temp_root);
+const util_compare_1 = require("@novel-segment/util-compare");
+const n_readlines_1 = tslib_1.__importDefault(require("n-readlines"));
+const fs_extra_1 = tslib_1.__importDefault(require("fs-extra"));
+let CWD = upath2_1.default.join(project_config_1.default.temp_root);
 var EnumC1;
 (function (EnumC1) {
     EnumC1["char"] = "char";
     EnumC1["other"] = "other";
     EnumC1["eng"] = "eng";
 })(EnumC1 || (EnumC1 = {}));
-const CWD_SAVETO = path.join(CWD, 'cache');
-if (0 && (!fs.pathExistsSync(path.join(CWD, 'stringify.txt')) || !(0, match_1.matchGlob)((0, diff_staged_1.gitDiffStagedFile)(CWD), [
+const CWD_SAVETO = upath2_1.default.join(CWD, 'cache');
+if (0 && (!fs_extra_1.default.pathExistsSync(upath2_1.default.join(CWD, 'stringify.txt')) || !(0, match_1.matchGlob)((0, diff_staged_1.gitDiffStagedFile)(CWD), [
     'cache.db.info.json'
 ]).length)) {
     process.exit();
@@ -52,7 +53,7 @@ if (worker_threads_1.isMainThread) {
     //		hereIsYourPort: subChannel.port2
     //	}, [subChannel.port2]);
     let timeDiff;
-    fs.removeSync(CWD_SAVETO);
+    fs_extra_1.default.removeSync(CWD_SAVETO);
     w1.on('message', (msg) => {
         timeDiff = msg.timeDiff;
         //console.dir(msg);
@@ -81,12 +82,12 @@ if (worker_threads_1.isMainThread) {
             if (!/^[a-z0-9]$/i.test(c1)) {
                 c1 = '0/' + c1;
             }
-            let file = path.join(CWD_SAVETO, c1 + '.txt');
-            fs.ensureFileSync(file);
+            let file = upath2_1.default.join(CWD_SAVETO, c1 + '.txt');
+            fs_extra_1.default.ensureFileSync(file);
             if (!ls.length) {
                 return;
             }
-            return fs.appendFileSync(file, ls.join('\n') + '\n');
+            return fs_extra_1.default.appendFileSync(file, ls.join('\n') + '\n');
         });
         //fs.appendFile()
     });
@@ -107,12 +108,12 @@ if (worker_threads_1.isMainThread) {
                 cwd: CWD_SAVETO,
                 absolute: true,
             }).sort();
-            let file2 = path.join(CWD, 'stringify.sorted.txt');
-            fs.ensureFileSync(file2);
-            fs.truncateSync(file2);
+            let file2 = upath2_1.default.join(CWD, 'stringify.sorted.txt');
+            fs_extra_1.default.ensureFileSync(file2);
+            fs_extra_1.default.truncateSync(file2);
             let i2 = ls.reduce((a, file) => {
-                log('[start]', path.relative(CWD_SAVETO, file));
-                const liner = new lineByLine(file);
+                log('[start]', upath2_1.default.relative(CWD_SAVETO, file));
+                const liner = new n_readlines_1.default(file);
                 let line;
                 let index = 0;
                 let list = [];
@@ -126,7 +127,7 @@ if (worker_threads_1.isMainThread) {
                         line: s,
                         index: index++,
                         c1: "other" /* other */,
-                        line_type: chkLineType(s),
+                        line_type: (0, util_compare_1.chkLineType)(s),
                         cjk_id: (0, util_1.getCjkName)(w),
                     };
                     list.push(cur);
@@ -136,9 +137,9 @@ if (worker_threads_1.isMainThread) {
                 let out_list = list.map(v => v.line);
                 out_list = (0, array_hyper_unique_1.array_unique)(out_list);
                 let out_data = (0, loader_line_1.serialize)(out_list);
-                fs.outputFileSync(file, out_data + "\n\n");
-                fs.appendFileSync(file2, out_data + "\n");
-                log('[done]', path.relative(CWD_SAVETO, file));
+                fs_extra_1.default.outputFileSync(file, out_data + "\n\n");
+                fs_extra_1.default.appendFileSync(file2, out_data + "\n");
+                log('[done]', upath2_1.default.relative(CWD_SAVETO, file));
                 return a;
             }, 0);
             log(i2);
@@ -163,8 +164,8 @@ else {
         colors: true,
     });
     //	log(workerData.re.test(' '));
-    let file = path.join(CWD, 'stringify.txt');
-    const liner = new lineByLine(file);
+    let file = upath2_1.default.join(CWD, 'stringify.txt');
+    const liner = new n_readlines_1.default(file);
     let line;
     let lineNumber = 0;
     let count = 0;

@@ -2,10 +2,9 @@
  * Created by user on 2018/4/19/019.
  */
 
-import { SubSModule, SubSModuleTokenizer } from '../mod';
-import { Segment, IWord } from '../Segment';
-import UString from 'uni-string';
-import { IWordDebug, IWordDebugInfo } from '../util';
+import { SubSModuleTokenizer } from '../mod';
+import { IWord } from '../Segment';
+import { IWordDebug } from '../util';
 
 export const enum EnumJpSimpleTokenizerType
 {

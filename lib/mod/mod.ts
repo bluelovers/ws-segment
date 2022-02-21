@@ -2,7 +2,7 @@
  * Created by user on 2018/2/21/021.
  */
 
-import { IDICT, IDICT_BLACKLIST, IWord, Segment } from '../Segment';
+import { IDICT_BLACKLIST, IWord, Segment } from '../Segment';
 import { IWordDebug, IWordDebugInfo } from '../util/index';
 import { debugToken } from '../util/debug'
 import { ENUM_SUBMODS_NAME } from './index';

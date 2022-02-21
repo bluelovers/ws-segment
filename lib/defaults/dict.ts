@@ -1,7 +1,5 @@
 import { Segment } from '../Segment';
-import { IUseDefaultOptions, IUseDefaultOptionsDicts } from './index';
-import getDefaultModList from '../mod/index';
-import SegmentCore from '../segment/core';
+import { IUseDefaultOptionsDicts } from './index';
 
 export function useDefaultDicts(segment: Segment, options: IUseDefaultOptionsDicts = {})
 {

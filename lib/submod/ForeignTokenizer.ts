@@ -5,11 +5,9 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
-import { Segment, IWord } from '../Segment';
+import { ISubTokenizerCreate, SubSModuleTokenizer } from '../mod';
+import { IWord } from '../Segment';
 import { debugToken } from '../util/debug';
-import UString from 'uni-string';
-import { debug } from '../util';
 import { IWordDebugInfo } from '../util/index';
 
 export class ForeignTokenizer extends SubSModuleTokenizer

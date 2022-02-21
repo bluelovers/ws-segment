@@ -6,6 +6,7 @@ import { IOptions as IOptionsTableDict } from '@novel-segment/table-core-abstrac
 import { TableDict } from '@novel-segment/table-dict';
 import { ENUM_SUBMODS_NAME } from '../mod/index';
 import { IUseDefaultOptions } from '../defaults/index';
+
 export { IWord } from '@novel-segment/types';
 
 export type ISPLIT = RegExp | string | {
