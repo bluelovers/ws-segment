@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var tableSynonymPangu = require('@novel-segment/table-synonym-pangu');
 
 class TableDictSynonym extends tableSynonymPangu.TableDictSynonymPanGu {
-  constructor(type = TableDictSynonym.type, options = {}, ...argv) {
+  constructor(type = TableDictSynonym.type, options, ...argv) {
     super(type, options, ...argv);
   }
 

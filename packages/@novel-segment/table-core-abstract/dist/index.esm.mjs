@@ -1,3 +1,5 @@
+import { cloneDeep } from 'lodash-es';
+
 class AbstractTableDictCore {
   TABLE = Object.create(null);
   TABLE2 = Object.create(null);
@@ -44,6 +46,10 @@ class AbstractTableDictCore {
     const w = this._exists(data);
 
     return this.TABLE[w] || null;
+  }
+
+  json(...argv) {
+    return cloneDeep(this.TABLE);
   }
 
   size() {

@@ -10,7 +10,7 @@ export class TableDictStopword extends TableDictLine
 {
 	static override readonly type: ITSTypeAndStringLiteral<EnumDictDatabase.STOPWORD> = EnumDictDatabase.STOPWORD;
 
-	constructor(type: string = TableDictStopword.type, options: IOptions = {}, ...argv)
+	constructor(type: string = TableDictStopword.type, options?: IOptions, ...argv)
 	{
 		super(type, options, ...argv)
 	}

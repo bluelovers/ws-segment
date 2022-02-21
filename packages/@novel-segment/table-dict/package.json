@@ -120,8 +120,6 @@
     "@lazy-cjk/zh-table-list": "^1.0.80",
     "@novel-segment/loaders": "^1.0.28",
     "@novel-segment/table-core-abstract": "^1.0.0",
-    "@novel-segment/types": "^1.0.3",
-    "lodash": "^4.17.21",
     "tslib": "^2.3.1"
   },
   "devDependencies": {},

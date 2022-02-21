@@ -4,7 +4,6 @@
 import { IDictRow, stringifyLine } from '@novel-segment/loaders/segment/index';
 import { textList as text_list } from '@lazy-cjk/zh-table-list/list';
 import { AbstractTableDictCore, IDICT, IDICT2, IOptions } from '@novel-segment/table-core-abstract';
-import { cloneDeep } from 'lodash';
 import { IWord } from '@novel-segment/types';
 
 export type ITableDictRow = {
@@ -27,29 +26,14 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 {
 	//public override type: string;
 
-	override TABLE: IDICT<ITableDictRow> = {};
-	override TABLE2: IDICT2<ITableDictRow> = {};
+	declare TABLE: IDICT<ITableDictRow>;
+	declare TABLE2: IDICT2<ITableDictRow>;
 
 	//override options: IOptions;
 
 	override exists(data: IWord | IDictRow | string): ITableDictRow
 	{
-		let w, p, f;
-
-		if (typeof data === 'string')
-		{
-			w = data;
-		}
-		else if (Array.isArray(data))
-		{
-			[w, p, f] = data;
-		}
-		else
-		{
-			({ w, p, f } = data);
-		}
-
-		return this.TABLE[w] || null;
+		return super.exists(data)
 	}
 
 	protected __handleInput(data: IWord | IDictRow | string)
@@ -199,11 +183,6 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		}
 
 		return this
-	}
-
-	override json(): IDICT<ITableDictRow>
-	{
-		return cloneDeep(this.TABLE)
 	}
 
 	/**

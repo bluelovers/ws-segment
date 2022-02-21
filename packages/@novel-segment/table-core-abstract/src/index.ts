@@ -4,6 +4,7 @@
 
 import { IDictRow } from '@novel-segment/loaders/segment/index';
 import { IWord } from '@novel-segment/types';
+import { cloneDeep } from 'lodash';
 
 export type IOptions = {
 	autoCjk?: boolean,
@@ -97,7 +98,10 @@ export abstract class AbstractTableDictCore<T>
 	public remove?(data, ...argv): this
 	protected _remove?(data, ...argv)
 
-	public json?(...argv): IDICT<T>
+	public json(...argv): IDICT<T>
+	{
+		return cloneDeep(this.TABLE)
+	}
 	public stringify?(...argv): string
 
 	public size(): number

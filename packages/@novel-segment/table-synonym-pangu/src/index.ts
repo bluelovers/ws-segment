@@ -3,6 +3,8 @@
  */
 
 import { AbstractTableDictCore, IDICT, IDICT2, IOptions } from '@novel-segment/table-core-abstract';
+import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
+import { EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * 原版 node-segment 的格式
@@ -10,9 +12,9 @@ import { AbstractTableDictCore, IDICT, IDICT2, IOptions } from '@novel-segment/t
  */
 export class TableDictSynonymPanGu extends AbstractTableDictCore<string>
 {
-	static override readonly type = 'SYNONYM';
+	static override readonly type: ITSTypeAndStringLiteral<EnumDictDatabase.SYNONYM> = EnumDictDatabase.SYNONYM;
 
-	constructor(type: string = TableDictSynonymPanGu.type, options: IOptions = {}, ...argv)
+	constructor(type: string = TableDictSynonymPanGu.type, options?: IOptions, ...argv)
 	{
 		super(type, options, ...argv)
 	}

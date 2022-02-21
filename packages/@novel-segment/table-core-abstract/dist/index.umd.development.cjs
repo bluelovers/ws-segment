@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}));
-})(this, (function (exports) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lodash-es')) :
+	typeof define === 'function' && define.amd ? define(['exports', 'lodash-es'], factory) :
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.lodashEs));
+})(this, (function (exports, lodashEs) { 'use strict';
 
 	class AbstractTableDictCore {
 	  TABLE = Object.create(null);
@@ -50,6 +50,10 @@
 	    const w = this._exists(data);
 
 	    return this.TABLE[w] || null;
+	  }
+
+	  json(...argv) {
+	    return lodashEs.cloneDeep(this.TABLE);
 	  }
 
 	  size() {

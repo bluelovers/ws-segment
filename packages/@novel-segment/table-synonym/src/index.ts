@@ -27,7 +27,7 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 	 */
 	public declare TABLE2: IDICT<string[]>;
 
-	constructor(type: string = TableDictSynonym.type, options: IOptionsTableDictSynonym = {}, ...argv)
+	constructor(type: string = TableDictSynonym.type, options?: IOptionsTableDictSynonym, ...argv)
 	{
 		super(type, options, ...argv)
 	}

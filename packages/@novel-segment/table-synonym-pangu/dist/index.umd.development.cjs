@@ -5,9 +5,9 @@
 })(this, (function (exports, tableCoreAbstract) { 'use strict';
 
 	class TableDictSynonymPanGu extends tableCoreAbstract.AbstractTableDictCore {
-	  static type = 'SYNONYM';
+	  static type = "SYNONYM";
 
-	  constructor(type = TableDictSynonymPanGu.type, options = {}, ...argv) {
+	  constructor(type = TableDictSynonymPanGu.type, options, ...argv) {
 	    super(type, options, ...argv);
 	  }
 

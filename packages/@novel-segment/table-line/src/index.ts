@@ -55,11 +55,6 @@ export abstract class TableDictLine extends AbstractTableDictCore<boolean>
 		delete this.TABLE[word]
 	}
 
-	override json()
-	{
-		return cloneDeep(this.TABLE)
-	}
-
 	override stringify(LF = "\n")
 	{
 		let self = this;

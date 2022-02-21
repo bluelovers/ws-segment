@@ -5,31 +5,13 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var index = require('@novel-segment/loaders/segment/index');
 var list = require('@lazy-cjk/zh-table-list/list');
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
-var lodash = require('lodash');
 
 function notNum(val) {
   return typeof val !== 'number' || Number.isNaN(val);
 }
 class TableDict extends tableCoreAbstract.AbstractTableDictCore {
-  TABLE = {};
-  TABLE2 = {};
-
   exists(data) {
-    let w, p, f;
-
-    if (typeof data === 'string') {
-      w = data;
-    } else if (Array.isArray(data)) {
-      [w, p, f] = data;
-    } else {
-      ({
-        w,
-        p,
-        f
-      } = data);
-    }
-
-    return this.TABLE[w] || null;
+    return super.exists(data);
   }
 
   __handleInput(data) {
@@ -147,10 +129,6 @@ class TableDict extends tableCoreAbstract.AbstractTableDictCore {
     }
 
     return this;
-  }
-
-  json() {
-    return lodash.cloneDeep(this.TABLE);
   }
 
   stringify(LF = "\n") {

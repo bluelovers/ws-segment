@@ -35,7 +35,6 @@ export declare class TableDict extends AbstractTableDictCore<ITableDictRow> {
     }): void;
     remove(target: IWord | IDictRow | string): this;
     protected _remove({ w, p, f, s }: IWord): this;
-    json(): IDICT<ITableDictRow>;
     /**
      * 將目前的 表格 匯出
      */

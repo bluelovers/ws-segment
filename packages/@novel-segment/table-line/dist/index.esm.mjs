@@ -1,5 +1,4 @@
 import { stringifyLine } from '@novel-segment/loader-line';
-import { cloneDeep } from 'lodash-es';
 import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
 
 class TableDictLine extends AbstractTableDictCore {
@@ -40,10 +39,6 @@ class TableDictLine extends AbstractTableDictCore {
 
   _remove(word) {
     delete this.TABLE[word];
-  }
-
-  json() {
-    return cloneDeep(this.TABLE);
   }
 
   stringify(LF = "\n") {

@@ -1,31 +1,13 @@
 import { stringifyLine } from '@novel-segment/loaders/segment/index';
 import { textList } from '@lazy-cjk/zh-table-list/list';
 import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
-import { cloneDeep } from 'lodash-es';
 
 function notNum(val) {
   return typeof val !== 'number' || Number.isNaN(val);
 }
 class TableDict extends AbstractTableDictCore {
-  TABLE = {};
-  TABLE2 = {};
-
   exists(data) {
-    let w, p, f;
-
-    if (typeof data === 'string') {
-      w = data;
-    } else if (Array.isArray(data)) {
-      [w, p, f] = data;
-    } else {
-      ({
-        w,
-        p,
-        f
-      } = data);
-    }
-
-    return this.TABLE[w] || null;
+    return super.exists(data);
   }
 
   __handleInput(data) {
@@ -143,10 +125,6 @@ class TableDict extends AbstractTableDictCore {
     }
 
     return this;
-  }
-
-  json() {
-    return cloneDeep(this.TABLE);
   }
 
   stringify(LF = "\n") {

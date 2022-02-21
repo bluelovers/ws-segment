@@ -5,7 +5,7 @@
 })(this, (function (exports, tableSynonymPangu) { 'use strict';
 
 	class TableDictSynonym extends tableSynonymPangu.TableDictSynonymPanGu {
-	  constructor(type = TableDictSynonym.type, options = {}, ...argv) {
+	  constructor(type = TableDictSynonym.type, options, ...argv) {
 	    super(type, options, ...argv);
 	  }
 

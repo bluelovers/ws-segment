@@ -3,7 +3,6 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var loaderLine = require('@novel-segment/loader-line');
-var lodash = require('lodash');
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
 
 class TableDictLine extends tableCoreAbstract.AbstractTableDictCore {
@@ -44,10 +43,6 @@ class TableDictLine extends tableCoreAbstract.AbstractTableDictCore {
 
   _remove(word) {
     delete this.TABLE[word];
-  }
-
-  json() {
-    return lodash.cloneDeep(this.TABLE);
   }
 
   stringify(LF = "\n") {

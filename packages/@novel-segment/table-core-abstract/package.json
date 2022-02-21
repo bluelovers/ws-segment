@@ -119,6 +119,7 @@
   "dependencies": {
     "@novel-segment/loaders": "^1.0.28",
     "@novel-segment/types": "^1.0.3",
+    "lodash": "^4.17.21",
     "ts-type": "^2.1.4",
     "tslib": "^2.3.1"
   },

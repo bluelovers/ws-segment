@@ -5,9 +5,9 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
 
 class TableDictSynonymPanGu extends tableCoreAbstract.AbstractTableDictCore {
-  static type = 'SYNONYM';
+  static type = "SYNONYM";
 
-  constructor(type = TableDictSynonymPanGu.type, options = {}, ...argv) {
+  constructor(type = TableDictSynonymPanGu.type, options, ...argv) {
     super(type, options, ...argv);
   }
 

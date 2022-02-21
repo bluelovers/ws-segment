@@ -7,7 +7,7 @@ var tableLine = require('@novel-segment/table-line');
 class TableDictBlacklist extends tableLine.TableDictLine {
   static type = "BLACKLIST";
 
-  constructor(type = TableDictBlacklist.type, options = {}, ...argv) {
+  constructor(type = TableDictBlacklist.type, options, ...argv) {
     super(type, options, ...argv);
   }
 

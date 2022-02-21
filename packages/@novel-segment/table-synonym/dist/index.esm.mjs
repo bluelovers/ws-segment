@@ -1,7 +1,7 @@
 import { TableDictSynonymPanGu } from '@novel-segment/table-synonym-pangu';
 
 class TableDictSynonym extends TableDictSynonymPanGu {
-  constructor(type = TableDictSynonym.type, options = {}, ...argv) {
+  constructor(type = TableDictSynonym.type, options, ...argv) {
     super(type, options, ...argv);
   }
 

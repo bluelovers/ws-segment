@@ -1,4 +1,4 @@
-import { AbstractTableDictCore, IDICT } from '@novel-segment/table-core-abstract';
+import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
 /**
  * 原版 node-segment 的格式
  */
@@ -8,7 +8,6 @@ export declare abstract class TableDictLine extends AbstractTableDictCore<boolea
     _add(word: string): void;
     remove(word: string): this;
     _remove(word: string): void;
-    json(): IDICT<boolean>;
     stringify(LF?: string): string;
 }
 export default TableDictLine;

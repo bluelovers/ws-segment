@@ -2,6 +2,8 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var lodash = require('lodash');
+
 class AbstractTableDictCore {
   TABLE = Object.create(null);
   TABLE2 = Object.create(null);
@@ -48,6 +50,10 @@ class AbstractTableDictCore {
     const w = this._exists(data);
 
     return this.TABLE[w] || null;
+  }
+
+  json(...argv) {
+    return lodash.cloneDeep(this.TABLE);
   }
 
   size() {

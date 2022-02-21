@@ -30,7 +30,7 @@ export declare abstract class AbstractTableDictCore<T> {
     protected abstract _add(data: any, ...argv: any[]): any;
     remove?(data: any, ...argv: any[]): this;
     protected _remove?(data: any, ...argv: any[]): any;
-    json?(...argv: any[]): IDICT<T>;
+    json(...argv: any[]): IDICT<T>;
     stringify?(...argv: any[]): string;
     size(): number;
 }

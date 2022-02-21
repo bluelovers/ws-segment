@@ -1,9 +1,9 @@
 import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
 
 class TableDictSynonymPanGu extends AbstractTableDictCore {
-  static type = 'SYNONYM';
+  static type = "SYNONYM";
 
-  constructor(type = TableDictSynonymPanGu.type, options = {}, ...argv) {
+  constructor(type = TableDictSynonymPanGu.type, options, ...argv) {
     super(type, options, ...argv);
   }
 
