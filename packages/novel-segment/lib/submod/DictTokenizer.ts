@@ -3,7 +3,7 @@
 import { SubSModule, SubSModuleTokenizer, ISubTokenizerCreate } from '../mod';
 // @ts-ignore
 import { UString } from 'uni-string';
-import { ITableDictRow } from '../table/dict';
+import { ITableDictRow } from '@novel-segment/table-dict';
 import { hexAndAny, toHex } from '../util/index';
 import CHS_NAMES, { FAMILY_NAME_1, FAMILY_NAME_2, SINGLE_NAME, DOUBLE_NAME_1, DOUBLE_NAME_2 } from '../mod/CHS_NAMES';
 import Segment, { IDICT, IWord, IDICT2 } from '../Segment';

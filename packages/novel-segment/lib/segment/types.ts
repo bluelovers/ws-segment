@@ -2,8 +2,8 @@
  * Created by user on 2019/6/26.
  */
 
-import { IOptions as IOptionsTableDict } from '../table/core';
-import { TableDict } from '../table/dict';
+import { IOptions as IOptionsTableDict } from '@novel-segment/table-core-abstract';
+import { TableDict } from '@novel-segment/table-dict';
 import { ENUM_SUBMODS_NAME } from '../mod/index';
 import { IUseDefaultOptions } from '../defaults/index';
 export { IWord } from '@novel-segment/types';

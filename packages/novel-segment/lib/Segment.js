@@ -1,42 +1,42 @@
+"use strict";
 /**
  * 分词器接口
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Segment = void 0;
 const tslib_1 = require("tslib");
 const path_1 = tslib_1.__importDefault(require("path"));
 const get_1 = require("./fs/get");
-const blacklist_1 = require("./table/blacklist");
-const dict_1 = require("./table/dict");
+const table_blacklist_1 = require("@novel-segment/table-blacklist");
+const table_dict_1 = require("@novel-segment/table-dict");
 const loader_1 = tslib_1.__importDefault(require("./loader"));
-const stopword_1 = require("./table/stopword");
-const synonym_1 = require("./table/synonym");
+const table_stopword_1 = require("@novel-segment/table-stopword");
+const table_synonym_1 = require("@novel-segment/table-synonym");
 const segment_dict_1 = tslib_1.__importDefault(require("segment-dict"));
 const project_config_1 = tslib_1.__importDefault(require("../project.config"));
-const core_1 = tslib_1.__importDefault(require("./segment/core"));
+const core_1 = require("./segment/core");
 const defaults_1 = require("./segment/defaults");
 const index_1 = require("./defaults/index");
 const useModules2_1 = require("./segment/methods/useModules2");
 /**
  * 创建分词器接口
  */
-class Segment extends core_1.default {
+class Segment extends core_1.SegmentCore {
     getDictDatabase(type, autocreate, libTableDict) {
         if ((autocreate || this.inited) && !this.db[type]) {
-            if (type === synonym_1.TableDictSynonym.type) {
-                libTableDict = libTableDict || synonym_1.TableDictSynonym;
+            if (type === table_synonym_1.TableDictSynonym.type) {
+                libTableDict = libTableDict || table_synonym_1.TableDictSynonym;
             }
-            else if (type === stopword_1.TableDictStopword.type) {
-                libTableDict = libTableDict || stopword_1.TableDictStopword;
+            else if (type === table_stopword_1.TableDictStopword.type) {
+                libTableDict = libTableDict || table_stopword_1.TableDictStopword;
             }
-            else if (type === blacklist_1.TableDictBlacklist.type || type === "BLACKLIST_FOR_OPTIMIZER" /* BLACKLIST_FOR_OPTIMIZER */ || type === "BLACKLIST_FOR_SYNONYM" /* BLACKLIST_FOR_SYNONYM */) {
-                libTableDict = libTableDict || blacklist_1.TableDictBlacklist;
+            else if (type === table_blacklist_1.TableDictBlacklist.type || type === "BLACKLIST_FOR_OPTIMIZER" /* BLACKLIST_FOR_OPTIMIZER */ || type === "BLACKLIST_FOR_SYNONYM" /* BLACKLIST_FOR_SYNONYM */) {
+                libTableDict = libTableDict || table_blacklist_1.TableDictBlacklist;
             }
             else {
-                libTableDict = libTableDict || dict_1.TableDict;
+                libTableDict = libTableDict || table_dict_1.TableDict;
             }
             this.db[type] = new libTableDict(type, this.options, {
                 TABLE: this.DICT[type],

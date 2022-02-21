@@ -1,9 +1,9 @@
+"use strict";
 /**
  * 分词器接口
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.SegmentCore = void 0;
 const index_1 = require("../mod/index");

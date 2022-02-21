@@ -4,28 +4,20 @@
  * @author 老雷<leizongmin@gmail.com>
  */
 
-'use strict';
-
 import path from 'path';
 import { searchFirstSync, searchGlobSync } from './fs/get';
-import { TableDictBlacklist } from './table/blacklist';
-import { AbstractTableDictCore } from './table/core';
-import { IOptions as IOptionsTableDict, TableDict } from './table/dict';
+import { TableDictBlacklist } from '@novel-segment/table-blacklist';
+import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
+import { TableDict } from '@novel-segment/table-dict';
 
 import Loader from './loader';
-import { crlf } from 'crlf-normalize';
-import { TableDictStopword } from './table/stopword';
-import { TableDictSynonym } from './table/synonym';
+import { TableDictStopword } from '@novel-segment/table-stopword';
+import { TableDictSynonym } from '@novel-segment/table-synonym';
 import SegmentDict from 'segment-dict';
-import { ISubOptimizer, ISubTokenizer, Optimizer, Tokenizer } from './mod';
-import { debugToken } from './util/debug';
-import { IWordDebug } from './util/index';
+import { ISubOptimizer, ISubTokenizer } from './mod';
 import { ITSTypeAndStringLiteral } from 'ts-type/lib/helper/string';
 
 import ProjectConfig from '../project.config';
-
-import deepmerge from 'deepmerge-plus/core';
-import { ENUM_SUBMODS, ENUM_SUBMODS_NAME, ENUM_SUBMODS_OTHER } from './mod/index';
 
 import {
 	IDICT,
@@ -38,15 +30,12 @@ import {
 	ISPLIT,
 	ISPLIT_FILTER,
 } from './segment/types';
-import { IWord } from '@novel-segment/types';
-import SegmentCore from './segment/core';
-import { _isIgnoreModules } from './segment/methods/useModules';
+import { ArrayTwoOrMore, EnumDictDatabase, IWord } from '@novel-segment/types';
+import { SegmentCore } from './segment/core';
 import { ITSOverwrite } from 'ts-type';
 import { defaultOptionsDoSegment } from './segment/defaults';
 import { IUseDefaultOptions, useDefault } from './defaults/index';
 import { useModules } from './segment/methods/useModules2';
-import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
-import { ArrayTwoOrMore, EnumDictDatabase } from '@novel-segment/types';
 
 /**
  * 创建分词器接口
