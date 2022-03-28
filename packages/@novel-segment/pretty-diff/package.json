@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/pretty-diff",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "",
   "keywords": [
     "NLP",
@@ -117,7 +117,7 @@
   },
   "dependencies": {
     "@lazy-cjk/zh-convert": "^1.0.44",
-    "@novel-segment/stringify": "^1.0.1",
+    "@novel-segment/stringify": "^1.0.2",
     "@novel-segment/types": "^1.0.3",
     "crlf-normalize": "^1.0.7",
     "debug-color2": "^1.2.7",
