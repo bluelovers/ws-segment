@@ -126,7 +126,7 @@ if (worker_threads_1.isMainThread) {
                         data,
                         line: s,
                         index: index++,
-                        c1: "other" /* other */,
+                        c1: "other" /* EnumC1.other */,
                         line_type: (0, util_compare_1.chkLineType)(s),
                         cjk_id: (0, util_1.getCjkName)(w),
                     };
@@ -179,7 +179,7 @@ else {
             data,
             line,
             index,
-            c1: "other" /* other */,
+            c1: "other" /* EnumC1.other */,
         };
         let [w, p, f] = cur.data;
         let len = uni_string_1.default.size(w);
@@ -192,10 +192,10 @@ else {
             }
         }
         else if (len === 1) {
-            c1_now = "char" /* char */;
+            c1_now = "char" /* EnumC1.char */;
         }
         else {
-            c1_now = "other" /* other */;
+            c1_now = "other" /* EnumC1.other */;
         }
         cur.c1 = c1_now;
         if (count >= 10000) {
@@ -224,7 +224,7 @@ function log(...argv) {
 function getCid(w) {
     w = uni_string_1.default.slice(w, 0, 1).toLocaleLowerCase();
     if (/^[a-z0-9]$/i.test(w)) {
-        return "eng" /* eng */;
+        return "eng" /* EnumC1.eng */;
     }
     let s = (0, util_1.getCjkName)(w);
     let r = (0, transliteration_1.slugify)(s);
@@ -269,19 +269,19 @@ function getCid(w) {
     }
     let r2 = uni_string_1.default.slice(r, 0, 1);
     if (!/^[a-z0-9]$/i.test(r2)) {
-        r2 = "other" /* other */;
+        r2 = "other" /* EnumC1.other */;
     }
     return r2.toLocaleLowerCase();
 }
 function SortList(ls) {
     // @ts-ignore
     return ls.sort(function (a, b) {
-        if (a.line_type == 2 /* COMMENT_TAG */
-            || b.line_type == 2 /* COMMENT_TAG */) {
+        if (a.line_type == 2 /* EnumLineType.COMMENT_TAG */
+            || b.line_type == 2 /* EnumLineType.COMMENT_TAG */) {
             return (a.index - b.index);
         }
-        else if (a.line_type == 1 /* COMMENT */
-            || b.line_type == 1 /* COMMENT */) {
+        else if (a.line_type == 1 /* EnumLineType.COMMENT */
+            || b.line_type == 1 /* EnumLineType.COMMENT */) {
             return (a.index - b.index);
         }
         let ret = (0, util_1.zhDictCompare)(a.cjk_id, b.cjk_id)

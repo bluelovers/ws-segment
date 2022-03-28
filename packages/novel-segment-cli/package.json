@@ -26,10 +26,10 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@novel-segment/types": "^1.0.3",
-    "@yarn-tool/update-notifier": "^1.0.24",
+    "@yarn-tool/update-notifier": "^1.0.25",
     "array-hyper-unique": "^2.0.6",
     "bluebird": "^3.7.2",
-    "cache-path": "^2.0.30",
+    "cache-path": "^2.0.33",
     "crlf-normalize": "^1.0.7",
     "debug-color2": "^1.2.7",
     "fs-extra": "^10",
@@ -40,7 +40,7 @@
     "novel-segment": "^2.7.91",
     "pkg-up": "<4 >= 3.1.0",
     "prettyuse": "^0.0.0",
-    "ts-type": "^2.1.4",
+    "ts-type": "^2.1.6",
     "tslib": "^2.3.1",
     "upath2": "^3.1.12",
     "yargs": "^17"

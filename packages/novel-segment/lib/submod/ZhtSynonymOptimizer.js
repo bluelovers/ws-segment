@@ -31,7 +31,7 @@ class ZhtSynonymOptimizer extends mod_1.SubSModuleOptimizer {
         this._TABLE = this.segment.getDict('TABLE');
         this._POSTAG = this.segment.POSTAG;
         this._SYNONYM = this.segment.getDict('SYNONYM') || {};
-        this._BLACKLIST = this.segment.getDict("BLACKLIST_FOR_SYNONYM" /* BLACKLIST_FOR_SYNONYM */) || {};
+        this._BLACKLIST = this.segment.getDict("BLACKLIST_FOR_SYNONYM" /* EnumDictDatabase.BLACKLIST_FOR_SYNONYM */) || {};
     }
     isSynonymBlacklist(w) {
         if (this._BLACKLIST[w]) {

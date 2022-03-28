@@ -20,7 +20,7 @@ class ChsNameOptimizer extends mod_1.SubSModuleOptimizer {
     _cache() {
         super._cache();
         this._TABLE = this.segment.getDict('TABLE');
-        this._BLACKLIST = this.segment.getDict("BLACKLIST_FOR_OPTIMIZER" /* BLACKLIST_FOR_OPTIMIZER */) || {};
+        this._BLACKLIST = this.segment.getDict("BLACKLIST_FOR_OPTIMIZER" /* EnumDictDatabase.BLACKLIST_FOR_OPTIMIZER */) || {};
     }
     isBlackList(nw) {
         return nw in this._BLACKLIST;

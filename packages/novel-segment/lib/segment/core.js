@@ -92,8 +92,8 @@ class SegmentCore {
     }
     addBlacklist(word, remove) {
         let me = this;
-        const BLACKLIST = me.getDictDatabase("BLACKLIST" /* BLACKLIST */);
-        const TABLE = me.getDictDatabase("TABLE" /* TABLE */);
+        const BLACKLIST = me.getDictDatabase("BLACKLIST" /* EnumDictDatabase.BLACKLIST */);
+        const TABLE = me.getDictDatabase("TABLE" /* EnumDictDatabase.TABLE */);
         let bool = !remove;
         if (bool) {
             BLACKLIST.add(word);
@@ -109,8 +109,8 @@ class SegmentCore {
      */
     doBlacklist() {
         let me = this;
-        const BLACKLIST = me.getDict("BLACKLIST" /* BLACKLIST */);
-        const TABLE = me.getDictDatabase("TABLE" /* TABLE */);
+        const BLACKLIST = me.getDict("BLACKLIST" /* EnumDictDatabase.BLACKLIST */);
+        const TABLE = me.getDictDatabase("TABLE" /* EnumDictDatabase.TABLE */);
         Object.entries(BLACKLIST)
             .forEach(function ([key, bool]) {
             bool && TABLE.remove(key);
@@ -174,8 +174,8 @@ class SegmentCore {
     convertSynonym(ret, showcount) {
         return (0, convertSynonym_1.convertSynonym)(ret, {
             showcount,
-            DICT_SYNONYM: this.getDict("SYNONYM" /* SYNONYM */),
-            DICT_TABLE: this.getDict("TABLE" /* TABLE */),
+            DICT_SYNONYM: this.getDict("SYNONYM" /* EnumDictDatabase.SYNONYM */),
+            DICT_TABLE: this.getDict("TABLE" /* EnumDictDatabase.TABLE */),
             POSTAG: this.POSTAG,
         });
     }
