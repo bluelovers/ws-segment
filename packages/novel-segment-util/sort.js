@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = void 0;
 const tslib_1 = require("tslib");
-const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
+const string_natural_compare_1 = require("@bluelovers/string-natural-compare");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
 const cjk_conv_1 = require("regexp-helper/lib/cjk-conv");
@@ -52,20 +52,12 @@ exports._zhDictCompareTable_chars = (0, array_hyper_unique_1.array_unique)(expor
 //export const RE_ZH = /[\u3400-\u4DBF\u4E00-\u9FFF\u{20000}-\u{2FA1F}]/u;
 exports.RE_ZH = (0, cjk_conv_1._re_cjk_conv)('u', 'のと㊥㊦㊤');
 function zhDictCompareNew(options) {
+    var _d, _e;
     if (typeof options === 'function') {
-        options = { failback: options };
+        options = { fallback: options };
     }
-    let failback = (options = options || {}).failback;
-    if (failback == null) {
-        if (typeof string_natural_compare_1.default.caseInsensitive === 'function') {
-            failback = string_natural_compare_1.default.caseInsensitive;
-        }
-        else {
-            failback = (a, b) => (0, string_natural_compare_1.default)(a, b, {
-                caseInsensitive: true
-            });
-        }
-    }
+    options !== null && options !== void 0 ? options : (options = {});
+    const fallback = (_e = (_d = options.fallback) !== null && _d !== void 0 ? _d : options.failback) !== null && _e !== void 0 ? _e : string_natural_compare_1.compareCaseInsensitive;
     return function zhDictCompare(a, b) {
         const ra = uni_string_1.default.toArray(a);
         const rb = uni_string_1.default.toArray(b);
@@ -129,7 +121,7 @@ function zhDictCompareNew(options) {
                 }
             }
         }
-        return _c || failback(a, b);
+        return _c || fallback(a, b);
     };
 }
 exports.zhDictCompareNew = zhDictCompareNew;

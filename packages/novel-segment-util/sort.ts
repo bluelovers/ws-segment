@@ -1,8 +1,5 @@
-import naturalCompare from '@bluelovers/string-natural-compare';
+import { compareCaseInsensitive } from '@bluelovers/string-natural-compare';
 import { array_unique } from 'array-hyper-unique';
-import StrUtil = require('str-util');
-import libTable from 'cjk-conv/lib/zh/table';
-import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
 import UString from 'uni-string';
 import { _re_cjk_conv } from 'regexp-helper/lib/cjk-conv';
 
@@ -69,32 +66,25 @@ export interface IFnCompare
 export function zhDictCompareNew(failback?: IFnCompare): IFnCompare
 export function zhDictCompareNew(options?: {
 	failback?: IFnCompare
+	fallback?: IFnCompare
 }): IFnCompare
 export function zhDictCompareNew(options?: IFnCompare | {
 	failback?: IFnCompare
+	fallback?: IFnCompare
 }): IFnCompare
 {
 	if (typeof options === 'function')
 	{
-		options = { failback: options };
+		options = { fallback: options };
 	}
 
-	let failback = (options = options || {}).failback;
+	options ??= {} as {
+		failback?: IFnCompare
+		fallback?: IFnCompare
+	};
 
-	if (failback == null)
-	{
-		if (typeof naturalCompare.caseInsensitive === 'function')
-		{
-			failback = naturalCompare.caseInsensitive
-		}
-		else
-		{
-			failback = (a, b) => naturalCompare(a, b, {
-				caseInsensitive: true
-			});
-		}
-
-	}
+	const fallback = options.fallback ??
+	options.failback ?? compareCaseInsensitive;
 
 	return function zhDictCompare(a: string, b: string): number
 	{
@@ -191,7 +181,7 @@ export function zhDictCompareNew(options?: IFnCompare | {
 			}
 		}
 
-		return _c || failback(a, b);
+		return _c || fallback(a, b);
 	}
 }
 

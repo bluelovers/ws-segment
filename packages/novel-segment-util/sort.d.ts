@@ -13,6 +13,7 @@ export interface IFnCompare {
 export declare function zhDictCompareNew(failback?: IFnCompare): IFnCompare;
 export declare function zhDictCompareNew(options?: {
     failback?: IFnCompare;
+    fallback?: IFnCompare;
 }): IFnCompare;
 /**
  * 排序字典專用的比較函數
