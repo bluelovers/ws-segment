@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-stopword",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "keywords": [
     "NLP",
@@ -117,7 +117,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/table-line": "^1.0.2",
+    "@novel-segment/table-line": "^1.0.3",
     "tslib": "^2.3.1"
   },
   "publishConfig": {

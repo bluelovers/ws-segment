@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.58](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.57...@novel-segment/util@1.0.58) (2022-04-15)
+
+
+### 📦　Code Refactoring
+
+* fix typo ([bd431af](https://github.com/bluelovers/ws-segment/commit/bd431afe78814a3042d792f090efe2d5d8148304))
+* 優化代碼 ([1fd0ed1](https://github.com/bluelovers/ws-segment/commit/1fd0ed1474aafd86d0c2cb39d971fb4d5e707e39))
+
+
+
+
+
 ## [1.0.57](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.56...@novel-segment/util@1.0.57) (2022-02-05)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-line",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "原版 node-segment 的格式",
   "keywords": [
     "NLP",
@@ -118,7 +118,7 @@
   },
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.16",
-    "@novel-segment/table-core-abstract": "^1.0.2",
+    "@novel-segment/table-core-abstract": "^1.0.3",
     "lodash": "^4.17.21",
     "tslib": "^2.3.1"
   },

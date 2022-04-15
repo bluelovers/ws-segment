@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github.com/bluelovers/ws-segment/compare/@novel-segment/stringify@1.0.2...@novel-segment/stringify@1.0.3) (2022-04-15)
+
+
+### 🛠　Build System
+
+* update js ([1e9db8f](https://github.com/bluelovers/ws-segment/commit/1e9db8f6a717a2ef40dec86b22e729dafc2ed8d7))
+
+
+### 🔖　Miscellaneous
+
+* . ([754e0a0](https://github.com/bluelovers/ws-segment/commit/754e0a0588458175d9a4f9faa31f21710bff9249))
+
+
+
+
+
 ## [1.0.2](https://github.com/bluelovers/ws-segment/compare/@novel-segment/stringify@1.0.1...@novel-segment/stringify@1.0.2) (2022-03-28)
 
 
