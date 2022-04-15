@@ -67,29 +67,31 @@ function zhDictCompareNew(options) {
         }
     }
     return function zhDictCompare(a, b) {
-        let len01 = uni_string_1.default.size(a);
-        let len02 = uni_string_1.default.size(b);
+        const ra = uni_string_1.default.toArray(a);
+        const rb = uni_string_1.default.toArray(b);
+        const len01 = ra.length;
+        const len02 = rb.length;
         /**
          * 優先排序單一字元
          */
-        if ((len01 != len02) && (len01 === 1 || len02 === 1)) {
+        if ((len01 !== len02) && (len01 === 1 || len02 === 1)) {
             return len01 - len02;
         }
         let _c = 0;
-        let _a0 = a[0];
-        let _b0 = b[0];
+        let _a0 = ra[0];
+        let _b0 = ra[0];
         let _a;
         let _b;
-        let aa = exports.RE_ZH.test(a[0]);
-        let bb = exports.RE_ZH.test(b[0]);
+        let aa = exports.RE_ZH.test(ra[0]);
+        let bb = exports.RE_ZH.test(rb[0]);
         if (aa && bb) {
-            if (a.length != b.length && (a.length == 1 || b.length == 1)) {
-                return a.length - b.length;
+            if (len01 !== len02 && (len01 === 1 || len02 === 1)) {
+                return len01 - len02;
             }
-            _a = exports._zhDictCompareTable[0].indexOf(a[0]);
-            _b = exports._zhDictCompareTable[0].indexOf(b[0]);
-            aa = _a != -1;
-            bb = _b != -1;
+            _a = exports._zhDictCompareTable[0].indexOf(ra[0]);
+            _b = exports._zhDictCompareTable[0].indexOf(rb[0]);
+            aa = _a !== -1;
+            bb = _b !== -1;
             if (aa && !bb) {
                 return -1;
             }
@@ -105,15 +107,14 @@ function zhDictCompareNew(options) {
                 return -1;
             }
         }
-        if (_a0 != null) {
-            let len = a.length;
-            for (let i = 0; i < len; i++) {
-                if (!a[i] || !b[i] || a[i] == null || b[i] == null) {
+        if (typeof _a0 !== 'undefined') {
+            for (let i = 0; i < len01; i++) {
+                if (!ra[i] || !rb[i] || typeof ra[i] === 'undefined' || typeof rb[i] === 'undefined') {
                     break;
                 }
-                else if (a[i] !== b[i]) {
-                    _a0 = a[i];
-                    _b0 = b[i];
+                else if (ra[i] !== rb[i]) {
+                    _a0 = ra[i];
+                    _b0 = rb[i];
                     break;
                 }
             }
@@ -122,7 +123,7 @@ function zhDictCompareNew(options) {
             for (let _arr of exports._zhDictCompareTable) {
                 _a = _arr.indexOf(_a0);
                 _b = _arr.indexOf(_b0);
-                if (_a > -1 && _b > -1) {
+                if (_a !== -1 && _b !== -1) {
                     _c = (_a - _b) || 0;
                     break;
                 }

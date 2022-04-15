@@ -98,40 +98,43 @@ export function zhDictCompareNew(options?: IFnCompare | {
 
 	return function zhDictCompare(a: string, b: string): number
 	{
-		let len01 = UString.size(a);
-		let len02 = UString.size(b);
+		const ra = UString.toArray(a);
+		const rb = UString.toArray(b);
+
+		const len01 = ra.length;
+		const len02 = rb.length;
 
 		/**
 		 * 優先排序單一字元
 		 */
-		if ((len01 != len02) && (len01 === 1 || len02 === 1))
+		if ((len01 !== len02) && (len01 === 1 || len02 === 1))
 		{
 			return len01 - len02
 		}
 
 		let _c = 0;
 
-		let _a0 = a[0];
-		let _b0 = b[0];
+		let _a0 = ra[0];
+		let _b0 = ra[0];
 
 		let _a: number;
 		let _b: number;
 
-		let aa = RE_ZH.test(a[0]);
-		let bb = RE_ZH.test(b[0]);
+		let aa = RE_ZH.test(ra[0]);
+		let bb = RE_ZH.test(rb[0]);
 
 		if (aa && bb)
 		{
-			if (a.length != b.length && (a.length == 1 || b.length == 1))
+			if (len01 !== len02 && (len01 === 1 || len02 === 1))
 			{
-				return a.length - b.length
+				return len01 - len02
 			}
 
-			_a = _zhDictCompareTable[0].indexOf(a[0]);
-			_b = _zhDictCompareTable[0].indexOf(b[0]);
+			_a = _zhDictCompareTable[0].indexOf(ra[0]);
+			_b = _zhDictCompareTable[0].indexOf(rb[0]);
 
-			aa = _a != -1;
-			bb = _b != -1;
+			aa = _a !== -1;
+			bb = _b !== -1;
 
 			if (aa && !bb)
 			{
@@ -154,20 +157,18 @@ export function zhDictCompareNew(options?: IFnCompare | {
 			}
 		}
 
-		if (_a0 != null)
+		if (typeof _a0 !== 'undefined')
 		{
-			let len = a.length;
-
-			for (let i = 0; i < len; i++)
+			for (let i = 0; i < len01; i++)
 			{
-				if (!a[i] || !b[i] || a[i] == null || b[i] == null)
+				if (!ra[i] || !rb[i] || typeof ra[i] === 'undefined' || typeof rb[i] === 'undefined')
 				{
 					break;
 				}
-				else if (a[i] !== b[i])
+				else if (ra[i] !== rb[i])
 				{
-					_a0 = a[i];
-					_b0 = b[i];
+					_a0 = ra[i];
+					_b0 = rb[i];
 
 					break;
 				}
@@ -181,7 +182,7 @@ export function zhDictCompareNew(options?: IFnCompare | {
 				_a = _arr.indexOf(_a0);
 				_b = _arr.indexOf(_b0);
 
-				if (_a > -1 && _b > -1)
+				if (_a !== -1 && _b !== -1)
 				{
 					_c = (_a - _b) || 0;
 
