@@ -34,9 +34,11 @@
       "changelogPreset": "@bluelovers/conventional-changelog-bluelovers"
     },
     "run": {
+      "concurrency": 1,
       "stream": true
     },
     "exec": {
+      "concurrency": 1,
       "stream": true
     }
   },

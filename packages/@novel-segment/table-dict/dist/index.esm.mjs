@@ -1,144 +1,74 @@
-import { stringifyLine } from '@novel-segment/loaders/segment/index';
-import { textList } from '@lazy-cjk/zh-table-list/list';
-import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
+import { stringifyLine as t } from "@novel-segment/loaders/segment/index";
 
-function notNum(val) {
-  return typeof val !== 'number' || Number.isNaN(val);
+import { textList as e } from "@lazy-cjk/zh-table-list/list";
+
+import { AbstractTableDictCore as s } from "@novel-segment/table-core-abstract";
+
+function notNum(t) {
+  return "number" != typeof t || Number.isNaN(t);
 }
-class TableDict extends AbstractTableDictCore {
-  exists(data) {
-    return super.exists(data);
+
+class TableDict extends s {
+  exists(t) {
+    return super.exists(t);
   }
-
-  __handleInput(data) {
-    let w, p, f;
-    let plus;
-
-    if (typeof data === 'string') {
-      w = data;
-    } else if (Array.isArray(data)) {
-      [w, p, f, ...plus] = data;
-    } else {
-      ({
-        w,
-        p,
-        f
-      } = data);
-    }
-
-    if (typeof w !== 'string' || w === '') {
-      throw new TypeError(JSON.stringify(data));
-    }
-
-    p = notNum(p) ? 0 : p;
-    f = notNum(f) ? 0 : f;
-    return {
+  __handleInput(t) {
+    let e, s, i, r;
+    if ("string" == typeof t ? e = t : Array.isArray(t) ? [e, s, i, ...r] = t : ({w: e, p: s, f: i} = t), 
+    "string" != typeof e || "" === e) throw new TypeError(JSON.stringify(t));
+    return s = notNum(s) ? 0 : s, i = notNum(i) ? 0 : i, {
       data: {
-        w,
-        p,
-        f
+        w: e,
+        p: s,
+        f: i
       },
-      plus
+      plus: r
     };
   }
-
-  add(data, skipExists) {
-
-    let w, p, f;
+  add(t, s) {
+    let i, r, n;
     {
-      let ret = this.__handleInput(data);
-
-      ({
-        w,
-        p,
-        f
-      } = ret.data);
+      let e = this.__handleInput(t);
+      ({w: i, p: r, f: n} = e.data);
     }
-
-    if (skipExists && this.exists(w)) {
-      return this;
-    }
-
+    if (s && this.exists(i)) return this;
     this._add({
-      w,
-      p,
-      f,
-      s: true
+      w: i,
+      p: r,
+      f: n,
+      s: !0
     });
-
-    let self = this;
-
-    if (this.options.autoCjk) {
-      let wa = textList(w);
-      wa.forEach(function (w2) {
-        if (w2 !== w && !self.exists(w2)) {
-          self._add({
-            w: w2,
-            p,
-            f
-          });
-        }
+    let o = this;
+    return this.options.autoCjk && e(i).forEach((function(t) {
+      t === i || o.exists(t) || o._add({
+        w: t,
+        p: r,
+        f: n
       });
-    }
-
-    return this;
+    })), this;
   }
-
-  _add({
-    w,
-    p,
-    f,
-    s
-  }) {
-    let len = w.length;
-    this.TABLE[w] = {
-      p,
-      f,
-      s
-    };
-    if (!this.TABLE2[len]) this.TABLE2[len] = {};
-    this.TABLE2[len][w] = this.TABLE[w];
+  _add({w: t, p: e, f: s, s: i}) {
+    let r = t.length;
+    this.TABLE[t] = {
+      p: e,
+      f: s,
+      s: i
+    }, this.TABLE2[r] || (this.TABLE2[r] = {}), this.TABLE2[r][t] = this.TABLE[t];
   }
-
-  remove(target) {
-    let {
-      data,
-      plus
-    } = this.__handleInput(target);
-
-    this._remove(data);
-
-    return this;
+  remove(t) {
+    let {data: e} = this.__handleInput(t);
+    return this._remove(e), this;
   }
-
-  _remove({
-    w,
-    p,
-    f,
-    s
-  }) {
-    let len = w.length;
-    delete this.TABLE[w];
-
-    if (this.TABLE2[len]) {
-      delete this.TABLE2[len][w];
-    }
-
-    return this;
+  _remove({w: t}) {
+    let e = t.length;
+    return delete this.TABLE[t], this.TABLE2[e] && delete this.TABLE2[e][t], this;
   }
-
-  stringify(LF = "\n") {
-    let self = this;
-    return Object.entries(self.TABLE).reduce(function (a, [w, {
-      p,
-      f
-    }]) {
-      let line = stringifyLine([w, p, f]);
-      a.push(line);
-      return a;
-    }, []).join(typeof LF === 'string' ? LF : "\n");
+  stringify(e = "\n") {
+    return Object.entries(this.TABLE).reduce((function(e, [s, {p: i, f: r}]) {
+      let n = t([ s, i, r ]);
+      return e.push(n), e;
+    }), []).join("string" == typeof e ? e : "\n");
   }
-
 }
 
 export { TableDict, TableDict as default, notNum };

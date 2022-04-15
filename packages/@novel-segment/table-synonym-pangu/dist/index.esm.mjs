@@ -1,50 +1,23 @@
-import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
+import { AbstractTableDictCore as t } from "@novel-segment/table-core-abstract";
 
-class TableDictSynonymPanGu extends AbstractTableDictCore {
-  static type = "SYNONYM";
-
-  constructor(type = TableDictSynonymPanGu.type, options, ...argv) {
-    super(type, options, ...argv);
+class TableDictSynonymPanGu extends t {
+  static type="SYNONYM";
+  constructor(t = TableDictSynonymPanGu.type, r, ...e) {
+    super(t, r, ...e);
   }
-
-  add(data, skipExists) {
-    var _data$;
-
-    if (!Array.isArray(data) || data.length !== 2) {
-      throw new TypeError(JSON.stringify(data));
-    }
-
-    data[0] = this._trim(data[0]);
-
-    if (!((_data$ = data[0]) !== null && _data$ !== void 0 && _data$.length)) {
-      throw new TypeError(JSON.stringify(data));
-    }
-
-    data[1] = this._trim(data[1]);
-
-    if (skipExists && this.exists(data[0])) {
-      return this;
-    }
-
-    this._add(data[0], data[1]);
-
-    return this;
+  add(t, r) {
+    var e;
+    if (!Array.isArray(t) || 2 !== t.length) throw new TypeError(JSON.stringify(t));
+    if (t[0] = this._trim(t[0]), null === (e = t[0]) || void 0 === e || !e.length) throw new TypeError(JSON.stringify(t));
+    return t[1] = this._trim(t[1]), r && this.exists(t[0]) || this._add(t[0], t[1]), 
+    this;
   }
-
-  _add(n1, n2) {
-    if (n1 !== n2) {
-      this.TABLE[n1] = n2;
-    }
-
-    if (this.TABLE[n2] === n1) {
-      delete this.TABLE[n2];
-    }
+  _add(t, r) {
+    t !== r && (this.TABLE[t] = r), this.TABLE[r] === t && delete this.TABLE[r];
   }
-
-  _trim(s) {
-    return s.replace(/^\s+|\s+$/g, '').trim();
+  _trim(t) {
+    return t.replace(/^\s+|\s+$/g, "").trim();
   }
-
 }
 
 export { TableDictSynonymPanGu, TableDictSynonymPanGu as default };

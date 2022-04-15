@@ -1,232 +1,87 @@
-import { inspect } from 'util';
-import { fail } from 'assert';
+import { inspect as e } from "util";
 
-function _handleLazyMatchOptions(options = {}) {
-  var _options, _options$inspectFn;
+import { fail as n } from "assert";
 
-  (_options = options) !== null && _options !== void 0 ? _options : options = {};
-  return { ...options,
-    inspectFn: (_options$inspectFn = options.inspectFn) !== null && _options$inspectFn !== void 0 ? _options$inspectFn : inspect
+function _handleLazyMatchOptions(n = {}) {
+  var t, r;
+  return null !== (t = n) && void 0 !== t || (n = {}), {
+    ...n,
+    inspectFn: null !== (r = n.inspectFn) && void 0 !== r ? r : e
   };
 }
-function lazyMatch(a, b, options = {}) {
+
+function lazyMatch(e, t, r = {}) {
   let i = null;
-
-  const {
-    inspectFn,
-    firstOne
-  } = _handleLazyMatchOptions(options);
-
-  let bool = b.every(function (value, index, array) {
-    let j = -1;
-    let ii = i;
-
-    if (i == null) {
-      i = -1;
-    }
-
-    if (Array.isArray(value)) {
-      if (firstOne) {
-        value.some(function (bb) {
-          let jj = a.indexOf(bb, ii);
-
-          if (jj > -1 && jj > i) {
-            j = jj;
-            return true;
-          }
-        });
-      } else {
-        j = value.reduce(function (aa, bb) {
-          let jj = a.indexOf(bb, ii);
-
-          if (jj > -1 && jj > i) {
-            if (aa == -1) {
-              return jj;
-            }
-
-            return Math.min(jj, aa);
-          }
-
-          return aa;
-        }, -1);
-      }
-    } else {
-      j = a.indexOf(value, ii);
-    }
-
-    if (j > -1 && j > i) {
-      i = j;
-      return true;
-    }
-  });
-
-  if (i === -1) {
-    bool = false;
-  }
-
-  !bool && fail(`expected ${inspectFn(a)} to have includes ordered members ${inspectFn(b)}`);
-  return bool;
+  const {inspectFn: o, firstOne: a} = _handleLazyMatchOptions(r);
+  let l = t.every((function(n, t, r) {
+    let o = -1, l = i;
+    if (null == i && (i = -1), Array.isArray(n) ? a ? n.some((function(n) {
+      let t = e.indexOf(n, l);
+      if (t > -1 && t > i) return o = t, !0;
+    })) : o = n.reduce((function(n, t) {
+      let r = e.indexOf(t, l);
+      return r > -1 && r > i ? -1 == n ? r : Math.min(r, n) : n;
+    }), -1) : o = e.indexOf(n, l), o > -1 && o > i) return i = o, !0;
+  }));
+  return -1 === i && (l = !1), !l && n(`expected ${o(e)} to have includes ordered members ${o(t)}`), 
+  l;
 }
-function lazyMatch002(a, b_arr, options = {}) {
-  let bool;
-  options = _handleLazyMatchOptions(options);
 
-  for (let b of b_arr) {
-    try {
-      bool = lazyMatch(a, b, options);
-
-      if (bool) {
-        break;
-      }
-    } catch (e) {}
-  }
-
-  !bool && fail(`expected ${options.inspectFn(a)} to have includes one of ordered members in ${options.inspectFn(b_arr)}`);
+function lazyMatch002(e, t, r = {}) {
+  let i;
+  r = _handleLazyMatchOptions(r);
+  for (let n of t) try {
+    if (i = lazyMatch(e, n, r), i) break;
+  } catch (e) {}
+  !i && n(`expected ${r.inspectFn(e)} to have includes one of ordered members in ${r.inspectFn(t)}`);
 }
-function lazyMatchSynonym001(a, b_arr, options = {}) {
-  let bool;
-  let i = undefined;
 
-  const {
-    inspectFn,
-    firstOne
-  } = _handleLazyMatchOptions(options);
-
-  bool = b_arr.every(function (bb) {
-    let ii = i;
-
-    if (i == null) {
-      i = -1;
-    }
-
-    let j = -1;
-
-    if (Array.isArray(bb)) {
-      bb.some(v => {
-        let jj = a.indexOf(v, ii);
-
-        if (jj > -1) {
-          j = jj;
-          bb = v;
-          return true;
-        }
-      });
-    } else {
-      j = a.indexOf(bb, ii);
-    }
-
-    if (j > -1 && j >= i) {
-      i = j + bb.length;
-      return true;
-    } else if (i > -1) {
-      fail(`expected ${inspectFn(a)} to have have ${inspectFn(bb)} on index > ${i}, but got ${j}`);
-    }
-  });
-
-  if (i === -1) {
-    bool = false;
-  }
-
-  !bool && fail(`expected ${inspectFn(a)} to have index of ordered members in ${inspectFn(b_arr)}`);
+function lazyMatchSynonym001(e, t, r = {}) {
+  let i, o;
+  const {inspectFn: a} = _handleLazyMatchOptions(r);
+  i = t.every((function(t) {
+    let r = o;
+    null == o && (o = -1);
+    let i = -1;
+    if (Array.isArray(t) ? t.some((n => {
+      let o = e.indexOf(n, r);
+      if (o > -1) return i = o, t = n, !0;
+    })) : i = e.indexOf(t, r), i > -1 && i >= o) return o = i + t.length, !0;
+    o > -1 && n(`expected ${a(e)} to have have ${a(t)} on index > ${o}, but got ${i}`);
+  })), -1 === o && (i = !1), !i && n(`expected ${a(e)} to have index of ordered members in ${a(t)}`);
 }
-function lazyMatchSynonym001Not(a, b_arr, options = {}) {
-  let i = undefined;
 
-  const {
-    inspectFn,
-    firstOne
-  } = _handleLazyMatchOptions(options);
-
-  b_arr.every(function (bb) {
-    let ii = i;
-
-    if (i == null) {
-      i = -1;
-    }
-
-    let j = -1;
-
-    if (Array.isArray(bb)) {
-      bb.some(v => {
-        let jj = a.indexOf(v, ii);
-
-        if (jj > -1) {
-          j = jj;
-          bb = v;
-          return true;
-        }
-      });
-    } else {
-      j = a.indexOf(bb, ii);
-    }
-
-    if (j > -1 && j > i) {
-      fail(`expected ${inspectFn(a)} to not have ${inspectFn(bb)} on index > ${i}, but got ${j}`);
-      return true;
-    } else {
-      i++;
-    }
-  });
+function lazyMatchSynonym001Not(e, t, r = {}) {
+  let i;
+  const {inspectFn: o} = _handleLazyMatchOptions(r);
+  t.every((function(t) {
+    let r = i;
+    null == i && (i = -1);
+    let a = -1;
+    if (Array.isArray(t) ? t.some((n => {
+      let i = e.indexOf(n, r);
+      if (i > -1) return a = i, t = n, !0;
+    })) : a = e.indexOf(t, r), a > -1 && a > i) return n(`expected ${o(e)} to not have ${o(t)} on index > ${i}, but got ${a}`), 
+    !0;
+    i++;
+  }));
 }
-function lazyMatchNot(a, b, options = {}) {
+
+function lazyMatchNot(e, t, r = {}) {
   let i = null;
-
-  const {
-    inspectFn,
-    firstOne
-  } = _handleLazyMatchOptions(options);
-
-  let bool = b.every(function (value, index, array) {
-    let j = -1;
-    let ii = i;
-
-    if (i == null) {
-      i = -1;
-    }
-
-    if (Array.isArray(value)) {
-      if (options.firstOne) {
-        value.some(function (bb) {
-          let jj = a.indexOf(bb, ii);
-
-          if (jj > -1 && jj > i) {
-            j = jj;
-            return true;
-          }
-        });
-      } else {
-        j = value.reduce(function (aa, bb) {
-          let jj = a.indexOf(bb, ii);
-
-          if (jj > -1 && jj > i) {
-            if (aa == -1) {
-              return jj;
-            }
-
-            return Math.min(jj, aa);
-          }
-
-          return aa;
-        }, -1);
-      }
-    } else {
-      j = a.indexOf(value, ii);
-    }
-
-    if (j > -1) {
-      i = j;
-      return false;
-    } else {
-      return true;
-    }
-  });
-
-  if (i === -1) {
-    bool = true;
-  }
-
-  !bool && fail(`expected ${inspectFn(a)} should not have includes ordered members ${inspectFn(b)}`);
-  return bool;
+  const {inspectFn: o} = _handleLazyMatchOptions(r);
+  let a = t.every((function(n, t, o) {
+    let a = -1, l = i;
+    return null == i && (i = -1), Array.isArray(n) ? r.firstOne ? n.some((function(n) {
+      let t = e.indexOf(n, l);
+      if (t > -1 && t > i) return a = t, !0;
+    })) : a = n.reduce((function(n, t) {
+      let r = e.indexOf(t, l);
+      return r > -1 && r > i ? -1 == n ? r : Math.min(r, n) : n;
+    }), -1) : a = e.indexOf(n, l), !(a > -1 && (i = a, 1));
+  }));
+  return -1 === i && (a = !0), !a && n(`expected ${o(e)} should not have includes ordered members ${o(t)}`), 
+  a;
 }
 
 export { _handleLazyMatchOptions, lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, lazyMatchSynonym001Not };

@@ -1,12 +1,10 @@
-import { TableDictLine } from '@novel-segment/table-line';
+import { TableDictLine as t } from "@novel-segment/table-line";
 
-class TableDictBlacklist extends TableDictLine {
-  static type = "BLACKLIST";
-
-  constructor(type = TableDictBlacklist.type, options, ...argv) {
-    super(type, options, ...argv);
+class TableDictBlacklist extends t {
+  static type="BLACKLIST";
+  constructor(t = TableDictBlacklist.type, l, ...e) {
+    super(t, l, ...e);
   }
-
 }
 
 export { TableDictBlacklist, TableDictBlacklist as default };

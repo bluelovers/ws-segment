@@ -1,77 +1,48 @@
-import { parseLine } from '@novel-segment/loaders/segment/index';
-import { load } from '@novel-segment/loader-line';
-import { array_unique } from 'array-hyper-unique';
+import { parseLine as n } from "@novel-segment/loaders/segment/index";
 
-const USE_CJK_MODE = 2;
-var EnumLineType;
+import { load as e } from "@novel-segment/loader-line";
 
-(function (EnumLineType) {
-  EnumLineType[EnumLineType["BASE"] = 0] = "BASE";
-  EnumLineType[EnumLineType["COMMENT"] = 1] = "COMMENT";
-  EnumLineType[EnumLineType["COMMENT_TAG"] = 2] = "COMMENT_TAG";
-})(EnumLineType || (EnumLineType = {}));
+import { array_unique as i } from "array-hyper-unique";
 
-function stringifyHandleDictLinesList(list, options) {
-  let lines = list.map(v => v.line);
+const t = 2;
 
-  if (options !== null && options !== void 0 && options.disableUnique) {
-    return lines;
-  }
+var r;
 
-  return array_unique(lines);
+function stringifyHandleDictLinesList(n, e) {
+  let t = n.map((n => n.line));
+  return null != e && e.disableUnique ? t : i(t);
 }
-function handleDictLines(lines, fn, options) {
-  if (!lines) {
-    return [];
-  }
 
-  const {
-    parseFn
-  } = options;
-  return lines.reduce(function (a, line, index) {
-    let bool;
-    let data = parseFn(line);
-    let cur = {
-      data,
-      line,
-      index
+function handleDictLines(n, e, i) {
+  if (!n) return [];
+  const {parseFn: t} = i;
+  return n.reduce((function(n, i, r) {
+    let o, s = {
+      data: t(i),
+      line: i,
+      index: r
     };
-
-    if (fn) {
-      bool = fn(a, cur);
-    } else {
-      bool = true;
-    }
-
-    if (bool) {
-      a.push(cur);
-    }
-
-    return a;
-  }, []);
+    return o = !e || e(n, s), o && n.push(s), n;
+  }), []);
 }
-function loadDictFile(file, fn, options) {
-  options = options || {};
-  const parseFn = options.parseFn = options.parseFn || parseLine;
-  return load(file).then(function (b) {
-    return handleDictLines(b, fn, {
-      parseFn
+
+function loadDictFile(i, t, r) {
+  const o = (r = r || {}).parseFn = r.parseFn || n;
+  return e(i).then((function(n) {
+    return handleDictLines(n, t, {
+      parseFn: o
     });
-  });
-}
-function chkLineType(line) {
-  let ret = 0;
-
-  if (line.indexOf('//') == 0) {
-    ret = 1;
-
-    if (/ @todo/i.test(line)) {
-      ret = 2;
-    }
-  }
-
-  return ret;
+  }));
 }
 
-export { EnumLineType, USE_CJK_MODE, chkLineType, handleDictLines, loadDictFile, stringifyHandleDictLinesList };
+function chkLineType(n) {
+  let e = 0;
+  return 0 == n.indexOf("//") && (e = 1, / @todo/i.test(n) && (e = 2)), e;
+}
+
+!function(n) {
+  n[n.BASE = 0] = "BASE", n[n.COMMENT = 1] = "COMMENT", n[n.COMMENT_TAG = 2] = "COMMENT_TAG";
+}(r || (r = {}));
+
+export { r as EnumLineType, t as USE_CJK_MODE, chkLineType, handleDictLines, loadDictFile, stringifyHandleDictLinesList };
 //# sourceMappingURL=index.esm.mjs.map

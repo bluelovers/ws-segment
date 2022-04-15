@@ -1,52 +1,34 @@
-import { crlf } from 'crlf-normalize';
-import { console, chalkByConsole } from 'debug-color2';
-import { diffChars } from 'diff';
-import { cn2tw_min } from '@lazy-cjk/zh-convert/min';
-import { stringify } from '@novel-segment/stringify';
+import { crlf as r } from "crlf-normalize";
 
-function printPrettyDiff(text_old, text_new) {
-  text_old = crlf(stringify([text_old].flat()));
-  text_new = crlf(stringify([text_new].flat()));
-  const changed = text_old !== text_new;
+import { console as t, chalkByConsole as e } from "debug-color2";
 
-  if (changed) {
-    console.red(`changed: ${changed}`);
-  }
+import { diffChars as o } from "diff";
 
-  console.gray("------------------");
+import { cn2tw_min as f } from "@lazy-cjk/zh-convert/min";
 
-  if (changed) {
-    console.success(diff_log(text_old, text_new));
-  } else {
-    console.log(text_new);
-  }
+import { stringify as n } from "@novel-segment/stringify";
 
-  console.gray("------------------");
-  const text_new2 = cn2tw_min(text_new);
-
-  if (text_new !== text_new2) {
-    console.log(diff_log(text_new, text_new2));
-    console.gray("------------------");
-  }
-
-  return {
-    text_old,
-    text_new,
-    changed,
-    text_new2
+function printPrettyDiff(e, o) {
+  const i = (e = r(n([ e ].flat()))) !== (o = r(n([ o ].flat())));
+  i && t.red(`changed: ${i}`), t.gray("------------------"), i ? t.success(diff_log(e, o)) : t.log(o), 
+  t.gray("------------------");
+  const l = f(o);
+  return o !== l && (t.log(diff_log(o, l)), t.gray("------------------")), {
+    text_old: e,
+    text_new: o,
+    changed: i,
+    text_new2: l
   };
 }
-function diff_log(src_text, new_text) {
-  let diff = diffChars(src_text, new_text);
-  return chalkByConsole(function (chalk, _console) {
-    let diff_arr = diff.reduce(function (a, part) {
-      let color = part.added ? 'green' : part.removed ? 'red' : 'grey';
-      let t = chalk[color](part.value);
-      a.push(t);
-      return a;
-    }, []);
-    return diff_arr.join('');
-  });
+
+function diff_log(r, t) {
+  let f = o(r, t);
+  return e((function(r, t) {
+    return f.reduce((function(t, e) {
+      let o = r[e.added ? "green" : e.removed ? "red" : "grey"](e.value);
+      return t.push(o), t;
+    }), []).join("");
+  }));
 }
 
 export { printPrettyDiff as default, diff_log, printPrettyDiff };

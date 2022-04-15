@@ -1,61 +1,30 @@
-import { cloneDeep } from 'lodash-es';
+import { cloneDeep as t } from "lodash-es";
 
 class AbstractTableDictCore {
-  TABLE = Object.create(null);
-  TABLE2 = Object.create(null);
-
-  constructor(type, options = {}, existsTable, ...argv) {
-    this.type = type;
-    this.options = Object.assign({}, this.options, options);
-
-    if (existsTable) {
-      if (existsTable.TABLE) {
-        this.TABLE = existsTable.TABLE;
-      }
-
-      if (existsTable.TABLE2) {
-        this.TABLE2 = existsTable.TABLE2;
-      }
-    }
-
-    this._init();
+  TABLE=Object.create(null);
+  TABLE2=Object.create(null);
+  constructor(t, s = {}, e, ...i) {
+    this.type = t, this.options = Object.assign({}, this.options, s), e && (e.TABLE && (this.TABLE = e.TABLE), 
+    e.TABLE2 && (this.TABLE2 = e.TABLE2)), this._init();
   }
-
   _init() {
-    Object.setPrototypeOf(this.TABLE, null);
-    Object.setPrototypeOf(this.TABLE2, null);
+    Object.setPrototypeOf(this.TABLE, null), Object.setPrototypeOf(this.TABLE2, null);
   }
-
-  _exists(data, ...argv) {
-    let w;
-
-    if (typeof data === 'string') {
-      w = data;
-    } else if (Array.isArray(data)) {
-      [w] = data;
-    } else {
-      ({
-        w
-      } = data);
-    }
-
-    return w;
+  _exists(t, ...s) {
+    let e;
+    return "string" == typeof t ? e = t : Array.isArray(t) ? [e] = t : ({w: e} = t), 
+    e;
   }
-
-  exists(data, ...argv) {
-    const w = this._exists(data);
-
-    return this.TABLE[w] || null;
+  exists(t, ...s) {
+    const e = this._exists(t);
+    return this.TABLE[e] || null;
   }
-
-  json(...argv) {
-    return cloneDeep(this.TABLE);
+  json(...s) {
+    return t(this.TABLE);
   }
-
   size() {
     return Object.keys(this.TABLE).length;
   }
-
 }
 
 export { AbstractTableDictCore, AbstractTableDictCore as default };

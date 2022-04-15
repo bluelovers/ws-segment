@@ -120,3 +120,4 @@ cz-adapter
 
 tsc-multi.json.tpl
 tsc-multi.json
+!/src/index.ts

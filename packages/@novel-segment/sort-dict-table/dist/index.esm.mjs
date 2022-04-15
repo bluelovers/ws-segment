@@ -1,44 +1,31 @@
-import { handleDictLines, USE_CJK_MODE, chkLineType } from '@novel-segment/util-compare';
-import { load } from '@novel-segment/loader-line';
-import { getCjkName, zhDictCompare } from '@novel-segment/util';
-import { parseLine } from '@novel-segment/loaders/segment/index';
+import { handleDictLines as e, USE_CJK_MODE as n, chkLineType as t } from "@novel-segment/util-compare";
 
-function sortLines(lines, file, options) {
-  var _options$cbIgnore;
+import { load as i } from "@novel-segment/loader-line";
 
-  const cbIgnore = (_options$cbIgnore = options === null || options === void 0 ? void 0 : options.cbIgnore) !== null && _options$cbIgnore !== void 0 ? _options$cbIgnore : () => {};
-  const list = handleDictLines(lines, function (list, cur) {
-    cur.file = file;
-    let [w, p, f] = cur.data;
-    let cjk_id = getCjkName(w, USE_CJK_MODE);
-    cur.cjk_id = cjk_id;
-    cur.line_type = chkLineType(cur.line);
+import { getCjkName as o, zhDictCompare as r } from "@novel-segment/util";
 
-    if (cur.line_type == 1) {
-      cbIgnore(cur);
-      return false;
-    }
+import { parseLine as l } from "@novel-segment/loaders/segment/index";
 
-    return true;
-  }, {
-    parseFn: parseLine
-  });
-  return SortList(list);
+function sortLines(i, r, s) {
+  var d;
+  const u = null !== (d = null == s ? void 0 : s.cbIgnore) && void 0 !== d ? d : () => {};
+  return SortList(e(i, (function(e, i) {
+    i.file = r;
+    let [l, s, d] = i.data, m = o(l, n);
+    return i.cjk_id = m, i.line_type = t(i.line), 1 != i.line_type || (u(i), !1);
+  }), {
+    parseFn: l
+  }));
 }
-function loadFile(file, options) {
-  return load(file).then(lines => sortLines(lines, file, options));
-}
-function SortList(ls) {
-  return ls.sort(function (a, b) {
-    if (a.line_type == 2 || b.line_type == 2) {
-      return a.index - b.index;
-    } else if (a.line_type == 1 || b.line_type == 1) {
-      return a.index - b.index;
-    }
 
-    let ret = zhDictCompare(a.cjk_id, b.cjk_id) || a.index - b.index || 0;
-    return ret;
-  });
+function loadFile(e, n) {
+  return i(e).then((t => sortLines(t, e, n)));
+}
+
+function SortList(e) {
+  return e.sort((function(e, n) {
+    return 2 == e.line_type || 2 == n.line_type || 1 == e.line_type || 1 == n.line_type ? e.index - n.index : r(e.cjk_id, n.cjk_id) || e.index - n.index || 0;
+  }));
 }
 
 export { SortList, sortLines as default, loadFile, sortLines };

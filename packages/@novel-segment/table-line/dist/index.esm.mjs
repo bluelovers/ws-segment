@@ -1,58 +1,34 @@
-import { stringifyLine } from '@novel-segment/loader-line';
-import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
+import { stringifyLine as e } from "@novel-segment/loader-line";
 
-class TableDictLine extends AbstractTableDictCore {
-  exists(data, ...argv) {
-    let w = this._exists(data);
+import { AbstractTableDictCore as t } from "@novel-segment/table-core-abstract";
 
-    let bool = this.TABLE[w];
-    return typeof bool === 'boolean' ? bool : null;
+class TableDictLine extends t {
+  exists(e, ...t) {
+    let r = this._exists(e), i = this.TABLE[r];
+    return "boolean" == typeof i ? i : null;
   }
-
-  add(word) {
-    let self = this;
-
-    if (Array.isArray(word)) {
-      word.forEach(v => self._add(v));
-    } else {
-      self._add(word);
-    }
-
-    return this;
+  add(e) {
+    let t = this;
+    return Array.isArray(e) ? e.forEach((e => t._add(e))) : t._add(e), this;
   }
-
-  _add(word) {
-    word = word.trim();
-
-    if (word) {
-      this.TABLE[word] = true;
-    }
+  _add(e) {
+    (e = e.trim()) && (this.TABLE[e] = !0);
   }
-
-  remove(word) {
-    let self = this;
-
-    self._remove(word);
-
-    return this;
+  remove(e) {
+    return this._remove(e), this;
   }
-
-  _remove(word) {
-    delete this.TABLE[word];
+  _remove(e) {
+    delete this.TABLE[e];
   }
-
-  stringify(LF = "\n") {
-    let self = this;
-    return Object.entries(self.TABLE).reduce(function (a, [w, bool]) {
-      if (bool) {
-        let line = stringifyLine(w);
-        a.push(line);
+  stringify(t = "\n") {
+    return Object.entries(this.TABLE).reduce((function(t, [r, i]) {
+      if (i) {
+        let i = e(r);
+        t.push(i);
       }
-
-      return a;
-    }, []).join(typeof LF === 'string' ? LF : "\n");
+      return t;
+    }), []).join("string" == typeof t ? t : "\n");
   }
-
 }
 
 export { TableDictLine, TableDictLine as default };

@@ -1,12 +1,10 @@
-import { TableDictLine } from '@novel-segment/table-line';
+import { TableDictLine as t } from "@novel-segment/table-line";
 
-class TableDictStopword extends TableDictLine {
-  static type = "STOPWORD";
-
-  constructor(type = TableDictStopword.type, options, ...argv) {
-    super(type, options, ...argv);
+class TableDictStopword extends t {
+  static type="STOPWORD";
+  constructor(t = TableDictStopword.type, e, ...o) {
+    super(t, e, ...o);
   }
-
 }
 
 export { TableDictStopword, TableDictStopword as default };
