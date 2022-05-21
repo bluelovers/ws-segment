@@ -9,8 +9,8 @@ import {
 import { array_unique } from 'array-hyper-unique';
 import { ArrayTwoOrMore } from '@novel-segment/types';
 import { load } from '@novel-segment/loader-line';
-import { getCjkName, zhDictCompare } from '@novel-segment/util';
-import { EnumSortCompareOrder } from '@novel-segment/util/sort';
+import { getCjkName } from '@novel-segment/util/conv';
+import { EnumSortCompareOrder, zhDictCompare } from '@novel-segment/util/sort';
 
 export type IHandleDictSynonym = ILoadDictFileRow2<ArrayTwoOrMore<string>>
 
@@ -115,7 +115,7 @@ export function SortList<T extends ILoadDictFileRow2<any> = ILoadDictFileRow2>(l
 		}
 
 		let ret = zhDictCompare(a.cjk_id, b.cjk_id)
-			|| zhDictCompare(b.data[0], a.data[0])
+			|| zhDictCompare(a.data[0], b.data[0])
 			|| (a.index - b.index)
 			|| EnumSortCompareOrder.KEEP
 		;

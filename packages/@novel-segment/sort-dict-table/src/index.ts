@@ -16,7 +16,7 @@ export interface IOptions
 	cbIgnore?(cur: IHandleDictTable): any
 }
 
-export function sortLines(lines: string[], file?: string, options?: IOptions)
+export function sortLines(lines: string[], file?: string, options?: IOptions): IHandleDictTable[]
 {
 	const cbIgnore = options?.cbIgnore ?? (() => {});
 

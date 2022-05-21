@@ -5,7 +5,8 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var utilCompare = require('@novel-segment/util-compare');
 var arrayHyperUnique = require('array-hyper-unique');
 var loaderLine = require('@novel-segment/loader-line');
-var util = require('@novel-segment/util');
+var conv = require('@novel-segment/util/conv');
+var sort = require('@novel-segment/util/sort');
 
 function sortLines(lines, file) {
   const list = utilCompare.handleDictLines(lines, function (list, cur) {
@@ -19,9 +20,9 @@ function sortLines(lines, file) {
       let ls = cur.data.slice(1);
       ls = arrayHyperUnique.array_unique(ls).filter(v => v != w);
       ls.sort(function (a, b) {
-        let ca = util.getCjkName(a, utilCompare.USE_CJK_MODE);
-        let cb = util.getCjkName(b, utilCompare.USE_CJK_MODE);
-        return util.zhDictCompare(ca, cb) || util.zhDictCompare(a, b);
+        let ca = conv.getCjkName(a, utilCompare.USE_CJK_MODE);
+        let cb = conv.getCjkName(b, utilCompare.USE_CJK_MODE);
+        return sort.zhDictCompare(ca, cb) || sort.zhDictCompare(a, b);
       });
       cur.line = [w].concat(ls).join(',');
 
@@ -30,7 +31,7 @@ function sortLines(lines, file) {
       }
     }
 
-    const cjk_id = util.getCjkName(w, utilCompare.USE_CJK_MODE);
+    const cjk_id = conv.getCjkName(w, utilCompare.USE_CJK_MODE);
     cur.cjk_id = cjk_id;
     return true;
   }, {
@@ -67,7 +68,7 @@ function SortList(ls) {
       return a.index - b.index;
     }
 
-    let ret = util.zhDictCompare(a.cjk_id, b.cjk_id) || util.zhDictCompare(b.data[0], a.data[0]) || a.index - b.index || 0;
+    let ret = sort.zhDictCompare(a.cjk_id, b.cjk_id) || sort.zhDictCompare(a.data[0], b.data[0]) || a.index - b.index || 0;
     return ret;
   });
 }

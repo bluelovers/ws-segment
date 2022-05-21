@@ -4,7 +4,9 @@ import { array_unique as i } from "array-hyper-unique";
 
 import { load as r } from "@novel-segment/loader-line";
 
-import { getCjkName as l, zhDictCompare as o } from "@novel-segment/util";
+import { getCjkName as o } from "@novel-segment/util/conv";
+
+import { zhDictCompare as l } from "@novel-segment/util/sort";
 
 function sortLines(r, s) {
   return SortList(e(r, (function(e, r) {
@@ -13,12 +15,12 @@ function sortLines(r, s) {
     if (r.line_type = t(r.line), 1 === r.line_type) u = u.replace(/^\/\//, ""); else if (0 === r.line_type) {
       let e = r.data.slice(1);
       if (e = i(e).filter((e => e != u)), e.sort((function(e, t) {
-        let i = l(e, n), r = l(t, n);
-        return o(i, r) || o(e, t);
+        let i = o(e, n), r = o(t, n);
+        return l(i, r) || l(e, t);
       })), r.line = [ u ].concat(e).join(","), !e.length) return !1;
     }
-    const a = l(u, n);
-    return r.cjk_id = a, !0;
+    const f = o(u, n);
+    return r.cjk_id = f, !0;
   }), {
     parseFn: e => e.split(",")
   }));
@@ -36,7 +38,7 @@ function SortList(e) {
       const n = /^\/\/\s+@/.test(e.line), i = /^\/\/\s+@/.test(t.line);
       return n && !i ? -1 : !n && i ? 1 : e.index - t.index;
     }
-    return 1 === e.line_type && 1 === t.line_type ? e.index - t.index : o(e.cjk_id, t.cjk_id) || o(t.data[0], e.data[0]) || e.index - t.index || 0;
+    return 1 === e.line_type && 1 === t.line_type ? e.index - t.index : l(e.cjk_id, t.cjk_id) || l(e.data[0], t.data[0]) || e.index - t.index || 0;
   }));
 }
 

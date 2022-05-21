@@ -94,18 +94,16 @@ function zhDictCompareNew(options) {
             }
         }
         else {
-            if (aa || bb) {
-                if (!aa) {
-                    return -1 /* EnumSortCompareOrder.UP */;
-                }
-                else if (!bb) {
-                    return 1 /* EnumSortCompareOrder.DOWN */;
-                }
+            if (!aa && bb) {
+                return -1 /* EnumSortCompareOrder.UP */;
+            }
+            else if (aa && !bb) {
+                return 1 /* EnumSortCompareOrder.DOWN */;
             }
         }
         if (typeof _a0 !== 'undefined') {
             for (let i = 0; i < len01; i++) {
-                if (!ra[i] || !rb[i] || typeof ra[i] === 'undefined' || typeof rb[i] === 'undefined') {
+                if (typeof ra[i] === 'undefined' || typeof rb[i] === 'undefined') {
                     break;
                 }
                 else if (ra[i] !== rb[i]) {
@@ -114,16 +112,16 @@ function zhDictCompareNew(options) {
                     break;
                 }
             }
-        }
-        if (exports._zhDictCompareTable_chars.includes(_a0) && exports._zhDictCompareTable_chars.includes(_b0)) {
-            let _a;
-            let _b;
-            for (let _arr of exports._zhDictCompareTable) {
-                _a = _arr.indexOf(_a0);
-                _b = _arr.indexOf(_b0);
-                if (_a !== -1 && _b !== -1) {
-                    _c = (_a - _b);
-                    break;
+            if (exports._zhDictCompareTable_chars.includes(_a0) && exports._zhDictCompareTable_chars.includes(_b0)) {
+                let _a;
+                let _b;
+                for (let _arr of exports._zhDictCompareTable) {
+                    _a = _arr.indexOf(_a0);
+                    _b = _arr.indexOf(_b0);
+                    if (_a !== -1 && _b !== -1) {
+                        _c = (_a - _b);
+                        break;
+                    }
                 }
             }
         }

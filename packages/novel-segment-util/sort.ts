@@ -138,16 +138,13 @@ export function zhDictCompareNew(options?: IFnCompare | {
 		}
 		else
 		{
-			if (aa || bb)
+			if (!aa && bb)
 			{
-				if (!aa)
-				{
-					return EnumSortCompareOrder.UP
-				}
-				else if (!bb)
-				{
-					return EnumSortCompareOrder.DOWN
-				}
+				return EnumSortCompareOrder.UP
+			}
+			else if (aa && !bb)
+			{
+				return EnumSortCompareOrder.DOWN
 			}
 		}
 
@@ -155,7 +152,7 @@ export function zhDictCompareNew(options?: IFnCompare | {
 		{
 			for (let i = 0; i < len01; i++)
 			{
-				if (!ra[i] || !rb[i] || typeof ra[i] === 'undefined' || typeof rb[i] === 'undefined')
+				if (typeof ra[i] === 'undefined' || typeof rb[i] === 'undefined')
 				{
 					break;
 				}
@@ -167,23 +164,23 @@ export function zhDictCompareNew(options?: IFnCompare | {
 					break;
 				}
 			}
-		}
 
-		if (_zhDictCompareTable_chars.includes(_a0) && _zhDictCompareTable_chars.includes(_b0))
-		{
-			let _a: number;
-			let _b: number;
-
-			for (let _arr of _zhDictCompareTable)
+			if (_zhDictCompareTable_chars.includes(_a0) && _zhDictCompareTable_chars.includes(_b0))
 			{
-				_a = _arr.indexOf(_a0);
-				_b = _arr.indexOf(_b0);
+				let _a: number;
+				let _b: number;
 
-				if (_a !== -1 && _b !== -1)
+				for (let _arr of _zhDictCompareTable)
 				{
-					_c = (_a - _b);
+					_a = _arr.indexOf(_a0);
+					_b = _arr.indexOf(_b0);
 
-					break;
+					if (_a !== -1 && _b !== -1)
+					{
+						_c = (_a - _b);
+
+						break;
+					}
 				}
 			}
 		}

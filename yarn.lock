@@ -1069,6 +1069,14 @@
   dependencies:
     tslib "^2.3.1"
 
+"@lazy-random/preset-seedrandom@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/preset-seedrandom/-/preset-seedrandom-1.0.7.tgz#f2210f73ca43c8be4d048d5baf40ce198bbd436f"
+  integrity sha512-jyAV5weuZwsw4CDQ+P/eHJFqFtTUduJ/jeLsJkdkcHCV6HQTcv07vXWEpZT0ZBmguinV4IF+EzpROfwhauimHA==
+  dependencies:
+    random-extra "^4.0.4"
+    tslib "^2.3.1"
+
 "@lazy-random/random-core@^1.0.4":
   version "1.0.4"
   resolved "https://registry.npmjs.org/@lazy-random/random-core/-/random-core-1.0.4.tgz#b555fce6f8c79c074baacb9bc702f07e2e3fa020"
@@ -1142,6 +1150,13 @@
     tslib "^2.3.1"
     typedarray-dts "^1.0.0"
 
+"@lazy-random/simple-wrap@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/simple-wrap/-/simple-wrap-1.0.7.tgz#afa55af4a23b145d302aa44b9298526f7d73afbf"
+  integrity sha512-p7/Haymat5GaHjr7zlfs5dI7IX/IrejGi9rEZQUZ50lFsGy4v3ipS7G6hNqSoWecRJ/aYUNgEhH01lHDGT4SQg==
+  dependencies:
+    tslib "^2.3.1"
+
 "@lazy-random/util-distributions@^1.0.7":
   version "1.0.7"
   resolved "https://registry.npmjs.org/@lazy-random/util-distributions/-/util-distributions-1.0.7.tgz#55fb4d451e7bf8902edd24f5599af7b5445a7013"
@@ -1153,6 +1168,13 @@
   version "1.0.7"
   resolved "https://registry.npmjs.org/@lazy-random/util-probabilities/-/util-probabilities-1.0.7.tgz#ebb23ee6d63d1467eaabb504a6e3a314d54fc6ef"
   integrity sha512-Fj0RVPkXuyx2snyNzJzJqCvl7Tz8GonkUT1ALnD/O768z7ZYvWnVimzjQQCtsuiCPBrRAKeJUbsQ2oF2Ax6mmg==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/util-test@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@lazy-random/util-test/-/util-test-1.0.2.tgz#936c78960f886e09cbc66bbf5e01b68d7b647562"
+  integrity sha512-0Quhr4RSulZb/82dgpKeqL91wB2f9qisb2Qje8ITh8ZuYfzT2Q8oTGpqyELvKEFYu3Ms7cYq+uauSJJQ+CSUKg==
   dependencies:
     tslib "^2.3.1"
 
