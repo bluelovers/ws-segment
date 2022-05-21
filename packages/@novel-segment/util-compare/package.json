@@ -120,7 +120,7 @@
     "@novel-segment/loaders": "^1.0.31",
     "array-hyper-unique": "^2.0.6",
     "bluebird": "^3.7.2",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

@@ -120,7 +120,7 @@
     "@lazy-cjk/zh-table-list": "^1.0.80",
     "@novel-segment/loaders": "^1.0.31",
     "@novel-segment/table-core-abstract": "^1.0.3",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

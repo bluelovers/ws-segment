@@ -120,7 +120,7 @@
     "@novel-segment/loaders": "^1.0.31",
     "@novel-segment/util": "^1.0.58",
     "@novel-segment/util-compare": "^1.0.5",
-    "tslib": "^2.3.1"
+    "tslib": "^2.4.0"
   },
   "publishConfig": {
     "access": "public"

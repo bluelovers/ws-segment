@@ -118,7 +118,7 @@
   },
   "dependencies": {
     "@novel-segment/table-synonym-pangu": "^1.0.3",
-    "tslib": "^2.3.1"
+    "tslib": "^2.4.0"
   },
   "publishConfig": {
     "access": "public"

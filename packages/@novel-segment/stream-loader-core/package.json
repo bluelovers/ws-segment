@@ -33,7 +33,7 @@
     "bluebird": "^3.7.2",
     "split2": "^4.1.0",
     "stream-pipe": "^1.0.4",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "devDependencies": {
     "@types/split2": "^3.2.1"

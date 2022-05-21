@@ -118,7 +118,7 @@
   "dependencies": {
     "@novel-segment/types": "^1.0.4",
     "ts-type": "^2.1.6",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"

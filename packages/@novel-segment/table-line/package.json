@@ -120,7 +120,7 @@
     "@novel-segment/loader-line": "^1.0.16",
     "@novel-segment/table-core-abstract": "^1.0.3",
     "lodash": "^4.17.21",
-    "tslib": "^2.3.1"
+    "tslib": "^2"
   },
   "publishConfig": {
     "access": "public"
