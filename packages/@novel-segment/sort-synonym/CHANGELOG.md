@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-synonym@1.0.7...@novel-segment/sort-synonym@1.0.8) (2022-05-21)
+
+
+### 🛠　Build System
+
+* update build ([61ce4c5](https://github.com/bluelovers/ws-segment/commit/61ce4c530d6d5fe77e6982e6728b65ad027d8c3a))
+
+
+### 🔖　Miscellaneous
+
+* . ([b36ee47](https://github.com/bluelovers/ws-segment/commit/b36ee473f81ac87a8dd71a83c31ad74315d61306))
+* . ([785fe74](https://github.com/bluelovers/ws-segment/commit/785fe74cf90bb0ff453fd46b9d6dde304160ef2e))
+
+
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-synonym@1.0.6...@novel-segment/sort-synonym@1.0.7) (2022-05-21)
 
 
