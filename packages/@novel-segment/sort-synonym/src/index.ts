@@ -10,6 +10,7 @@ import { array_unique } from 'array-hyper-unique';
 import { ArrayTwoOrMore } from '@novel-segment/types';
 import { load } from '@novel-segment/loader-line';
 import { getCjkName, zhDictCompare } from '@novel-segment/util';
+import { EnumSortCompareOrder } from '@novel-segment/util/sort';
 
 export type IHandleDictSynonym = ILoadDictFileRow2<ArrayTwoOrMore<string>>
 
@@ -23,13 +24,13 @@ export function sortLines(lines: string[], file?: string)
 
 		cur.line_type = chkLineType(cur.line);
 
-		if (cur.line_type == EnumLineType.COMMENT)
+		if (cur.line_type === EnumLineType.COMMENT)
 		{
 			w = w.replace(/^\/\//, '');
 
 			//console.log(w);
 		}
-		else if (cur.line_type == EnumLineType.BASE)
+		else if (cur.line_type === EnumLineType.BASE)
 		{
 			let ls = cur.data.slice(1);
 
@@ -78,15 +79,39 @@ export function SortList<T extends ILoadDictFileRow2<any> = ILoadDictFileRow2>(l
 	return ls.sort(function (a: ILoadDictFileRow2, b: ILoadDictFileRow2)
 	{
 		if (
-			a.line_type == EnumLineType.COMMENT_TAG
-			|| b.line_type == EnumLineType.COMMENT_TAG
+			a.line_type === EnumLineType.COMMENT_TAG
+			|| b.line_type === EnumLineType.COMMENT_TAG
 		)
 		{
+			if (b.line_type !== EnumLineType.COMMENT_TAG)
+			{
+				return EnumSortCompareOrder.UP
+			}
+			else if (a.line_type !== EnumLineType.COMMENT_TAG)
+			{
+				return EnumSortCompareOrder.DOWN
+			}
+
+			let aa = /^\/\/\s+@/.test(a.line);
+			let ba = /^\/\/\s+@/.test(b.line);
+
+			if (aa || ba)
+			{
+				if (!ba)
+				{
+					return EnumSortCompareOrder.UP
+				}
+				else if (!aa)
+				{
+					return EnumSortCompareOrder.DOWN
+				}
+			}
+
 			return (a.index - b.index);
 		}
 		else if (
-			a.line_type == EnumLineType.COMMENT
-			|| b.line_type == EnumLineType.COMMENT
+			a.line_type === EnumLineType.COMMENT
+			&& b.line_type === EnumLineType.COMMENT
 		)
 		{
 			return (a.index - b.index);
@@ -95,7 +120,7 @@ export function SortList<T extends ILoadDictFileRow2<any> = ILoadDictFileRow2>(l
 		let ret = zhDictCompare(a.cjk_id, b.cjk_id)
 			|| zhDictCompare(b.data[0], a.data[0])
 			|| (a.index - b.index)
-			|| 0
+			|| EnumSortCompareOrder.KEEP
 		;
 
 		return ret;

@@ -1,11 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = void 0;
+exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = exports.EnumSortCompareOrder = void 0;
 const tslib_1 = require("tslib");
 const string_natural_compare_1 = require("@bluelovers/string-natural-compare");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
 const cjk_conv_1 = require("regexp-helper/lib/cjk-conv");
+var EnumSortCompareOrder;
+(function (EnumSortCompareOrder) {
+    EnumSortCompareOrder[EnumSortCompareOrder["KEEP"] = 0] = "KEEP";
+    EnumSortCompareOrder[EnumSortCompareOrder["DOWN"] = 1] = "DOWN";
+    EnumSortCompareOrder[EnumSortCompareOrder["UP"] = -1] = "UP";
+})(EnumSortCompareOrder = exports.EnumSortCompareOrder || (exports.EnumSortCompareOrder = {}));
 /**
  * @private
  */
@@ -71,32 +77,34 @@ function zhDictCompareNew(options) {
         }
         let _c = 0;
         let _a0 = ra[0];
-        let _b0 = ra[0];
-        let _a;
-        let _b;
-        let aa = exports.RE_ZH.test(ra[0]);
-        let bb = exports.RE_ZH.test(rb[0]);
+        let _b0 = rb[0];
+        let aa = exports.RE_ZH.test(_a0);
+        let bb = exports.RE_ZH.test(_b0);
+        //		console.dir({
+        //			aa,
+        //			bb,
+        //		})
         if (aa && bb) {
             if (len01 !== len02 && (len01 === 1 || len02 === 1)) {
                 return len01 - len02;
             }
-            _a = exports._zhDictCompareTable[0].indexOf(ra[0]);
-            _b = exports._zhDictCompareTable[0].indexOf(rb[0]);
-            aa = _a !== -1;
-            bb = _b !== -1;
+            aa = exports._zhDictCompareTable[0].indexOf(_a0) !== -1;
+            bb = exports._zhDictCompareTable[0].indexOf(_b0) !== -1;
             if (aa && !bb) {
-                return -1;
+                return -1 /* EnumSortCompareOrder.UP */;
             }
             else if (!aa && bb) {
-                return 1;
+                return 1 /* EnumSortCompareOrder.DOWN */;
             }
         }
         else {
-            if (aa && !bb) {
-                return 0;
-            }
-            else if (!aa && bb) {
-                return -1;
+            if (aa || bb) {
+                if (!aa) {
+                    return -1 /* EnumSortCompareOrder.UP */;
+                }
+                else if (!bb) {
+                    return 1 /* EnumSortCompareOrder.DOWN */;
+                }
             }
         }
         if (typeof _a0 !== 'undefined') {
@@ -112,11 +120,13 @@ function zhDictCompareNew(options) {
             }
         }
         if (exports._zhDictCompareTable_chars.includes(_a0) && exports._zhDictCompareTable_chars.includes(_b0)) {
+            let _a;
+            let _b;
             for (let _arr of exports._zhDictCompareTable) {
                 _a = _arr.indexOf(_a0);
                 _b = _arr.indexOf(_b0);
                 if (_a !== -1 && _b !== -1) {
-                    _c = (_a - _b) || 0;
+                    _c = (_a - _b);
                     break;
                 }
             }

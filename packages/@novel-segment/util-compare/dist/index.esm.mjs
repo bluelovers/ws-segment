@@ -37,7 +37,8 @@ function loadDictFile(i, t, r) {
 
 function chkLineType(n) {
   let e = 0;
-  return 0 == n.indexOf("//") && (e = 1, / @todo/i.test(n) && (e = 2)), e;
+  return 0 == n.indexOf("//") && (e = 1, /^\/\/ +(?:\@todo|格式\:)/i.test(n) && (e = 2)), 
+  e;
 }
 
 !function(n) {

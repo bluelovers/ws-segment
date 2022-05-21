@@ -3,6 +3,13 @@ import { array_unique } from 'array-hyper-unique';
 import UString from 'uni-string';
 import { _re_cjk_conv } from 'regexp-helper/lib/cjk-conv';
 
+export const enum EnumSortCompareOrder
+{
+	KEEP = 0,
+	DOWN = 1,
+	UP = -1,
+}
+
 /**
  * @private
  */
@@ -107,11 +114,8 @@ export function zhDictCompareNew(options?: IFnCompare | {
 		let _a0 = ra[0];
 		let _b0 = rb[0];
 
-		let _a: number;
-		let _b: number;
-
-		let aa = RE_ZH.test(ra[0]);
-		let bb = RE_ZH.test(rb[0]);
+		let aa = RE_ZH.test(_a0);
+		let bb = RE_ZH.test(_b0);
 
 		if (aa && bb)
 		{
@@ -120,30 +124,30 @@ export function zhDictCompareNew(options?: IFnCompare | {
 				return len01 - len02
 			}
 
-			_a = _zhDictCompareTable[0].indexOf(ra[0]);
-			_b = _zhDictCompareTable[0].indexOf(rb[0]);
-
-			aa = _a !== -1;
-			bb = _b !== -1;
+			aa = _zhDictCompareTable[0].indexOf(_a0) !== -1;
+			bb = _zhDictCompareTable[0].indexOf(_b0) !== -1;
 
 			if (aa && !bb)
 			{
-				return -1
+				return EnumSortCompareOrder.UP
 			}
 			else if (!aa && bb)
 			{
-				return 1
+				return EnumSortCompareOrder.DOWN
 			}
 		}
 		else
 		{
-			if (aa && !bb)
+			if (aa || bb)
 			{
-				return 0
-			}
-			else if (!aa && bb)
-			{
-				return -1
+				if (!aa)
+				{
+					return EnumSortCompareOrder.UP
+				}
+				else if (!bb)
+				{
+					return EnumSortCompareOrder.DOWN
+				}
 			}
 		}
 
@@ -167,6 +171,9 @@ export function zhDictCompareNew(options?: IFnCompare | {
 
 		if (_zhDictCompareTable_chars.includes(_a0) && _zhDictCompareTable_chars.includes(_b0))
 		{
+			let _a: number;
+			let _b: number;
+
 			for (let _arr of _zhDictCompareTable)
 			{
 				_a = _arr.indexOf(_a0);
@@ -174,7 +181,7 @@ export function zhDictCompareNew(options?: IFnCompare | {
 
 				if (_a !== -1 && _b !== -1)
 				{
-					_c = (_a - _b) || 0;
+					_c = (_a - _b);
 
 					break;
 				}

@@ -13,9 +13,9 @@ function sortLines(lines, file) {
     let [w] = cur.data;
     cur.line_type = utilCompare.chkLineType(cur.line);
 
-    if (cur.line_type == 1) {
+    if (cur.line_type === 1) {
       w = w.replace(/^\/\//, '');
-    } else if (cur.line_type == 0) {
+    } else if (cur.line_type === 0) {
       let ls = cur.data.slice(1);
       ls = arrayHyperUnique.array_unique(ls).filter(v => v != w);
       ls.sort(function (a, b) {
@@ -46,9 +46,26 @@ function loadFile(file) {
 }
 function SortList(ls) {
   return ls.sort(function (a, b) {
-    if (a.line_type == 2 || b.line_type == 2) {
+    if (a.line_type === 2 || b.line_type === 2) {
+      if (b.line_type !== 2) {
+        return -1;
+      } else if (a.line_type !== 2) {
+        return 1;
+      }
+
+      let aa = /^\/\/\s+@/.test(a.line);
+      let ba = /^\/\/\s+@/.test(b.line);
+
+      if (aa || ba) {
+        if (!ba) {
+          return -1;
+        } else if (!aa) {
+          return 1;
+        }
+      }
+
       return a.index - b.index;
-    } else if (a.line_type == 1 || b.line_type == 1) {
+    } else if (a.line_type === 1 && b.line_type === 1) {
       return a.index - b.index;
     }
 
