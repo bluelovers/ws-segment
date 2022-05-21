@@ -105,7 +105,7 @@ export function zhDictCompareNew(options?: IFnCompare | {
 		let _c = 0;
 
 		let _a0 = ra[0];
-		let _b0 = ra[0];
+		let _b0 = rb[0];
 
 		let _a: number;
 		let _b: number;
