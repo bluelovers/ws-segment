@@ -14,6 +14,7 @@ exports.EnumLineType = void 0;
   EnumLineType[EnumLineType["COMMENT"] = 1] = "COMMENT";
   EnumLineType[EnumLineType["COMMENT_TAG"] = 2] = "COMMENT_TAG";
 })(exports.EnumLineType || (exports.EnumLineType = {}));
+
 function stringifyHandleDictLinesList(list, options) {
   let lines = list.map(v => v.line);
 

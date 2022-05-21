@@ -80,10 +80,6 @@ function zhDictCompareNew(options) {
         let _b0 = rb[0];
         let aa = exports.RE_ZH.test(_a0);
         let bb = exports.RE_ZH.test(_b0);
-        //		console.dir({
-        //			aa,
-        //			bb,
-        //		})
         if (aa && bb) {
             if (len01 !== len02 && (len01 === 1 || len02 === 1)) {
                 return len01 - len02;
