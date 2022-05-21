@@ -64,19 +64,24 @@
   },
   "license": "ISC",
   "author": "bluelovers",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.esm.mjs",
       "require": "./dist/index.cjs"
     },
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./src/*": "./src/*"
   },
   "main": "dist/index.cjs",
   "unpkg": "dist/index.umd.js",
   "module": "dist/index.esm.mjs",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
+  "directories": {
+    "test": "test"
+  },
   "scripts": {
     "review": "yarn run review:coverage",
     "review:coverage": "yarn run lint && yarn run coverage",
@@ -92,8 +97,10 @@
     "posttest": "yarn run build",
     "build": "yarn run build:tsdx && yarn run build:dts:tsc && yarn run build:dts:copy",
     "build:dts": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner & echo build:dts",
+    "build:dts:bundle": "ynpx dts-bundle-generator -o ./dist/index.d.ts ./src/index.ts --no-banner --inline-declare-global & echo build:dts:bundle",
     "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
     "build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false & echo build:dts:tsc",
+    "build:dts:tsc:emit": "tsc --emitDeclarationOnly --declaration --noEmit false",
     "build:microbundle": "ynpx microbundle --target node",
     "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
     "ci:install": "echo ci:install",
@@ -122,8 +129,8 @@
     "bluebird": "^3.7.2",
     "tslib": "^2"
   },
+  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
-  },
-  "packageManager": "yarn@^1.22.11"
+  }
 }

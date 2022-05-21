@@ -825,6 +825,337 @@
   dependencies:
     tslib "^2"
 
+"@lazy-num/float-from-buffer@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/@lazy-num/float-from-buffer/-/float-from-buffer-1.0.11.tgz#762596082e3f1b2c203e9799d4084c14cd003f6e"
+  integrity sha512-eFwBvz5z4iZxPck0kP2Ut0Kyyyogk7m2l4BxxO8gaOljYIuVAEdaGvEETVZL3KJ4RmNLFwLCZmfmaC4nI84peg==
+  dependencies:
+    "@lazy-random/shared-lib" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-num/float-to-string@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-num/float-to-string/-/float-to-string-1.0.8.tgz#de205bbddc8b2ef9cc96a34f8e82cb8879bff9b5"
+  integrity sha512-elR6UFUOFuLxiyqw7RDDzzXp/BaWLQntpADM3UIaC+znFPDcq7M2SV5Y4Nb6P0EbRIHwk3+O44ZWKTEtYQAPaQ==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-num/sum@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-num/sum/-/sum-1.0.7.tgz#abe260f221e495dbd47059f3b6d390733c8eca88"
+  integrity sha512-u3uIygz/5overDuJWpiABruUtpk6eD0LBfUX4VhVzCXAt13qa+IhxfHdbQYyKhMCo9nVGdnwC1oD5LPw4EZMMQ==
+  dependencies:
+    num-is-zero "^1.0.10"
+    tslib "^2.3.1"
+
+"@lazy-num/to-fixed-number@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-num/to-fixed-number/-/to-fixed-number-1.0.8.tgz#a59ba34051650bf719ed760640caaebe29d2188e"
+  integrity sha512-IpwDnZeBO1ISVJVOLBotKR5QHLiW77PMuwBRY9F41mkznyuhUpVWiejGaORJcgiaMqBZgZRh0BeR4A0rzkAZUA==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/array-algorithm@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/@lazy-random/array-algorithm/-/array-algorithm-1.0.11.tgz#64798756d619afac7734794ecec04e0cc1bc1096"
+  integrity sha512-odyDLxmKjc23vLgbmPz1n5S7ETztbSfQO5iKxruHiSOjc4sRfsND6KfBB7o2rSCm8fQ3Hplu9J8Bn33QsTShiw==
+  dependencies:
+    "@lazy-random/array-rand-index" "^1.0.13"
+    "@lazy-random/shared-lib" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/array-rand-index@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.npmjs.org/@lazy-random/array-rand-index/-/array-rand-index-1.0.13.tgz#228976a6e2fc2f9dcb132262b78a8cedeaf4052b"
+  integrity sha512-cL0MbHSX9g3EBcEUa33+XoNIi0XXyuRx2K4XC3kTARU1kVnH0MQ+n5hL4qpOVWwmE/OVDP7Ghw5Aw2WVqic8iw==
+  dependencies:
+    "@lazy-random/original-math-random" "^1.0.7"
+    tslib "^2.3.1"
+
+"@lazy-random/bytes-to-uuid@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/@lazy-random/bytes-to-uuid/-/bytes-to-uuid-1.0.11.tgz#d85fb6d586aeca411cd61f110a98589d87188e80"
+  integrity sha512-thokgJNDP15WES1j5iLMmPiN1qIOxjXccQmE2dKC8LBfMuoTqJ80IAzTpvdT4XhBxrRZzb1Jf8fva3SLfU/dZQ==
+  dependencies:
+    "@lazy-random/shared-lib" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/clone-class@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/clone-class/-/clone-class-1.0.8.tgz#1ed26eb2fd7191ec06b0e50fff234d04b14ead31"
+  integrity sha512-6BgSgZhjxTRVVd5r70bkZSOOIbtU4NxLwFOpujXMfzRX4g5PyuRczo1qkFsAR6BYluemcxjbbV7b4Prc248RKg==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/cross-crypto@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/cross-crypto/-/cross-crypto-1.0.8.tgz#eb1c62237f5eb969e323499a5b7897c76cf7a6be"
+  integrity sha512-p49dI8sDmDDWbhV3QEwkE6/Oaa6IkEKMEI6e+O2JCjTiN4dzK37myznvDYWI6gFCn5OqhBqiD6KlMWaAeqKVYw==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/df-algorithm@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@lazy-random/df-algorithm/-/df-algorithm-1.0.10.tgz#6adeeee8aeb4e08913095135aa8127089e37355e"
+  integrity sha512-vGniakZhuq/LsKjCR6nCYJnwHGvvyLPAd9AgUvr7cVimfddNE19oGIH2JfrzsBv06riiyagMk2TpfXpsq07rjg==
+  dependencies:
+    "@lazy-random/expect" "^1.0.12"
+    num-is-zero "^1.0.10"
+    tslib "^2.3.1"
+
+"@lazy-random/df-array@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/df-array/-/df-array-1.0.7.tgz#8ddafdc95be889cd3536dbf332d8bdf4115b0d98"
+  integrity sha512-xJAtWCfG4tnWB3NtEd3DgIrYQOOVYNjMGY/LDpiRmUNB5iPQ0wF9o1dKQhCv5MbE4XfziJ80XR3xff/sXXDQmQ==
+  dependencies:
+    "@lazy-random/array-algorithm" "^1.0.11"
+    "@lazy-random/df-uniform" "^1.0.8"
+    "@lazy-random/expect" "^1.0.12"
+    "@lazy-random/shared-lib" "^1.0.12"
+    "@lazy-random/util-distributions" "^1.0.7"
+    ts-type "^2.1.2"
+    tslib "^2.3.1"
+    typedarray-dts "^1.0.0"
+
+"@lazy-random/df-char-id@^1.0.11":
+  version "1.0.11"
+  resolved "https://registry.npmjs.org/@lazy-random/df-char-id/-/df-char-id-1.0.11.tgz#50a7d91bc855029f221f817cbb7eed010b5b279f"
+  integrity sha512-Mtcg67SQ9COvesc40T0MJUIsVOVYUlPr+OJTucAEmp4AulRLSP4iI28voKe9YYiOpAn60BVx6QHA8pRrCSr+3g==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/df-item-by-weight@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/df-item-by-weight/-/df-item-by-weight-1.0.7.tgz#a620464a68865acaa6fa2437e44cefb3128253c2"
+  integrity sha512-FT0ABOJMKvfrLxX7diR3EsP49yoQ6wgWVpLZtQ0mp3xe6gI+bJL5jJsOPoVMoIyCfouACdpNZ81mEE0WRNLskA==
+  dependencies:
+    "@lazy-random/df-array" "^1.0.7"
+    "@lazy-random/expect" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/df-poisson@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@lazy-random/df-poisson/-/df-poisson-1.0.10.tgz#8a91d58da79f2cce9b37980a371f3cbda6aa46bc"
+  integrity sha512-3Qtb46cgJ2hILDssI9NauiFDTuiwXwb51/j+08NjkabaqJK85OF5AwCfjt/Mh7Eh1swMCdKyj9ocHu02ok7Z9w==
+  dependencies:
+    "@lazy-random/expect" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/df-sum@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@lazy-random/df-sum/-/df-sum-1.0.10.tgz#3b886edfd0107a96807b3cc57e9ac2bd9d37894b"
+  integrity sha512-lQCqcjYgQopo4Z9yfbyEcRQYGDqLe2zx9c4nVM36LcOYM233IClxXkOcvZp0BkzZmHaivlUtZf8Fy3up5AioSw==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/df-uniform@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/df-uniform/-/df-uniform-1.0.8.tgz#cb2800186ca6a55e6cac088e54129fcd0b286576"
+  integrity sha512-VP78jh+g45OrbkCqrqGlZ4RKHRPz75K46axJyGxc124HkeJlRVzRtuiEJKM1Zl3nHqqpygAjRc5jhGK8FAyLUA==
+  dependencies:
+    "@lazy-num/to-fixed-number" "^1.0.8"
+    "@lazy-random/expect" "^1.0.12"
+    "@lazy-random/shared-lib" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/df-uuid@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/df-uuid/-/df-uuid-1.0.7.tgz#b9afed810684e19cd17827e6d81e92beacbac67e"
+  integrity sha512-OXqG9dn9dK/3vIYTHV7sgyXoO95rspSEx97Mq4Mu+k7aaYYx3YxzWw1fjwi2IWBRlm7XBJ+QJ4nHlAW439Kdyw==
+  dependencies:
+    "@lazy-random/bytes-to-uuid" "^1.0.11"
+    "@lazy-random/df-uniform" "^1.0.8"
+    "@lazy-random/shared-lib" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/distributions@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/distributions/-/distributions-1.0.7.tgz#52250cbbc8435266a341bb94f9d14a16fbcf639e"
+  integrity sha512-Lfpe5TFP7nPmNZVCOBgS5uqvYzwR/NIc50wQRxOGTUC4lUNnN0b52USRhi2dS+MKS7VXCp/QJ5wf9j6Exg3Mtg==
+  dependencies:
+    "@lazy-random/df-algorithm" "^1.0.10"
+    "@lazy-random/df-array" "^1.0.7"
+    "@lazy-random/df-char-id" "^1.0.11"
+    "@lazy-random/df-item-by-weight" "^1.0.7"
+    "@lazy-random/df-poisson" "^1.0.10"
+    "@lazy-random/df-sum" "^1.0.10"
+    "@lazy-random/df-uniform" "^1.0.8"
+    "@lazy-random/df-uuid" "^1.0.7"
+    tslib "^2.3.1"
+
+"@lazy-random/expect@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.npmjs.org/@lazy-random/expect/-/expect-1.0.12.tgz#8a5989bf8b1c3acc544bba7a302c29bc14a9a8ce"
+  integrity sha512-AIgNy1QTytANbZ9WKOQvCQIK9dTOM/rNDAxnIj1w5yn7VNXIoxJ9uUazCbSxUA8lSvzFFFlhA/RrAbEwH3Bivg==
+  dependencies:
+    chai "^4.3.4"
+    chai-asserttype-extra "^2.0.4"
+    tslib "^2.3.1"
+
+"@lazy-random/fake-lib-r-math-rng@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/fake-lib-r-math-rng/-/fake-lib-r-math-rng-1.0.7.tgz#11604d1f6cbb0c41fb38dac520c9f6fad270061a"
+  integrity sha512-qQHdoFAZTznulwMdytC4oew7SpmEd6fQFYyUUbKZOv3Y5Zzbez8BgTwknStxLXcX2mYgqsnBecYxSwoJ4ioHjA==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/generators-crypto@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/generators-crypto/-/generators-crypto-1.0.8.tgz#0573b96abb2ac44034ebfd1b3795c1ed6b4d728c"
+  integrity sha512-SVI5KNejPTuQpb7SRBgwQquo4fE7SMV27JX8DC7uYxDzi2Msa5JpwPjFrFX39nWPXpRKzw4XQk/VyfBHPakaYg==
+  dependencies:
+    "@lazy-num/float-from-buffer" "^1.0.11"
+    "@lazy-random/array-rand-index" "^1.0.13"
+    "@lazy-random/cross-crypto" "^1.0.8"
+    "@lazy-random/expect" "^1.0.12"
+    "@lazy-random/rng-abstract" "^1.0.10"
+    "@lazy-random/shared-lib" "^1.0.12"
+    tslib "^2.3.1"
+
+"@lazy-random/generators-function@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/generators-function/-/generators-function-1.0.8.tgz#11f6b4ae2071da65dfd221f391a89cbb761e2e20"
+  integrity sha512-EsrrT3Cp0VZj5FDLS+4MYdUN5/quwlkJBwSHJJViJJIjnfP4WeLhr5GHUE3M3aFoMp9CesrPeOnLQO7SCn2weg==
+  dependencies:
+    "@lazy-random/clone-class" "^1.0.8"
+    "@lazy-random/expect" "^1.0.12"
+    "@lazy-random/rng-abstract" "^1.0.10"
+    tslib "^2.3.1"
+
+"@lazy-random/generators-math-random2@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/generators-math-random2/-/generators-math-random2-1.0.7.tgz#3ae7b684c8fa3580a442e05c9de4d43163e0baae"
+  integrity sha512-pdAsNARSu3TfqeCPyjqKFn4CNYDtgp/oxnNcEy9wlOCfTAlFbRsP0cQHSZT9fuxWHJRdgzCelCTmpGgqfJdW8Q==
+  dependencies:
+    "@lazy-random/generators-function" "^1.0.8"
+    "@lazy-random/original-math-random" "^1.0.7"
+    tslib "^2.3.1"
+
+"@lazy-random/generators-math-random@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/generators-math-random/-/generators-math-random-1.0.8.tgz#d5a44bce636aa094cd1fb9d2ad0a554fe6a49524"
+  integrity sha512-fSJOKog1ZSkXklD1BBz+7waU+bHwWpCElo/T6tgTMigOlOaBDIQmuiuAfy2lRURoIJ37fr6PYjjIktlGpmLNZQ==
+  dependencies:
+    "@lazy-random/clone-class" "^1.0.8"
+    "@lazy-random/original-math-random" "^1.0.7"
+    "@lazy-random/rng-abstract-core" "^1.0.1"
+    tslib "^2.3.1"
+
+"@lazy-random/generators-seedrandom@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/generators-seedrandom/-/generators-seedrandom-1.0.7.tgz#a3a4797896cd2afab3c0da1c3f3aa3bb5763bef9"
+  integrity sha512-oA9LuAlNN90WlZn+EpmbBeuhgrec0mX3fR6D7fR+DbFQskFLNV+Gx0MiZkXb8+WPSMgwtiOhcdoI0aIj3Vho6g==
+  dependencies:
+    "@lazy-random/clone-class" "^1.0.8"
+    "@lazy-random/generators-function" "^1.0.8"
+    "@lazy-random/shared-lib" "^1.0.12"
+    seedrandom "^3.0.5"
+    tslib "^2.3.1"
+
+"@lazy-random/generators-xor128@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/@lazy-random/generators-xor128/-/generators-xor128-1.0.8.tgz#9fb0a24df256831af765a4ea741a260d63750b8d"
+  integrity sha512-x29YI0Oa1KmmD8qeYHwTiFotBBhzTADorjw0HBZgiOxUgwlhIYXBqyjch+5gQNqZbJzpa/uFOZXvpciEuuoh/Q==
+  dependencies:
+    "@lazy-random/clone-class" "^1.0.8"
+    "@lazy-random/rng-abstract" "^1.0.10"
+    "@lazy-random/seed-token" "^1.0.10"
+    tslib "^2.3.1"
+
+"@lazy-random/original-math-random@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/original-math-random/-/original-math-random-1.0.7.tgz#4d8df4fb73ce3362d0089786e740bcab28d952ff"
+  integrity sha512-/oH8/8/raYWnT9guZttRG+qsh+qdXQ+R1U1imthDBjVbDcJu6Usg9AW5Vq1ywJ6WPwJVtIjOOYIp/mOrWCh93g==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/random-core@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@lazy-random/random-core/-/random-core-1.0.4.tgz#b555fce6f8c79c074baacb9bc702f07e2e3fa020"
+  integrity sha512-h2Fz3LGUs4cLAe5ai/4Gm7bMAxjpF92QqrHd9cl4EmiO9zmqFbpJNmiSC+/BJx7ylMc3FjCODkPO6Wz/ysKoiw==
+  dependencies:
+    "@lazy-random/distributions" "^1.0.7"
+    "@lazy-random/expect" "^1.0.12"
+    "@lazy-random/rng-abstract" "^1.0.10"
+    "@lazy-random/shared-lib" "^1.0.12"
+    core-decorators "^0.20.0"
+    tslib "^2.3.1"
+
+"@lazy-random/rng-abstract-core@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.npmjs.org/@lazy-random/rng-abstract-core/-/rng-abstract-core-1.0.1.tgz#e90f617522c505208f8470515de4df39966482e2"
+  integrity sha512-PI7Tm9Kag3k8jzwaHiMLTHedDcUFwbQ1eGuuiwiUbWj4lZO2iSd7couUGcKJR8jnRRkZ/u4F4dXYHoKEIfzPGg==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/rng-abstract@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@lazy-random/rng-abstract/-/rng-abstract-1.0.10.tgz#8cfa057db96c9cd3f37d794e01e0b98e965cbe5f"
+  integrity sha512-6EZgtFG5hiV7IIRyhdhDy9Xsjpo2NGPx8xSxTiv+ZH8WpBKXkKDMLOh6uwkO0z8mjm6DPRUScweP2ROf+zv2SQ==
+  dependencies:
+    "@lazy-random/rng-abstract-core" "^1.0.1"
+    "@lazy-random/seed-token" "^1.0.10"
+    tslib "^2.3.1"
+
+"@lazy-random/rng-factory@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/rng-factory/-/rng-factory-1.0.7.tgz#96be6f98fc78e0c3078ef761a68a5ecc8604fde3"
+  integrity sha512-rxHw2Fo9bxub6Y07qnDsZqUZTU67kjT0vLvmqG4D3QzDfvyqGlO/iwa+1FM04BzhWkih6Y9quD5uDnCqEl4kQQ==
+  dependencies:
+    "@lazy-random/generators-crypto" "^1.0.8"
+    "@lazy-random/generators-function" "^1.0.8"
+    "@lazy-random/generators-math-random" "^1.0.8"
+    "@lazy-random/generators-math-random2" "^1.0.7"
+    "@lazy-random/generators-seedrandom" "^1.0.7"
+    "@lazy-random/generators-xor128" "^1.0.8"
+    "@lazy-random/rng-abstract" "^1.0.10"
+    "@types/seedrandom" "=2.4.28"
+    tslib "^2.3.1"
+
+"@lazy-random/seed-data@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/seed-data/-/seed-data-1.0.7.tgz#559bed8e72ff1073b25d5287d1965f9a92586870"
+  integrity sha512-APabCg+Dw9xle5y/o/xoJK04YNj3asrRcFomGZeGxOGeVo76j/9JAsBgd5aoP8opqALNMPohvGW0ds2keHDHcQ==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/seed-token@^1.0.10":
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/@lazy-random/seed-token/-/seed-token-1.0.10.tgz#90f07cb21bae549277f48e433e85e902b845dff4"
+  integrity sha512-YhemjIE88idJ1A+G8UYggb0cQoiGGLLNjMdP67y56y2ph4t20hHvEHBF/c128RQvvfD8DK/aVV1iXcJ5s51pSA==
+  dependencies:
+    "@lazy-assert/check-basic" "^1.0.2"
+    "@lazy-num/float-to-string" "^1.0.8"
+    "@lazy-random/original-math-random" "^1.0.7"
+    "@lazy-random/seed-data" "^1.0.7"
+    "@lazy-random/shared-lib" "^1.0.12"
+    hash-sum "^2.0.0"
+    nanoid "^3.1.30"
+    tslib "^2.3.1"
+
+"@lazy-random/shared-lib@^1.0.12":
+  version "1.0.12"
+  resolved "https://registry.npmjs.org/@lazy-random/shared-lib/-/shared-lib-1.0.12.tgz#d4e15663865c14cb1ce632900c0ce37735dd4585"
+  integrity sha512-Nvk8cfVwNNRJr4Y2RVtGaejUkAjtvKa3YtUmG9XyZp6nfivw48Tf6/oD8cNe6U9zb6PZgftEwA4lOZWoTGKRoA==
+  dependencies:
+    ts-type "^2.1.2"
+    tslib "^2.3.1"
+    typedarray-dts "^1.0.0"
+
+"@lazy-random/util-distributions@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/util-distributions/-/util-distributions-1.0.7.tgz#55fb4d451e7bf8902edd24f5599af7b5445a7013"
+  integrity sha512-PD8bXQwCllst1yx7RswnuOnojheBskLUgjR0eLQ0+15Xpst4oFxs8MMJEZFkxxks2Aq61xZeoFGwCf8pMCHAoA==
+  dependencies:
+    tslib "^2.3.1"
+
+"@lazy-random/util-probabilities@^1.0.7":
+  version "1.0.7"
+  resolved "https://registry.npmjs.org/@lazy-random/util-probabilities/-/util-probabilities-1.0.7.tgz#ebb23ee6d63d1467eaabb504a6e3a314d54fc6ef"
+  integrity sha512-Fj0RVPkXuyx2snyNzJzJqCvl7Tz8GonkUT1ALnD/O768z7ZYvWnVimzjQQCtsuiCPBrRAKeJUbsQ2oF2Ax6mmg==
+  dependencies:
+    tslib "^2.3.1"
+
 "@node-novel/normalize@^1.0.28":
   version "1.0.30"
   resolved "https://registry.npmjs.org/@node-novel/normalize/-/normalize-1.0.30.tgz#ffa30c7339ea69fe76e74e76f005fda6748ae995"
@@ -1104,6 +1435,11 @@
   version "1.2.4"
   resolved "https://registry.npmjs.org/@types/range-parser/-/range-parser-1.2.4.tgz#cd667bcfdd025213aafb7ca5915a932590acdcdc"
   integrity sha512-EEhsLsD6UsDM1yFhAvy0Cjr6VwmpMWqFBCb9w07wVugF7w9nfajxLuVmngTIpgS6svCnm6Vaw+MZhoDCKnOfsw==
+
+"@types/seedrandom@=2.4.28":
+  version "2.4.28"
+  resolved "https://registry.npmjs.org/@types/seedrandom/-/seedrandom-2.4.28.tgz#9ce8fa048c1e8c85cb71d7fe4d704e000226036f"
+  integrity sha512-SMA+fUwULwK7sd/ZJicUztiPs8F1yCPwF3O23Z9uQ32ME5Ha0NmDK9+QTsYE4O2tHXChzXomSWWeIhCnoN1LqA==
 
 "@types/semver@^7.3.9":
   version "7.3.9"
@@ -1560,7 +1896,7 @@ chai-string@^1.5.0:
   resolved "https://registry.npmjs.org/chai-string/-/chai-string-1.5.0.tgz#0bdb2d8a5f1dbe90bc78ec493c1c1c180dd4d3d2"
   integrity sha512-sydDC3S3pNAQMYwJrs6dQX0oBQ6KfIPuOZ78n7rocW0eJJlsHPh2t3kwW7xfwYA/1Bf6/arGtSUo16rxR2JFlw==
 
-chai@^4.3.6:
+chai@^4.3.4, chai@^4.3.6:
   version "4.3.6"
   resolved "https://registry.npmjs.org/chai/-/chai-4.3.6.tgz#ffe4ba2d9fa9d6680cc0b370adae709ec9011e9c"
   integrity sha512-bbcp3YfHCUzMOvKqsztczerVgBKSsEijCySNlHHbX3VG1nskvqjz5Rfso1gGwD6w6oOV3eI60pKuMOV5MV7p3Q==
@@ -1823,6 +2159,13 @@ debug@2.6.9:
   integrity sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==
   dependencies:
     ms "2.0.0"
+
+debug@^3.1.0:
+  version "3.2.7"
+  resolved "https://registry.npmjs.org/debug/-/debug-3.2.7.tgz#72580b7e9145fb39b6676f9c5e5fb100b934179a"
+  integrity sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==
+  dependencies:
+    ms "^2.1.1"
 
 debug@^4.1.0, debug@^4.1.1, debug@^4.3.4:
   version "4.3.4"
@@ -3162,6 +3505,13 @@ leven@^3.1.0:
   resolved "https://registry.npmjs.org/leven/-/leven-3.1.0.tgz#77891de834064cccba82ae7842bb6b14a13ed7f2"
   integrity sha512-qsda+H8jTaUaN/x5vzW2rzc+8Rw4TAQ/4KjB46IwK5VH+IlVeeeje/EoZRpiXvIqjFgK84QffqPztGI3VBLG1A==
 
+lib-r-math.js@^1.0.89:
+  version "1.0.89"
+  resolved "https://registry.npmjs.org/lib-r-math.js/-/lib-r-math.js-1.0.89.tgz#28217e875ea637480bef944b0b25d25e16f3dcad"
+  integrity sha512-aAQJ9pgfd8TyEOkonOGpDBsS+CiYHMTxzs1sKxzICTleDeGVtlAcEwtpX0E1SOMtflSGjWTU6UjuCQ0H77WtGA==
+  dependencies:
+    debug "^3.1.0"
+
 lines-and-columns@^1.1.6:
   version "1.2.4"
   resolved "https://registry.npmjs.org/lines-and-columns/-/lines-and-columns-1.2.4.tgz#eca284f75d2965079309dc0ad9255abb2ebc1632"
@@ -3360,7 +3710,7 @@ ms@2.1.2:
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz#d09d1f357b443f493382a8eb3ccd183872ae6009"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
 
-ms@2.1.3:
+ms@2.1.3, ms@^2.1.1:
   version "2.1.3"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
@@ -3369,6 +3719,11 @@ n-readlines@^1.0.3:
   version "1.0.3"
   resolved "https://registry.npmjs.org/n-readlines/-/n-readlines-1.0.3.tgz#f1fc62c31fc214de7fe8bd3f168e3910c25ff3ec"
   integrity sha512-kdrBSkcwgcTWI+e9Ag4Vke5pGoOJm/8hnAn7vHC8nHXyyiUgZht+J9EmGhlAWIFZuDvOq0F2SpCPCR/LBkq7OA==
+
+nanoid@^3.1.30:
+  version "3.3.4"
+  resolved "https://registry.npmjs.org/nanoid/-/nanoid-3.3.4.tgz#730b67e3cd09e2deacf03c027c81c9d9dbc5e8ab"
+  integrity sha512-MqBkQh/OHTS2egovRtLk45wEyNXwF+cokD+1YPf9u5VfJiRdAiRwB2froX5Co9Rh20xs4siNPm8naNotSD6RBw==
 
 natural-compare@^1.4.0:
   version "1.4.0"
@@ -3422,6 +3777,11 @@ num-is-roman@^1.0.3:
   integrity sha512-KVH9tTZ0Tb5aIuxq5Jh53lMxcxd2jBQDt2fgosyMaJ+iwG/xwHvIx0XmsDUDNw/ZkZaCBGWBshYgDsyss+sGLA==
   dependencies:
     tslib "^2.3.1"
+
+num-is-zero@^1.0.10:
+  version "1.0.10"
+  resolved "https://registry.npmjs.org/num-is-zero/-/num-is-zero-1.0.10.tgz#1795efd12275957c98cf223eae18ee2dc2940bdb"
+  integrity sha512-mgu42UC1peDBANENmRvhWNIKSUdAp71SRuB648jqOEBCGQFKxvWG/0JOgakGQJiNHShE3kdX229cPVIhJpsK4g==
 
 object-assign@^4:
   version "4.1.1"
@@ -3712,6 +4072,16 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
+random-extra@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.npmjs.org/random-extra/-/random-extra-4.0.4.tgz#cc7cccee38221671ce8b03f93ba4290c0f06f1eb"
+  integrity sha512-sPnkz5ereeKUXRpmcuYX4TUTpSr/Rr9CsXC3ZWuk/A7F5AFTjQ37aR0s8aoYUr0VPu2Ug2LhWNvk1Ggkp1sAtg==
+  dependencies:
+    "@lazy-random/clone-class" "^1.0.8"
+    "@lazy-random/random-core" "^1.0.4"
+    "@lazy-random/rng-factory" "^1.0.7"
+    ts-type "^2.1.2"
+
 range-parser@~1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/range-parser/-/range-parser-1.2.1.tgz#3cf37023d199e1c24d1a55b84800c2f3e6468031"
@@ -3923,6 +4293,11 @@ safe-buffer@~5.1.1:
   version "2.1.2"
   resolved "https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
+
+seedrandom@^3.0.5:
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/seedrandom/-/seedrandom-3.0.5.tgz#54edc85c95222525b0c7a6f6b3543d8e0b3aa0a7"
+  integrity sha512-8OwmbklUNzwezjGInmZ+2clQmExQPvomqjL7LFqOYqtmuxRgQYqOD3mHaU+MvZn5FLUeVxVfQjwLZW/n/JFuqg==
 
 semver-diff@^3.1.1:
   version "3.1.1"
