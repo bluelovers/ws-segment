@@ -31,7 +31,7 @@ export function sortLines(lines: string[], file?: string, options?: IOptions)
 		cur.cjk_id = cjk_id;
 		cur.line_type = chkLineType(cur.line);
 
-		if (cur.line_type == EnumLineType.COMMENT)
+		if (cur.line_type === EnumLineType.COMMENT)
 		{
 			cbIgnore(cur);
 
@@ -62,15 +62,15 @@ export function SortList<T extends ILoadDictFileRow2<any> = ILoadDictFileRow2>(l
 	return ls.sort(function (a: ILoadDictFileRow2, b: ILoadDictFileRow2)
 	{
 		if (
-			a.line_type == EnumLineType.COMMENT_TAG
-			|| b.line_type == EnumLineType.COMMENT_TAG
+			a.line_type === EnumLineType.COMMENT_TAG
+			|| b.line_type === EnumLineType.COMMENT_TAG
 		)
 		{
 			return (a.index - b.index);
 		}
 		else if (
-			a.line_type == EnumLineType.COMMENT
-			|| b.line_type == EnumLineType.COMMENT
+			a.line_type === EnumLineType.COMMENT
+			|| b.line_type === EnumLineType.COMMENT
 		)
 		{
 			return (a.index - b.index);

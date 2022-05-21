@@ -18,7 +18,7 @@ function sortLines(lines, file, options) {
     cur.cjk_id = cjk_id;
     cur.line_type = utilCompare.chkLineType(cur.line);
 
-    if (cur.line_type == 1) {
+    if (cur.line_type === 1) {
       cbIgnore(cur);
       return false;
     }
@@ -34,9 +34,9 @@ function loadFile(file, options) {
 }
 function SortList(ls) {
   return ls.sort(function (a, b) {
-    if (a.line_type == 2 || b.line_type == 2) {
+    if (a.line_type === 2 || b.line_type === 2) {
       return a.index - b.index;
-    } else if (a.line_type == 1 || b.line_type == 1) {
+    } else if (a.line_type === 1 || b.line_type === 1) {
       return a.index - b.index;
     }
 

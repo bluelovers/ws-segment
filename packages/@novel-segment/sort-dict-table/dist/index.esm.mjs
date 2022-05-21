@@ -12,7 +12,7 @@ function sortLines(i, r, s) {
   return SortList(e(i, (function(e, i) {
     i.file = r;
     let [l, s, d] = i.data, m = o(l, n);
-    return i.cjk_id = m, i.line_type = t(i.line), 1 != i.line_type || (u(i), !1);
+    return i.cjk_id = m, i.line_type = t(i.line), 1 !== i.line_type || (u(i), !1);
   }), {
     parseFn: l
   }));
@@ -24,7 +24,7 @@ function loadFile(e, n) {
 
 function SortList(e) {
   return e.sort((function(e, n) {
-    return 2 == e.line_type || 2 == n.line_type || 1 == e.line_type || 1 == n.line_type ? e.index - n.index : r(e.cjk_id, n.cjk_id) || e.index - n.index || 0;
+    return 2 === e.line_type || 2 === n.line_type || 1 === e.line_type || 1 === n.line_type ? e.index - n.index : r(e.cjk_id, n.cjk_id) || e.index - n.index || 0;
   }));
 }
 
