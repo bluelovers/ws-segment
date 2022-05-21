@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.32](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.31...@novel-segment/loaders@1.0.32) (2022-05-21)
+
+
+### ♻️　Chores
+
+* **deps:** update deps ([6eaf7f0](https://github.com/bluelovers/ws-segment/commit/6eaf7f0fb6e8d803b5eb8dbb3e2cd7a1d6b19f52))
+
+
+
+
+
 ## [1.0.31](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.30...@novel-segment/loaders@1.0.31) (2022-04-15)
 
 **Note:** Version bump only for package @novel-segment/loaders
