@@ -92,20 +92,17 @@ export function SortList<T extends ILoadDictFileRow2<any> = ILoadDictFileRow2>(l
 				return EnumSortCompareOrder.DOWN
 			}
 
-			let aa = /^\/\/\s+@/.test(a.line);
-			let ba = /^\/\/\s+@/.test(b.line);
+			const aa = /^\/\/\s+@/.test(a.line);
+			const ba = /^\/\/\s+@/.test(b.line);
 
-			if (aa || ba)
-			{
-				if (!ba)
+			if (aa && !ba)
 				{
 					return EnumSortCompareOrder.UP
 				}
-				else if (!aa)
+				else if (!aa && ba)
 				{
 					return EnumSortCompareOrder.DOWN
 				}
-			}
 
 			return (a.index - b.index);
 		}

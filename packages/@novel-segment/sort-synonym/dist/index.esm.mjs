@@ -17,8 +17,8 @@ function sortLines(r, s) {
         return o(i, r) || o(e, t);
       })), r.line = [ u ].concat(e).join(","), !e.length) return !1;
     }
-    const f = l(u, n);
-    return r.cjk_id = f, !0;
+    const a = l(u, n);
+    return r.cjk_id = a, !0;
   }), {
     parseFn: e => e.split(",")
   }));
@@ -33,12 +33,8 @@ function SortList(e) {
     if (2 === e.line_type || 2 === t.line_type) {
       if (2 !== t.line_type) return -1;
       if (2 !== e.line_type) return 1;
-      let n = /^\/\/\s+@/.test(e.line), i = /^\/\/\s+@/.test(t.line);
-      if (n || i) {
-        if (!i) return -1;
-        if (!n) return 1;
-      }
-      return e.index - t.index;
+      const n = /^\/\/\s+@/.test(e.line), i = /^\/\/\s+@/.test(t.line);
+      return n && !i ? -1 : !n && i ? 1 : e.index - t.index;
     }
     return 1 === e.line_type && 1 === t.line_type ? e.index - t.index : o(e.cjk_id, t.cjk_id) || o(t.data[0], e.data[0]) || e.index - t.index || 0;
   }));

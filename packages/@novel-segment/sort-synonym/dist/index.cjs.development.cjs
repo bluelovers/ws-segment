@@ -53,15 +53,13 @@ function SortList(ls) {
         return 1;
       }
 
-      let aa = /^\/\/\s+@/.test(a.line);
-      let ba = /^\/\/\s+@/.test(b.line);
+      const aa = /^\/\/\s+@/.test(a.line);
+      const ba = /^\/\/\s+@/.test(b.line);
 
-      if (aa || ba) {
-        if (!ba) {
-          return -1;
-        } else if (!aa) {
-          return 1;
-        }
+      if (aa && !ba) {
+        return -1;
+      } else if (!aa && ba) {
+        return 1;
       }
 
       return a.index - b.index;
