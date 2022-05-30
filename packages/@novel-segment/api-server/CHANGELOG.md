@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.47](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.46...@novel-segment/api-server@1.0.47) (2022-05-30)
+
+
+### 🐛　Bug Fixes
+
+* 鎖定 vue 版本 ([9eea4fa](https://github.com/bluelovers/ws-segment/commit/9eea4fabdec60c27076c8d3642ae47f82525b5a7))
+
+
+
+
+
 ## [1.0.46](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.45...@novel-segment/api-server@1.0.46) (2022-05-21)
 
 
