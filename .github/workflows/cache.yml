@@ -25,7 +25,7 @@ jobs:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
-          node-version: 14
+          node-version: node
       - name: get yarn cache dir
         id: yarn-cache
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -62,4 +62,3 @@ jobs:
           directory: packages/novel-segment/test/temp
           branch: cache
           force: true
-          
