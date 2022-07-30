@@ -67,7 +67,7 @@ export class WildcardTokenizer extends SubSModuleTokenizer
 
 				let nw = self.createWildcardToken({
 					w: bw.w,
-					p: TABLE[bw.w.toLowerCase()].p,
+					p: TABLE[bw.w.toLowerCase()]?.p,
 				});
 
 				ret.push(nw);
