@@ -88,6 +88,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@bluelovers/jest-config": "^1.0.4",
     "@git-lazy/subtree": "^1.0.27",
     "@lazy-cjk/zh-table-list": "^1.0.80",
     "@lazy-num/sum": "^1.0.7",

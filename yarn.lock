@@ -292,6 +292,18 @@
     bluebird "^3"
     fast-glob "^3"
 
+"@bluelovers/jest-config@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npmjs.org/@bluelovers/jest-config/-/jest-config-1.0.4.tgz#d9813bc01ee43873227a72bd9610a7888a67da8f"
+  integrity sha512-K/ZN2h1l9+8u51YEy7kEIFkyJt5u9scA98ZNdPIPFGU+5HjT9mm454yLqsy+zXfc91ZDDcXWSjrH/UnT68v9+A==
+  dependencies:
+    "@yarn-tool/require-resolve" "^2.0.0"
+    "@yarn-tool/table" "^2.0.0"
+    debug-color2 "^1.2.7"
+    graceful-fs "^4.2.10"
+    ts-type "^2.1.8"
+    tslib "^2"
+
 "@bluelovers/string-natural-compare@^2.0.5", "@bluelovers/string-natural-compare@^2.0.7":
   version "2.0.7"
   resolved "https://registry.npmjs.org/@bluelovers/string-natural-compare/-/string-natural-compare-2.0.7.tgz#7b61bec43dc40ee578edbb9ea71d6f61df2e94ec"
@@ -306,6 +318,11 @@
   integrity sha512-q+CdA9WcRIfWSwfnyULeTWvAwG7velfOq1pklfo5sL3j/tCjAvJitmo7SG06t8l1/Z8j3S+s4ant8R3WF9GLZA==
   dependencies:
     tslib "^2.3.1"
+
+"@colors/colors@1.5.0":
+  version "1.5.0"
+  resolved "https://registry.npmjs.org/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
+  integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
 "@gar/promisify@^1.1.3":
   version "1.1.3"
@@ -812,6 +829,14 @@
     filenamify "<5 >=4"
     tslib "^2"
     zero-width "^1.0.17"
+
+"@lazy-node/semver-part@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.npmjs.org/@lazy-node/semver-part/-/semver-part-1.0.13.tgz#1a66b69e1ab5c33fdb616a71d264a40a51e7a83a"
+  integrity sha512-7+DO8CcjBN1t8i70e2ctKjfdVQHst4x7ptbtTWTFyl4Kl1LgxX6/irUSHYDpN2efJlYobxhEeNiI5IrsbU2Mfg==
+  dependencies:
+    semver "^7"
+    tslib "^2"
 
 "@lazy-node/windows-unsafe-filename@^1.0.7":
   version "1.0.7"
@@ -1547,12 +1572,49 @@
     tslib "^2"
     upath2 "^3.1.13"
 
+"@yarn-tool/get-paths-by-type@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@yarn-tool/get-paths-by-type/-/get-paths-by-type-2.0.0.tgz#90be21b17e365a9ead903d9e8eaaff2a739a728b"
+  integrity sha512-1qyqJipkJyQIMgja3xTe9QP/2qXZzi2lmtxvkcpeVnkDoIgXUhS+0r5ssvrBZmsIqUdKCkyJbXO5Wze+0GOTWw==
+  dependencies:
+    global-dirs "^3.0.0"
+    tslib "^2"
+
 "@yarn-tool/is-npx@^1.0.11":
   version "1.0.11"
   resolved "https://registry.npmjs.org/@yarn-tool/is-npx/-/is-npx-1.0.11.tgz#a481078d69a2685f24957983109c0b2d5e97dee5"
   integrity sha512-HrULA6/45MGD4OU8Q69Z6cADQoRmBJ1XEY0h3h7gq7LvGHwx3s1Pf21y+G0XHHB7Dswbsv6I1qyQkTYlKNruSQ==
   dependencies:
     is-npx "^1.0.0"
+    tslib "^2"
+
+"@yarn-tool/require-resolve@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@yarn-tool/require-resolve/-/require-resolve-2.0.0.tgz#377e10fe98059ffba8bbd86115c023e321040e6f"
+  integrity sha512-6/tJGH15r3K0ey4euIlm/YmclJFySb3/q6I6SwBnJwL41Uw8A83BP8e7umWkT6BFlCY1SBVkxRDFRjUGRMOgNw==
+  dependencies:
+    "@yarn-tool/get-paths-by-type" "^2.0.0"
+    global-dirs "^3.0.0"
+    tslib "^2"
+
+"@yarn-tool/semver-diff@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@yarn-tool/semver-diff/-/semver-diff-2.0.0.tgz#6d2d3d9ae6850a9e2728d085f87cf6f86612debe"
+  integrity sha512-FjXKdLQ28k1zTROs6ZnL7ZclyE9zvhT1ACctEtVU0a1dGnQ8La1XzSK20MxxJ329B/shYM+77iSkVT0ykqQ8qw==
+  dependencies:
+    "@lazy-node/semver-part" "^1.0.13"
+    debug-color2 "^1.2.7"
+    ts-type "^2.1.8"
+    tslib "^2"
+
+"@yarn-tool/table@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@yarn-tool/table/-/table-2.0.0.tgz#6e9e1b5dc73adf97e2690ed859677587f8d791e1"
+  integrity sha512-mqUpIXQx7cV6YXbOrOub+wKLI7pcr7BWzXjI1KX8TFB54ya3dNFF4Aw2jLF1yMZ4i77Y+mYsobeGkzQiAwDoGg==
+  dependencies:
+    "@ts-type/package-dts" "^2.0.2"
+    "@yarn-tool/semver-diff" "^2.0.0"
+    cli-table3 "^0.6.2"
     tslib "^2"
 
 "@yarn-tool/update-notifier@^1.0.28":
@@ -2044,6 +2106,15 @@ cli-boxes@^2.2.1:
   version "2.2.1"
   resolved "https://registry.npmjs.org/cli-boxes/-/cli-boxes-2.2.1.tgz#ddd5035d25094fce220e9cab40a45840a440318f"
   integrity sha512-y4coMcylgSCdVinjiDBuR8PCC2bLjyGTwEmPb9NHR/QaNU6EUOXcTY/s6VjGMD6ENSEaeQYHCY0GNGS5jfMwPw==
+
+cli-table3@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.npmjs.org/cli-table3/-/cli-table3-0.6.2.tgz#aaf5df9d8b5bf12634dc8b3040806a0c07120d2a"
+  integrity sha512-QyavHCaIC80cMivimWu4aWHilIpiDpfm3hGmqAmXVL1UsnbLuBSMd21hTX6VY4ZSDSM73ESLeF8TOYId3rBTbw==
+  dependencies:
+    string-width "^4.2.0"
+  optionalDependencies:
+    "@colors/colors" "1.5.0"
 
 cliui@^7.0.2:
   version "7.0.4"
@@ -2812,7 +2883,7 @@ got@^9.6.0:
     to-readable-stream "^1.0.0"
     url-parse-lax "^3.0.0"
 
-graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.9:
+graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.10, graceful-fs@^4.2.9:
   version "4.2.10"
   resolved "https://registry.npmjs.org/graceful-fs/-/graceful-fs-4.2.10.tgz#147d3a006da4ca3ce14728c7aefc287c367d7a6c"
   integrity sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==
@@ -4374,7 +4445,7 @@ semver@^6.0.0, semver@^6.2.0, semver@^6.3.0:
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
   integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
 
-semver@^7.3.4, semver@^7.3.5:
+semver@^7, semver@^7.3.4, semver@^7.3.5:
   version "7.3.7"
   resolved "https://registry.npmjs.org/semver/-/semver-7.3.7.tgz#12c5b649afdbf9049707796e22a4028814ce523f"
   integrity sha512-QlYTucUYOews+WeEujDoEGziz4K6c47V/Bd+LjSSYcA94p+DmINdf7ncaUinThfvZyu13lN9OY1XDxt8C0Tw0g==
