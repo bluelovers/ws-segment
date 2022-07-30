@@ -10,9 +10,7 @@ const tslib_1 = require("tslib");
 const core_decorators_1 = require("core-decorators");
 const mod_1 = require("./mod");
 const isUnset_1 = tslib_1.__importDefault(require("../util/isUnset"));
-let SubSModuleTokenizer = 
-// @ts-ignore
-class SubSModuleTokenizer extends mod_1.SubSModule {
+let SubSModuleTokenizer = class SubSModuleTokenizer extends mod_1.SubSModule {
     constructor() {
         super(...arguments);
         this.type = 'tokenizer';
