@@ -99,7 +99,7 @@
     "@novel-segment/table-stopword": "^1.0.4",
     "@novel-segment/table-synonym": "^1.0.4",
     "@novel-segment/types": "^1.0.5",
-    "array-hyper-unique": "^2.0.6",
+    "array-hyper-unique": "^2.0.8",
     "bluebird": "^3.7.2",
     "cjk-conv": "^1.2.139",
     "core-decorators": "^0.20.0",
@@ -110,7 +110,7 @@
     "sort-object-keys2": "^2.0.3",
     "str-util": "^2.3.28",
     "ts-enum-util": "4.0.2",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2.4.0",
     "uni-string": "^1.1.12"
   },

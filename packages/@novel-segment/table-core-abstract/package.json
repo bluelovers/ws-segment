@@ -120,7 +120,7 @@
     "@novel-segment/loaders": "^1.0.32",
     "@novel-segment/types": "^1.0.5",
     "lodash": "^4.17.21",
-    "ts-type": "^2.1.6",
+    "ts-type": "^2.1.8",
     "tslib": "^2"
   },
   "publishConfig": {

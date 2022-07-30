@@ -120,7 +120,7 @@
     "@novel-segment/types": "^1.0.5",
     "@novel-segment/util": "^1.0.61",
     "@novel-segment/util-compare": "^1.0.8",
-    "array-hyper-unique": "^2.0.6",
+    "array-hyper-unique": "^2.0.8",
     "tslib": "^2.4.0"
   },
   "publishConfig": {
