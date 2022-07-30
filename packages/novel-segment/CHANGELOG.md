@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.97](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.96...novel-segment@2.7.97) (2022-07-30)
+
+
+### 🐛　Bug Fixes
+
+* TypeError: Cannot read properties of undefined (reading 'p') ([8a55a9b](https://github.com/bluelovers/ws-segment/commit/8a55a9b5d7c490504f1da619cfa9286e71841480))
+
+
+### 🚨　Tests
+
+* **jest:** update jest.config.js ([1f0af34](https://github.com/bluelovers/ws-segment/commit/1f0af346eff06d402e3b3bd692fd223f2b7c0479))
+* **jest:** update jest.config.js ([7b3900f](https://github.com/bluelovers/ws-segment/commit/7b3900fd6b638fb8774b306b6435b8082b5a275b))
+
+
+### 📌　Dependencies
+
+* update deps ([7d87dcd](https://github.com/bluelovers/ws-segment/commit/7d87dcd5e09103380b46b625fd0c2b9b69705307))
+
+
+### 🔖　Miscellaneous
+
+* . ([2af6f05](https://github.com/bluelovers/ws-segment/commit/2af6f05d19b27f55c654bc8b8b502635d5930252))
+
+
+
+
+
 ## [2.7.96](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.95...novel-segment@2.7.96) (2022-05-30)
 
 **Note:** Version bump only for package novel-segment

@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util-compare@1.0.8...@novel-segment/util-compare@1.0.9) (2022-07-30)
+
+
+### 🚨　Tests
+
+* **jest:** update jest.config.js ([7b3900f](https://github.com/bluelovers/ws-segment/commit/7b3900fd6b638fb8774b306b6435b8082b5a275b))
+
+
+### 📌　Dependencies
+
+* update deps ([7d87dcd](https://github.com/bluelovers/ws-segment/commit/7d87dcd5e09103380b46b625fd0c2b9b69705307))
+
+
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util-compare@1.0.6...@novel-segment/util-compare@1.0.8) (2022-05-21)
 
 

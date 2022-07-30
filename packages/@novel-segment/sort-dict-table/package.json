@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/sort-dict-table",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "keywords": [
     "NLP",
@@ -117,9 +117,9 @@
   },
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.17",
-    "@novel-segment/loaders": "^1.0.32",
-    "@novel-segment/util": "^1.0.61",
-    "@novel-segment/util-compare": "^1.0.8",
+    "@novel-segment/loaders": "^1.0.33",
+    "@novel-segment/util": "^1.0.62",
+    "@novel-segment/util-compare": "^1.0.9",
     "tslib": "^2.4.0"
   },
   "publishConfig": {

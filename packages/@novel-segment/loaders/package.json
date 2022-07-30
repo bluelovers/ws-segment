@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loaders",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loaders#readme",
   "bugs": {
@@ -34,7 +34,7 @@
     "@novel-segment/loader-line": "^1.0.17",
     "@novel-segment/loader-stopword": "^1.0.16",
     "@novel-segment/stream-loader-core": "^1.0.19",
-    "@novel-segment/types": "^1.0.5",
+    "@novel-segment/types": "^1.0.6",
     "tslib": "^2"
   },
   "publishConfig": {

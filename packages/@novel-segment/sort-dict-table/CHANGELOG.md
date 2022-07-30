@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-dict-table@1.0.9...@novel-segment/sort-dict-table@1.0.10) (2022-07-30)
+
+
+### 🚨　Tests
+
+* **jest:** update jest.config.js ([7b3900f](https://github.com/bluelovers/ws-segment/commit/7b3900fd6b638fb8774b306b6435b8082b5a275b))
+
+
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-dict-table@1.0.7...@novel-segment/sort-dict-table@1.0.9) (2022-05-21)
 
 
