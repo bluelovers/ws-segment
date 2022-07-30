@@ -32,6 +32,7 @@ class WildcardTokenizer extends mod_1.SubSModuleTokenizer {
         return nw;
     }
     splitWildcard(text, cur) {
+        var _a;
         //const POSTAG = this._POSTAG;
         const TABLE = this._TABLE;
         let ret = [];
@@ -48,7 +49,7 @@ class WildcardTokenizer extends mod_1.SubSModuleTokenizer {
                 }
                 let nw = self.createWildcardToken({
                     w: bw.w,
-                    p: TABLE[bw.w.toLowerCase()].p,
+                    p: (_a = TABLE[bw.w.toLowerCase()]) === null || _a === void 0 ? void 0 : _a.p,
                 });
                 ret.push(nw);
                 lastc = bw.c + bw.w.length;
