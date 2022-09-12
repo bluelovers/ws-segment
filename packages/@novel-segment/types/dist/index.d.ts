@@ -1,4 +1,4 @@
-export declare type ArrayTwoOrMore<T> = T[] & {
+export type ArrayTwoOrMore<T> = T[] & {
     0: T;
     1: T;
 };

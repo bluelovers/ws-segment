@@ -1,6 +1,6 @@
 import { ITSValueOrArrayMaybeReadonly } from 'ts-type/lib/type/base';
 import { IWord } from '@novel-segment/types';
-export declare type ITextInput = ITSValueOrArrayMaybeReadonly<IWord | string>;
+export type ITextInput = ITSValueOrArrayMaybeReadonly<IWord | string>;
 export declare function printPrettyDiff(text_old: ITextInput, text_new: ITextInput): {
     text_old: string;
     text_new: string;
