@@ -1,6 +1,6 @@
 /// <reference types="bluebird" />
 import { ILoadDictFileRow2 } from '@novel-segment/util-compare';
-export declare type IHandleDictTable = ILoadDictFileRow2;
+export type IHandleDictTable = ILoadDictFileRow2;
 export interface IOptions {
     cbIgnore?(cur: IHandleDictTable): any;
 }

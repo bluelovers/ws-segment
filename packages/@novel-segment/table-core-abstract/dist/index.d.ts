@@ -3,7 +3,7 @@
  */
 import { IDictRow } from '@novel-segment/loaders/segment/index';
 import { IWord } from '@novel-segment/types';
-export declare type IOptions = {
+export type IOptions = {
     autoCjk?: boolean;
 };
 export interface IDICT<T = any> {

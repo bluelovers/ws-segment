@@ -4,7 +4,7 @@
 import { IDictRow } from '@novel-segment/loaders/segment/index';
 import { AbstractTableDictCore, IDICT, IDICT2, IOptions } from '@novel-segment/table-core-abstract';
 import { IWord } from '@novel-segment/types';
-export declare type ITableDictRow = {
+export type ITableDictRow = {
     p: number;
     f: number;
     s?: boolean;

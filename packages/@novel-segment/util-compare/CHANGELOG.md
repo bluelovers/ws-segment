@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util-compare@1.0.9...@novel-segment/util-compare@1.0.10) (2022-09-12)
+
+
+
+### 📌　Dependencies
+
+* update deps ([87dfb1e](https://github.com/bluelovers/ws-segment/commit/87dfb1e8c4e0ef55b975639bc94e113442cb1af7))
+
+
+
 ## [1.0.9](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util-compare@1.0.8...@novel-segment/util-compare@1.0.9) (2022-07-30)
 
 

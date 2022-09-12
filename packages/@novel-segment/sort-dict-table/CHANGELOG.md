@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-dict-table@1.0.10...@novel-segment/sort-dict-table@1.0.11) (2022-09-12)
+
+
+
+### 📌　Dependencies
+
+* update deps ([87dfb1e](https://github.com/bluelovers/ws-segment/commit/87dfb1e8c4e0ef55b975639bc94e113442cb1af7))
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-dict-table@1.0.9...@novel-segment/sort-dict-table@1.0.10) (2022-07-30)
 
 
