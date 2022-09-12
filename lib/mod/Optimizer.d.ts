@@ -1,10 +1,10 @@
 import { IWord, Segment } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
-export declare type ISubOptimizer = ISubSModule & {
+export type ISubOptimizer = ISubSModule & {
     type: 'optimizer';
     doOptimize(words: IWord[], ...argv: any[]): IWord[];
 };
-export declare type ISubOptimizerCreate<T extends SubSModuleOptimizer, R extends SubSModuleOptimizer = SubSModuleOptimizer> = {
+export type ISubOptimizerCreate<T extends SubSModuleOptimizer, R extends SubSModuleOptimizer = SubSModuleOptimizer> = {
     (segment: Segment, ...argv: any[]): T & R;
 };
 export declare class SubSModuleOptimizer extends SubSModule implements ISubOptimizer {

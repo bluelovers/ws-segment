@@ -3,7 +3,7 @@
  */
 import { IWord } from '@novel-segment/types';
 export declare const SYMBOL_DEBUG_KEY = "_debug";
-export declare type IWordDebugInfo<T extends IWordDebug = IWordDebug> = {
+export type IWordDebugInfo<T extends IWordDebug = IWordDebug> = {
     ZhtSynonymOptimizer?: boolean;
     convertSynonym?: boolean;
     autoCreate?: boolean;
@@ -13,7 +13,7 @@ export declare type IWordDebugInfo<T extends IWordDebug = IWordDebug> = {
     [key: string]: any;
     [key: number]: any;
 };
-export declare type IWordDebug = IWord & {
+export type IWordDebug = IWord & {
     m?: Array<IWordDebug | string>;
     ps?: string;
     pp?: string;

@@ -58,7 +58,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git",
+    "directory": "packages/novel-segment"
   },
   "license": "ISC",
   "author": "Zongmin Lei <leizongmin@gmail.com>",
@@ -74,7 +75,9 @@
     "test": "yarn run local-delete-cache-db && yarn run test-ts && yarn run test-fixme && yarn run test:jest",
     "test-fixme": "ts-node ./test/chk-fixme",
     "test:jest": "jest",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test-js": "npx mocha \"!(node_modules)/**/*.test.js\"",
+    "test:snapshot": "yarn run test -- -u",
     "test-ts": "npx mocha --require ts-node/register \"!(node_modules)/**/*.test.{ts,tsx}\"",
     "build:sort:stringify:cache": "node ./script/sort-stringify-cache.js",
     "preversion": "git commit -m \"chore: save repo before new version\" ./test/res/ ./test/demo.cache.ts & yarn run test",
@@ -103,16 +106,16 @@
     "bluebird": "^3.7.2",
     "cjk-conv": "^1.2.139",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.7",
+    "crlf-normalize": "^1.0.12",
     "deepmerge-plus": "^2.1.3",
     "regexp-cjk": "^3.3.106",
     "segment-dict": "^2.3.179",
     "sort-object-keys2": "^2.0.3",
-    "str-util": "^2.3.28",
+    "str-util": "^2.3.33",
     "ts-enum-util": "4.0.2",
-    "ts-type": "^2.1.8",
-    "tslib": "^2.4.0",
-    "uni-string": "^1.1.12"
+    "ts-type": "^2.1.10",
+    "tslib": ">=2",
+    "uni-string": "^1.1.17"
   },
   "devDependencies": {
     "@novel-segment/util": "^1.0.62"

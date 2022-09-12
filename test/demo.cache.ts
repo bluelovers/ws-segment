@@ -95,17 +95,14 @@ console.time(`doSegment`);
 
 let text = `
 
-您尚未受邀使用新插件
-插件
+蚝仔煎
+蚵仔煎
+蛤蠣
+蛤蜊
+蛤仔
 
-plugins.advertiser.missing.feature.dependency=推薦的{0,choice,1#插件|2#插件}可用於依賴項 ''{1}''。
-plugins.advertiser.missing.features.dependency=推薦的{0,choice,1#插件|2#插件}可用於依賴項({1})。
-error.plugin.was.not.installed=插件“{0}”未安裝: {1}
+臺灣閩南語羅馬字拼音方案（台羅字：Tâi-uân Bân-lâm-gí Lô-má-jī Phing-im Hong-àn，白話字：Tâi-oân Bân-lâm-gú Lô-má-jī Pheng-im Hong-àn），又稱臺羅（TL）、臺羅字（TLJ）、新白話字（SPOJ）[1]、教育部羅馬字（KIP）、臺羅拼音（TLPI），為中華民國教育部公布的臺灣話羅馬字方案。
 
-title.plugin.uninstall=解除安裝插件
-plugin.manager.dependencies.detected.title=安裝所需插件
-
-prompt.uninstall.several.plugins=確定要移除這 {0} 個插件嗎?
 
 `;
 

@@ -80,7 +80,7 @@ export declare enum ENUM_SUBMODS_OTHER {
      */
     SingleTokenizer = "SingleTokenizer"
 }
-export declare type ENUM_SUBMODS_NAME = ENUM_SUBMODS | ENUM_SUBMODS_OTHER;
+export type ENUM_SUBMODS_NAME = ENUM_SUBMODS | ENUM_SUBMODS_OTHER;
 export declare const LIST_SUBMODS_NOT_DEF: ENUM_SUBMODS[];
 export declare const SUBMODS_LIST: import("ts-enum-util").EnumWrapper<string, typeof ENUM_SUBMODS>;
 export declare const SUBMODS_OTHER_LIST: import("ts-enum-util").EnumWrapper<string, typeof ENUM_SUBMODS_OTHER>;

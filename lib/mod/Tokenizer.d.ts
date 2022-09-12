@@ -5,11 +5,11 @@
  */
 import { IWord, Segment } from '../Segment';
 import { ISubSModule, SModule, SubSModule } from './mod';
-export declare type ISubTokenizer = ISubSModule & {
+export type ISubTokenizer = ISubSModule & {
     type: 'tokenizer';
     split(words: IWord[], ...argv: any[]): IWord[];
 };
-export declare type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
+export type ISubTokenizerCreate<T extends SubSModuleTokenizer, R extends SubSModuleTokenizer = SubSModuleTokenizer> = {
     (...argv: Parameters<T["init"]>): T & R;
     (segment: Segment, ...argv: any[]): T & R;
 };
