@@ -57,7 +57,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git",
+    "directory": "packages/segment-dict"
   },
   "license": "ISC",
   "author": "bluelovers",
@@ -69,6 +70,8 @@
   "scripts": {
     "test": "yarn run test:jest && lerna run --stream --scope novel-segment test",
     "test:jest": "jest",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "preversion": "yarn run test && yarn run sort:all",
     "version": "git commit -m \"chore(dict): save dict before new version\" ./dict ./test/sort.ts & echo version",
     "prepublishOnly": "echo prepublishOnly",
@@ -96,11 +99,11 @@
     "@novel-segment/util": "^1.0.62",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.7",
-    "tslib": "^2"
+    "crlf-normalize": "^1.0.12",
+    "tslib": ">=2"
   },
   "peerDependencies": {
-    "novel-segment": "^2"
+    "novel-segment": "^2.7.97"
   },
   "gitHead": "b53ee34cb7a1abaf060f872ed0030effdc50e1ec"
 }

@@ -3,13 +3,13 @@
  */
 /// <reference types="bluebird" />
 import { LoaderClass } from '@novel-segment/dict-loader-core';
-export declare type IDictRow<T = string> = {
+export type IDictRow<T = string> = {
     0: string;
     1: number;
     2: number;
     [index: number]: T | string | number;
 } & Array<string | number>;
-export declare type IDict = IDictRow[];
+export type IDict = IDictRow[];
 export declare const load: (file: string, options?: import("@novel-segment/dict-loader-core").IOptions<IDict, IDictRow<string>>) => import("bluebird")<IDict>;
 export declare const loadSync: (file: string, options?: import("@novel-segment/dict-loader-core").IOptions<IDict, IDictRow<string>>) => IDict;
 export declare const loadStream: (file: string, options?: import("@novel-segment/dict-loader-core").IOptions<IDict, IDictRow<string>>, callback?: import("@novel-segment/stream-loader-core/stream").ICallback<IDict>) => import("@novel-segment/stream-loader-core/line").IStreamLineWithValue<IDict>;

@@ -8,7 +8,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git",
+    "directory": "packages/@novel-segment/stream-loader-core"
   },
   "license": "ISC",
   "author": "bluelovers",
@@ -18,9 +19,12 @@
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:jest": "jest --coverage",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "lerna publish --yes",
+    "preversion": "yarn run test",
     "prepublish:lockfile": "npx sync-lockfile .",
     "prepublishOnly_": "yarn run ncu && yarn run sort-package-json && yarn run test",
     "postpublish_": "git commit -m \"chore(release): publish\" .",
@@ -33,7 +37,7 @@
     "bluebird": "^3.7.2",
     "split2": "^4.1.0",
     "stream-pipe": "^1.0.4",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "devDependencies": {
     "@types/split2": "^3.2.1"

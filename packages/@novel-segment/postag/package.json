@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git",
+    "directory": "packages/@novel-segment/postag"
   },
   "license": "ISC",
   "author": "bluelovers",
@@ -19,12 +20,15 @@
   },
   "scripts": {
     "test": "jest",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "preversion": "yarn run test"
   },
   "dependencies": {
     "ts-enum-util": "^4.0.2",
-    "ts-type": "^2.1.8",
-    "tslib": "^2"
+    "ts-type": "^2.1.10",
+    "tslib": ">=2"
   },
   "publishConfig": {
     "access": "public"

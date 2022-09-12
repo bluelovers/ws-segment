@@ -5,7 +5,7 @@
 import Bluebird from 'bluebird';
 import { IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';
-export declare type IOptions = {
+export type IOptions = {
     mapper?(data: string): any;
     onpipe?(src: any): any;
     onclose?(...argv: any[]): any;
@@ -19,11 +19,11 @@ export declare function createStreamLine(file: string, fn?: (data: string) => an
 export declare function readFileLine(file: string, options: IOptions): IPromiseStream<IStreamLine>;
 export declare function readFileLine(file: string, fn?: (data: string) => any, options?: IOptions): IPromiseStream<IStreamLine>;
 export declare function wrapStreamToPromise<T extends NodeJS.WritableStream>(stream: T): IPromiseStream<T>;
-export declare type IStreamLine = IPipe<ReadStream, NodeJS.WritableStream>;
-export declare type IStreamLineWithValue<T> = IStreamLine & {
+export type IStreamLine = IPipe<ReadStream, NodeJS.WritableStream>;
+export type IStreamLineWithValue<T> = IStreamLine & {
     value?: T;
 };
-export declare type IPromiseStream<T> = Bluebird<T> & {
+export type IPromiseStream<T> = Bluebird<T> & {
     stream: T;
 };
 declare const _default: typeof import("./line");

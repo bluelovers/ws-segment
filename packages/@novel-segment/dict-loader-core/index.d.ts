@@ -4,7 +4,7 @@
 import Bluebird from 'bluebird';
 import { IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
-export declare type IOptions<T, R> = {
+export type IOptions<T, R> = {
     parseLine?(input: string, oldFn?: (input: string) => R): R;
     mapper?(line: any): any;
     filter?(line: any): any;

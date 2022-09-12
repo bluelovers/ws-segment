@@ -1,6 +1,6 @@
 import { IWord } from '@novel-segment/types';
 import { ITSArrayListMaybeReadonly } from 'ts-type/lib/type/base';
-export declare type IStringifyWordInput = ITSArrayListMaybeReadonly<IWord | string>;
+export type IStringifyWordInput = ITSArrayListMaybeReadonly<IWord | string>;
 export declare function stringifyList(words: IStringifyWordInput, ...argv: any[]): string[];
 /**
  * 将单词数组连接成字符串

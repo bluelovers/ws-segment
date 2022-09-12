@@ -3,13 +3,14 @@
   "version": "1.0.48",
   "private": true,
   "description": "simple segment api server",
-  "homepage": "https://github.com/bluelovers/ws-segment#readme",
+  "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/api-server#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-segment/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git",
+    "directory": "packages/@novel-segment/api-server"
   },
   "license": "ISC",
   "author": "",
@@ -18,7 +19,11 @@
     "coverage": "npx nyc npm run test",
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:snapshot": "yarn run test -- -u",
     "npm:publish": "npm publish",
+    "preversion": "yarn run test",
     "postpublish_": "git commit -m \"publish new version\" .",
     "postpublish:commit": "ts-node ./script/publish-after2.ts",
     "postpublish:done": "yarn run now-deploy",
@@ -33,10 +38,10 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
-    "crlf-normalize": "^1.0.7",
+    "crlf-normalize": "^1.0.12",
     "express": "^4.18.1",
     "fs-extra": "^10.1.0",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -44,8 +49,8 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2",
-    "vercel": "^27.3.3"
+    "novel-segment": "^2.7.97",
+    "vercel": "^28.2.5"
   },
   "engines": {
     "node": ">=10"

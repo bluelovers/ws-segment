@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/loader-line'), require('@novel-segment/table-core-abstract')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/loader-line', '@novel-segment/table-core-abstract'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.loaderLine, global.tableCoreAbstract));
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableLine = {}, global.loaderLine, global.tableCoreAbstract));
 })(this, (function (exports, loaderLine, tableCoreAbstract) { 'use strict';
 
 	class TableDictLine extends tableCoreAbstract.AbstractTableDictCore {

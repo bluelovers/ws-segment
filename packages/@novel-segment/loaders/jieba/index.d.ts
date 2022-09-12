@@ -4,8 +4,8 @@
 import { IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
 import Bluebird from 'bluebird';
 import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
-export declare type IDictRow = [string, number, string];
-export declare type IDict = IDictRow[];
+export type IDictRow = [string, number, string];
+export type IDict = IDictRow[];
 /**
  * 云计算
  * 蓝翔 nz

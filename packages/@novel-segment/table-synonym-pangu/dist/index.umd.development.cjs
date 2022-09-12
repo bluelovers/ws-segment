@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/table-core-abstract')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/table-core-abstract'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.tableCoreAbstract));
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableSynonymPangu = {}, global.tableCoreAbstract));
 })(this, (function (exports, tableCoreAbstract) { 'use strict';
 
 	class TableDictSynonymPanGu extends tableCoreAbstract.AbstractTableDictCore {

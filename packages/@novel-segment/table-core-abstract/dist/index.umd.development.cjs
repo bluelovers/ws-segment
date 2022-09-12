@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('lodash-es')) :
 	typeof define === 'function' && define.amd ? define(['exports', 'lodash-es'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.lodashEs));
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableCoreAbstract = {}, global.lodashEs));
 })(this, (function (exports, lodashEs) { 'use strict';
 
 	class AbstractTableDictCore {

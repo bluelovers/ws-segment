@@ -1,7 +1,7 @@
 (function (global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/loaders/segment/index'), require('@lazy-cjk/zh-table-list/list'), require('@novel-segment/table-core-abstract')) :
 	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/loaders/segment/index', '@lazy-cjk/zh-table-list/list', '@novel-segment/table-core-abstract'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.index = {}, global.index, global.list, global.tableCoreAbstract));
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableDict = {}, global.index, global.list, global.tableCoreAbstract));
 })(this, (function (exports, index, list, tableCoreAbstract) { 'use strict';
 
 	function notNum(val) {

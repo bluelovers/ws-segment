@@ -3,13 +3,14 @@
   "version": "1.0.62",
   "private": false,
   "description": "@novel-segment/util",
-  "homepage": "https://github.com/bluelovers/ws-segment/@novel-segment/util#readme",
+  "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/novel-segment-util#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/ws-segment/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bluelovers/ws-segment.git"
+    "url": "git+https://github.com/bluelovers/ws-segment.git",
+    "directory": "packages/novel-segment-util"
   },
   "license": "ISC",
   "author": "bluelovers",
@@ -21,7 +22,10 @@
     "coverage": "npx nyc yarn run test",
     "lint": "npx eslint **/*.ts",
     "test": "jest",
+    "test:jest": "jest --passWithNoTests",
+    "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:mocha": "npx mocha --require ts-node/register \"!(node_modules)/**/*.{test,spec}.{ts,tsx}\"",
+    "test:snapshot": "yarn run test -- -u",
     "npm:publish": "npm publish",
     "npm:publish:lerna": "npx lerna publish --yes --cd-version patch",
     "preversion": "yarn run test",
@@ -35,7 +39,7 @@
   "dependencies": {
     "@bluelovers/string-natural-compare": "^2.0.7",
     "regexp-helper": "^1.0.34",
-    "tslib": "^2"
+    "tslib": ">=2"
   },
   "peerDependencies": {
     "array-hyper-unique": "^2.0.8",

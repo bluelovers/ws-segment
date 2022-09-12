@@ -5,7 +5,7 @@ import { IDICT_BLACKLIST, IWord, Segment } from '../Segment';
 import { IWordDebug, IWordDebugInfo } from '../util/index';
 import { ENUM_SUBMODS_NAME } from './index';
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
-export declare type ISModuleType = 'optimizer' | 'tokenizer' | string;
+export type ISModuleType = 'optimizer' | 'tokenizer' | string;
 export declare class SModule implements ISModule {
     type?: ISModuleType;
     segment: Segment;
