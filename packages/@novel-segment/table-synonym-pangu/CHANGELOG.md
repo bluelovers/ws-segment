@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-synonym-pangu@1.0.5...@novel-segment/table-synonym-pangu@1.0.7) (2022-09-13)
+
+
+
+### 📌　Dependencies
+
+* update deps ([87dfb1e](https://github.com/bluelovers/ws-segment/commit/87dfb1e8c4e0ef55b975639bc94e113442cb1af7))
+
+
+### 🔖　Miscellaneous
+
+* . ([6608765](https://github.com/bluelovers/ws-segment/commit/66087652b3679f0833cc54051ba4889f8f909383))
+
+
+
 ## [1.0.6](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-synonym-pangu@1.0.5...@novel-segment/table-synonym-pangu@1.0.6) (2022-09-12)
 
 

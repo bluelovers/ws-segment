@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/bluelovers/ws-segment/compare/@novel-segment/postag@1.0.17...@novel-segment/postag@1.0.19) (2022-09-13)
+
+
+
+### 📌　Dependencies
+
+* update deps ([87dfb1e](https://github.com/bluelovers/ws-segment/commit/87dfb1e8c4e0ef55b975639bc94e113442cb1af7))
+
+
+### 🔖　Miscellaneous
+
+* . ([6608765](https://github.com/bluelovers/ws-segment/commit/66087652b3679f0833cc54051ba4889f8f909383))
+
+
+
 ## [1.0.18](https://github.com/bluelovers/ws-segment/compare/@novel-segment/postag@1.0.17...@novel-segment/postag@1.0.18) (2022-09-12)
 
 

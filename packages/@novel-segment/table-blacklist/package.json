@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-blacklist",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "",
   "keywords": [
     "NLP",
@@ -120,7 +120,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/table-line": "^1.0.5",
+    "@novel-segment/table-line": "^1.0.7",
     "tslib": ">=2"
   },
   "packageManager": "yarn@^1.22.11",
