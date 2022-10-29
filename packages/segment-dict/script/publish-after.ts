@@ -18,7 +18,7 @@ import { join } from 'path';
 	let gitroot: string;
 
 	// @ts-ignore
-	gitroot = await import('git-root2');
+	gitroot = await import('git-root2').then(m => m.sync);
 	// @ts-ignore
 	gitroot = gitroot(__dirname);
 

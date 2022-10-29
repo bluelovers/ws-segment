@@ -9,6 +9,7 @@ import * as PackageJson from '../package.json';
 import CrossSpawn = require('cross-spawn-extra');
 /// <reference types="cross-spawn" />
 import index = require('../index');
+import { sync } from 'git-root2/core';
 
 (async () =>
 {
@@ -19,7 +20,7 @@ import index = require('../index');
 	let gitroot: string;
 
 	// @ts-ignore
-	gitroot = await import('git-root2');
+	gitroot = await import('git-root2').then(m => m.sync);
 	// @ts-ignore
 	gitroot = gitroot(__dirname);
 
