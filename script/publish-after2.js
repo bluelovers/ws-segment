@@ -15,7 +15,7 @@ const path_1 = require("path");
     crossSpawn = await Promise.resolve().then(() => tslib_1.__importStar(require('cross-spawn-extra')));
     let gitroot;
     // @ts-ignore
-    gitroot = await Promise.resolve().then(() => tslib_1.__importStar(require('git-root2')));
+    gitroot = await Promise.resolve().then(() => tslib_1.__importStar(require('git-root2'))).then(m => m.sync);
     // @ts-ignore
     gitroot = gitroot(__dirname);
     if (!gitroot || path.relative(gitroot, project_config_1.default.project_root)) {
