@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.21](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-line@1.0.19...@novel-segment/loader-line@1.0.21) (2022-10-29)
+
+
+
+### 📌　Dependencies
+
+* update deps ([95a7d58](https://github.com/bluelovers/ws-segment/commit/95a7d583596b6cb0ecd1c0322258205b9a12af51))
+
+
+
 ## [1.0.20](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-line@1.0.19...@novel-segment/loader-line@1.0.20) (2022-10-29)
 
 **Note:** Version bump only for package @novel-segment/loader-line

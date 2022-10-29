@@ -68,8 +68,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "yarn run test:jest && lerna run --stream --scope novel-segment test",
+    "test": "yarn run test:jest && yarn run test:segment",
     "test:jest": "jest",
+    "test:segment": "yarn workspace novel-segment run test",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "preversion": "yarn run test && yarn run sort:all",

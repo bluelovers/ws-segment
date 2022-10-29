@@ -75,7 +75,7 @@
     "coverage:all": "yarn-tool ws run coverage --concurrency 1",
     "lint:all": "yarn-tool ws run lint --concurrency 1",
     "pretest": "echo pretest",
-    "test": "lerna run --stream --scope novel-segment test-ts",
+    "test": "yarn workspace novel-segment run test-ts",
     "test:all": "yarn-tool ws run test --concurrency 1",
     "test:jest:clearCache": "jest --clearCache",
     "test:since": "yarn run test:all -- --since",
