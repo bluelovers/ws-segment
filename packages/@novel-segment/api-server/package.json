@@ -32,7 +32,7 @@
     "now-build": "yarn run now-build:install && yarn run now-build:run",
     "now-build:install": "yarn add novel-segment vercel",
     "now-build:run": "node ./build.js",
-    "now-deploy": "yarn run now-build:run && npx vercel deploy",
+    "now-deploy": "yarn run now-build:run && ynpx vercel deploy",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json"
