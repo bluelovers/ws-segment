@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "ts-enum-util": "^4.0.2",
-    "ts-type": "^2.1.10",
+    "ts-type": "^3.0.1",
     "tslib": ">=2"
   },
   "publishConfig": {

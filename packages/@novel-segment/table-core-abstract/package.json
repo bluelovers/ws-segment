@@ -123,7 +123,7 @@
     "@novel-segment/loaders": "^1.0.35",
     "@novel-segment/types": "^1.0.8",
     "lodash": "^4.17.21",
-    "ts-type": "^2.1.10",
+    "ts-type": "^3.0.1",
     "tslib": ">=2"
   },
   "packageManager": "yarn@^1.22.11",

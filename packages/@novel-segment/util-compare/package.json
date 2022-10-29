@@ -128,7 +128,7 @@
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.19",
     "@novel-segment/loaders": "^1.0.35",
-    "array-hyper-unique": "^2.0.8",
+    "array-hyper-unique": "^2.1.4",
     "bluebird": "^3.7.2",
     "tslib": ">=2"
   },

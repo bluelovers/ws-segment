@@ -120,7 +120,7 @@
   },
   "dependencies": {
     "@novel-segment/types": "^1.0.8",
-    "ts-type": "^2.1.10",
+    "ts-type": "^3.0.1",
     "tslib": ">=2"
   },
   "packageManager": "yarn@^1.22.11",
