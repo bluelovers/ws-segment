@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.3.182",
+  "version": "2.3.183",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -68,11 +68,13 @@
     "test": "test"
   },
   "scripts": {
+    "coverage": "yarn run test -- --coverage",
     "test": "yarn run test:jest && yarn run test:segment",
     "test:jest": "jest",
-    "test:segment": "yarn workspace novel-segment run test",
     "test:jest:snapshot": "yarn run test:jest -- -u",
+    "test:segment": "yarn workspace novel-segment run test",
     "test:snapshot": "yarn run test -- -u",
+    "test:tsd": "ynpx tsd",
     "preversion": "yarn run test && yarn run sort:all",
     "version": "git commit -m \"chore(dict): save dict before new version\" ./dict ./test/sort.ts & echo version",
     "prepublishOnly": "echo prepublishOnly",
@@ -93,11 +95,11 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@novel-segment/dict-loader-core": "^1.0.21",
-    "@novel-segment/loader-stopword": "^1.0.21",
-    "@novel-segment/loaders": "^1.0.37",
+    "@novel-segment/dict-loader-core": "^1.0.22",
+    "@novel-segment/loader-stopword": "^1.0.22",
+    "@novel-segment/loaders": "^1.0.38",
     "@novel-segment/stream-loader-core": "^1.0.21",
-    "@novel-segment/util": "^1.0.67",
+    "@novel-segment/util": "^1.0.68",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.16",

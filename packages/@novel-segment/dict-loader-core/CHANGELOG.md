@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-segment/compare/@novel-segment/dict-loader-core@1.0.18...@novel-segment/dict-loader-core@1.0.22) (2022-10-29)
+
+
+
+### 🐛　Bug Fixes
+
+* 不明原因導致 lerna 無法成功在 yarn run 內執行 ([1535082](https://github.com/bluelovers/ws-segment/commit/1535082de91806f84be946c2597b57ab5af8ab78))
+
+
+### 📌　Dependencies
+
+* update deps ([95a7d58](https://github.com/bluelovers/ws-segment/commit/95a7d583596b6cb0ecd1c0322258205b9a12af51))
+* update deps ([c1ca140](https://github.com/bluelovers/ws-segment/commit/c1ca140395f246f9c3f10823daed634fb09857cb))
+
+
+### 🔖　Miscellaneous
+
+* . ([51df182](https://github.com/bluelovers/ws-segment/commit/51df182715ea4b4242b4cf96fdebfabbe679b99c))
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-segment/compare/@novel-segment/dict-loader-core@1.0.18...@novel-segment/dict-loader-core@1.0.21) (2022-10-29)
 
 

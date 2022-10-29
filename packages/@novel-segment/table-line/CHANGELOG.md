@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.9](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-line@1.0.7...@novel-segment/table-line@1.0.9) (2022-10-29)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([51df182](https://github.com/bluelovers/ws-segment/commit/51df182715ea4b4242b4cf96fdebfabbe679b99c))
+
+
+
 ## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-line@1.0.7...@novel-segment/table-line@1.0.8) (2022-10-29)
 
 **Note:** Version bump only for package @novel-segment/table-line
