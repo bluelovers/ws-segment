@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/assert",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "keywords": [
     "NLP",
@@ -119,7 +119,6 @@
     "sort-package-json": "yarn-tool sort",
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
-  "dependencies": {},
   "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"

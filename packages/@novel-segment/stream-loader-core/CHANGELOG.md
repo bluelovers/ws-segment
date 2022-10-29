@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-segment/compare/@novel-segment/stream-loader-core@1.0.21...@novel-segment/stream-loader-core@1.0.22) (2022-10-29)
+
+
+
+### 🚨　Tests
+
+* update jest config ([cbce9a2](https://github.com/bluelovers/ws-segment/commit/cbce9a2868e5a0a95fd8f026530c34c9f3930ba0))
+
+
+### 🔖　Miscellaneous
+
+* . ([d078e0e](https://github.com/bluelovers/ws-segment/commit/d078e0ec7e17cee79115db055e7b145d7b48f400))
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-segment/compare/@novel-segment/stream-loader-core@1.0.19...@novel-segment/stream-loader-core@1.0.21) (2022-09-13)
 
 

@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.11](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-synonym@1.0.10...@novel-segment/sort-synonym@1.0.11) (2022-10-29)
+
+
+
+### 🚨　Tests
+
+* update jest config ([cbce9a2](https://github.com/bluelovers/ws-segment/commit/cbce9a2868e5a0a95fd8f026530c34c9f3930ba0))
+
+
+### 🛠　Build System
+
+* update build ([8dccc06](https://github.com/bluelovers/ws-segment/commit/8dccc0621ef86762703e288204cc19d1be65a7bd))
+
+
+### 📌　Dependencies
+
+* update deps ([c1ca140](https://github.com/bluelovers/ws-segment/commit/c1ca140395f246f9c3f10823daed634fb09857cb))
+
+
+### 🔖　Miscellaneous
+
+* . ([d078e0e](https://github.com/bluelovers/ws-segment/commit/d078e0ec7e17cee79115db055e7b145d7b48f400))
+
+
+
 ## [1.0.10](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-synonym@1.0.9...@novel-segment/sort-synonym@1.0.10) (2022-09-13)
 
 

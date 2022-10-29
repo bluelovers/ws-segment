@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.184](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.181...segment-dict@2.3.184) (2022-10-29)
+
+
+
+### 🐛　Bug Fixes
+
+* 不明原因導致 lerna 無法成功在 yarn run 內執行 ([1535082](https://github.com/bluelovers/ws-segment/commit/1535082de91806f84be946c2597b57ab5af8ab78))
+
+
+### 🚨　Tests
+
+* update jest config ([cbce9a2](https://github.com/bluelovers/ws-segment/commit/cbce9a2868e5a0a95fd8f026530c34c9f3930ba0))
+
+
+### 📌　Dependencies
+
+* update deps ([c1ca140](https://github.com/bluelovers/ws-segment/commit/c1ca140395f246f9c3f10823daed634fb09857cb))
+
+
+### 🔖　Miscellaneous
+
+* . ([d078e0e](https://github.com/bluelovers/ws-segment/commit/d078e0ec7e17cee79115db055e7b145d7b48f400))
+* . ([51df182](https://github.com/bluelovers/ws-segment/commit/51df182715ea4b4242b4cf96fdebfabbe679b99c))
+
+
+
 ## [2.3.183](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.181...segment-dict@2.3.183) (2022-10-29)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/stringify",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "keywords": [
     "NLP",
@@ -120,7 +120,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/types": "^1.0.8",
+    "@novel-segment/types": "^1.0.9",
     "ts-type": "^3.0.1"
   },
   "packageManager": "yarn@^1.22.11",

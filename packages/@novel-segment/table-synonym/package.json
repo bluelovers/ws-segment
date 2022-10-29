@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-synonym",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "keywords": [
     "NLP",
@@ -121,7 +121,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/table-synonym-pangu": "^1.0.9"
+    "@novel-segment/table-synonym-pangu": "^1.0.10"
   },
   "packageManager": "yarn@^1.22.11",
   "publishConfig": {

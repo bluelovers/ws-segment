@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.7.99](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.98...novel-segment@2.7.99) (2022-10-29)
+
+
+
+### 🚨　Tests
+
+* update jest config ([cbce9a2](https://github.com/bluelovers/ws-segment/commit/cbce9a2868e5a0a95fd8f026530c34c9f3930ba0))
+
+
+### 📌　Dependencies
+
+* update deps ([95a7d58](https://github.com/bluelovers/ws-segment/commit/95a7d583596b6cb0ecd1c0322258205b9a12af51))
+* update deps ([c1ca140](https://github.com/bluelovers/ws-segment/commit/c1ca140395f246f9c3f10823daed634fb09857cb))
+
+
+### 🔖　Miscellaneous
+
+* . ([d078e0e](https://github.com/bluelovers/ws-segment/commit/d078e0ec7e17cee79115db055e7b145d7b48f400))
+
+
+
 ## [2.7.98](https://github.com/bluelovers/ws-segment/compare/novel-segment@2.7.97...novel-segment@2.7.98) (2022-09-13)
 
 
