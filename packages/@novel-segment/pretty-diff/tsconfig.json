@@ -4,6 +4,7 @@
     "importHelpers": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "noEmit": true
   }
 }

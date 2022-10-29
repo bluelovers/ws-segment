@@ -17,7 +17,7 @@ function stringify(words, ...argv) {
   return stringifyList(words, ...argv).join('');
 }
 
-exports["default"] = stringify;
+exports.default = stringify;
 exports.stringify = stringify;
 exports.stringifyList = stringifyList;
 //# sourceMappingURL=index.cjs.development.cjs.map

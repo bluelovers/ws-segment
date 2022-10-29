@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.65](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.64...@novel-segment/util@1.0.65) (2022-10-29)
+
+
+
+### 📌　Dependencies
+
+* update deps ([c1ca140](https://github.com/bluelovers/ws-segment/commit/c1ca140395f246f9c3f10823daed634fb09857cb))
+
+
+
 ## [1.0.64](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.62...@novel-segment/util@1.0.64) (2022-09-13)
 
 
