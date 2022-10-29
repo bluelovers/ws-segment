@@ -3,7 +3,6 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 exports.EnumDictDatabase = void 0;
-
 (function (EnumDictDatabase) {
   EnumDictDatabase["SYNONYM"] = "SYNONYM";
   EnumDictDatabase["TABLE"] = "TABLE";
