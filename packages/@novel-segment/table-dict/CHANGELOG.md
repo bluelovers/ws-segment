@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.8](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-dict@1.0.7...@novel-segment/table-dict@1.0.8) (2022-10-29)
+
+
+
+### 📌　Dependencies
+
+* update deps ([95a7d58](https://github.com/bluelovers/ws-segment/commit/95a7d583596b6cb0ecd1c0322258205b9a12af51))
+* update deps ([c1ca140](https://github.com/bluelovers/ws-segment/commit/c1ca140395f246f9c3f10823daed634fb09857cb))
+
+
+
 ## [1.0.7](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-dict@1.0.5...@novel-segment/table-dict@1.0.7) (2022-09-13)
 
 

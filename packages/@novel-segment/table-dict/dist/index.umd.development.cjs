@@ -11,11 +11,9 @@
 	  exists(data) {
 	    return super.exists(data);
 	  }
-
 	  __handleInput(data) {
 	    let w, p, f;
 	    let plus;
-
 	    if (typeof data === 'string') {
 	      w = data;
 	    } else if (Array.isArray(data)) {
@@ -27,11 +25,9 @@
 	        f
 	      } = data);
 	    }
-
 	    if (typeof w !== 'string' || w === '') {
 	      throw new TypeError(JSON.stringify(data));
 	    }
-
 	    p = notNum(p) ? 0 : p;
 	    f = notNum(f) ? 0 : f;
 	    return {
@@ -43,33 +39,26 @@
 	      plus
 	    };
 	  }
-
 	  add(data, skipExists) {
-
 	    let w, p, f;
 	    {
 	      let ret = this.__handleInput(data);
-
 	      ({
 	        w,
 	        p,
 	        f
 	      } = ret.data);
 	    }
-
 	    if (skipExists && this.exists(w)) {
 	      return this;
 	    }
-
 	    this._add({
 	      w,
 	      p,
 	      f,
 	      s: true
 	    });
-
 	    let self = this;
-
 	    if (this.options.autoCjk) {
 	      let wa = list.textList(w);
 	      wa.forEach(function (w2) {
@@ -82,10 +71,8 @@
 	        }
 	      });
 	    }
-
 	    return this;
 	  }
-
 	  _add({
 	    w,
 	    p,
@@ -101,18 +88,14 @@
 	    if (!this.TABLE2[len]) this.TABLE2[len] = {};
 	    this.TABLE2[len][w] = this.TABLE[w];
 	  }
-
 	  remove(target) {
 	    let {
 	      data,
 	      plus
 	    } = this.__handleInput(target);
-
 	    this._remove(data);
-
 	    return this;
 	  }
-
 	  _remove({
 	    w,
 	    p,
@@ -121,14 +104,11 @@
 	  }) {
 	    let len = w.length;
 	    delete this.TABLE[w];
-
 	    if (this.TABLE2[len]) {
 	      delete this.TABLE2[len][w];
 	    }
-
 	    return this;
 	  }
-
 	  stringify(LF = "\n") {
 	    let self = this;
 	    return Object.entries(self.TABLE).reduce(function (a, [w, {
@@ -140,11 +120,10 @@
 	      return a;
 	    }, []).join(typeof LF === 'string' ? LF : "\n");
 	  }
-
 	}
 
 	exports.TableDict = TableDict;
-	exports["default"] = TableDict;
+	exports.default = TableDict;
 	exports.notNum = notNum;
 
 	Object.defineProperty(exports, '__esModule', { value: true });

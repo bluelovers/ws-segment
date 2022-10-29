@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loaders",
-  "version": "1.0.36",
+  "version": "1.0.37",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loaders#readme",
   "bugs": {
@@ -34,9 +34,9 @@
     "tsc:esm": "tsc -p tsconfig.esm.json"
   },
   "dependencies": {
-    "@novel-segment/dict-loader-core": "^1.0.20",
-    "@novel-segment/loader-line": "^1.0.21",
-    "@novel-segment/loader-stopword": "^1.0.20",
+    "@novel-segment/dict-loader-core": "^1.0.21",
+    "@novel-segment/loader-line": "^1.0.22",
+    "@novel-segment/loader-stopword": "^1.0.21",
     "@novel-segment/stream-loader-core": "^1.0.21",
     "@novel-segment/types": "^1.0.8",
     "tslib": ">=2"

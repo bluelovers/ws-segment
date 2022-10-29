@@ -1090,12 +1090,12 @@
   resolved "https://registry.npmjs.org/@lazy-random/original-math-random/-/original-math-random-1.0.8.tgz#0886130c73563baee72bb3901fdd58780f313924"
   integrity sha512-k7bbPbyWsgfBJesIUSiVDbJJgKzafd6k4bKbIr29ajU0jnXgx8ZhUrykdGNeCOwHK2C0qs8WhGFtKZMv3jOd3g==
 
-"@lazy-random/preset-seedrandom@^1.0.8":
-  version "1.0.8"
-  resolved "https://registry.npmjs.org/@lazy-random/preset-seedrandom/-/preset-seedrandom-1.0.8.tgz#92663dc8f7857f2d9df7ec3c176fcd20285d496e"
-  integrity sha512-UQ/SpcUHHsFDCSBYQPJh4trNT/aQ0t/QT1KLnxvaJn6B0nyI9XzMVs10kCQnNEQ6/DV1SNnPSOlbMEAd4rMn0Q==
+"@lazy-random/preset-seedrandom@^1.0.9":
+  version "1.0.9"
+  resolved "https://registry.npmjs.org/@lazy-random/preset-seedrandom/-/preset-seedrandom-1.0.9.tgz#bbfa97577ad98a2316c5c805ca508ee0c4fe9ecd"
+  integrity sha512-GafAcJAu+Uqx5wPjcfpLh7tW6Vcit3NbT86uI1ejt5HO91zhcVmlybgrQNz8XD8ifIZVTxRaM8cJqs1HOc3YAA==
   dependencies:
-    random-extra "^4.0.5"
+    random-extra "^4.0.6"
 
 "@lazy-random/random-core@^1.0.5":
   version "1.0.5"
@@ -4236,10 +4236,10 @@ queue-microtask@^1.2.2:
   resolved "https://registry.npmjs.org/queue-microtask/-/queue-microtask-1.2.3.tgz#4929228bbc724dfac43e0efb058caf7b6cfb6243"
   integrity sha512-NuaNSa6flKT5JaSYQzJok04JzTL1CA6aGhv5rfLW3PgqA+M2ChpZQnAC8h8i4ZFkBS8X5RqkDBHA7r4hej3K9A==
 
-random-extra@^4.0.5:
-  version "4.0.5"
-  resolved "https://registry.npmjs.org/random-extra/-/random-extra-4.0.5.tgz#8f5b5079261dcb0df26082a6810631f5c405209c"
-  integrity sha512-OlCAUe+n5vurWTBGL1ZCo/jDNokgpd2bjZrPsgzvPntlYpa5r5z1F/m6VUuU6ek8BoY1IPXv4sfve3WO/Ut3xQ==
+random-extra@^4.0.6:
+  version "4.0.6"
+  resolved "https://registry.npmjs.org/random-extra/-/random-extra-4.0.6.tgz#ba645ab5f22eb0a21addba1a4b7f520b523c65e5"
+  integrity sha512-F2fjmPVKks6EmNXc7k+gp8acyUsRk4uiDHYPg21XsgTjbiamlGY+61DII6J1poKDgFoQFU8mzQU88ESPOaciiA==
   dependencies:
     "@lazy-random/clone-class" "^1.0.9"
     "@lazy-random/random-core" "^1.0.5"

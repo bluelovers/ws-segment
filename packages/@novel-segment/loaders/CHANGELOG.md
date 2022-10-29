@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.37](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.35...@novel-segment/loaders@1.0.37) (2022-10-29)
+
+
+
+### 🐛　Bug Fixes
+
+* 不明原因導致 lerna 無法成功在 yarn run 內執行 ([1535082](https://github.com/bluelovers/ws-segment/commit/1535082de91806f84be946c2597b57ab5af8ab78))
+
+
+
 ## [1.0.36](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loaders@1.0.35...@novel-segment/loaders@1.0.36) (2022-10-29)
 
 **Note:** Version bump only for package @novel-segment/loaders

@@ -9,7 +9,6 @@ var index = require('@novel-segment/loaders/segment/index');
 
 function sortLines(lines, file, options) {
   var _options$cbIgnore;
-
   const cbIgnore = (_options$cbIgnore = options === null || options === void 0 ? void 0 : options.cbIgnore) !== null && _options$cbIgnore !== void 0 ? _options$cbIgnore : () => {};
   const list = utilCompare.handleDictLines(lines, function (list, cur) {
     cur.file = file;
@@ -17,12 +16,10 @@ function sortLines(lines, file, options) {
     let cjk_id = util.getCjkName(w, utilCompare.USE_CJK_MODE);
     cur.cjk_id = cjk_id;
     cur.line_type = utilCompare.chkLineType(cur.line);
-
     if (cur.line_type === 1) {
       cbIgnore(cur);
       return false;
     }
-
     return true;
   }, {
     parseFn: index.parseLine
@@ -39,14 +36,13 @@ function SortList(ls) {
     } else if (a.line_type === 1 || b.line_type === 1) {
       return a.index - b.index;
     }
-
     let ret = util.zhDictCompare(a.cjk_id, b.cjk_id) || a.index - b.index || 0;
     return ret;
   });
 }
 
 exports.SortList = SortList;
-exports["default"] = sortLines;
+exports.default = sortLines;
 exports.loadFile = loadFile;
 exports.sortLines = sortLines;
 //# sourceMappingURL=index.cjs.development.cjs.map
