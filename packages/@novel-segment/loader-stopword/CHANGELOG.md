@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.23...@novel-segment/loader-stopword@1.0.24) (2022-11-20)
+
+**Note:** Version bump only for package @novel-segment/loader-stopword
+
+
+
+
+
 ## [1.0.23](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.18...@novel-segment/loader-stopword@1.0.23) (2022-10-29)
 
 
