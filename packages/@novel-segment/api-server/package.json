@@ -20,6 +20,7 @@
     "lint": "npx eslint **/*.ts",
     "test": "echo \"Error: no test specified\"",
     "test:jest": "jest --passWithNoTests",
+    "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test:snapshot": "yarn run test -- -u",
     "test:tsd": "ynpx tsd",
@@ -35,7 +36,8 @@
     "now-deploy": "yarn run now-build:run && ynpx vercel deploy",
     "sort-package-json": "npx yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
-    "tsc:esm": "tsc -p tsconfig.esm.json"
+    "tsc:esm": "tsc -p tsconfig.esm.json",
+    "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
     "cors": "^2.8.5",
@@ -50,7 +52,7 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.99",
+    "novel-segment": "^2.7.100",
     "vercel": "^28.5.5"
   },
   "engines": {
