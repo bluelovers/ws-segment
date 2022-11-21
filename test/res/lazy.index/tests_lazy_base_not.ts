@@ -915,6 +915,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'正在重新建立到伺服器的连接',
+		[
+			['新建'],
+		],
+	],
+
+	[
+		'伺服器 {0} 沒有響應。{1} 正在嘗試重新建立與其的連接。某些執行結果可能會丟失。',
+		[
+			['新建'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
