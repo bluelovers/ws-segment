@@ -100,7 +100,7 @@
     "build:dts:copy": "copy .\\src\\index.d.ts .\\dist\\index.d.ts & echo build:dts",
     "build:dts:tsc": "tsc --emitDeclarationOnly --declaration --noEmit false",
     "build:microbundle": "ynpx microbundle --target node",
-    "build:tsdx": "ynpx @bluelovers/tsdx build --target node --name index",
+    "build:tsdx": "tsdx build --target node --name index",
     "ci:install": "echo ci:install",
     "ci:build": "echo ci:build",
     "preversion": "echo preversion && yarn run test",

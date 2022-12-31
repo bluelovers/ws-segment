@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.3.186",
+  "version": "2.3.187",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -95,9 +95,9 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@novel-segment/dict-loader-core": "^1.0.25",
-    "@novel-segment/loader-stopword": "^1.0.25",
-    "@novel-segment/loaders": "^1.0.42",
+    "@novel-segment/dict-loader-core": "^1.0.26",
+    "@novel-segment/loader-stopword": "^1.0.26",
+    "@novel-segment/loaders": "^1.0.43",
     "@novel-segment/stream-loader-core": "^1.0.23",
     "@novel-segment/util": "^1.0.70",
     "bluebird": "^3.7.2",

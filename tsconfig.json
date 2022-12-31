@@ -2,6 +2,7 @@
   "extends": "@bluelovers/tsconfig/esm/mapfile.json",
   "compilerOptions": {
     "importHelpers": true,
-    "noPropertyAccessFromIndexSignature": false
+    "noPropertyAccessFromIndexSignature": false,
+    "moduleResolution": "node16"
   }
 }
