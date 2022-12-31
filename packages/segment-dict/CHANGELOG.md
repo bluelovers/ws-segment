@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.188](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.186...segment-dict@2.3.188) (2022-12-31)
+
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([b1906a8](https://github.com/bluelovers/ws-segment/commit/b1906a83d10c159740905a163ac2983fe5d04a9e))
+
+
+### 🔖　Miscellaneous
+
+* . ([bfb0ea0](https://github.com/bluelovers/ws-segment/commit/bfb0ea03e19dab3229aad4f8c33be5ee7bae3b73))
+* **dict:** 更新多個用於 idea-l10n-zht 的字典 ([b00451c](https://github.com/bluelovers/ws-segment/commit/b00451c514db759dc48c2804aaa9789b692b0b0e))
+
+
+
 ## [2.3.187](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.186...segment-dict@2.3.187) (2022-12-31)
 
 
