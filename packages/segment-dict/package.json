@@ -106,7 +106,7 @@
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.99"
+    "novel-segment": "^2.7.102"
   },
   "gitHead": "b53ee34cb7a1abaf060f872ed0030effdc50e1ec"
 }

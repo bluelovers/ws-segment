@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@bluelovers/string-natural-compare": "^2.0.11",
-    "regexp-helper": "^1.0.36",
+    "regexp-helper": "^1.0.37",
     "tslib": ">=2"
   },
   "peerDependencies": {
