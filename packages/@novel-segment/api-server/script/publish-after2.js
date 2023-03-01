@@ -13,7 +13,8 @@ const path_2 = require("path");
     let gitroot = (0, git_root2_1.default)(__dirname);
     let project_root = (0, path_2.join)(__dirname, '..');
     if (!gitroot || path_1.default.relative(gitroot, project_root)) {
-        let __root_ws = await Promise.resolve().then(() => tslib_1.__importStar(require('../../../../__root_ws'))).then(m => m.__root_ws)
+        let __root_ws = await import('../../../../__root_ws')
+            .then(m => m.__root_ws)
             .catch(e => null);
         if (!__root_ws || path_1.default.relative(gitroot, __root_ws)) {
             console.warn(`no git exists`);
