@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loaders",
-  "version": "1.0.44",
+  "version": "1.0.45",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loaders#readme",
   "bugs": {
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@novel-segment/dict-loader-core": "^1.0.27",
-    "@novel-segment/loader-line": "^1.0.28",
+    "@novel-segment/loader-line": "^1.0.30",
     "@novel-segment/loader-stopword": "^1.0.27",
     "@novel-segment/stream-loader-core": "^1.0.23",
     "@novel-segment/types": "^1.0.11",
