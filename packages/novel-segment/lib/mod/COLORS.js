@@ -784,7 +784,7 @@ var _COLORS;
         return data;
     }
     _COLORS.p = p;
-})(_COLORS = exports._COLORS || (exports._COLORS = {}));
+})(_COLORS || (exports._COLORS = _COLORS = {}));
 exports.COLOR_HAIR = _COLORS.p(_COLORS.COLOR_HAIR);
 exports.COLOR_ALL = _COLORS.p(_COLORS.COLOR_ALL);
 exports.default = exports;

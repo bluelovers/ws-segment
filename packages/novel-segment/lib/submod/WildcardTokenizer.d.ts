@@ -29,6 +29,6 @@ export declare class WildcardTokenizer extends SubSModuleTokenizer {
      */
     matchWord(text: string, cur?: number): IWord[];
 }
-export declare const init: ISubTokenizerCreate<WildcardTokenizer, SubSModuleTokenizer>;
+export declare const init: ISubTokenizerCreate<WildcardTokenizer>;
 export declare const type = "tokenizer";
 export default WildcardTokenizer;

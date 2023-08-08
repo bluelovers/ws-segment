@@ -148,6 +148,6 @@ var POSTAG;
      * 未知词性
      */
     POSTAG[POSTAG["UNK"] = 0] = "UNK";
-})(POSTAG = exports.POSTAG || (exports.POSTAG = {}));
+})(POSTAG || (exports.POSTAG = POSTAG = {}));
 exports.default = POSTAG;
 //# sourceMappingURL=ids.js.map

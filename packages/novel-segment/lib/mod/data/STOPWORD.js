@@ -48,7 +48,7 @@ var NS_STOPWORD;
         };
     }
     NS_STOPWORD.parseStopWord = parseStopWord;
-})(NS_STOPWORD = exports.NS_STOPWORD || (exports.NS_STOPWORD = {}));
+})(NS_STOPWORD || (exports.NS_STOPWORD = NS_STOPWORD = {}));
 exports._STOPWORD = NS_STOPWORD._STOPWORD, exports.STOPWORD = NS_STOPWORD.STOPWORD, exports.STOPWORD2 = NS_STOPWORD.STOPWORD2;
 exports.default = exports;
 //# sourceMappingURL=STOPWORD.js.map

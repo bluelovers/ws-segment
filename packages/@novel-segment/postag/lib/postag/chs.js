@@ -39,6 +39,6 @@ var CHSNAME;
     CHSNAME["D_K"] = "\u540E\u63A5\u6210\u5206";
     CHSNAME["URL"] = "\u7F51\u5740 \u90AE\u7BB1\u5730\u5740";
     CHSNAME["UNK"] = "\u672A\u77E5";
-})(CHSNAME = exports.CHSNAME || (exports.CHSNAME = {}));
+})(CHSNAME || (exports.CHSNAME = CHSNAME = {}));
 exports.default = CHSNAME;
 //# sourceMappingURL=chs.js.map

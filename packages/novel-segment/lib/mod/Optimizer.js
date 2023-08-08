@@ -26,12 +26,12 @@ let SubSModuleOptimizer = class SubSModuleOptimizer extends mod_1.SubSModule {
         return super.init(segment, ...argv);
     }
 };
+exports.SubSModuleOptimizer = SubSModuleOptimizer;
 SubSModuleOptimizer.type = 'optimizer';
-SubSModuleOptimizer = tslib_1.__decorate([
+exports.SubSModuleOptimizer = SubSModuleOptimizer = tslib_1.__decorate([
     core_decorators_1.autobind
     // @ts-ignore
 ], SubSModuleOptimizer);
-exports.SubSModuleOptimizer = SubSModuleOptimizer;
 /**
  * 分词模块管理器
  */

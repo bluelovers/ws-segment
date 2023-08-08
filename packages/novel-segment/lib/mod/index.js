@@ -80,7 +80,7 @@ var ENUM_SUBMODS;
      */
     ENUM_SUBMODS["ZhtSynonymOptimizer"] = "ZhtSynonymOptimizer";
     ENUM_SUBMODS["AdjectiveOptimizer"] = "AdjectiveOptimizer";
-})(ENUM_SUBMODS = exports.ENUM_SUBMODS || (exports.ENUM_SUBMODS = {}));
+})(ENUM_SUBMODS || (exports.ENUM_SUBMODS = ENUM_SUBMODS = {}));
 /**
  * 不包含在預設模組列表內 需要手動指定
  */
@@ -90,7 +90,7 @@ var ENUM_SUBMODS_OTHER;
      * 单字切分模块
      */
     ENUM_SUBMODS_OTHER["SingleTokenizer"] = "SingleTokenizer";
-})(ENUM_SUBMODS_OTHER = exports.ENUM_SUBMODS_OTHER || (exports.ENUM_SUBMODS_OTHER = {}));
+})(ENUM_SUBMODS_OTHER || (exports.ENUM_SUBMODS_OTHER = ENUM_SUBMODS_OTHER = {}));
 exports.LIST_SUBMODS_NOT_DEF = [
     ENUM_SUBMODS.ZhtSynonymOptimizer,
 ];

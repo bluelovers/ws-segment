@@ -88,10 +88,10 @@ let LoaderClass = class LoaderClass {
         return stream;
     }
 };
-LoaderClass = tslib_1.__decorate([
+exports.LoaderClass = LoaderClass;
+exports.LoaderClass = LoaderClass = tslib_1.__decorate([
     core_decorators_1.autobind,
     tslib_1.__metadata("design:paramtypes", [Object, Object])
 ], LoaderClass);
-exports.LoaderClass = LoaderClass;
 exports.default = LoaderClass;
 //# sourceMappingURL=index.js.map

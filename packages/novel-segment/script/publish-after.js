@@ -13,10 +13,10 @@ const index = require("../index");
 (async () => {
     let crossSpawn;
     // @ts-ignore
-    crossSpawn = await import('cross-spawn-extra');
+    crossSpawn = await Promise.resolve().then(() => tslib_1.__importStar(require('cross-spawn-extra')));
     let gitroot;
     // @ts-ignore
-    gitroot = await import('git-root2').then(m => m.sync);
+    gitroot = await Promise.resolve().then(() => tslib_1.__importStar(require('git-root2'))).then(m => m.sync);
     // @ts-ignore
     gitroot = gitroot(__dirname);
     if (!gitroot || path.relative(gitroot, project_config_1.default.project_root)) {

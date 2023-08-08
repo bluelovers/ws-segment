@@ -38,6 +38,6 @@ var ENNAME;
     ENNAME["D_K"] = "k";
     ENNAME["URL"] = "uri";
     ENNAME["UNK"] = "un";
-})(ENNAME = exports.ENNAME || (exports.ENNAME = {}));
+})(ENNAME || (exports.ENNAME = ENNAME = {}));
 exports.default = ENNAME;
 //# sourceMappingURL=en.js.map

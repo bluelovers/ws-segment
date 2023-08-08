@@ -11,7 +11,7 @@ var EnumSortCompareOrder;
     EnumSortCompareOrder[EnumSortCompareOrder["KEEP"] = 0] = "KEEP";
     EnumSortCompareOrder[EnumSortCompareOrder["DOWN"] = 1] = "DOWN";
     EnumSortCompareOrder[EnumSortCompareOrder["UP"] = -1] = "UP";
-})(EnumSortCompareOrder = exports.EnumSortCompareOrder || (exports.EnumSortCompareOrder = {}));
+})(EnumSortCompareOrder || (exports.EnumSortCompareOrder = EnumSortCompareOrder = {}));
 /**
  * @private
  */

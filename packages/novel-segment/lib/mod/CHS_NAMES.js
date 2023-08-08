@@ -115,7 +115,7 @@ var _CHS_NAMES;
         return data;
     }
     _CHS_NAMES.p = p;
-})(_CHS_NAMES = exports._CHS_NAMES || (exports._CHS_NAMES = {}));
+})(_CHS_NAMES || (exports._CHS_NAMES = _CHS_NAMES = {}));
 /**
  * 单姓
  */

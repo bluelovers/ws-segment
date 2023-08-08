@@ -39,6 +39,6 @@ var ZHNAME;
     ZHNAME["D_K"] = "\u5F8C\u63A5\u6210\u5206";
     ZHNAME["URL"] = "\u7DB2\u5740 \u90F5\u7BB1\u5730\u5740";
     ZHNAME["UNK"] = "\u672A\u77E5";
-})(ZHNAME = exports.ZHNAME || (exports.ZHNAME = {}));
+})(ZHNAME || (exports.ZHNAME = ZHNAME = {}));
 exports.default = ZHNAME;
 //# sourceMappingURL=cht.js.map
