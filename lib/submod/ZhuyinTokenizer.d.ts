@@ -11,6 +11,6 @@ export declare class ZhuyinTokenizer extends SubSModuleTokenizer {
     split(words: IWord[]): IWord[];
     splitZhuyin(text: string, cur?: number): IWord[];
 }
-export declare const init: ISubTokenizerCreate<ZhuyinTokenizer, SubSModuleTokenizer>;
+export declare const init: ISubTokenizerCreate<ZhuyinTokenizer>;
 export declare const type = "tokenizer";
 export default ZhuyinTokenizer;

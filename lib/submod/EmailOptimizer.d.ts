@@ -27,6 +27,6 @@ export declare class EmailOptimizer extends SubSModuleOptimizer {
      */
     toEmailAddress(words: IWord[]): string;
 }
-export declare const init: ISubOptimizerCreate<EmailOptimizer, SubSModuleOptimizer>;
+export declare const init: ISubOptimizerCreate<EmailOptimizer>;
 export declare const type = "optimizer";
 export default EmailOptimizer;
