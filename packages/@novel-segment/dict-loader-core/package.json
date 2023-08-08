@@ -39,7 +39,7 @@
   "dependencies": {
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.18",
+    "crlf-normalize": "^1.0.19",
     "tslib": ">=2"
   },
   "publishConfig": {
