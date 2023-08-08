@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-core-abstract",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "",
   "keywords": [
     "NLP",
@@ -121,7 +121,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/loaders": "^1.0.45",
+    "@novel-segment/loaders": "^1.0.46",
     "@novel-segment/types": "^1.0.11",
     "lodash": "^4.17.21",
     "ts-type": "^3.0.1"
