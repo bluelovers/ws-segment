@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-synonym@1.0.12...@novel-segment/table-synonym@1.0.13) (2023-08-27)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([2c86dfd](https://github.com/bluelovers/ws-segment/commit/2c86dfd6b17559ebd55eb2b73bdf96c6fb825a5d))
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-synonym@1.0.11...@novel-segment/table-synonym@1.0.12) (2023-08-08)
 
 **Note:** Version bump only for package @novel-segment/table-synonym

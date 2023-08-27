@@ -1,6 +1,6 @@
 {
   "name": "novel-segment-cli",
-  "version": "1.1.123",
+  "version": "1.1.124",
   "description": "cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/novel-segment-cli#readme",
   "bugs": {
@@ -51,7 +51,7 @@
     "iconv-jschardet": "^2.0.32",
     "lazy-cacache": "^3.0.2",
     "lodash": "^4.17.21",
-    "novel-segment": "^2.7.105",
+    "novel-segment": "^2.7.106",
     "pkg-up": "<4 >=3.1.0",
     "prettyuse": "^0.0.0",
     "ts-type": "^3.0.1",
