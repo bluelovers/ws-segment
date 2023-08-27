@@ -52,7 +52,7 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.104",
+    "novel-segment": "^2.7.105",
     "vercel": "^31.2.2"
   },
   "engines": {
