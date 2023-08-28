@@ -28,15 +28,24 @@ exports.default = (async () => {
         a.push(b[0]);
         return a;
     }, []);
-    console.log(list2);
+    console.log({
+        list,
+        list2,
+        list3,
+    });
     if (list3.length) {
-        let cp = await cross_spawn_extra_1.default.async('lerna', [
-            `run`,
+        const argv = [
+            `ws`,
+            `exec`,
             ...list3.map(v => `--scope=${v}`),
             `--concurrency`,
             1,
+            `yarn`,
+            `run`,
             `version`,
-        ], {
+        ];
+        console.log('lerna', argv.join(' '));
+        let cp = await cross_spawn_extra_1.default.async('yarn-tool', argv, {
             cwd,
             stdio: 'inherit',
         });

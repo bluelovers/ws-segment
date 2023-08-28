@@ -41,17 +41,28 @@ export default (async () => {
 		return a
 	}, [] as string[])
 
-	console.log(list2)
+	console.log({
+		list,
+		list2,
+		list3,
+	})
 
 	if (list3.length)
 	{
-		let cp = await crossSpawnExtra.async('lerna', [
-			`run`,
+		const argv = [
+			`ws`,
+			`exec`,
 			...list3.map(v => `--scope=${v}`),
 			`--concurrency`,
 			1,
+			`yarn`,
+			`run`,
 			`version`,
-		], {
+		];
+
+		console.log('lerna', argv.join(' '))
+
+		let cp = await crossSpawnExtra.async('yarn-tool', argv, {
 			cwd,
 			stdio: 'inherit',
 		})
