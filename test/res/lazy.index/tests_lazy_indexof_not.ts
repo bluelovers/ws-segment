@@ -122,6 +122,21 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		]
 	],
 
+	[
+		'不论那副姿态有多么不堪入目',
+		[
+			'么',
+		]
+	],
+
+	[
+		'钢铁制面具隐藏的嘴部现形了',
+		[
+			'制',
+			'麵',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof_not
