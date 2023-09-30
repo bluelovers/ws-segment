@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loaders",
-  "version": "1.0.47",
+  "version": "1.0.48",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loaders#readme",
   "bugs": {
@@ -37,11 +37,11 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/dict-loader-core": "^1.0.28",
-    "@novel-segment/loader-line": "^1.0.31",
-    "@novel-segment/loader-stopword": "^1.0.28",
-    "@novel-segment/stream-loader-core": "^1.0.24",
-    "@novel-segment/types": "^1.0.11",
+    "@novel-segment/dict-loader-core": "^1.0.29",
+    "@novel-segment/loader-line": "^1.0.32",
+    "@novel-segment/loader-stopword": "^1.0.29",
+    "@novel-segment/stream-loader-core": "^1.0.25",
+    "@novel-segment/types": "^1.0.12",
     "tslib": ">=2"
   },
   "publishConfig": {
