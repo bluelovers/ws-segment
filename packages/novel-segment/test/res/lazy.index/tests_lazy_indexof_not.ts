@@ -137,6 +137,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		]
 	],
 
+	[
+		'，人类根本干不出这种事这样？',
+		[
+			'干',
+		]
+	],
+
 ];
 
 export default tests_lazy_indexof_not
