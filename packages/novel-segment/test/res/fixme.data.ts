@@ -132,6 +132,13 @@ export const tests_fixme_base: typeof tests_lazy_index['tests_lazy_base'] = [
 		],
 	],
 
+	[
+		'谁教我自豪的亮栗色美发这会儿焦得跟烤栗子没两样',
+		[
+			['自豪', '自豪的'],
+		],
+	],
+
 ];
 
 export const tests_fixme_base_not: typeof tests_lazy_index['tests_lazy_base_not'] = [
@@ -1214,6 +1221,13 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 		'确认周围没有人影后，',
 		[
 			'後',
+		],
+	],
+
+	[
+		'在新皇帝两年前于欧弁查卡即位，',
+		[
+			'於',
 		],
 	],
 

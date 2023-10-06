@@ -95,14 +95,9 @@ console.time(`doSegment`);
 
 let text = `
 
-蚝仔煎
-蚵仔煎
-蛤蠣
-蛤蜊
-蛤仔
+穿透发间
 
-臺灣閩南語羅馬字拼音方案（台羅字：Tâi-uân Bân-lâm-gí Lô-má-jī Phing-im Hong-àn，白話字：Tâi-oân Bân-lâm-gú Lô-má-jī Pheng-im Hong-àn），又稱臺羅（TL）、臺羅字（TLJ）、新白話字（SPOJ）[1]、教育部羅馬字（KIP）、臺羅拼音（TLPI），為中華民國教育部公布的臺灣話羅馬字方案。
-
+在心中如此发念
 
 `;
 

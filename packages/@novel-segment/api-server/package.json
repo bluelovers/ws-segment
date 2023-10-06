@@ -27,7 +27,7 @@
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
     "postpublish_": "git commit -m \"publish new version\" .",
-    "postpublish:commit": "ts-node ./script/publish-after2.ts",
+    "postpublish:commit": "tsx ./script/publish-after2.ts",
     "postpublish:done": "yarn run now-deploy",
     "ncu": "npx yarn-tool ncu -u",
     "now-build": "yarn run now-build:install && yarn run now-build:run",
@@ -52,7 +52,7 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.108",
+    "novel-segment": "^2.7.111",
     "vercel": "^31.2.2"
   },
   "engines": {

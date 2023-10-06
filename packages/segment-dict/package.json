@@ -86,9 +86,9 @@
     "ncu": "yarn-tool ncu -u",
     "sort:all": "yarn run sort:all:before && yarn run sort:list:synonym & yarn run sort:dict:synonym & yarn run sort:line",
     "sort:all:before": "git commit -m \"chore(dict): save dict before sort:all\" ./dict & echo \"sort:all:before\"",
-    "sort:dict:synonym": "ts-node ./script/sort.dict_synonym.ts",
-    "sort:line": "ts-node ./script/sort-line.ts",
-    "sort:list:synonym": "ts-node ./script/sort_list_synonym.ts",
+    "sort:dict:synonym": "tsx ./script/sort.dict_synonym.ts",
+    "sort:line": "tsx ./script/sort-line.ts",
+    "sort:list:synonym": "tsx ./script/sort_list_synonym.ts",
     "sort-package-json": "yarn-tool sort",
     "task:do-split": "yarn run task:do-split:commit && ts-node ./test/sort.ts",
     "task:do-split:commit": "git commit -m \"chore(dict): save dict before split\" ./dict & echo \"save dict\""

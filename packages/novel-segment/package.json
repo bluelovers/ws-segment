@@ -74,7 +74,7 @@
   "scripts": {
     "coverage": "yarn run test -- --coverage",
     "test": "yarn run local-delete-cache-db && yarn run test-ts && yarn run test-fixme && yarn run test:jest",
-    "test-fixme": "ts-node ./test/chk-fixme",
+    "test-fixme": "tsx ./test/chk-fixme",
     "test:jest": "jest",
     "test:jest:snapshot": "yarn run test:jest -- -u",
     "test-js": "npx mocha \"!(node_modules)/**/*.test.js\"",
@@ -89,7 +89,7 @@
     "postpublish2": "yarn run build:sort:stringify:cache && node ./script/publish-after2",
     "postpublish:done": "echo postpublish:done",
     "postpublishOnly:add": "npx yarn-tool root run postpublishOnly:add novel-segment @novel-segment/api-server",
-    "local-delete-cache-db": "ts-node ./test/lib/delete-cache.ts",
+    "local-delete-cache-db": "tsx ./test/lib/delete-cache.ts",
     "ncu": "yarn-tool ncu -u",
     "sort-package-json": "yarn-tool sort"
   },
