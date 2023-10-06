@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/loader-line",
-  "version": "1.0.32",
+  "version": "1.0.33",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/loader-line#readme",
   "bugs": {
@@ -37,7 +37,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/dict-loader-core": "^1.0.29",
+    "@novel-segment/dict-loader-core": "^1.0.30",
     "tslib": ">=2"
   },
   "publishConfig": {

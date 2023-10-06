@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.198](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.197...segment-dict@2.3.198) (2023-10-06)
+
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([0684ce3](https://github.com/bluelovers/ws-segment/commit/0684ce3c6cde1a73892cad5b0367f0712071aad8))
+
+
+### 🔖　Miscellaneous
+
+* . ([dbff0a5](https://github.com/bluelovers/ws-segment/commit/dbff0a57fa8c30afd54c1193b888cbbb4a397aa2))
+* . ([df2eded](https://github.com/bluelovers/ws-segment/commit/df2eded168a5c0ddb0c16f7bad605ef8fb746e0d))
+* npm publish 2.3.197 ([8cd8163](https://github.com/bluelovers/ws-segment/commit/8cd8163295995ed4a424eeb51b1c9cda8b78165a))
+
+
+
 ## [2.3.197](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.196...segment-dict@2.3.197) (2023-09-30)
 
 **Note:** Version bump only for package segment-dict
