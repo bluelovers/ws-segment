@@ -167,6 +167,7 @@
     "str-util": "^2.3.39",
     "string-natural-compare": "^3.0.1",
     "transliteration": "^2.3.5",
+    "ts-mocha": "^10.0.0",
     "uni-string": "^2.0.5",
     "upath2": "^3.1.19",
     "ws-pkg-list": "^2.0.14"
