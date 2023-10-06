@@ -929,6 +929,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'，尝试用眼睛与嘴唇的动作对话。',
+		[
+			['试用'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

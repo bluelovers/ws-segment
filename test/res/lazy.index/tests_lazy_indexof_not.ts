@@ -144,6 +144,20 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		]
 	],
 
+	[
+		'和庵彼此搏命相斗，会操控火焰的男人。',
+		[
+			'斗',
+		],
+	],
+
+	[
+		'。我干我该干的就对了。」',
+		[
+			'干',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not

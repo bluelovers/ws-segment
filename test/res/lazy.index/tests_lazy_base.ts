@@ -597,6 +597,20 @@ export const tests_lazy_base: [string, Parameters<typeof lazyMatch>['1'], Parame
 		],
 	],
 
+	[
+		'原本整齐的长发散乱无章，',
+		[
+			['长髮'],
+		],
+	],
+
+	[
+		'，有如云海弥漫的绝景尽收眼底吧。',
+		[
+			['云海', '雲海'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base
