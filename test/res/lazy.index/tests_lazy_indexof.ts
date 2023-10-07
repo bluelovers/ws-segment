@@ -5800,6 +5800,20 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'，照亮干草铺成的床铺。',
+		[
+			'乾',
+		],
+	],
+
+	[
+		'没办法多嘴干预其他的骑士团呀。」',
+		[
+			'干',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof
