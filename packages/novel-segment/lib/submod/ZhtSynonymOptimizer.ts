@@ -573,7 +573,7 @@ export class ZhtSynonymOptimizer extends SubSModuleOptimizer
 						bool = true;
 					}
 				}
-				else if (w1.p & POSTAG.D_V && /^干(.)$/.test(w1.w))
+				else if (0 && w1.p & POSTAG.D_V && /^干(.)$/.test(w1.w))
 				{
 					/**
 					 * @todo 需要更嚴謹的判斷方式

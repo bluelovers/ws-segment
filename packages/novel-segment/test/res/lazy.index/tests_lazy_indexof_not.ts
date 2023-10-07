@@ -158,6 +158,13 @@ export const tests_lazy_indexof_not: [string, Parameters<typeof lazyMatchSynonym
 		],
 	],
 
+	[
+		'，让我沉溺在你们两人的温柔乡里吧。」',
+		[
+			'里',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof_not

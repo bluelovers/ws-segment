@@ -26,13 +26,13 @@
     "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "yarn run test",
+    "version": "echo version",
     "postpublish_": "git commit -m \"publish new version\" .",
     "postpublish:commit": "tsx ./script/publish-after2.ts",
     "postpublish:done": "yarn run now-deploy",
     "ncu": "yarn-tool ncu -u",
     "now-build": "yarn run now-build:install && yarn run now-build:run",
     "now-build:install": "yarn add novel-segment vercel",
-    "version": "echo version",
     "now-build:run": "node ./build.js",
     "now-deploy": "yarn run now-build:run && ynpx vercel deploy",
     "sort-package-json": "yarn-tool sort",
@@ -53,7 +53,7 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.111",
+    "novel-segment": "^2.7.112",
     "vercel": "^31.2.2"
   },
   "engines": {
