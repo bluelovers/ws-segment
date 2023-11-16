@@ -936,6 +936,13 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'让孤儿在镇上当义工',
+		[
+			['上当'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not
