@@ -36,6 +36,7 @@ function handleDictLines(lines, fn, options) {
       index
     };
     if (fn) {
+      // @ts-ignore
       bool = fn(a, cur);
     } else {
       bool = true;
@@ -48,6 +49,7 @@ function handleDictLines(lines, fn, options) {
 }
 function loadDictFile(file, fn, options) {
   options = options || {};
+  // @ts-ignore
   const parseFn = options.parseFn = options.parseFn || index.parseLine;
   return loaderLine.load(file).then(function (b) {
     return handleDictLines(b, fn, {
@@ -56,13 +58,14 @@ function loadDictFile(file, fn, options) {
   });
 }
 function chkLineType(line) {
-  let ret = 0;
+  let ret = 0 /* EnumLineType.BASE */;
   if (line.indexOf('//') == 0) {
-    ret = 1;
+    ret = 1 /* EnumLineType.COMMENT */;
     if (/^\/\/ +(?:\@todo|格式\:)/i.test(line)) {
-      ret = 2;
+      ret = 2 /* EnumLineType.COMMENT_TAG */;
     }
   }
+
   return ret;
 }
 
