@@ -16,12 +16,13 @@ function sortLines(lines, file, options) {
     let cjk_id = util.getCjkName(w, utilCompare.USE_CJK_MODE);
     cur.cjk_id = cjk_id;
     cur.line_type = utilCompare.chkLineType(cur.line);
-    if (cur.line_type === 1) {
+    if (cur.line_type === 1 /* EnumLineType.COMMENT */) {
       cbIgnore(cur);
       return false;
     }
     return true;
   }, {
+    // @ts-ignore
     parseFn: index.parseLine
   });
   return SortList(list);
@@ -31,9 +32,9 @@ function loadFile(file, options) {
 }
 function SortList(ls) {
   return ls.sort(function (a, b) {
-    if (a.line_type === 2 || b.line_type === 2) {
+    if (a.line_type === 2 /* EnumLineType.COMMENT_TAG */ || b.line_type === 2 /* EnumLineType.COMMENT_TAG */) {
       return a.index - b.index;
-    } else if (a.line_type === 1 || b.line_type === 1) {
+    } else if (a.line_type === 1 /* EnumLineType.COMMENT */ || b.line_type === 1 /* EnumLineType.COMMENT */) {
       return a.index - b.index;
     }
     let ret = util.zhDictCompare(a.cjk_id, b.cjk_id) || a.index - b.index || 0;

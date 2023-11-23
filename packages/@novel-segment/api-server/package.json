@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/api-server",
-  "version": "1.0.72",
+  "version": "1.0.73",
   "private": true,
   "description": "simple segment api server",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/api-server#readme",
@@ -48,13 +48,13 @@
     "tslib": ">=2"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.16",
+    "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
     "novel-segment": "^2.7.113",
-    "vercel": "^32.5.5"
+    "vercel": "^32.5.6"
   },
   "engines": {
     "node": ">=10"

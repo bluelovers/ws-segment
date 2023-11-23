@@ -6,10 +6,17 @@ var index = require('@novel-segment/loaders/segment/index');
 var list = require('@lazy-cjk/zh-table-list/list');
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
 
+/**
+ * Created by user on 2018/4/15/015.
+ */
 function notNum(val) {
   return typeof val !== 'number' || Number.isNaN(val);
 }
+/**
+ * @todo 掛接其他 dict
+ */
 class TableDict extends tableCoreAbstract.AbstractTableDictCore {
+  //override options: IOptions;
   exists(data) {
     return super.exists(data);
   }
@@ -61,6 +68,10 @@ class TableDict extends tableCoreAbstract.AbstractTableDictCore {
       s: true
     });
     let self = this;
+    /**
+     * @todo 需要更聰明的作法 目前的做法實在太蠢
+     * @BUG 在不明原因下 似乎不會正確的添加每個項目 如果遇到這種情形請手動添加簡繁項目
+     */
     if (this.options.autoCjk) {
       let wa = list.textList(w);
       wa.forEach(function (w2) {
@@ -72,7 +83,29 @@ class TableDict extends tableCoreAbstract.AbstractTableDictCore {
           });
         }
       });
+      /*
+      let w2: string;
+      w2 = CjkConv.zh2jp(w);
+       if (w2 != w && !this.exists(w2))
+      {
+          this._add({w: w2, p, f});
+          //console.log(w2);
+      }
+       w2 = CjkConv.cjk2zht(w);
+       if (w2 !== w && !this.exists(w2))
+      {
+          this._add({w: w2, p, f});
+          //console.log(w2);
+      }
+       w2 = CjkConv.cjk2zhs(w);
+       if (w2 !== w && !this.exists(w2))
+      {
+          this._add({w: w2, p, f});
+          //console.log(w2);
+      }
+      */
     }
+
     return this;
   }
   _add({
@@ -111,6 +144,9 @@ class TableDict extends tableCoreAbstract.AbstractTableDictCore {
     }
     return this;
   }
+  /**
+   * 將目前的 表格 匯出
+   */
   stringify(LF = "\n") {
     let self = this;
     return Object.entries(self.TABLE).reduce(function (a, [w, {

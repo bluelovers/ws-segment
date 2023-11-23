@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/sort-dict-table",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "",
   "keywords": [
     "NLP",
@@ -122,9 +122,9 @@
   },
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.33",
-    "@novel-segment/loaders": "^1.0.49",
+    "@novel-segment/loaders": "^1.0.51",
     "@novel-segment/util": "^1.0.75",
-    "@novel-segment/util-compare": "^1.0.22"
+    "@novel-segment/util-compare": "^1.0.23"
   },
   "packageManager": "yarn@^1.22.11",
   "publishConfig": {
