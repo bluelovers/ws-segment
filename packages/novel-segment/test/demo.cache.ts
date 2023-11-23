@@ -95,9 +95,8 @@ console.time(`doSegment`);
 
 let text = `
 
-穿透发间
-
-在心中如此发念
+繫帶襯衫
+系带衬衫
 
 `;
 
