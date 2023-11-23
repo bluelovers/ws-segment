@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/util-compare",
-  "version": "1.0.23",
+  "version": "1.0.24",
   "description": "",
   "keywords": [
     "NLP",
@@ -129,7 +129,7 @@
   },
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.33",
-    "@novel-segment/loaders": "^1.0.51",
+    "@novel-segment/loaders": "^1.0.52",
     "array-hyper-unique": "^2.1.4",
     "bluebird": "^3.7.2"
   },
