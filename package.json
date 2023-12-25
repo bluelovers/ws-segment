@@ -113,11 +113,11 @@
     "regexp-cjk": "^3.3.110",
     "segment-dict": "^2.3.202",
     "sort-object-keys2": "^3.0.5",
-    "str-util": "^2.3.40",
+    "str-util": "^2.3.41",
     "ts-enum-util": "4.0.2",
     "ts-type": "^3.0.1",
     "tslib": ">=2",
-    "uni-string": "^2.0.5"
+    "uni-string": "^2.0.6"
   },
   "devDependencies": {
     "@novel-segment/util": "^1.0.75"
