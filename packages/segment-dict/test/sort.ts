@@ -3,7 +3,7 @@
  */
 
 import Promise = require('bluebird');
-import * as fs from "fs-extra";
+import { outputFile, appendFile, writeFile } from "fs-extra";
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
 import zhRegExp from 'regexp-cjk';
 import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
@@ -11,7 +11,7 @@ import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment 
 // @ts-ignore
 import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
 import libTable from 'cjk-conv/lib/zh/table';
-import naturalCompare from '@bluelovers/string-natural-compare';
+import { caseInsensitive } from '@bluelovers/string-natural-compare';
 
 import UString from "uni-string";
 import FastGlob from "@bluelovers/fast-glob";
@@ -310,7 +310,7 @@ Promise
 			}
 
 			if (1 && !bool
-				&& zhRegExp.create(/久|乆|灸|玖|镹/u).test(w)
+				&& zhRegExp.create(/致|緻/u).test(w)
 			)
 			{
 				bool = true;
@@ -358,7 +358,7 @@ Promise
 
 		let out = serialize(c) + "\n\n";
 
-		await fs.writeFile(file, out);
+		await writeFile(file, out);
 
 		console[method](_basepath, `${ls_index} / ${ls_len}`);
 
@@ -395,9 +395,9 @@ Promise
 			fa.sort();
 		}
 
-		await fs.outputFile(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
+		await outputFile(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
 
-		await fs.appendFile(path.join(ProjectConfig.temp_root, 'skip.txt'), "\n\n" + serialize(fa2) + "\n\n");
+		await appendFile(path.join(ProjectConfig.temp_root, 'skip.txt'), "\n\n" + serialize(fa2) + "\n\n");
 	})
 ;
 
@@ -405,10 +405,10 @@ function sortList(ls: ICUR_WORD[], bool?: boolean)
 {
 	return ls.sort(function (a, b)
 	{
-		return naturalCompare.caseInsensitive(a.cjk_id, b.cjk_id)
-			|| naturalCompare.caseInsensitive(b.data[1], a.data[1])
-			|| naturalCompare.caseInsensitive(a.data[0], b.data[0])
-			|| naturalCompare.caseInsensitive(a.data[2], b.data[2])
+		return caseInsensitive(a.cjk_id, b.cjk_id)
+			|| caseInsensitive(b.data[1], a.data[1])
+			|| caseInsensitive(a.data[0], b.data[0])
+			|| caseInsensitive(a.data[2], b.data[2])
 			;
 	});
 }

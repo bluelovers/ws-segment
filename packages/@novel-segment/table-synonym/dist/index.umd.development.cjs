@@ -4,6 +4,15 @@
 	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableSynonym = {}, global.tableSynonymPangu));
 })(this, (function (exports, tableSynonymPangu) { 'use strict';
 
+	/**
+	 * Created by user on 2018/4/19/019.
+	 */
+	/**
+	 * 請注意 這與原版 node-segment 的格式不同
+	 *
+	 * 原版為一對一 => 錯字,正字
+	 * 這裡為一對多 並且順序與原版相反 => 正字,錯字,...以,分隔更多字
+	 */
 	class TableDictSynonym extends tableSynonymPangu.TableDictSynonymPanGu {
 	  constructor(type = TableDictSynonym.type, options, ...argv) {
 	    super(type, options, ...argv);
@@ -34,7 +43,9 @@
 	      }
 	      self.TABLE2[w].push(bw);
 	      self._add(bw, w);
+	      //skipExists = true;
 	    });
+
 	    return this;
 	  }
 	}

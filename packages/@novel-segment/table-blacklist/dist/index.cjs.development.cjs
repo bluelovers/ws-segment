@@ -5,7 +5,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var tableLine = require('@novel-segment/table-line');
 
 class TableDictBlacklist extends tableLine.TableDictLine {
-  static type = "BLACKLIST";
+  static type = "BLACKLIST" /* EnumDictDatabase.BLACKLIST */;
   constructor(type = TableDictBlacklist.type, options, ...argv) {
     super(type, options, ...argv);
   }

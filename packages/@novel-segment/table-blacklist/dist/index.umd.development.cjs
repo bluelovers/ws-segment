@@ -5,7 +5,7 @@
 })(this, (function (exports, tableLine) { 'use strict';
 
 	class TableDictBlacklist extends tableLine.TableDictLine {
-	  static type = "BLACKLIST";
+	  static type = "BLACKLIST" /* EnumDictDatabase.BLACKLIST */;
 	  constructor(type = TableDictBlacklist.type, options, ...argv) {
 	    super(type, options, ...argv);
 	  }

@@ -13,11 +13,13 @@ function sortLines(lines, file) {
     cur.file = file;
     let [w] = cur.data;
     cur.line_type = utilCompare.chkLineType(cur.line);
-    if (cur.line_type === 1) {
+    if (cur.line_type === 1 /* EnumLineType.COMMENT */) {
       w = w.replace(/^\/\//, '');
-    } else if (cur.line_type === 0) {
+      //console.log(w);
+    } else if (cur.line_type === 0 /* EnumLineType.BASE */) {
       let ls = cur.data.slice(1);
       ls = arrayHyperUnique.array_unique(ls).filter(v => v != w);
+      //ls.sort();
       ls.sort(function (a, b) {
         let ca = conv.getCjkName(a, utilCompare.USE_CJK_MODE);
         let cb = conv.getCjkName(b, utilCompare.USE_CJK_MODE);
@@ -43,24 +45,26 @@ function loadFile(file) {
 }
 function SortList(ls) {
   return ls.sort(function (a, b) {
-    if (a.line_type === 2 || b.line_type === 2) {
-      if (b.line_type !== 2) {
-        return -1;
-      } else if (a.line_type !== 2) {
-        return 1;
+    if (a.line_type === 2 /* EnumLineType.COMMENT_TAG */ || b.line_type === 2 /* EnumLineType.COMMENT_TAG */) {
+      if (b.line_type !== 2 /* EnumLineType.COMMENT_TAG */) {
+        return -1 /* EnumSortCompareOrder.UP */;
+      } else if (a.line_type !== 2 /* EnumLineType.COMMENT_TAG */) {
+        return 1 /* EnumSortCompareOrder.DOWN */;
       }
+
       const aa = /^\/\/\s+@/.test(a.line);
       const ba = /^\/\/\s+@/.test(b.line);
       if (aa && !ba) {
-        return -1;
+        return -1 /* EnumSortCompareOrder.UP */;
       } else if (!aa && ba) {
-        return 1;
+        return 1 /* EnumSortCompareOrder.DOWN */;
       }
+
       return a.index - b.index;
-    } else if (a.line_type === 1 && b.line_type === 1) {
+    } else if (a.line_type === 1 /* EnumLineType.COMMENT */ && b.line_type === 1 /* EnumLineType.COMMENT */) {
       return a.index - b.index;
     }
-    let ret = sort.zhDictCompare(a.cjk_id, b.cjk_id) || sort.zhDictCompare(a.data[0], b.data[0]) || a.index - b.index || 0;
+    let ret = sort.zhDictCompare(a.cjk_id, b.cjk_id) || sort.zhDictCompare(a.data[0], b.data[0]) || a.index - b.index || 0 /* EnumSortCompareOrder.KEEP */;
     return ret;
   });
 }
