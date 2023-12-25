@@ -4,9 +4,6 @@
 	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableStopword = {}, global.tableLine));
 })(this, (function (exports, tableLine) { 'use strict';
 
-	/**
-	 * 原版 node-segment 的格式
-	 */
 	class TableDictStopword extends tableLine.TableDictLine {
 	  static type = "STOPWORD" /* EnumDictDatabase.STOPWORD */;
 	  constructor(type = TableDictStopword.type, options, ...argv) {
