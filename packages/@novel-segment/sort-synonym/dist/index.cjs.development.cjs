@@ -15,11 +15,9 @@ function sortLines(lines, file) {
     cur.line_type = utilCompare.chkLineType(cur.line);
     if (cur.line_type === 1 /* EnumLineType.COMMENT */) {
       w = w.replace(/^\/\//, '');
-      //console.log(w);
     } else if (cur.line_type === 0 /* EnumLineType.BASE */) {
       let ls = cur.data.slice(1);
       ls = arrayHyperUnique.array_unique(ls).filter(v => v != w);
-      //ls.sort();
       ls.sort(function (a, b) {
         let ca = conv.getCjkName(a, utilCompare.USE_CJK_MODE);
         let cb = conv.getCjkName(b, utilCompare.USE_CJK_MODE);
