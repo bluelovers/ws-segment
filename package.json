@@ -91,7 +91,7 @@
     "install:resetLockfile": "yarn-tool install --reset-lockfile",
     "build:all": "yarn-tool ws run build --concurrency 1",
     "build:since": "yarn run build:all -- --since",
-    "ci:install": "yarn add -W lerna yarn-tool cjk-conv ts-node typescript ynpx",
+    "ci:install": "yarn add -W lerna yarn-tool cjk-conv ts-node typescript ynpx tsx",
     "ci:build": "yarn run ci:build:script && yarn run ci:build:commit",
     "ci:build:commit": "tsx ./script/run/ci-build.ts",
     "ci:build:script": "tsx ./packages/novel-segment/test/demo.cache.ts",
