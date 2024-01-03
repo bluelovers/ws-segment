@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.76](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.75...@novel-segment/util@1.0.76) (2024-01-03)
+
+
+
+### 📦　Code Refactoring
+
+* cjk-conv ([ab64f1b](https://github.com/bluelovers/ws-segment/commit/ab64f1b84e78cadf2c9db41ed5c2792754a85ef9))
+
+
+
 ## [1.0.75](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.74...@novel-segment/util@1.0.75) (2023-10-06)
 
 

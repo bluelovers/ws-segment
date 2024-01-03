@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-dict",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "description": "",
   "keywords": [
     "NLP",
@@ -124,7 +124,7 @@
   "dependencies": {
     "@lazy-cjk/zh-table-list": "^1.0.84",
     "@novel-segment/loaders": "^1.0.52",
-    "@novel-segment/table-core-abstract": "^1.0.21"
+    "@novel-segment/table-core-abstract": "^1.0.22"
   },
   "packageManager": "yarn@^1.22.11",
   "publishConfig": {

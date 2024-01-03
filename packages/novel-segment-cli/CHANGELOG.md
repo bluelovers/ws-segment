@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.134](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.133...novel-segment-cli@1.1.134) (2024-01-03)
+
+
+
+### 📦　Code Refactoring
+
+* cjk-conv ([ab64f1b](https://github.com/bluelovers/ws-segment/commit/ab64f1b84e78cadf2c9db41ed5c2792754a85ef9))
+
+
+
 ## [1.1.133](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.132...novel-segment-cli@1.1.133) (2023-12-25)
 
 **Note:** Version bump only for package novel-segment-cli

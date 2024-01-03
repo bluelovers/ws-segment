@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-synonym@1.0.21...@novel-segment/sort-synonym@1.0.22) (2024-01-03)
+
+**Note:** Version bump only for package @novel-segment/sort-synonym
+
+
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-synonym@1.0.20...@novel-segment/sort-synonym@1.0.21) (2023-12-25)
 
 

@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.18](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-stopword@1.0.17...@novel-segment/table-stopword@1.0.18) (2024-01-03)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([982c56a](https://github.com/bluelovers/ws-segment/commit/982c56acf0abc78f2bff7b1e8d3a303804f2cc22))
+
+
+
 ## [1.0.17](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-stopword@1.0.16...@novel-segment/table-stopword@1.0.17) (2023-12-25)
 
 

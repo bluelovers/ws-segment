@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.22](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-core-abstract@1.0.21...@novel-segment/table-core-abstract@1.0.22) (2024-01-03)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([50a88e1](https://github.com/bluelovers/ws-segment/commit/50a88e14a5151bd0aa6486e95a452142dcbfdf6c))
+
+
+
 ## [1.0.21](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-core-abstract@1.0.18...@novel-segment/table-core-abstract@1.0.21) (2023-11-23)
 
 
