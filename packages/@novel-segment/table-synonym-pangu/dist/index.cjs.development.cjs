@@ -5,9 +5,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
 
 /**
- * Created by user on 2018/4/19/019.
- */
-/**
  * 原版 node-segment 的格式
  * @deprecated
  */

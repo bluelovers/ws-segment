@@ -5,9 +5,6 @@
 })(this, (function (exports, tableCoreAbstract) { 'use strict';
 
 	/**
-	 * Created by user on 2018/4/19/019.
-	 */
-	/**
 	 * 原版 node-segment 的格式
 	 * @deprecated
 	 */

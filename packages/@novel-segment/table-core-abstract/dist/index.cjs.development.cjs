@@ -4,9 +4,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 var lodash = require('lodash');
 
-/**
- * Created by user on 2018/4/19/019.
- */
 class AbstractTableDictCore {
   TABLE = Object.create(null);
   TABLE2 = Object.create(null);

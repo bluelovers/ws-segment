@@ -4,9 +4,6 @@
 	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableCoreAbstract = {}, global.lodashEs));
 })(this, (function (exports, lodashEs) { 'use strict';
 
-	/**
-	 * Created by user on 2018/4/19/019.
-	 */
 	class AbstractTableDictCore {
 	  TABLE = Object.create(null);
 	  TABLE2 = Object.create(null);

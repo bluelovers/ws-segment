@@ -95,8 +95,7 @@ console.time(`doSegment`);
 
 let text = `
 
-繫帶襯衫
-系带衬衫
+他有顆可能致死的腦瘤，
 
 `;
 

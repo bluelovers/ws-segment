@@ -5,9 +5,6 @@ Object.defineProperty(exports, '__esModule', { value: true });
 var loaderLine = require('@novel-segment/loader-line');
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
 
-/**
- * 原版 node-segment 的格式
- */
 class TableDictLine extends tableCoreAbstract.AbstractTableDictCore {
   exists(data, ...argv) {
     let w = this._exists(data);

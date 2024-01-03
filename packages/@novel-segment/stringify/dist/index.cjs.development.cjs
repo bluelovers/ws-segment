@@ -13,6 +13,12 @@ function stringifyList(words, ...argv) {
     }
   });
 }
+/**
+ * 将单词数组连接成字符串
+ *
+ * @param {Array} words 单词数组
+ * @return {String}
+ */
 function stringify(words, ...argv) {
   return stringifyList(words, ...argv).join('');
 }

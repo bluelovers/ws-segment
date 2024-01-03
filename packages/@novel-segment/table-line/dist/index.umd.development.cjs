@@ -4,9 +4,6 @@
 	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableLine = {}, global.loaderLine, global.tableCoreAbstract));
 })(this, (function (exports, loaderLine, tableCoreAbstract) { 'use strict';
 
-	/**
-	 * 原版 node-segment 的格式
-	 */
 	class TableDictLine extends tableCoreAbstract.AbstractTableDictCore {
 	  exists(data, ...argv) {
 	    let w = this._exists(data);
