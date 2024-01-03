@@ -7,7 +7,7 @@ const core_1 = tslib_1.__importDefault(require("novel-segment/lib/segment/core")
 const useModules2_1 = require("novel-segment/lib/segment/methods/useModules2");
 const mod_1 = tslib_1.__importDefault(require("novel-segment/lib/mod"));
 const url_1 = require("url");
-const min_1 = require("cjk-conv/lib/zh/convert/min");
+const min_1 = require("@lazy-cjk/zh-convert/min");
 const app = (0, express_1.default)();
 let CACHED_SEGMENT;
 app.use(express_1.default.json());

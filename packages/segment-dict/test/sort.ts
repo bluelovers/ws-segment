@@ -5,17 +5,16 @@
 import Promise = require('bluebird');
 import { outputFile, appendFile, writeFile } from "fs-extra";
 import { POSTAG } from '@novel-segment/postag/lib/postag/ids';
-import zhRegExp from 'regexp-cjk';
-import load, { parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
+import { zhRegExp } from 'regexp-cjk';
+import { load, parseLine, stringifyLine, serialize } from '@novel-segment/loader-line';
 import { IDictRow, parseLine as parseLineSegment, serialize as serializeSegment } from '@novel-segment/loaders/segment';
-// @ts-ignore
-import { charTableList, textList } from 'cjk-conv/lib/zh/table/list';
-import libTable from 'cjk-conv/lib/zh/table';
+import { textList } from '@lazy-cjk/zh-table-list/list';
+import { auto } from '@lazy-cjk/zh-table-list';
 import { caseInsensitive } from '@bluelovers/string-natural-compare';
 
-import UString from "uni-string";
+import { UString } from "uni-string";
 import FastGlob from "@bluelovers/fast-glob";
-import * as path from "path";
+import { join, relative } from "path";
 import { console } from "debug-color2";
 
 import ProjectConfig from "../project.config";
@@ -23,7 +22,7 @@ import ProjectConfig from "../project.config";
 let fa = [];
 let fa2 = [];
 
-let cwd = path.join(ProjectConfig.dict_root, 'segment');
+let cwd = join(ProjectConfig.dict_root, 'segment');
 
 export type ICUR_WORD_DATA = [string, number, number];
 
@@ -86,7 +85,7 @@ Promise
 	{
 		let a = ls.reduce(function (a, v)
 		{
-			let p = path.relative(cwd, v);
+			let p = relative(cwd, v);
 
 			a.push(p);
 
@@ -99,7 +98,7 @@ Promise
 	})
 	.mapSeries(async function (file: string)
 	{
-		let _basepath = path.relative(cwd, file);
+		let _basepath = relative(cwd, file);
 
 		let b = await load(file);
 
@@ -124,8 +123,7 @@ Promise
 			}
 			else
 			{
-				// @ts-ignore
-				let cjk_list = libTable.auto(w);
+				let cjk_list = auto(w);
 				cjk_id = cjk_list[0];
 			}
 
@@ -157,7 +155,7 @@ Promise
 	})
 	.map(async function (file: string, ls_index, ls_len)
 	{
-		let _basepath = path.relative(cwd, file);
+		let _basepath = relative(cwd, file);
 
 		//let b = await load(file);
 		let b = CACHE_FILE_TABLE[file];
@@ -395,9 +393,9 @@ Promise
 			fa.sort();
 		}
 
-		await outputFile(path.join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
+		await outputFile(join(ProjectConfig.temp_root, 'one.txt'), serialize(fa) + "\n\n");
 
-		await appendFile(path.join(ProjectConfig.temp_root, 'skip.txt'), "\n\n" + serialize(fa2) + "\n\n");
+		await appendFile(join(ProjectConfig.temp_root, 'skip.txt'), "\n\n" + serialize(fa2) + "\n\n");
 	})
 ;
 

@@ -13,7 +13,7 @@ Object.defineProperty(exports, "enableDebug", { enumerable: true, get: function 
 const package_json_1 = tslib_1.__importDefault(require("./package.json"));
 const util_2 = require("novel-segment/lib/util");
 const iconv_jschardet_1 = tslib_1.__importDefault(require("iconv-jschardet"));
-const min_1 = require("cjk-conv/lib/zh/convert/min");
+const min_1 = require("@lazy-cjk/zh-convert/min");
 const dict_1 = require("novel-segment/lib/defaults/dict");
 const lodash_1 = require("lodash");
 const array_hyper_unique_1 = require("array-hyper-unique");

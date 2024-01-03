@@ -8,13 +8,13 @@ const index_1 = require("@novel-segment/loaders/segment/index");
 const uni_string_1 = tslib_1.__importDefault(require("uni-string"));
 const util_1 = require("@novel-segment/util");
 const transliteration_1 = require("transliteration");
-const cjk_conv_1 = require("cjk-conv");
+const jp_table_convert_1 = require("@lazy-cjk/jp-table-convert");
 const fast_glob_1 = require("@bluelovers/fast-glob");
 const array_hyper_unique_1 = require("array-hyper-unique");
 const loader_line_1 = require("@novel-segment/loader-line");
 const debug_color2_1 = require("debug-color2");
-const greedy_1 = require("cjk-conv/lib/zh/table/greedy");
-const table_1 = tslib_1.__importDefault(require("cjk-conv/lib/zh/table"));
+const zh_table_greedy_1 = require("@lazy-cjk/zh-table-greedy");
+const zh_table_list_1 = require("@lazy-cjk/zh-table-list");
 const diff_staged_1 = require("@git-lazy/diff-staged");
 const match_1 = require("@git-lazy/util/util/match");
 const util_compare_1 = require("@novel-segment/util-compare");
@@ -229,10 +229,10 @@ function getCid(w) {
     let s = (0, util_1.getCjkName)(w);
     let r = (0, transliteration_1.slugify)(s);
     if (!r) {
-        r = (0, transliteration_1.slugify)((0, greedy_1.greedyTableReplace)(s));
+        r = (0, transliteration_1.slugify)((0, zh_table_greedy_1.greedyTableReplace)(s));
     }
     if (!r) {
-        let arr = table_1.default.auto(s, {
+        let arr = (0, zh_table_list_1.auto)(s, {
             safe: false,
             greedyTable: 2,
         });
@@ -241,7 +241,7 @@ function getCid(w) {
         }
     }
     if (!r) {
-        let arr = table_1.default.auto(w, {
+        let arr = (0, zh_table_list_1.auto)(w, {
             safe: false,
             greedyTable: 2,
         });
@@ -250,16 +250,16 @@ function getCid(w) {
         }
     }
     if (!r) {
-        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zhs)(s));
+        r = (0, transliteration_1.slugify)((0, jp_table_convert_1.cjk2zhs)(s));
     }
     if (!r) {
-        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zht)(s));
+        r = (0, transliteration_1.slugify)((0, jp_table_convert_1.cjk2zht)(s));
     }
     if (!r) {
-        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zhs)(w));
+        r = (0, transliteration_1.slugify)((0, jp_table_convert_1.cjk2zhs)(w));
     }
     if (!r) {
-        r = (0, transliteration_1.slugify)((0, cjk_conv_1.cjk2zht)(w));
+        r = (0, transliteration_1.slugify)((0, jp_table_convert_1.cjk2zht)(w));
     }
     if (!r) {
         r = (0, transliteration_1.slugify)(w);

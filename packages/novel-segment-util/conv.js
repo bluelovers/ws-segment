@@ -4,12 +4,11 @@
  */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getCjkName = void 0;
-const tslib_1 = require("tslib");
-const str_util_1 = tslib_1.__importDefault(require("str-util"));
-const list_1 = require("cjk-conv/lib/zh/table/list");
+const str_util_1 = require("str-util");
+const zh_slugify_1 = require("@lazy-cjk/zh-slugify");
 function getCjkName(w, USE_CJK_MODE) {
-    let cjk_id = (0, list_1.slugify)(w, true);
-    return str_util_1.default.toHalfWidth(cjk_id).toLocaleLowerCase();
+    let cjk_id = (0, zh_slugify_1.slugify)(w, true);
+    return (0, str_util_1.toHalfWidth)(cjk_id).toLocaleLowerCase();
 }
 exports.getCjkName = getCjkName;
 exports.default = getCjkName;

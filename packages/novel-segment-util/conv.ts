@@ -2,14 +2,14 @@
  * Created by user on 2019/3/20.
  */
 
-import StrUtil from 'str-util';
-import { textList, slugify } from 'cjk-conv/lib/zh/table/list';
+import { toHalfWidth } from 'str-util';
+import { slugify } from '@lazy-cjk/zh-slugify';
 
 export function getCjkName(w: string, USE_CJK_MODE?: number)
 {
 	let cjk_id = slugify(w, true);
 
-	return StrUtil.toHalfWidth(cjk_id).toLocaleLowerCase();
+	return toHalfWidth(cjk_id).toLocaleLowerCase();
 }
 
 export default getCjkName;

@@ -9,7 +9,7 @@ import { console, debugConsole, enableDebug, freeGC } from './lib/util';
 import PACKAGE_JSON from './package.json';
 import { debug_token } from 'novel-segment/lib/util'
 import iconv from 'iconv-jschardet';
-import { cn2tw_min } from 'cjk-conv/lib/zh/convert/min';
+import { cn2tw_min } from '@lazy-cjk/zh-convert/min';
 import { IOptionsSegment } from 'novel-segment/lib/segment/types';
 import { useDefaultBlacklistDict, useDefaultSynonymDict } from 'novel-segment/lib/defaults/dict';
 

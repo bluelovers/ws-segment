@@ -13,7 +13,7 @@ import { useModules } from 'novel-segment/lib/segment/methods/useModules2';
 import getDefaultModList from 'novel-segment/lib/mod';
 import { parse as url_parse } from 'url';
 import { crlf } from 'crlf-normalize';
-import { cn2tw_min, tw2cn_min } from 'cjk-conv/lib/zh/convert/min';
+import { cn2tw_min, tw2cn_min } from '@lazy-cjk/zh-convert/min';
 
 const app = express();
 let CACHED_SEGMENT: Segment;

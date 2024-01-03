@@ -5,13 +5,13 @@ import { parseLine as parseLineSegment } from '@novel-segment/loaders/segment/in
 import UString from 'uni-string';
 import { getCjkName, zhDictCompare } from '@novel-segment/util';
 import { slugify as slugifyTr } from 'transliteration';
-import { cjk2zhs, cjk2zht } from 'cjk-conv';
+import { cjk2zhs, cjk2zht } from '@lazy-cjk/jp-table-convert';
 import { sync as FastGlobSync } from '@bluelovers/fast-glob';
 import { array_unique } from 'array-hyper-unique';
 import { serialize } from '@novel-segment/loader-line';
 import { console } from 'debug-color2';
-import { greedyTableReplace } from 'cjk-conv/lib/zh/table/greedy';
-import libTable from 'cjk-conv/lib/zh/table';
+import { greedyTableReplace } from '@lazy-cjk/zh-table-greedy';
+import { auto } from '@lazy-cjk/zh-table-list';
 import { gitDiffStagedFile } from '@git-lazy/diff-staged';
 import { matchGlob } from '@git-lazy/util/util/match';
 import { chkLineType, EnumLineType, ILoadDictFileRow2 } from '@novel-segment/util-compare';
@@ -354,7 +354,7 @@ function getCid(w: string)
 
 	if (!r)
 	{
-		let arr = libTable.auto(s, {
+		let arr = auto(s, {
 			safe: false,
 			greedyTable: 2,
 		});
@@ -367,7 +367,7 @@ function getCid(w: string)
 
 	if (!r)
 	{
-		let arr = libTable.auto(w, {
+		let arr = auto(w, {
 			safe: false,
 			greedyTable: 2,
 		});
