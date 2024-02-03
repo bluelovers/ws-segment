@@ -102,11 +102,11 @@
     "@novel-segment/util": "^1.0.76",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.19",
+    "crlf-normalize": "^1.0.20",
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.115"
+    "novel-segment": "^2.7.116"
   },
   "gitHead": "b53ee34cb7a1abaf060f872ed0030effdc50e1ec"
 }

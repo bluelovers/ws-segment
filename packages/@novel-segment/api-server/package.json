@@ -41,9 +41,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-cjk/zh-convert": "^1.0.48",
+    "@lazy-cjk/zh-convert": "^1.0.49",
     "cors": "^2.8.5",
-    "crlf-normalize": "^1.0.19",
+    "crlf-normalize": "^1.0.20",
     "express": "^4.18.2",
     "fs-extra": "^11.2.0",
     "tslib": ">=2"
@@ -55,7 +55,7 @@
   },
   "peerDependencies": {
     "novel-segment": "^2.7.116",
-    "vercel": "^33.0.1"
+    "vercel": "^33.4.1"
   },
   "engines": {
     "node": ">=10"

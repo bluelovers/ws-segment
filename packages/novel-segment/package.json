@@ -95,7 +95,7 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@lazy-cjk/zh-table-list": "^1.0.84",
+    "@lazy-cjk/zh-table-list": "^1.0.85",
     "@novel-segment/postag": "^1.0.28",
     "@novel-segment/stringify": "^1.0.17",
     "@novel-segment/table-blacklist": "^1.0.18",
@@ -106,18 +106,17 @@
     "@novel-segment/types": "^1.0.13",
     "array-hyper-unique": "^2.1.4",
     "bluebird": "^3.7.2",
-    "cjk-conv": "^1.2.143",
+    "cjk-conv": "^1.2.144",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.19",
+    "crlf-normalize": "^1.0.20",
     "deepmerge-plus": "^3.0.2",
-    "regexp-cjk": "^3.3.110",
+    "regexp-cjk": "^3.3.111",
     "segment-dict": "^2.3.205",
     "sort-object-keys2": "^3.0.5",
-    "str-util": "^2.3.41",
     "ts-enum-util": "4.0.2",
     "ts-type": "^3.0.1",
     "tslib": ">=2",
-    "uni-string": "^2.0.6"
+    "uni-string": "^2.0.7"
   },
   "devDependencies": {
     "@novel-segment/util": "^1.0.76"
