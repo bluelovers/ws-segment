@@ -3,7 +3,11 @@
  * Created by user on 2018/4/13/013.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOptions = exports.existsSync = exports.searchFirstSync = exports._searchGlobSync = exports.searchGlobSync = void 0;
+exports.searchGlobSync = searchGlobSync;
+exports._searchGlobSync = _searchGlobSync;
+exports.searchFirstSync = searchFirstSync;
+exports.existsSync = existsSync;
+exports.getOptions = getOptions;
 const tslib_1 = require("tslib");
 const FastGlob = tslib_1.__importStar(require("@bluelovers/fast-glob"));
 const path = tslib_1.__importStar(require("path"));
@@ -28,7 +32,6 @@ function searchGlobSync(file, options) {
     });
     return ls;
 }
-exports.searchGlobSync = searchGlobSync;
 function _searchGlobSync(file, options, cwd) {
     let glob_options = {
         markDirectories: true,
@@ -48,7 +51,6 @@ function _searchGlobSync(file, options, cwd) {
     }
     return FastGlob.sync(file, glob_options);
 }
-exports._searchGlobSync = _searchGlobSync;
 // @ts-ignore
 function searchFirstSync(file, options = {}) {
     if (typeof file !== 'string' || file === '') {
@@ -80,7 +82,6 @@ function searchFirstSync(file, options = {}) {
     }
     return null;
 }
-exports.searchFirstSync = searchFirstSync;
 function existsSync(path, options = {}) {
     let bool = fs.existsSync(path);
     if (bool && (options.onlyDir || options.onlyFile)) {
@@ -96,7 +97,6 @@ function existsSync(path, options = {}) {
     delete options.cwd;
     return bool;
 }
-exports.existsSync = existsSync;
 // @ts-ignore
 function getOptions(options = {}) {
     if (Array.isArray(options)) {
@@ -111,7 +111,6 @@ function getOptions(options = {}) {
     }
     return options;
 }
-exports.getOptions = getOptions;
 /*
 let k = searchFirstSync('index', {
     paths: [

@@ -24,6 +24,6 @@ export declare class ZhtSynonymOptimizer extends SubSModuleOptimizer {
     protected _getSynonym(w: string, nw: string): string;
     doOptimize<T extends IWordDebug>(words: T[]): T[];
 }
-export declare const init: typeof SubSModuleOptimizer.init;
+export declare const init: typeof ZhtSynonymOptimizer.init;
 export declare const type = "optimizer";
 export default ZhtSynonymOptimizer;

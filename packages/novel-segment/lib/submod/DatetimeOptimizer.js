@@ -1,6 +1,8 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.doOptimize = exports.init = exports.segment = exports.type = void 0;
+exports.segment = exports.type = void 0;
+exports.init = init;
+exports.doOptimize = doOptimize;
 const const_1 = require("../mod/const");
 /** 模块类型 */
 exports.type = 'optimizer';
@@ -12,7 +14,6 @@ exports.type = 'optimizer';
 function init(_segment) {
     exports.segment = _segment;
 }
-exports.init = init;
 /**
  * 日期时间优化
  *
@@ -69,5 +70,4 @@ function doOptimize(words, is_not_first) {
     }
     return words;
 }
-exports.doOptimize = doOptimize;
 //# sourceMappingURL=DatetimeOptimizer.js.map

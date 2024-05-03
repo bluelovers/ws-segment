@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getPOSTagTranslator = void 0;
+exports.getPOSTagTranslator = getPOSTagTranslator;
 const tslib_1 = require("tslib");
 const ids_1 = tslib_1.__importDefault(require("../postag/ids"));
 const keys_1 = tslib_1.__importDefault(require("../keys"));
@@ -29,6 +29,5 @@ function getPOSTagTranslator(POSTagDict, I18NDict) {
         }
     };
 }
-exports.getPOSTagTranslator = getPOSTagTranslator;
 exports.default = getPOSTagTranslator;
 //# sourceMappingURL=getPOSTagTranslator.js.map

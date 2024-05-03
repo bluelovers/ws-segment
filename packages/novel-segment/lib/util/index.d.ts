@@ -1,7 +1,6 @@
 /**
  * Created by user on 2018/4/17/017.
  */
-/// <reference types="node" />
 import { debug_token, IWordDebug, IWordDebugInfo, toHex, token_add_info } from './debug';
 import { InspectOptions } from 'util';
 export { IWordDebug, IWordDebugInfo, debug_token, toHex, token_add_info };

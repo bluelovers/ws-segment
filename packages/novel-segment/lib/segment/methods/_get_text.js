@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports._get_text = void 0;
+exports._get_text = _get_text;
 const crlf_normalize_1 = require("crlf-normalize");
 function _get_text(text) {
     try {
@@ -17,5 +17,4 @@ function _get_text(text) {
     }
     return text;
 }
-exports._get_text = _get_text;
 //# sourceMappingURL=_get_text.js.map

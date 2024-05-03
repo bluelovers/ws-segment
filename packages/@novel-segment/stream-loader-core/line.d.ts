@@ -1,7 +1,6 @@
 /**
  * Created by user on 2018/4/11/011.
  */
-/// <reference types="node" />
 import Bluebird from 'bluebird';
 import { IPipe } from 'stream-pipe';
 import { ReadStream } from 'stream-pipe/fs';

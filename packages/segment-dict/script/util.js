@@ -1,6 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.all_extra_dict = exports.all_default_load_dict = exports.baseSortList = exports.globDict = exports.DEFAULT_IGNORE = exports.getCjkName = exports.zhDictCompare = void 0;
+exports.DEFAULT_IGNORE = exports.getCjkName = exports.zhDictCompare = void 0;
+exports.globDict = globDict;
+exports.baseSortList = baseSortList;
+exports.all_default_load_dict = all_default_load_dict;
+exports.all_extra_dict = all_extra_dict;
 const tslib_1 = require("tslib");
 const fast_glob_1 = tslib_1.__importDefault(require("@bluelovers/fast-glob"));
 const string_natural_compare_1 = tslib_1.__importDefault(require("@bluelovers/string-natural-compare"));
@@ -25,7 +29,6 @@ function globDict(cwd, pattern, ignore = exports.DEFAULT_IGNORE) {
         markDirectories: true,
     }));
 }
-exports.globDict = globDict;
 function baseSortList(ls, bool) {
     return ls.sort(function (a, b) {
         // @ts-ignore
@@ -38,7 +41,6 @@ function baseSortList(ls, bool) {
             || string_natural_compare_1.default.caseInsensitive(a.data[2], b.data[2]);
     });
 }
-exports.baseSortList = baseSortList;
 function all_default_load_dict() {
     return [
         'dict_synonym/*.txt',
@@ -50,13 +52,11 @@ function all_default_load_dict() {
         'char.txt',
     ];
 }
-exports.all_default_load_dict = all_default_load_dict;
 function all_extra_dict() {
     return [
         'infrequent/**/*.txt',
     ];
 }
-exports.all_extra_dict = all_extra_dict;
 /*
 export function getCjkName(w: string, USE_CJK_MODE: number)
 {

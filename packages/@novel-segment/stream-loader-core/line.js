@@ -3,7 +3,10 @@
  * Created by user on 2018/4/11/011.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.wrapStreamToPromise = exports.readFileLine = exports.createStreamLine = exports.byLine = void 0;
+exports.byLine = byLine;
+exports.createStreamLine = createStreamLine;
+exports.readFileLine = readFileLine;
+exports.wrapStreamToPromise = wrapStreamToPromise;
 const tslib_1 = require("tslib");
 const fs_1 = require("fs");
 const split2_1 = tslib_1.__importDefault(require("split2"));
@@ -59,16 +62,13 @@ function byLine(fn, options = {}) {
     });
     return wts;
 }
-exports.byLine = byLine;
 function createStreamLine(file, fn, options) {
     return (0, stream_pipe_1.createReadStream)(file)
         .pipe(byLine(fn, options));
 }
-exports.createStreamLine = createStreamLine;
 function readFileLine(file, fn, options) {
     return wrapStreamToPromise(createStreamLine(file, fn, options));
 }
-exports.readFileLine = readFileLine;
 function wrapStreamToPromise(stream) {
     let resolve, reject;
     let promise = new bluebird_1.default(function () {
@@ -95,7 +95,6 @@ function wrapStreamToPromise(stream) {
     promise.stream = stream;
     return promise;
 }
-exports.wrapStreamToPromise = wrapStreamToPromise;
 /*
 let p = readFileLine('../.gitignore', {
 

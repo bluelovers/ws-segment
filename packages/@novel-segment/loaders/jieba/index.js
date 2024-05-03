@@ -3,7 +3,12 @@
  * Created by user on 2018/3/14/014.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.loadStreamSync = exports.loadStream = exports._createStream = exports.loadSync = exports.load = exports.parseLine = void 0;
+exports.parseLine = parseLine;
+exports.load = load;
+exports.loadSync = loadSync;
+exports._createStream = _createStream;
+exports.loadStream = loadStream;
+exports.loadStreamSync = loadStreamSync;
 const tslib_1 = require("tslib");
 const line_1 = require("@novel-segment/stream-loader-core/line");
 const stream_1 = tslib_1.__importDefault(require("@novel-segment/stream-loader-core/stream"));
@@ -37,18 +42,15 @@ function parseLine(input) {
     }
     return [str, n, s];
 }
-exports.parseLine = parseLine;
 function load(file) {
     return (0, line_1.wrapStreamToPromise)(loadStream(file))
         .then(function (stream) {
         return stream.value;
     });
 }
-exports.load = load;
 function loadSync(file) {
     return loadStreamSync(file).value;
 }
-exports.loadSync = loadSync;
 function _createStream(fnStream, file, callback) {
     return fnStream(file, {
         callback,
@@ -59,14 +61,11 @@ function _createStream(fnStream, file, callback) {
         },
     });
 }
-exports._createStream = _createStream;
 function loadStream(file, callback) {
     return _createStream(stream_1.default, file, callback);
 }
-exports.loadStream = loadStream;
 function loadStreamSync(file, callback) {
     return _createStream(sync_1.default, file, callback);
 }
-exports.loadStreamSync = loadStreamSync;
 exports.default = load;
 //# sourceMappingURL=index.js.map

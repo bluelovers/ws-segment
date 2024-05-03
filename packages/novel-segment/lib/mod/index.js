@@ -3,7 +3,8 @@
  * Created by user on 2018/4/16/016.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getDefault = exports.SUBMODS_OTHER_LIST = exports.SUBMODS_LIST = exports.LIST_SUBMODS_NOT_DEF = exports.ENUM_SUBMODS_OTHER = exports.ENUM_SUBMODS = exports.SubSModule = exports.SubSModuleTokenizer = exports.Tokenizer = exports.SubSModuleOptimizer = exports.Optimizer = void 0;
+exports.SUBMODS_OTHER_LIST = exports.SUBMODS_LIST = exports.LIST_SUBMODS_NOT_DEF = exports.ENUM_SUBMODS_OTHER = exports.ENUM_SUBMODS = exports.SubSModule = exports.SubSModuleTokenizer = exports.Tokenizer = exports.SubSModuleOptimizer = exports.Optimizer = void 0;
+exports.getDefault = getDefault;
 const ts_enum_util_1 = require("ts-enum-util");
 const Optimizer_1 = require("./Optimizer");
 Object.defineProperty(exports, "Optimizer", { enumerable: true, get: function () { return Optimizer_1.Optimizer; } });
@@ -113,7 +114,6 @@ function getDefault(all) {
         return a;
     }, []);
 }
-exports.getDefault = getDefault;
 //console.log(getDefault(true));
 exports.default = getDefault;
 //# sourceMappingURL=index.js.map

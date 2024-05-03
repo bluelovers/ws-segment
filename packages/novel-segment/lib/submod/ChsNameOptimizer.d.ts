@@ -46,6 +46,6 @@ export declare class ChsNameOptimizer extends SubSModuleOptimizer {
      */
     doOptimize(words: IWord[]): IWord[];
 }
-export declare const init: typeof SubSModuleOptimizer.init;
+export declare const init: typeof ChsNameOptimizer.init;
 export declare const type = "optimizer";
 export default ChsNameOptimizer;

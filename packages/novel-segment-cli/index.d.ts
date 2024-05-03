@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import type Segment2 from 'novel-segment/lib';
 import Bluebird from 'bluebird';
 import Cacache from './lib/cache';

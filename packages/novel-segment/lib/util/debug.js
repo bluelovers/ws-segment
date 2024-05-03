@@ -3,7 +3,12 @@
  * Created by user on 2018/4/19/019.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.toHex = exports.token_add_info = exports.debug_token = exports.debugToken = exports.clearTokemDebug = exports.SYMBOL_DEBUG_KEY = void 0;
+exports.SYMBOL_DEBUG_KEY = void 0;
+exports.clearTokemDebug = clearTokemDebug;
+exports.debugToken = debugToken;
+exports.debug_token = debug_token;
+exports.token_add_info = token_add_info;
+exports.toHex = toHex;
 const tslib_1 = require("tslib");
 const sort_object_keys2_1 = tslib_1.__importDefault(require("sort-object-keys2"));
 const i18n_1 = require("@novel-segment/postag/lib/i18n");
@@ -25,7 +30,6 @@ function clearTokemDebug(data, returnClone) {
     delete data[exports.SYMBOL_DEBUG_KEY];
     return data;
 }
-exports.clearTokemDebug = clearTokemDebug;
 function debugToken(data, attr, returnToken, ...argv) {
     if (attr) {
         data[exports.SYMBOL_DEBUG_KEY] = Object.assign(data[exports.SYMBOL_DEBUG_KEY] || {}, attr);
@@ -35,7 +39,6 @@ function debugToken(data, attr, returnToken, ...argv) {
     }
     return (data[exports.SYMBOL_DEBUG_KEY] || {});
 }
-exports.debugToken = debugToken;
 function debug_token(ks, returnSource) {
     let ks2 = [];
     // @ts-ignore
@@ -60,7 +63,6 @@ function debug_token(ks, returnSource) {
     });
     return returnSource ? ks : ks2;
 }
-exports.debug_token = debug_token;
 function token_add_info(v) {
     if (v.p) {
         v.ps = (0, i18n_1.zhName)(v.p);
@@ -104,12 +106,10 @@ function token_add_info(v) {
     }
     return v;
 }
-exports.token_add_info = token_add_info;
 function toHex(p) {
     return '0x' + p
         .toString(16)
         .padStart(4, '0')
         .toUpperCase();
 }
-exports.toHex = toHex;
 //# sourceMappingURL=debug.js.map

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.listModules = void 0;
+exports.listModules = listModules;
 function listModules(modules, options) {
     let ret = {
         enable: {
@@ -50,5 +50,4 @@ function listModules(modules, options) {
     }
     return ret;
 }
-exports.listModules = listModules;
 //# sourceMappingURL=listModules.js.map

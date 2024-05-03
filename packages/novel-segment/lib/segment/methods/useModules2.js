@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useModules = void 0;
+exports.useModules = useModules;
 const tslib_1 = require("tslib");
 const useModules_1 = require("./useModules");
 const BuildInSubMod = tslib_1.__importStar(require("../../submod"));
@@ -20,5 +20,4 @@ function useModules(me, mod, ...argv) {
     }
     return me;
 }
-exports.useModules = useModules;
 //# sourceMappingURL=useModules2.js.map

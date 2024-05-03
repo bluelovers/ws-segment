@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.useDefaultBlacklistDict = exports.useDefaultSynonymDict = exports.useDefaultDicts = void 0;
+exports.useDefaultDicts = useDefaultDicts;
+exports.useDefaultSynonymDict = useDefaultSynonymDict;
+exports.useDefaultBlacklistDict = useDefaultBlacklistDict;
 function useDefaultDicts(segment, options = {}) {
     if (!options.nodict) {
         // 字典文件
@@ -46,7 +48,6 @@ function useDefaultDicts(segment, options = {}) {
     }
     return segment;
 }
-exports.useDefaultDicts = useDefaultDicts;
 function useDefaultSynonymDict(segment, options = {}) {
     if (!options.nodict) {
         segment
@@ -60,7 +61,6 @@ function useDefaultSynonymDict(segment, options = {}) {
     }
     return segment;
 }
-exports.useDefaultSynonymDict = useDefaultSynonymDict;
 function useDefaultBlacklistDict(segment, options = {}) {
     if (!options.nodict) {
         segment
@@ -70,5 +70,4 @@ function useDefaultBlacklistDict(segment, options = {}) {
     }
     return segment;
 }
-exports.useDefaultBlacklistDict = useDefaultBlacklistDict;
 //# sourceMappingURL=dict.js.map

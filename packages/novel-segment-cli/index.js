@@ -1,6 +1,22 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.resetCache = exports.removeCache = exports.loadCacheDb = exports.loadCacheInfo = exports.getSegment = exports.resetSegment = exports.getCacache = exports.fixOptions = exports.readFile = exports.SegmentCliError = exports.processFile = exports.processTextCore = exports.processText = exports.fileSegment = exports.fileSegmentCore = exports.textSegment = exports.textSegmentCore = exports.stringify = exports.enableDebug = void 0;
+exports.SegmentCliError = exports.stringify = exports.enableDebug = void 0;
+exports.textSegmentCore = textSegmentCore;
+exports.textSegment = textSegment;
+exports.fileSegmentCore = fileSegmentCore;
+exports.fileSegment = fileSegment;
+exports.processText = processText;
+exports.processTextCore = processTextCore;
+exports.processFile = processFile;
+exports.readFile = readFile;
+exports.fixOptions = fixOptions;
+exports.getCacache = getCacache;
+exports.resetSegment = resetSegment;
+exports.getSegment = getSegment;
+exports.loadCacheInfo = loadCacheInfo;
+exports.loadCacheDb = loadCacheDb;
+exports.removeCache = removeCache;
+exports.resetCache = resetCache;
 const tslib_1 = require("tslib");
 const crlf_normalize_1 = tslib_1.__importDefault(require("crlf-normalize"));
 const novel_segment_1 = tslib_1.__importDefault(require("novel-segment"));
@@ -35,29 +51,24 @@ function textSegmentCore(segment, text, options) {
         return (0, util_2.debug_token)(data);
     });
 }
-exports.textSegmentCore = textSegmentCore;
 function textSegment(text, options) {
     return textSegmentCore(getSegment(options), text, options);
 }
-exports.textSegment = textSegment;
 function fileSegmentCore(segment, file, options) {
     return bluebird_1.default.resolve(readFile(file))
         .then(function (buf) {
         return textSegmentCore(segment, buf.toString(), options);
     });
 }
-exports.fileSegmentCore = fileSegmentCore;
 function fileSegment(file, options) {
     return getSegment(options)
         .then((segment) => {
         return fileSegmentCore(segment, file, options);
     });
 }
-exports.fileSegment = fileSegment;
 function processText(text, options) {
     return processTextCore(getSegment(options), text, options);
 }
-exports.processText = processText;
 function processTextCore(segment, text, options) {
     if (!text.length || !text.replace(/\s+/g, '').length) {
         return bluebird_1.default.resolve('');
@@ -82,14 +93,12 @@ function processTextCore(segment, text, options) {
         return text;
     });
 }
-exports.processTextCore = processTextCore;
 function processFile(file, options) {
     return bluebird_1.default.resolve(readFile(file, options))
         .then(function (buf) {
         return processText(buf.toString(), options);
     });
 }
-exports.processFile = processFile;
 class SegmentCliError extends Error {
 }
 exports.SegmentCliError = SegmentCliError;
@@ -119,7 +128,6 @@ function readFile(file, options) {
         }
     });
 }
-exports.readFile = readFile;
 function fixOptions(options) {
     options = options || {};
     if (typeof options.ttl !== 'number' || options.ttl < 1) {
@@ -136,7 +144,6 @@ function fixOptions(options) {
     }
     return options;
 }
-exports.fixOptions = fixOptions;
 function getCacache(options) {
     return new bluebird_1.default(function (resolve, reject) {
         if (!CACHED_CACACHE) {
@@ -157,11 +164,9 @@ function getCacache(options) {
         resolve(CACHED_CACACHE);
     });
 }
-exports.getCacache = getCacache;
 function resetSegment() {
     CACHED_SEGMENT = void 0;
 }
-exports.resetSegment = resetSegment;
 function getSegment(options) {
     options = fixOptions(options);
     let { disableCache } = options;
@@ -260,7 +265,6 @@ function getSegment(options) {
         return CACHED_SEGMENT;
     });
 }
-exports.getSegment = getSegment;
 function loadCacheInfo(options) {
     return bluebird_1.default
         .resolve()
@@ -286,7 +290,6 @@ function loadCacheInfo(options) {
         return data;
     });
 }
-exports.loadCacheInfo = loadCacheInfo;
 function loadCacheDb(options) {
     options = fixOptions(options);
     let { disableCache } = options;
@@ -316,7 +319,6 @@ function loadCacheDb(options) {
         return null;
     });
 }
-exports.loadCacheDb = loadCacheDb;
 function removeCache(options) {
     let opts = fixOptions(options);
     return bluebird_1.default.all((0, array_hyper_unique_1.array_unique)([
@@ -338,9 +340,7 @@ function removeCache(options) {
         await cache.removeAll();
     });
 }
-exports.removeCache = removeCache;
 function resetCache() {
     CACHED_CACACHE = void 0;
 }
-exports.resetCache = resetCache;
 //# sourceMappingURL=index.js.map

@@ -3,7 +3,13 @@
  * Created by user on 2018/4/17/017.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.hexOr = exports.hexAnd = exports.hexAndAny = exports.debug_options = exports.debug = exports.debug_inspect = exports.token_add_info = exports.toHex = exports.debug_token = void 0;
+exports.token_add_info = exports.toHex = exports.debug_token = void 0;
+exports.debug_inspect = debug_inspect;
+exports.debug = debug;
+exports.debug_options = debug_options;
+exports.hexAndAny = hexAndAny;
+exports.hexAnd = hexAnd;
+exports.hexOr = hexOr;
 const debug_1 = require("./debug");
 Object.defineProperty(exports, "debug_token", { enumerable: true, get: function () { return debug_1.debug_token; } });
 Object.defineProperty(exports, "toHex", { enumerable: true, get: function () { return debug_1.toHex; } });
@@ -17,15 +23,12 @@ function debug_inspect(argv, options = {}) {
         return (0, util_1.inspect)(b, options);
     }, []);
 }
-exports.debug_inspect = debug_inspect;
 function debug(...argv) {
     return console.log(...debug_inspect(argv));
 }
-exports.debug = debug;
 function debug_options(argv, options) {
     return console.log(...debug_inspect(argv, options));
 }
-exports.debug_options = debug_options;
 function hexAndAny(n, ...argv) {
     if (!argv.length) {
         return n;
@@ -38,7 +41,6 @@ function hexAndAny(n, ...argv) {
     }
     return 0;
 }
-exports.hexAndAny = hexAndAny;
 function hexAnd(n, ...argv) {
     if (argv.length) {
         let r = 0;
@@ -53,14 +55,12 @@ function hexAnd(n, ...argv) {
     }
     return n;
 }
-exports.hexAnd = hexAnd;
 function hexOr(n, ...argv) {
     for (let v of argv) {
         n |= v;
     }
     return n;
 }
-exports.hexOr = hexOr;
 //let p = hexAnd(0x6000 | 0x8000, 0x2000, 0x4000)
 //debug(p, toHex(p));
 //# sourceMappingURL=index.js.map

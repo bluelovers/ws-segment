@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.split = void 0;
+exports.split = split;
 /**
  * 根据某个单词或词性来分割单词数组
  *
@@ -31,5 +31,4 @@ function split(words, s, ...argv) {
     words = undefined;
     return ret;
 }
-exports.split = split;
 //# sourceMappingURL=split.js.map

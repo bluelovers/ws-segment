@@ -1,8 +1,6 @@
 /**
  * Created by user on 2018/4/13/013.
  */
-/// <reference types="node" />
-/// <reference types="node" />
 import { Readable } from 'stream';
 import { IOptions, IStreamLine, IStreamLineWithValue } from './line';
 import { ICallback } from './stream';

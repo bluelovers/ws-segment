@@ -23,6 +23,6 @@ export declare class JpSimpleTokenizer extends SubSModuleTokenizer {
     protected createJpSimpleToken<T extends IWordDebug>(data: T, type: EnumJpSimpleTokenizerType): T;
     protected _splitText(text: string): IWord[];
 }
-export declare const init: typeof SubSModuleTokenizer.init;
+export declare const init: typeof JpSimpleTokenizer.init;
 export declare const type = "tokenizer";
 export default JpSimpleTokenizer;

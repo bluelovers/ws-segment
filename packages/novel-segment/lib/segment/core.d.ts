@@ -3,7 +3,6 @@
  *
  * @author 老雷<leizongmin@gmail.com>
  */
-/// <reference types="node" />
 import { TableDictBlacklist } from '@novel-segment/table-blacklist';
 import { AbstractTableDictCore } from '@novel-segment/table-core-abstract';
 import { TableDict } from '@novel-segment/table-dict';

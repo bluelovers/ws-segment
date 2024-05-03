@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.convertSynonym = void 0;
+exports.convertSynonym = convertSynonym;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("deepmerge-plus/core"));
 const debug_1 = require("../../util/debug");
@@ -85,5 +85,4 @@ function convertSynonym(ret, options) {
     }
     return ret;
 }
-exports.convertSynonym = convertSynonym;
 //# sourceMappingURL=convertSynonym.js.map

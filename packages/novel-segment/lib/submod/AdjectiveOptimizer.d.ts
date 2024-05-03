@@ -8,6 +8,6 @@ export declare class AdjectiveOptimizer extends SubSModuleOptimizer {
     doOptimize(words: IWordDebug[]): IWordDebug[];
     isNominal(pos: number | number[]): boolean;
 }
-export declare const init: typeof SubSModuleOptimizer.init;
+export declare const init: typeof AdjectiveOptimizer.init;
 export declare const type = "optimizer";
 export default AdjectiveOptimizer;

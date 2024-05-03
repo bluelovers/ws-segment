@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.createLoadStream = void 0;
+exports.createLoadStream = createLoadStream;
 const line_1 = require("./line");
 function createLoadStream(file, options = {}) {
     options.onready = options.onready || function (src, ...argv) {
@@ -27,6 +27,5 @@ function createLoadStream(file, options = {}) {
     });
     return stream;
 }
-exports.createLoadStream = createLoadStream;
 exports.default = createLoadStream;
 //# sourceMappingURL=stream.js.map

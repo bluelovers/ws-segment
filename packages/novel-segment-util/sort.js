@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.zhDictCompare = exports.zhDictCompareNew = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = exports.EnumSortCompareOrder = void 0;
+exports.zhDictCompare = exports.RE_ZH = exports._zhDictCompareTable_chars = exports._zhDictCompareTable = exports.EnumSortCompareOrder = void 0;
+exports.zhDictCompareNew = zhDictCompareNew;
 const tslib_1 = require("tslib");
 const string_natural_compare_1 = require("@bluelovers/string-natural-compare");
 const array_hyper_unique_1 = require("array-hyper-unique");
@@ -128,7 +129,6 @@ function zhDictCompareNew(options) {
         return _c || fallback(a, b);
     };
 }
-exports.zhDictCompareNew = zhDictCompareNew;
 /**
  * 排序字典專用的比較函數
  */

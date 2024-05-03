@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getSegment = void 0;
+exports.getSegment = getSegment;
 const tslib_1 = require("tslib");
 const core_1 = tslib_1.__importDefault(require("novel-segment/lib/segment/core"));
 const useModules2_1 = require("novel-segment/lib/segment/methods/useModules2");
@@ -25,7 +25,6 @@ function getSegment() {
     CACHED_SEGMENT.inited = true;
     return CACHED_SEGMENT;
 }
-exports.getSegment = getSegment;
 //console.dir(getSegment().doSegment('韓國明文禁止遊戲代練 即日起代練遊戲獲利者將處以兩年以下有期徒刑'));
 console.dir((0, url_1.parse)("/?input=%E5%8E%BB%E9%99%A4%E5%81%9C%E6%AD%A2%E7%AC%A6&input=%E5%8E%BB%E9%99%A4%E5%81%9C%E6%AD%A2%E7%AC%A6&debug=true", true));
 //# sourceMappingURL=test.js.map

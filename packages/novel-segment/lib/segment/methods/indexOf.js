@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.indexOf = void 0;
+exports.indexOf = indexOf;
 /**
  * 在单词数组中查找某一个单词或词性所在的位置
  *
@@ -19,5 +19,4 @@ function indexOf(words, s, cur, ...argv) {
     }
     return -1;
 }
-exports.indexOf = indexOf;
 //# sourceMappingURL=indexOf.js.map

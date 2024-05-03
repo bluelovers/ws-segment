@@ -3,7 +3,10 @@
  * Created by user on 2018/4/13/013.
  */
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ReadableSync = exports.createReadStreamSync = exports.createStreamLineSync = exports.createLoadStreamSync = void 0;
+exports.ReadableSync = void 0;
+exports.createLoadStreamSync = createLoadStreamSync;
+exports.createStreamLineSync = createStreamLineSync;
+exports.createReadStreamSync = createReadStreamSync;
 const stream_1 = require("stream");
 const fs_1 = require("fs");
 const path_1 = require("path");
@@ -35,16 +38,13 @@ function createLoadStreamSync(file, options = {}) {
     stream.pipeFrom.run();
     return stream;
 }
-exports.createLoadStreamSync = createLoadStreamSync;
 function createStreamLineSync(file, fn, options) {
     return createReadStreamSync(file)
         .pipe((0, line_1.byLine)(fn, options));
 }
-exports.createStreamLineSync = createStreamLineSync;
 function createReadStreamSync(file) {
     return new ReadableSync(file);
 }
-exports.createReadStreamSync = createReadStreamSync;
 class ReadableSync extends stream_1.Readable {
     constructor(file) {
         super();

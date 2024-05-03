@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.requireModule = exports.requireDefault = void 0;
+exports.requireDefault = requireDefault;
+exports.requireModule = requireModule;
 const types_1 = require("./types");
 function requireDefault(id, subtype) {
     return requireModule(id, subtype).default;
 }
-exports.requireDefault = requireDefault;
 function requireModule(id, subtype) {
     if (id === 'line' && (0, types_1.isUndefined)(subtype))
         return require('../line');
@@ -23,5 +23,4 @@ function requireModule(id, subtype) {
         return require('../segment/synonym');
     throw new Error(`module not defined. id: ${id}, subtype: ${subtype}`);
 }
-exports.requireModule = requireModule;
 //# sourceMappingURL=index.js.map

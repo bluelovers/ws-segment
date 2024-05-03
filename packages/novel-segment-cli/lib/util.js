@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.freeGC = exports.getCacheDirPath = exports.enableDebug = exports.debugConsole = exports.console = void 0;
+exports.debugConsole = exports.console = void 0;
+exports.enableDebug = enableDebug;
+exports.getCacheDirPath = getCacheDirPath;
+exports.freeGC = freeGC;
 const tslib_1 = require("tslib");
 const cache_path_1 = require("cache-path");
 const debug_color2_1 = require("debug-color2");
@@ -26,7 +29,6 @@ function enableDebug(bool) {
     }
     return exports.debugConsole.enabled;
 }
-exports.enableDebug = enableDebug;
 function getCacheDirPath(useGlobal) {
     return (0, cache_path_1.getCachePath)({
         name: package_json_1.default.name,
@@ -38,7 +40,6 @@ function getCacheDirPath(useGlobal) {
         ] : null,
     });
 }
-exports.getCacheDirPath = getCacheDirPath;
 function freeGC() {
     if (global && typeof global.gc === 'function') {
         try {
@@ -51,6 +52,5 @@ function freeGC() {
     }
     return false;
 }
-exports.freeGC = freeGC;
 exports.default = exports;
 //# sourceMappingURL=util.js.map

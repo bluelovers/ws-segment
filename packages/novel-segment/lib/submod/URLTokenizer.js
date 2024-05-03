@@ -1,6 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.matchURL = exports.split = exports.init = exports.segment = exports.type = void 0;
+exports.segment = exports.type = void 0;
+exports.init = init;
+exports.split = split;
+exports.matchURL = matchURL;
 /**
  * URL识别模块
  *
@@ -18,7 +21,6 @@ exports.type = 'tokenizer';
 function init(_segment) {
     exports.segment = _segment;
 }
-exports.init = init;
 /**
  * 对未识别的单词进行分词
  *
@@ -56,7 +58,6 @@ function split(words) {
     // debug(ret);
     return ret;
 }
-exports.split = split;
 /**
  * 协议URL头
  */
@@ -209,6 +210,5 @@ function matchURL(text, cur) {
     }
     return ret;
 }
-exports.matchURL = matchURL;
 // debug(matchURL('http://www.baidu.com哈啊http://哇fdgggghttp://baidu.com/ss/'));
 //# sourceMappingURL=URLTokenizer.js.map
