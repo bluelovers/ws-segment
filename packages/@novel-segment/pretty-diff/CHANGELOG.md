@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.25](https://github.com/bluelovers/ws-segment/compare/@novel-segment/pretty-diff@1.0.24...@novel-segment/pretty-diff@1.0.25) (2024-05-03)
+
+
+
+### 📌　Dependencies
+
+* update deps ([981cd61](https://github.com/bluelovers/ws-segment/commit/981cd61436c85252da318197150de79dd78b0d43))
+
+
+### 🔖　Miscellaneous
+
+* . ([8da1fc8](https://github.com/bluelovers/ws-segment/commit/8da1fc857e9ca7beb3c0becf4128ed5dac48a2be))
+
+
+
 ## [1.0.24](https://github.com/bluelovers/ws-segment/compare/@novel-segment/pretty-diff@1.0.23...@novel-segment/pretty-diff@1.0.24) (2024-01-03)
 
 **Note:** Version bump only for package @novel-segment/pretty-diff

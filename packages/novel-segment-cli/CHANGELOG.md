@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.135](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.134...novel-segment-cli@1.1.135) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([d3518d1](https://github.com/bluelovers/ws-segment/commit/d3518d12f74b1087316052b1d904585883c966c7))
+
+
+### 📌　Dependencies
+
+* update deps ([981cd61](https://github.com/bluelovers/ws-segment/commit/981cd61436c85252da318197150de79dd78b0d43))
+
+
+### 🔖　Miscellaneous
+
+* . ([8da1fc8](https://github.com/bluelovers/ws-segment/commit/8da1fc857e9ca7beb3c0becf4128ed5dac48a2be))
+
+
+
 ## [1.1.134](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.133...novel-segment-cli@1.1.134) (2024-01-03)
 
 

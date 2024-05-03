@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/util-compare",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "",
   "keywords": [
     "NLP",
@@ -128,8 +128,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/loader-line": "^1.0.33",
-    "@novel-segment/loaders": "^1.0.52",
+    "@novel-segment/loader-line": "^1.0.34",
+    "@novel-segment/loaders": "^1.0.53",
     "array-hyper-unique": "^2.1.6",
     "bluebird": "^3.7.2"
   },

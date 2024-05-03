@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.30...@novel-segment/loader-stopword@1.0.31) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([d3518d1](https://github.com/bluelovers/ws-segment/commit/d3518d12f74b1087316052b1d904585883c966c7))
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.29...@novel-segment/loader-stopword@1.0.30) (2023-10-06)
 
 
