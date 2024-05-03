@@ -1,4 +1,3 @@
-/// <reference types="bluebird" />
 import { ILoadDictFileRow2 } from '@novel-segment/util-compare';
 import { ArrayTwoOrMore } from '@novel-segment/types';
 export type IHandleDictSynonym = ILoadDictFileRow2<ArrayTwoOrMore<string>>;

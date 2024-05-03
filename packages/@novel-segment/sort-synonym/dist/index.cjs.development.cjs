@@ -49,7 +49,6 @@ function SortList(ls) {
       } else if (a.line_type !== 2 /* EnumLineType.COMMENT_TAG */) {
         return 1 /* EnumSortCompareOrder.DOWN */;
       }
-
       const aa = /^\/\/\s+@/.test(a.line);
       const ba = /^\/\/\s+@/.test(b.line);
       if (aa && !ba) {
@@ -57,7 +56,6 @@ function SortList(ls) {
       } else if (!aa && ba) {
         return 1 /* EnumSortCompareOrder.DOWN */;
       }
-
       return a.index - b.index;
     } else if (a.line_type === 1 /* EnumLineType.COMMENT */ && b.line_type === 1 /* EnumLineType.COMMENT */) {
       return a.index - b.index;

@@ -65,7 +65,6 @@ function chkLineType(line) {
       ret = 2 /* EnumLineType.COMMENT_TAG */;
     }
   }
-
   return ret;
 }
 

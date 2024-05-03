@@ -1,4 +1,3 @@
-/// <reference types="bluebird" />
 import { ILoadDictFileRow2 } from '@novel-segment/util-compare';
 export type IHandleDictTable = ILoadDictFileRow2;
 export interface IOptions {
