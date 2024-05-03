@@ -125,7 +125,7 @@
     "@novel-segment/types": "^1.0.13",
     "@novel-segment/util": "^1.0.76",
     "@novel-segment/util-compare": "^1.0.24",
-    "array-hyper-unique": "^2.1.4"
+    "array-hyper-unique": "^2.1.6"
   },
   "packageManager": "yarn@^1.22.11",
   "publishConfig": {

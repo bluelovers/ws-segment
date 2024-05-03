@@ -40,14 +40,14 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@bluelovers/string-natural-compare": "^2.0.11",
+    "@bluelovers/string-natural-compare": "^2.0.13",
     "@lazy-cjk/fullhalf": "^1.0.1",
-    "@lazy-cjk/zh-slugify": "^1.0.87",
-    "regexp-helper": "^1.0.38",
+    "@lazy-cjk/zh-slugify": "^1.0.89",
+    "regexp-helper": "^1.0.39",
     "tslib": ">=2"
   },
   "peerDependencies": {
-    "array-hyper-unique": "^2.1.4",
+    "array-hyper-unique": "^2.1.6",
     "cjk-conv": "*",
     "uni-string": "*"
   },

@@ -30,7 +30,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "ts-enum-util": "^4.0.2",
+    "ts-enum-util": "^4.1.0",
     "ts-type": "^3.0.1",
     "tslib": ">=2"
   },

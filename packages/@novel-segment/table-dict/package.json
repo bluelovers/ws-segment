@@ -122,7 +122,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@lazy-cjk/zh-table-list": "^1.0.85",
+    "@lazy-cjk/zh-table-list": "^1.0.87",
     "@novel-segment/loaders": "^1.0.52",
     "@novel-segment/table-core-abstract": "^1.0.22"
   },
