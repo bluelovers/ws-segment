@@ -79,6 +79,7 @@ db_dict
 	//	.add(['干着急',0x801000,100])
 //.add(['形參',0x100000,0])
 //.add(['反方',0x100000,0])
+	//.add(['流', 0x0, 0])
 ;
 
 let db_synonym = segment.getDictDatabase(EnumDictDatabase.SYNONYM);
@@ -95,10 +96,13 @@ console.time(`doSegment`);
 
 let text = `
 
-雖然光憑普通的水無法修復毛髮的角質層 , 至少還是可以洗
-去髒污 。 之前髒兮兮的模樣讓毛色看起來都一樣 ; 可是經過
-耐心清洗之後 光是憑借火把的火光也能看出她們的髮色各
-不相同 0
+settings.zephyr.board.empty=未選擇任何開发板
+<option name="盡可能合併順序" hit="盡可能合併順序 '||' 檢查(停用啟发式)" />
+<option name="case" hit="由於整數分析而啟发式無法存取的 case" />
+action.CMake.ForceRecheckEnvironment.text=檢查對開发環境的更改
+twitter.dialog.ok.action=发推
+microservices.mq.AccessType.STREAM_FORWARDING=流轉发
+microservices.diagrams.webservices.WebservicesDiagramRelationship.STREAM_FORWARD_RELATIONSHIP=MQ 流轉发請求
 
 `;
 
