@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.79](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.78...@novel-segment/api-server@1.0.79) (2024-05-03)
+
+
+
+### 🛠　Build System
+
+* update typescript ([c62b87b](https://github.com/bluelovers/ws-segment/commit/c62b87bc8a3cf92f18f33084875f27f1ab2e2f4b))
+
+
+
 ## [1.0.78](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.77...@novel-segment/api-server@1.0.78) (2024-05-03)
 
 
