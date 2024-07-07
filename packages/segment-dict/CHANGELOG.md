@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.208](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.207...segment-dict@2.3.208) (2024-07-07)
+
+
+
+### 🐛　Bug Fixes
+
+* **dict:** 使用合並拉入 {0} ([84e1ad8](https://github.com/bluelovers/ws-segment/commit/84e1ad8536feeb6b9c30b97956ab0df79c4e53fa))
+
+
+### 📦　Code Refactoring
+
+* **dict:** 計紀 ([6b5b877](https://github.com/bluelovers/ws-segment/commit/6b5b877559eedc782acf45b6b8679bab06533f52))
+* **dict:** 拉|啦 ([e979662](https://github.com/bluelovers/ws-segment/commit/e9796622bc6a66db145e0cbb8037a628c48ce3f4))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([b621b54](https://github.com/bluelovers/ws-segment/commit/b621b54ac9026fd46b9d898768e60c2768bbc093))
+* **dict:** save dict before sort:all ([88963a8](https://github.com/bluelovers/ws-segment/commit/88963a862d8a4a6f0fda40c2c525aa50eed8cd0d))
+* **dict:** save dict before new version ([a1fb314](https://github.com/bluelovers/ws-segment/commit/a1fb314827d637b4f6b660b0586ae1944c6464db))
+
+
+
 ## [2.3.207](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.206...segment-dict@2.3.207) (2024-05-03)
 
 
