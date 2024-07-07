@@ -5828,6 +5828,13 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'branches.action.pull.into.branch.using.merge=使用合並拉入 {0}',
+		[
+			'併',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof
