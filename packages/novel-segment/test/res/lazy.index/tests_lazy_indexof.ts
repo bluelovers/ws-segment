@@ -5835,6 +5835,62 @@ export const tests_lazy_indexof: [string, IP['1'], IP['2']?][] = [
 		],
 	],
 
+	[
+		'push.rejected.merge.needed=推送前需要合並遠端更改。',
+		[
+			'併',
+		],
+	],
+
+	[
+		'action.Profiler.OpenMergedCalleesAction.description=在新頁籤中開啟選定的方法合並被呼叫方樹',
+		[
+			'併',
+		],
+	],
+
+	[
+		'ui.merged.calls.view.tab.title=方法合並被呼叫方',
+		[
+			'併',
+		],
+	],
+
+	[
+		'的組合並將其取代為',
+		[
+			'並',
+		],
+	],
+
+	[
+		'報告迭代集合並且可以取代為增強型',
+		[
+			'並',
+		],
+	],
+
+	[
+		'action.merge.same.line=合並同一行的用法',
+		[
+			'併',
+		],
+	],
+
+	[
+		'merge.option.allow.unrelated.histories=允許合並不具有共同上級的歷史記錄',
+		[
+			'併',
+		],
+	],
+
+	[
+		'quick.merge.variants.quick.select.explanation=顯示來自目標分支、已合並和未合併分支的所有修訂。\\n用於手動選擇。快速獲取結果。',
+		[
+			'已合併',
+		],
+	],
+
 ];
 
 export default tests_lazy_indexof

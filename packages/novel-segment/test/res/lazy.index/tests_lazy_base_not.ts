@@ -943,6 +943,20 @@ export const tests_lazy_base_not: [string, Parameters<typeof lazyMatchNot>['1'],
 		],
 	],
 
+	[
+		'merge.option.allow.unrelated.histories=允許合並不具有共同上級的歷史記錄',
+		[
+			['史記'],
+		],
+	],
+
+	[
+		'二元運算符合並由逗號分隔的條件',
+		[
+			['符合'],
+		],
+	],
+
 ];
 
 export default tests_lazy_base_not

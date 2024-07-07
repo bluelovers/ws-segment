@@ -1273,6 +1273,34 @@ export const tests_fixme_indexof_not: [string, Parameters<typeof lazyMatchSynony
 		],
 	],
 
+	[
+		'action.hg4idea.merge.skipped=與工作目錄上級的合並沒有效果',
+		[
+			'併',
+		],
+	],
+
+	[
+		'hg4idea.update.warning.merge.conflicts=儲存庫 {0} 中的合並存在衝突。請檢查衝突，並在完成後提交合併',
+		[
+			'併',
+		],
+	],
+
+	[
+		'合並具有相同條件的連續',
+		[
+			'併',
+		],
+	],
+
+	[
+		'二元運算符合並由逗號分隔的條件',
+		[
+			'併',
+		],
+	],
+
 ];
 
 sortTests(tests_fixme_base);
