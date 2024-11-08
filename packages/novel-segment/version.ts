@@ -3,13 +3,13 @@
  */
 
 // @ts-ignore
-export const version: string;
+export let version: string;
 export default version
 // @ts-ignore
-export const version_dict: string;
+export let version_dict: string;
 
 // @ts-ignore
-export const versions: {
+export let versions: {
 	'novel-segment': string;
 	'segment-dict': string;
 	'regexp-cjk': string;

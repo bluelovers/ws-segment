@@ -1,10 +1,10 @@
 /**
  * Created by user on 2020/6/2.
  */
-export declare const version: string;
+export declare let version: string;
 export default version;
-export declare const version_dict: string;
-export declare const versions: {
+export declare let version_dict: string;
+export declare let versions: {
     'novel-segment': string;
     'segment-dict': string;
     'regexp-cjk': string;

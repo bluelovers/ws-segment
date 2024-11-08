@@ -2,32 +2,25 @@
  * Created by user on 2018/4/17/017.
  */
 
-import * as path from 'path';
-import * as fs from 'fs-extra';
-import ProjectConfig from '../../project.config';
+import { relative } from 'path';
+import { removeSync } from 'fs-extra';
+import { temp_root, project_root } from '../../project.config';
 import { debug } from '../../lib/util';
-import FastGlob from '@bluelovers/fast-glob/bluebird';
-
-//let cache_file = path.join(ProjectConfig.temp_root, 'cache.db');
+import { async as FastGlob } from '@bluelovers/fast-glob/bluebird';
 
 console.time(`[delete] cache`);
 
-//debug(path.relative(ProjectConfig.project_root, cache_file));
-//fs.removeSync(cache_file);
-//
-//console.timeEnd(`[delete] cache.db`);
-
-FastGlob([
-	'cache.db',
-	'cache*.db',
+export default FastGlob([
+	'**/cache.db',
+	'**/cache*.db',
 ], {
-	cwd: ProjectConfig.temp_root,
+	cwd: temp_root,
 	absolute: true,
 })
 .map((cache_file) => {
 
-	debug(path.relative(ProjectConfig.project_root, cache_file));
-	fs.removeSync(cache_file);
+	debug(relative(project_root, cache_file));
+	removeSync(cache_file);
 
 })
 	.tap(() => {

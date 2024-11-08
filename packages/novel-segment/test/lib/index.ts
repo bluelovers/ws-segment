@@ -70,7 +70,7 @@ export function createSegment(useCache: boolean = true, optionsSegment?: IOption
 		{
 			//console.log(st, md);
 
-			console.log(`開始載入緩存字典`);
+			console.log(`開始載入緩存字典`, cache_file);
 
 			let data = JSON.parse(fs.readFileSync(cache_file).toString());
 
