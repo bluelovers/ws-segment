@@ -42,8 +42,8 @@
   "dependencies": {
     "@bluelovers/string-natural-compare": "^2.0.13",
     "@lazy-cjk/fullhalf": "^1.0.1",
-    "@lazy-cjk/zh-slugify": "^1.0.89",
-    "regexp-helper": "^1.0.39",
+    "@lazy-cjk/zh-slugify": "^1.0.92",
+    "regexp-helper": "^1.0.42",
     "tslib": ">=2"
   },
   "peerDependencies": {
