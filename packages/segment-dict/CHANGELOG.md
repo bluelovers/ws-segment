@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.209](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.208...segment-dict@2.3.209) (2024-11-09)
+
+
+
+### 🐛　Bug Fixes
+
+* avoid bug ([883e3ea](https://github.com/bluelovers/ws-segment/commit/883e3ead6d36370f8de86a0c3a6b18fc94d470ac))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([c1da6d6](https://github.com/bluelovers/ws-segment/commit/c1da6d6559f34261ffd627c0beeb7625a64ad002))
+* **dict:** save dict before sort:all ([6a353ca](https://github.com/bluelovers/ws-segment/commit/6a353cad290ac8e22f1d659be609f65000ef7e3f))
+* **dict:** save dict before sort:all ([b2c064c](https://github.com/bluelovers/ws-segment/commit/b2c064c31fa631df9a7d87c9603b7efe080d19a9))
+
+
+### 📌　Dependencies
+
+* update deps ([8d057a4](https://github.com/bluelovers/ws-segment/commit/8d057a434616e34a9b2f04a5898618b860e10bf9))
+
+
+
 ## [2.3.208](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.207...segment-dict@2.3.208) (2024-07-07)
 
 

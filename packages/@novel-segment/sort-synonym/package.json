@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/sort-synonym",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "",
   "keywords": [
     "NLP",
@@ -123,7 +123,7 @@
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.34",
     "@novel-segment/types": "^1.0.13",
-    "@novel-segment/util": "^1.0.77",
+    "@novel-segment/util": "^1.0.79",
     "@novel-segment/util-compare": "^1.0.26",
     "array-hyper-unique": "^2.1.6"
   },
