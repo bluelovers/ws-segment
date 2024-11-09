@@ -3,7 +3,7 @@ import { console } from "debug-color2";
 import { appendFile, outputFile } from "fs-extra";
 import path from "upath2";
 import { serialize } from '@novel-segment/loader-line';
-import ProjectConfig from "../project.config";
+import { dict_root } from "../project.config";
 
 import { getCjkName, globDict, zhDictCompare } from './util';
 import {
@@ -15,7 +15,7 @@ import {
 } from '@novel-segment/util-compare';
 import { IHandleDictSynonym, loadFile, SortList } from '@novel-segment/sort-synonym';
 
-let CWD = path.join(ProjectConfig.dict_root, 'synonym');
+let CWD = path.join(dict_root, 'synonym');
 
 let USE_CJK_MODE = 2;
 
