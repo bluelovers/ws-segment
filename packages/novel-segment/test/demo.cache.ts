@@ -96,13 +96,11 @@ console.time(`doSegment`);
 
 let text = `
 
-settings.zephyr.board.empty=未選擇任何開发板
-<option name="盡可能合併順序" hit="盡可能合併順序 '||' 檢查(停用啟发式)" />
-<option name="case" hit="由於整數分析而啟发式無法存取的 case" />
-action.CMake.ForceRecheckEnvironment.text=檢查對開发環境的更改
-twitter.dialog.ok.action=发推
-microservices.mq.AccessType.STREAM_FORWARDING=流轉发
-microservices.diagrams.webservices.WebservicesDiagramRelationship.STREAM_FORWARD_RELATIONSHIP=MQ 流轉发請求
+不仅能够撤退，亦可用于奇袭。111
+奇袭。111
+亦可用于
+用于奇袭
+确认周围没有人影后，
 
 `;
 

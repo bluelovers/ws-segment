@@ -1218,14 +1218,14 @@ export const tests_fixme_indexof: typeof tests_lazy_index['tests_lazy_indexof'] 
 	],
 
 	[
-		'确认周围没有人影后，',
+		'在新皇帝两年前于欧弁查卡即位，',
 		[
-			'後',
+			'於',
 		],
 	],
 
 	[
-		'在新皇帝两年前于欧弁查卡即位，',
+		'，亦可用于奇袭。',
 		[
 			'於',
 		],
