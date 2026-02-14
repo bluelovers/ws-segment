@@ -1,0 +1,14 @@
+packages:
+  - packages/@novel-segment/*
+  # all packages in subdirs of packages/ and components/
+  - packages/*
+  # exclude packages that are inside test/ directories
+  - '!**/test/**'
+
+publicHoistPattern:
+  # - "@lazy-cjk/*"
+  # - "@node-novel/*"
+  - "@novel-segment/*"
+  - "novel-segment*"
+  - "segment-dict"
+
