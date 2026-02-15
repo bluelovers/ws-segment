@@ -10,5 +10,7 @@ publicHoistPattern:
   # - "@node-novel/*"
   - "@novel-segment/*"
   - "novel-segment*"
-  - "segment-dict"
+  - "workspace:segment-dict"
+  - "ts-type"
 
+linkWorkspacePackages: true
