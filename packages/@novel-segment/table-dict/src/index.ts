@@ -1,4 +1,7 @@
 /**
+ * 字典表格模組
+ * Dictionary Table Module
+ *
  * Created by user on 2018/4/15/015.
  */
 import { IDictRow, stringifyLine } from '@novel-segment/loaders/segment/index';
@@ -6,36 +9,123 @@ import { textList as text_list } from '@lazy-cjk/zh-table-list/list';
 import { AbstractTableDictCore, IDICT, IDICT2, IOptions } from '@novel-segment/table-core-abstract';
 import { IWord } from '@novel-segment/types';
 
+/**
+ * 字典詞條資料結構
+ * Dictionary Entry Data Structure
+ *
+ * 儲存每個詞語的詞性、頻率與同步狀態。
+ * Stores the part of speech, frequency, and sync status for each word.
+ */
 export type ITableDictRow = {
+	/**
+	 * 詞性 (Part of Speech)
+	 *
+	 * 使用位元遮罩表示詞性標記。
+	 * Uses bitmask to represent part of speech tags.
+	 */
 	p: number,
+	/**
+	 * 詞頻 (Frequency)
+	 *
+	 * 詞語在語料庫中的出現頻率。
+	 * The frequency of the word in the corpus.
+	 */
 	f: number,
+	/**
+	 * 同步標記 (Sync Flag)
+	 *
+	 * 標記詞條是否已同步處理。
+	 * Marks whether the entry has been synchronized.
+	 */
 	s?: boolean,
 };
 
 export { IDICT, IDICT2, IOptions }
 
+/**
+ * 檢查值是否非數字
+ * Check if Value is Not a Number
+ *
+ * 型別守衛函式，判斷值是否為非數字類型或 NaN。
+ * Type guard function that determines if a value is not a number type or is NaN.
+ *
+ * @template T - 輸入值的類型 / Type of input value
+ * @param {T} val - 要檢查的值 / Value to check
+ * @returns {boolean} 若非數字或 NaN 則返回 true / Returns true if not a number or NaN
+ */
 export function notNum<T>(val: T): val is Exclude<T, number>
 {
 	return typeof val !== 'number' || Number.isNaN(val)
 }
 
 /**
- * @todo 掛接其他 dict
+ * 字典表格類別
+ * Dictionary Table Class
+ *
+ * 主要的字典表格實作，用於儲存詞語及其詞性、詞頻等資訊。
+ * 支援自動簡繁轉換功能，可自動為詞語建立簡體、繁體、日文漢字等變體。
+ *
+ * Main dictionary table implementation for storing words along with
+ * their part of speech, frequency, and other information.
+ * Supports automatic CJK conversion, automatically creating variants
+ * for simplified/traditional Chinese and Japanese kanji.
+ *
+ * @todo 掛接其他 dict / Connect to other dictionaries
  */
 export class TableDict extends AbstractTableDictCore<ITableDictRow>
 {
 	//public override type: string;
 
+	/**
+	 * 主字典表格
+	 * Main Dictionary Table
+	 *
+	 * 以詞語為鍵，儲存 ITableDictRow 資料。
+	 * Uses words as keys, storing ITableDictRow data.
+	 */
 	declare TABLE: IDICT<ITableDictRow>;
+
+	/**
+	 * 二維字典表格
+	 * Two-dimensional Dictionary Table
+	 *
+	 * 以詞語長度為第一層鍵，詞語為第二層鍵。
+	 * Uses word length as the first-level key and word as the second-level key.
+	 */
 	declare TABLE2: IDICT2<ITableDictRow>;
 
 	//override options: IOptions;
 
+	/**
+	 * 檢查詞語是否存在於表格中
+	 * Check if Word Exists in Table
+	 *
+	 * 覆寫父類別方法，返回 ITableDictRow 類型。
+	 * Overrides parent method to return ITableDictRow type.
+	 *
+	 * @override
+	 * @param {IWord | IDictRow | string} data - 輸入資料 / Input data
+	 * @returns {ITableDictRow} 詞條資料 / Entry data
+	 */
 	override exists(data: IWord | IDictRow | string): ITableDictRow
 	{
 		return super.exists(data)
 	}
 
+	/**
+	 * 內部輸入處理方法
+	 * Internal Input Handler Method
+	 *
+	 * 將各種格式的輸入資料統一轉換為標準格式。
+	 * 支援字串、陣列或 IWord 物件格式。
+	 *
+	 * Unifies various input formats into a standard format.
+	 * Supports string, array, or IWord object formats.
+	 *
+	 * @protected
+	 * @param {IWord | IDictRow | string} data - 輸入資料 / Input data
+	 * @returns {Object} 處理後的資料物件 / Processed data object
+	 */
 	protected __handleInput(data: IWord | IDictRow | string)
 	{
 		let w: string, p: number, f: number;
@@ -54,11 +144,13 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			({ w, p, f } = data);
 		}
 
+		// 驗證詞語是否為有效字串 / Validate that word is a valid string
 		if (typeof w !== 'string' || w === '')
 		{
 			throw new TypeError(JSON.stringify(data));
 		}
 
+		// 若未提供詞性或詞頻，則預設為 0 / Default to 0 if POS or frequency not provided
 		p = notNum(p) ? 0 : p;
 		f = notNum(f) ? 0 : f;
 
@@ -70,6 +162,20 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		}
 	}
 
+	/**
+	 * 新增詞語到表格
+	 * Add Word to Table
+	 *
+	 * 將詞語及其詞性、詞頻加入字典表格。
+	 * 若啟用 autoCjk 選項，會自動建立簡繁轉換變體。
+	 *
+	 * Adds a word along with its part of speech and frequency to the dictionary table.
+	 * If autoCjk option is enabled, automatically creates simplified/traditional variants.
+	 *
+	 * @param {IWord | IDictRow | string} data - 輸入資料 / Input data
+	 * @param {boolean} [skipExists] - 若詞語已存在則跳過 / Skip if word already exists
+	 * @returns {this} 返回實例以支援鏈式呼叫 / Returns instance for method chaining
+	 */
 	add(data: IWord | IDictRow | string, skipExists?: boolean)
 	{
 		let w: string, p: number, f: number;
@@ -82,11 +188,13 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 			plus = ret.plus;
 		}
 
+		// 若詞語已存在且設定跳過，則直接返回 / Return if word exists and skip is enabled
 		if (skipExists && this.exists(w))
 		{
 			return this;
 		}
 
+		// 預留擴充欄位處理 / Reserved for additional field processing
 		if (plus?.length)
 		{
 			// @todo do something
@@ -97,15 +205,24 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		let self = this;
 
 		/**
+		 * 自動建立中日韓字元變體
+		 * Automatically Create CJK Character Variants
+		 *
 		 * @todo 需要更聰明的作法 目前的做法實在太蠢
+		 *       Need a smarter approach, current implementation is too inefficient
+		 *
 		 * @BUG 在不明原因下 似乎不會正確的添加每個項目 如果遇到這種情形請手動添加簡繁項目
+		 *      Under unknown circumstances, some items may not be added correctly.
+		 *      If this occurs, please manually add simplified/traditional variants.
 		 */
 		if (1 && this.options.autoCjk)
 		{
+			// 取得詞語的所有變體形式 / Get all variant forms of the word
 			let wa = text_list(w);
 
 			wa.forEach(function (w2)
 			{
+				// 若變體與原詞不同且不存在於表格中，則加入 / Add variant if different from original and not in table
 				if (w2 !== w && !self.exists(w2))
 				{
 					self._add({ w: w2, p, f });
@@ -143,6 +260,23 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		return this;
 	}
 
+	/**
+	 * 內部新增方法
+	 * Internal Add Method
+	 *
+	 * 實際執行將詞語加入表格的邏輯。
+	 * 同時更新主字典表格與二維字典表格。
+	 *
+	 * Actually performs the logic of adding a word to the table.
+	 * Updates both the main dictionary table and the two-dimensional table.
+	 *
+	 * @protected
+	 * @param {Object} param0 - 詞條參數 / Entry parameters
+	 * @param {string} param0.w - 詞語 / Word
+	 * @param {number} param0.p - 詞性 / Part of speech
+	 * @param {number} param0.f - 詞頻 / Frequency
+	 * @param {boolean} [param0.s] - 同步標記 / Sync flag
+	 */
 	protected _add({ w, p, f, s }: {
 		w: string,
 		p: number,
@@ -152,17 +286,33 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	{
 		let len = w.length;
 
+		// 加入主字典表格 / Add to main dictionary table
 		this.TABLE[w] = {
 			p,
 			f,
 			s,
 		} as ITableDictRow;
 
+		// 加入二維字典表格（按長度分組）/ Add to two-dimensional table (grouped by length)
 		if (!this.TABLE2[len]) this.TABLE2[len] = {};
 
 		this.TABLE2[len][w] = this.TABLE[w];
 	}
 
+	/**
+	 * 從表格移除詞語
+	 * Remove Word from Table
+	 *
+	 * 從字典表格中移除指定的詞語。
+	 * 同時從主字典表格與二維字典表格中移除。
+	 *
+	 * Removes the specified word from the dictionary table.
+	 * Removes from both the main dictionary table and the two-dimensional table.
+	 *
+	 * @override
+	 * @param {IWord | IDictRow | string} target - 要移除的詞語 / Word to remove
+	 * @returns {this} 返回實例以支援鏈式呼叫 / Returns instance for method chaining
+	 */
 	override remove(target: IWord | IDictRow | string)
 	{
 		let { data, plus } = this.__handleInput(target);
@@ -172,11 +322,29 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		return this
 	}
 
+	/**
+	 * 內部移除方法
+	 * Internal Remove Method
+	 *
+	 * 實際執行從表格移除詞語的邏輯。
+	 * Actually performs the logic of removing a word from the table.
+	 *
+	 * @override
+	 * @protected
+	 * @param {IWord} param0 - 詞條參數 / Entry parameters
+	 * @param {string} param0.w - 詞語 / Word
+	 * @param {number} [param0.p] - 詞性 / Part of speech
+	 * @param {number} [param0.f] - 詞頻 / Frequency
+	 * @param {boolean} [param0.s] - 同步標記 / Sync flag
+	 * @returns {this} 返回實例以支援鏈式呼叫 / Returns instance for method chaining
+	 */
 	protected override _remove({ w, p, f, s }: IWord)
 	{
 		let len = w.length;
 
+		// 從主字典表格移除 / Remove from main dictionary table
 		delete this.TABLE[w];
+		// 從二維字典表格移除 / Remove from two-dimensional table
 		if (this.TABLE2[len])
 		{
 			delete this.TABLE2[len][w]
@@ -186,7 +354,18 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	}
 
 	/**
-	 * 將目前的 表格 匯出
+	 * 將表格序列化為字串
+	 * Serialize Table to String
+	 *
+	 * 將目前的字典表格匯出為行格式的字串。
+	 * 每行格式為：詞語 詞性 詞頻
+	 *
+	 * Exports the current dictionary table to a line-format string.
+	 * Each line format: word part_of_speech frequency
+	 *
+	 * @override
+	 * @param {string} [LF="\n"] - 換行符號 / Line feed character
+	 * @returns {string} 序列化後的字串 / Serialized string
 	 */
 	override stringify(LF = "\n")
 	{
