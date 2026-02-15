@@ -126,7 +126,6 @@
     "@novel-segment/util": "^1.0.79",
     "@novel-segment/util-compare": "^1.0.26"
   },
-  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
   }

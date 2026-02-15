@@ -127,7 +127,6 @@
     "lodash": "^4.17.21",
     "ts-type": "^3.0.1"
   },
-  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
   }

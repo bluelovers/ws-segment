@@ -124,7 +124,6 @@
   "dependencies": {
     "@novel-segment/table-synonym-pangu": "^1.0.22"
   },
-  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
   }

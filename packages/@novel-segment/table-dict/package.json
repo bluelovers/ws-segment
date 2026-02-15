@@ -126,7 +126,6 @@
     "@novel-segment/loaders": "^1.0.53",
     "@novel-segment/table-core-abstract": "^1.0.23"
   },
-  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
   }

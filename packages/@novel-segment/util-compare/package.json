@@ -133,7 +133,6 @@
     "array-hyper-unique": "^2.1.6",
     "bluebird": "^3.7.2"
   },
-  "packageManager": "yarn@^1.22.11",
   "publishConfig": {
     "access": "public"
   }
