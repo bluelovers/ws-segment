@@ -124,9 +124,10 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	 *
 	 * @protected
 	 * @param {IWord | IDictRow | string} data - 輸入資料 / Input data
-	 * @returns {Object} 處理後的資料物件 / Processed data object
+	 * @param {boolean} [skipExists] - 是否跳過查詢現有詞條以填充預設值 / Whether to skip querying existing entries to fill default values
+	 * @returns {{ data: { w: string, p: number, f: number }, plus: Array<string | number> }} 處理後的資料物件，包含詞語資料與額外欄位 / Processed data object containing word data and additional fields
 	 */
-	protected __handleInput(data: IWord | IDictRow | string)
+	protected __handleInput(data: IWord | IDictRow | string, skipExists?: boolean)
 	{
 		let w: string, p: number, f: number;
 		let plus: Array<string | number>;
@@ -148,6 +149,35 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		if (typeof w !== 'string' || w === '')
 		{
 			throw new TypeError(JSON.stringify(data));
+		}
+
+		/*
+		 * 若未跳過查詢且詞性或詞頻為 null，則嘗試從現有詞條繼承值
+		 * If not skipping lookup and POS or frequency is null, try to inherit from existing entry
+		 *
+		 * 此邏輯用於更新現有詞條時保留原有的詞性或詞頻值。
+		 * This logic preserves existing POS or frequency values when updating an entry.
+		 *
+		 * 條件說明：
+		 * - !skipExists: 允許查詢現有詞條（skipExists 為 false 或 undefined）
+		 * - p === null: 詞性未提供（明確傳入 null）
+		 * - f === null: 詞頻未提供（明確傳入 null）
+		 *
+		 * Condition explanation:
+		 * - !skipExists: Allow querying existing entries (skipExists is false or undefined)
+		 * - p === null: POS not provided (explicitly passed as null)
+		- f === null: Frequency not provided (explicitly passed as null)
+		 */
+		if (!skipExists && (p === null || f === null))
+		{
+			let _orig = this.exists(w);
+			if (_orig)
+			{
+				// 從現有詞條繼承詞性 / Inherit POS from existing entry
+				if (p === null) p = _orig.p;
+				// 從現有詞條繼承詞頻 / Inherit frequency from existing entry
+				if (f === null) f = _orig.f;
+			}
 		}
 
 		// 若未提供詞性或詞頻，則預設為 0 / Default to 0 if POS or frequency not provided
@@ -172,6 +202,17 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	 * Adds a word along with its part of speech and frequency to the dictionary table.
 	 * If autoCjk option is enabled, automatically creates simplified/traditional variants.
 	 *
+	 * 若未跳過查詢且詞性或詞頻為 null，則嘗試從現有詞條繼承值
+	 * 此邏輯用於更新現有詞條時保留原有的詞性或詞頻值。
+	 *
+	 * If not skipping lookup and POS or frequency is null, try to inherit from existing entry
+	 * This logic preserves existing POS or frequency values when updating an entry.
+	 *
+	 * 條件說明：
+	 * - !skipExists: 允許查詢現有詞條（skipExists 為 false 或 undefined）
+	 * - p === null: 詞性未提供（明確傳入 null）
+	 * - f === null: 詞頻未提供（明確傳入 null）
+	 *
 	 * @param {IWord | IDictRow | string} data - 輸入資料 / Input data
 	 * @param {boolean} [skipExists] - 若詞語已存在則跳過 / Skip if word already exists
 	 * @returns {this} 返回實例以支援鏈式呼叫 / Returns instance for method chaining
@@ -182,7 +223,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 		let plus: Array<string | number>;
 
 		{
-			let ret = this.__handleInput(data);
+			let ret = this.__handleInput(data, skipExists);
 
 			({ w, p, f } = ret.data);
 			plus = ret.plus;
