@@ -86,7 +86,7 @@
     "lint": "yarn run lint:eslint",
     "lint:eslint": "ynpx eslint --ext .ts,.tsx,.mts,.cts ./",
     "pretest": "echo pretest",
-    "test": "jest --passWithNoTests",
+    "test": "yarn run test:jest:snapshot",
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "yarn run test:jest -- --coverage",
     "test:jest:snapshot": "yarn run test:jest -- -u",

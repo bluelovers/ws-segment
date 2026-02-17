@@ -1,0 +1,1537 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`fixme:data base lazyMatch 「——另外在接受安乐死的时候有幾项注意事项首先如果客人是外籍人士的话就需要成为我国居民这是为了防止在设籍在外国的人士接受安乐死的情况下被当作是杀人而起诉我国的安乐死终究只适用於我国居民所以若是不同意入籍的话就不能对其执行安乐死还有安乐死需要经过幾个程序——」 1`] = `
+{
+  "failedWords": [
+    "杀人",
+  ],
+  "matched": false,
+  "ret": "「/—/—/另外/在/接受/安乐死/的/时候/有/幾项/注意/事项/首先/如果/客人/是/外籍/人士/的/话/就/需要/成为/我国/居民/这是/为了/防止/在/设籍/在/外国/的/人士/接受/安乐死/的/情况/下/被/当作/是/杀/人/而/起诉/我国/的/安乐死/终究/只/适用於/我国/居民/所/以/若是/不同意/入籍/的/话/就/不能/对/其/执行/安乐死/还有/安乐死/需要/经过/幾个/程序/—/—/」",
+}
+`;
+
+exports[`fixme:data base lazyMatch 一年生的代表裏出場的吉爾克 1`] = `
+{
+  "failedWords": [
+    "代表",
+  ],
+  "matched": false,
+  "ret": "一年生/的/代/表裏/出場/的/吉爾/克",
+}
+`;
+
+exports[`fixme:data base lazyMatch 两个中国人名之间的成分 1`] = `
+{
+  "failedWords": [
+    "之间",
+  ],
+  "matched": false,
+  "ret": "两个/中国/人名/之/间/的/成分",
+}
+`;
+
+exports[`fixme:data base lazyMatch 于錯綜複雜的基礎上誕生出現在的羅迪斯王家 1`] = `
+{
+  "failedWords": [
+    "現在",
+  ],
+  "matched": false,
+  "ret": "于/錯綜/複雜/的/基礎上/誕生/出現/在/的/羅迪/斯/王家",
+}
+`;
+
+exports[`fixme:data base lazyMatch 仍有幾處在幾小時後繼續施工的工程 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "仍/有/幾處/在/幾小時/後繼/續/施工/的/工程",
+}
+`;
+
+exports[`fixme:data base lazyMatch 但也有普通的日子裡表现出气沖沖样子的时候 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "但/也有/普通/的/日子/裡/表现出/气沖沖/样子/的/时候",
+}
+`;
+
+exports[`fixme:data base lazyMatch 在山國裡長大的男生三人大概沒見過吧 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "在/山國/裡/長大/的/男生/三人/大概/沒/見過/吧",
+}
+`;
+
+exports[`fixme:data base lazyMatch 女形演員──日本歌舞伎中模仿女性形態的男舞者 1`] = `
+{
+  "failedWords": [
+    "演員",
+  ],
+  "matched": false,
+  "ret": "女形/演/員/─/─/日本/歌舞伎/中/模仿/女性/形態/的/男/舞者",
+}
+`;
+
+exports[`fixme:data base lazyMatch 她就只是忠於自己 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "她/就/只是/忠於/自己",
+}
+`;
+
+exports[`fixme:data base lazyMatch 尽力抗衡自己身为王族的一切而已 1`] = `
+{
+  "failedWords": [
+    "自己",
+  ],
+  "matched": false,
+  "ret": "尽力/抗衡/自/己身/为/王族/的/一切/而已",
+}
+`;
+
+exports[`fixme:data base lazyMatch 想要将一切饮乾的贪慾的恶意 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "想要/将/一切/饮乾/的/贪慾/的/恶意",
+}
+`;
+
+exports[`fixme:data base lazyMatch 我依然將視線專注於哥布林與狗頭人身上。 1`] = `
+{
+  "failedWords": [
+    "視線",
+  ],
+  "matched": false,
+  "ret": "我/依然/將/視/線/專注/於/哥布林/與/狗頭人/身上/。",
+}
+`;
+
+exports[`fixme:data base lazyMatch 我覺得算是把啪啪啪和跑劇情平衡得最好的一章了 1`] = `
+{
+  "failedWords": [
+    "覺得",
+  ],
+  "matched": false,
+  "ret": "我/覺/得/算是/把/啪/啪啪/和/跑/劇情/平衡/得/最好/的/一章/了",
+}
+`;
+
+exports[`fixme:data base lazyMatch 才發现自己最不想见到的人现身了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "才/發现/自己/最不想/见到/的人/现身/了",
+}
+`;
+
+exports[`fixme:data base lazyMatch 新的勇者後宮 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "新/的/勇者/後宮",
+}
+`;
+
+exports[`fixme:data base lazyMatch 然後是境界山脈內部全體表示范達魯擁有影響力的地區全區的國名 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "然後/是/境界/山脈/內部/全體/表示/范/達/魯/擁有/影響力/的/地區/全區/的/國名",
+}
+`;
+
+exports[`fixme:data base lazyMatch 被大人版的月大人以公主抱抱著 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "被/大人版/的/月/大人/以/公主抱/抱著",
+}
+`;
+
+exports[`fixme:data base lazyMatch 谁教我自豪的亮栗色美髮这会儿焦得跟烤栗子没两样 1`] = `
+{
+  "failedWords": [
+    "自豪/自豪的",
+  ],
+  "matched": false,
+  "ret": "谁/教/我/自/豪/的/亮/栗色/美髮/这会儿/焦/得/跟/烤/栗子/没两样",
+}
+`;
+
+exports[`fixme:data base lazyMatch002 漸漸變大的光源占滿整個視野…… 1`] = `
+{
+  "entryIndex": -1,
+  "entryMatched": undefined,
+  "failedWords": [
+    "視野",
+  ],
+  "matched": false,
+  "ret": "漸漸/變大/的/光源/占滿/整個/視/野/…/…",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 「吾辈乃是地狱的闘士多尔奥格。」 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "「/吾辈/乃是/地狱/的/闘士/多/尔/奥/格/。/」",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 「这就是所谓的天才吗……趁现在赶紧吐幾口口水吧。」 1`] = `
+{
+  "failedWords": [
+    "水吧",
+  ],
+  "matched": false,
+  "ret": "「/这/就是/所谓/的/天才/吗/…/…/趁/现在/赶紧/吐/幾口/口/水吧/。/」",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 不过也有传闻说「闪光」的名号是来自於他可以将许多男人瞬间带上床而来的 1`] = `
+{
+  "failedWords": [
+    "上床",
+  ],
+  "matched": false,
+  "ret": "不过/也有/传闻/说/「/闪光/」/的/名号/是/来自於/他/可以/将/许多/男人/瞬间/带/上床/而/来/的",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 为什麼自己会在这种地方打仗啊？ 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "为什麼/自己/会在/这种地方/打仗/啊/？",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 久居於此的人多半是些流浪汉 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "久居於此/的/人/多半/是/些/流浪汉",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 他们继续往回宿舍的路上走著 1`] = `
+{
+  "failedWords": [
+    "往回",
+  ],
+  "matched": false,
+  "ret": "他们/继续/往回/宿舍/的/路上/走/著",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 你想說的就只有這句話嗎 1`] = `
+{
+  "failedWords": [
+    "說的",
+  ],
+  "matched": false,
+  "ret": "你想/說的/就/只有/這句話/嗎",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 你的待遇是以後再做決定的事情 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "你/的/待遇/是/以後再做/決定/的/事情",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 到湖中間後手終於能休息了 1`] = `
+{
+  "failedWords": [
+    "后手/後手",
+  ],
+  "matched": false,
+  "ret": "到/湖/中間/後手/終於/能/休息/了",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 即将前往巴黎时装周演出的超级模特儿。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "即将/前往/巴黎/时装周/演出/的/超级/模特儿/。",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 卻從敵人本陣發了出來 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "卻/從/敵人/本陣/發了出來",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 只有她已經獲得成為會合用道具的樂器「春霞之橫笛」 1`] = `
+{
+  "failedWords": [
+    "合用",
+  ],
+  "matched": false,
+  "ret": "只有/她/已經/獲得/成為/會/合用/道具/的/樂器/「/春/霞/之/橫笛/」",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 只有限定的人才准許內進的上級娛樂室 1`] = `
+{
+  "failedWords": [
+    "人才",
+  ],
+  "matched": false,
+  "ret": "只有/限定/的/人才/准許/內/進/的/上級/娛樂/室",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 可是他们只是生下来便带著具有缺陷的魔法 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "可是/他们/只是/生下来/便/带著/具有/缺陷/的/魔法",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 四个人和三只鸡搭上了船 1`] = `
+{
+  "failedWords": [
+    "人和",
+  ],
+  "matched": false,
+  "ret": "四个/人和/三只/鸡/搭/上了/船",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 因其鼎腹內壁著有銘文 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "因/其/鼎腹/內壁/著有/銘文",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 在正妻室降靈的時候經常被看到 1`] = `
+{
+  "failedWords": [
+    "妻室",
+  ],
+  "matched": false,
+  "ret": "在/正/妻室/降靈/的/時候/經常/被/看到",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 大小遠超標準馬車 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "大小/遠超/標準/馬車",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 大概對自己以後的生活會更加輕鬆吧 1`] = `
+{
+  "failedWords": [
+    "生活會",
+  ],
+  "matched": false,
+  "ret": "大概/對/自己/以後/的/生活會/更加/輕鬆/吧",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 奪走了塞利斯的唇瓣 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "奪走了/塞/利/斯/的/唇瓣",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 如果這個對象是平民的話 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "如果/這個/對象是/平民/的/話",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 守护符和戒指 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "守护符/和/戒指",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 少年时 1`] = `
+{
+  "failedWords": [
+    "年时",
+  ],
+  "matched": false,
+  "ret": "少/年时",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 就正正是因為看不到表情語氣 1`] = `
+{
+  "failedWords": [
+    "正是/就正",
+  ],
+  "matched": false,
+  "ret": "就正/正是/因為/看不到/表情/語氣",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 已經見不到用土製作出的靶子的踪影了。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "已經/見不到/用/土/製作出/的/靶子/的/踪影/了/。",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 并特别针对需行使战鬥的事态以及其方式进行详细规範 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "并/特别/针对/需/行使/战鬥/的/事态/以及其/方式/进行/详细/规範",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 從前代惡政後踏踏實實重建國家的實績 1`] = `
+{
+  "failedWords": [
+    "從前",
+  ],
+  "matched": false,
+  "ret": "從前/代/惡政/後/踏踏實實/重建/國家/的/實績",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 手是擦乾净了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "手/是/擦乾净/了",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 托瓦哈迪可以在資訊絶對不洩露的環境下生產卵磷脂 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "托/瓦/哈迪/可以在/資訊/絶對/不/洩露/的/環境/下/生產/卵磷脂",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 是活在少年时的回忆中的女人 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "是/活/在/少年时/的/回忆/中/的/女人",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 最近的学生都觉得只要能在後方使用魔法就好了 1`] = `
+{
+  "failedWords": [
+    "在後",
+  ],
+  "matched": false,
+  "ret": "最近/的/学生/都/觉得/只要/能/在後/方/使用/魔法/就/好了",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 森林裡長著高大的樹木 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "森林/裡/長著/高大/的/樹木",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 民兵團團長和其他托魯森的男人都明里暗里露出了不滿的表情 1`] = `
+{
+  "failedWords": [
+    "團團",
+  ],
+  "matched": false,
+  "ret": "民兵/團團/長/和/其他/托/魯/森/的/男人/都/明里暗里/露出/了/不滿/的/表情",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 照常理想，我會死在這裡。 1`] = `
+{
+  "failedWords": [
+    "照常",
+  ],
+  "matched": false,
+  "ret": "照常/理想/，/我/會死/在/這裡/。",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 由於領民間產生不小的騷動 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "由於/領民間/產生/不小的/騷動",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 盆栽裡的植物是要制成藥的藥草和樹苗，與咒術師工會在城裡所栽培的，是同一類的東西。 1`] = `
+{
+  "failedWords": [
+    "成藥",
+  ],
+  "matched": false,
+  "ret": "盆栽/裡/的/植物/是/要/制/成藥/的/藥草/和/樹苗/，/與/咒/術師/工會/在/城/裡/所/栽培/的/，/是/同/一類/的/東西/。",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 看老師批准後面對著克莉絲塔 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "看/老師/批准/後/面對著/克莉絲/塔",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 艾蓮娜有時間的話不要值班準備料理嗎 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "艾蓮娜/有時間/的/話/不要/值班/準備/料理/嗎",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 被卷入山崩的人中沒有發現生存者 1`] = `
+{
+  "failedWords": [
+    "人中",
+  ],
+  "matched": false,
+  "ret": "被/卷入/山崩/的/人中/沒有/發現/生存者",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 說出來只會被當做無稽之談 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+  "ret": "說/出來/只會/被/當做/無稽之談",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 这种豆子会长成大树 1`] = `
+{
+  "failedWords": [
+    "会长",
+  ],
+  "matched": false,
+  "ret": "这种/豆子/会长/成/大树",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 酒館內人雖然算不上亞肩疊背 1`] = `
+{
+  "failedWords": [
+    "內人",
+  ],
+  "matched": false,
+  "ret": "酒館/內人/雖然/算不上/亞肩疊背",
+}
+`;
+
+exports[`fixme:data base lazyMatchNot 飄著好聞到令人吃驚的 1`] = `
+{
+  "failedWords": [
+    "聞到",
+  ],
+  "matched": false,
+  "ret": "飄著/好/聞到/令人/吃驚/的",
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 “所以，別拿我當借口。” 1`] = `
+{
+  "failedWords": [
+    "藉",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 “是借口吧。因為，無論何時我詢問你，你都在辯解吧。” 1`] = `
+{
+  "failedWords": [
+    "藉",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 。在眾多礦工所呆的採掘場裡面， 1`] = `
+{
+  "failedWords": [
+    "待",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 「你們老是幹些無聊的事情呢。」 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 「呼呼，被拉澤爾喂了呢」 1`] = `
+{
+  "failedWords": [
+    "餵",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 「咕奴奴⋯怕不是有１００萬吨，這東西。」 1`] = `
+{
+  "failedWords": [
+    "噸",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 「哼⋯⋯還真是幹了不得了的事情呢。」 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 「因為我的第六感本來就做不得准了。 1`] = `
+{
+  "failedWords": [
+    "準",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 『啊，雖然無所謂，但請趕快干呢』 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 七人裡有五人和遙遠的回廊有關聯 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 上次大會的準優勝者 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 不僅有發戰爭財的人和專門干見不得光的行當的人 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 不要发小孩子脾氣 1`] = `
+{
+  "failedWords": [
+    "發",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 之後的第四場比賽也沒有發生意外 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 也能夠理解這幾點了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 乾脆別幹冒険者 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 五個人聚在機庫里忙著 1`] = `
+{
+  "failedWords": [
+    "裡",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 亞歷山大把髒了的下巴用髒的餐巾擦了起來 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 亞里阿德涅唰地拔出繫在腰際的短刀。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 人才發掘部內以它們為使魔的職員占到了八成。 1`] = `
+{
+  "failedWords": [
+    "佔",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 他對於月 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 伊莉娜凝視那樣的夏倫的后影 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 但希絲哈也說會陪我一起幹 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 但手中的雙劍在他鬆手後掉在地上 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 但是轉過頭來卻發現眼前站著的人和那些男人不同 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 但為了魔石熱潮不得不干。 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 但莉莉好象也一樣。 1`] = `
+{
+  "failedWords": [
+    "好像",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 何必幹這種愚蠢的行為 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 作為父親後妻的女人是和親生母親不變的存在 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 像我這種看不出願望到底有沒有實現的人其實佔多數 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 其他部隊的同事和外來的一般遊客占了大概七成。 1`] = `
+{
+  "failedWords": [
+    "佔",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 冈萨斯却完全没有自己占了优势的感觉。 1`] = `
+{
+  "failedWords": [
+    "佔",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 加上她對我們人類非常善意。只要不用力量威脅或者干失禮的事 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 即使我們還擁有余下的數十萬利珀虫。 1`] = `
+{
+  "failedWords": [
+    "餘",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 只是照他們要求的干而已 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 只會落到後手 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 在伯納士知道的人里恐怕只有伊莉娜能完全躲開了 1`] = `
+{
+  "failedWords": [
+    "裡",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 在去河的途中采山芋吧。水在河裡打就行。 1`] = `
+{
+  "failedWords": [
+    "採",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 在对方心中划下了永远不会抹灭的伤痕这点也十分有名 1`] = `
+{
+  "failedWords": [
+    "劃",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 在新皇帝两年前于欧弁查卡即位， 1`] = `
+{
+  "failedWords": [
+    "於",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 在看到他的身影後 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 夏倫甚麼牢騷都沒發也沒把伊莉娜的手撥開 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 外表看起來20幾歲或這上下 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 她余光瞟到的城牆外的世界 1`] = `
+{
+  "failedWords": [
+    "餘",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 好像剛到學園的時候我就開始幹著鐵匠活了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 如果後半天潛伏在森林裡 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 學院佔地非常廣闊，除了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 對於變得完全沉迷於千草的梨梨花，不得不露出苦笑。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 小學生時為了采竹筍而曾在竹林中迷路的洋和小林 1`] = `
+{
+  "failedWords": [
+    "採",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 就好像剪刀划在小腿上的感覺一樣。 1`] = `
+{
+  "failedWords": [
+    "劃",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 就算只是干這一件事 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 就這麼幹吧 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 已經不想再繼續干別的事情了 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 干她就對了 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 幹這一行的基本都是大公會的人 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 应该是头部上的幾隻复眼看向了这边。 1`] = `
+{
+  "failedWords": [
+    "複",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 弘橋高中于二○一五年的四月迎接了一百五十二名新生入學 1`] = `
+{
+  "failedWords": [
+    "於",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 往腰上系上劍，進入了戰鬥狀態。 1`] = `
+{
+  "failedWords": [
+    "繫",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 成年牛般大小的如狼獸類──烏利波──自人影后現出了身姿。 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 我們出發3天后還沒有發生什麼 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 我再也不會干這事了 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 我想先試著干一件事 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 我緊緊閉上眼睛，做了次深呼吸，后又睜開。 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 我讓一位騎士胡亂卷上包帶 1`] = `
+{
+  "failedWords": [
+    "捲",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 托里和多瓦夫也誕生了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 接敵后，兩秒。被彈開了劍，連同盾被斬崩了。 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 據說青眼龍死后身體會溶解 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 早早到達教室的兩人占到了最前面的座位 1`] = `
+{
+  "failedWords": [
+    "佔",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 早知道不幹這詭異的打工了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 春雪才發現叫聲是發自站在他身旁的黑雪公主。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 是喂受了傷的魔物喝回復藥 1`] = `
+{
+  "failedWords": [
+    "餵",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 是看起來很睏的愛莉絲 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 最近的学生都觉得只要能在後方使用魔法就好了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 會有益於加華特商的莫大利潤和南部地區巨大信用的話 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 月光灑落在一把長長的黑髮上 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 有個美少女喂你食物 1`] = `
+{
+  "failedWords": [
+    "餵",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 有勇氣首先跳入不知道有什麼危險的大海裡找魚吃的企鵝 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 本來行會不會發佈這種任務 1`] = `
+{
+  "failedWords": [
+    "公會",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 校正過後僅剩的137HP於唐納爾多而言實在是太少了。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 液体，却被笼罩著绿光的圣剑余热蒸發。 1`] = `
+{
+  "failedWords": [
+    "餘",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 溫室裡長大 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 然後您困了所以回來睡了一會兒 1`] = `
+{
+  "failedWords": [
+    "睏",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 现在已经放下来变成长發了。 1`] = `
+{
+  "failedWords": [
+    "髮",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 用力划了一下， 1`] = `
+{
+  "failedWords": [
+    "劃",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 男人穿著有點髒的皮甲從中露出的衣服也絕對說不上好 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 畢斯可吐掉口中殘餘的鮮血， 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 當然這都是後話了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 當門關上的余聲停止時，臉上失去了力量，自然的閉上了眼睛。 1`] = `
+{
+  "failedWords": [
+    "餘",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 百合連綳帶都扎不好 1`] = `
+{
+  "failedWords": [
+    "紮",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 目里奈就像是等候多时了一样露出胜利的笑容冲我打起了招呼 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 看到她沒乾的頭髮粘在她鎖骨上的光景 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 看老师批准後面对着克莉丝塔 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 眼前的屍體已經變成了像乾物一樣乾巴巴的 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 置驚呆地張嘴的利歐於一旁 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 而且还是用钱强逼人家就范的 1`] = `
+{
+  "failedWords": [
+    "範",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 而大叔也因为这样没事可幹 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 肉烤焦的味道和打雷后特有的刺激性怪味在周圍瀰漫開來 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 至於武器 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 血什麼的一滴都沒喝 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 說不定會被里伊氏族察覺到 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 蹺課多出來的時間就可以干別的事吧 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 這些都是後話了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 那些注入全身的力量還是讓它的身體略微往後傾 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 那就幹給你看吧 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 集中精力於打倒那傢伙 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 雖然我認為後者應該佔多數 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 難道說買這種奴隷是想在房間裡干那些事嗎 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 領主有發補助金哦 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 ，亦可用于奇袭。 1`] = `
+{
+  "failedWords": [
+    "於",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001 ５天后的馬車可以麼 1`] = `
+{
+  "failedWords": [
+    "後",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not action.hg4idea.merge.skipped=與工作目錄上級的合並沒有效果 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not hg4idea.update.warning.merge.conflicts=儲存庫 {0} 中的合並存在衝突。請檢查衝突，並在完成後提交合併 1`] = `
+{
+  "failedWords": [
+    "併",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 「你想想看，他可是讓阿諾斯大人把手插進肚子里耶。我也想被插啊！」 1`] = `
+{
+  "failedWords": [
+    "里",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 二元運算符合並由逗號分隔的條件 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 以前发高难度任务没人做所以乾脆不發了， 1`] = `
+{
+  "failedWords": [
+    "发",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 假使于蕾亞所在的洞窟這種昏暗場所發動 1`] = `
+{
+  "failedWords": [
+    "于",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 合並具有相同條件的連續 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 如果螞蟻和災厄都是誕生于里伯大森林 1`] = `
+{
+  "failedWords": [
+    "于",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 庭院裡长有一种草 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 由於韋恩散佈了 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 脖子裡长有一颗肿瘤 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fixme:data base lazyMatchSynonym001Not 角落裡长着 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;

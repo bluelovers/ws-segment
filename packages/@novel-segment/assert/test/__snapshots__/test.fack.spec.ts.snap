@@ -1,0 +1,140 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`fakeData lazyMatch 在這裡有兩具自動人偶隨侍在側的烏列爾 1`] = `
+{
+  "failedWords": [
+    "會議/会议",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatch 胡锦涛出席APEC领导人会议后回京 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatch 胡锦涛出席APEC领导人会议后回京 2`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatch002 在這裡有兩具胡锦涛人偶隨侍 1`] = `
+{
+  "entryIndex": -1,
+  "entryMatched": undefined,
+  "failedWords": [
+    "自動人偶",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatch002 在這裡有兩具自動人偶隨侍在側的烏列爾 1`] = `
+{
+  "entryIndex": 0,
+  "entryMatched": [
+    "兩具",
+    "自動",
+    "人偶",
+    "隨侍",
+  ],
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatchNot 在這裡有兩具自動人偶隨侍在側的烏列爾 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatchNot 胡锦涛出席APEC领导人会议后回京 1`] = `
+{
+  "failedWords": [
+    "会议",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatchNot 胡锦涛出席APEC领导人会议后回京 2`] = `
+{
+  "failedWords": [
+    "會議/会议",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatchNot 這份毫不守舊的率直 1`] = `
+{
+  "failedWords": [
+    "份毫/份/毫",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatchNot 這份毫不守舊的率直 2`] = `
+{
+  "failedWords": [
+    "份",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatchSynonym001 大家干的好 1`] = `
+{
+  "failedWords": [
+    "幹",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatchSynonym001 大家干的好 2`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatchSynonym001Not 大家干的好 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatchSynonym001Not 大家干的好 2`] = `
+{
+  "failedWords": [
+    "幹/干",
+  ],
+  "matched": false,
+}
+`;
+
+exports[`fakeData lazyMatchSynonym001Not 那是里靈魂的世界。 1`] = `
+{
+  "failedWords": [],
+  "matched": true,
+}
+`;
+
+exports[`fakeData lazyMatchSynonym001Not 那是里靈魂的世界。 2`] = `
+{
+  "failedWords": [
+    "裡/里",
+  ],
+  "matched": false,
+}
+`;
