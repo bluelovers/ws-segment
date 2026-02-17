@@ -34,3 +34,4 @@ For example, "胡鬍须鬚糊" are all collected in [`鬍鬚.txt`](鬍鬚.txt).
 | [`捶搥錘鎚椎槌.txt`](捶搥錘鎚椎槌.txt) | 捶搥錘鎚椎槌 | |
 | [`了.txt`](了.txt) | 了 | |
 | [`播.txt`](播.txt) | 播拨 | |
+| [`萨.txt`](萨.txt) | 比批萨撒 | |
