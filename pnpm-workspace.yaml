@@ -14,5 +14,6 @@ publicHoistPattern:
   - "ts-type"
   - "yargs"
   - "@bluelovers/jest-config"
+  - "@bluelovers/string-natural-compare"
 
 linkWorkspacePackages: true

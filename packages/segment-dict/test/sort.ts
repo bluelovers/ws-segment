@@ -1,12 +1,12 @@
 /**
  * Created by user on 2018/4/14/014.
- * 
+ *
  * 斷詞字典排序腳本
  * Segment Dictionary Sorting Script
- * 
+ *
  * 用於處理、過濾和排序斷詞字典檔案。
  * 支援 CJK 字元處理與重複詞條偵測。
- * 
+ *
  * Used for processing, filtering, and sorting segment dictionary files.
  * Supports CJK character processing and duplicate detection.
  */
@@ -43,7 +43,7 @@ let cwd = join(ProjectConfig.dict_root, 'segment');
 /**
  * 當前詞條資料類型
  * Current word data type
- * 
+ *
  * 元組格式：[詞條, 詞性標籤, 詞頻]
  * Tuple format: [word, part-of-speech tag, frequency]
  */
@@ -52,10 +52,10 @@ export type ICUR_WORD_DATA = [string, number, number];
 /**
  * 當前詞條介面
  * Current word interface
- * 
+ *
  * 代表單一字典條目及其元資料。
  * Represents a single dictionary entry with metadata.
- * 
+ *
  * @property {ICUR_WORD_DATA} data - 解析後的詞條資料元組 [詞條, 詞性, 詞頻]
  * @property {number} index - 在原始檔案中的行索引
  * @property {string} line - 原始行內容
@@ -431,7 +431,7 @@ Promise
 			// 過濾包含特定字元的詞條（如「致」與「緻」）
 			// Filter words containing specific characters (like 致 and 緻)
 			if (1 && !bool
-				&& zhRegExp.create(/致|緻/u).test(w)
+				&& zhRegExp.create(/比|批/u).test(w)
 			)
 			{
 				bool = true;
@@ -551,19 +551,19 @@ Promise
 /**
  * 依 CJK 識別碼和詞條資料排序詞條列表
  * Sort word list by CJK identifier and word data
- * 
+ *
  * 使用多層級比較進行排序：
  * 1. CJK 識別碼（升冪）
  * 2. 詞性標籤（降冪）
  * 3. 詞條字串（升冪）
  * 4. 詞頻（升冪）
- * 
+ *
  * Sorts the word list using a multi-level comparison:
  * 1. CJK identifier (ascending)
  * 2. Part-of-speech tag (descending)
  * 3. Word string (ascending)
  * 4. Frequency (ascending)
- * 
+ *
  * @param {ICUR_WORD[]} ls - 要排序的詞條物件陣列
  * @param {boolean} [bool] - 選填旗標（目前未使用）
  * @returns {ICUR_WORD[]} 排序後的陣列（與輸入相同參照）
