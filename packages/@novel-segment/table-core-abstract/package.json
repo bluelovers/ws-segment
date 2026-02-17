@@ -124,7 +124,7 @@
   "dependencies": {
     "@novel-segment/loaders": "^1.0.53",
     "@novel-segment/types": "^1.0.13",
-    "lodash": "^4.17.21",
+    "lodash": "^4.17.23",
     "ts-type": "^3.0.1"
   },
   "publishConfig": {
