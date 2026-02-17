@@ -1,8 +1,8 @@
 {
   "mcpServers": {
     "dev-segment-cli": {
-      "command": "node",
-      "args": ["${workspaceFolder}/node_modules/novel-segment/bin/mcp-server.js"]
+      "command": "ts-node",
+      "args": ["${workspaceFolder}/node_modules/novel-segment/bin/mcp-server"]
     }
   }
 }
