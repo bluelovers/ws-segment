@@ -80,18 +80,29 @@ export function _handleLazyMatchOptions(options: IOptionsLazyMatch = {})
  * 分析後應該要符合以下結果，驗證斷詞結果是否按順序包含指定的詞彙。
  * 適用於測試斷詞器是否正確識別並排序關鍵詞。
  *
+ * 此函數採用貪心匹配策略，從左到右依次查找每個預期詞彙，
+ * 並確保每個詞彙出現在陣列中的位置是遞增的。
+ *
  * After analysis, should match the following result.
  * Verifies if segmentation results contain specified words in order.
  * Suitable for testing if the segmenter correctly identifies and orders keywords.
  *
+ * This function uses a greedy matching strategy, iterating through each expected word
+ * from left to right and ensuring each word appears at an increasing position in the array.
+ *
  * @example
- * [
- * 		'胡锦涛出席APEC领导人会议后回京',
- * 		[
- * 			'会议',
- * 			'回京',
- * 		],
- * 	],
+ * // 基本用法 / Basic usage
+ * const result = ['胡锦涛', '出席', 'APEC', '领导人', '会议', '后', '回京'];
+ * lazyMatch(result, ['会议', '回京']); // true
+ *
+ * @example
+ * // 多選一用法 / Multiple choices
+ * const result = ['在', '這裡', '有', '兩具', '自動', '人偶', '隨侍', '在', '側', '的', '烏列爾'];
+ * lazyMatch(result, [['會議', '议'], '回京']); // 支援混合陣列
+ *
+ * @see lazyMatch002 - 用於多組結果的匹配
+ * @see lazyMatchNot - 用於反向匹配（不應包含）
+ * @throws {AssertionError} 當匹配失敗時拋出 / Throws when match fails
  *
  * @param {string[]} a - 斷詞結果陣列 / Segmentation result array
  * @param {string[] | (string | string[])[]} b - 預期包含的詞彙（支援陣列表示多選一）/ Expected words (array for multiple choices)
@@ -192,26 +203,26 @@ export function lazyMatch(a: string[], b: string[] | (string | string[])[], opti
  * 分析後應該要符合以下其中一個結果。
  * 適用於測試同一句子的多種可能斷詞結果。
  *
+ * 此函數會逐一嘗試每組預期結果，直到找到匹配為止。
+ * 如果所有組合都不匹配，則拋出錯誤。
+ *
  * After analysis, should match one of the following results.
  * Suitable for testing multiple possible segmentation results of the same sentence.
  *
+ * This function tries each expected result set in order until a match is found.
+ * If no combination matches, an error is thrown.
+ *
  * @example
- * [
- * 		'在這裡有兩具自動人偶隨侍在側的烏列爾',
- * 		[
- * 			[
- * 				'兩具',
- * 				'自動',
- * 				'人偶',
- * 				'隨侍',
- * 			],
- * 			[
- * 				'兩具',
- * 				'自動人偶',
- * 				'隨侍',
- * 			],
- * 		],
- * 	],
+ * // 基本用法 / Basic usage
+ * const result = ['在', '這裡', '有', '兩具', '自動', '人偶', '隨侍', '在', '側', '的', '烏列爾'];
+ * lazyMatch002(result, [
+ *   ['兩具', '自動', '人偶', '隨侍'],
+ *   ['兩具', '自動人偶', '隨侍']
+ * ]); // true - 兩種組合都接受
+ *
+ * @see lazyMatch - 用於單一結果的匹配
+ * @see lazyMatchNot - 用於反向匹配
+ * @throws {AssertionError} 當所有組合都不匹配時拋出 / Throws when no combination matches
  *
  * @param {string[]} a - 斷詞結果陣列 / Segmentation result array
  * @param {Parameters<typeof lazyMatch>['1'][]} b_arr - 多組預期結果陣列 / Multiple expected result arrays
@@ -254,16 +265,26 @@ export function lazyMatch002(a: string[], b_arr: Parameters<typeof lazyMatch>['1
  * 分析轉換後應該要具有以下字詞。
  * 用於驗證同義詞轉換後的字串是否包含預期的詞彙。
  *
+ * 與 lazyMatch 不同，此函數操作於字串而非陣列，
+ * 並且在匹配時會跳過已匹配的詞彙長度（基於字元位置而非陣列索引）。
+ *
  * After analysis and transformation, should have the following words.
  * Used to verify if the string after synonym transformation contains expected words.
  *
+ * Unlike lazyMatch, this function operates on a string rather than an array,
+ * and when matching, it skips the length of matched words (based on character position, not array index).
+ *
  * @example
- * [
- * 		'大家干的好',
- * 		[
- * 			'幹',
- * 		],
- * 	],
+ * // 基本用法 / Basic usage
+ * const transformed = '大家干的好'; // 原始: '大家幹的好'
+ * lazyMatchSynonym001(transformed, ['幹']); // true
+ *
+ * @example
+ * // 多選一用法 / Multiple choices
+ * lazyMatchSynonym001('大家干的好', [['幹', '干']]); // true - 兩者皆可
+ *
+ * @see lazyMatchSynonym001Not - 用於反向匹配（不應包含）
+ * @throws {AssertionError} 當匹配失敗時拋出 / Throws when match fails
  *
  * @param {string} a - 轉換後的字串 / Transformed string
  * @param {(string | string[])[]} b_arr - 預期包含的詞彙 / Expected words to contain
@@ -347,16 +368,26 @@ export function lazyMatchSynonym001(a: string, b_arr: (string | string[])[], opt
  * 分析轉換後不應該具有以下字詞。
  * 用於驗證同義詞轉換後的字串不應包含特定的詞彙。
  *
+ * 此函數是 lazyMatchSynonym001 的反向版本，
+ * 用於確保轉換後的字串不包含特定的同義詞。
+ *
  * After analysis and transformation, should NOT have the following words.
  * Used to verify that the string after synonym transformation does not contain specific words.
  *
+ * This function is the reverse version of lazyMatchSynonym001,
+ * used to ensure the transformed string does not contain specific synonyms.
+ *
  * @example
- * [
- * 		'那是里靈魂的世界。',
- * 		[
- * 			'裡',
- * 		],
- * 	],
+ * // 基本用法 / Basic usage
+ * const transformed = '那是里靈魂的世界。';
+ * lazyMatchSynonym001Not(transformed, ['裡']); // true - 不應包含 '裡'
+ *
+ * @example
+ * // 多選一用法 / Multiple choices
+ * lazyMatchSynonym001Not('那是里靈魂的世界。', [['裡', '里']]); // true - 兩者都不應包含
+ *
+ * @see lazyMatchSynonym001 - 用於正向匹配（應該包含）
+ * @throws {AssertionError} 當找到不應有的詞彙時拋出 / Throws when finding unexpected words
  *
  * @param {string} a - 轉換後的字串 / Transformed string
  * @param {(string | string[])[]} b_arr - 不應包含的詞彙 / Words that should not be contained
@@ -431,16 +462,27 @@ export function lazyMatchSynonym001Not(a: string, b_arr: (string | string[])[], 
  * 分析後不應該存在符合以下結果。
  * 用於驗證斷詞結果不應按順序包含指定的詞彙組合。
  *
+ * 此函數是 lazyMatch 的反向版本，用於確保斷詞結果
+ * 不按順序包含指定的詞彙組合。
+ *
  * After analysis, should NOT have the following result.
  * Used to verify that segmentation results should not contain specified word combinations in order.
  *
+ * This function is the reverse version of lazyMatch, used to ensure that
+ * segmentation results do not contain specified word combinations in order.
+ *
+ * @example用法 / Basic usage
+ * const result = ['這',
+ * // 基本 '份', '毫不', '守舊', '的', '率直'];
+ * lazyMatchNot(result, ['份', '毫']); // true - 不應按順序出現
+ *
  * @example
- * [
- * 		'這份毫不守舊的率直',
- * 		[
- * 			'份毫',
- * 		],
- * 	],
+ * // 多選一用法 / Multiple choices
+ * lazyMatchNot(['這', '份', '毫不', '守舊', '的', '率直'], [['份毫', '份', '毫']]); // true
+ *
+ * @see lazyMatch - 用於正向匹配（應該包含）
+ * @see lazyMatch002 - 用於多組結果的匹配
+ * @throws {AssertionError} 當找到不應有的組合時拋出 / Throws when finding unexpected combinations
  *
  * @param {string[]} a - 斷詞結果陣列 / Segmentation result array
  * @param {string[] | (string | string[])[]} b - 不應包含的詞彙組合 / Word combinations that should not be contained
