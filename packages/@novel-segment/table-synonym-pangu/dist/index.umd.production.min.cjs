@@ -1,6 +1,6 @@
 !function(e, t) {
   "object" == typeof exports && "undefined" != typeof module ? t(exports, require("@novel-segment/table-core-abstract")) : "function" == typeof define && define.amd ? define([ "exports", "@novel-segment/table-core-abstract" ], t) : t((e = "undefined" != typeof globalThis ? globalThis : e || self).NovelSegmentTableSynonymPangu = {}, e.tableCoreAbstract);
-}(this, (function(e, t) {
+}(this, function(e, t) {
   "use strict";
   class TableDictSynonymPanGu extends t.AbstractTableDictCore {
     static type="SYNONYM";
@@ -25,5 +25,5 @@
   Object.defineProperty(e, "__esModule", {
     value: !0
   });
-}));
+});
 //# sourceMappingURL=index.umd.production.min.cjs.map

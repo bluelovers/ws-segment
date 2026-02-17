@@ -1,4 +1,16 @@
 "use strict";
+/**
+ * 載入器模組工廠
+ * Loader Module Factory
+ *
+ * 提供動態載入各種字典載入器的工廠函式。
+ * 支援的載入器類型：line、stopword、jieba、opencc、segment。
+ *
+ * Provides factory functions for dynamically loading various dictionary loaders.
+ * Supported loader types: line, stopword, jieba, opencc, segment.
+ *
+ * @module @novel-segment/loaders/lib
+ */
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.requireDefault = requireDefault;
 exports.requireModule = requireModule;

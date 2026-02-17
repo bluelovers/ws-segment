@@ -1,6 +1,6 @@
 !function(t, e) {
   "object" == typeof exports && "undefined" != typeof module ? e(exports, require("lodash-es")) : "function" == typeof define && define.amd ? define([ "exports", "lodash-es" ], e) : e((t = "undefined" != typeof globalThis ? globalThis : t || self).NovelSegmentTableCoreAbstract = {}, t.lodashEs);
-}(this, (function(t, e) {
+}(this, function(t, e) {
   "use strict";
   class AbstractTableDictCore {
     TABLE=Object.create(null);
@@ -32,5 +32,5 @@
   Object.defineProperty(t, "__esModule", {
     value: !0
   });
-}));
+});
 //# sourceMappingURL=index.umd.production.min.cjs.map

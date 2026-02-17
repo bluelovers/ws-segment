@@ -9,14 +9,14 @@ var e, n = require("@novel-segment/loaders/segment/index"), i = require("@novel-
 function handleDictLines(e, n, i) {
   if (!e) return [];
   const {parseFn: t} = i;
-  return e.reduce((function(e, i, r) {
+  return e.reduce(function(e, i, r) {
     let s, u = {
       data: t(i),
       line: i,
       index: r
     };
     return s = !n || n(e, u), s && e.push(u), e;
-  }), []);
+  }, []);
 }
 
 exports.EnumLineType = void 0, (e = exports.EnumLineType || (exports.EnumLineType = {}))[e.BASE = 0] = "BASE", 
@@ -27,13 +27,13 @@ exports.chkLineType = function chkLineType(e) {
   n;
 }, exports.handleDictLines = handleDictLines, exports.loadDictFile = function loadDictFile(e, t, r) {
   const s = (r = r || {}).parseFn = r.parseFn || n.parseLine;
-  return i.load(e).then((function(e) {
+  return i.load(e).then(function(e) {
     return handleDictLines(e, t, {
       parseFn: s
     });
-  }));
+  });
 }, exports.stringifyHandleDictLinesList = function stringifyHandleDictLinesList(e, n) {
-  let i = e.map((e => e.line));
+  let i = e.map(e => e.line);
   return null != n && n.disableUnique ? i : t.array_unique(i);
 };
 //# sourceMappingURL=index.cjs.production.min.cjs.map

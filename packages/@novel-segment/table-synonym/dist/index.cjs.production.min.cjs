@@ -11,17 +11,17 @@ class TableDictSynonym extends t.TableDictSynonymPanGu {
     super(t, e, ...n);
   }
   add(t, e, n) {
-    var r, i, o, s, l;
+    var r, i, s;
     if (!Array.isArray(t) || t.length < 2) throw new TypeError(JSON.stringify(t));
-    const y = this._trim(t.shift());
-    if (!y.length) throw new TypeError(JSON.stringify(t));
-    const a = this;
-    return null !== (i = (r = a.TABLE2)[y]) && void 0 !== i || (r[y] = []), null !== (o = n) && void 0 !== o || (n = this.options.forceOverwrite), 
-    null !== (s = e) && void 0 !== s || (e = null === (l = this.options.skipExists) || void 0 === l || l), 
-    t.forEach((function(t, r) {
-      if ((t = a._trim(t)).length) !n && (e && a.exists(t) || t in a.TABLE2) || (a.TABLE2[y].push(t), 
-      a._add(t, y)); else if (0 === r) throw new TypeError;
-    })), this;
+    const o = this._trim(t.shift());
+    if (!o.length) throw new TypeError(JSON.stringify(t));
+    const l = this;
+    return null !== (i = (r = l.TABLE2)[o]) && void 0 !== i || (r[o] = []), null != n || (n = this.options.forceOverwrite), 
+    null != e || (e = null === (s = this.options.skipExists) || void 0 === s || s), 
+    t.forEach(function(t, r) {
+      if ((t = l._trim(t)).length) !n && (e && l.exists(t) || t in l.TABLE2) || (l.TABLE2[o].push(t), 
+      l._add(t, o)); else if (0 === r) throw new TypeError;
+    }), this;
   }
 }
 

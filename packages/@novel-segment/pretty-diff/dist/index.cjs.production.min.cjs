@@ -22,12 +22,12 @@ function printPrettyDiff(t, f) {
 
 function diff_log(e, n) {
   let o = t.diffChars(e, n);
-  return r.chalkByConsole((function(e, r) {
-    return o.reduce((function(r, t) {
+  return r.chalkByConsole(function(e, r) {
+    return o.reduce(function(r, t) {
       let n = e[t.added ? "green" : t.removed ? "red" : "grey"](t.value);
       return r.push(n), r;
-    }), []).join("");
-  }));
+    }, []).join("");
+  });
 }
 
 exports.default = printPrettyDiff, exports.diff_log = diff_log, exports.printPrettyDiff = printPrettyDiff;

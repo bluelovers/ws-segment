@@ -12,48 +12,52 @@ class TableDict extends s {
   exists(t) {
     return super.exists(t);
   }
-  __handleInput(t) {
-    let e, s, i, r;
-    if ("string" == typeof t ? e = t : Array.isArray(t) ? [e, s, i, ...r] = t : ({w: e, p: s, f: i} = t), 
-    "string" != typeof e || "" === e) throw new TypeError(JSON.stringify(t));
-    return s = notNum(s) ? 0 : s, i = notNum(i) ? 0 : i, {
+  __handleInput(t, e) {
+    let s, i, n, r;
+    if ("string" == typeof t ? s = t : Array.isArray(t) ? [s, i, n, ...r] = t : ({w: s, p: i, f: n} = t), 
+    "string" != typeof s || "" === s) throw new TypeError(JSON.stringify(t));
+    if (!e && (null === i || null === n)) {
+      let t = this.exists(s);
+      t && (null === i && (i = t.p), null === n && (n = t.f));
+    }
+    return i = notNum(i) ? 0 : i, n = notNum(n) ? 0 : n, {
       data: {
-        w: e,
-        p: s,
-        f: i
+        w: s,
+        p: i,
+        f: n
       },
       plus: r
     };
   }
   add(t, s) {
-    let i, r, n;
+    let i, n, r;
     {
-      let e = this.__handleInput(t);
-      ({w: i, p: r, f: n} = e.data);
+      let e = this.__handleInput(t, s);
+      ({w: i, p: n, f: r} = e.data);
     }
     if (s && this.exists(i)) return this;
     this._add({
       w: i,
-      p: r,
-      f: n,
+      p: n,
+      f: r,
       s: !0
     });
-    let o = this;
-    return this.options.autoCjk && e(i).forEach((function(t) {
-      t === i || o.exists(t) || o._add({
+    let l = this;
+    return this.options.autoCjk && e(i).forEach(function(t) {
+      t === i || l.exists(t) || l._add({
         w: t,
-        p: r,
-        f: n
+        p: n,
+        f: r
       });
-    })), this;
+    }), this;
   }
   _add({w: t, p: e, f: s, s: i}) {
-    let r = t.length;
+    let n = t.length;
     this.TABLE[t] = {
       p: e,
       f: s,
       s: i
-    }, this.TABLE2[r] || (this.TABLE2[r] = {}), this.TABLE2[r][t] = this.TABLE[t];
+    }, this.TABLE2[n] || (this.TABLE2[n] = {}), this.TABLE2[n][t] = this.TABLE[t];
   }
   remove(t) {
     let {data: e} = this.__handleInput(t);
@@ -64,10 +68,10 @@ class TableDict extends s {
     return delete this.TABLE[t], this.TABLE2[e] && delete this.TABLE2[e][t], this;
   }
   stringify(e = "\n") {
-    return Object.entries(this.TABLE).reduce((function(e, [s, {p: i, f: r}]) {
-      let n = t([ s, i, r ]);
-      return e.push(n), e;
-    }), []).join("string" == typeof e ? e : "\n");
+    return Object.entries(this.TABLE).reduce(function(e, [s, {p: i, f: n}]) {
+      let r = t([ s, i, n ]);
+      return e.push(r), e;
+    }, []).join("string" == typeof e ? e : "\n");
   }
 }
 

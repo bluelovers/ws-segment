@@ -1,11 +1,11 @@
 "use strict";
 
 function stringifyList(t, ...i) {
-  return t.map((function(t) {
+  return t.map(function(t) {
     if ("string" == typeof t) return t;
     if ("w" in t) return t.w;
     throw new TypeError("not a valid segment result list");
-  }));
+  });
 }
 
 function stringify(t, ...i) {

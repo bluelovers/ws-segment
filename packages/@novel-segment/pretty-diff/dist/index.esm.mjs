@@ -23,12 +23,12 @@ function printPrettyDiff(e, o) {
 
 function diff_log(r, t) {
   let f = o(r, t);
-  return e((function(r, t) {
-    return f.reduce((function(t, e) {
+  return e(function(r, t) {
+    return f.reduce(function(t, e) {
       let o = r[e.added ? "green" : e.removed ? "red" : "grey"](e.value);
       return t.push(o), t;
-    }), []).join("");
-  }));
+    }, []).join("");
+  });
 }
 
 export { printPrettyDiff as default, diff_log, printPrettyDiff };

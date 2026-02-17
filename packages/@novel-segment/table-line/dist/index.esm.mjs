@@ -9,7 +9,7 @@ class TableDictLine extends t {
   }
   add(e) {
     let t = this;
-    return Array.isArray(e) ? e.forEach((e => t._add(e))) : t._add(e), this;
+    return Array.isArray(e) ? e.forEach(e => t._add(e)) : t._add(e), this;
   }
   _add(e) {
     (e = e.trim()) && (this.TABLE[e] = !0);
@@ -21,13 +21,13 @@ class TableDictLine extends t {
     delete this.TABLE[e];
   }
   stringify(t = "\n") {
-    return Object.entries(this.TABLE).reduce((function(t, [r, i]) {
+    return Object.entries(this.TABLE).reduce(function(t, [r, i]) {
       if (i) {
         let i = e(r);
         t.push(i);
       }
       return t;
-    }), []).join("string" == typeof t ? t : "\n");
+    }, []).join("string" == typeof t ? t : "\n");
   }
 }
 

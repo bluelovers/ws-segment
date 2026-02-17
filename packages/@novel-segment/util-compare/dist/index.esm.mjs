@@ -9,30 +9,30 @@ const t = 2;
 var r;
 
 function stringifyHandleDictLinesList(n, e) {
-  let t = n.map((n => n.line));
+  let t = n.map(n => n.line);
   return null != e && e.disableUnique ? t : i(t);
 }
 
 function handleDictLines(n, e, i) {
   if (!n) return [];
   const {parseFn: t} = i;
-  return n.reduce((function(n, i, r) {
+  return n.reduce(function(n, i, r) {
     let o, s = {
       data: t(i),
       line: i,
       index: r
     };
     return o = !e || e(n, s), o && n.push(s), n;
-  }), []);
+  }, []);
 }
 
 function loadDictFile(i, t, r) {
   const o = (r = r || {}).parseFn = r.parseFn || n;
-  return e(i).then((function(n) {
+  return e(i).then(function(n) {
     return handleDictLines(n, t, {
       parseFn: o
     });
-  }));
+  });
 }
 
 function chkLineType(n) {

@@ -1,88 +1,133 @@
 import { inspect as e } from "util";
 
-import { fail as n } from "assert";
+import { fail as t } from "assert";
 
-function _handleLazyMatchOptions(n = {}) {
-  var t, r;
-  return null !== (t = n) && void 0 !== t || (n = {}), {
-    ...n,
-    inspectFn: null !== (r = n.inspectFn) && void 0 !== r ? r : e
+function _handleLazyMatchOptions(t = {}) {
+  var n;
+  return null != t || (t = {}), {
+    ...t,
+    inspectFn: null !== (n = t.inspectFn) && void 0 !== n ? n : e
   };
 }
 
-function lazyMatch(e, t, r = {}) {
-  let i = null;
-  const {inspectFn: o, firstOne: a} = _handleLazyMatchOptions(r);
-  let l = t.every((function(n, t, r) {
-    let o = -1, l = i;
-    if (null == i && (i = -1), Array.isArray(n) ? a ? n.some((function(n) {
-      let t = e.indexOf(n, l);
-      if (t > -1 && t > i) return o = t, !0;
-    })) : o = n.reduce((function(n, t) {
-      let r = e.indexOf(t, l);
-      return r > -1 && r > i ? -1 == n ? r : Math.min(r, n) : n;
-    }), -1) : o = e.indexOf(n, l), o > -1 && o > i) return i = o, !0;
-  }));
-  return -1 === i && (l = !1), !l && n(`expected ${o(e)} to have includes ordered members ${o(t)}`), 
-  l;
+function _lazyMatchCore(e, t, n = {}) {
+  let r = null;
+  const {firstOne: o} = _handleLazyMatchOptions(n), a = [];
+  let c = t.every(function(t, n, c) {
+    let i = -1, l = r;
+    return null == r && (r = -1), Array.isArray(t) ? o ? t.some(function(t) {
+      let n = e.indexOf(t, l);
+      if (n > -1 && n > r) return i = n, !0;
+    }) : i = t.reduce(function(t, n) {
+      let o = e.indexOf(n, l);
+      return o > -1 && o > r ? -1 == t ? o : Math.min(o, t) : t;
+    }, -1) : i = e.indexOf(t, l), i > -1 && i > r ? (r = i, !0) : (a.push(Array.isArray(t) ? t.join("/") : t), 
+    !1);
+  });
+  return -1 === r && (c = !1), {
+    matched: c,
+    failedWords: a
+  };
 }
 
-function lazyMatch002(e, t, r = {}) {
-  let i;
+function lazyMatch(e, n, r = {}) {
+  const {inspectFn: o, notThrowError: a} = _handleLazyMatchOptions(r), c = _lazyMatchCore(e, n, r);
+  return a ? c : (!c.matched && t(`expected ${o(e)} to have includes ordered members ${o(n)}`), 
+  c.matched);
+}
+
+function lazyMatch002(e, n, r = {}) {
+  let o, a;
   r = _handleLazyMatchOptions(r);
-  for (let n of t) try {
-    if (i = lazyMatch(e, n, r), i) break;
-  } catch (e) {}
-  !i && n(`expected ${r.inspectFn(e)} to have includes one of ordered members in ${r.inspectFn(t)}`);
+  let c = -1;
+  for (let t of n) if (a = _lazyMatchCore(e, t, r), o = a.matched, c++, o) break;
+  if (r.notThrowError) {
+    let e;
+    return o ? e = c >= 0 && n[c] : c = -1, {
+      ...a,
+      entryIndex: c,
+      entryMatched: e
+    };
+  }
+  return !o && t(`expected ${r.inspectFn(e)} to have includes one of ordered members in ${r.inspectFn(n)}`), 
+  o;
 }
 
-function lazyMatchSynonym001(e, t, r = {}) {
-  let i, o;
-  const {inspectFn: a} = _handleLazyMatchOptions(r);
-  i = t.every((function(t) {
-    let r = o;
-    null == o && (o = -1);
-    let i = -1;
-    if (Array.isArray(t) ? t.some((n => {
-      let o = e.indexOf(n, r);
-      if (o > -1) return i = o, t = n, !0;
-    })) : i = e.indexOf(t, r), i > -1 && i >= o) return o = i + t.length, !0;
-    o > -1 && n(`expected ${a(e)} to have have ${a(t)} on index > ${o}, but got ${i}`);
-  })), -1 === o && (i = !1), !i && n(`expected ${a(e)} to have index of ordered members in ${a(t)}`);
+function _lazyMatchSynonym001Core(e, t, n = {}) {
+  let r;
+  const o = [];
+  let a = t.every(function(t) {
+    let n = r;
+    null == r && (r = -1);
+    let a = -1, c = null;
+    var i;
+    return Array.isArray(t) ? t.some(t => {
+      let r = e.indexOf(t, n);
+      if (r > -1) return a = r, c = t, !0;
+    }) : (a = e.indexOf(t, n), c = t), a > -1 && a >= r ? (r = a + ((null === (i = c) || void 0 === i ? void 0 : i.length) || 0), 
+    !0) : (o.push(Array.isArray(t) ? t.join("/") : t), !1);
+  });
+  return -1 === r && (a = !1), {
+    matched: a,
+    failedWords: o
+  };
 }
 
-function lazyMatchSynonym001Not(e, t, r = {}) {
-  let i;
-  const {inspectFn: o} = _handleLazyMatchOptions(r);
-  t.every((function(t) {
-    let r = i;
-    null == i && (i = -1);
-    let a = -1;
-    if (Array.isArray(t) ? t.some((n => {
-      let i = e.indexOf(n, r);
-      if (i > -1) return a = i, t = n, !0;
-    })) : a = e.indexOf(t, r), a > -1 && a > i) return n(`expected ${o(e)} to not have ${o(t)} on index > ${i}, but got ${a}`), 
-    !0;
-    i++;
-  }));
+function lazyMatchSynonym001(e, n, r = {}) {
+  const {inspectFn: o, notThrowError: a} = _handleLazyMatchOptions(r), c = _lazyMatchSynonym001Core(e, n, r);
+  return a ? c : (!c.matched && t(`expected ${o(e)} to have index of ordered members in ${o(n)}`), 
+  c.matched);
 }
 
-function lazyMatchNot(e, t, r = {}) {
-  let i = null;
-  const {inspectFn: o} = _handleLazyMatchOptions(r);
-  let a = t.every((function(n, t, o) {
-    let a = -1, l = i;
-    return null == i && (i = -1), Array.isArray(n) ? r.firstOne ? n.some((function(n) {
-      let t = e.indexOf(n, l);
-      if (t > -1 && t > i) return a = t, !0;
-    })) : a = n.reduce((function(n, t) {
-      let r = e.indexOf(t, l);
-      return r > -1 && r > i ? -1 == n ? r : Math.min(r, n) : n;
-    }), -1) : a = e.indexOf(n, l), !(a > -1 && (i = a, 1));
-  }));
-  return -1 === i && (a = !0), !a && n(`expected ${o(e)} should not have includes ordered members ${o(t)}`), 
-  a;
+function _lazyMatchSynonym001NotCore(e, t, n = {}) {
+  let r;
+  const o = [];
+  return {
+    matched: t.every(function(t) {
+      let n = r;
+      null == r && (r = -1);
+      let a = -1;
+      return Array.isArray(t) ? t.some(t => {
+        let r = e.indexOf(t, n);
+        if (r > -1) return a = r, !0;
+      }) : a = e.indexOf(t, n), a > -1 && a > r ? (o.push(Array.isArray(t) ? t.join("/") : t), 
+      !1) : (r++, !0);
+    }),
+    failedWords: o
+  };
 }
 
-export { _handleLazyMatchOptions, lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, lazyMatchSynonym001Not };
+function lazyMatchSynonym001Not(e, n, r = {}) {
+  const {inspectFn: o, notThrowError: a} = _handleLazyMatchOptions(r), c = _lazyMatchSynonym001NotCore(e, n, r);
+  return a ? c : (!c.matched && t(`expected ${o(e)} to not have index of ordered members in ${o(n)}`), 
+  c.matched);
+}
+
+function _lazyMatchNotCore(e, t, n = {}) {
+  let r = null;
+  const {firstOne: o} = _handleLazyMatchOptions(n), a = [];
+  let c = t.every(function(t, n, c) {
+    let i = -1, l = r;
+    return null == r && (r = -1), Array.isArray(t) ? o ? t.some(function(t) {
+      let n = e.indexOf(t, l);
+      if (n > -1 && n > r) return i = n, !0;
+    }) : i = t.reduce(function(t, n) {
+      let o = e.indexOf(n, l);
+      return o > -1 && o > r ? -1 == t ? o : Math.min(o, t) : t;
+    }, -1) : i = e.indexOf(t, l), !(i > -1 && (r = i, a.push(Array.isArray(t) ? t.join("/") : t), 
+    1));
+  });
+  return -1 === r && (c = !0), {
+    matched: c,
+    failedWords: a
+  };
+}
+
+function lazyMatchNot(e, n, r = {}) {
+  const {inspectFn: o, notThrowError: a} = _handleLazyMatchOptions(r), c = _lazyMatchNotCore(e, n, r);
+  return a ? c : (!c.matched && t(`expected ${o(e)} should not have includes ordered members ${o(n)}`), 
+  c.matched);
+}
+
+export { _handleLazyMatchOptions, _lazyMatchCore, _lazyMatchNotCore, _lazyMatchSynonym001Core, _lazyMatchSynonym001NotCore, lazyMatch, lazyMatch002, lazyMatchNot, lazyMatchSynonym001, lazyMatchSynonym001Not };
 //# sourceMappingURL=index.esm.mjs.map
