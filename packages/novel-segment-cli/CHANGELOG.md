@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.140](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.139...novel-segment-cli@1.1.140) (2026-09-08)
+
+
+
+### 📚　Documentation
+
+* **novel-segment-cli:** 為 CLI 工具與相關模組添加中英雙語 JSDoc 文檔註釋 ([9958c5e](https://github.com/bluelovers/ws-segment/commit/9958c5ee4ebfa5fe99f47d555831b907f50f11e2))
+
+
+### 🛠　Build System
+
+* **@novel-segment/assert:** refactor lazyMatch and add Chinese char conversions ([4d95315](https://github.com/bluelovers/ws-segment/commit/4d95315ddbe73c82306010b08c6cb3aecfc0f845))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+* **deps:** 升級多個依賴套件版本並改善測試文檔 ([a144f12](https://github.com/bluelovers/ws-segment/commit/a144f128ca9a229053287e3aa1d2a3b600531fd4))
+
+
+
 ## [1.1.139](https://github.com/bluelovers/ws-segment/compare/novel-segment-cli@1.1.138...novel-segment-cli@1.1.139) (2024-11-09)
 
 **Note:** Version bump only for package novel-segment-cli

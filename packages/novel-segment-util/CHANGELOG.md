@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.80](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.79...@novel-segment/util@1.0.80) (2026-09-08)
+
+
+
+### 🛠　Build System
+
+* **@novel-segment/assert:** refactor lazyMatch and add Chinese char conversions ([4d95315](https://github.com/bluelovers/ws-segment/commit/4d95315ddbe73c82306010b08c6cb3aecfc0f845))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **deps:** 更新套件依賴並將指令遷移至 pnpm ([e96e1f2](https://github.com/bluelovers/ws-segment/commit/e96e1f2eccc224684548b3467c04e73e4753bf47))
+* **deps:** 升級多個依賴套件版本並改善測試文檔 ([a144f12](https://github.com/bluelovers/ws-segment/commit/a144f128ca9a229053287e3aa1d2a3b600531fd4))
+
+
+
 ## [1.0.79](https://github.com/bluelovers/ws-segment/compare/@novel-segment/util@1.0.77...@novel-segment/util@1.0.79) (2024-11-09)
 
 

@@ -3,6 +3,70 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.211](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.210...segment-dict@2.3.211) (2026-09-08)
+
+
+### FIXME
+
+* **dict:** 新增測試案例涵蓋「假使于蕾亞」、「由于韋恩」、「誕生于里伯」等情境
+
+
+
+### 🐛　Bug Fixes
+
+* **dict:** 更新同義詞字典內容 ([61258ca](https://github.com/bluelovers/ws-segment/commit/61258ca6e942ae70cddc49b8945120cb87b57675))
+* **dict:** 修正「于」字在特定語境下的斷詞問題 ([7b81623](https://github.com/bluelovers/ws-segment/commit/7b816237f4a3b4a097b1af5fbbafb9105d059a19))
+* **dict:** fix `管子里塞了像是布片的東西` ([aa52dd4](https://github.com/bluelovers/ws-segment/commit/aa52dd4e755ac2eef2cbe084f783e10e379c3717))
+* **novel-segment:** 添加「采」字同義詞字典與測試案例 ([57b8a0b](https://github.com/bluelovers/ws-segment/commit/57b8a0bcc8fdd134f265d2812e06e6dc2fa21908))
+* **segment-dict:** 新增「填彈」「荷蘭」「里茨」「澈底」詞條與對應測試案例 ([899a6bd](https://github.com/bluelovers/ws-segment/commit/899a6bdba7c00bd0b63263aeefe46bac6a33447d))
+* **segment-dict:** 新增「里夫」名稱詞條與對應測試案例 ([48b63ea](https://github.com/bluelovers/ws-segment/commit/48b63ea9629d64bab3533d9c37bc45f16d179e0e))
+* **segment-dict:** 新增「攻佔了」同義詞對應與測試案例 ([36cfceb](https://github.com/bluelovers/ws-segment/commit/36cfceb21f7180e7a344e9d4f0f1009d0077ba59))
+* **segment-dict:** fix `我要擊发比較大的魔法`, `讓她處于天然` ([d158a86](https://github.com/bluelovers/ws-segment/commit/d158a8620967567641bf3f9c36642d0c854914c3))
+* **segment-dict:** 添加“佔有的”词条及同义词映射 ([fd9c786](https://github.com/bluelovers/ws-segment/commit/fd9c7866f6a7631473140a3efa6aa45fcc83624a))
+
+
+### ✨　Features
+
+* **dict:** 新增字串比較與字典排序相關依賴套件 ([d97dc6d](https://github.com/bluelovers/ws-segment/commit/d97dc6d37942782c16f055815da2e5596005f351))
+
+
+### 📦　Code Refactoring
+
+* **segment-dict:** 移動字典中「比」與「批」相關詞條 ([15bc2e4](https://github.com/bluelovers/ws-segment/commit/15bc2e4aeed099b37fe68f205e9bc4b7edcba8c3))
+
+
+### 📚　Documentation
+
+* **dict:** 新增字典結構說明文件並更新專案規範指引 ([4b480d7](https://github.com/bluelovers/ws-segment/commit/4b480d785e6a6b9478f15ce21a430fed79a4580a))
+* **novel-segment-cli:** 為 CLI 工具與相關模組添加中英雙語 JSDoc 文檔註釋 ([9958c5e](https://github.com/bluelovers/ws-segment/commit/9958c5ee4ebfa5fe99f47d555831b907f50f11e2))
+* **segment-dict:** 添加異體字字典目錄說明文檔 ([56f8bbc](https://github.com/bluelovers/ws-segment/commit/56f8bbcf38c751f00fa6ac5f55d4393d5344ba59))
+
+
+### 🚨　Tests
+
+* **novel-segment:** 添加“發配”分词测试用例及分词字典 ([f3aadb2](https://github.com/bluelovers/ws-segment/commit/f3aadb27596e7c11fdc9515d252856cd39a7addb))
+
+
+### 🛠　Build System
+
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ⚙️　Continuous Integration
+
+* 更新 CI 配置與清理專案設定 ([5165e29](https://github.com/bluelovers/ws-segment/commit/5165e29690d34c6a8452f051bc60a28ff1ffde1e))
+
+
+### ♻️　Chores
+
+* remove peerDependencies and update workspace configuration ([7ff35e2](https://github.com/bluelovers/ws-segment/commit/7ff35e25b58c750ee35febf4816d88c425e1314c))
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+* **deps:** 升級多個依賴套件版本並改善測試文檔 ([a144f12](https://github.com/bluelovers/ws-segment/commit/a144f128ca9a229053287e3aa1d2a3b600531fd4))
+* **dict:** save dict before sort:all ([d42f244](https://github.com/bluelovers/ws-segment/commit/d42f2447f7d186748d8699e466ee9a62a8eb9a7a))
+* **dict:** 新增「滑膛槍」詞彙至懶加載字典 ([0d4713e](https://github.com/bluelovers/ws-segment/commit/0d4713e0c8168ec561e3750be878585862b2c3b6))
+
+
+
 ## [2.3.210](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.209...segment-dict@2.3.210) (2024-11-09)
 
 

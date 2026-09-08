@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-blacklist",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "",
   "keywords": [
     "NLP",
@@ -122,9 +122,9 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/table-core-abstract": "^1.0.23",
-    "@novel-segment/table-line": "^1.0.22",
-    "@novel-segment/types": "^1.0.13",
+    "@novel-segment/table-core-abstract": "^1.0.24",
+    "@novel-segment/table-line": "^1.0.23",
+    "@novel-segment/types": "^1.0.14",
     "ts-type": "^3.0.13"
   },
   "publishConfig": {

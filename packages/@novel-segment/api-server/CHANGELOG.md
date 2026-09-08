@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.83](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.82...@novel-segment/api-server@1.0.83) (2026-09-08)
+
+
+
+### 🛠　Build System
+
+* **config:** 將專案套件管理工具從 yarn 遷移至 pnpm ([37a5e21](https://github.com/bluelovers/ws-segment/commit/37a5e212d4fbf098b343ec815cd27a4db1272151))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+* **deps:** 更新套件依賴並將指令遷移至 pnpm ([e96e1f2](https://github.com/bluelovers/ws-segment/commit/e96e1f2eccc224684548b3467c04e73e4753bf47))
+* **deps:** 升級多個依賴套件版本並改善測試文檔 ([a144f12](https://github.com/bluelovers/ws-segment/commit/a144f128ca9a229053287e3aa1d2a3b600531fd4))
+
+
+
 ## [1.0.82](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.81...@novel-segment/api-server@1.0.82) (2024-11-09)
 
 

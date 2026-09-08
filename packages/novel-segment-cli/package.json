@@ -1,6 +1,6 @@
 {
   "name": "novel-segment-cli",
-  "version": "1.1.139",
+  "version": "1.1.140",
   "description": "cli & lazy version for novel-segment 修正常見簡轉繁時難以處理的字詞",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/novel-segment-cli#readme",
   "bugs": {
@@ -42,7 +42,7 @@
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
     "@lazy-cjk/zh-convert": "^1.0.58",
-    "@novel-segment/types": "^1.0.13",
+    "@novel-segment/types": "^1.0.14",
     "@yarn-tool/update-notifier": "^1.0.48",
     "array-hyper-unique": "^2.1.8",
     "bluebird": "^3.7.2",
@@ -54,7 +54,7 @@
     "iconv-jschardet": "^2.0.36",
     "lazy-cacache": "^3.0.2",
     "lodash": "^4.18.1",
-    "novel-segment": "^2.7.121",
+    "novel-segment": "^2.7.122",
     "pkg-up": "<4 >=3.1.0",
     "prettyuse": "^0.0.0",
     "ts-type": "^3.0.13",

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.23](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-synonym-pangu@1.0.22...@novel-segment/table-synonym-pangu@1.0.23) (2026-09-08)
+
+
+
+### 📚　Documentation
+
+* **novel-segment:** 为 table-* 套件添加完整的 JSDoc 文档 ([ebc29f1](https://github.com/bluelovers/ws-segment/commit/ebc29f16ca21fa4ed6cd0d21a96fc5a3687588e3))
+
+
+### 🛠　Build System
+
+* **@novel-segment/assert:** refactor lazyMatch and add Chinese char conversions ([4d95315](https://github.com/bluelovers/ws-segment/commit/4d95315ddbe73c82306010b08c6cb3aecfc0f845))
+* **dist:** 更新所有套件的編譯產物與文件註解 ([deaa461](https://github.com/bluelovers/ws-segment/commit/deaa4617534d1597b2c7852ef6e545ac3d4affcd))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+* **novel-segment:** 移除各套件的 packageManager 欄位 ([44fb7d5](https://github.com/bluelovers/ws-segment/commit/44fb7d502c24bcf515789357d37d20412b015e6f))
+
+
+
 ## [1.0.22](https://github.com/bluelovers/ws-segment/compare/@novel-segment/table-synonym-pangu@1.0.21...@novel-segment/table-synonym-pangu@1.0.22) (2024-05-03)
 
 **Note:** Version bump only for package @novel-segment/table-synonym-pangu

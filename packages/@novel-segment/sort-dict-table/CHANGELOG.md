@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-dict-table@1.0.29...@novel-segment/sort-dict-table@1.0.30) (2026-09-08)
+
+
+
+### 📚　Documentation
+
+* **novel-segment:** 為 util-compare 與 sort 套件添加完整的中英雙語 JSDoc 文檔註釋 ([a51e950](https://github.com/bluelovers/ws-segment/commit/a51e9505fe11591da69596dbc224acaafbd7d371))
+
+
+### 🛠　Build System
+
+* **@novel-segment/assert:** refactor lazyMatch and add Chinese char conversions ([4d95315](https://github.com/bluelovers/ws-segment/commit/4d95315ddbe73c82306010b08c6cb3aecfc0f845))
+* **dist:** 更新所有套件的編譯產物與文件註解 ([deaa461](https://github.com/bluelovers/ws-segment/commit/deaa4617534d1597b2c7852ef6e545ac3d4affcd))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+* **novel-segment:** 移除各套件的 packageManager 欄位 ([44fb7d5](https://github.com/bluelovers/ws-segment/commit/44fb7d502c24bcf515789357d37d20412b015e6f))
+
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-segment/compare/@novel-segment/sort-dict-table@1.0.28...@novel-segment/sort-dict-table@1.0.29) (2024-11-09)
 
 **Note:** Version bump only for package @novel-segment/sort-dict-table

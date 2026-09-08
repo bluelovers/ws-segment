@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/bluelovers/ws-segment/compare/@novel-segment/postag@1.0.30...@novel-segment/postag@1.0.31) (2026-09-08)
+
+
+
+### 📚　Documentation
+
+* **novel-segment:** 為 assert, postag, pretty-diff, stringify, types 套件添加中英雙語 JSDoc 文檔註釋 ([bace885](https://github.com/bluelovers/ws-segment/commit/bace8851c3a475d8c7e61a67198e2aa646675127))
+
+
+### 🛠　Build System
+
+* **@novel-segment/assert:** refactor lazyMatch and add Chinese char conversions ([4d95315](https://github.com/bluelovers/ws-segment/commit/4d95315ddbe73c82306010b08c6cb3aecfc0f845))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+
+
+
 ## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/postag@1.0.29...@novel-segment/postag@1.0.30) (2024-07-07)
 
 

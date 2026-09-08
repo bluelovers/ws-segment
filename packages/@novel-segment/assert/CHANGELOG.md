@@ -3,6 +3,34 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/bluelovers/ws-segment/compare/@novel-segment/assert@1.0.12...@novel-segment/assert@1.0.13) (2026-09-08)
+
+
+
+### ✨　Features
+
+* **@novel-segment/assert:** 新增 notThrowError 選項支援回傳匹配結果 ([4b2f826](https://github.com/bluelovers/ws-segment/commit/4b2f826b02383de4c25f9ab532db0728632777e7))
+
+
+### 📚　Documentation
+
+* **novel-segment:** 改善 lazyMatch 系列函數的 JSDoc 文檔 ([05d97a3](https://github.com/bluelovers/ws-segment/commit/05d97a30e33b2b167c44039de71cfdce9237d3df))
+* **novel-segment:** 為 assert, postag, pretty-diff, stringify, types 套件添加中英雙語 JSDoc 文檔註釋 ([bace885](https://github.com/bluelovers/ws-segment/commit/bace8851c3a475d8c7e61a67198e2aa646675127))
+
+
+### 🛠　Build System
+
+* **@novel-segment/assert:** refactor lazyMatch and add Chinese char conversions ([4d95315](https://github.com/bluelovers/ws-segment/commit/4d95315ddbe73c82306010b08c6cb3aecfc0f845))
+* **test:** 全域更新 Jest 配置與測試環境支援 ([1d67399](https://github.com/bluelovers/ws-segment/commit/1d67399deb009b9ca9a8e394112e95c41752c1a4))
+
+
+### ♻️　Chores
+
+* **config:** 優化 monorepo 工作區配置與 pnpm 管理設定 ([fc3745f](https://github.com/bluelovers/ws-segment/commit/fc3745f10bc7b8da55261ca4e3bcf37ad5ceb89f))
+* **novel-segment:** 移除各套件的 packageManager 欄位 ([44fb7d5](https://github.com/bluelovers/ws-segment/commit/44fb7d502c24bcf515789357d37d20412b015e6f))
+
+
+
 ## [1.0.12](https://github.com/bluelovers/ws-segment/compare/@novel-segment/assert@1.0.11...@novel-segment/assert@1.0.12) (2023-10-06)
 
 

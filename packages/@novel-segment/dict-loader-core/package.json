@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/dict-loader-core",
-  "version": "1.0.31",
+  "version": "1.0.32",
   "description": "",
   "homepage": "https://github.com/bluelovers/ws-segment/tree/master/packages/@novel-segment/dict-loader-core#readme",
   "bugs": {
@@ -37,7 +37,7 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/stream-loader-core": "^1.0.30",
+    "@novel-segment/stream-loader-core": "^1.0.31",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.20",
