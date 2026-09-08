@@ -673,9 +673,15 @@ importers:
       '@bluelovers/fast-glob':
         specifier: ^3.0.4
         version: 3.0.4
+      '@bluelovers/string-natural-compare':
+        specifier: ^2.0.15
+        version: 2.0.15
       '@novel-segment/dict-loader-core':
         specifier: ^1.0.31
         version: link:../@novel-segment/dict-loader-core
+      '@novel-segment/loader-line':
+        specifier: ^1.0.34
+        version: link:../@novel-segment/loader-line
       '@novel-segment/loader-stopword':
         specifier: ^1.0.31
         version: link:../@novel-segment/loader-stopword
@@ -688,6 +694,9 @@ importers:
       '@novel-segment/util':
         specifier: ^1.0.79
         version: link:../novel-segment-util
+      '@novel-segment/util-compare':
+        specifier: ^1.0.26
+        version: link:../@novel-segment/util-compare
       bluebird:
         specifier: ^3.7.2
         version: 3.7.2
@@ -700,6 +709,13 @@ importers:
       tslib:
         specifier: '>=2'
         version: 2.8.1
+    devDependencies:
+      '@novel-segment/sort-dict-table':
+        specifier: ^1.0.29
+        version: link:../@novel-segment/sort-dict-table
+      '@novel-segment/sort-synonym':
+        specifier: ^1.0.25
+        version: link:../@novel-segment/sort-synonym
 
 packages:
 
