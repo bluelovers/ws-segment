@@ -55,7 +55,7 @@ export default (async () => {
 			...list3.map(v => `--scope=${v}`),
 			`--concurrency`,
 			1,
-			`yarn`,
+			`pnpm`,
 			`run`,
 			`version`,
 		];

@@ -52,6 +52,6 @@
       "stream": true
     }
   },
-  "npmClient": "yarn",
+  "npmClient": "pnpm",
   "version": "independent"
 }

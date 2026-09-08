@@ -32,7 +32,7 @@
     "postpublish:done": "pnpm run now-deploy",
     "ncu": "yarn-tool ncu -u",
     "now-build": "pnpm run now-build:install && pnpm run now-build:run",
-    "now-build:install": "yarn add novel-segment vercel",
+    "now-build:install": "pnpm add novel-segment vercel",
     "now-build:run": "node ./build.js",
     "now-deploy": "pnpm run now-build:run && ynpx vercel deploy",
     "sort-package-json": "yarn-tool sort",
