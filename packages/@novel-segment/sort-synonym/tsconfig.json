@@ -5,6 +5,12 @@
     "noUnusedParameters": false,
     "noUnusedLocals": false,
     "noImplicitAny": false,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "moduleResolution": "bundler",
+    "rootDir": "src",
+    "types": [
+      "jest",
+      "node"
+    ]
   }
 }
