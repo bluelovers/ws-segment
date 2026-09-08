@@ -67,7 +67,7 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 	 * 表格選項
 	 * Table Options
 	 */
-	public declare options: IOptionsTableDictSynonym;
+	public override options: IOptionsTableDictSynonym;
 
 	/**
 	 * 緩存主鍵對應表
@@ -79,7 +79,7 @@ export class TableDictSynonym extends TableDictSynonymPanGu
 	 * Stores arrays of variant words mapped from correct words.
 	 * Format: { correct_word: [variant1, variant2, ...] }
 	 */
-	public declare TABLE2: IDICT<string[]>;
+	public override TABLE2: IDICT<string[]>;
 
 	/**
 	 * 建構函式

@@ -83,7 +83,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	 * 以詞語為鍵，儲存 ITableDictRow 資料。
 	 * Uses words as keys, storing ITableDictRow data.
 	 */
-	declare TABLE: IDICT<ITableDictRow>;
+	override TABLE: IDICT<ITableDictRow>;
 
 	/**
 	 * 二維字典表格
@@ -92,7 +92,7 @@ export class TableDict extends AbstractTableDictCore<ITableDictRow>
 	 * 以詞語長度為第一層鍵，詞語為第二層鍵。
 	 * Uses word length as the first-level key and word as the second-level key.
 	 */
-	declare TABLE2: IDICT2<ITableDictRow>;
+	override TABLE2: IDICT2<ITableDictRow>;
 
 	//override options: IOptions;
 

@@ -13,11 +13,6 @@
  * @module @novel-segment/loader-stopword
  */
 
-import Promise = require('bluebird');
-import { wrapStreamToPromise, IStreamLineWithValue } from '@novel-segment/stream-loader-core/line';
-import createLoadStream, { ICallback } from '@novel-segment/stream-loader-core/stream';
-import createLoadStreamSync from '@novel-segment/stream-loader-core/sync';
-import { autobind } from 'core-decorators';
 import { LoaderClass } from '@novel-segment/dict-loader-core';
 
 /**
