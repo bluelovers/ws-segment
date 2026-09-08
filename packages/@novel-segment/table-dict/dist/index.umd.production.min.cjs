@@ -1,60 +1,60 @@
 !function(e, t) {
   "object" == typeof exports && "undefined" != typeof module ? t(exports, require("@novel-segment/loaders/segment/index"), require("@lazy-cjk/zh-table-list/list"), require("@novel-segment/table-core-abstract")) : "function" == typeof define && define.amd ? define([ "exports", "@novel-segment/loaders/segment/index", "@lazy-cjk/zh-table-list/list", "@novel-segment/table-core-abstract" ], t) : t((e = "undefined" != typeof globalThis ? globalThis : e || self).NovelSegmentTableDict = {}, e.index, e.list, e.tableCoreAbstract);
-}(this, function(e, t, i, s) {
+}(this, function(e, t, n, i) {
   "use strict";
   function notNum(e) {
     return "number" != typeof e || Number.isNaN(e);
   }
-  class TableDict extends s.AbstractTableDictCore {
+  class TableDict extends i.AbstractTableDictCore {
     exists(e) {
       return super.exists(e);
     }
     __handleInput(e, t) {
-      let i, s, n, r;
-      if ("string" == typeof e ? i = e : Array.isArray(e) ? [i, s, n, ...r] = e : ({w: i, p: s, f: n} = e), 
-      "string" != typeof i || "" === i) throw new TypeError(JSON.stringify(e));
-      if (!t && (null === s || null === n)) {
-        let e = this.exists(i);
-        e && (null === s && (s = e.p), null === n && (n = e.f));
+      let n, i, s, r;
+      if ("string" == typeof e ? n = e : Array.isArray(e) ? [n, i, s, ...r] = e : ({w: n, p: i, f: s} = e), 
+      "string" != typeof n || "" === n) throw new TypeError(JSON.stringify(e));
+      if (!t && (null === i || null === s)) {
+        let e = this.exists(n);
+        e && (null === i && (i = e.p), null === s && (s = e.f));
       }
-      return s = notNum(s) ? 0 : s, n = notNum(n) ? 0 : n, {
+      return i = notNum(i) ? 0 : i, s = notNum(s) ? 0 : s, {
         data: {
-          w: i,
-          p: s,
-          f: n
+          w: n,
+          p: i,
+          f: s
         },
         plus: r
       };
     }
     add(e, t) {
-      let s, n, r;
+      let i, s, r;
       {
-        let i = this.__handleInput(e, t);
-        ({w: s, p: n, f: r} = i.data);
+        let n = this.__handleInput(e, t);
+        ({w: i, p: s, f: r} = n.data);
       }
-      if (t && this.exists(s)) return this;
+      if (t && this.exists(i)) return this;
       this._add({
-        w: s,
-        p: n,
+        w: i,
+        p: s,
         f: r,
         s: !0
       });
       let l = this;
-      return this.options.autoCjk && i.textList(s).forEach(function(e) {
-        e === s || l.exists(e) || l._add({
+      return this.options.autoCjk && n.textList(i).forEach(function(e) {
+        e === i || l.exists(e) || l._add({
           w: e,
-          p: n,
+          p: s,
           f: r
         });
       }), this;
     }
-    _add({w: e, p: t, f: i, s}) {
-      let n = e.length;
+    _add({w: e, p: t, f: n, s: i}) {
+      let s = e.length;
       this.TABLE[e] = {
         p: t,
-        f: i,
-        s
-      }, this.TABLE2[n] || (this.TABLE2[n] = {}), this.TABLE2[n][e] = this.TABLE[e];
+        f: n,
+        s: i
+      }, this.TABLE2[s] || (this.TABLE2[s] = {}), this.TABLE2[s][e] = this.TABLE[e];
     }
     remove(e) {
       let {data: t} = this.__handleInput(e);
@@ -65,13 +65,28 @@
       return delete this.TABLE[e], this.TABLE2[t] && delete this.TABLE2[t][e], this;
     }
     stringify(e = "\n") {
-      return Object.entries(this.TABLE).reduce(function(e, [i, {p: s, f: n}]) {
-        let r = t.stringifyLine([ i, s, n ]);
+      return Object.entries(this.TABLE).reduce(function(e, [n, {p: i, f: s}]) {
+        let r = t.stringifyLine([ n, i, s ]);
         return e.push(r), e;
       }, []).join("string" == typeof e ? e : "\n");
     }
   }
-  e.TableDict = TableDict, e.default = TableDict, e.notNum = notNum, Object.defineProperty(e, "__esModule", {
+  Object.defineProperty(e, "IDICT", {
+    enumerable: !0,
+    get: function() {
+      return i.IDICT;
+    }
+  }), Object.defineProperty(e, "IDICT2", {
+    enumerable: !0,
+    get: function() {
+      return i.IDICT2;
+    }
+  }), Object.defineProperty(e, "IOptions", {
+    enumerable: !0,
+    get: function() {
+      return i.IOptions;
+    }
+  }), e.TableDict = TableDict, e.default = TableDict, e.notNum = notNum, Object.defineProperty(e, "__esModule", {
     value: !0
   });
 });

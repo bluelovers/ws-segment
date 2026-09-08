@@ -100,6 +100,68 @@ class AbstractTableDictCore {
     return this.TABLE[w] || null;
   }
   /**
+   * 新增詞語到表格
+   * Add Word to Table
+   *
+   * 抽象方法，子類別必須實作。
+   * 將詞語及其相關資料加入字典表格。
+   *
+   * Abstract method that subclasses must implement.
+   * Adds a word and its associated data to the dictionary table.
+   *
+   * @abstract
+   * @param {any} data - 要新增的資料 / Data to add
+   * @param {...any} argv - 其他參數 / Additional arguments
+   * @returns {this} 返回實例以支援鏈式呼叫 / Returns instance for method chaining
+   */
+
+  /**
+   * 內部新增方法
+   * Internal Add Method
+   *
+   * 抽象方法，子類別必須實作。
+   * 實際執行將資料加入表格的邏輯。
+   *
+   * Abstract method that subclasses must implement.
+   * Actually performs the logic of adding data to the table.
+   *
+   * @abstract
+   * @protected
+   * @param {any} data - 要新增的資料 / Data to add
+   * @param {...any} argv - 其他參數 / Additional arguments
+   */
+
+  /**
+   * 從表格移除詞語
+   * Remove Word from Table
+   *
+   * 可選方法，子類別可依需求實作。
+   * 從字典表格中移除指定的詞語。
+   *
+   * Optional method that subclasses can implement as needed.
+   * Removes the specified word from the dictionary table.
+   *
+   * @param {any} data - 要移除的資料 / Data to remove
+   * @param {...any} argv - 其他參數 / Additional arguments
+   * @returns {this} 返回實例以支援鏈式呼叫 / Returns instance for method chaining
+   */
+
+  /**
+   * 內部移除方法
+   * Internal Remove Method
+   *
+   * 可選方法，子類別可依需求實作。
+   * 實際執行從表格移除資料的邏輯。
+   *
+   * Optional method that subclasses can implement as needed.
+   * Actually performs the logic of removing data from the table.
+   *
+   * @protected
+   * @param {any} data - 要移除的資料 / Data to remove
+   * @param {...any} argv - 其他參數 / Additional arguments
+   */
+
+  /**
    * 匯出表格為 JSON 物件
    * Export Table as JSON Object
    *
@@ -113,6 +175,20 @@ class AbstractTableDictCore {
   json(...argv) {
     return lodash.cloneDeep(this.TABLE);
   }
+  /**
+   * 將表格序列化為字串
+   * Serialize Table to String
+   *
+   * 可選方法，子類別可依需求實作。
+   * 將字典表格轉換為可儲存或傳輸的字串格式。
+   *
+   * Optional method that subclasses can implement as needed.
+   * Converts the dictionary table to a string format for storage or transmission.
+   *
+   * @param {...any} argv - 其他參數 / Additional arguments
+   * @returns {string} 序列化後的字串 / Serialized string
+   */
+
   /**
    * 取得表格中的詞語數量
    * Get Word Count in Table

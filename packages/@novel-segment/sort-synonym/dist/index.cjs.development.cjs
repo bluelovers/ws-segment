@@ -27,9 +27,9 @@ function sortLines(lines, file) {
     cur.file = file;
     let [w] = cur.data;
     cur.line_type = utilCompare.chkLineType(cur.line);
-    if (cur.line_type === 1 /* EnumLineType.COMMENT */) {
+    if (cur.line_type === utilCompare.EnumLineType.COMMENT) {
       w = w.replace(/^\/\//, '');
-    } else if (cur.line_type === 0 /* EnumLineType.BASE */) {
+    } else if (cur.line_type === utilCompare.EnumLineType.BASE) {
       let ls = cur.data.slice(1);
       ls = arrayHyperUnique.array_unique(ls).filter(v => v != w);
       ls.sort(function (a, b) {
@@ -87,24 +87,24 @@ function loadFile(file) {
  */
 function SortList(ls) {
   return ls.sort(function (a, b) {
-    if (a.line_type === 2 /* EnumLineType.COMMENT_TAG */ || b.line_type === 2 /* EnumLineType.COMMENT_TAG */) {
-      if (b.line_type !== 2 /* EnumLineType.COMMENT_TAG */) {
-        return -1 /* EnumSortCompareOrder.UP */;
-      } else if (a.line_type !== 2 /* EnumLineType.COMMENT_TAG */) {
-        return 1 /* EnumSortCompareOrder.DOWN */;
+    if (a.line_type === utilCompare.EnumLineType.COMMENT_TAG || b.line_type === utilCompare.EnumLineType.COMMENT_TAG) {
+      if (b.line_type !== utilCompare.EnumLineType.COMMENT_TAG) {
+        return sort.EnumSortCompareOrder.UP;
+      } else if (a.line_type !== utilCompare.EnumLineType.COMMENT_TAG) {
+        return sort.EnumSortCompareOrder.DOWN;
       }
       const aa = /^\/\/\s+@/.test(a.line);
       const ba = /^\/\/\s+@/.test(b.line);
       if (aa && !ba) {
-        return -1 /* EnumSortCompareOrder.UP */;
+        return sort.EnumSortCompareOrder.UP;
       } else if (!aa && ba) {
-        return 1 /* EnumSortCompareOrder.DOWN */;
+        return sort.EnumSortCompareOrder.DOWN;
       }
       return a.index - b.index;
-    } else if (a.line_type === 1 /* EnumLineType.COMMENT */ && b.line_type === 1 /* EnumLineType.COMMENT */) {
+    } else if (a.line_type === utilCompare.EnumLineType.COMMENT && b.line_type === utilCompare.EnumLineType.COMMENT) {
       return a.index - b.index;
     }
-    let ret = sort.zhDictCompare(a.cjk_id, b.cjk_id) || sort.zhDictCompare(a.data[0], b.data[0]) || a.index - b.index || 0 /* EnumSortCompareOrder.KEEP */;
+    let ret = sort.zhDictCompare(a.cjk_id, b.cjk_id) || sort.zhDictCompare(a.data[0], b.data[0]) || a.index - b.index || sort.EnumSortCompareOrder.KEEP;
     return ret;
   });
 }

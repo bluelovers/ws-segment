@@ -3,6 +3,19 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 /**
+ * 字串化模組
+ * Stringify Module
+ *
+ * 提供將斷詞結果轉換為字串的功能。
+ * 支援將詞詞物件 (IWord) 陣列或字串陣列轉換為純文字。
+ *
+ * Provides functionality to convert segmentation results to strings.
+ * Supports converting word object (IWord) arrays or string arrays to plain text.
+ *
+ * @module @novel-segment/stringify
+ */
+
+/**
  * 將詞詞陣列轉換為字串陣列
  * Convert Word Array to String Array
  *

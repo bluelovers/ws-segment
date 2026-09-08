@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tableCoreAbstract = require('@novel-segment/table-core-abstract');
+var types = require('@novel-segment/types');
 
 /**
  * 盤古同義詞表格類別
@@ -29,7 +30,7 @@ var tableCoreAbstract = require('@novel-segment/table-core-abstract');
  * ```
  */
 class TableDictSynonymPanGu extends tableCoreAbstract.AbstractTableDictCore {
-  static type = "SYNONYM" /* EnumDictDatabase.SYNONYM */;
+  static type = types.EnumDictDatabase.SYNONYM;
   /**
    * 建構函式
    * Constructor

@@ -1,9 +1,11 @@
 import { TableDictLine as t } from "@novel-segment/table-line";
 
+import { EnumDictDatabase as e } from "@novel-segment/types";
+
 class TableDictBlacklist extends t {
-  static type="BLACKLIST";
-  constructor(t = TableDictBlacklist.type, l, ...e) {
-    super(t, l, ...e);
+  static type=e.BLACKLIST;
+  constructor(t = TableDictBlacklist.type, e, ...l) {
+    super(t, e, ...l);
   }
 }
 

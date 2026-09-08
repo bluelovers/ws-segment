@@ -4,6 +4,8 @@ import { textList as e } from "@lazy-cjk/zh-table-list/list";
 
 import { AbstractTableDictCore as s } from "@novel-segment/table-core-abstract";
 
+export { IDICT, IDICT2, IOptions } from "@novel-segment/table-core-abstract";
+
 function notNum(t) {
   return "number" != typeof t || Number.isNaN(t);
 }
@@ -13,51 +15,51 @@ class TableDict extends s {
     return super.exists(t);
   }
   __handleInput(t, e) {
-    let s, i, n, r;
-    if ("string" == typeof t ? s = t : Array.isArray(t) ? [s, i, n, ...r] = t : ({w: s, p: i, f: n} = t), 
+    let s, i, r, n;
+    if ("string" == typeof t ? s = t : Array.isArray(t) ? [s, i, r, ...n] = t : ({w: s, p: i, f: r} = t), 
     "string" != typeof s || "" === s) throw new TypeError(JSON.stringify(t));
-    if (!e && (null === i || null === n)) {
+    if (!e && (null === i || null === r)) {
       let t = this.exists(s);
-      t && (null === i && (i = t.p), null === n && (n = t.f));
+      t && (null === i && (i = t.p), null === r && (r = t.f));
     }
-    return i = notNum(i) ? 0 : i, n = notNum(n) ? 0 : n, {
+    return i = notNum(i) ? 0 : i, r = notNum(r) ? 0 : r, {
       data: {
         w: s,
         p: i,
-        f: n
+        f: r
       },
-      plus: r
+      plus: n
     };
   }
   add(t, s) {
-    let i, n, r;
+    let i, r, n;
     {
       let e = this.__handleInput(t, s);
-      ({w: i, p: n, f: r} = e.data);
+      ({w: i, p: r, f: n} = e.data);
     }
     if (s && this.exists(i)) return this;
     this._add({
       w: i,
-      p: n,
-      f: r,
+      p: r,
+      f: n,
       s: !0
     });
     let l = this;
     return this.options.autoCjk && e(i).forEach(function(t) {
       t === i || l.exists(t) || l._add({
         w: t,
-        p: n,
-        f: r
+        p: r,
+        f: n
       });
     }), this;
   }
   _add({w: t, p: e, f: s, s: i}) {
-    let n = t.length;
+    let r = t.length;
     this.TABLE[t] = {
       p: e,
       f: s,
       s: i
-    }, this.TABLE2[n] || (this.TABLE2[n] = {}), this.TABLE2[n][t] = this.TABLE[t];
+    }, this.TABLE2[r] || (this.TABLE2[r] = {}), this.TABLE2[r][t] = this.TABLE[t];
   }
   remove(t) {
     let {data: e} = this.__handleInput(t);
@@ -68,9 +70,9 @@ class TableDict extends s {
     return delete this.TABLE[t], this.TABLE2[e] && delete this.TABLE2[e][t], this;
   }
   stringify(e = "\n") {
-    return Object.entries(this.TABLE).reduce(function(e, [s, {p: i, f: n}]) {
-      let r = t([ s, i, n ]);
-      return e.push(r), e;
+    return Object.entries(this.TABLE).reduce(function(e, [s, {p: i, f: r}]) {
+      let n = t([ s, i, r ]);
+      return e.push(n), e;
     }, []).join("string" == typeof e ? e : "\n");
   }
 }

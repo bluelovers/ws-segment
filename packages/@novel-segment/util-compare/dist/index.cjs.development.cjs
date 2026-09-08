@@ -7,12 +7,12 @@ var loaderLine = require('@novel-segment/loader-line');
 var arrayHyperUnique = require('array-hyper-unique');
 
 const USE_CJK_MODE = 2;
-exports.EnumLineType = void 0;
-(function (EnumLineType) {
+let EnumLineType = /*#__PURE__*/function (EnumLineType) {
   EnumLineType[EnumLineType["BASE"] = 0] = "BASE";
   EnumLineType[EnumLineType["COMMENT"] = 1] = "COMMENT";
   EnumLineType[EnumLineType["COMMENT_TAG"] = 2] = "COMMENT_TAG";
-})(exports.EnumLineType || (exports.EnumLineType = {}));
+  return EnumLineType;
+}({});
 /**
  * 將字典行列表轉換為字串陣列
  * Convert Dictionary Line List to String Array
@@ -107,16 +107,17 @@ function loadDictFile(file, fn, options) {
  * @returns {EnumLineType} 行類型列舉值 / Line type enumeration value
  */
 function chkLineType(line) {
-  let ret = 0 /* EnumLineType.BASE */;
+  let ret = EnumLineType.BASE;
   if (line.indexOf('//') == 0) {
-    ret = 1 /* EnumLineType.COMMENT */;
+    ret = EnumLineType.COMMENT;
     if (/^\/\/ +(?:\@todo|格式\:)/i.test(line)) {
-      ret = 2 /* EnumLineType.COMMENT_TAG */;
+      ret = EnumLineType.COMMENT_TAG;
     }
   }
   return ret;
 }
 
+exports.EnumLineType = EnumLineType;
 exports.USE_CJK_MODE = USE_CJK_MODE;
 exports.chkLineType = chkLineType;
 exports.handleDictLines = handleDictLines;

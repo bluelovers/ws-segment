@@ -1,30 +1,31 @@
-import { handleDictLines as e, USE_CJK_MODE as n, chkLineType as t } from "@novel-segment/util-compare";
+import { handleDictLines as e, USE_CJK_MODE as n, chkLineType as t, EnumLineType as i } from "@novel-segment/util-compare";
 
-import { load as i } from "@novel-segment/loader-line";
+import { load as o } from "@novel-segment/loader-line";
 
-import { getCjkName as o, zhDictCompare as r } from "@novel-segment/util";
+import { getCjkName as r, zhDictCompare as l } from "@novel-segment/util";
 
-import { parseLine as l } from "@novel-segment/loaders/segment/index";
+import { parseLine as s } from "@novel-segment/loaders/segment/index";
 
-function sortLines(i, r, s) {
-  var d;
-  const u = null !== (d = null == s ? void 0 : s.cbIgnore) && void 0 !== d ? d : () => {};
-  return SortList(e(i, function(e, i) {
-    i.file = r;
-    let [l, s, d] = i.data, m = o(l, n);
-    return i.cjk_id = m, i.line_type = t(i.line), 1 !== i.line_type || (u(i), !1);
+function sortLines(o, l, d) {
+  var u;
+  const m = null !== (u = null == d ? void 0 : d.cbIgnore) && void 0 !== u ? u : () => {};
+  return SortList(e(o, function(e, o) {
+    o.file = l;
+    let [s, d, u] = o.data, p = r(s, n);
+    return o.cjk_id = p, o.line_type = t(o.line), o.line_type !== i.COMMENT || (m(o), 
+    !1);
   }, {
-    parseFn: l
+    parseFn: s
   }));
 }
 
 function loadFile(e, n) {
-  return i(e).then(t => sortLines(t, e, n));
+  return o(e).then(t => sortLines(t, e, n));
 }
 
 function SortList(e) {
   return e.sort(function(e, n) {
-    return 2 === e.line_type || 2 === n.line_type || 1 === e.line_type || 1 === n.line_type ? e.index - n.index : r(e.cjk_id, n.cjk_id) || e.index - n.index || 0;
+    return e.line_type === i.COMMENT_TAG || n.line_type === i.COMMENT_TAG || e.line_type === i.COMMENT || n.line_type === i.COMMENT ? e.index - n.index : l(e.cjk_id, n.cjk_id) || e.index - n.index || 0;
   });
 }
 

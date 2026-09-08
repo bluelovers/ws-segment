@@ -4,10 +4,10 @@ Object.defineProperty(exports, "__esModule", {
   value: !0
 });
 
-var t = require("@novel-segment/table-core-abstract");
+var t = require("@novel-segment/table-core-abstract"), e = require("@novel-segment/types");
 
 class TableDictSynonymPanGu extends t.AbstractTableDictCore {
-  static type="SYNONYM";
+  static type=e.EnumDictDatabase.SYNONYM;
   constructor(t = TableDictSynonymPanGu.type, e, ...r) {
     super(t, e, ...r);
   }

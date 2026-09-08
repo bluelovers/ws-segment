@@ -4,31 +4,34 @@ Object.defineProperty(exports, "__esModule", {
   value: !0
 });
 
-var e, n = require("@novel-segment/loaders/segment/index"), i = require("@novel-segment/loader-line"), t = require("array-hyper-unique");
+var e = require("@novel-segment/loaders/segment/index"), n = require("@novel-segment/loader-line"), t = require("array-hyper-unique");
 
-function handleDictLines(e, n, i) {
+let i = /*#__PURE__*/ function(e) {
+  return e[e.BASE = 0] = "BASE", e[e.COMMENT = 1] = "COMMENT", e[e.COMMENT_TAG = 2] = "COMMENT_TAG", 
+  e;
+}({});
+
+function handleDictLines(e, n, t) {
   if (!e) return [];
-  const {parseFn: t} = i;
-  return e.reduce(function(e, i, r) {
+  const {parseFn: i} = t;
+  return e.reduce(function(e, t, r) {
     let s, u = {
-      data: t(i),
-      line: i,
+      data: i(t),
+      line: t,
       index: r
     };
     return s = !n || n(e, u), s && e.push(u), e;
   }, []);
 }
 
-exports.EnumLineType = void 0, (e = exports.EnumLineType || (exports.EnumLineType = {}))[e.BASE = 0] = "BASE", 
-e[e.COMMENT = 1] = "COMMENT", e[e.COMMENT_TAG = 2] = "COMMENT_TAG", exports.USE_CJK_MODE = 2, 
-exports.chkLineType = function chkLineType(e) {
-  let n = 0;
-  return 0 == e.indexOf("//") && (n = 1, /^\/\/ +(?:\@todo|格式\:)/i.test(e) && (n = 2)), 
+exports.EnumLineType = i, exports.USE_CJK_MODE = 2, exports.chkLineType = function chkLineType(e) {
+  let n = i.BASE;
+  return 0 == e.indexOf("//") && (n = i.COMMENT, /^\/\/ +(?:\@todo|格式\:)/i.test(e) && (n = i.COMMENT_TAG)), 
   n;
-}, exports.handleDictLines = handleDictLines, exports.loadDictFile = function loadDictFile(e, t, r) {
-  const s = (r = r || {}).parseFn = r.parseFn || n.parseLine;
-  return i.load(e).then(function(e) {
-    return handleDictLines(e, t, {
+}, exports.handleDictLines = handleDictLines, exports.loadDictFile = function loadDictFile(t, i, r) {
+  const s = (r = r || {}).parseFn = r.parseFn || e.parseLine;
+  return n.load(t).then(function(e) {
+    return handleDictLines(e, i, {
       parseFn: s
     });
   });

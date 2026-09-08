@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/table-line')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/table-line'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableBlacklist = {}, global.tableLine));
-})(this, (function (exports, tableLine) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/table-line'), require('@novel-segment/types')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/table-line', '@novel-segment/types'], factory) :
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableBlacklist = {}, global.tableLine, global.types));
+})(this, (function (exports, tableLine, types) { 'use strict';
 
 	/**
 	 * 黑名單表格類別
@@ -24,7 +24,7 @@
 	 * ```
 	 */
 	class TableDictBlacklist extends tableLine.TableDictLine {
-	  static type = "BLACKLIST" /* EnumDictDatabase.BLACKLIST */;
+	  static type = types.EnumDictDatabase.BLACKLIST;
 	  /**
 	   * 建構函式
 	   * Constructor

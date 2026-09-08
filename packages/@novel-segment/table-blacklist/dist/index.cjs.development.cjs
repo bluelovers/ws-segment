@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tableLine = require('@novel-segment/table-line');
+var types = require('@novel-segment/types');
 
 /**
  * 黑名單表格類別
@@ -24,7 +25,7 @@ var tableLine = require('@novel-segment/table-line');
  * ```
  */
 class TableDictBlacklist extends tableLine.TableDictLine {
-  static type = "BLACKLIST" /* EnumDictDatabase.BLACKLIST */;
+  static type = types.EnumDictDatabase.BLACKLIST;
   /**
    * 建構函式
    * Constructor

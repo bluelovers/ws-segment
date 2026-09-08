@@ -277,6 +277,18 @@
 	  }
 	}
 
+	Object.defineProperty(exports, 'IDICT', {
+		enumerable: true,
+		get: function () { return tableCoreAbstract.IDICT; }
+	});
+	Object.defineProperty(exports, 'IDICT2', {
+		enumerable: true,
+		get: function () { return tableCoreAbstract.IDICT2; }
+	});
+	Object.defineProperty(exports, 'IOptions', {
+		enumerable: true,
+		get: function () { return tableCoreAbstract.IOptions; }
+	});
 	exports.TableDict = TableDict;
 	exports.default = TableDict;
 	exports.notNum = notNum;

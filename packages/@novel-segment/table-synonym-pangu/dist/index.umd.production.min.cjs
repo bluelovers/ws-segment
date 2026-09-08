@@ -1,9 +1,9 @@
 !function(e, t) {
-  "object" == typeof exports && "undefined" != typeof module ? t(exports, require("@novel-segment/table-core-abstract")) : "function" == typeof define && define.amd ? define([ "exports", "@novel-segment/table-core-abstract" ], t) : t((e = "undefined" != typeof globalThis ? globalThis : e || self).NovelSegmentTableSynonymPangu = {}, e.tableCoreAbstract);
-}(this, function(e, t) {
+  "object" == typeof exports && "undefined" != typeof module ? t(exports, require("@novel-segment/table-core-abstract"), require("@novel-segment/types")) : "function" == typeof define && define.amd ? define([ "exports", "@novel-segment/table-core-abstract", "@novel-segment/types" ], t) : t((e = "undefined" != typeof globalThis ? globalThis : e || self).NovelSegmentTableSynonymPangu = {}, e.tableCoreAbstract, e.types);
+}(this, function(e, t, n) {
   "use strict";
   class TableDictSynonymPanGu extends t.AbstractTableDictCore {
-    static type="SYNONYM";
+    static type=n.EnumDictDatabase.SYNONYM;
     constructor(e = TableDictSynonymPanGu.type, t, ...n) {
       super(e, t, ...n);
     }

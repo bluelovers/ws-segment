@@ -1,8 +1,8 @@
 (function (global, factory) {
-	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/table-core-abstract')) :
-	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/table-core-abstract'], factory) :
-	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableSynonymPangu = {}, global.tableCoreAbstract));
-})(this, (function (exports, tableCoreAbstract) { 'use strict';
+	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@novel-segment/table-core-abstract'), require('@novel-segment/types')) :
+	typeof define === 'function' && define.amd ? define(['exports', '@novel-segment/table-core-abstract', '@novel-segment/types'], factory) :
+	(global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global.NovelSegmentTableSynonymPangu = {}, global.tableCoreAbstract, global.types));
+})(this, (function (exports, tableCoreAbstract, types) { 'use strict';
 
 	/**
 	 * 盤古同義詞表格類別
@@ -29,7 +29,7 @@
 	 * ```
 	 */
 	class TableDictSynonymPanGu extends tableCoreAbstract.AbstractTableDictCore {
-	  static type = "SYNONYM" /* EnumDictDatabase.SYNONYM */;
+	  static type = types.EnumDictDatabase.SYNONYM;
 	  /**
 	   * 建構函式
 	   * Constructor

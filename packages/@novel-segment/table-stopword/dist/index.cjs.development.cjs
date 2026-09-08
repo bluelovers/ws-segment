@@ -3,6 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var tableLine = require('@novel-segment/table-line');
+var types = require('@novel-segment/types');
 
 /**
  * 分隔詞表格類別
@@ -26,7 +27,7 @@ var tableLine = require('@novel-segment/table-line');
  * ```
  */
 class TableDictStopword extends tableLine.TableDictLine {
-  static type = "STOPWORD" /* EnumDictDatabase.STOPWORD */;
+  static type = types.EnumDictDatabase.STOPWORD;
   /**
    * 建構函式
    * Constructor
