@@ -5,6 +5,8 @@
     "noUnusedParameters": false,
     "noUnusedLocals": false,
     "noImplicitAny": false,
-    "noEmit": true
+    "noEmit": true,
+    "moduleResolution": "bundler",
+    "rootDir": "src"
   }
 }

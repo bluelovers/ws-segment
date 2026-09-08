@@ -4,16 +4,27 @@ packages:
   - packages/*
   # exclude packages that are inside test/ directories
   - '!**/test/**'
-
-publicHoistPattern:
+  # publicHoistPattern:
   # - "@lazy-cjk/*"
   # - "@node-novel/*"
-  - "@novel-segment/*"
-  - "novel-segment*"
-  - "workspace:segment-dict"
-  - "ts-type"
-  - "yargs"
-  - "@bluelovers/jest-config"
-  - "@bluelovers/string-natural-compare"
+  # - "@novel-segment/*"
+  # - "novel-segment*"
+  # - "workspace:segment-dict"
+  # - "ts-type"
+  # - "yargs"
+  # - "@bluelovers/jest-config"
+  # - "@bluelovers/string-natural-compare"
 
 linkWorkspacePackages: true
+saveWorkspaceProtocol: false
+#  設定決定了 當依賴版本重疊時，pnpm 該優先用「本地程式碼」還是「線上版本」。
+preferWorkspacePackages: true
+
+minimumReleaseAgeExclude:
+  - '@types/node@26.5.0'
+
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  lib-r-math.js: true
+  unrs-resolver: true

@@ -4,6 +4,8 @@
     "importHelpers": true,
     "noUnusedParameters": false,
     "noUnusedLocals": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "moduleResolution": "bundler",
+    "rootDir": "src"
   }
 }
