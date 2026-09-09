@@ -12,7 +12,6 @@
  *
  * @module @novel-segment/loader-stopword
  */
-import Promise = require('bluebird');
 import { LoaderClass } from '@novel-segment/dict-loader-core';
 /**
  * 字典行類型
@@ -73,5 +72,5 @@ export declare const stringifyLine: typeof libLoader.stringifyLine;
  * Loader Instance
  */
 export declare const Loader: LoaderClass<IDict, string>;
-declare const _default: (file: string, options?: import("@novel-segment/dict-loader-core").IOptions<IDict, string>) => Promise<IDict>;
+declare const _default: (file: string, options?: import("@novel-segment/dict-loader-core").IOptions<IDict, string>) => import("bluebird")<IDict>;
 export default _default;
