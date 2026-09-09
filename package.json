@@ -142,6 +142,7 @@
   },
   "resolutions": {},
   "dependencies": {
+    "@git-lazy/debug": "^2.0.3",
     "@git-lazy/subtree": "^2.0.3",
     "@lazy-cjk/zh-table-list": "^1.0.94",
     "@lazy-num/sum": "^1.0.10",
