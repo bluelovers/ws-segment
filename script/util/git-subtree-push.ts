@@ -32,7 +32,7 @@ export async function gitSubtreePush(module_name: '@novel-segment/api-server' | 
 
 	let error;
 
-	if (remote && prefix)
+	if (remote && prefix && module_name === 'novel-segment')
 	{
 		await subtreePush({
 			remote,
