@@ -1,6 +1,6 @@
 {
   "name": "segment-dict",
-  "version": "2.3.211",
+  "version": "2.3.212",
   "description": "novel-segment segment data",
   "keywords": [
     "NLP",
@@ -100,19 +100,19 @@
     "@bluelovers/string-natural-compare": "^2.0.15",
     "@novel-segment/dict-loader-core": "^1.0.32",
     "@novel-segment/loader-line": "^1.0.35",
-    "@novel-segment/loader-stopword": "^1.0.32",
-    "@novel-segment/loaders": "^1.0.54",
+    "@novel-segment/loader-stopword": "^1.0.33",
+    "@novel-segment/loaders": "^1.0.55",
     "@novel-segment/stream-loader-core": "^1.0.31",
     "@novel-segment/util": "^1.0.80",
-    "@novel-segment/util-compare": "^1.0.27",
+    "@novel-segment/util-compare": "^1.0.28",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
     "crlf-normalize": "^1.0.20",
     "tslib": ">=2"
   },
   "devDependencies": {
-    "@novel-segment/sort-dict-table": "^1.0.30",
-    "@novel-segment/sort-synonym": "^1.0.26"
+    "@novel-segment/sort-dict-table": "^1.0.31",
+    "@novel-segment/sort-synonym": "^1.0.27"
   },
   "gitHead": "b53ee34cb7a1abaf060f872ed0030effdc50e1ec"
 }

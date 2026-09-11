@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.212](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.211...segment-dict@2.3.212) (2026-09-11)
+
+
+
+### 🐛　Bug Fixes
+
+* **dict:** 優化同義詞映射文件結構 ([dbf1845](https://github.com/bluelovers/ws-segment/commit/dbf1845206584271234e9a8851cf2e143ba84a7c))
+* **dict:** 更新詞典數據與新增測試案例 ([8382ba3](https://github.com/bluelovers/ws-segment/commit/8382ba3e64e20d83e181b7a77a0340bdc48d827b))
+* **dict:** 更新詞典數據與新增測試案例 ([31eaeb4](https://github.com/bluelovers/ws-segment/commit/31eaeb4cdaf32ae9b3a17fc8c89a4b5cf3786cb7))
+
+
+### ♻️　Chores
+
+* **dict:** save dict before new version ([b3c2a21](https://github.com/bluelovers/ws-segment/commit/b3c2a21587d87b49ed2a2ae9c33b27b1991ffb88))
+
+
+
 ## [2.3.211](https://github.com/bluelovers/ws-segment/compare/segment-dict@2.3.210...segment-dict@2.3.211) (2026-09-08)
 
 

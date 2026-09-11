@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.84](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.83...@novel-segment/api-server@1.0.84) (2026-09-11)
+
+
+
+### ♻️　Chores
+
+* **deps:** 更新依賴版本並新增 gitignore 設定 ([f2108c8](https://github.com/bluelovers/ws-segment/commit/f2108c81918ce69ca496cbf754a718ac4ce7790f))
+
+
+
 ## [1.0.83](https://github.com/bluelovers/ws-segment/compare/@novel-segment/api-server@1.0.82...@novel-segment/api-server@1.0.83) (2026-09-08)
 
 

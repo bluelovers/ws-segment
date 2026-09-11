@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.33](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.32...@novel-segment/loader-stopword@1.0.33) (2026-09-11)
+
+
+
+### 📦　Code Refactoring
+
+* **novel-segment:** 優化程式碼結構與類型定義 ([d49c44c](https://github.com/bluelovers/ws-segment/commit/d49c44c965afaf2fc908fd1055f0a1f418c14753))
+
+
+
 ## [1.0.32](https://github.com/bluelovers/ws-segment/compare/@novel-segment/loader-stopword@1.0.31...@novel-segment/loader-stopword@1.0.32) (2026-09-08)
 
 

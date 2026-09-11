@@ -265,7 +265,7 @@ importers:
         specifier: ^1.0.35
         version: link:../loader-line
       '@novel-segment/loader-stopword':
-        specifier: ^1.0.32
+        specifier: ^1.0.33
         version: link:../loader-stopword
       '@novel-segment/stream-loader-core':
         specifier: ^1.0.31
@@ -319,13 +319,13 @@ importers:
         specifier: ^1.0.35
         version: link:../loader-line
       '@novel-segment/loaders':
-        specifier: ^1.0.54
+        specifier: ^1.0.55
         version: link:../loaders
       '@novel-segment/util':
         specifier: ^1.0.80
         version: link:../../novel-segment-util
       '@novel-segment/util-compare':
-        specifier: ^1.0.27
+        specifier: ^1.0.28
         version: link:../util-compare
 
   packages/@novel-segment/sort-synonym:
@@ -340,7 +340,7 @@ importers:
         specifier: ^1.0.80
         version: link:../../novel-segment-util
       '@novel-segment/util-compare':
-        specifier: ^1.0.27
+        specifier: ^1.0.28
         version: link:../util-compare
       array-hyper-unique:
         specifier: ^2.1.8
@@ -377,10 +377,10 @@ importers:
   packages/@novel-segment/table-blacklist:
     dependencies:
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../table-core-abstract
       '@novel-segment/table-line':
-        specifier: ^1.0.23
+        specifier: ^1.0.24
         version: link:../table-line
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -392,7 +392,7 @@ importers:
   packages/@novel-segment/table-core-abstract:
     dependencies:
       '@novel-segment/loaders':
-        specifier: ^1.0.54
+        specifier: ^1.0.55
         version: link:../loaders
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -410,10 +410,10 @@ importers:
         specifier: ^1.0.94
         version: 1.0.94(ts-toolbelt@9.6.0)
       '@novel-segment/loaders':
-        specifier: ^1.0.54
+        specifier: ^1.0.55
         version: link:../loaders
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../table-core-abstract
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -425,7 +425,7 @@ importers:
         specifier: ^1.0.35
         version: link:../loader-line
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../table-core-abstract
       lodash:
         specifier: ^4.18.1
@@ -434,10 +434,10 @@ importers:
   packages/@novel-segment/table-stopword:
     dependencies:
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../table-core-abstract
       '@novel-segment/table-line':
-        specifier: ^1.0.23
+        specifier: ^1.0.24
         version: link:../table-line
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -449,10 +449,10 @@ importers:
   packages/@novel-segment/table-synonym:
     dependencies:
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../table-core-abstract
       '@novel-segment/table-synonym-pangu':
-        specifier: ^1.0.23
+        specifier: ^1.0.24
         version: link:../table-synonym-pangu
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -461,7 +461,7 @@ importers:
   packages/@novel-segment/table-synonym-pangu:
     dependencies:
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../table-core-abstract
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -478,7 +478,7 @@ importers:
         specifier: ^1.0.35
         version: link:../loader-line
       '@novel-segment/loaders':
-        specifier: ^1.0.54
+        specifier: ^1.0.55
         version: link:../loaders
       array-hyper-unique:
         specifier: ^2.1.8
@@ -502,19 +502,19 @@ importers:
         specifier: ^1.0.18
         version: link:../@novel-segment/stringify
       '@novel-segment/table-blacklist':
-        specifier: ^1.0.20
+        specifier: ^1.0.21
         version: link:../@novel-segment/table-blacklist
       '@novel-segment/table-core-abstract':
-        specifier: ^1.0.24
+        specifier: ^1.0.25
         version: link:../@novel-segment/table-core-abstract
       '@novel-segment/table-dict':
-        specifier: ^1.0.25
+        specifier: ^1.0.26
         version: link:../@novel-segment/table-dict
       '@novel-segment/table-stopword':
-        specifier: ^1.0.20
+        specifier: ^1.0.21
         version: link:../@novel-segment/table-stopword
       '@novel-segment/table-synonym':
-        specifier: ^1.0.20
+        specifier: ^1.0.21
         version: link:../@novel-segment/table-synonym
       '@novel-segment/types':
         specifier: ^1.0.14
@@ -541,7 +541,7 @@ importers:
         specifier: ^3.3.120
         version: 3.3.120(ts-toolbelt@9.6.0)
       segment-dict:
-        specifier: ^2.3.211
+        specifier: ^2.3.212
         version: link:../segment-dict
       sort-object-keys2:
         specifier: ^3.0.8
@@ -563,7 +563,7 @@ importers:
         specifier: ^1.0.13
         version: link:../@novel-segment/assert
       '@novel-segment/loaders':
-        specifier: ^1.0.54
+        specifier: ^1.0.55
         version: link:../@novel-segment/loaders
       '@novel-segment/util':
         specifier: ^1.0.80
@@ -626,7 +626,7 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       novel-segment:
-        specifier: ^2.7.122
+        specifier: ^2.7.123
         version: link:../novel-segment
       pkg-up:
         specifier: <4 >=3.1.0
@@ -689,10 +689,10 @@ importers:
         specifier: ^1.0.35
         version: link:../@novel-segment/loader-line
       '@novel-segment/loader-stopword':
-        specifier: ^1.0.32
+        specifier: ^1.0.33
         version: link:../@novel-segment/loader-stopword
       '@novel-segment/loaders':
-        specifier: ^1.0.54
+        specifier: ^1.0.55
         version: link:../@novel-segment/loaders
       '@novel-segment/stream-loader-core':
         specifier: ^1.0.31
@@ -701,7 +701,7 @@ importers:
         specifier: ^1.0.80
         version: link:../novel-segment-util
       '@novel-segment/util-compare':
-        specifier: ^1.0.27
+        specifier: ^1.0.28
         version: link:../@novel-segment/util-compare
       bluebird:
         specifier: ^3.7.2
@@ -717,10 +717,10 @@ importers:
         version: 2.8.1
     devDependencies:
       '@novel-segment/sort-dict-table':
-        specifier: ^1.0.30
+        specifier: ^1.0.31
         version: link:../@novel-segment/sort-dict-table
       '@novel-segment/sort-synonym':
-        specifier: ^1.0.26
+        specifier: ^1.0.27
         version: link:../@novel-segment/sort-synonym
 
 packages:
