@@ -93,7 +93,7 @@
     "install:resetLockfile": "yarn-tool install --reset-lockfile",
     "build:all": "yarn-tool ws run build --concurrency 1",
     "build:since": "pnpm run build:all --since",
-    "ci:install": "pnpm add --approve-builds -w lerna yarn-tool ts-node typescript ynpx tsx",
+    "ci:install": "pnpm add --save-build -w lerna yarn-tool ts-node typescript ynpx tsx",
     "ci:install:pnpm": "pnpm install --frozen-lockfile && pnpm add --workspace yarn-tool lerna ynpx pnpm typescript ts-node tsx ts-jest jest @bluelovers/jest-config @bluelovers/tsconfig @yarn-tool/require-resolve",
     "ci:install:yarn": "yarn install --frozen-lockfile && yarn add -W yarn-tool lerna ynpx pnpm typescript ts-node tsx ts-jest jest @bluelovers/jest-config @bluelovers/tsconfig @yarn-tool/require-resolve",
     "ci:build": "pnpm run ci:build:script && pnpm run ci:build:commit",
