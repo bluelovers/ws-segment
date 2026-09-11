@@ -37,7 +37,7 @@ jobs:
         env:
           PNPM_APPROVE_BUILDS: true
         run: |
-          pnpm install --frozen-lockfile
+          pnpm install --frozen-lockfile --approve-builds
           pnpm run ci:install
       - name: run script
         if: success()
