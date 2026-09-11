@@ -41,6 +41,9 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.30.0
         version: 1.30.0(supports-color@8.1.1)(zod@4.5.4)
+      '@novel-segment/pretty-diff':
+        specifier: ^1.0.28
+        version: link:packages/@novel-segment/pretty-diff
       '@yarn-tool/find-deps':
         specifier: ^3.0.11
         version: 3.0.11(ts-toolbelt@9.6.0)
