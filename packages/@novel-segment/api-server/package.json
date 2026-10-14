@@ -22,14 +22,16 @@
     "test:jest": "jest --passWithNoTests",
     "test:jest:coverage": "pnpm run test:jest -- --coverage",
     "test:jest:snapshot": "pnpm run test:jest -- -u",
+    "test:node": "tsx --test --test-update-snapshots **/*.node-spec.ts **/*.node-test.ts **/*.spec.ts **/*.test.ts",
     "test:snapshot": "pnpm run test -- -u",
+    "test:tsc": "tsc --noEmit & echo typescript check done",
     "test:tsd": "ynpx tsd",
     "npm:publish": "npm publish",
     "preversion": "pnpm run test",
     "version": "echo version",
     "postpublish_": "git commit -m \"publish new version\" .",
     "postpublish:commit": "tsx ./script/publish-after2.ts",
-    "postpublish:done": "pnpm run now-deploy",
+    "postpublish:done": "pnpm run now-deploy & echo done",
     "ncu": "yarn-tool ncu -u",
     "now-build": "pnpm run now-build:install && pnpm run now-build:run",
     "now-build:install": "pnpm add novel-segment vercel",
@@ -54,7 +56,7 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.123",
+    "novel-segment": "^2.7.124",
     "vercel": "<38 >=37.14.0"
   },
   "engines": {
