@@ -40,7 +40,7 @@
     "@novel-segment/stream-loader-core": "^1.0.31",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.20",
+    "crlf-normalize": "^1.0.26",
     "tslib": ">=2"
   },
   "publishConfig": {

@@ -125,7 +125,7 @@
     "@novel-segment/types": "^1.0.14",
     "@novel-segment/util": "^1.0.80",
     "@novel-segment/util-compare": "^1.0.28",
-    "array-hyper-unique": "^2.1.8"
+    "array-hyper-unique": "^2.1.10"
   },
   "publishConfig": {
     "access": "public"

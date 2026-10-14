@@ -97,7 +97,7 @@
   },
   "dependencies": {
     "@bluelovers/fast-glob": "^3.0.4",
-    "@bluelovers/string-natural-compare": "^2.0.15",
+    "@bluelovers/string-natural-compare": "^2.0.17",
     "@novel-segment/dict-loader-core": "^1.0.32",
     "@novel-segment/loader-line": "^1.0.35",
     "@novel-segment/loader-stopword": "^1.0.33",
@@ -107,7 +107,7 @@
     "@novel-segment/util-compare": "^1.0.28",
     "bluebird": "^3.7.2",
     "core-decorators": "^0.20.0",
-    "crlf-normalize": "^1.0.20",
+    "crlf-normalize": "^1.0.26",
     "tslib": ">=2"
   },
   "devDependencies": {

@@ -130,7 +130,7 @@
   "dependencies": {
     "@novel-segment/loader-line": "^1.0.35",
     "@novel-segment/loaders": "^1.0.55",
-    "array-hyper-unique": "^2.1.8",
+    "array-hyper-unique": "^2.1.10",
     "bluebird": "^3.7.2"
   },
   "publishConfig": {

@@ -122,7 +122,7 @@
   },
   "dependencies": {
     "@novel-segment/types": "^1.0.14",
-    "ts-type": "^3.0.13"
+    "ts-type": "^3.0.18"
   },
   "publishConfig": {
     "access": "public"
