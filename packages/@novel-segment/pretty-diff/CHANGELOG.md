@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.30](https://github.com/bluelovers/ws-segment/compare/@novel-segment/pretty-diff@1.0.29...@novel-segment/pretty-diff@1.0.30) (2026-10-14)
+
+**Note:** Version bump only for package @novel-segment/pretty-diff
+
+
+
+
+
 ## [1.0.29](https://github.com/bluelovers/ws-segment/compare/@novel-segment/pretty-diff@1.0.28...@novel-segment/pretty-diff@1.0.29) (2026-10-14)
 
 

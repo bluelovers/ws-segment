@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.14](https://github.com/bluelovers/ws-segment/compare/@novel-segment/assert@1.0.13...@novel-segment/assert@1.0.14) (2026-10-14)
+
+
+
+### 🔖　Miscellaneous
+
+* . ([2b980c4](https://github.com/bluelovers/ws-segment/commit/2b980c4cc60adbe002bde5385224a20b7f60be9e))
+
+
+
 ## [1.0.13](https://github.com/bluelovers/ws-segment/compare/@novel-segment/assert@1.0.12...@novel-segment/assert@1.0.13) (2026-09-08)
 
 

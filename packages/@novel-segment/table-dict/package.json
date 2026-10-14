@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-dict",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "",
   "keywords": [
     "NLP",
@@ -123,9 +123,9 @@
   },
   "dependencies": {
     "@lazy-cjk/zh-table-list": "^1.0.94",
-    "@novel-segment/loaders": "^1.0.56",
-    "@novel-segment/table-core-abstract": "^1.0.26",
-    "@novel-segment/types": "^1.0.14"
+    "@novel-segment/loaders": "^1.0.57",
+    "@novel-segment/table-core-abstract": "^1.0.27",
+    "@novel-segment/types": "^1.0.15"
   },
   "publishConfig": {
     "access": "public"
