@@ -7,5 +7,8 @@
     "noUnusedLocals": false,
     "moduleResolution": "bundler",
     "rootDir": "src"
-  }
+  },
+  "exclude": [
+    "test"
+  ]
 }
