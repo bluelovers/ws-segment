@@ -1,6 +1,7 @@
 name: build segment cache
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - master
