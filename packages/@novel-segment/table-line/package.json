@@ -1,6 +1,6 @@
 {
   "name": "@novel-segment/table-line",
-  "version": "1.0.24",
+  "version": "1.0.25",
   "description": "原版 node-segment 的格式",
   "keywords": [
     "NLP",
@@ -122,8 +122,8 @@
     "tsc:showConfig": "ynpx get-current-tsconfig -p"
   },
   "dependencies": {
-    "@novel-segment/loader-line": "^1.0.35",
-    "@novel-segment/table-core-abstract": "^1.0.25",
+    "@novel-segment/loader-line": "^1.0.36",
+    "@novel-segment/table-core-abstract": "^1.0.26",
     "lodash": "^4.18.1"
   },
   "publishConfig": {
