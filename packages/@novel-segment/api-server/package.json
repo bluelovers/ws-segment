@@ -37,6 +37,7 @@
     "now-build:install": "pnpm add novel-segment vercel",
     "now-build:run": "node ./build.js",
     "now-deploy": "pnpm run now-build:run && ynpx vercel deploy",
+    "vercel-login": "vercel login",
     "sort-package-json": "yarn-tool sort",
     "tsc:default": "tsc -p tsconfig.json",
     "tsc:esm": "tsc -p tsconfig.esm.json",
@@ -56,7 +57,7 @@
     "@types/fs-extra": "*"
   },
   "peerDependencies": {
-    "novel-segment": "^2.7.124",
+    "novel-segment": "^2.7.125",
     "vercel": "<38 >=37.14.0"
   },
   "engines": {

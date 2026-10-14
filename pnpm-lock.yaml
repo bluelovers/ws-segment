@@ -202,7 +202,7 @@ importers:
         specifier: ^11.4.1
         version: 11.4.1
       novel-segment:
-        specifier: ^2.7.124
+        specifier: ^2.7.125
         version: link:../../novel-segment
       tslib:
         specifier: '>=2'
